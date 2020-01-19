@@ -1,0 +1,293 @@
+{
+  "DOCTYPE": "EFFECT",
+  "ANIMS": {
+    "SUB": [
+      {
+        "name": "STUN_SMALL",
+        "sheet": {
+          "src": "media/gui/stun-status.png",
+          "offX": 0,
+          "offY": 8,
+          "width": 16,
+          "height": 16
+        },
+        "time": 0.1,
+        "repeat": true,
+        "frames": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "name": "STUN_MEDIUM",
+        "sheet": {
+          "src": "media/gui/stun-status.png",
+          "offX": 0,
+          "offY": 24,
+          "width": 24,
+          "height": 24
+        },
+        "time": 0.1,
+        "repeat": true,
+        "frames": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "name": "STUN_STAR",
+        "sheet": {
+          "src": "media/gui/stun-status.png",
+          "offX": 32,
+          "offY": 0,
+          "width": 8,
+          "height": 8
+        },
+        "time": 0.1,
+        "repeat": false,
+        "frames": [
+          0
+        ]
+      },
+      {
+        "name": "STUN_STAR_MINI",
+        "sheet": {
+          "src": "media/gui/stun-status.png",
+          "offX": 40,
+          "offY": 0,
+          "width": 5,
+          "height": 5
+        },
+        "time": 0.1,
+        "repeat": false,
+        "frames": [
+          0
+        ]
+      }
+    ]
+  },
+  "EFFECTS": {
+    "daze": [
+      {
+        "volume":1.4,
+        "speed": 0.9,
+        "variance": 0.05,
+        "global":false,
+        "loop":false,
+        "sound":"media\/sound\/menu\/login-logo.ogg",
+        "type":"PLAY_SOUND"
+      },
+      {
+        "color": "#777799",
+        "maxAlpha": 1,
+        "minAlpha": 0.4,
+        "blinkDuration": 0.5,
+        "blinkCount": -1,
+        "noLighter": false,
+        "type": "BLINK_COLOR"
+      },
+      {
+        "numParticles": 8,
+        "duration": 0.4,
+        "centralAngle": 1,
+        "startDist": 8,
+        "random": true,
+        "particleRotate": true,
+        "useTargetAngle": true,
+        "moveDist": 32,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 0,
+        "inverse": false,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "end": {
+            "value": 0,
+            "time": 0.15,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.1,
+            "spline": ""
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.4,
+        "anim": "STUN_STAR",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 0,
+        "random": false,
+        "particleRotate": true,
+        "useTargetAngle": true,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 0,
+        "inverse": false,
+        "collision": false,
+        "pAlpha": {
+          "init": 0,
+          "start": {
+            "value": 1,
+            "time": 0.15,
+            "spline": ""
+          },
+          "end": {
+            "value": 0,
+            "time": 0.15,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "offset":{
+          "x": 0,
+          "y": 1,
+          "z": 13
+        },
+        "moveWithTarget": 1,
+        "particleDuration": -1,
+        "anim": "STUN_SMALL",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 0,
+        "random": false,
+        "particleRotate": true,
+        "useTargetAngle": true,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 0,
+        "inverse": false,
+        "collision": false,
+        "pAlpha": {
+          "init": 0,
+          "start": {
+            "value": 1,
+            "time": 0.15,
+            "spline": ""
+          },
+          "end": {
+            "value": 0,
+            "time": 0.15,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          }
+        },
+        "offset":{
+          "x": 0,
+          "y": 1,
+          "z": 9
+        },
+        "moveWithTarget": 1,
+        "particleDuration": -1,
+        "anim": "STUN_MEDIUM",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0.5,
+        "circular": false,
+        "xScale": 0.7,
+        "yScale": 0.7,
+        "offset": {
+          "x": 0,
+          "y": 32,
+          "z": 32
+        },
+        "pRotate": {
+          "init": 0.25
+        },
+        "moveWithTarget": 1,
+        "anim": "STUN_STAR_MINI",
+        "type": "PLAY_ANIMS_OVER_ENTITY"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0.5,
+        "circular": false,
+        "xScale": 0.7,
+        "yScale": 0.7,
+        "offset": {
+          "x": 0,
+          "y": 32,
+          "z": 32
+        },
+        "pRotate": {
+          "init": 0
+        },
+        "moveWithTarget": 1,
+        "anim": "STUN_STAR_MINI",
+        "type": "PLAY_ANIMS_OVER_ENTITY"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "numParticles": 1,
+        "duration": 0.5,
+        "circular": false,
+        "xScale": 0.7,
+        "yScale": 0.7,
+        "offset": {
+          "x": 0,
+          "y": 32,
+          "z": 32
+        },
+        "pRotate": {
+          "init": 0.5
+        },
+        "moveWithTarget": 1,
+        "anim": "STUN_STAR_MINI",
+        "type": "PLAY_ANIMS_OVER_ENTITY"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ]
+  }
+}

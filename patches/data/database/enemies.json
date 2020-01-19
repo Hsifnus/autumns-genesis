@@ -1,0 +1,154 @@
+{
+  "autumn-dng.hedgehog-ruins": {
+    "name": {
+      "en_US": "Hengehag",
+      "de_DE": "Hengehag",
+      "fr_FR": "Hengehag",
+      "zh_CN": "Hengehag",
+      "ja_JP": "Hengehag",
+      "ko_KR": "Hengehag",
+      "langUid": 67
+    },
+    "track": true,
+    "order": 54,
+    "area": "autumn-dng",
+    "anim": false,
+    "extra": false,
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "A hedgehag with a pelt overgrown in moss, thorns, and roses. Said to be several times more durable than a typical hedgehag, the Hengehag takes a liking to living with the ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. With a hide as hard as stone, the Hengehag's attacks hit harder than usual Hedgehag attacks, and it is also capable of spewing out seeds that burst forth in vines, making it a formidable Hedgehag to face."
+        },
+        "condition": "",
+        "langUid": 14
+      }
+    ],
+    "species":{
+      "en_US":"Mammal",
+      "de_DE":"S\u00e4ugetier<<C<<gepr\u00fcft: Melsie",
+      "zh_CN":"\u54fa\u4e73\u7c7b",
+      "ja_JP":"\u54fa\u4e73\u985e",
+      "ko_KR":"\ud3ec\uc720\ub958",
+      "langUid":68
+    },
+    "category": "ANIMALS",
+    "level": 67,
+    "boostedLevel":67,
+    "params":{
+      "hp":22300,
+      "attack":370,
+      "defense":493,
+      "focus":373,
+      "elemFactor": [
+        1.25,
+        1,
+        1,
+        0.5
+      ],
+      "statusInflict":[
+        1.25,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "statusEffect":[
+        1.5,
+        1,
+        1.5,
+        1
+      ]
+    },
+    "credit":1500,
+    "exp":60,
+    "itemDrops":[
+      {
+        "item":"81",
+        "prob":0.12,
+        "min":1,
+        "max":1,
+        "rank":""
+      },
+      {
+        "item":"87",
+        "prob":0.04,
+        "min":1,
+        "max":1,
+        "rank":"A"
+      }
+    ],
+    "boss": false
+  },
+  "autumn-dng.simurgh": {
+    "name": {
+      "en_US": "Shimmurgh",
+      "de_DE": "Shimmurgh",
+      "fr_FR": "Shimmurgh",
+      "zh_CN": "Shimmurgh",
+      "ja_JP": "Shimmurgh",
+      "ko_KR": "Shimmurgh",
+      "langUid": 67
+    },
+    "track": true,
+    "order": 252,
+    "area": "autumn-dng",
+    "anim": false,
+    "extra": "charge",
+    "species":{
+      "en_US":"Rainbow Bird",
+      "de_DE":"Rainbow Bird",
+      "zh_CN":"Rainbow Bird",
+      "ja_JP":"Rainbow Bird",
+      "ko_KR":"Rainbow Bird",
+      "langUid":1
+    },
+    "descriptions":[
+      {
+        "text":{
+          "en_US":"This bird is often seen flying about in \\c[3]\\v[area.bergen-trails.name]\\c[0]. However, it will flock to the trees of \\c[3]\\v[area.autumn-dng.name]\\c[0] to safely nest. As such, Shimmurgh are rather territorial and will retaliate at intruders with all their icy wrath. \nLike their cousins down in \\c[3]\\v[area.heat-area.name]\\c[0], they can use their jet turbines to boost into a chilling dive attack. However, this dive attack also leaves behind a trail of icy dust that can also chill careless attackers. Commit to countering their dives or play carefully!",
+          "langUid":3
+        },
+        "condition":""
+      }
+    ],
+    "category": "ANIMALS",
+    "level":68,
+    "boostedLevel":68,
+    "params":{
+      "hp":31200,
+      "attack":454,
+      "defense":312,
+      "focus":423,
+      "elemFactor":[
+        0.75,
+        0.75,
+        1.25,
+        1
+      ],
+      "statusInflict":[
+        0.5,
+        0.5,
+        1,
+        1
+      ]
+    },
+    "credit":2120,
+    "exp":75,
+    "itemDrops": [
+      {
+        "item": "199",
+        "prob": 0.2,
+        "min": 1,
+        "max": 1,
+        "rank": ""
+      },
+      {
+        "item": "3",
+        "prob": 0.04,
+        "min": 1,
+        "max": 1,
+        "rank": "A"
+      }
+    ],
+    "boss": false
+  }
+}

@@ -1,0 +1,57 @@
+{
+	"DOCTYPE": "AREAS_MAP",
+	"name": {
+		"en_US": "Sanguine Weald",
+		"de_DE": "Sanguine Weald",
+		"ja_JP": "Sanguine Weald",
+		"ko_KR": "Sanguine Weald",
+		"zh_CN": "Sanguine Weald",
+		"langUid": 1
+	},
+	"width": 5,
+	"height": 5,
+	"floors": [{
+		"level": 0,
+		"tiles": [
+			[0,0,0,0,0],
+			[0,0,0,0,0],
+			[0,0,0,0,0],
+			[0,0,0,0,0],
+			[0,0,0,0,0]
+		],
+		"icons": [],
+		"maps": [
+		{
+			"path": "autumn-dng.entrance",
+			"name": {
+                "en_US": "Esoteric Gateway",
+                "de_DE": "Esoteric Gateway",
+                "ja_JP": "Esoteric Gateway",
+                "ko_KR": "Esoteric Gateway",
+				"zh_CN": "Esoteric Gateway",
+				"langUid": 4
+			},
+			"offset": {
+				"x": 0,
+				"y": 0
+			},
+			"dungeon": ""
+		},
+		{
+			"path": "autumn-dng.path-01",
+			"name": {
+                "en_US": "Principle of Parallelism",
+                "de_DE": "Principle of Parallelism",
+                "ja_JP": "Principle of Parallelism",
+                "ko_KR": "Principle of Parallelism",
+				"zh_CN": "Principle of Parallelism",
+				"langUid": 4
+			},
+			"offset": {
+				"x": 0,
+				"y": 0
+			},
+			"dungeon": ""
+		}]
+	}]
+}

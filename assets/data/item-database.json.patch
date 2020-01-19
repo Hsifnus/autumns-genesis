@@ -1,0 +1,49 @@
+[{
+	"type": "ENTER",
+	"index": "items"
+},{
+	"type": "ADD_ARRAY_ELEMENT",
+	"content":
+    {
+      "order": 66,
+      "name": {
+        "en_US": "Shikizakura",
+        "ja_JP": "四季桜",
+        "zh_CN": "四季桜",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A leaf naginata made from a cherry blossom blooming in autumn's prime.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 0,
+      "level": 77,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          0.75,
+          1,
+          1,
+          1.1
+        ],
+        "attack": 121,
+        "defense": 51,
+        "focus": 53
+      },
+      "properties": {
+        "STUN_THRESHOLD": 1.03,
+        "WIND_MELEE": 1.25
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
+    }
+},{
+	"type": "EXIT"
+}]

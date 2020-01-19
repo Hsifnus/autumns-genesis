@@ -1,0 +1,4 @@
+[{
+	"type": "INCLUDE",
+	"src": "mod:patches/data/tile-infos/new-tile-infos.json"
+}]

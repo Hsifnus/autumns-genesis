@@ -1,0 +1,2615 @@
+{
+  "level":67,
+  "boostedLevel":67,
+  "params":{
+    "hp":22300,
+    "attack":370,
+    "defense":493,
+    "focus":373,
+    "elemFactor": [
+      1.25,
+      1,
+      1,
+      0.5
+    ],
+    "statusInflict":[
+      1.25,
+      0.5,
+      0.5,
+      0.5
+    ],
+    "statusEffect":[
+      1.5,
+      1,
+      1.5,
+      1
+    ]
+  },
+  "credit":1500,
+  "exp":60,
+  "maxSp":0,
+  "enduranceScale":1,
+  "healDropRate":0,
+  "boss":false,
+  "bossOrder":0,
+  "padding":{
+    "x":2,
+    "y":2
+  },
+  "material":"METAL",
+  "aiGroup":"hedgehog",
+  "aiLearnType":"REGULAR",
+  "itemDrops":[
+    {
+      "item":"81",
+      "prob":0.12,
+      "min":1,
+      "max":1,
+      "rank":""
+    },
+    {
+      "item":"87",
+      "prob":0.04,
+      "min":1,
+      "max":1,
+      "rank":"A"
+    }
+  ],
+  "targetDetect":{
+    "detectDistance":120,
+    "loseDistance":320,
+    "notifyNeighbourRadius":100
+  },
+  "hpBreaks":[
+
+  ],
+  "size":{
+    "x":16,
+    "y":16,
+    "z":24
+  },
+  "anims":"enemies.hedgehog-ruins",
+  "defaultState":"IDLE",
+  "walkConfigs":{
+    "normal":{
+      "idle":"idle",
+      "move":"move",
+      "damage":"damage",
+      "jump":"roll"
+    },
+    "weak":{
+      "idle":"damage",
+      "damage":"damage"
+    }
+  },
+  "_wm":null,
+  "walkAnims":"normal",
+  "weight":100,
+  "maxVel":180,
+  "jumpingEnabled":true,
+  "shadow":20,
+  "hitStable":"HEAVY",
+  "DOCTYPE":"ENEMY",
+  "trackers":{
+    "weakRegen":{
+      "target":3,
+      "initRandom":0,
+      "resetRandom":0,
+      "noStateReset":false,
+      "noAssist":false,
+      "type":"TIME"
+    },
+    "questLickBlock":{
+      "target":5,
+      "initRandom":0,
+      "resetRandom":0,
+      "noStateReset":false,
+      "type":"TIME"
+    },
+    "questBallAttackBlock":{
+      "target":7,
+      "initRandom":0,
+      "resetRandom":0,
+      "noStateReset":false,
+      "type":"TIME"
+    }
+  },
+  "states":{
+    "IDLE":{
+      "choices":[
+        {
+          "req":[
+            {
+              "type":"ENTERED_STATE"
+            }
+          ],
+          "action":"RemoveProxies"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "type":"!HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-AddShield",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"!tmp.questBall-start || tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-RemoveShield",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !tmp.questBall-onMark"
+            },
+            {
+              "negated":false,
+              "type":"HAS_TARGET"
+            }
+          ],
+          "postSwitchState":"BALLQUEST_OFFMARK"
+        },
+        {
+          "req":[
+            {
+              "type":"HAS_TARGET"
+            }
+          ],
+          "postSwitchState":"DEFAULT"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.quest_foa2-defense_started"
+            },
+            {
+              "negated":false,
+              "type":"TRACKER_READY",
+              "name":"questLickBlock"
+            }
+          ],
+          "action":"Quest-MoveToTree"
+        },
+        {
+          "req":[
+            {
+              "min":0,
+              "max":64,
+              "type":"!SPAWN_POINT_DISTANCE"
+            },
+            {
+              "type":"!VAR_CONDITION",
+              "condition":"tmp.quest_foa2-defense_started"
+            }
+          ],
+          "action":"MoveToSpawnPoint"
+        },
+        {
+          "req":[
+            {
+              "type":"RANDOM",
+              "max":0.3
+            }
+          ],
+          "action":"MoveRandom"
+        },
+        {
+          "action":"Idle"
+        }
+      ]
+    },
+    "DEFAULT":{
+      "choices":[
+        {
+          "req":[
+            {
+              "type":"!HAS_TARGET"
+            }
+          ],
+          "postSwitchState":"IDLE"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"map.ruinHedgehogStay"
+            }
+          ],
+          "action":"JumpSeedsAndCamp"
+        },
+      	{
+          "req":[
+            {
+              "type":"ENTERED_STATE"
+            }
+          ],
+          "action":"Init"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "type":"!HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-AddShield",
+          "preSwitchState":"BALLQUEST_OFFMARK",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "distance":200,
+              "throwing":false,
+              "type":"!TARGET_REACHABLE"
+            }
+          ],
+          "action":"Adjust"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && tmp.questBall-onMark"
+            },
+            {
+              "negated":false,
+              "type":"TRACKER_READY",
+              "name":"questBallAttackBlock"
+            }
+          ],
+          "action":"Quest-AttackBall",
+          "frequency":"SOMETIMES"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.quest_foa2-defense_started"
+            },
+            {
+              "negated":false,
+              "type":"TRACKER_READY",
+              "name":"questLickBlock"
+            }
+          ],
+          "action":"Quest-MoveToTree",
+          "frequency":"NORMAL"
+        },
+        {
+          "action":"Jump",
+          "frequency":"RARE"
+        },
+        {
+          "action":"JumpSeeds",
+          "frequency":"SOMETIMES"
+        },
+        {
+          "action":"Attack",
+          "frequency":"NORMAL"
+        },
+        {
+          "req":[
+            {
+              "distance":120,
+              "throwing":false,
+              "type":"!TARGET_REACHABLE"
+            }
+          ],
+          "action":"Adjust"
+        },
+        {
+          "action":"BattleIdle"
+        }
+      ]
+    },
+    "WEAK":{
+      "walkAnims":"weak",
+      "damageFactor":1.5,
+      "annotate":{
+        "active":"NONE",
+        "passive":"WEAK",
+        "weapon":"ANY",
+        "element":"ANY",
+        "extra":[
+
+        ]
+      },
+      "choices":[
+      	{
+          "req":[
+            {
+              "type":"ENTERED_STATE"
+            }
+          ],
+          "action":"RemoveProxies"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "type":"!HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-AddShield",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "type":"!VAR_CONDITION",
+              "condition":"tmp.questBall-start && !tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-RemoveShield",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !(entity.attrib.currentMarker == tmp.questBall-markerActive)"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-SwitchMarker",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"TRACKER_READY",
+              "name":"weakRegen"
+            },
+            {
+              "name":"marker",
+              "type":"!HAS_SHIELD"
+            }
+          ],
+          "preSwitchState":"DEFAULT"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"TRACKER_READY",
+              "name":"weakRegen"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "preSwitchState":"BALLQUEST_OFFMARK"
+        }
+      ]
+    },
+    "PASSIVE_INVIS":{
+      "weight":-1,
+      "hitIgnore":true,
+      "aggression":"PEACEFUL",
+      "annotate":{
+        "active":"NONE",
+        "passive":"IMMUNE",
+        "weapon":"ANY",
+        "element":"ANY",
+        "extra":[
+
+        ]
+      },
+      "choices":[
+        {
+          "req":[
+            {
+              "type":"ENTERED_STATE"
+            }
+          ],
+          "action":"RemoveProxies"
+        }
+      ]
+    },
+    "BALLQUEST_OFFMARK":{
+      "regenFactor":0.6,
+      "choices":[
+        {
+          "req":[
+            {
+              "type":"!HAS_TARGET"
+            }
+          ],
+          "postSwitchState":"IDLE"
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"!tmp.questBall-start || tmp.questBall-onMark"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-RemoveShield",
+          "preSwitchState":"DEFAULT",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "negated":false,
+              "type":"VAR_CONDITION",
+              "condition":"tmp.questBall-start && !(entity.attrib.currentMarker == tmp.questBall-markerActive)"
+            },
+            {
+              "name":"marker",
+              "negated":false,
+              "type":"HAS_SHIELD"
+            }
+          ],
+          "action":"Quest-SwitchMarker",
+          "ignoreStun":true
+        },
+        {
+          "req":[
+            {
+              "distance":200,
+              "throwing":false,
+              "type":"!TARGET_REACHABLE"
+            }
+          ],
+          "action":"Adjust"
+        },
+        {
+          "action":"Attack",
+          "frequency":"SOMETIMES"
+        },
+        {
+          "req":[
+            {
+              "distance":120,
+              "throwing":false,
+              "type":"!TARGET_REACHABLE"
+            }
+          ],
+          "action":"Adjust"
+        },
+        {
+          "action":"BattleIdle"
+        }
+      ]
+    }
+  },
+  "proxies":{
+  	"waveSpikeRing": {
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "face": "SOUTH",
+          "rotate": false,
+          "rotateSpeed": 3,
+          "type": "SET_FACE"
+        },
+        {
+          "value": true,
+          "type": "SET_FACE_FIX"
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.autumn-dng",
+            "name": "waveSpikeRing"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 8
+          }
+        },
+        {
+          "name": "loop",
+          "type": "LABEL"
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 24,
+          "yScale": 0,
+          "zHeight": 24,
+          "centralAngle": 1,
+          "duration": 0.5,
+          "expandRadius": 0,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": false,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "NONE",
+            "visualType": "LIGHT",
+            "element": "WAVE",
+            "damageFactor": 0.3,
+            "reverse": false,
+            "status": 8,
+            "guardable": "",
+            "skillBonus": "RANGED_DMG",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.5,
+          "type": "WAIT"
+        },
+        {
+          "name": "loop",
+          "type": "GOTO_LABEL"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "OWNER",
+      "stickFaceAlign": false,
+      "group": "",
+      "type": "GENERIC",
+      "size": {
+        "x": 24,
+        "y": 24,
+        "z": 32
+      },
+      "config": {
+        "collType": "NONE"
+      }
+    },
+  	"thornSeed": {
+  		"animation":{
+  			"SUB":[
+  				{
+		        "name":"default",
+		        "sheet":{
+		          "src":"media/entity/effects/autumn-dng.png",
+		          "offX":96,
+		          "offY":16,
+		          "width":8,
+		          "height":8
+		        },
+		        "guiSprites":false,
+		        "time":0.1,
+		        "repeat":false,
+		        "frames":[
+		        	0
+		        ]
+  				}
+  			]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+        	"value":350,
+        	"type":"SET_SPEED"
+        },
+        {
+        	"value":3,
+        	"type":"SET_ACTION_SPEED"
+        },
+        {
+        	"value":800,
+        	"type":"SET_Z_VELOCITY"
+        },
+	      {
+	        "minTime":0.01,
+	        "maxTime":0.15,
+	        "type":"WAIT_RANDOM"
+	      },
+        {
+        	"time":0.1,
+        	"stopBeforeEdge":false,
+        	"type":"MOVE_FORWARD"
+        },
+        {
+        	"type":"WAIT_UNTIL_ON_GROUND"
+        },
+        {
+        	"type":"STOP_XY"
+        },
+	      {
+	        "duration":0,
+	        "align":"BOTTOM",
+	        "rotateFace":0,
+	        "flipLeftFace":false,
+	        "wait":false,
+	        "waitSkip":0,
+	        "actionDetached":false,
+	        "fixPos":false,
+	        "type":"SHOW_EFFECT",
+	        "effect":{
+	          "sheet":"enemies.autumn-dng",
+	          "name":"thornSlowSingle"
+	        },
+	        "offset":{
+	          "x":0,
+	          "y":0,
+	          "z":16
+	        }
+	      },
+	      {
+	      	"time":0.91,
+	      	"type":"WAIT"
+	      },
+	      {
+	        "align": "BOTTOM",
+	        "radius": 12,
+	        "yScale": 0,
+	        "zHeight": 48,
+	        "centralAngle": 1,
+	        "duration": 0.3,
+	        "expandRadius": 0,
+	        "alwaysFull": true,
+	        "clockwise": false,
+	        "flipLeftFace": 0,
+	        "rectangular": false,
+	        "repeat": false,
+	        "uniformHitDir": false,
+	        "fixPos": false,
+	        "checkCollision": false,
+	        "type": "CIRCLE_ATTACK",
+	        "attack": {
+	          "type": "MASSIVE",
+	          "element": "WAVE",
+	          "damageFactor": 1.6,
+	          "reverse": false,
+	          "status": 5,
+	          "stunSteps":[
+	          	{
+	          		"type":"BLOCK_XY"
+	          	},
+	          	{
+	          		"type":"START_LOCK"
+	          	},
+	          	{
+	          		"value":250,
+	          		"type":"Z_VEL"
+	          	}
+	          ],
+	          "guardable": "NEVER",
+	          "skillBonus": "RANGED_DMG",
+	          "limiter": ""
+	        },
+	        "offset": {
+	          "x": 0,
+	          "y": 0,
+	          "z": 0
+	        }
+	      },
+	      {
+	      	"time":0.5,
+	      	"type":"WAIT"
+	      }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "type": "GENERIC",
+      "size": {
+        "x": 8,
+        "y": 8,
+        "z": 8
+      },
+      "config": {
+        "collType": "PROJECTILE"
+      }
+    },
+  	"thornSeedFar": {
+  		"animation":{
+  			"SUB":[
+  				{
+		        "name":"default",
+		        "sheet":{
+		          "src":"media/entity/effects/autumn-dng.png",
+		          "offX":96,
+		          "offY":16,
+		          "width":8,
+		          "height":8
+		        },
+		        "guiSprites":false,
+		        "time":0.1,
+		        "repeat":false,
+		        "frames":[
+		        	0
+		        ]
+  				}
+  			]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+        	"value":600,
+        	"type":"SET_SPEED"
+        },
+        {
+        	"value":3,
+        	"type":"SET_ACTION_SPEED"
+        },
+        {
+        	"value":800,
+        	"type":"SET_Z_VELOCITY"
+        },
+	      {
+	        "minTime":0.01,
+	        "maxTime":0.15,
+	        "type":"WAIT_RANDOM"
+	      },
+        {
+        	"time":0.1,
+        	"stopBeforeEdge":false,
+        	"type":"MOVE_FORWARD"
+        },
+        {
+        	"type":"WAIT_UNTIL_ON_GROUND"
+        },
+        {
+        	"type":"STOP_XY"
+        },
+	      {
+	        "duration":0,
+	        "align":"BOTTOM",
+	        "rotateFace":0,
+	        "flipLeftFace":false,
+	        "wait":false,
+	        "waitSkip":0,
+	        "actionDetached":false,
+	        "fixPos":false,
+	        "type":"SHOW_EFFECT",
+	        "effect":{
+	          "sheet":"enemies.autumn-dng",
+	          "name":"thornSlowSingle"
+	        },
+	        "offset":{
+	          "x":0,
+	          "y":0,
+	          "z":16
+	        }
+	      },
+	      {
+	      	"time":0.91,
+	      	"type":"WAIT"
+	      },
+	      {
+	        "align": "BOTTOM",
+	        "radius": 12,
+	        "yScale": 0,
+	        "zHeight": 48,
+	        "centralAngle": 1,
+	        "duration": 0.3,
+	        "expandRadius": 0,
+	        "alwaysFull": true,
+	        "clockwise": false,
+	        "flipLeftFace": 0,
+	        "rectangular": false,
+	        "repeat": false,
+	        "uniformHitDir": false,
+	        "fixPos": false,
+	        "checkCollision": false,
+	        "type": "CIRCLE_ATTACK",
+	        "attack": {
+	          "type": "MASSIVE",
+	          "element": "WAVE",
+	          "damageFactor": 1.6,
+	          "reverse": false,
+	          "status": 5,
+	          "stunSteps":[
+	          	{
+	          		"type":"BLOCK_XY"
+	          	},
+	          	{
+	          		"type":"START_LOCK"
+	          	},
+	          	{
+	          		"value":250,
+	          		"type":"Z_VEL"
+	          	}
+	          ],
+	          "guardable": "NEVER",
+	          "skillBonus": "RANGED_DMG",
+	          "limiter": ""
+	        },
+	        "offset": {
+	          "x": 0,
+	          "y": 0,
+	          "z": 0
+	        }
+	      },
+	      {
+	      	"time":0.5,
+	      	"type":"WAIT"
+	      }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "type": "GENERIC",
+      "size": {
+        "x": 8,
+        "y": 8,
+        "z": 8
+      },
+      "config": {
+        "collType": "PROJECTILE"
+      }
+    }
+  },
+  "actions":{
+  	"RemoveProxies":[
+			{
+    		"type":"REMOVE_PROXIES"
+    	}
+  	],
+    "Init":[
+    	{
+    		"type":"REMOVE_PROXIES"
+    	},
+      {
+        "withElse":false,
+        "type":"IF",
+        "condition":"tmp.quest_foa2-defense_started",
+        "thenStep":[
+          {
+            "forceValue":4,
+            "type":"RESET_TRACKER",
+            "tracker":"questLickBlock"
+          }
+        ]
+      },
+      {
+        "conditions":[
+          {
+            "negated":false,
+            "type":"VAR_CONDITION",
+            "condition":"tmp.questBall-start && !tmp.ballQuest-onMark"
+          },
+          {
+            "name":"marker",
+            "type":"!HAS_SHIELD"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          {
+            "time":0.4,
+            "type":"WAIT"
+          },
+          {
+            "noStateReset":false,
+            "type":"DO_ENEMY_ACTION",
+            "actionName":"Quest-AddShield"
+          }
+        ]
+      },
+      {
+        "align": "BOTTOM",
+        "type": "SHOOT_PROXY",
+        "proxy": "waveSpikeRing",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    "Idle":[
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "minTime":0.1,
+        "maxTime":0.3,
+        "type":"WAIT_RANDOM"
+      }
+    ],
+    "BattleIdle":[
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "minTime":0.2,
+        "maxTime":0.4,
+        "type":"WAIT_RANDOM"
+      }
+    ],
+    "MoveToSpawnPoint":[
+      {
+        "value":0.5,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime":3,
+        "maxDistance":16,
+        "precise":false,
+        "type":"NAVIGATE_TO_SPAWN_POINT"
+      }
+    ],
+    "MoveRandom":[
+      {
+        "value":0.3,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":false,
+        "type":"SET_JUMPING"
+      },
+      {
+        "minTime":0.3,
+        "maxTime":0.5,
+        "dirChanges":0,
+        "stopBeforeEdge":true,
+        "type":"MOVE_RANDOM"
+      },
+      {
+        "minTime":0.5,
+        "maxTime":0.6,
+        "type":"WAIT_RANDOM"
+      }
+    ],
+    "Adjust":[
+      {
+        "value":0.6,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime":1,
+        "forceTime":false,
+        "distance":100,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      }
+    ],
+    "GetClose":[
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "maxTime":0.5,
+        "forceTime":false,
+        "distance":60,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      }
+    ],
+    "Attack":[
+      {
+        "active":"PRE_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "conditions":[
+          {
+            "negated":false,
+            "type":"CURRENT_STATE",
+            "state":"BALLQUEST_OFFMARK"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          {
+            "value":true,
+            "type":"FACE_TO_TARGET"
+          },
+          {
+            "time":1,
+            "type":"WAIT"
+          }
+        ]
+      },
+      {
+        "maxTime":0.5,
+        "forceTime":false,
+        "distance":70,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      },
+      {
+        "value":1,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "duration":-1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"large"
+        },
+        "offset":{
+          "x":0,
+          "y":0,
+          "z":0
+        }
+      },
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "name":"full",
+        "actionDetached":false,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.25,
+            "strength":"REGULAR",
+            "hitResist":"HEAVY",
+            "range":1,
+            "back":false
+          }
+        }
+      },
+      {
+        "value":"MASSIVE",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"roll"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-in.ogg"
+      },
+      {
+        "time":1,
+        "type":"WAIT"
+      },
+      {
+        "type":"CLEAR_EFFECTS"
+      },
+      {
+        "value":600,
+        "type":"SET_SPEED"
+      },
+      {
+        "duration":-1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"line"
+        },
+        "offset":{
+          "x":0,
+          "y":0,
+          "z":0
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/dash-2.ogg"
+      },
+      {
+        "value":"IGNORE",
+        "type":"SET_COLL_TYPE"
+      },
+      {
+        "value":false,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "type":"ENABLE_REACTION",
+        "reaction":"GUARD_COUNTER"
+      },
+      {
+        "active":"ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":3,
+        "forwardToProxies":false,
+        "type":"SET_DAMAGE_CEILING"
+      },
+      {
+      	"group":"dash",
+        "duration":-1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"specials.wave",
+          "name":"waveDashTrail"
+        },
+        "offset":{
+          "x":0,
+          "y":0,
+          "z":0
+        }
+      },
+      {
+        "time":0.4,
+        "cancelOnHit":false,
+        "orthoDirFactor":0,
+        "ignoreLastHit":false,
+        "type":"TACKLE",
+        "attack":{
+          "type":"MASSIVE",
+          "element":"WAVE",
+          "damageFactor":0.85,
+          "reverse":false,
+          "hints":[
+            "ENEMY_PUSH"
+          ],
+          "guardable":"",
+          "skillBonus":""
+        }
+      },
+      {
+      	"group":"dash",
+      	"type":"CLEAR_EFFECTS"
+      },
+      {
+        "conditions":[
+          {
+            "type":"HP_BELOW",
+            "value":"0.6"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+					{
+            "value":true,
+            "type":"FACE_TO_TARGET"
+          },
+          {
+            "time":0.3,
+            "type":"WAIT"
+          },
+		      {
+		      	"group":"dash",
+		        "duration":-1,
+		        "align":"BOTTOM",
+		        "rotateFace":0,
+		        "flipLeftFace":false,
+		        "wait":false,
+		        "waitSkip":0,
+		        "actionDetached":false,
+		        "fixPos":false,
+		        "type":"SHOW_EFFECT",
+		        "effect":{
+		          "sheet":"specials.wave",
+		          "name":"waveDashTrail"
+		        },
+		        "offset":{
+		          "x":0,
+		          "y":0,
+		          "z":0
+		        }
+		      },
+          {
+            "duration":-1,
+            "align":"BOTTOM",
+            "rotateFace":0,
+            "flipLeftFace":false,
+            "wait":false,
+            "waitSkip":0,
+            "actionDetached":false,
+            "fixPos":false,
+            "type":"SHOW_EFFECT",
+            "effect":{
+              "sheet":"dust",
+              "name":"line"
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "volume":0.9,
+            "global":false,
+            "loop":false,
+            "type":"PLAY_SOUND",
+            "sound":"media\/sound\/battle\/dash-2.ogg"
+          },
+          {
+            "value":false,
+            "type":"FACE_TO_TARGET"
+          },
+		      {
+		        "time":0.4,
+		        "cancelOnHit":false,
+		        "orthoDirFactor":0,
+		        "ignoreLastHit":false,
+		        "type":"TACKLE",
+		        "attack":{
+		          "type":"MASSIVE",
+		          "element":"WAVE",
+		          "damageFactor":0.85,
+		          "reverse":false,
+		          "hints":[
+		            "ENEMY_PUSH"
+		          ],
+		          "guardable":"",
+		          "skillBonus":""
+		        }
+		      },
+		      {
+		      	"group":"dash",
+		      	"type":"CLEAR_EFFECTS"
+		      }
+        ]
+      },
+      {
+        "conditions":[
+          {
+            "type":"!CURRENT_STATE",
+            "state":"BALLQUEST_OFFMARK"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          {
+            "value":true,
+            "type":"FACE_TO_TARGET"
+          },
+          {
+            "time":0.3,
+            "type":"WAIT"
+          },
+          {
+            "duration":-1,
+            "align":"BOTTOM",
+            "rotateFace":0,
+            "flipLeftFace":false,
+            "wait":false,
+            "waitSkip":0,
+            "actionDetached":false,
+            "fixPos":false,
+            "type":"SHOW_EFFECT",
+            "effect":{
+              "sheet":"dust",
+              "name":"line"
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "volume":0.9,
+            "global":false,
+            "loop":false,
+            "type":"PLAY_SOUND",
+            "sound":"media\/sound\/battle\/dash-2.ogg"
+          },
+          {
+            "value":false,
+            "type":"FACE_TO_TARGET"
+          },
+		      {
+		      	"group":"dash",
+		        "duration":-1,
+		        "align":"BOTTOM",
+		        "rotateFace":0,
+		        "flipLeftFace":false,
+		        "wait":false,
+		        "waitSkip":0,
+		        "actionDetached":false,
+		        "fixPos":false,
+		        "type":"SHOW_EFFECT",
+		        "effect":{
+		          "sheet":"specials.wave",
+		          "name":"waveDashTrail"
+		        },
+		        "offset":{
+		          "x":0,
+		          "y":0,
+		          "z":0
+		        }
+		      },
+          {
+            "time":0.3,
+            "cancelOnHit":false,
+            "orthoDirFactor":0,
+            "ignoreLastHit":false,
+            "type":"TACKLE",
+            "attack":{
+              "type":"MASSIVE",
+              "element":"WAVE",
+              "damageFactor":0.9,
+              "reverse":false,
+              "hints":[
+                "ENEMY_PUSH"
+              ],
+              "guardable":"",
+              "skillBonus":""
+            }
+          }
+        ]
+      },
+      {
+        "active":"POST_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":50,
+        "type":"SET_SPEED"
+      },
+      {
+        "time":0.3,
+        "stopBeforeEdge":false,
+        "type":"MOVE_FORWARD"
+      }
+    ],
+    "Jump":[
+      {
+        "active":"PRE_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "maxTime":0.5,
+        "forceTime":false,
+        "distance":80,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      },
+      {
+        "value":1,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"MASSIVE",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"roll"
+      },
+      {
+        "name":"full",
+        "actionDetached":false,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.25,
+            "strength":"REGULAR",
+            "hitResist":"HEAVY",
+            "range":1,
+            "back":false
+          }
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.7,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"L",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.85,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"L",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+      {
+        "value":200,
+        "type":"SET_SPEED"
+      },
+      {
+        "duration":0,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"backMedium"
+        }
+      },
+      {
+        "value":"IGNORE",
+        "type":"SET_COLL_TYPE"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+      },
+      {
+        "duration":-1,
+        "group":"subcharge",
+        "align":"BOTTOM",
+        "offset":{
+        	"x":0,
+        	"y":0,
+        	"z":8
+        },
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"enemies.autumn-dng",
+          "name":"hedgehogSubCharge"
+        }
+      },
+      {
+        "duration":-1,
+        "group":"dash",
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"specials.wave",
+          "name":"waveDashTrail"
+        }
+      },
+      {
+        "active":"ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "jumpSpeed":300,
+        "adjustAbove":13,
+        "type":"JUMP_TO_TARGET"
+      },
+      {
+      	"group":"dash",
+      	"type":"CLEAR_EFFECTS"
+      },
+      {
+        "align":"BOTTOM",
+        "radius":20,
+        "yScale":0,
+        "zHeight":64,
+        "centralAngle":0,
+        "duration":0,
+        "expandRadius":0,
+        "alwaysFull":false,
+        "clockwise":false,
+        "flipLeftFace":0,
+        "rectangular":false,
+        "repeat":false,
+        "uniformHitDir":false,
+        "fixPos":false,
+        "checkCollision":false,
+        "type":"CIRCLE_ATTACK",
+        "attack":{
+          "type":"HEAVY",
+          "element":"WAVE",
+          "damageFactor":1,
+          "reverse":false,
+          "spFactor":0,
+          "hints":[
+            "ENEMY_PUSH"
+          ],
+          "guardable":"FROM_ABOVE",
+          "skillBonus":""
+        },
+        "offset":{
+          "x":0,
+          "y":0,
+          "z":0
+        }
+      },
+      {
+        "duration":0,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"backMedium"
+        }
+      },
+      {
+        "duration":0,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"enemies.autumn-dng",
+          "name":"thornFastCircle"
+        }
+      },
+      {
+      	"time":0.14,
+      	"type":"WAIT"
+      },
+      {
+      	"group":"subcharge",
+      	"type":"CLEAR_EFFECTS"
+      },
+      {
+        "align": "BOTTOM",
+        "radius": 40,
+        "yScale": 0,
+        "zHeight": 48,
+        "centralAngle": 1,
+        "duration": 0.3,
+        "expandRadius": 0,
+        "alwaysFull": true,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "rectangular": false,
+        "repeat": false,
+        "uniformHitDir": false,
+        "fixPos": false,
+        "checkCollision": false,
+        "type": "CIRCLE_ATTACK",
+        "attack": {
+          "type": "MASSIVE",
+          "element": "WAVE",
+          "damageFactor": 2.5,
+          "reverse": false,
+          "status": 5,
+          "stunSteps":[
+          	{
+          		"type":"BLOCK_XY"
+          	},
+          	{
+          		"type":"START_LOCK"
+          	},
+          	{
+          		"value":250,
+          		"type":"Z_VEL"
+          	}
+          ],
+          "guardable": "NEVER",
+          "skillBonus": "",
+          "limiter": ""
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+      	"time":0.5,
+      	"type":"WAIT"
+      }
+    ],
+    "JumpSeeds":[
+      {
+        "active":"PRE_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "maxTime":0.5,
+        "forceTime":false,
+        "distance":80,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      },
+      {
+        "value":1,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"MASSIVE",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"roll"
+      },
+      {
+        "name":"full",
+        "actionDetached":false,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.25,
+            "strength":"REGULAR",
+            "hitResist":"HEAVY",
+            "range":1,
+            "back":false
+          }
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.7,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"L",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+			{
+        "align": "BOTTOM",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": true,
+        "count": 2,
+        "duration": 0.2,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "thornSeed",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 24
+        }
+      },
+			{
+        "align": "BOTTOM",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": true,
+        "count": 2,
+        "duration": 0.2,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "thornSeedFar",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 24
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.7,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"XL",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+      {
+      	"conditions":[
+          {
+            "value": 0.6,
+            "negated": false,
+            "type": "HP_BELOW"
+          }
+      	],
+      	"withElse":false,
+      	"type":"COMBAT_IF",
+      	"thenStep":[
+					{
+		        "align": "BOTTOM",
+		        "centralAngle": 1,
+		        "angleVary": 0,
+		        "startDistCollide": "NONE",
+		        "random": true,
+		        "count": 1,
+		        "duration": 0.2,
+		        "clockwise": false,
+		        "flipLeftFace": 0,
+		        "circularArea": false,
+		        "uniformDir": 0,
+		        "delay": 0,
+		        "repeat": false,
+		        "type": "SHOOT_PROXY_RANGE",
+		        "proxy": "thornSeed",
+		        "offset": {
+		          "x": 0,
+		          "y": 0,
+		          "z": 24
+		        }
+		      },
+					{
+		        "align": "BOTTOM",
+		        "centralAngle": 1,
+		        "angleVary": 0,
+		        "startDistCollide": "NONE",
+		        "random": true,
+		        "count": 3,
+		        "duration": 0.2,
+		        "clockwise": false,
+		        "flipLeftFace": 0,
+		        "circularArea": false,
+		        "uniformDir": 0,
+		        "delay": 0,
+		        "repeat": false,
+		        "type": "SHOOT_PROXY_RANGE",
+		        "proxy": "thornSeedFar",
+		        "offset": {
+		          "x": 0,
+		          "y": 0,
+		          "z": 24
+		        }
+		      },
+		      {
+		        "volume":0.9,
+		        "global":false,
+		        "loop":false,
+		        "speed":0.85,
+		        "type":"PLAY_SOUND",
+		        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+		      },
+		      {
+		        "jumpHeight":"XL",
+		        "wait":true,
+		        "ignoreSounds":false,
+		        "type":"JUMP"
+		      }
+      	]
+      },
+      {
+      	"time":0.5,
+      	"type":"WAIT"
+      }
+    ],
+    "JumpSeedsAndCamp":[
+      {
+        "active":"PRE_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "value":1,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"MASSIVE",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"roll"
+      },
+      {
+        "name":"full",
+        "actionDetached":false,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.25,
+            "strength":"REGULAR",
+            "hitResist":"HEAVY",
+            "range":1,
+            "back":false
+          }
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.7,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"L",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+      {
+        "align": "BOTTOM",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": true,
+        "count": 8,
+        "duration": 0.3,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "thornSeedFar",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 24
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "speed":0.7,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+      },
+      {
+        "jumpHeight":"XL",
+        "wait":true,
+        "ignoreSounds":false,
+        "type":"JUMP"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"idle"
+      },
+      {
+        "minTime":3,
+        "maxTime":5,
+        "type":"WAIT_RANDOM"
+      }
+    ],
+    "BlockCounter":[
+      {
+        "duration":0,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"combat",
+          "name":"flashShort"
+        }
+      },
+      {
+        "flyLevel":"MASSIVE",
+        "breaking":false,
+        "stable":false,
+        "wait":true,
+        "type":"DO_DAMAGE_MOVEMENT"
+      },
+      {
+        "time":0.4,
+        "type":"WAIT"
+      }
+    ],
+    "Quest-MoveToTree":[
+      {
+        "value":0.5,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "volume":1,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-squeak-1.ogg"
+      },
+      {
+        "text":{
+          "en_US":"[Hungry noises]",
+          "de_DE":"[Knurrlaute]",
+          "fr_FR":"fr_FR",
+          "langUid":3,
+          "zh_CN":"[\u9965\u6e34\u58f0]",
+          "ko_KR":"[\uaf2c\ub974\ub975\uac70\ub9ac\ub294 \uc18c\ub9ac]",
+          "ja_JP":"[\u8179\u304c\u9cf4\u308b\u97f3]"
+        },
+        "mode":"NO_LINE",
+        "color":"GREEN",
+        "actionDetached":false,
+        "time":1,
+        "type":"SHOW_AR_MSG"
+      },
+      {
+        "entity":{
+          "global":true,
+          "name":"special-tree"
+        },
+        "maxTime":0,
+        "forceTime":false,
+        "distance":50,
+        "ignoreBelow":0,
+        "planOnly":false,
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_ENTITY"
+      },
+      {
+        "conditions":[
+          {
+            "entity":{
+              "global":true,
+              "name":"special-tree"
+            },
+            "distance":55,
+            "type":"!ENTITY_DISTANCE_OVER"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          {
+            "time":0.2,
+            "type":"WAIT"
+          },
+          {
+            "noStateReset":false,
+            "type":"DO_ENEMY_ACTION",
+            "actionName":"Quest-LickTree"
+          }
+        ]
+      }
+    ],
+    "Quest-LickTree":[
+      {
+        "type":"RESET_TRACKER",
+        "tracker":"questLickBlock"
+      },
+      {
+        "value":0.5,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"LIGHT",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "entity":{
+          "global":true,
+          "name":"special-tree"
+        },
+        "rotate":true,
+        "rotateSpeed":3,
+        "type":"SET_FACE_TO_ENTITY"
+      },
+      {
+        "time":0.3,
+        "type":"WAIT"
+      },
+      {
+        "text":{
+          "en_US":"[Licking Tree]",
+          "de_DE":"[Leckt Baum]",
+          "fr_FR":"fr_FR",
+          "langUid":4,
+          "zh_CN":"[\u8214\u6811]",
+          "ko_KR":"[\ub098\ubb34 \ud565\ub294 \uc911]",
+          "ja_JP":"[\u6728\u3092\u8210\u3081\u308b\u97f3]"
+        },
+        "mode":"LINE_FILL",
+        "color":"RED",
+        "actionDetached":false,
+        "time":4,
+        "type":"SHOW_AR_MSG"
+      },
+      {
+        "time":4.2,
+        "type":"WAIT"
+      },
+      {
+        "changeType":"set",
+        "type":"CHANGE_VAR_BOOL",
+        "varName":"tmp.quest_foa2-salve_licked",
+        "value":true
+      },
+      {
+        "time":0.8,
+        "type":"WAIT"
+      },
+      {
+        "time":0.7,
+        "stopBeforeEdge":false,
+        "type":"MOVE_BACKWARD"
+      }
+    ],
+    "Quest-AddShield":[
+      {
+        "name":"marker",
+        "actionDetached":true,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.001,
+            "strength":"BLOCK_ALL",
+            "range":1,
+            "back":false,
+            "effect":{
+              "sheet":"enemies.questBall",
+              "name":"markerShield"
+            }
+          }
+        }
+      },
+      {
+        "withElse":false,
+        "type":"IF",
+        "condition":"test",
+        "thenStep":[
+          {
+            "text":{
+              "en_US":"<SHIELD ON>",
+              "langUid":11,
+              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9ON><<A<<[CHANGED 2017\/11\/04]",
+              "zh_CN":"<SHIELD ON><<A<<[CHANGED 2017\/10\/10]",
+              "de_DE":"<SCHILD AN><<C<<IGNORE",
+              "ko_KR":"<\ubc29\uc5b4\ub9c9 \ucf1c\uc9d0><<A<<[CHANGED 2017\/10\/17]"
+            },
+            "mode":"NO_LINE",
+            "color":"GREEN",
+            "actionDetached":true,
+            "type":"SHOW_AR_MSG",
+            "time":0.5
+          }
+        ]
+      },
+      {
+        "type":"RESET_TRACKER",
+        "tracker":"questBallAttackBlock"
+      }
+    ],
+    "Quest-RemoveShield":[
+      {
+        "name":"marker",
+        "type":"REMOVE_SHIELD"
+      },
+      {
+        "group":"shieldConnect",
+        "type":"CLEAR_EFFECTS"
+      },
+      {
+        "withElse":false,
+        "type":"IF",
+        "condition":"test",
+        "thenStep":[
+          {
+            "text":{
+              "en_US":"<SHIELD OFF>",
+              "langUid":9,
+              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9OFF><<A<<[CHANGED 2017\/08\/03]",
+              "zh_CN":"<SHIELD OFF><<A<<[CHANGED 2017\/10\/10]",
+              "de_DE":"<SCHILD AUS><<C<<IGNORE",
+              "ko_KR":"<\ubc29\uc5b4\ub9c9 \uaebc\uc9d0><<A<<[CHANGED 2017\/10\/17]"
+            },
+            "mode":"NO_LINE",
+            "color":"RED",
+            "actionDetached":true,
+            "type":"SHOW_AR_MSG",
+            "time":0.5
+          }
+        ]
+      }
+    ],
+    "Quest-SwitchMarker":[
+      {
+        "group":"shieldConnect",
+        "type":"CLEAR_EFFECTS"
+      },
+      {
+        "withElse":false,
+        "type":"IF",
+        "condition":"test",
+        "thenStep":[
+          {
+            "text":{
+              "en_US":"<SWITCH MARKER>",
+              "ja_JP":"<\u30de\u30fc\u30ab\u30fc\u5909\u66f4><<A<<[CHANGED 2017\/11\/04]",
+              "langUid":12,
+              "zh_CN":"<SWITCH MARKER><<A<<[CHANGED 2017\/10\/10]",
+              "de_DE":"<SWITCH MARKER><<C<<IGNORE",
+              "ko_KR":"<\ubaa9\ud45c \uc804\ud658><<A<<[CHANGED 2017\/10\/17]"
+            },
+            "mode":"NO_LINE",
+            "color":"GREEN",
+            "actionDetached":true,
+            "type":"SHOW_AR_MSG",
+            "time":0.5
+          }
+        ]
+      },
+      {
+        "attribName":"currentMarker",
+        "changeType":"set",
+        "type":"SET_ATTRIB_NUMBER",
+        "value":{
+          "varName":"tmp.questBall-markerActive"
+        }
+      }
+    ],
+    "Quest-AttackBall":[
+      {
+        "kind":"NAMED_ENTITY",
+        "key":"questBall-ball",
+        "type":"SET_TEMP_TARGET"
+      },
+      {
+        "time":0.2,
+        "type":"WAIT"
+      },
+      {
+        "active":"PRE_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":0.7,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "value":"MEDIUM",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "maxTime":3,
+        "forceTime":false,
+        "distance":70,
+        "planOnly":false,
+        "targetType":"ENEMY",
+        "precise":false,
+        "stayBehind":false,
+        "type":"NAVIGATE_TO_TARGET"
+      },
+      {
+        "type":"RESET_TRACKER",
+        "tracker":"questLickBlock"
+      },
+      {
+        "volume":1,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-squeak-1.ogg"
+      },
+      {
+        "text":{
+          "en_US":"[Focussing Probe]",
+          "de_DE":"[Fokussiere Sonde]",
+          "zh_CN":"[\u6b63\u5bf9\u63a2\u673a\u96c6\u706b]<<A<<[CHANGED 2017\/12\/12]",
+          "ja_JP":"[\u30d7\u30ed\u30fc\u30d6\u306b\u96c6\u4e2d]<<A<<[CHANGED 2017\/11\/04]",
+          "langUid":10,
+          "ko_KR":"[\ud0d0\uc0ac\uae30 \uc870\uc728 \uc911]<<A<<[CHANGED 2017\/10\/17]"
+        },
+        "mode":"NO_LINE",
+        "color":"GREEN",
+        "actionDetached":false,
+        "time":2,
+        "type":"SHOW_AR_MSG"
+      },
+      {
+        "duration":1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"enemy",
+          "name":"angry1"
+        },
+        "offset":{
+          "x":0,
+          "y":0,
+          "z":0
+        }
+      },
+      {
+        "time":2,
+        "type":"WAIT"
+      },
+      {
+        "value":1,
+        "type":"SET_RELATIVE_SPEED"
+      },
+      {
+        "duration":-1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"large"
+        }
+      },
+      {
+        "name":"full",
+        "actionDetached":false,
+        "type":"ADD_SHIELD",
+        "shield":{
+          "type":"DIRECTIONAL",
+          "settings":{
+            "baseFactor":0.25,
+            "strength":"REGULAR",
+            "hitResist":"HEAVY",
+            "range":1,
+            "back":false
+          }
+        }
+      },
+      {
+        "value":"HEAVY",
+        "type":"SET_HIT_STABLE"
+      },
+      {
+        "value":true,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"roll"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-in.ogg"
+      },
+      {
+        "time":1,
+        "type":"WAIT"
+      },
+      {
+        "type":"CLEAR_EFFECTS"
+      },
+      {
+        "value":400,
+        "type":"SET_SPEED"
+      },
+      {
+        "duration":-1,
+        "align":"BOTTOM",
+        "rotateFace":0,
+        "flipLeftFace":false,
+        "wait":false,
+        "waitSkip":0,
+        "actionDetached":false,
+        "fixPos":false,
+        "type":"SHOW_EFFECT",
+        "effect":{
+          "sheet":"dust",
+          "name":"line"
+        }
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+      },
+      {
+        "volume":0.9,
+        "global":false,
+        "loop":false,
+        "type":"PLAY_SOUND",
+        "sound":"media\/sound\/battle\/dash-2.ogg"
+      },
+      {
+        "value":"IGNORE",
+        "type":"SET_COLL_TYPE"
+      },
+      {
+        "value":false,
+        "type":"FACE_TO_TARGET"
+      },
+      {
+        "type":"ENABLE_REACTION",
+        "reaction":"GUARD_COUNTER"
+      },
+      {
+        "active":"ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":1.5,
+        "forwardToProxies":false,
+        "type":"SET_DAMAGE_CEILING"
+      },
+      {
+        "time":0.4,
+        "cancelOnHit":true,
+        "orthoDirFactor":0,
+        "ignoreLastHit":false,
+        "type":"TACKLE",
+        "attack":{
+          "type":"HEAVY",
+          "element":"NEUTRAL",
+          "damageFactor":1,
+          "reverse":false,
+          "hints":[
+            "ENEMY_PUSH"
+          ],
+          "guardable":"",
+          "skillBonus":""
+        }
+      },
+      {
+        "minTime":0,
+        "maxTime":0,
+        "type":"CIRCLE_TARGET"
+      },
+      {
+        "active":"POST_ATTACK",
+        "type":"CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value":50,
+        "type":"SET_SPEED"
+      },
+      {
+        "time":0.3,
+        "stopBeforeEdge":false,
+        "type":"MOVE_FORWARD"
+      }
+    ]
+  },
+  "reactions":{
+    "GUARD_COUNTER":{
+      "preSwitchState":"WEAK",
+      "action":"BlockCounter",
+      "conditions":[
+
+      ],
+      "type":"GUARD_COUNTER"
+    }
+  },
+  "meta":{
+    "species":{
+      "en_US":"Mammal",
+      "de_DE":"S\u00e4ugetier<<C<<gepr\u00fcft: Melsie",
+      "zh_CN":"\u54fa\u4e73\u7c7b",
+      "ja_JP":"\u54fa\u4e73\u985e",
+      "ko_KR":"\ud3ec\uc720\ub958",
+      "langUid":1
+    },
+    "category":"ANIMALS",
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "A hedgehag with a pelt overgrown in moss, thorns, and roses. Said to be several times more durable than a typical hedgehag, the Hengehag takes a liking to living within ruins throughout the Autumn area. With a hide as hard as stone, the Hengehag's attacks hit harder than usual Hedgehag attacks, and it is also capable of spewing out seeds that burst forth in vines, making it a formidable Hedgehag to face.",
+          "langUid": 14
+        },
+        "condition": ""
+      }
+    ]
+  }
+}

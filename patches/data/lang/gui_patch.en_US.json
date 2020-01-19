@@ -1,0 +1,26 @@
+{
+	"labels": {
+		"combat": {
+			"daze": "Daze"
+		},
+		"menu": {
+			"status": {
+				"conditions": [
+		        	"Daze",
+		        	"Burn",
+		        	"Chill",
+		        	"Jolt",
+		        	"Mark"
+		        ]
+			},
+			"equip":{
+				"modifier":{
+					"WIND_MELEE": "Galeslash"
+				},
+				"descriptions":{
+					"WIND_MELEE": "Boosts neutral melee attacks and lets them inflict the \\c[3]Daze\\c[0] Condition and its effect. \\c[3]Daze\\c[0] stuns the victim in place for a short while."
+				}
+			}
+		}
+	}
+}
