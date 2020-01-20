@@ -150,5 +150,54 @@
       }
     ],
     "boss": false
+  },
+  "autumn-dng.mini-golem": {
+    "name": {
+      "en_US": "Autumnaton",
+      "langUid": 67
+    },
+    "track": true,
+    "order": 312,
+    "area": "autumn-dng",
+    "anim": false,
+    "extra": false,
+    "species":{
+      "en_US":"Ruin Golem",
+      "langUid":1
+    },
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "A Neutral-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, dazing attack if provoked enough, which can conveniently be interrupted by launching a gust bullet into it. Somehow, this golem is capable of lifting itself into the air by spinning the sprout it has on its head rapidly.",
+          "langUid": 14
+        },
+        "condition": ""
+      }
+    ],
+    "category": "MECHA",
+    "level": 70,
+    "boostedLevel":70,
+    "params":{
+      "hp":36500,
+      "attack":465,
+      "defense":472,
+      "focus":398,
+      "elemFactor": [
+        1.15,
+        1,
+        1,
+        1
+      ],
+      "statusInflict":[
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "credit":4550,
+    "exp":100,
+    "itemDrops":[],
+    "boss": false
   }
 }
