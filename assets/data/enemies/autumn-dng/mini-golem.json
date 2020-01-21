@@ -20,7 +20,7 @@
     ]
   },
   "credit":4550,
-  "exp":100,
+  "exp":200,
   "maxSp":0,
   "enduranceScale":1,
   "healDropRate":0,
@@ -142,6 +142,15 @@
         {
           "req":[
             {
+              "type":"RANDOM",
+              "max":"0.5"
+            }
+          ],
+          "action":"BattleIdle"
+        },
+        {
+          "req":[
+            {
               "distance":240,
               "throwing":false,
               "type":"!TARGET_REACHABLE"
@@ -177,6 +186,7 @@
       ]
     },
     "DEFAULT_WEAK":{
+      "hitStable":"HEAVY",
       "damageFactor": 1,
       "choices":[
         {
@@ -194,6 +204,15 @@
             }
           ],
           "postSwitchState":"IDLE"
+        },
+        {
+          "req":[
+            {
+              "type":"RANDOM",
+              "max":"0.5"
+            }
+          ],
+          "action":"BattleIdle"
         },
         {
           "req":[
@@ -234,6 +253,7 @@
     },
     "WEAK":{
       "walkAnims":"weak",
+      "hitStable":"HEAVY",
       "damageFactor":1,
       "annotate":{
         "active":"NONE",
@@ -627,7 +647,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
@@ -674,7 +694,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
@@ -868,7 +888,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
@@ -1123,7 +1143,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
@@ -1329,7 +1349,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
@@ -1526,7 +1546,7 @@
       },
       {
         "type":"SET_COLL_TYPE",
-        "value":"IGNORE"
+        "value":"BLOCK"
       },
       {
         "duration":5.5,
@@ -1549,6 +1569,26 @@
         }
       },
       {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"land"
+      },
+      {
+        "time":0.2,
+        "type":"WAIT"
+      },
+      {
+        "wait":false,
+        "viaWalkConfig":false,
+        "type":"SHOW_ANIMATION",
+        "anim":"idle"
+      },
+      {
+        "time":0.2,
+        "type":"WAIT"
+      },
+      {
         "followUp":"charge",
         "wait":false,
         "viaWalkConfig":false,
@@ -1569,7 +1609,7 @@
         "radius":32,
         "fadeRadius":96,
         "minRadius":0,
-        "zHeight":32,
+        "zHeight":96,
         "duration":8,
         "align":"BOTTOM",
         "type":"PUSH_PULL_FORCE"
@@ -1644,7 +1684,7 @@
         "offset":{
           "x":0,
           "y":0,
-          "z":12
+          "z":4
         }
       },
       {
