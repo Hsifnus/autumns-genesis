@@ -1,5 +1,5 @@
 // hacky code just to include the master trial test cup for now
-ig.module("game.feature.arena.arena-patch").requires("game.feature.arena.arena").defines(function() {
+ig.module("game.feature.arena.arena-patch-temp").requires("game.feature.arena.arena").defines(function() {
 	var moddedCups = {
     "master-trial-test-cup": {
       order: 1002

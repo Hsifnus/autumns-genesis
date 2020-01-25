@@ -1,4 +1,4 @@
-import "./js/game/feature/arena/arena-patch.js";
+import "./js/game/feature/arena/arena-patch-temp.js";
 
 import "./js/game/feature/combat/model/stun-status.js";
 
