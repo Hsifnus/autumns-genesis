@@ -26,7 +26,7 @@
     ]
   },
   "credit":1500,
-  "exp":60,
+  "exp":80,
   "maxSp":0,
   "enduranceScale":1,
   "healDropRate":0,
@@ -56,9 +56,9 @@
     }
   ],
   "targetDetect":{
-    "detectDistance":120,
-    "loseDistance":320,
-    "notifyNeighbourRadius":100
+    "detectDistance":12000,
+    "loseDistance":32000,
+    "notifyNeighbourRadius":10000
   },
   "hpBreaks":[
 

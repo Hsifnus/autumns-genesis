@@ -6,7 +6,7 @@ ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.featu
       blinkAlpha: 0.5
     },
     lightMapDarkness: 0.3,
-    darkness:0.25,
+    darkness:0.15,
     glowColor: "#230000",
     particles: [{
       type: "LEAVES",

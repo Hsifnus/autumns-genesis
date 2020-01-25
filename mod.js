@@ -1,3 +1,5 @@
+import "./js/game/feature/arena/arena-patch.js";
+
 import "./js/game/feature/combat/model/stun-status.js";
 
 import "./js/game/feature/font/font-system-override.js";

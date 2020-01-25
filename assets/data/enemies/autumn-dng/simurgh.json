@@ -20,7 +20,7 @@
     ]
   },
   "credit":2120,
-  "exp":75,
+  "exp":100,
   "maxSp":0,
   "enduranceScale":3,
   "healDropRate":0,
@@ -50,9 +50,9 @@
     }
   ],
   "targetDetect":{
-    "detectDistance":120,
-    "loseDistance":320,
-    "notifyNeighbourRadius":100
+    "detectDistance":12000,
+    "loseDistance":32000,
+    "notifyNeighbourRadius":10000
   },
   "hpBreaks":[
 
@@ -616,8 +616,8 @@
         "z":48
       },
       "config":{
-        "collType":"IGNORE",
-        "zGravityFactor":"0.5"
+        "collType":"TRIGGER",
+        "zGravityFactor":"0"
       },
       "type":"GENERIC"
     }
@@ -1296,7 +1296,7 @@
 		        "centralAngle":0.375,
 		        "angleVary":0,
 		        "startDist":48,
-		        "startDistCollide":"DROP",
+		        "startDistCollide":"NONE",
 		        "random":false,
 		        "count":3,
 		        "duration":0,

@@ -199,5 +199,72 @@
     "exp":200,
     "itemDrops":[],
     "boss": false
+  },
+  "trial.megamoth-ex": {
+    "name": {
+      "en_US": "Master Magmoth",
+      "de_DE": "Meister Magmoth",
+      "zh_CN": "熔岩巨蛾王",
+      "ja_JP": "マスター・マグモス",
+      "ko_KR": "마스터 매그모스",
+      "langUid": 4580
+    },
+    "track": false,
+    "order": 10001,
+    "area": "heat-dng",
+    "anim": false,
+    "extra": false,
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "The moths of \\c[3]\\v[area.heat-dng.name]\\c[0] call this gigantic beast their mother. And it's pretty mad you hurt so many of its children. The only weak spot on its whole body is the eye at the head part and only if it's open and not closed. It will only open it right before it uses one of its attacks. When weak it tries to get away from its foe and regenerate, creating bubbles to fend off any attacks. Conveniently those can be used to create platforms on the hot coals! What are the chances?",
+          "de_DE": "Die Motten des \\c[3]\\v[area.heat-dng.name]s\\c[0] nennen dieses gigantische Biest ihre Mutter. Und sie ist ziemlich wütend darüber, dass du so viele ihrer Kinder verletzt hast. Die einzige Schwachstelle am Körper ist das Auge am Kopfteil, und das auch nur, wenn es geöffnet ist. Sie öffnet das Auge nur unmittelbar vor einer Attacke. Wenn sie schwach ist, versucht sie vor ihren Feinden zu fliehen und sich zu regenerieren, wobei sie Blasen erzeugt, um Attacken abzuwehren. Praktischerweise können diese benutzt werden, um Plattformen über die heißen Kohlen zu erzeugen. Was für ein Zufall!<<C<<Überprüfen: Beschreibung",
+          "zh_CN": "\\c[3]\\v[area.heat-dng.name]\\c[0]飞蛾们的母亲。你伤害了它的孩子们，它现在对你非常生气。它身上唯一的弱点就是头上的眼睛，而它的眼睛只在使用某些招式时才会睁开。当它的生命值降到一定程度，它会尝试躲避并进行生命恢复，这时它会创造一个可以阻挡所有攻击的泡泡。而这些泡泡正好处于热碳上，可以作为跳跃平台使用。真是方便！<<A<<[CHANGED 2018/09/19]",
+          "ja_JP": "\\c[3]\\v[area.heat-dng.name]\\c[0]に生息する蛾系モンスターの多くにとって、この巨大モンスターは母のような存在だ。愛しの子どもを傷つけたプレイヤーに激怒しているらしい。頭部に付いている眼球が弱点なのだが、閉じているとダメージを与えることができない。目を開くのは攻撃する時のみであるため、戦うのは困難を極める。また、弱ると敵から離れて自己回復を試みる他、バブルを生成して攻撃をかわそうとする。便利なことに、このバブルはマグマの足場として使うことができるのだ！ちょっと都合良すぎない？<<A<<[CHANGED 2018/09/19]",
+          "ko_KR": "\\c[3]\\v[area.heat-dng.name]\\c[0]의 나방은 이 거대한 괴물을 어미라고 부릅니다. 당신이 이 나방의 자식들을 너무 많이 죽여 화가 많이 났다고 합니다. 유일한 약점은 머리 쪽에 있는 눈이며, 그것도 눈을 뜨고 있을 때만 약합니다. 자신의 공격 중 어떤 것을 사용하기 직전에 눈을 뜹니다. 이 녀석은 약해지면 적으로부터 달아나 회복하고 거품을 생성해 공격을 방어합니다. 거품은 오히려 뜨거운 용암 위에 발판으로 만들 수 있습니다! 어떻게 이런 우연이 있을 수가!<<A<<[CHANGED 2018/09/19]",
+          "langUid": -5
+        },
+        "condition": ""
+      }
+    ],
+    "species": {
+      "en_US": "Mother of Moths",
+      "de_DE": "Mutter aller Motten<<C<<Überprüfen: Beschreibung",
+      "zh_CN": "飞蛾之母",
+      "ja_JP": "蛾の母",
+      "ko_KR": "나방의 어미",
+      "langUid": -1
+    },
+    "category": "ANIMALS",
+    "level": 80,
+    "boostedLevel": 80,
+    "params": {
+      "hp":458643,
+      "attack":468,
+      "defense":401,
+      "focus":507,
+      "elemFactor": [
+        0.2,
+        1.5,
+        1,
+        1
+      ],
+      "statusInflict": [
+        0,
+        0,
+        0.75,
+        0.75
+      ],
+      "statusEffect": [
+        0,
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "credit": 100000,
+    "exp": 2000,
+    "itemDrops": [],
+    "boss": true
   }
 }
