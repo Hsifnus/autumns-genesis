@@ -1012,7 +1012,7 @@
         "type":"BREAK",
         "fly":"HEAVY",
         "element":"HEAT",
-        "damageFactor":6,
+        "damageFactor":10,
         "reverse":false,
         "status":10,
         "guardable":"NEVER",
@@ -5291,7 +5291,7 @@
         "attack":{
           "type":"BREAK",
           "element":"HEAT",
-          "damageFactor":6,
+          "damageFactor":15,
           "reverse":false,
           "spFactor":0,
           "status":10,
