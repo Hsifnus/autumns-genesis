@@ -2692,7 +2692,66 @@
         "type":"WAIT_UNTIL_ANIM_LOOP_END"
       }
     ],
-    "MoveToFront":[ 
+    "MoveToFront":[
+      { 
+        "stateReset":false,
+        "actionName":"CrimsonInferno",
+        "type":"DO_ENEMY_ACTION_INLINE"
+      },
+      {
+        "conditions":[
+          {
+            "min":1,
+            "type":"HP_BREAK"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          {
+            "conditions":[
+              {
+                "max":0.5,
+                "negated":false,
+                "type":"RANDOM"
+              }
+            ],
+            "withElse":true,
+            "type":"COMBAT_IF",
+            "thenStep":[
+              { 
+                "stateReset":false,
+                "actionName":"GroundAttack",
+                "type":"DO_ENEMY_ACTION_INLINE"
+              }
+            ],
+            "elseStep":[
+              { 
+                "stateReset":false,
+                "actionName":"SideAttack",
+                "type":"DO_ENEMY_ACTION_INLINE"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "conditions":[
+          {
+            "min":2,
+            "type":"HP_BREAK"
+          }
+        ],
+        "withElse":false,
+        "type":"COMBAT_IF",
+        "thenStep":[
+          { 
+            "stateReset":false,
+            "actionName":"CrimsonInferno",
+            "type":"DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
       { 
         "value":true,
         "type":"SET_FACE_FIX"
