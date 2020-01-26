@@ -2721,7 +2721,7 @@
             "thenStep":[
               { 
                 "stateReset":false,
-                "actionName":"GroundAttack",
+                "actionName":"FireTornadoAttack",
                 "type":"DO_ENEMY_ACTION_INLINE"
               }
             ],
