@@ -479,8 +479,13 @@
               "width": 24,
               "height": 40
             },
+            "gfxOffset": {
+            	"x":0,
+            	"y":-20
+            },
             "time": 0.1,
             "repeat": false,
+            "guiSprites":false,
             "frames": [
               0
             ]
@@ -496,6 +501,7 @@
             },
             "time": 0.1,
             "repeat": false,
+            "guiSprites":false,
             "frames": [
               0,
               1,
@@ -581,7 +587,7 @@
           "type":"CIRCLE_ATTACK",
           "attack":{
             "type":"BREAK",
-            "fly":"MASSIVE",
+            "fly":"LIGHT",
             "visualType":"HEAVY",
             "element":"HEAT",
             "damageFactor":0.1,
@@ -3854,6 +3860,40 @@
         "type":"SHOW_ANIMATION",
         "anim":"chargeSide"
       },
+      {
+      	"conditions":[
+      		{
+      			"min":2,
+      			"type":"HP_BREAK"
+      		}
+      	],
+    		"withElse":false,
+    		"type":"COMBAT_IF",
+    		"thenStep":[
+		      { 
+		        "duration":-1,
+		        "align":"BOTTOM",
+		        "rotateFace":2,
+		        "flipLeftFace":false,
+		        "wait":false,
+		        "waitSkip":0,
+		        "actionDetached":false,
+		        "group":"charge",
+		        "partName":"eye",
+		        "fixPos":false,
+		        "type":"SHOW_EFFECT",
+		        "effect":{ 
+		          "sheet":"specials.heat",
+				      "name":"heatSubCharge"
+		        },
+		        "offset":{ 
+		          "x":0,
+		          "y":0,
+		          "z":0
+		        }
+		      }
+    		]
+      },
       { 
         "time":0.5,
         "type":"WAIT"
@@ -4549,7 +4589,7 @@
         "thenStep":[ 
 	        {
 	          "duration":0.5,
-	          "align":"FACE",
+	          "align":"BOTTOM",
 	          "rotateFace":0,
 	          "flipLeftFace":false,
 	          "wait":false,
@@ -4742,7 +4782,7 @@
 		        "thenStep":[ 
 			        {
 			          "duration":0.5,
-			          "align":"FACE",
+			          "align":"BOTTOM",
 			          "rotateFace":0,
 			          "flipLeftFace":false,
 			          "wait":false,
