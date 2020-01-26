@@ -151,7 +151,7 @@
       "type":"HIT"
     },
     "LASER":{ 
-      "target":15,
+      "target":30,
       "initRandom":0,
       "resetRandom":0,
       "noStateReset":true,
@@ -167,7 +167,7 @@
       "type":"TIME"
     },
     "BLITZ":{ 
-      "target":20,
+      "target":30,
       "initRandom":0,
       "resetRandom":0,
       "noStateReset":true,
@@ -345,6 +345,27 @@
           "frequency":"SOMETIMES"
         },
         { 
+          "req":[ 
+          	{
+          		"condition":"entity.attrib.id > entity.attrib.consume",
+          		"negated":false,
+          		"type":"VAR_CONDITION"
+          	},
+            { 
+              "max":0.5,
+              "negated":false,
+              "type":"RANDOM"
+            },
+            { 
+              "min":1,
+              "negated":false,
+              "type":"HP_BREAK"
+            }
+          ],
+          "action":"HellfireAttack",
+          "frequency":"OFTEN"
+        },
+        { 
         	"req":[ 
             { 
               "name":"DIVE",
@@ -369,27 +390,6 @@
         { 
           "action":"GroundAttack",
           "frequency":"NORMAL"
-        },
-        { 
-          "req":[ 
-          	{
-          		"condition":"entity.attrib.id > entity.attrib.consume",
-          		"negated":false,
-          		"type":"VAR_CONDITION"
-          	},
-            { 
-              "max":0.75,
-              "negated":false,
-              "type":"RANDOM"
-            },
-            { 
-              "min":1,
-              "negated":false,
-              "type":"HP_BREAK"
-            }
-          ],
-          "action":"HellfireAttack",
-          "frequency":"OFTEN"
         },
         { 
           "action":"SideAttack",
@@ -4186,18 +4186,6 @@
     ],
     "HellfireAttack":[
       { 
-        "text":{ 
-          "en_US":"Incoming inferno!",
-          "langUid":3
-        },
-        "mode":"LINE_FILL",
-        "color":"RED",
-        "actionDetached":false,
-        "partName":"head",
-        "time":2.5,
-        "type":"SHOW_AR_MSG"
-      },
-      { 
         "name":"face",
         "type":"REMOVE_SHIELD"
       },
@@ -4228,6 +4216,44 @@
         "viaWalkConfig":false,
         "type":"SHOW_ANIMATION",
         "anim":"preChargeSide"
+      },
+      {
+      	"conditions":[
+      		{
+      			"min":2,
+      			"type":"HP_BREAK"
+      		}
+      	],
+    		"withElse":true,
+    		"type":"COMBAT_IF",
+    		"thenStep":[
+		      { 
+		        "text":{ 
+		          "en_US":"Incoming inferno!",
+		          "langUid":3
+		        },
+		        "mode":"LINE_FILL",
+		        "color":"RED",
+		        "actionDetached":false,
+		        "partName":"head",
+		        "time":1.5,
+		        "type":"SHOW_AR_MSG"
+		      }
+    		],
+    		"elseStep":[
+    			{ 
+		        "text":{ 
+		          "en_US":"Incoming inferno!",
+		          "langUid":3
+		        },
+		        "mode":"LINE_FILL",
+		        "color":"RED",
+		        "actionDetached":false,
+		        "partName":"head",
+		        "time":2,
+		        "type":"SHOW_AR_MSG"
+		      }
+    		]
       },
       { 
         "attrib":"platform",
@@ -4261,9 +4287,27 @@
           "z":0
         }
       },
-      { 
-        "time":2.5,
-        "type":"WAIT"
+      {
+      	"conditions":[
+      		{
+      			"min":2,
+      			"type":"HP_BREAK"
+      		}
+      	],
+    		"withElse":true,
+    		"type":"COMBAT_IF",
+    		"thenStep":[
+					{ 
+		        "time":1.5,
+		        "type":"WAIT"
+		      }
+    		],
+    		"elseStep":[
+					{ 
+		        "time":2,
+		        "type":"WAIT"
+		      }
+    		]
       },
       { 
         "type":"WAIT_UNTIL_ANIM_LOOP_END"
