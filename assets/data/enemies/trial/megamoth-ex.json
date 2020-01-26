@@ -6602,7 +6602,21 @@
 		        "type":"SHOOT_WIND_BUBBLE",
 		        "offset":{ 
 		          "x":0,
-		          "y":0,
+		          "y":64,
+		          "z":0
+		        }
+		      },
+		      { 
+		        "align":"FACE",
+		        "duration":10,
+		        "speed":120,
+		        "element":"HEAT",
+		        "target":"TARGET",
+		        "hp":2,
+		        "type":"SHOOT_WIND_BUBBLE",
+		        "offset":{ 
+		          "x":0,
+		          "y":-64,
 		          "z":0
 		        }
 		      }
