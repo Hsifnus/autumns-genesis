@@ -499,6 +499,10 @@
               "width": 24,
               "height": 40
             },
+            "gfxOffset": {
+            	"x":0,
+            	"y":-20
+            },
             "time": 0.1,
             "repeat": false,
             "guiSprites":false,
@@ -626,7 +630,7 @@
       "stickToSource": "NONE",
       "killEffect": {
         "sheet": "map.earth",
-        "name": "earthDisappear"
+        "name": "earthDisappearFlash"
       },
       "group": "pillar",
       "size": {
