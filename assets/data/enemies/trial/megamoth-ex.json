@@ -6236,11 +6236,7 @@
         "tracker":"LASER"
       }
     ],
-    "VolcanicBlitz":[ 
-      { 
-        "name":"face",
-        "type":"REMOVE_SHIELD"
-      },
+    "VolcanicBlitz":[
       { 
         "value":4,
         "forwardToProxies":false,
@@ -6457,22 +6453,6 @@
       { 
         "time":0.5,
         "type":"WAIT"
-      },
-      { 
-        "name":"face",
-        "actionDetached":true,
-        "type":"ADD_SHIELD",
-        "shield":{ 
-          "type":"PARTS",
-          "settings":{ 
-            "baseFactor":0.01,
-            "parts":[ 
-              "head"
-            ],
-            "inverse":false,
-            "stableOverride":"MASSIVE"
-          }
-        }
       },
       { 
         "duration":0,
