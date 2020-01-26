@@ -2730,6 +2730,11 @@
                 "stateReset":false,
                 "actionName":"SideAttack",
                 "type":"DO_ENEMY_ACTION_INLINE"
+              },
+              { 
+                "stateReset":false,
+                "actionName":"FireTornadoAttack",
+                "type":"DO_ENEMY_ACTION_INLINE"
               }
             ]
           }
