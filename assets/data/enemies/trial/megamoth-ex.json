@@ -4502,7 +4502,7 @@
         "type":"SET_DAMAGE_CEILING"
       },
       { 
-        "value":"TRIGGER",
+        "value":"IGNORE",
         "type":"SET_COLL_TYPE"
       },
       { 
@@ -5015,7 +5015,7 @@
         "type":"REMOVE_SHIELD"
       },
       { 
-        "value":"TRIGGER",
+        "value":"IGNORE",
         "type":"SET_COLL_TYPE"
       },
       {
