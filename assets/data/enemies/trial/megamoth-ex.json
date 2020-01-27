@@ -927,9 +927,9 @@
         },
         {
           "align":"BOTTOM",
-          "radius":27,
+          "radius":20,
           "yScale":0,
-          "zHeight":32,
+          "zHeight":16,
           "centralAngle":1,
           "duration":0.3,
           "expandRadius":0,
