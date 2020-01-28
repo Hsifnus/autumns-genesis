@@ -4678,6 +4678,10 @@
       {
         "time": 0.2,
         "type": "WAIT"
+      },
+      {
+      	"time": 2,
+      	"type":"WAIT"
       }
 		],
 		"AquaSpirals":[
