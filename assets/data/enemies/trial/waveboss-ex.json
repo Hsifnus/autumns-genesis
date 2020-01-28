@@ -2234,7 +2234,7 @@
           "type": "WAIT"
         }
       ],
-      "invisible": false,
+      "invisible": true,
       "hp": 0,
       "stickToSource": "NONE",
       "group": "",
