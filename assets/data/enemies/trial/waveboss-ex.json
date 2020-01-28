@@ -890,6 +890,11 @@
             	"condition":"entity.attrib.aquaticCount == 0",
             	"negated": false,
             	"type":"VAR_CONDITION"
+            },
+            {
+            	"max":0.2,
+            	"negated":false,
+            	"type":"RANDOM"
             }
           ],
           "action": "AquaticSpheres",
@@ -901,6 +906,11 @@
             	"condition":"entity.attrib.aquaticCount == 0",
             	"negated": false,
             	"type":"VAR_CONDITION"
+            },
+            {
+            	"max":0.5,
+            	"negated":false,
+            	"type":"RANDOM"
             }
           ],
           "action": "AquaSpiralsAlt",
@@ -912,6 +922,11 @@
             	"condition":"entity.attrib.aquaticCount == 0",
             	"negated": false,
             	"type":"VAR_CONDITION"
+            },
+            {
+            	"max":0.8,
+            	"negated":false,
+            	"type":"RANDOM"
             }
           ],
           "action": "AquaSpirals",
