@@ -364,13 +364,14 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             this.coll.bounciness = 0.5;
             this.coll.setSize(20, 20, 16);
             this.coll.friction.air = 0.2;
-            this.coll.maxVel = e.speed || 95;
+            this.coll.maxVel = e.speed == undefined ? 95 : e.speed;
             this.coll.float.height = 8;
             this.startZ = c;
             this.coll.float.variance = 2;
             this.coll.shadow.size = 16;
             this.coll.setPos(a - this.coll.size.x / 2, b - this.coll.size.y / 2, c);
             this.panel = e.panel || null;
+            this.noBounce = e.noBounce || false;
             if (e.element) {
                 this.element = e.element
                 this.initAnimations(sc.WIND_BUBBLE_ANIMS[this.element].BASE);
@@ -705,7 +706,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 this.state = 4;
             }
 
-            this.bounce(e, this.coll.maxVel - 5);
+            !this.noBounce && this.bounce(e, this.coll.maxVel - 5);
             d = sc.ATTACK_TYPE.LIGHT;
             if (!a.isBall || this.hasHint(a)) d = sc.ATTACK_TYPE.MEDIUM;
             sc.combat.showHitEffect(this, c, d, a.getElement(), false, false, true);
@@ -772,6 +773,11 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                     _info: "Element of bubble",
                     _select: ["HEAT", "COLD", "SHOCK", "WAVE", "NEUTRAL"],
                     _default: "NEUTRAL"
+                },
+                noBounce: {
+                    _type: "Boolean",
+                    _info: "Whether ball should bounce when shot at",
+                    _default: false
                 }
             }
         }),
@@ -785,6 +791,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             this.damageFactor = a.damageFactor;
             this.status = a.status;
             this.element = a.element;
+            this.noBounce = a.noBounce || false;
             this.effects = {
                 sheet: new ig.EffectSheet("puzzle.wind-bubble")
             }
@@ -803,7 +810,8 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 speed: this.speed,
                 damageFactor: this.damageFactor,
                 status: this.status,
-                element: this.element
+                element: this.element,
+                noBounce: this.noBounce
             });
             this.effects.sheet.spawnOnTarget("appear", d, {});
         }

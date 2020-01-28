@@ -266,5 +266,72 @@
     "exp": 2000,
     "itemDrops": [],
     "boss": true
+  },
+  "trial.waveboss-ex": {
+    "name": {
+      "en_US": "Sir Blobus Starnikus",
+      "de_DE": "Blobus Maximus Prallus",
+      "zh_CN": "布罗斯·斯塔尼库斯先生",
+      "ja_JP": "ブロブス・スターニクス卿",
+      "ko_KR": "블로버스 스타르니쿠스 경",
+      "langUid": 8830
+    },
+    "track": false,
+    "order": 10002,
+    "area": "wave-dng",
+    "anim": "idleStar",
+    "extra": false,
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "This starfish is the leader of both the \\v[combat.name.jungle/blob] and the \\v[combat.name.jungle/blob-wave]. It can enter a strange synthesis with them to create a large mass that is almost impenetrable. Only by using compressed shock balls can the bond be broken.",
+          "de_DE": "Dieser Seestern ist der Anführer der \\v[combat.name.jungle/blob] und der \\v[combat.name.jungle/blob-wave]. Es kann eine seltsame Synthese mit ihnen eingehen, die eine gewaltige undurchdringliche Masse bildet. Nur gebündelte Schock-Bälle können diesen Mantel brechen.<<C<<Überprüfen: Beschreibung",
+          "zh_CN": "这只海星是\\v[combat.name.jungle/blob]和\\v[combat.name.jungle/blob-wave]的领袖。它可以与它们产生奇妙的共生关系，结合成几乎不可破坏的巨型身体。只有通过蓄力电球才能破坏它们之间的联系。<<A<<[CHANGED 2018/10/16]",
+          "ja_JP": "\\v[combat.name.jungle/blob]と\\v[combat.name.jungle/blob-wave]の統率者であるヒトデ型モンスター。前述の2種と合体することによって巨大な体へと変身し、ほぼ無敵になることができる。圧縮した電撃攻撃を当ててその結合を解除することで、ダメージを与えられる。<<A<<[CHANGED 2018/10/16]",
+          "ko_KR": "이 불가사리는 \\v[combat.name.jungle/blob]과 \\v[combat.name.jungle/blob-wave]의 리더입니다. 불가사리는 그 둘과 이상한 형태로 합성해 거의 뚫을 수 없는 거대한 덩어리가 됩니다. 압축된 전기 공으로만 녀석들의 끈끈함을 부술 수 있습니다.<<A<<[CHANGED 2018/10/16]",
+          "langUid": -6
+        },
+        "condition": ""
+      }
+    ],
+    "species": {
+      "en_US": "Starfish",
+      "de_DE": "Seestern<<C<<Überprüfen: Beschreibung",
+      "zh_CN": "胶质生物<<A<<[CHANGED 2018/08/01]",
+      "ja_JP": "ヒトデ<<A<<[CHANGED 2018/08/01]",
+      "ko_KR": "불가사리<<A<<[CHANGED 2018/08/01]",
+      "langUid": -4
+    },
+    "category": "ABSTRACT",
+    "level": 80,
+    "boostedLevel": 0,
+    "params": {
+      "hp": 673414,
+      "attack": 480,
+      "defense": 510,
+      "focus": 456,
+      "elemFactor": [
+        0.75,
+        1.25,
+        1.5,
+        0.5
+      ],
+      "statusInflict": [
+        0.75,
+        0.5,
+        0.75,
+        0
+      ],
+      "statusEffect": [
+        0.05,
+        0.75,
+        0.05,
+        1
+      ]
+    },
+    "credit": 100000,
+    "exp": 2000,
+    "itemDrops": [],
+    "boss": true
   }
 }

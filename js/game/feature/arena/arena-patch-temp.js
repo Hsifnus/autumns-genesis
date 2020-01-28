@@ -3,7 +3,10 @@ ig.module("game.feature.arena.arena-patch-temp").requires("game.feature.arena.ar
 	var moddedCups = {
     "master-trial-test-cup": {
       order: 1002
-    }
+    },
+    "master-trial-test-cup-2": {
+      order: 1003
+    },
 	};
 	sc.Arena.inject({
 		loadModdedCups: false,
