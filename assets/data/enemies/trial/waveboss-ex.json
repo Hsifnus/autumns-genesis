@@ -1528,7 +1528,7 @@
           "type": "MOVE_FORWARD"
         },
         {
-          "duration": 0,
+          "duration": 5.8,
           "align": "BOTTOM",
           "rotateFace": 0,
           "flipLeftFace": false,
@@ -1604,7 +1604,7 @@
           }
         },
         {
-          "time": 3,
+          "time": 3.6,
           "type": "WAIT"
         }
       ],
@@ -1650,7 +1650,7 @@
           "type": "MOVE_FORWARD"
         },
         {
-          "duration": 0,
+          "duration": 6.8,
           "align": "BOTTOM",
           "rotateFace": 0,
           "flipLeftFace": false,
@@ -1676,12 +1676,12 @@
 	        "fadeRadius":128,
 	        "minRadius":0,
 	        "zHeight":0,
-	        "duration":2.8,
+	        "duration":3.5,
 	        "align":"CENTER",
 	        "type":"PUSH_PULL_FORCE"
 	      },
         {
-          "time": 3.8,
+          "time": 3.5,
           "type": "WAIT"
         },
         {
@@ -1726,7 +1726,7 @@
           }
         },
         {
-          "time": 3,
+          "time": 3.6,
           "type": "WAIT"
         }
       ],
@@ -2101,7 +2101,6 @@
             	"y":-24
             },
             "time": 0.2,
-            "renderMode":"lighter",
             "repeat": true,
             "guiSprites":false,
             "frames": [

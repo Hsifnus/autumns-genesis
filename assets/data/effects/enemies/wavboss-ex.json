@@ -1913,7 +1913,7 @@
         "type": "CHANGE_SCALE"
       },
       {
-        "numParticles":120,
+        "numParticles":40,
         "duration":2,
         "centralAngle":1,
         "startDist":16,
@@ -1952,7 +1952,7 @@
         "type":"LOOP_START"
       },
       {
-        "numParticles":3,
+        "numParticles":1,
         "duration":0.1,
         "centralAngle":1,
         "startDist":16,
@@ -2430,7 +2430,7 @@
         "clockwise":false,
         "inverse":false,
         "collision":false,
-        "particleDuration":3,
+        "particleDuration":3.3,
         "pAlpha": {
           "init": 0,
           "start": {
@@ -2458,9 +2458,12 @@
             "spline":"EASE_OUT"
           },
           "end": {
-            "value": 0.5,
-            "time": 0.4,
-            "spline":"EASE_IN_OUT"
+            "value":{  
+              "x":0.5,
+              "y":0.5
+            },
+            "time": 0.3,
+            "spline":"EASE_IN"
           }
         },
         "anim":"WAVE_SPIRAL",
@@ -2700,7 +2703,7 @@
         "clockwise":false,
         "inverse":false,
         "collision":false,
-        "particleDuration":3,
+        "particleDuration":3.3,
         "pAlpha": {
           "init": 0,
           "start": {
@@ -2728,9 +2731,12 @@
             "spline":"EASE_OUT"
           },
           "end": {
-            "value": 0.5,
-            "time": 0.4,
-            "spline":"EASE_IN_OUT"
+            "value":{  
+              "x":0.5,
+              "y":0.5
+            },
+            "time": 0.3,
+            "spline":"EASE_IN"
           }
         },
         "anim":"WAVE_SPIRAL",
