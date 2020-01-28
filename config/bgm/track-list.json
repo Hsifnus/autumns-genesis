@@ -8,5 +8,12 @@
         "path" : "assets/media/bgm/muTitleautumn.ogg",
         "loopEnd" : 37.419,
         "volume" : 1
+    },
+    "strikeHarder": {
+        "introPath": "assets/media/bgm/muStrikeharder-i.ogg",
+        "path": "assets/media/bgm/muStrikeharder.ogg",
+        "introEnd": 19.209,
+        "loopEnd": 184.506,
+        "volume": 1.8
     }
 }

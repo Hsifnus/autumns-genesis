@@ -706,7 +706,7 @@
             "condition": "!arena.isRush",
             "thenStep": [
               {
-                "bgm": "designerBoss1",
+                "bgm": "strikeHarder",
                 "volume": 1,
                 "mode": "IMMEDIATELY",
                 "type": "PUSH_BGM"
