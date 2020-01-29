@@ -2266,6 +2266,54 @@
         "type":"WAIT"
       }
     ],
+    "aquaSpiralMarker":[
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "time": 0.3,
+        "type": "WAIT"
+      },
+      {
+        "numParticles": 48,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 92,
+        "particleRotate": true,
+        "moveDist": 4,
+        "moveVariance": 0,
+        "keySpline": "EASE_IN_OUT",
+        "moveRotate": -0.125,
+        "rotateWithTime": true,
+        "inverse": true,
+        "collision": false,
+        "pRotate": {
+          "init": 0.25
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.6,
+        "cancelable": true,
+        "anim": "WAVE_DOT1",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "pRotate": {
+          "init": 0.5
+        },
+        "moveWithTarget": 1,
+        "anim": "WAVE_EXPLODE",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "time": 0.3,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
     "aquaSpiral":[
       {
         "size": "XXXXL",

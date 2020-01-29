@@ -1528,6 +1528,26 @@
           "type": "MOVE_FORWARD"
         },
         {
+          "duration": 2.8,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.wavboss-ex",
+            "name": "aquaSpiralMarker"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
           "duration": 5.8,
           "align": "BOTTOM",
           "rotateFace": 0,
@@ -1662,6 +1682,26 @@
           "effect": {
             "sheet": "enemies.wavboss-ex",
             "name": "aquaSpiralSlow"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 3.5,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.wavboss-ex",
+            "name": "aquaSpiralMarker"
           },
           "offset": {
             "x": 0,
