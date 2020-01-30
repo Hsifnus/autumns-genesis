@@ -1489,7 +1489,7 @@
       "invisible": false,
       "hp": 0,
       "stickToSource": "NONE",
-      "group": "",
+      "group": "memory",
       "size": {
         "x": 16,
         "y": 16,
@@ -1528,25 +1528,32 @@
           "type": "MOVE_FORWARD"
         },
         {
-          "duration": 2.8,
-          "align": "BOTTOM",
-          "rotateFace": 0,
-          "flipLeftFace": false,
-          "wait": false,
-          "waitSkip": 0,
-          "actionDetached": false,
-          "fixPos": false,
-          "type": "SHOW_EFFECT",
-          "effect": {
-            "sheet": "enemies.wavboss-ex",
-            "name": "aquaSpiralMarker"
-          },
-          "offset": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          }
-        },
+      		"condition":"!newgame.harder-enemies",
+      		"withElse":false,
+      		"type":"IF",
+      		"thenStep":[
+	        	{
+		          "duration": 2.8,
+		          "align": "BOTTOM",
+		          "rotateFace": 0,
+		          "flipLeftFace": false,
+		          "wait": false,
+		          "waitSkip": 0,
+		          "actionDetached": false,
+		          "fixPos": false,
+		          "type": "SHOW_EFFECT",
+		          "effect": {
+		            "sheet": "enemies.wavboss-ex",
+		            "name": "aquaSpiralMarker"
+		          },
+		          "offset": {
+		            "x": 0,
+		            "y": 0,
+		            "z": 0
+		          }
+		        }
+      		]
+      	},
         {
           "duration": 5.8,
           "align": "BOTTOM",
@@ -1690,25 +1697,32 @@
           }
         },
         {
-          "duration": 3.5,
-          "align": "BOTTOM",
-          "rotateFace": 0,
-          "flipLeftFace": false,
-          "wait": false,
-          "waitSkip": 0,
-          "actionDetached": false,
-          "fixPos": false,
-          "type": "SHOW_EFFECT",
-          "effect": {
-            "sheet": "enemies.wavboss-ex",
-            "name": "aquaSpiralMarker"
-          },
-          "offset": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-          }
-        },
+      		"condition":"!newgame.harder-enemies",
+      		"withElse":false,
+      		"type":"IF",
+      		"thenStep":[
+	        	{
+		          "duration": 2.8,
+		          "align": "BOTTOM",
+		          "rotateFace": 0,
+		          "flipLeftFace": false,
+		          "wait": false,
+		          "waitSkip": 0,
+		          "actionDetached": false,
+		          "fixPos": false,
+		          "type": "SHOW_EFFECT",
+		          "effect": {
+		            "sheet": "enemies.wavboss-ex",
+		            "name": "aquaSpiralMarker"
+		          },
+		          "offset": {
+		            "x": 0,
+		            "y": 0,
+		            "z": 0
+		          }
+		        }
+      		]
+      	},
         {
         "strength":"WALK_ESCAPE",
 	        "pull":true,
@@ -2110,7 +2124,7 @@
       "multiHit": false,
       "noLightGlow": false,
       "config": {
-        "zGravityFactor": 1,
+        "zGravityFactor": 0.5,
         "collType":"IGNORE"
       },
       "attack": {
@@ -2158,10 +2172,23 @@
 	        "type": "SET_ATTRIB_NUMBER",
 	        "value": 1
 	      },
-        {
-          "value": 40,
-          "type": "SET_SPEED"
-        },
+	      {
+	        "withElse": true,
+	        "type": "IF",
+	        "condition": "newgame.harder-enemies",
+	        "thenStep":[
+		        {
+		          "value": 30,
+		          "type": "SET_SPEED"
+		        }
+	        ],
+	        "elseStep":[
+		        {
+		          "value": 40,
+		          "type": "SET_SPEED"
+		        }
+	        ]
+	      },
         {
           "duration": -1,
           "align": "CENTER",
@@ -2954,10 +2981,6 @@
         }
       },
       {
-        "type": "RESET_TRACKER",
-        "tracker": "stunRegen"
-      },
-      {
         "conditions": [
           {
             "min": 1,
@@ -2990,6 +3013,10 @@
             }
           }
         ]
+      },
+      {
+        "type": "RESET_TRACKER",
+        "tracker": "stunRegen"
       }
     ],
     "AntiFieldBreakPost": [
@@ -3022,6 +3049,28 @@
         "precise": true,
         "assistSlow": false,
         "type": "NAVIGATE_TO_ENTITY"
+      },
+      {
+        "conditions": [
+          {
+            "min": 2,
+            "negated": false,
+            "type": "HP_BREAK"
+          },
+          {
+            "condition": "entity.attrib.aquaticCount == 0",
+            "negated": false,
+            "type": "VAR_CONDITION"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+          {
+          	"actionName": "AquaticSpheres",
+          	"type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
       }
     ],
     "DashAttack": [
@@ -3265,15 +3314,34 @@
         ],
         "elseStep":[
         	{
-		        "align": "BOTTOM",
-		        "type": "SHOOT_PROXY",
-		        "proxy": "memoryBomb",
-		        "offset": {
-		          "x": 0,
-		          "y": 0,
-		          "z": 4
-		        }
-		      }
+        		"condition":"newgame.harder-enemies",
+        		"withElse":true,
+        		"type":"IF",
+        		"thenStep":[
+		        	{
+				        "align": "BOTTOM",
+				        "type": "SHOOT_PROXY",
+				        "proxy": "memoryBombHidden",
+				        "offset": {
+				          "x": 0,
+				          "y": 0,
+				          "z": 4
+				        }
+				      }
+        		],
+        		"elseStep":[
+        			{
+				        "align": "BOTTOM",
+				        "type": "SHOOT_PROXY",
+				        "proxy": "memoryBomb",
+				        "offset": {
+				          "x": 0,
+				          "y": 0,
+				          "z": 4
+				        }
+				      }
+        		]
+        	}
         ]
       },
       {
@@ -3630,15 +3698,34 @@
         ],
         "elseStep":[
         	{
-		        "align": "BOTTOM",
-		        "type": "SHOOT_PROXY",
-		        "proxy": "memoryBomb",
-		        "offset": {
-		          "x": 0,
-		          "y": 0,
-		          "z": 4
-		        }
-		      }
+        		"condition":"newgame.harder-enemies",
+        		"withElse":true,
+        		"type":"IF",
+        		"thenStep":[
+		        	{
+				        "align": "BOTTOM",
+				        "type": "SHOOT_PROXY",
+				        "proxy": "memoryBombHidden",
+				        "offset": {
+				          "x": 0,
+				          "y": 0,
+				          "z": 4
+				        }
+				      }
+        		],
+        		"elseStep":[
+        			{
+				        "align": "BOTTOM",
+				        "type": "SHOOT_PROXY",
+				        "proxy": "memoryBomb",
+				        "offset": {
+				          "x": 0,
+				          "y": 0,
+				          "z": 4
+				        }
+				      }
+        		]
+        	}
         ]
       },
       {
@@ -4025,43 +4112,14 @@
         }
       },
       {
-        "conditions": [
-          {
-            "min": 2,
-            "negated": false,
-            "type": "HP_BREAK"
-          }
-        ],
-        "withElse": true,
-        "type": "COMBAT_IF",
-        "thenStep": [
-		      { 
-		        "align":"CENTER",
-		        "centralAngle":0.13,
-		        "angleVary":0,
-		        "random":false,
-		        "count":5,
-		        "duration":0,
-		        "clockwise":false,
-		        "flipLeftFace":0,
-		        "circularArea":false,
-		        "uniformDir":0,
-		        "delay":0,
-		        "repeat":false,
-		        "type":"SHOOT_PROXY_RANGE",
-		        "proxy":"waveGun",
-		        "offset":{ 
-		          "x":0,
-		          "y":0,
-		          "z":0
-		        }
-		      }
-        ],
-        "elseStep":[
-        	{
+      	"condition":"newgame.harder-enemies",
+      	"withElse":true,
+      	"type":"IF",
+      	"thenStep":[
+      		{
 		        "conditions": [
 		          {
-		            "min": 1,
+		            "min": 2,
 		            "negated": false,
 		            "type": "HP_BREAK"
 		          }
@@ -4071,10 +4129,10 @@
 		        "thenStep": [
 				      { 
 				        "align":"CENTER",
-				        "centralAngle":0.08,
+				        "centralAngle":0.24,
 				        "angleVary":0,
 				        "random":false,
-				        "count":3,
+				        "count":9,
 				        "duration":0,
 				        "clockwise":false,
 				        "flipLeftFace":0,
@@ -4093,18 +4151,149 @@
 		        ],
 		        "elseStep":[
 		        	{
-				        "align": "CENTER",
-				        "type": "SHOOT_PROXY",
-				        "proxy": "waveGun",
-				        "offset": {
-				          "x": 0,
-				          "y": 0,
-				          "z": 0
-				        }
+				        "conditions": [
+				          {
+				            "min": 1,
+				            "negated": false,
+				            "type": "HP_BREAK"
+				          }
+				        ],
+				        "withElse": true,
+				        "type": "COMBAT_IF",
+				        "thenStep": [
+						      { 
+						        "align":"CENTER",
+						        "centralAngle":0.13,
+						        "angleVary":0,
+						        "random":false,
+						        "count":5,
+						        "duration":0,
+						        "clockwise":false,
+						        "flipLeftFace":0,
+						        "circularArea":false,
+						        "uniformDir":0,
+						        "delay":0,
+						        "repeat":false,
+						        "type":"SHOOT_PROXY_RANGE",
+						        "proxy":"waveGun",
+						        "offset":{ 
+						          "x":0,
+						          "y":0,
+						          "z":0
+						        }
+						      }
+				        ],
+				        "elseStep":[
+				        	{ 
+						        "align":"CENTER",
+						        "centralAngle":0.08,
+						        "angleVary":0,
+						        "random":false,
+						        "count":3,
+						        "duration":0,
+						        "clockwise":false,
+						        "flipLeftFace":0,
+						        "circularArea":false,
+						        "uniformDir":0,
+						        "delay":0,
+						        "repeat":false,
+						        "type":"SHOOT_PROXY_RANGE",
+						        "proxy":"waveGun",
+						        "offset":{ 
+						          "x":0,
+						          "y":0,
+						          "z":0
+						        }
+						      }
+				        ]
 				      }
 		        ]
 		      }
-        ]
+      	],
+      	"elseStep":[
+      		{
+		        "conditions": [
+		          {
+		            "min": 2,
+		            "negated": false,
+		            "type": "HP_BREAK"
+		          }
+		        ],
+		        "withElse": true,
+		        "type": "COMBAT_IF",
+		        "thenStep": [
+				      { 
+				        "align":"CENTER",
+				        "centralAngle":0.13,
+				        "angleVary":0,
+				        "random":false,
+				        "count":5,
+				        "duration":0,
+				        "clockwise":false,
+				        "flipLeftFace":0,
+				        "circularArea":false,
+				        "uniformDir":0,
+				        "delay":0,
+				        "repeat":false,
+				        "type":"SHOOT_PROXY_RANGE",
+				        "proxy":"waveGun",
+				        "offset":{ 
+				          "x":0,
+				          "y":0,
+				          "z":0
+				        }
+				      }
+		        ],
+		        "elseStep":[
+		        	{
+				        "conditions": [
+				          {
+				            "min": 1,
+				            "negated": false,
+				            "type": "HP_BREAK"
+				          }
+				        ],
+				        "withElse": true,
+				        "type": "COMBAT_IF",
+				        "thenStep": [
+						      { 
+						        "align":"CENTER",
+						        "centralAngle":0.08,
+						        "angleVary":0,
+						        "random":false,
+						        "count":3,
+						        "duration":0,
+						        "clockwise":false,
+						        "flipLeftFace":0,
+						        "circularArea":false,
+						        "uniformDir":0,
+						        "delay":0,
+						        "repeat":false,
+						        "type":"SHOOT_PROXY_RANGE",
+						        "proxy":"waveGun",
+						        "offset":{ 
+						          "x":0,
+						          "y":0,
+						          "z":0
+						        }
+						      }
+				        ],
+				        "elseStep":[
+				        	{
+						        "align": "CENTER",
+						        "type": "SHOOT_PROXY",
+						        "proxy": "waveGun",
+						        "offset": {
+						          "x": 0,
+						          "y": 0,
+						          "z": 0
+						        }
+						      }
+				        ]
+				      }
+		        ]
+		      }
+      	]
       },
       {
         "assistSlow": false,
@@ -5275,6 +5464,10 @@
         "type": "SET_POI_TEMP_TARGET"
       },
       {
+				"value":16,
+				"type":"SET_FLOAT_HEIGHT"
+			},
+      {
         "maxTime": 3,
         "forceTime": false,
         "distance": 0,
@@ -5287,11 +5480,106 @@
 				"value":-1,
 				"type":"SET_WEIGHT"
 			},
+      {
+	      "withElse": false,
+        "type": "IF",
+        "condition": "newgame.harder-enemies",
+        "thenStep":[
+	        {
+		        "type": "SELECT_RANDOM",
+		        "options": [
+		          {
+		            "0": " ",
+		            "count": 2,
+		            "weight": 1
+		          }
+		        ],
+		        "0_0":[
+		        	{ 
+				        "face":"WEST",
+				        "rotate":false,
+				        "rotateSpeed":10,
+				        "type":"SET_FACE"
+				      },
+				      {
+				      	"time":0.2,
+				      	"type":"WAIT"
+				      },
+							{ 
+				        "align":"BOTTOM",
+				        "centralAngle":0.25,
+				        "angleVary":0,
+				        "random":false,
+				        "count":3,
+				        "duration":0,
+				        "clockwise":false,
+				        "flipLeftFace":0,
+				        "circularArea":false,
+				        "uniformDir":0,
+				        "delay":0,
+				        "repeat":false,
+				        "type":"SHOOT_PROXY_RANGE",
+				        "proxy":"aquaSpiral",
+				        "offset":{ 
+				          "x":0,
+				          "y":0,
+				          "z":0
+				        }
+				      },
+				      {
+				      	"time":1,
+				      	"type":"WAIT"
+				      }
+		        ],
+		        "0_1":[
+		        	{ 
+				        "face":"EAST",
+				        "rotate":false,
+				        "rotateSpeed":10,
+				        "type":"SET_FACE"
+				      },
+				      {
+				      	"time":0.2,
+				      	"type":"WAIT"
+				      },
+		        	{ 
+				        "align":"BOTTOM",
+				        "centralAngle":0.25,
+				        "angleVary":0,
+				        "random":false,
+				        "count":3,
+				        "duration":0,
+				        "clockwise":false,
+				        "flipLeftFace":0,
+				        "circularArea":false,
+				        "uniformDir":0,
+				        "delay":0,
+				        "repeat":false,
+				        "type":"SHOOT_PROXY_RANGE",
+				        "proxy":"aquaSpiral",
+				        "offset":{ 
+				          "x":0,
+				          "y":0,
+				          "z":0
+				        }
+				      },
+				      {
+				      	"time":1,
+				      	"type":"WAIT"
+				      }
+		        ]
+			    }
+        ]
+      },
 			{ 
         "face":"SOUTH",
         "rotate":false,
         "rotateSpeed":10,
         "type":"SET_FACE"
+      },
+      {
+      	"time":0.2,
+      	"type":"WAIT"
       },
 			{ 
         "align":"BOTTOM",
@@ -5380,6 +5668,10 @@
         }
       },
       {
+				"value":8,
+				"type":"SET_FLOAT_HEIGHT"
+			},
+      {
       	"time":0.5,
       	"type":"WAIT"
       },
@@ -5409,6 +5701,7 @@
       },
       {
       	"time":4,
+      	"aggroTime:":3,
       	"type":"WAIT"
       }
 		]
