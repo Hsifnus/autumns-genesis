@@ -3067,12 +3067,9 @@
         "type": "COMBAT_IF",
         "thenStep": [
           {
+          	"noStateReset": false,
           	"actionName": "AquaticSpheres",
-          	"type": "DO_ENEMY_ACTION_INLINE"
-          },
-          {
-          	"time":0.3,
-          	"type":"WAIT"
+          	"type": "DO_ENEMY_ACTION"
           }
         ]
       }

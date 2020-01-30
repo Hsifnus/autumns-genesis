@@ -5218,8 +5218,12 @@
       	"conditions":[
       		{
       			"min": 2,
-      			"type":"HP_BREAK"
-      		}
+      			"type":"!HP_BREAK"
+      		},
+          {
+            "condition":"!newgame-harder-enemies",
+            "type":"VAR_CONDITION"
+          }
       	],
       	"withElse":true,
       	"type":"COMBAT_IF",
@@ -5227,7 +5231,7 @@
 		      { 
 		        "align":"BOTTOM",
 		        "type":"SHOOT_PROXY",
-		        "proxy":"crimsonInfernoMarker",
+		        "proxy":"crimsonInfernoMarker2",
 		        "offset":{ 
 		          "x":0,
 		          "y":0,
@@ -5239,7 +5243,7 @@
 		      { 
 		        "align":"BOTTOM",
 		        "type":"SHOOT_PROXY",
-		        "proxy":"crimsonInfernoMarker2",
+		        "proxy":"crimsonInfernoMarker",
 		        "offset":{ 
 		          "x":0,
 		          "y":0,
