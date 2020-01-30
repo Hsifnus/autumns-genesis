@@ -5552,7 +5552,7 @@
         "flipLeftFace":false,
         "wait":false,
         "waitSkip":0,
-        "actionDetached":false,
+        "actionDetached":true,
         "group":"base",
         "fixPos":false,
         "type":"SHOW_EFFECT",
