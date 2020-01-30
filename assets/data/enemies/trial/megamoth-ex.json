@@ -1978,7 +1978,7 @@
         		}
         	],
         	"type": "COMBAT_IF",
-        	"withElse": false,
+        	"withElse": true,
         	"thenStep": [
 						{ 
 							"align":"BOTTOM",
@@ -2003,7 +2003,48 @@
 							  "z":4
 							}
 						}
-        	]
+        	],
+          "elseStep":[
+            {
+              "conditions":[
+                {
+                  "min":1,
+                  "type":"HP_BREAK"
+                },
+                {
+                  "condition":"newgame.harder-enemies",
+                  "type":"VAR_CONDITION"
+                }
+              ],
+              "withElse":false,
+              "type":"COMBAT_IF",
+              "thenStep":[
+                { 
+                  "align":"BOTTOM",
+                  "centralAngle":1,
+                  "angleVary":0,
+                  "startDist":16,
+                  "startDistCollide":"NONE",
+                  "random":false,
+                  "count":3,
+                  "duration":0,
+                  "clockwise":false,
+                  "flipLeftFace":0,
+                  "circularArea":false,
+                  "uniformDir":0,
+                  "delay":0,
+                  "repeat":false,
+                  "type":"SHOOT_PROXY_RANGE",
+                  "proxy":"flameWall",
+                  "offset":{ 
+                    "x":0,
+                    "y":0,
+                    "z":4
+                  }
+                }
+              ]
+            }
+          ]
         },
         { 
           "time":0.2,
@@ -2423,6 +2464,13 @@
       }
     ],
     "FrontInit":[
+      {
+        "attribName":"anticheese",
+        "changeType":"set",
+        "proxyOwner":false,
+        "type":"SET_ATTRIB_NUMBER",
+        "value":0
+      },
       {
         "attribName":"consume",
         "changeType":"set",
@@ -3935,7 +3983,7 @@
       			"type":"HP_BREAK"
       		}
       	],
-    		"withElse":false,
+    		"withElse":true,
     		"type":"COMBAT_IF",
     		"thenStep":[
 		      { 
@@ -3964,7 +4012,51 @@
 		        "time":0.3,
 		        "type":"WAIT"
 		      }
-    		]
+    		],
+        "elseStep":[
+          {
+            "conditions":[
+              {
+                "min":1,
+                "type":"HP_BREAK"
+              },
+              {
+                "condition":"newgame.harder-enemies",
+                "type":"VAR_CONDITION"
+              }
+            ],
+            "withElse":false,
+            "type":"COMBAT_IF",
+            "thenStep":[
+              { 
+                "duration":-1,
+                "align":"BOTTOM",
+                "rotateFace":2,
+                "flipLeftFace":false,
+                "wait":false,
+                "waitSkip":0,
+                "actionDetached":false,
+                "group":"charge",
+                "partName":"eye",
+                "fixPos":false,
+                "type":"SHOW_EFFECT",
+                "effect":{ 
+                  "sheet":"specials.heat",
+                  "name":"heatSubCharge"
+                },
+                "offset":{ 
+                  "x":0,
+                  "y":0,
+                  "z":0
+                }
+              },
+              { 
+                "time":0.3,
+                "type":"WAIT"
+              }
+            ]
+          }
+        ]
       },
       { 
         "time":0.5,
@@ -4120,34 +4212,75 @@
       		{
       			"min": 1,
       			"type":"HP_BREAK"
-      		}
+      		},
+          {
+            "condition":"newgame.harder-enemies",
+            "type":"VAR_CONDITION"
+          }
       	],
       	"withElse":true,
       	"type":"COMBAT_IF",
       	"thenStep":[
-		      { 
-		        "align":"BOTTOM",
-		        "centralAngle":0,
-		        "angleVary":0,
-		        "startDist":64,
-		        "startDistCollide":"NONE",
-		        "random":false,
-		        "count":1,
-		        "duration":0,
-		        "clockwise":false,
-		        "flipLeftFace":0,
-		        "circularArea":false,
-		        "uniformDir":0,
-		        "delay":0,
-		        "repeat":false,
-		        "type":"SHOOT_PROXY_RANGE",
-		        "proxy":"fireTornado",
-		        "offset":{ 
-		          "x":0,
-		          "y":0,
-		          "z":0
-		        }
-		      }
+    		  {
+            "conditions":[
+              {
+                "min": 2,
+                "type":"HP_BREAK"
+              }
+            ],
+            "withElse":true,
+            "type":"COMBAT_IF",
+            "thenStep":[
+              { 
+                "align":"BOTTOM",
+                "centralAngle":0.25,
+                "angleVary":0,
+                "startDist":64,
+                "startDistCollide":"NONE",
+                "random":false,
+                "count":3,
+                "duration":0,
+                "clockwise":false,
+                "flipLeftFace":0,
+                "circularArea":false,
+                "uniformDir":0,
+                "delay":0,
+                "repeat":false,
+                "type":"SHOOT_PROXY_RANGE",
+                "proxy":"fireTornado",
+                "offset":{ 
+                  "x":0,
+                  "y":0,
+                  "z":0
+                }
+              }
+            ],
+            "elseStep":[
+              { 
+                "align":"BOTTOM",
+                "centralAngle":0.15,
+                "angleVary":0,
+                "startDist":64,
+                "startDistCollide":"NONE",
+                "random":false,
+                "count":2,
+                "duration":0,
+                "clockwise":false,
+                "flipLeftFace":0,
+                "circularArea":false,
+                "uniformDir":0,
+                "delay":0,
+                "repeat":false,
+                "type":"SHOOT_PROXY_RANGE",
+                "proxy":"fireTornado",
+                "offset":{ 
+                  "x":0,
+                  "y":0,
+                  "z":0
+                }
+              }
+            ]
+          }
       	],
       	"elseStep":[
 		      { 
@@ -4281,43 +4414,90 @@
         "type":"SHOW_ANIMATION",
         "anim":"preChargeSide"
       },
-      {
-      	"conditions":[
-      		{
-      			"min":2,
-      			"type":"HP_BREAK"
-      		}
-      	],
-    		"withElse":true,
-    		"type":"COMBAT_IF",
-    		"thenStep":[
-		      { 
-		        "text":{ 
-		          "en_US":"Incoming inferno!",
-		          "langUid":3
-		        },
-		        "mode":"LINE_FILL",
-		        "color":"RED",
-		        "actionDetached":false,
-		        "partName":"head",
-		        "time":1.5,
-		        "type":"SHOW_AR_MSG"
-		      }
-    		],
-    		"elseStep":[
-    			{ 
-		        "text":{ 
-		          "en_US":"Incoming inferno!",
-		          "langUid":3
-		        },
-		        "mode":"LINE_FILL",
-		        "color":"RED",
-		        "actionDetached":false,
-		        "partName":"head",
-		        "time":2,
-		        "type":"SHOW_AR_MSG"
-		      }
-    		]
+      { 
+        "withElse":true,
+        "type":"IF",
+        "condition":"newgame.harder-enemies",
+        "thenStep":[ 
+          {
+            "conditions":[
+              {
+                "min":2,
+                "type":"HP_BREAK"
+              }
+            ],
+            "withElse":true,
+            "type":"COMBAT_IF",
+            "thenStep":[
+              { 
+                "text":{ 
+                  "en_US":"Incoming inferno!",
+                  "langUid":3
+                },
+                "mode":"LINE_FILL",
+                "color":"RED",
+                "actionDetached":false,
+                "partName":"head",
+                "time":1,
+                "type":"SHOW_AR_MSG"
+              }
+            ],
+            "elseStep":[
+              { 
+                "text":{ 
+                  "en_US":"Incoming inferno!",
+                  "langUid":3
+                },
+                "mode":"LINE_FILL",
+                "color":"RED",
+                "actionDetached":false,
+                "partName":"head",
+                "time":1.5,
+                "type":"SHOW_AR_MSG"
+              }
+            ]
+          }
+        ],
+        "elseStep":[ 
+          {
+            "conditions":[
+              {
+                "min":2,
+                "type":"HP_BREAK"
+              }
+            ],
+            "withElse":true,
+            "type":"COMBAT_IF",
+            "thenStep":[
+              { 
+                "text":{ 
+                  "en_US":"Incoming inferno!",
+                  "langUid":3
+                },
+                "mode":"LINE_FILL",
+                "color":"RED",
+                "actionDetached":false,
+                "partName":"head",
+                "time":1.5,
+                "type":"SHOW_AR_MSG"
+              }
+            ],
+            "elseStep":[
+              { 
+                "text":{ 
+                  "en_US":"Incoming inferno!",
+                  "langUid":3
+                },
+                "mode":"LINE_FILL",
+                "color":"RED",
+                "actionDetached":false,
+                "partName":"head",
+                "time":2,
+                "type":"SHOW_AR_MSG"
+              }
+            ]
+          }
+        ]
       },
       { 
         "attrib":"platform",
@@ -4362,12 +4542,14 @@
     		"type":"COMBAT_IF",
     		"thenStep":[
 					{ 
+            "aggroTime":1,
 		        "time":1.5,
 		        "type":"WAIT"
 		      }
     		],
     		"elseStep":[
 					{ 
+            "aggroTime":1.5,
 		        "time":2,
 		        "type":"WAIT"
 		      }
@@ -4678,6 +4860,20 @@
         ]
       },
       { 
+        "condition":"newgame.harder-enemies",
+        "withElse":false,
+        "type":"IF",
+        "thenStep":[ 
+          { 
+            "attribName":"dashRepeats",
+            "changeType":"add",
+            "proxyOwner":false,
+            "type":"SET_ATTRIB_NUMBER",
+            "value":1
+          }
+        ]
+      },
+      { 
         "conditions":[ 
           { 
             "max":0,
@@ -4699,7 +4895,7 @@
         "type":"SET_FLY_HEIGHT"
       },
       { 
-        "condition":"entity.attrib.dashRepeats == 0",
+        "condition":"entity.attrib.dashRepeats == 0 || (entity.attrib.dashRepeats == 1 && newgame.harder-enemies)",
         "withElse":true,
         "type":"IF",
         "thenStep":[ 
@@ -4768,7 +4964,7 @@
         }
       },
       { 
-        "condition":"entity.attrib.dashRepeats == 0",
+        "condition":"entity.attrib.dashRepeats == 0 || (entity.attrib.dashRepeats == 1 && newgame.harder-enemies)",
         "withElse":false,
         "type":"IF",
         "thenStep":[ 
@@ -5241,7 +5437,7 @@
         "type":"SET_FLY_HEIGHT"
       },
       { 
-        "aggroTime":0.2,
+        "aggroTime":0.1,
         "time":0.6,
         "type":"WAIT"
       },
@@ -5443,9 +5639,16 @@
       }
     ],
     "LaserAttack":[ 
-      { 
-        "name":"face",
-        "type":"REMOVE_SHIELD"
+      {
+        "condition":"!newgame.harder-enemies || entity.attrib.anticheese == 0",
+        "withElse":false,
+        "type":"IF",
+        "thenStep":[
+          { 
+            "name":"face",
+            "type":"REMOVE_SHIELD"
+          }
+        ]
       },
       { 
         "value":4,
@@ -6253,21 +6456,35 @@
         "time":0.5,
         "type":"WAIT"
       },
-      { 
-        "name":"face",
-        "actionDetached":true,
-        "type":"ADD_SHIELD",
-        "shield":{ 
-          "type":"PARTS",
-          "settings":{ 
-            "baseFactor":0.01,
-            "parts":[ 
-              "head"
-            ],
-            "inverse":false,
-            "stableOverride":"MASSIVE"
+      {
+        "condition":"newgame.harder-enemies && entity.attrib.anticheese == 1",
+        "withElse":false,
+        "type":"IF",
+        "thenStep":[
+          { 
+            "name":"face",
+            "actionDetached":true,
+            "type":"ADD_SHIELD",
+            "shield":{ 
+              "type":"PARTS",
+              "settings":{ 
+                "baseFactor":0.01,
+                "parts":[ 
+                  "head"
+                ],
+                "inverse":false,
+                "stableOverride":"MASSIVE"
+              }
+            }
+          },
+          {
+            "attribName":"anticheese",
+            "changeType":"set",
+            "proxyOwner":false,
+            "type":"SET_ATTRIB_NUMBER",
+            "value":0
           }
-        }
+        ]
       },
       { 
         "duration":0,
@@ -6806,6 +7023,13 @@
     "BreakPre":[ 
       { 
         "type":"CLEAR_AR_MSG"
+      },
+      {
+        "attribName":"anticheese",
+        "changeType":"set",
+        "proxyOwner":false,
+        "type":"SET_ATTRIB_NUMBER",
+        "value":1
       }
     ],
     "KillPre":[ 
@@ -6895,7 +7119,7 @@
       "ignoreFailed":false,
       "type":"HIT_REACTION"
     },
-    "HP_BREAK":{ 
+    "HP_BREAK":{
       "hitType":"HP_BREAK_HIT",
       "blockFurtherHits":false,
       "attackType":"BREAK",
