@@ -4895,7 +4895,7 @@
         "type":"SET_FLY_HEIGHT"
       },
       { 
-        "condition":"entity.attrib.dashRepeats == 0 || (entity.attrib.dashRepeats == 1 && newgame.harder-enemies)",
+        "condition":"entity.attrib.dashRepeats == 0",
         "withElse":true,
         "type":"IF",
         "thenStep":[ 
@@ -4925,6 +4925,37 @@
 		      }
         ],
         "elseStep":[
+          {
+            "condition":"entity.attrib.dashRepeats == 1 && newgame.harder-enemies",
+            "withElse":false,
+            "type":"IF",
+            "thenStep":[ 
+              {
+                "duration":0.5,
+                "align":"BOTTOM",
+                "rotateFace":0,
+                "flipLeftFace":false,
+                "wait":false,
+                "waitSkip":0,
+                "actionDetached":false,
+                "fixPos":false,
+                "type":"SHOW_EFFECT",
+                "effect":{
+                  "sheet":"specials.heat",
+                  "name":"heatSubCharge"
+                },
+                "offset":{
+                  "x":0,
+                  "y":0,
+                  "z":0
+                }
+              },
+              {
+                "time":0.3,
+                "type":"WAIT"
+              }
+            ]
+          },
 					{
 		        "time":0.2,
 		        "type":"WAIT"
@@ -5088,7 +5119,7 @@
             "type":"ROTATE_FACE"
           },
           { 
-		        "condition":"entity.attrib.dashRepeats == 0",
+		        "condition":"entity.attrib.dashRepeats == 0 || (entity.attrib.dashRepeats == 1 && newgame.harder-enemies)",
 		        "withElse":true,
 		        "type":"IF",
 		        "thenStep":[ 
@@ -5216,13 +5247,13 @@
       },
       {
       	"conditions":[
-      		{
-      			"min": 2,
-      			"type":"!HP_BREAK"
-      		},
           {
-            "condition":"!newgame-harder-enemies",
+            "condition":"!newgame.harder-enemies",
             "type":"VAR_CONDITION"
+          },
+          {
+            "max": 1,
+            "type":"HP_BREAK"
           }
       	],
       	"withElse":true,
