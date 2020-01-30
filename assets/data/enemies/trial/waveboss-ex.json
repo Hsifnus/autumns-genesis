@@ -3058,7 +3058,7 @@
             "type": "HP_BREAK"
           },
           {
-            "condition": "entity.attrib.aquaticCount == 0",
+            "condition": "entity.attrib.aquaticCount == 0 && newgame.harder-enemies",
             "negated": false,
             "type": "VAR_CONDITION"
           }
@@ -3069,6 +3069,10 @@
           {
           	"actionName": "AquaticSpheres",
           	"type": "DO_ENEMY_ACTION_INLINE"
+          },
+          {
+          	"time":0.3,
+          	"type":"WAIT"
           }
         ]
       }
