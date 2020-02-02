@@ -1635,12 +1635,12 @@
 		        	"thenStep":[
 			        	{ 
 					        "align":"BOTTOM",
-					        "centralAngle":0.2,
+					        "centralAngle":1,
 					        "startAngle":0,
 					        "startDist":128,
 					        "angleVary":0,
-					        "random":false,
-					        "count":2,
+					        "random":true,
+					        "count":1,
 					        "duration":0,
 					        "clockwise":false,
 					        "flipLeftFace":0,
