@@ -114,6 +114,13 @@
       "resetRandom": 0,
       "noStateReset": true,
       "type": "TIME"
+    },
+    "beams": {
+      "target": 40,
+      "initRandom": 0.2,
+      "resetRandom": 0.2,
+      "noStateReset": true,
+      "type": "TIME"
     }
   },
   "states": {
@@ -211,6 +218,11 @@
               "max": 0.5,
               "negated": false,
               "type": "RANDOM"
+            },
+            {
+              "negated": false,
+              "type": "TRACKER_READY",
+              "name": "beams"
             }
           ],
         	"action": "WhyIsThereUndertaleInMyCrosscode",
