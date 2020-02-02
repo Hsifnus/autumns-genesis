@@ -7,6 +7,9 @@ ig.module("game.feature.arena.arena-patch-temp").requires("game.feature.arena.ar
     "master-trial-test-cup-2": {
       order: 1003
     },
+    "master-trial-test-cup-3": {
+      order: 1004
+    }
 	};
 	sc.Arena.inject({
 		loadModdedCups: false,

@@ -333,5 +333,73 @@
     "exp": 2000,
     "itemDrops": [],
     "boss": true
+  },
+  "trial.shockboss-ex": {
+    "name": {
+      "en_US": "Plasma Phantom",
+      "de_DE": "Plasmaphantom",
+      "zh_CN": "离子幽灵",
+      "ja_JP": "プラズマファントム",
+      "ko_KR": "플라즈마 팬텀",
+      "langUid": 8074
+    },
+    "track": false,
+    "order": 10003,
+    "area": "shock-dng",
+    "kills": 1,
+    "anim": "idle",
+    "extra": false,
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "This cursed stone contains the soul of a once great Ancient. It mastered the shock element and can use it in all kinds of manners to disorient and overwhelm its enemies. Similar to the \\v[combat.name.jungle/ghost] it will cage itself to rain down lightning strikes upon its enemies. Use this window to shoot a compressed wave ball at it and break the curse!",
+          "de_DE": "Dieser verfluchter Stein beinhaltet eine Seele eines einst großen Ahnen. Er beherrschte das Schock-Element und kann es auf alle möglichen Arten einsetzen, um seine Feinde zu verwirren und zu überwältigen. Ähnlich dem \\v[combat.name.jungle/ghost] wird er sich in einen Käfig sperren, um Blitze auf seine Feinde niederzuschlagen. Nutze diesen Zeitpunkt, um einen kompakten Welle-Ball auf ihn zu feuern und den Fluch zu brechen!<<C<<Überprüfen: Beschreibung",
+          "zh_CN": "这块诅咒之石包含了一个曾经伟大的先祖灵魂。它掌握了电元素，能够巧妙的使用电元素来击晕或迷惑敌人。与\\v[combat.name.jungle/ghost]类似，它会保护好自身然后对敌人进行闪电狂轰乱炸。借这个机会向其射出蓄力波球！<<A<<[CHANGED 2018/08/01]",
+          "ja_JP": "かつての偉大な古代人の魂が封印されている呪われた石。電撃エレメントを極めており、ありとあらゆる戦術や技を駆使して敵を混乱させて圧倒する。また\\v[combat.name.jungle/ghost]と同じように、自身を壁の中に閉じ込めて、敵に稲妻の雨を降らせてくる。このチャンスを逃さず、圧縮した波動攻撃を命中させて、その呪いを打ち破ろう！<<A<<[CHANGED 2018/08/01]",
+          "ko_KR": "이 저주받은 돌에는 한때 위대했던 고대인의 영혼이 담겨 있습니다. 이 돌은 전기 속성을 마스터해 모든 방법으로 적을 교란하고 압도합니다. \\v[combat.name.jungle/ghost]와 비슷하게 자신의 몸을 숨겨 적에게 빗발치는 벼락을 선사합니다. 이 틈을 이용해 압축된 파동 공을 쏴 저주를 푸세요!<<A<<[CHANGED 2018/08/01]",
+          "langUid": -6
+        },
+        "condition": ""
+      }
+    ],
+    "species": {
+      "en_US": "Phantastical Being",
+      "de_DE": "Phantastisches Wesen<<C<<Überprüfen: Beschreibung",
+      "zh_CN": "幻之影",
+      "ja_JP": "幻想的な存在",
+      "ko_KR": "상상 속의 존재",
+      "langUid": -4
+    },
+    "category": "ABSTRACT",
+    "level": 44,
+    "boostedLevel": 0,
+    "params": {
+      "hp": 497256,
+      "attack": 514,
+      "defense": 435,
+      "focus": 502,
+      "elemFactor": [
+        1,
+        1,
+        0,
+        1.5
+      ],
+      "statusInflict": [
+        0.75,
+        0.5,
+        0,
+        0.75
+      ],
+      "statusEffect": [
+        0.2,
+        0.5,
+        0,
+        1
+      ]
+    },
+    "credit": 100000,
+    "exp": 2000,
+    "itemDrops": [],
+    "boss": true
   }
 }

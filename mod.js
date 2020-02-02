@@ -1,5 +1,7 @@
 import "./js/game/feature/arena/arena-patch-temp.js";
 
+import "./js/game/feature/combat/custom-sweep.js";
+
 import "./js/game/feature/combat/model/stun-status.js";
 
 import "./js/game/feature/font/font-system-override.js";
