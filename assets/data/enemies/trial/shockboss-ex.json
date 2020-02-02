@@ -7637,10 +7637,33 @@
         "type": "SET_FACE"
       },
       {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.puzzle1",
+        "value": false
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.puzzle2a",
+        "value": false
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.puzzle2b",
+        "value": false
+      },
+      {
         "wait": true,
         "viaWalkConfig": false,
         "type": "SHOW_ANIMATION",
         "anim": "groundBack"
+      },
+      {
+        "assistSlow": false,
+        "time": 0.1,
+        "type": "WAIT"
       }
     ],
     "GetClose": [
