@@ -1472,6 +1472,158 @@
 		        			"min":2,
 		        			"negated":false,
 		        			"type":"HP_BREAK"
+		        		}
+		        	],
+		        	"withElse":false,
+		        	"type":"COMBAT_IF",
+		        	"thenStep":[
+				        {
+				        	"time":0.15,
+				        	"type":"WAIT"
+				        },
+		        		{ 
+					        "face":"NORTH",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+				        {
+				        	"time":0.15,
+				        	"type":"WAIT"
+				        },
+				        {
+				      		"condition":"!newgame.harder-enemies",
+				      		"withElse":false,
+				      		"type":"IF",
+				      		"thenStep":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0.1,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":3,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      },
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0.5,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":2,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":0,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+				      		],
+				      		"elseStep":[
+				      			{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0.15,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":3,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      },
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0.5,
+							        "startAngle":-0.3,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":2,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":0,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      },
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0.5,
+							        "startDist":128,
+							        "startAngle":-0.2,
+							        "angleVary":0,
+							        "random":false,
+							        "count":2,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":0,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+				      		]
+				      	},
+				        {
+				        	"time":2,
+				        	"type":"WAIT"
+				        }
+		        	]
+		        },
+		        {
+		        	"conditions":[
+		        		{
+		        			"min":2,
+		        			"negated":false,
+		        			"type":"HP_BREAK"
 		        		},
 		        		{
 		        			"condition":"newgame.harder-enemies",
@@ -1720,7 +1872,7 @@
 							        "offset":{ 
 							          "x":0,
 							          "y":0,
-							          "z":0
+							          "z":12
 							        }
 							      }
 					        ],
@@ -1745,7 +1897,7 @@
 							        "offset":{ 
 							          "x":0,
 							          "y":0,
-							          "z":0
+							          "z":12
 							        }
 							      }
 							    ]
@@ -2057,6 +2209,179 @@
 		        	"time":0.3,
 		        	"type":"WAIT"
 		        },
+		        {
+		        	"conditions":[
+		        		{
+		        			"min":2,
+		        			"negated":false,
+		        			"type":"HP_BREAK"
+		        		},
+		        		{
+		        			"condition":"newgame.harder-enemies",
+		        			"type":"VAR_CONDITION"
+		        		},
+		        		{
+		        			"max":0.5,
+		        			"type":"RANDOM"
+		        		}
+		        	],
+		        	"withElse":false,
+		        	"type":"COMBAT_IF",
+		        	"thenStep":[
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+		        		{ 
+					        "face":"NORTH",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+				        {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+						    { 
+					        "face":"EAST",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+					      {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+				        {
+				        	"time":1.5,
+				        	"type":"WAIT"
+				        }
+		        	]
+		        },
 						{
 		        	"condition":"entity.ownerAttrib.attack3 == 0",
 		        	"withElse":true,
@@ -2142,6 +2467,179 @@
 			          "z":0
 			        }
 			      },
+		        {
+		        	"conditions":[
+		        		{
+		        			"min":2,
+		        			"negated":false,
+		        			"type":"HP_BREAK"
+		        		},
+		        		{
+		        			"condition":"newgame.harder-enemies",
+		        			"type":"VAR_CONDITION"
+		        		},
+		        		{
+		        			"max":0.5,
+		        			"type":"!RANDOM"
+		        		}
+		        	],
+		        	"withElse":false,
+		        	"type":"COMBAT_IF",
+		        	"thenStep":[
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+		        		{ 
+					        "face":"NORTH",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+				        {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+						    { 
+					        "face":"EAST",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+					      {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+				        {
+				        	"time":1.5,
+				        	"type":"WAIT"
+				        }
+		        	]
+		        },
 			      {
 			      	"conditions":[
 			      		{
@@ -2430,7 +2928,176 @@
 			      	]
 			      },
 		        {
-		        	"time":2,
+		        	"time":1.5,
+		        	"type":"WAIT"
+		        },
+		        {
+		        	"conditions":[
+		        		{
+		        			"min":2,
+		        			"negated":false,
+		        			"type":"HP_BREAK"
+		        		}
+		        	],
+		        	"withElse":false,
+		        	"type":"COMBAT_IF",
+		        	"thenStep":[
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+		        		{ 
+					        "face":"NORTH",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+				        {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+						    { 
+					        "face":"EAST",
+					        "rotate":false,
+					        "rotateSpeed":10,
+					        "type":"SET_FACE"
+					      },
+					      {
+					      	"time":0.15,
+					      	"type":"WAIT"
+					      },
+					      {
+					        "type": "SELECT_RANDOM",
+					        "options": [
+					          {
+					            "0": " ",
+					            "count": 2,
+					            "weight": 1
+					          }
+					        ],
+					        "0_0":[
+					          { 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+					        ],
+					        "0_1":[
+					        	{ 
+							        "align":"BOTTOM",
+							        "centralAngle":0,
+							        "startAngle":-0.025,
+							        "startDist":128,
+							        "angleVary":0,
+							        "random":false,
+							        "count":1,
+							        "duration":0,
+							        "clockwise":false,
+							        "flipLeftFace":0,
+							        "circularArea":false,
+							        "uniformDir":1,
+							        "delay":0,
+							        "repeat":false,
+							        "type":"SHOOT_PROXY_RANGE",
+							        "proxy":"ShockBeam",
+							        "offset":{ 
+							          "x":0,
+							          "y":0,
+							          "z":12
+							        }
+							      }
+							    ]
+						    },
+				        {
+				        	"time":1.5,
+				        	"type":"WAIT"
+				        }
+		        	]
+		        },
+		        {
+		        	"time":0.5,
 		        	"type":"WAIT"
 		        },
 			      {
