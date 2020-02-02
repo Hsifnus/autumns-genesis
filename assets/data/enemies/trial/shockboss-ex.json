@@ -361,7 +361,7 @@
       "speed":1500,
       "maxBounce":0,
       "timer":3,
-      "trail":true,
+      "trail":false,
       "multiHit":false,
       "noLightGlow":false,
       "type":"BALL",
@@ -1493,7 +1493,7 @@
 				        },
 				        {
 				      		"condition":"!newgame.harder-enemies",
-				      		"withElse":false,
+				      		"withElse":true,
 				      		"type":"IF",
 				      		"thenStep":[
 					        	{ 
@@ -6312,6 +6312,7 @@
       },
       {
         "time": 0.6,
+        "aggroTime":0.4,
         "type": "WAIT"
       },
       {
@@ -6679,6 +6680,7 @@
 	    },
       {
         "time": 0.3,
+        "aggroTime": 0.25,
         "type": "WAIT"
       },
       {
@@ -6813,6 +6815,7 @@
 	    },
       {
         "time": 0.3,
+        "aggroTime": 0.25,
         "type": "WAIT"
       },
       {
@@ -6958,6 +6961,7 @@
         "thenStep":[
         	{
 		        "time": 0.3,
+		        "aggroTime": 0.25,
 		        "type": "WAIT"
 		      },
 		      {
@@ -7105,6 +7109,7 @@
         "thenStep":[
         	{
 		        "time": 0.3,
+		        "aggroTime": 0.25,
 		        "type": "WAIT"
 		      },
 		      {
