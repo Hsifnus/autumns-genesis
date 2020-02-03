@@ -1498,7 +1498,7 @@
 				      		"thenStep":[
 					        	{ 
 							        "align":"BOTTOM",
-							        "centralAngle":0.1,
+							        "centralAngle":0.05,
 							        "startDist":128,
 							        "angleVary":0,
 							        "random":false,
