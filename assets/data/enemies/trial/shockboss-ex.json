@@ -5367,7 +5367,7 @@
             "type": "HP_BREAK"
           },
           {
-          	"condition":"entity.attrib.dashCnt % 2 == 1",
+          	"condition":"entity.attrib.id % 2 == 1",
           	"negated":false,
           	"type":"VAR_CONDITION"
           }
