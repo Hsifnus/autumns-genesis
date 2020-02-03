@@ -5058,6 +5058,10 @@
     ],
     "MultiDash": [
       {
+      	"value":"MASSIVE",
+      	"type":"SET_HIT_STABLE"
+      },
+      {
         "active": "PRE_ATTACK",
         "type": "CHANGE_ENEMY_ANNOTATION"
       },
@@ -6640,6 +6644,10 @@
     ],
 		"MultiSlash":[
       {
+      	"value":"MASSIVE",
+      	"type":"SET_HIT_STABLE"
+      },
+      {
         "type": "DISABLE_REACTION",
         "reaction": "COMPRESSOR_DODGE"
       },
@@ -7552,6 +7560,10 @@
       {
         "type": "DISABLE_REACTION",
         "reaction": "COMPRESSOR_DODGE"
+      },
+      {
+      	"value":"MASSIVE",
+      	"type":"SET_HIT_STABLE"
       },
       {
       	"kind":"PLAYER",
