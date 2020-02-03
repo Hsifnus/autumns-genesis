@@ -1066,7 +1066,7 @@
   		"action":[
         {
         	"condition":"entity.ownerAttrib.attackReady != 0",
-        	"maxTime":10,
+        	"maxTime":4,
         	"type":"WAIT_UNTIL"
         },
         {
@@ -1700,13 +1700,9 @@
   		"copyOwnerAnims": false,
   		"breakType": "NONE",
   		"action":[
-  			{
-          "kind": "PLAYER",
-          "type": "SET_TEMP_TARGET"
-        },
         {
         	"condition":"entity.ownerAttrib.attackReady != 0",
-        	"maxTime":10,
+        	"maxTime":4,
         	"type":"WAIT_UNTIL"
         },
         {
@@ -1714,6 +1710,15 @@
         	"withElse":false,
         	"type":"IF",
         	"thenStep":[
+		  			{
+		          "kind": "PLAYER",
+		          "type": "SET_TEMP_TARGET"
+		        },
+		        {
+		          "type":"STICK_TO_TARGET",
+		          "target":"TRUE_TARGET",
+		          "duration":0.1
+		        },
         		{
 		          "attribName": "attackReady",
 		          "changeType": "set",
@@ -3128,7 +3133,7 @@
   		],
   		"invisible": false,
       "hp": 0,
-      "stickToSource": "TRUE_TARGET",
+      "stickToSource": "NONE",
       "stickFaceAlign": false,
       "group": "shooter",
       "startAnim": "",
