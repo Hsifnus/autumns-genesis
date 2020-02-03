@@ -4767,6 +4767,23 @@
       }
     ],
     "BallCircle": [
+    	{
+	      "type": "SELECT_RANDOM",
+	      "options": [
+	        {
+	          "0": " ",
+	          "count": 2,
+	          "weight": 1
+	        }
+	      ],
+	      "0_0":[],
+	      "0_1":[
+	      	{
+	      		"value":"MASSIVE",
+	      		"type":"SET_HIT_STABLE"
+	      	}
+		    ]
+	    },
       {
         "type": "DISABLE_REACTION",
         "reaction": "COMPRESSOR_DODGE"
@@ -5854,6 +5871,23 @@
       }
     ],
     "WhirlDash": [
+	    {
+	      "type": "SELECT_RANDOM",
+	      "options": [
+	        {
+	          "0": " ",
+	          "count": 2,
+	          "weight": 1
+	        }
+	      ],
+	      "0_0":[],
+	      "0_1":[
+	      	{
+	      		"value":"MASSIVE",
+	      		"type":"SET_HIT_STABLE"
+	      	}
+		    ]
+	    },
       {
         "active": "PRE_ATTACK",
         "type": "CHANGE_ENEMY_ANNOTATION"
