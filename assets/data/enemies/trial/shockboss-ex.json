@@ -8914,10 +8914,222 @@
         "type": "SET_FLOAT_HEIGHT"
       }
     ],
+    "weakBreakEndPre": [
+    	{
+        "value": 0.1,
+        "type": "SET_DAMAGE_FACTOR"
+      }
+    ],
     "weakBreakEnd": [
       {
         "value": 0.1,
         "type": "SET_DAMAGE_FACTOR"
+      },
+			{
+        "value": "MASSIVE",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "duration": 1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "target2": "SELF",
+        "target2Offset": {
+          "x": 0,
+          "y": 0,
+          "z": 480
+        },
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "shkBossBoldPre"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      },
+      {
+        "value": "WAVE",
+        "type": "SET_ELEMENT_FILTER"
+      },
+      {
+        "type": "SET_WALK_ANIMS",
+        "config": "normal"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "HP_BREAK"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "HP_BREAK_WEAK"
+      },
+      {
+        "offsetX": 0,
+        "offsetY": 0,
+        "speed": "FASTER",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "zoom": 1.25,
+        "focusType": "SELF",
+        "type": "FOCUS_CAMERA"
+      },
+      {
+        "forceValue": 1,
+        "type": "RESET_TRACKER",
+        "tracker": "multiDash"
+      },
+      {
+        "zoomType": "MEDIUM",
+        "fadeIn": 0.1,
+        "duration": 0.6,
+        "fadeOut": 0.4,
+        "type": "SET_ZOOM_BLUR"
+      },
+      {
+        "align": "BOTTOM",
+        "radius": 40,
+        "yScale": 0,
+        "zHeight": 0,
+        "centralAngle": 0,
+        "duration": 0.1,
+        "expandRadius": 0,
+        "alwaysFull": true,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "rectangular": false,
+        "repeat": false,
+        "uniformHitDir": false,
+        "fixPos": false,
+        "checkCollision": false,
+        "type": "CIRCLE_ATTACK",
+        "attack": {
+          "type": "HEAVY",
+          "element": "SHOCK",
+          "guardable": ""
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": 1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "target2": "SELF",
+        "target2Offset": {
+          "x": 0,
+          "y": 0,
+          "z": 480
+        },
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "shkBossBoldLong"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "groundPost"
+      },
+      {
+        "group": "aura",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": true,
+        "group": "aura",
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "shkbossAura"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": true,
+        "group": "aura",
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "shkbossTrail"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.8,
+        "type": "WAIT"
+      },
+      {
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "type": "RESET_CAMERA"
+      },
+      {
+        "time": 0.4,
+        "type": "WAIT"
+      },
+      {
+        "face": "SOUTH",
+        "rotate": true,
+        "rotateSpeed": 3,
+        "type": "SET_FACE"
+      },
+      {
+        "wait": true,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "groundBack"
       }
     ],
     "weakEnd": [
@@ -9274,8 +9486,8 @@
     "HP_BREAK_WEAK": {
       "hitType": "HP_BREAK_HIT",
       "postSwitchState": "DEFAULT",
-      "preAction": "weakBreakEnd",
-      "action": "weakEnd",
+      "preAction": "weakBreakEndPre",
+      "action": "weakBreakEnd",
       "blockFurtherHits": false,
       "attackType": "MASSIVE",
       "flyLevel": "MASSIVE+",
