@@ -109,6 +109,10 @@
         },
         "action": [
         	{
+        		"kind":"PLAYER",
+        		"type":"SET_TEMP_TARGET"
+        	},
+        	{
         		"type":"ADD_TARGET_STUN_LOCK"
         	},
           {
@@ -423,8 +427,12 @@
 	    },
 	    {
 	    	"count": 60,
-	    	"wait": true,
+	    	"wait": false,
 	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
+	    },
+	    {
+	    	"time":3,
+	    	"type":"WAIT"
 	    }
   	],
     "type": {
@@ -449,8 +457,12 @@
 	    },
 	    {
 	    	"count": 30,
-	    	"wait": true,
+	    	"wait": false,
 	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
+	    },
+	    {
+	    	"time":3,
+	    	"type":"WAIT"
 	    }
   	],
     "type": {
@@ -475,13 +487,14 @@
 	    },
 	    {
 	    	"count": 10,
+	    	"wait": false,
 	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
 	    },
 	    {
         "changeType": "set",
         "type": "CHANGE_VAR_NUMBER",
         "varName": "tmp.ticks",
-        "value": 10
+        "value": 9
       },
       {
       	"name":"countdown",
