@@ -505,7 +505,7 @@
       	"type":"WAIT"
       },
       {
-      	"condition":"tmp.ticks < 10 && tmp.ticks % 2 == 0",
+      	"condition":"tmp.ticks % 2 == 0",
       	"withElse":true,
       	"type":"IF",
       	"thenStep":[
