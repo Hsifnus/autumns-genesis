@@ -1,5 +1,3 @@
-import "./js/game/feature/arena/arena-patch-temp.js";
-
 import "./js/game/feature/arena/trial.js";
 
 import "./js/game/feature/combat/custom-sweep.js";
