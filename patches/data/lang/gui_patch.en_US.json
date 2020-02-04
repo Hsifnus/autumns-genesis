@@ -5,7 +5,8 @@
 			"trialClear": "Trial Cleared",
 			"trialFail": "Trial Failed",
 			"menu":{
-				"trialTimeLimit": "Time Limit"
+				"trialTimeLimit": "Time Limit",
+				"startTrial": "Start \\c[3][TRIAL_NAME]\\c[0]?"
 			}
 		},
 		"combat": {

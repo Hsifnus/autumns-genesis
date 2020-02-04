@@ -1471,6 +1471,10 @@
             ]
           },
           {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimer"
+          },
+          {
             "volume": 0.9,
             "name": "",
             "loop": false,

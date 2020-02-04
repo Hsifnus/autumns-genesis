@@ -4112,6 +4112,10 @@
             ]
           },
           {
+          	"type":"PAUSE_TIMER",
+          	"name":"trialTimer"
+          },
+          {
             "volume": 0.9,
             "name": "",
             "loop": false,
@@ -4119,10 +4123,6 @@
             "startTime": 0,
             "type": "PLAY_SOUND",
             "sound": "media/sound/arena/round-end-swoosh.ogg"
-          },
-          {
-            "type": "PAUSE_TIMER",
-            "name": "trialTimer"
           },
           {
             "type": "PAUSE_TIMER",

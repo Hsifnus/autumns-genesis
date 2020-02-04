@@ -1,4 +1,11 @@
-ig.module("game.feature.arena.trial").requires("game.feature.arena.arena", "game.feature.arena.gui.arena-gui", "game.feature.menu.gui.arena.arena-list", "game.feature.menu.gui.arena.arena-round-page", "game.feature.arena.gui.arena-trophy-gui").defines(function() {
+ig.module("game.feature.arena.trial").requires(
+	"game.feature.arena.arena",
+	"game.feature.arena.gui.arena-gui",
+	"game.feature.menu.gui.arena.arena-list",
+	"game.feature.menu.gui.arena.arena-misc",
+	"game.feature.menu.gui.arena.arena-round-page",
+	"game.feature.arena.gui.arena-trophy-gui",
+	"game.feature.arena.gui.arena-start-gui").defines(function() {
     var f = {
         value: 0
     };
@@ -610,7 +617,6 @@ ig.module("game.feature.arena.trial").requires("game.feature.arena.arena", "game
                 }
         }
     });
-
     sc.ArenaCupOverview.MedalEntry = ig.GuiElementBase.extend({
         transitions: {
             DEFAULT: {
@@ -701,6 +707,41 @@ ig.module("game.feature.arena.trial").requires("game.feature.arena.arena", "game
                 this.rush.addChildGui(b);
                 this.medalGui.addChildGui(this.rush)
             }
+        }
+    });
+    sc.ArenaRoundEntryButton = sc.ArenaEntryButton.extend({
+        round: null,
+        dots: null,
+        index: -2,
+        init: function(a, b, c, e, f, g, h) {
+            this.parent(a, b, g, e);
+            this.decoration.offsetY = 0;
+            this.index = c;
+            if (!h && c >= 0) {
+                this.round = new sc.NumberGui(f || 99, {
+                    size: sc.NUMBER_SIZE.TEXT,
+                    leadingZeros: f >= 100 ? 3 : 2
+                });
+                this.round.setPos(7, 5);
+                this.round.setNumber(c + 1);
+                this.addChildGui(this.round);
+                this.dots = new ig.ImageGui(this.round.gfx,
+                    267, 35, 3, 7);
+                this.dots.setPos(7 + this.round.hook.size.x + 1, 7);
+                this.addChildGui(this.dots);
+                this.button.textChild.hook.pos.x = this.dots.hook.pos.x + 6
+            } else {
+                !h && this.button.textChild.setAlign(ig.GUI_ALIGN.X_CENTER, ig.GUI_ALIGN.Y_CENTER);
+                this.button.textChild.setPos(7, 0)
+            }
+        },
+        updateDrawables: function(a) {
+            this.parent(a)
+        },
+        setActive: function(a) {
+            this.parent(a);
+            this.round && this.round.setColor(a ? sc.GUI_NUMBER_COLOR.WHITE : sc.GUI_NUMBER_COLOR.GREY);
+            if (this.dots) this.dots.offsetY = a ? 35 : 65
         }
     });
 	var isTrial = function(a) {
@@ -871,16 +912,37 @@ ig.module("game.feature.arena.trial").requires("game.feature.arena.arena", "game
             b.clear();
             if (!isTrial(this.currentCup)) {
 			    var e = "\\i[arena-bolt-left]\\c[0]" + ig.lang.get("sc.gui.arena.menu.rush") + "\\c[0]\\i[arena-bolt-right]",
-	                e = new sc.ArenaRoundEntryButton(e, this.currentCup, -1, sc.arena.getCupMedal(this.currentCup, -1), c.length);
+	                e = new sc.ArenaRoundEntryButton(e, this.currentCup, -1, sc.arena.getCupMedal(this.currentCup, -1), c.length, null, isTrial(this.currentCup));
 	            a.addButton(e);	
 			}
             for (var f = 0; f <
                 c.length; f++) {
                 e = ig.LangLabel.getText(c[f].name);
-                e = new sc.ArenaRoundEntryButton(e, this.currentCup, f, sc.arena.getCupMedal(this.currentCup, f), c.length);
+                e = new sc.ArenaRoundEntryButton(e, this.currentCup, f, sc.arena.getCupMedal(this.currentCup, f), c.length, null, isTrial(this.currentCup));
                 e.setActive(isTrial(this.currentCup) || ig.perf.enableArenaRound || this.isRoundActive(this.currentCup, f));
                 a.addButton(e)
             }
+        },
+        onListEntryPressed: function(a) {
+            this.submitSound.play();
+            var b = a.key,
+                c = a.index,
+                a = null;
+            if (isTrial(this.currentCup)) {
+            	a = ig.lang.get("sc.gui.arena.menu.startTrial").replace("[TRIAL_NAME]", ig.LangLabel.getText(sc.arena.getCupRounds(b)[c].name));
+            } else {
+            	a = c == -1 ?
+	            	ig.lang.get("sc.gui.arena.menu.startRushMode").replace("[CUP_NAME]", sc.arena.getCupName(b))
+	            	: ig.lang.get("sc.gui.arena.menu.startAtRound").replace("[CUP_NAME]", sc.arena.getCupName(b)).replace("[ROUND_INDEX]", c + 1);
+            }
+            sc.Dialogs.showYesNoDialog(a, sc.DIALOG_INFO_ICON.QUESTION,
+                function(a) {
+                    if (a.data == 0) {
+                        sc.arena.enterArenaMode(b, c);
+                        this.submit.play();
+                        sc.model.enterPrevSubState()
+                    } else a.data > 0 && sc.BUTTON_SOUND.submit.play()
+                }.bind(this), true)
         }
 	});
 	sc.ArenaRoundInfoPage = ig.GuiElementBase.extend({
@@ -1364,6 +1426,198 @@ ig.module("game.feature.arena.trial").requires("game.feature.arena.arena", "game
             this.silver.setNumber(b, c);
             this.gold.setNumber(a, c);
             this.platUnlocked && this.platin.setNumber(d, c)
+        }
+    });
+    sc.ArenaRoundStartHud = ig.GuiElementBase.extend({
+        transitions: {
+            DEFAULT: {
+                state: {},
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            },
+            HIDDEN: {
+                state: {
+                    alpha: 0,
+                    scaleY: 0.2
+                },
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            }
+        },
+        timer: 0,
+        done: false,
+        round: null,
+        name: null,
+        container: null,
+        init: function() {
+            this.parent();
+            this.setAlign(ig.GUI_ALIGN_X.LEFT, ig.GUI_ALIGN_Y.CENTER);
+            this.setSize(ig.system.width, isTrial() ? 24 : 40);
+            this.setPivot(0, this.hook.size.y / 2);
+            this.setPos(0, -80);
+            this.hook.zIndex = 99;
+            this.timer = 2;
+            var b = sc.arena.runtime.currentRound,
+                a = sc.arena.getCurrentRound(),
+                d = ig.lang.get("sc.gui.arena.round"),
+                d = d.replace("[!]", b + 1);
+            this.round = new sc.TextGui(d);
+            this.round.setAlign(ig.GUI_ALIGN_X.CENTER, ig.GUI_ALIGN_Y.TOP);
+            this.round.hook.transitions = {
+                DEFAULT: {
+                    state: {
+                        offsetX: 5
+                    },
+                    time: 2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                CENTER: {
+                    state: {
+                        offsetX: -5
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                HIDDEN: {
+                    state: {
+                        alpha: 0,
+                        offsetX: -100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                AWAY: {
+                    state: {
+                        alpha: 0,
+                        offsetX: 100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                }
+            };
+            this.round.doStateTransition("HIDDEN", true);
+            this.round.setPos(0, 4);
+            if (!isTrial()) {
+	            this.addChildGui(this.round);
+            };
+            b = sc.arena.runtime.challengeMods;
+            this.container = new ig.GuiElementBase;
+            this.container.setAlign(ig.GUI_ALIGN_X.LEFT,
+                ig.GUI_ALIGN_Y.CENTER);
+            this.container.setPos(10, 0);
+            var c = d = 0,
+                e = 0,
+                f;
+            for (f in b) {
+                var g = new sc.ArenaRoundStartHud.ChallengeEntry(f, b[f].global);
+                g.setPos(d, c);
+                d = d + 19;
+                e++;
+                if (e >= 10) {
+                    c = c + 19;
+                    d = 0
+                }
+                this.container.addChildGui(g)
+            }
+            this.container.setSize(190, 18 * (~~(e / 10) + 1));
+            this.addChildGui(this.container);
+            this.name = new sc.TextGui(ig.LangLabel.getText(a.name));
+            this.name.setAlign(ig.GUI_ALIGN_X.CENTER, ig.GUI_ALIGN_Y.BOTTOM);
+            this.name.hook.transitions = {
+                DEFAULT: {
+                    state: {
+                        offsetX: -5
+                    },
+                    time: 2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                CENTER: {
+                    state: {
+                        offsetX: 5
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                HIDDEN: {
+                    state: {
+                        alpha: 0,
+                        offsetX: 100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                AWAY: {
+                    state: {
+                        alpha: 0,
+                        offsetX: -100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                }
+            };
+            this.name.doStateTransition("HIDDEN", true);
+            this.name.setPos(0, 4);
+            this.addChildGui(this.name);
+            this.doStateTransition("HIDDEN", true);
+            this.doStateTransition("DEFAULT");
+            this.round.doStateTransition("CENTER", false, false, function() {
+                this.round.doStateTransition("DEFAULT", false, false,
+                    function() {
+                        this.round.doStateTransition("AWAY")
+                    }.bind(this))
+            }.bind(this));
+            this.name.doStateTransition("CENTER", false, false, function() {
+                this.name.doStateTransition("DEFAULT", false, false, function() {
+                    this.name.doStateTransition("AWAY")
+                }.bind(this))
+            }.bind(this))
+        },
+        updateDrawables: function(b) {
+            var a = this.hook.size;
+            b.addColor("#000", 0, 0, a.x, a.y).setAlpha(0.5);
+            b.addColor("#FFF", 0, 1, a.x, 1).setAlpha(0.5);
+            b.addColor("#FFF", 0, a.y - 2, a.x, 1).setAlpha(0.5)
+        },
+        update: function() {
+            if (this.timer >= 0 && !this.hasTransition()) {
+                this.timer =
+                    this.timer - ig.system.tick;
+                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, function() {
+                    this.done = true
+                }.bind(this))
+            }
+        }
+    });
+    sc.ArenaRoundStartHud.ChallengeEntry = ig.GuiElementBase.extend({
+        gfx: new ig.Image("media/gui/arena-gui.png"),
+        transitions: {
+            DEFAULT: {
+                state: {},
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            },
+            HIDDEN: {
+                state: {
+                    alpha: 0
+                },
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            }
+        },
+        icon: 0,
+        challenge: null,
+        global: false,
+        init: function(b, a) {
+            this.parent();
+            this.setSize(18, 18);
+            this.global = a || false;
+            this.challenge = sc.ARENA_CHALLENGES[b ||
+                "NO_MELEE"];
+            this.icon = this.challenge.icon || 1
+        },
+        updateDrawables: function(b) {
+            b.addGfx(this.gfx, 0, 0, 256 + this.icon % 6 * 18, ~~(this.icon / 6) * 18, 18, 18);
+            this.global && b.addGfx(this.gfx, 0, 0, 128, 48, 18, 18)
         }
     });
 	var moddedCups = {
