@@ -14,4 +14,12 @@
 	"src": "mod:patches/data/database/areas.json"
 },{
 	"type": "EXIT"
+},{
+	"type": "ENTER",
+	"index": "commonEvents"
+},{
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/commonEvents.json"
+},{
+	"type":"EXIT"
 }]

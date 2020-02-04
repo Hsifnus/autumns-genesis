@@ -1,5 +1,10 @@
 {
 	"labels": {
+		"arena": {
+			"timeRemaining": "Time Remaining",
+			"trialClear": "Trial Cleared",
+			"trialFail": "Trial Failed"
+		},
 		"combat": {
 			"daze": "Daze"
 		},
