@@ -3,12 +3,25 @@
 		"arena": {
 			"timeRemaining": "Time Remaining",
 			"trialClear": "Trial Cleared",
-			"trialFail": "Trial Failed"
+			"trialFail": "Trial Failed",
+			"menu":{
+				"trialTimeLimit": "Time Limit"
+			}
 		},
 		"combat": {
 			"daze": "Daze"
 		},
 		"menu": {
+			"help":{
+				"arena":{
+					"titles":{
+						"trialTimeLimit": "Time Limit"
+					},
+					"description":{
+						"trialTimeLimit": "If not zero, the fight must be cleared within this amount of time."
+					}
+				}
+			},
 			"status": {
 				"conditions": [
 		        	"Daze",
