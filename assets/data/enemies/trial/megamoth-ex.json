@@ -873,7 +873,7 @@
           "type": "SHOW_EFFECT",
           "effect": {
             "sheet": "enemies.whale-boss",
-            "name": "crosshair"
+            "name": "crosshairClose"
           },
           "offset": {
             "x": 0,
