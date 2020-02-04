@@ -4116,6 +4116,18 @@
           	"name":"trialTimer"
           },
           {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerSixty"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerTen"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerThirty"
+          },
+          {
             "volume": 0.9,
             "name": "",
             "loop": false,

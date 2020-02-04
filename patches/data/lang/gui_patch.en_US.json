@@ -7,7 +7,8 @@
 			"menu":{
 				"trialTimeLimit": "Time Limit",
 				"startTrial": "Start \\c[3][TRIAL_NAME]\\c[0]?"
-			}
+			},
+			"trialTimeRemaining": "[NUM] seconds remaining"
 		},
 		"combat": {
 			"daze": "Daze"

@@ -21,6 +21,18 @@
       },
       {
         "type": "PAUSE_TIMER",
+        "name": "trialTimerTen"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerThirty"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerSixty"
+      },
+      {
+        "type": "PAUSE_TIMER",
         "name": "arenaTimerReal"
       },
       {
@@ -36,6 +48,140 @@
         "speed": 0.5,
         "type": "PLAY_SOUND",
         "sound": "media/sound/arena/round-end-swoosh.ogg"
+      },
+      {
+        "type": "REMOVE_ALL_ENEMY_TARGET"
+      },
+      {
+        "name": "playerArenaDeath",
+        "factor": 0.001,
+        "time": 0,
+        "type": "ADD_SLOW_MOTION"
+      },
+      {
+        "type": "REMOVE_ALL_PLAYER_CAMERAS"
+      },
+      {
+        "entity": {
+          "player": true
+        },
+        "offsetX": 0,
+        "offsetY": 0,
+        "speed": "NORMAL",
+        "transition": "EASE_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "zoom": 1.5,
+        "type": "SET_CAMERA_TARGET"
+      },
+      {
+        "zoomType": "MEDIUM",
+        "fadeIn": 0.1,
+        "duration": 1,
+        "fadeOut": 0.2,
+        "type": "SET_ZOOM_BLUR"
+      },
+      {
+        "ignoreSlowDown": true,
+        "type": "WAIT",
+        "time": 1.3
+      },
+      {
+        "name": "playerArenaDeath",
+        "time": 1,
+        "type": "CLEAR_SLOW_MOTION"
+      }
+    ],
+    "type": {
+      "type": "CALL"
+    }
+  },
+	"trial-timeout": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "entity": {
+          "global": true,
+          "name": "boss"
+        },
+        "action": [
+        	{
+        		"type":"ADD_TARGET_STUN_LOCK"
+        	},
+          {
+            "condition":"tmp.roundFailed",
+            "type":"WAIT_UNTIL"
+          },
+          {
+        		"type":"CLEAR_STUN_LOCKED"
+        	},
+        	{
+        		"time":0.1,
+        		"type":"WAIT"
+        	}
+        ],
+        "repeating": false,
+        "wait": false,
+        "keepState": true,
+        "immediately": false,
+        "type": "DO_ACTION"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.roundFailedPre",
+        "value": true
+      },
+      {
+        "effectType": "",
+        "type": "SET_FINAL_DRAMATIC_EFFECT"
+      },
+      {
+        "volume": 1.2,
+        "name": "",
+        "loop": false,
+        "offset": 0,
+        "startTime": 0,
+        "speed": 0.5,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/arena/trial-timeout-bell.ogg"
+      },
+      {
+        "volume": 0.9,
+        "name": "",
+        "loop": false,
+        "offset": 0,
+        "startTime": 0,
+        "speed": 0.5,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/arena/round-end-swoosh.ogg"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "arenaTimer"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimer"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerTen"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerThirty"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerSixty"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "arenaTimerReal"
       },
       {
         "type": "REMOVE_ALL_ENEMY_TARGET"
@@ -106,6 +252,18 @@
       {
         "type": "PAUSE_TIMER",
         "name": "trialTimer"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerTen"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerThirty"
+      },
+      {
+        "type": "PAUSE_TIMER",
+        "name": "trialTimerSixty"
       },
       {
         "type": "PAUSE_TIMER",
@@ -243,6 +401,137 @@
         "type": "END_ARENA_ROUND"
       }
     ],
+    "type": {
+      "type": "CALL"
+    }
+  },
+  "trial-timer-sixty": {
+  	"frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+  	"event": [
+	    {
+	      "volume": 1.5,
+	      "name": "",
+	      "loop": false,
+	      "offset": 0,
+	      "startTime": 0,
+	      "speed": 1.25,
+	      "type": "PLAY_SOUND",
+	      "sound": "media/sound/scenes/swoosh-rise-short.ogg"
+	    },
+	    {
+	    	"count": 60,
+	    	"wait": true,
+	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
+	    }
+  	],
+    "type": {
+      "type": "CALL"
+    }
+  },
+  "trial-timer-thirty": {
+  	"frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+  	"event": [
+	    {
+	      "volume": 1.5,
+	      "name": "",
+	      "loop": false,
+	      "offset": 0,
+	      "startTime": 0,
+	      "speed": 1.3,
+	      "type": "PLAY_SOUND",
+	      "sound": "media/sound/scenes/swoosh-rise-short.ogg"
+	    },
+	    {
+	    	"count": 30,
+	    	"wait": true,
+	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
+	    }
+  	],
+    "type": {
+      "type": "CALL"
+    }
+  },
+  "trial-timer-ten": {
+  	"frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+  	"event": [
+	    {
+	      "volume": 1.5,
+	      "name": "",
+	      "loop": false,
+	      "offset": 0,
+	      "startTime": 0,
+	      "speed": 1.35,
+	      "type": "PLAY_SOUND",
+	      "sound": "media/sound/scenes/swoosh-rise-short.ogg"
+	    },
+	    {
+	    	"count": 10,
+	    	"type":"SHOW_TRIAL_TIME_REMAINING_GUI"
+	    },
+	    {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.ticks",
+        "value": 10
+      },
+      {
+      	"name":"countdown",
+      	"type":"LABEL"
+      },
+      {
+      	"time":1,
+      	"type":"WAIT"
+      },
+      {
+      	"condition":"tmp.ticks < 10 && tmp.ticks % 2 == 0",
+      	"withElse":true,
+      	"type":"IF",
+      	"thenStep":[
+      		{
+			      "volume": 1.05,
+			      "name": "",
+			      "loop": false,
+			      "offset": 0,
+			      "startTime": 0,
+			      "speed": 1,
+			      "type": "PLAY_SOUND",
+			      "sound": "media/sound/arena/trial-tick-1.ogg"
+			    }
+      	],
+      	"elseStep":[
+      		{
+			      "volume": 1.05,
+			      "name": "",
+			      "loop": false,
+			      "offset": 0,
+			      "startTime": 0,
+			      "speed": 1,
+			      "type": "PLAY_SOUND",
+			      "sound": "media/sound/arena/trial-tick-2.ogg"
+			    }
+      	]
+      },
+      {
+        "changeType": "sub",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.ticks",
+        "value": 1
+      },
+      {
+      	"name":"countdown",
+      	"condition":"tmp.ticks > 0 && !tmp.roundFailedPre && !tmp.bossKillHit",
+      	"type":"GOTO_LABEL_WHILE"
+      }
+  	],
     "type": {
       "type": "CALL"
     }

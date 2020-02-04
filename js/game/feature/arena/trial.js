@@ -5,7 +5,8 @@ ig.module("game.feature.arena.trial").requires(
 	"game.feature.menu.gui.arena.arena-misc",
 	"game.feature.menu.gui.arena.arena-round-page",
 	"game.feature.arena.gui.arena-trophy-gui",
-	"game.feature.arena.gui.arena-start-gui").defines(function() {
+	"game.feature.arena.gui.arena-start-gui",
+	"game.feature.arena.arena-steps").defines(function() {
     var f = {
         value: 0
     };
@@ -20,9 +21,21 @@ ig.module("game.feature.arena.trial").requires(
             a.scoreStats = {};
             this.addGui();
 			if (isTrial()) {
-				var maxTime = sc.arena.getCupData(sc.arena.runtime.cup).rounds[sc.arena.runtime.currentRound].maxTime;
+				const maxTime = sc.arena.getCupData(sc.arena.runtime.cup).rounds[sc.arena.runtime.currentRound].maxTime;
 				sc.timers.addTimer("trialTimer", sc.TIMER_TYPES.COUNTDOWN, maxTime, null, null,
 	                true, true, null, ig.lang.get("sc.gui.arena.timeRemaining"), true);
+				if (maxTime >= 60) {
+					sc.timers.timers.trialTimerSixty && sc.timers.removeTimer("trialTimerSixty");
+					sc.timers.addTimer("trialTimerSixty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 60, null, null, false, true);
+				}
+				if (maxTime >= 30) {
+					sc.timers.timers.trialTimerThirty && sc.timers.removeTimer("trialTimerThirty");
+					sc.timers.addTimer("trialTimerThirty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 30, null, null, false, true);
+				}
+				if (maxTime >= 10) {
+					sc.timers.timers.trialTimerTen && sc.timers.removeTimer("trialTimerTen");
+					sc.timers.addTimer("trialTimerTen", sc.TIMER_TYPES.COUNTDOWN, maxTime - 10, null, null, false, true);
+				}
 	            sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null, false, true);
 			} else {
 	            sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null,
@@ -71,12 +84,18 @@ ig.module("game.feature.arena.trial").requires(
 		endRoundDeath: function() {
 			if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
 			this.parent();
 		},
 		endRound: function() {
 			if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
 			this.parent();
 		},
@@ -84,6 +103,9 @@ ig.module("game.feature.arena.trial").requires(
 			if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
 				sc.timers.removeTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
             this.parent();
         },
@@ -91,6 +113,9 @@ ig.module("game.feature.arena.trial").requires(
         	if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
 				sc.timers.removeTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
             this.parent();
         },
@@ -98,6 +123,9 @@ ig.module("game.feature.arena.trial").requires(
         	if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
 				sc.timers.removeTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
             this.parent();
         },
@@ -105,17 +133,31 @@ ig.module("game.feature.arena.trial").requires(
 			if (isTrial()) {
 				sc.timers.stopTimer("trialTimer");
 				sc.timers.removeTimer("trialTimer");
+				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
 			this.parent();
 		},
 		modelChanged: function(b, a) {
-			if (b == sc.timers && a == sc.TIMER_EVENT.COUNTDOWN_DONE && !!sc.timers.timers.trialTimer && sc.timers.timers.trialTimer.done() && isTrial()) {
-                this._pauseBlock = true;
-                this._endRoundDone = false;
-                ig.bgm.pause("IMMEDIATELY");
-                sc.timers.stopTimer("trialTimer");
-				sc.commonEvents.startCallEvent("arena-player-death-pre");
-				ig.vars.set("tmp.playerDeathArena", true);
+			if (b == sc.timers && a == sc.TIMER_EVENT.COUNTDOWN_DONE && isTrial()) {
+				if (!!sc.timers.timers.trialTimerSixty && sc.timers.timers.trialTimerSixty.done()) {
+					sc.timers.removeTimer("trialTimerSixty");
+					sc.commonEvents.startCallEvent("trial-timer-sixty");	
+				} else if (!!sc.timers.timers.trialTimerThirty && sc.timers.timers.trialTimerThirty.done()) {
+					sc.timers.removeTimer("trialTimerThirty");
+					sc.commonEvents.startCallEvent("trial-timer-thirty");
+				} else if (!!sc.timers.timers.trialTimerTen && sc.timers.timers.trialTimerTen.done()) {
+					sc.timers.removeTimer("trialTimerTen");
+					sc.commonEvents.startCallEvent("trial-timer-ten");
+				} else if (!!sc.timers.timers.trialTimer && sc.timers.timers.trialTimer.done()) {
+	                this._pauseBlock = true;
+	                this._endRoundDone = false;
+	                ig.bgm.pause("IMMEDIATELY");
+	                sc.timers.stopTimer("trialTimer");
+					sc.commonEvents.startCallEvent("trial-timeout");
+					ig.vars.set("tmp.playerDeathArena", true);
+				}
 			}
         },
         initMetaData: function(a) {
@@ -1588,6 +1630,94 @@ ig.module("game.feature.arena.trial").requires(
             }
         }
     });
+	sc.TrialTimeRemainingHud = ig.GuiElementBase.extend({
+        transitions: {
+            DEFAULT: {
+                state: {},
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            },
+            HIDDEN: {
+                state: {
+                    alpha: 0,
+                    scaleY: 0.2
+                },
+                time: 0.2,
+                timeFunction: KEY_SPLINES.LINEAR
+            }
+        },
+        timer: 0,
+        done: false,
+        name: null,
+        init: function(n) {
+            this.parent();
+            this.setAlign(ig.GUI_ALIGN_X.LEFT, ig.GUI_ALIGN_Y.CENTER);
+            this.setSize(ig.system.width, isTrial() ? 24 : 40);
+            this.setPivot(0, this.hook.size.y / 2);
+            this.setPos(0, 0);
+            this.hook.zIndex = 99;
+            this.timer = 2;
+            this.name = new sc.TextGui(ig.lang.get("sc.gui.arena.trialTimeRemaining").replace("[NUM]", n));
+            this.name.setAlign(ig.GUI_ALIGN_X.CENTER, ig.GUI_ALIGN_Y.BOTTOM);
+            this.name.hook.transitions = {
+                DEFAULT: {
+                    state: {
+                        offsetX: -5
+                    },
+                    time: 2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                CENTER: {
+                    state: {
+                        offsetX: 5
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                HIDDEN: {
+                    state: {
+                        alpha: 0,
+                        offsetX: 100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                },
+                AWAY: {
+                    state: {
+                        alpha: 0,
+                        offsetX: -100
+                    },
+                    time: 0.2,
+                    timeFunction: KEY_SPLINES.LINEAR
+                }
+            };
+            this.name.doStateTransition("HIDDEN", true);
+            this.name.setPos(0, 4);
+            this.addChildGui(this.name);
+            this.doStateTransition("HIDDEN", true);
+            this.doStateTransition("DEFAULT");
+            this.name.doStateTransition("CENTER", false, false, function() {
+                this.name.doStateTransition("DEFAULT", false, false, function() {
+                    this.name.doStateTransition("AWAY")
+                }.bind(this))
+            }.bind(this))
+        },
+        updateDrawables: function(b) {
+            var a = this.hook.size;
+            b.addColor("#000", 0, 0, a.x, a.y).setAlpha(0.5);
+            b.addColor("#FFF", 0, 1, a.x, 1).setAlpha(0.5);
+            b.addColor("#FFF", 0, a.y - 2, a.x, 1).setAlpha(0.5)
+        },
+        update: function() {
+            if (this.timer >= 0 && !this.hasTransition()) {
+                this.timer =
+                    this.timer - ig.system.tick;
+                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, function() {
+                    this.done = true
+                }.bind(this))
+            }
+        }
+    });
     sc.ArenaRoundStartHud.ChallengeEntry = ig.GuiElementBase.extend({
         gfx: new ig.Image("media/gui/arena-gui.png"),
         transitions: {
@@ -1648,4 +1778,30 @@ ig.module("game.feature.arena.trial").requires(
 	        .getCupProgress(a).rounds[b - 1].cleared >= 1
 	    }
 	});
+	ig.EVENT_STEP.SHOW_TRIAL_TIME_REMAINING_GUI = ig.EventStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {
+            	count: {
+                    _type: "Number",
+                    _info: "Number of seconds to display on gui"
+                },
+                wait: {
+                    _type: "Boolean",
+                    _info: "If true, wait until the gui has finished animating."
+                }
+            }
+        }),
+        init: function(b) {
+            this.wait = b.wait || false
+            this.count = b.count || 999;
+        },
+        start: function(b) {
+            var a = new sc.TrialTimeRemainingHud(this.count);
+            ig.gui.addGuiElement(a);
+            if (this.wait) b._gui = a
+        },
+        run: function(b) {
+            return this.wait ? b._gui.done : true
+        }
+    });
 });
