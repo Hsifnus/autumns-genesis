@@ -54,7 +54,7 @@
         "langUid": 145
       },
       "description": {
-        "en_US": "An opalescent apple pulsing with ancient, invigorating energy.",
+        "en_US": "An opalescent apple pulsing with ancient energy. \\c[2]Heals 25% of max HP\\c[0].",
         "langUid": 699
       },
       "type": "CONS",
