@@ -1,10 +1,12 @@
 {
 	"labels": {
 		"arena": {
+			"firstClear": "First Clear Bonus!",
 			"timeRemaining": "Time Remaining",
 			"trialClear": "Trial Cleared",
 			"trialFail": "Trial Failed",
 			"menu":{
+				"firstClear": "First Clear",
 				"trialTimeLimit": "Time Limit",
 				"startTrial": "Start \\c[3][TRIAL_NAME]\\c[0]?"
 			},
@@ -17,10 +19,12 @@
 			"help":{
 				"arena":{
 					"titles":{
-						"trialTimeLimit": "Time Limit"
+						"trialTimeLimit": "Time Limit",
+						"firstClearBonuses": "First Clear Bonus"
 					},
 					"description":{
-						"trialTimeLimit": "If not zero, the fight must be cleared within this amount of time."
+						"trialTimeLimit": "If not zero, the fight must be cleared within this amount of time.",
+						"firstClearBonuses": "These items are awarded to the player upon clearing this fight for the first time."
 					}
 				}
 			},

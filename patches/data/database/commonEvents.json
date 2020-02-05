@@ -548,5 +548,95 @@
     "type": {
       "type": "CALL"
     }
+  },
+  "trial-first-clear": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "entity": {
+          "player": true
+        },
+        "offsetX": 0,
+        "offsetY": 0,
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "zoom": 1,
+        "lockZ": true,
+        "type": "SET_CAMERA_TARGET"
+      },
+      {
+        "entity": {
+          "player": true
+        },
+        "duration": -1,
+        "align": "BASE",
+        "group": "",
+        "wait": false,
+        "waitSkip": 0,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "arena",
+          "name": "firstClear"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "entity": {
+          "player": true
+        },
+        "action": [
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "levelUpPreJump"
+          },
+          {
+            "type": "WAIT",
+            "time": 0.2
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "levelUpJump"
+          },
+          {
+            "jumpHeight": "M",
+            "wait": true,
+            "ignoreSounds": true,
+            "type": "JUMP"
+          },
+          {
+            "followUp": "levelUpStand",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "levelUpPre"
+          },
+          {
+            "type": "WAIT",
+            "time": 0.5
+          }
+        ],
+        "repeating": false,
+        "wait": true,
+        "keepState": true,
+        "immediately": false,
+        "type": "DO_ACTION"
+      }
+    ],
+    "type": {
+      "type": "CALL"
+    }
   }
 }

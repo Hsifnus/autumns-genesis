@@ -51,7 +51,17 @@
           "points": 100000
         }
       ],
-      "spawn": "PLAYER_SPAWN"
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":551,
+          "count":5
+        },
+        {
+          "item":552,
+          "count":1
+        }
+      ]
     },
     {
       "name": {
@@ -79,7 +89,17 @@
           "points": 100000
         }
       ],
-      "spawn": "PLAYER_SPAWN"
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":551,
+          "count":5
+        },
+        {
+          "item":553,
+          "count":1
+        }
+      ]
     },
     {
       "name": {
@@ -107,7 +127,17 @@
           "points": 100000
         }
       ],
-      "spawn": "PLAYER_SPAWN"
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":551,
+          "count":5
+        },
+        {
+          "item":554,
+          "count":1
+        }
+      ]
     }
   ]
 }

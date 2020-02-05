@@ -45,5 +45,148 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1000,
+      "name": {
+        "en_US": "Genesis Apple",
+        "langUid": 145
+      },
+      "description": {
+        "en_US": "An opalescent apple pulsing with ancient, invigorating energy.",
+        "langUid": 699
+      },
+      "type": "CONS",
+      "rarity": 4,
+      "cost": 12000,
+      "level": 1,
+      "icon": "item-items",
+      "effect": {
+        "sheet": "drops",
+        "name": "circle"
+      },
+      "useSpeed": 1,
+      "time": 30,
+      "stats": [
+        "COND_HEALING-3",
+        "REGEN-3",
+        "SP_REGEN-3"
+      ],
+      "noTrack": false,
+      "foodSprite": "GENESIS_APPLE"
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20000,
+      "name": {
+        "en_US": "Magmoth's Ember",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "An undying ember that proves mastery over the fiery wrath of Master Magmoth.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.heat/megamoth]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "heat.megamoth"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20001,
+      "name": {
+        "en_US": "Phantom's Spark",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A surging spark that proves mastery over the dazzling blitz of Plasma Phantom.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/shockboss]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "jungle.shockboss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20002,
+      "name": {
+        "en_US": "Blobus Orb",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A vibrating slimeball that proves mastery over the pressure of Sir Blobus Starnikus.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/waveboss]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "jungle.waveboss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
 	"type": "EXIT"
 }]

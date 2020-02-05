@@ -182,12 +182,81 @@ ig.module("game.feature.arena.trial").requires(
                                 medal: 0,
                                 points: 0,
                                 time: 0,
-                                cleared: 0
+                                cleared: 0,
+                                firstClearBonus: 0
                             });
                         else a.length = b.length
                 } else this.setEmptyProgress(a)
             } else throw Error("Cup not found: " +
                 a);
+        },
+        setEmptyProgress: function(a) {
+            var b = this.getCupRounds(a);
+            if (!b) this.cups[a].progress = null;
+            for (var c = {
+                    rush: {
+                        medal: 0,
+                        points: 0,
+                        time: 0,
+                        cleared: 0,
+                        chain: 0
+                    },
+                    rounds: []
+                }, d = 0; d < b.length; d++) c.rounds.push({
+                medal: 0,
+                points: 0,
+                time: 0,
+                cleared: 0,
+                firstClearBonus: 0
+            });
+            this.cups[a].progress = c
+        },
+        saveScore: function(a, b) {
+            a < 0 && (a = 0);
+            var c = this.runtime,
+                d = b ? this.cups[c.cup].progress.rush : this.cups[c.cup].progress.rounds[c.currentRound];
+            c.score = a;
+            var e = b ? c.preTrophy : this.getCupTrophy(c.cup);
+            c.prevMedal = d.medal;
+            if (isTrial()) {
+            	var g = this.getCupRounds(c.cup)[c.currentRound].firstClearBonus,
+            		h = 0;
+            	if (g) {
+	            	if (!d.firstClearBonus) {
+	            		d.firstClearBonus = 1;
+		            	for (h = 0; h < g.length; h++) {
+		            		if (!g[h].condition) {
+		            			sc.model.player.addItem(g[h].item, g[h].count);
+		            		}
+		            	}
+	            	}
+	            	for (h = 0; h < g.length; h++) {
+	            		if (g[h].condition && ig.VarCondition(g[h].condition).evaluate()) {
+	            			sc.model.player.addItem(g[h].item, g[h].count);
+	            		}
+	            	}
+            	}
+            }
+            d.cleared++;
+            d.points = Math.max(d.points, a);
+            d.medal = this.getMedalForCurrentRound(d.points, b);
+            d.time = c.timer <= 0 ? 0 : d.time <= 0 ? c.timer : Math.min(c.timer, d.time);
+            sc.stats.addMap("arena", "score", a);
+            if (d.medal > 0) {
+                sc.stats.addMap("arena", "totalMedals", 1);
+                sc.stats.addMap("arena", "medals-got-" + d.medal, 1)
+            }
+            if (c.rush && !b) {
+                var f = c.rushScores[c.currentRound];
+                f.points = Math.max(a, 0);
+                f.medal = this.getMedalForCurrentRound(f.points, b);
+                f.time = Math.max(c.timer, 0)
+            }
+            if (b) {
+                d.chain = Math.max(d.chain, c.rushChainMax);
+                sc.stats.addMap("arena", "rushCleared", 1)
+            } else sc.stats.addMap("arena", "roundsCleared", 1);
+            return this.getCupTrophy(c.cup) > e
         },
         getCupCompletion: function(a) {
             if ((a = this.cups[a]) && a.progress) {
@@ -223,6 +292,81 @@ ig.module("game.feature.arena.trial").requires(
                 return c
             }
             return -1
+        },
+        isFirstClear: function(b, c) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            return !this.cups[b] || !this.cups[b].progress ? false : !this.cups[b].progress.rounds[c].firstClearBonus;
+        },
+        hasFirstCleared: function(b, c) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            return !this.cups[b] || !this.cups[b].progress ? false : this.cups[b].progress.rounds[c].firstClearBonus == 1;
+        },
+        onStorageSave: function(a) {
+            var b = {
+                    cupData: {}
+                },
+                c;
+            for (c in this.cups)
+                if (this.cups[c] && this.cups[c].progress) {
+                    for (var d = this.cups[c].progress, e = {
+                            rush: {
+                                medal: d.rush.medal,
+                                points: d.rush.points,
+                                time: d.rush.time,
+                                cleared: d.rush.cleared,
+                                chain: d.rush.chain
+                            },
+                            rounds: []
+                        }, f = 0; f < d.rounds.length; f++) e.rounds.push({
+                        medal: d.rounds[f].medal,
+                        points: d.rounds[f].points,
+                        time: d.rounds[f].time,
+                        cleared: d.rounds[f].cleared,
+                        firstClearBonus: d.rounds[f].firstClearBonus
+                    });
+                    b.cupData[c] = e;
+                    b.cupData[c].name = ig.copy(this.cups[c].name);
+                    b.cupData[c].condition = ig.copy(this.cups[c].condition)
+                } else b.cupData[c] = {};
+            b.coins = this.coins || 0;
+            b.coinsSpend = this.coinsSpend || 0;
+            a.arena = b
+        },
+        onStoragePreLoad: function(a) {
+            this.clearProgress();
+            if (a.arena) {
+                var b = a.arena.cupData,
+                    c;
+                for (c in b)
+                    if (this.cups[c]) {
+                        var d = b[c];
+                        if (d && d.rush && d.rounds) {
+                            for (var e = {
+                                    rush: {
+                                        medal: d.rush.medal || 0,
+                                        points: d.rush.points || 0,
+                                        time: d.rush.time || 0,
+                                        cleared: d.rush.cleared || 0,
+                                        chain: d.rush.chain || 0
+                                    },
+                                    rounds: []
+                                }, f = 0; f < d.rounds.length; f++) e.rounds.push({
+                                medal: d.rounds[f].medal || 0,
+                                points: d.rounds[f].points || 0,
+                                time: d.rounds[f].time || 0,
+                                cleared: d.rounds[f].cleared || 0,
+                                firstClearBonus: d.rounds[f].firstClearBonus || 0
+                            });
+                            this.cups[c].progress = e;
+                            this.cups[c].name = d.name || null;
+                            this.cups[c].condition = d.condition || null
+                        }
+                    }
+                this.coins = a.arena.coins || 0;
+                this.coinsSpend = a.arena.coinsSpend || 0
+            }
         }
 	});
 	ig.addGameAddon(function() {
@@ -814,11 +958,17 @@ ig.module("game.feature.arena.trial").requires(
             this.addChildGui(this.header);
             this.rushChain = new sc.ArenaChainHud(true);
             this.addChildGui(this.rushChain);
+            var fc = false;
             this.summary = new sc.ArenaSummary(function() {
                 if (this.state == 0) {
-                    this.state = 1;
-                    this.waitTimer = 0.4;
-                    this.checkNewRecord()
+                	if ((fc = this.checkFirstClear()) && sc.options.get("show-items")) {
+                		this.state = 99;
+	                    this.waitTimer = 0.4;
+                	} else {
+	                    this.state = 1;
+	                    this.waitTimer = 0.4;
+                	}
+                	this.checkNewRecord();
                 }
             }.bind(this));
             if (!sc.arena.isCupCustom(sc.arena.runtime.cup)) {
@@ -829,7 +979,7 @@ ig.module("game.feature.arena.trial").requires(
                 if (this.state == 1) {
                     this.state = 2;
                     this.waitTimer = 0.2;
-                    this.saveScore();
+                    !fc && this.saveScore();
                     this.coins && this.coins.show()
                 }
             }.bind(this));
@@ -924,6 +1074,72 @@ ig.module("game.feature.arena.trial").requires(
             this.addChildGui(this.buttons);
             this.doStateTransition("HIDDEN", true)
         },
+        update: function() {
+            !this.overview && !this.buttons.dialogBlock && this.summary && this.summary.updateScroll();
+            if (this.initTimer > 0) this.initTimer =
+                this.initTimer - ig.system.tick;
+            if (this.waitTimer > 0) {
+                this.waitTimer = this.waitTimer - ig.system.rawTick;
+                if (this.waitTimer <= 0)
+                    if (this.state == 1) this.medal.show(sc.arena.getMedalForCurrentRound(this.summary.totalValue));
+                    else if (this.state == 2) this.buttons.show();
+                else if (this.state == 3) {
+                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, function() {
+                        this.state = 2;
+                        this.waitTimer = 0.2;
+                        this.overview = null
+                    }.bind(this));
+                    ig.gui.addGuiElement(this.overview);
+                    this.overview.show(ig.lang.get("sc.gui.arena.newTrophy"))
+                } else if (this.state ==
+                    4) {
+                    var a = sc.arena.saveRushScore();
+                    this.overview = new sc.ArenaRushOverview(function() {
+                        this.coins && this.coins.addRushCoins();
+                        this.state = a ? 3 : 2;
+                        this.waitTimer = 0.2;
+                        this.overview = null
+                    }.bind(this));
+                    ig.gui.addGuiElement(this.overview);
+                    this.overview.show()
+                } else if (this.state == 99 && sc.options.get("show-items")) {
+                	this.saveScore();
+                	this.waitTimer = 3;
+                	this.state = 1;
+                }
+            }
+        },
+        checkFirstClear: function() {
+            if (isTrial() && sc.arena.isFirstClear()) {
+                sc.commonEvents.startCallEvent("trial-first-clear");
+                var a = new sc.SmallEntityBox(ig.game.playerEntity, ig.lang.get("sc.gui.arena.firstClear"), 3, null, -2);
+                a.hideSmall = true;
+                a.stopRumble();
+                this.addChildGui(a)
+                return true;
+            }
+            return false;
+        },
+        onInteraction: function() {
+        	var a = false;
+            if (!(this.waitTimer > 0 || this.initTimer > 0))
+                if (this.state == 0) {
+                    this.summary.skip();
+                    this.state = 1;
+                    this.waitTimer = 0.2;
+                    this.checkNewRecord();
+                    (a = this.checkFirstClear()) && (this.state = 99);
+                } else if (this.state == 1) {
+	                this.state = 2;
+	                this.waitTimer = 0.2;
+	                !a && this.saveScore();
+	                this.coins && this.coins.show(true)
+	            } else if (this.state == 99) {
+	            	this.state = 1;
+	            	this.waitTimer = 3;
+	            	this.saveScore();
+	            }
+        },
 		show: function() {
 			this.initTimer = 0.8;
             ig.interact.addEntry(this.interact);
@@ -948,7 +1164,6 @@ ig.module("game.feature.arena.trial").requires(
 	});
 	sc.ArenaRoundList.inject({
 		onCreateListEntries: function(a, b) {
-			console.log('onCreateListEntries');
             var c = sc.arena.getCupRounds(this.currentCup);
             a.clear();
             b.clear();
@@ -1015,11 +1230,14 @@ ig.module("game.feature.arena.trial").requires(
         medals: null,
         bonuses: null,
         challenges: null,
+        firstClearBonuses: null,
         noneText: null,
         leftContent: null,
         rightContent: null,
         side: false,
         maxTime: null,
+        wasTrial: false,
+        menuGfx: new ig.Image("media/gui/menu.png"),
 		init: function() {
             this.parent();
             this.setPivot(0, 213);
@@ -1170,6 +1388,10 @@ ig.module("game.feature.arena.trial").requires(
             this.challenges.setPos(0, b);
             this.rightContent.addChildGui(this.challenges);
             this.setAnnotation(this.challenges, "challenges", 4, 277, 100, -4, -4);
+            this.firstClearBonuses = new ig.GuiElementBase;
+            this.firstClearBonuses.setPos(0, b);
+            this.firstClearBonuses.setSize(269, 92);
+            this.setAnnotation(this.firstClearBonuses, "firstClearBonuses", 4, 277, 100, -4, -4);
             this.noneText = new sc.TextGui(ig.lang.get("sc.gui.arena.menu.bonusNone"), {
                 font: sc.fontsystem.smallFont,
                 maxWidth: 269,
@@ -1260,6 +1482,16 @@ ig.module("game.feature.arena.trial").requires(
         },
         setData: function(b, a) {
             if (b) {
+            	if (this.wasTrial != isTrial(b)) {
+            		if (isTrial(b)) {
+            			this.rightContent.removeChildGui(this.challenges);
+            			this.rightContent.addChildGui(this.firstClearBonuses);
+            		} else {
+            			this.rightContent.addChildGui(this.challenges);
+            			this.rightContent.removeChildGui(this.firstClearBonuses);
+            		}
+            		this.wasTrial = isTrial(b);
+            	}
                 this.highscore.setValueAsNumber(sc.arena.getRoundPoints(b,
                     a));
                 this.medals.setValues(sc.arena.getRoundMedalRequirement(b, a, true), sc.arena.getRoundMedalRequirement(b, a), sc.arena.getRoundMedalRequirement(b, a, false, true));
@@ -1271,19 +1503,46 @@ ig.module("game.feature.arena.trial").requires(
                 if (a != -1) {
                     var d = sc.arena.getCupRounds(b)[a],
                         c = d.objective ? ig.LangLabel.getText(d.objective) : ig.lang.get("sc.gui.arena.menu.objectiveDefault");
-
                	 	this.maxTime.setTime(d.maxTime || 0, true);
+               	 	this.headerChallenges.textGui.setText(!isTrial(b) ? ig.lang.get("sc.gui.arena.menu.challenges") : sc.arena.hasFirstCleared(b, a)
+               	 		? ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-ok]"
+               	 		: ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-no]");
                     d.description && (c = c + ("\\n" + ig.LangLabel.getText(d.description)));
                     this.description.setText(c);
                     this.setBonusPoints(d.bonuses);
-                    this.setChallenges(sc.arena.getChallengeMods(b, a))
+                    this.setChallenges(sc.arena.getChallengeMods(b, a));
+                    var x = d.firstClearBonus;
+                    this.firstClearBonuses.removeAllChildren();
+                    var h = 0;
+                    if (x) {
+                    	for (var f = this.firstClearBonuses, g = this.menuGfx, i = h = 0; i < x.length; i++) {
+		                    var j = x[i].count,
+		                        k = sc.inventory.getItem(x[i].item),
+		                        l = "\\i[" + (k.icon + sc.inventory.getRaritySuffix(k.rarity || 0) || "item-default") + "]",
+		                        l = l + ig.LangLabel.getText(k.name);
+		                    j > 1 && (l = l + (" x " + j));
+		                    j = 0;
+		                    k.type == sc.ITEMS_TYPES.EQUIP && (j = k.level || 0);
+		                    k = new sc.TextGui(l);
+		                    k.setPos(0, h);
+		                    k.level = j;
+		                    k.numberGfx = g;
+		                    j > 0 && !d && k.setDrawCallback(function(a, b) {
+		                        sc.MenuHelper.drawLevel(this.level, a, b, this.numberGfx)
+		                    }.bind(k));
+		                    f.addChildGui(k);
+		                    h = h + 17
+		                }
+                    }
                 } else {
+                	this.firstClearBonuses.removeAllChildren();
                     this.setChallenges(sc.arena.getChallengeMods(b, -1));
                     this.bonusTotal.setValueAsNumber(0);
                     this.bonuses.addChildGui(this.noneText);
                     this.description.setText(ig.lang.get("sc.gui.arena.menu.objectiveRushMode"))
                 }
             } else {
+            	this.firstClearBonuses.removeAllChildren();
                 this.bonusTotal.setValueAsNumber(0,
                     true);
                 this.highscore.setValueAsNumber(0, true);

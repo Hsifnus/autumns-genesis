@@ -1,0 +1,172 @@
+{
+  "EFFECTS":{
+    "firstClear":[
+      {
+        "color": "white",
+        "alpha": 0.8,
+        "fadeIn": 0.1,
+        "fadeOut": 0.2,
+        "duration": 0.2,
+        "noLighter": false,
+        "type": "FADE_COLOR"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles": 10,
+        "duration": 0.5,
+        "clockwise": false,
+        "centralAngle": 1,
+        "startAngle": 0,
+        "startDist": 64,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": -1,
+        "rotateWithTime": true,
+        "normalMoveDist": 32,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.2,
+            "spline": ""
+          }
+        },
+        "particleDuration": 0.7,
+        "anim": "STAR",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 8,
+        "duration": 0.5,
+        "centralAngle": 1,
+        "startDist": 64,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": -1,
+        "rotateWithTime": false,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.6,
+            "spline": ""
+          }
+        },
+        "particleDuration": 1,
+        "anim": "STAR",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 10,
+        "duration": 0.5,
+        "clockwise": false,
+        "centralAngle": 1,
+        "startAngle": 0.25,
+        "startDist": 72,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 1,
+        "rotateWithTime": true,
+        "normalMoveDist": 32,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.2,
+            "spline": ""
+          }
+        },
+        "particleDuration": 0.7,
+        "anim": "STAR",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles": 8,
+        "duration": 0.5,
+        "centralAngle": 1,
+        "startAngle": -0.25,
+        "startDist": 72,
+        "moveDist": 0,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 1,
+        "rotateWithTime": false,
+        "collision": false,
+        "pAlpha": {
+          "init": 1,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 1,
+            "y": 1
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.6,
+            "spline": ""
+          }
+        },
+        "particleDuration": 1,
+        "anim": "STAR",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ]
+  }
+}
