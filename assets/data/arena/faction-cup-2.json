@@ -1,0 +1,407 @@
+{
+  "core": {
+    "type": "SOLO_CUP",
+    "name": {
+      "en_US": "Faction Advanced Cup",
+      "de_DE": "Fraktionspokal - Veteran",
+      "zh_CN": "派系进阶杯赛<<A<<[CHANGED 2019/07/31]",
+      "ja_JP": "ファクションアドバンスカップ<<A<<[CHANGED 2019/07/31]",
+      "ko_KR": "세력 베테랑 대회<<A<<[CHANGED 2019/07/31]",
+      "langUid": 4
+    },
+    "info": {
+      "en_US": "Refight several midgame battles found during your quests for the factions!",
+      "de_DE": "Bekämpfe nochmals die späteren Bosse aus den Quests der Fraktionen!",
+      "zh_CN": "再次对抗几个中期派系任务！<<A<<[CHANGED 2019/07/31]",
+      "ja_JP": "ゲーム中盤のファクションクエストで出会った敵ともう一度戦おう！<<A<<[CHANGED 2019/07/31]",
+      "ko_KR": "중기 세력 퀘스트 진행 중 싸웠던 몬스터들과 다시 싸우세요!<<A<<[CHANGED 2019/07/31]",
+      "langUid": 1
+    },
+    "condition": "quest.fd-2-meerkat-cave.solved && quest.rhg-2-crate_smuggle.solved && quest.rftc-3-metalstuff.solved && quest.miners-1-dirtbunnies.solved && quest.bg-2-goat_cave_1.solved && quest.nomadAdv-3-sandman_tomb_1.solved && quest.bakiGuard-2-evil_guard.solved && quest.jungleTrader-2-snowman_thief_2.solved && quest.jungleGreens-2-plantSearch_1.solved",
+    "music": "challenge",
+    "rushMusic": "raidTheme",
+    "level": 62,
+    "difficulty": "3",
+    "banner": {
+      "src": "media/gui/arena-banners.png",
+      "offX": 0,
+      "offY": 64,
+      "width": 280,
+      "height": 64
+    }
+  },
+  "rounds": [
+    {
+      "name": {
+        "en_US": "Burning Birbs",
+        "de_DE": "Flammende Vögel",
+        "zh_CN": "烧鸟屋<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "炎の鳥<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "불타는 새<<A<<[CHANGED 2019/07/31]",
+        "langUid": 54
+      },
+      "customCode": true,
+      "camFocus": "battleCounter1",
+      "platPoints": 140000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the \\c[3]\\v[combat.name.heat/special/volturbine-cave]s\\c[0] in \\c[3]\\v[area.heat-area.name]\\c[0]!\nDon't let them \\c[3]regenerate over the flames\\c[0]!",
+        "de_DE": "Besiege die \\c[3]Rasegeier\\c[0] im \\c[3]\\v[area.heat-area.name]\\c[0]!\nVerhindere ihre \\c[3]Regenation über den Flammen\\c[0]!",
+        "zh_CN": "击败\\c[3]\\v[area.heat-area.name]\\c[0]的\\c[3]\\v[combat.name.heat/special/volturbine-cave]s\\c[0]!\n不要让它们在\\c[3]火中做自己\\c[0]!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.heat-area.name]\\c[0]の\\c[3]\\v[combat.name.heat/special/volturbine-cave]\\c[0]を倒せ！\n\\c[3]炎の上で回復\\c[0]させないようにしよう！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.heat-area.name]\\c[0]에 있는 \\c[3]\\v[combat.name.heat/special/volturbine-cave]\\c[0]을 처치하세요!\n\\c[3]불꽃으로 회복하도록\\c[0] 놔두지 마세요!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 51
+      },
+      "points": 110000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.heat-firebirds-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 90,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 7,
+          "points": 5500
+        },
+        {
+          "type": "CHAIN",
+          "target": 5,
+          "points": 5500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 20000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    },
+    {
+      "name": {
+        "en_US": "Malicious Mustache",
+        "de_DE": "Schändlicher Schnauzbart",
+        "zh_CN": "黑胡子<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "裏切りの衛兵<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "심술궂은 수염<<A<<[CHANGED 2019/07/31]",
+        "langUid": 50
+      },
+      "customCode": true,
+      "camFocus": "camTarget",
+      "platPoints": 185000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Have another duel with \\c[3]\\v[combat.name.heat/special/guard-hostile-mustache]\\c[0], Bakii'Kums most treasonous guard!\nAnd also trash his \\c[3]\\v[combat.name.heat/special/baki-turret_2]s\\c[0] while you're at it!",
+        "de_DE": "Liefere dir ein weiteres Duell mit der \\c[3]Wache Billston\\c[0], Bakii'Kums Hochverräter!\nUnd wirf auch gleich seine \\c[3]Legionsgeschütze v2\\c[0] auf den Müll, wenn du schon mal dabei bist!",
+        "zh_CN": "再次与巴基库姆最险恶的守卫\\c[3]\\v[combat.name.heat/special/guard-hostile-mustache]\\c[0]决斗!\n记得顺带消灭掉他的\\c[3]\\v[combat.name.heat/special/baki-turret_2]\\c[0]!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "バキーイ・クムの裏切者、\\c[3]\\v[combat.name.heat/special/guard-hostile-mustache]\\c[0]ともう一度戦い倒せ！\n\\c[3]\\v[combat.name.heat/special/baki-turret_2]\\c[0]もついでに壊そう！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "바키쿰의 가장 불성실한 경비원인 \\c[3]\\v[combat.name.heat/special/guard-hostile-mustache]\\c[0]과 다시 결투하세요!\n그리고 그의 \\c[3]\\v[combat.name.heat/special/baki-turret_2]\\c[0]도 부수세요!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 55
+      },
+      "points": 160000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.maroon-billston-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 120,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 8,
+          "points": 2500
+        },
+        {
+          "type": "CHAIN",
+          "target": 10,
+          "points": 5500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 10000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    },
+    {
+      "name": {
+        "en_US": "Heater Beater",
+        "de_DE": "Schmelzschläger",
+        "zh_CN": "火上浇油<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "ヒータービーター<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "히터 비터<<A<<[CHANGED 2019/07/31]",
+        "langUid": 40
+      },
+      "customCode": true,
+      "platPoints": 200000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the mighty metallic \\c[3]\\v[combat.name.cold/mine-diggingbot-quest]\\c[0] in the \\c[3]\\v[area.cold-dng.name]\\c[0]!\nTry to keep its \\c[3]heat\\c[0] in a \\c[3]balanced state\\c[0]!",
+        "de_DE": "Besiege den mächtigen metallischen \\c[3]Schmelz-Digmo\\c[0] in der \\c[3]\\v[area.cold-dng.name]\\c[0]!\nVersuche seine \\c[3]Hitze im Gleichgewicht zu halten\\c[0]!",
+        "zh_CN": "在\\c[3]\\v[area.cold-dng.name]\\c[0]击败强大的\\c[3]\\v[combat.name.cold/mine-diggingbot-quest]\\c[0]!\n注意保持其\\c[3]热能\\c[0]在\\c[3]稳定状态\\c[0]!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.cold-dng.name]\\c[0]の強力なロボット、\\c[3]\\v[combat.name.cold/mine-diggingbot-quest]\\c[0]を倒せ！\n\\c[3]熱暴走\\c[0]させないようにしよう！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.cold-dng.name]\\c[0]에 있는 단단한 금속 \\c[3]\\v[combat.name.cold/mine-diggingbot-quest]\\c[0]을 처치하세요! \n녀석의 \\c[3]열기\\c[0]를 \\c[3]균형 잡힌 상태\\c[0]로 유지해야 합니다!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 41
+      },
+      "points": 170000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.mine-heatbot-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 120,
+          "points": 15000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 10,
+          "points": 7500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 30000,
+          "points": 7500
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    },
+    {
+      "name": {
+        "en_US": "Blazing Buffel",
+        "de_DE": "Brennender Büffel",
+        "zh_CN": "牛气冲天<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "燃える闘牛<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "불타는 들소<<A<<[CHANGED 2019/07/31]",
+        "langUid": 42
+      },
+      "customCode": true,
+      "platPoints": 145000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the \\c[3]\\v[combat.name.autumn-fall/buffalo-fire-quest]\\c[0] in \\c[3]\\v[area.autumn-fall.name]\\c[0]!\nOvercome it using \\c[3]ice\\c[0] and \\c[3]angles\\c[0]!",
+        "de_DE": "Besiege den \\c[3]Gluthuuf\\c[0] in \\c[3]\\v[area.autumn-fall.name]\\c[0]! Überliste ihn mit \\c[3]Eis\\c[0] und \\c[3]Winkelmanövern\\c[0]!",
+        "zh_CN": "在\\c[3]\\v[area.autumn-fall.name]\\c[0]击败\\c[3]\\v[combat.name.autumn-fall/buffalo-fire-quest]\\c[0]!\n找好\\c[3]角度\\c[0]，用\\c[3]冰\\c[0]将其击破!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.autumn-fall.name]\\c[0]の\\c[3]\\v[combat.name.autumn-fall/buffalo-fire-quest]\\c[0]を倒せ！\n\\c[3]氷\\c[0]と\\c[3]角度\\c[0]をうまく利用するのがコツだ！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.autumn-fall.name]\\c[0]에 있는 \\c[3]\\v[combat.name.autumn-fall/buffalo-fire-quest]\\c[0]를 처치하세요!\n극복하는 방법은 바로 \\c[3]얼음\\c[0]과 \\c[3]각도\\c[0]입니다!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 43
+      },
+      "points": 115000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.af-firebuffel-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 90,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 5,
+          "points": 5500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 30000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":556,
+          "count":1,
+          "condition":"true"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en_US": "Tourist of Terror",
+        "de_DE": "Terror-Tourist",
+        "zh_CN": "恐怖游客<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "恐怖の侵略者<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "공포의 관광객<<A<<[CHANGED 2019/07/31]",
+        "langUid": 44
+      },
+      "customCode": true,
+      "camFocus": "PLAYER_SPAWN",
+      "platPoints": 135000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the \\c[3]\\v[combat.name.jungle/special/snowman-jungle-boss]\\c[0] who has resettled to \\c[3]\\v[area.jungle.name]\\c[0]!\nBreak his defense by using the teleporting \\c[3]\\v[combat.name.jungle/special/heater]\\c[0]!",
+        "de_DE": "Besiege den \\c[3]Karotto Fruchtsucher\\c[0], der nach \\c[3]\\v[area.jungle.name]\\c[0] umgezogen ist!\nDurchbrich seine Verteidigung mittels des \\c[3]Höllenglut-Plasmaofens\\c[0]!",
+        "zh_CN": "击败定居在\\c[3]\\v[area.jungle.name]\\c[0]的\\c[3]\\v[combat.name.jungle/special/snowman-jungle-boss]\\c[0]!\n传送\\c[3]\\v[combat.name.jungle/special/heater]\\c[0]来破坏其防御!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.jungle.name]\\c[0]に住み着いた\\c[3]\\v[combat.name.jungle/special/snowman-jungle-boss]\\c[0]を倒せ！\n\\c[3]\\v[combat.name.jungle/special/heater]\\c[0]を利用して、敵の防御を無効化しよう！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.jungle.name]\\c[0]에 다시 정착한 \\c[3]\\v[combat.name.jungle/special/snowman-jungle-boss]\\c[0]를 처치하세요!\n\\c[3]\\v[combat.name.jungle/special/heater]\\c[0]를 텔레포트시키면 방어를 부술 수 있습니다!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 45
+      },
+      "points": 115000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.jungle-snowman-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 60,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 5,
+          "points": 5000
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 35000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    },
+    {
+      "name": {
+        "en_US": "Perky Plant",
+        "de_DE": "Pfundige Pflanze",
+        "zh_CN": "丛林轶事<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "エナジープラント<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "건방진 식물<<A<<[CHANGED 2019/07/31]",
+        "langUid": 46
+      },
+      "customCode": true,
+      "camFocus": "arena",
+      "platPoints": 130000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the \\c[3]\\v[combat.name.jungle/special/powerplant-quest-1]\\c[0] in \\c[3]\\v[area.jungle.name]\\c[0]!",
+        "de_DE": "Besiege den \\c[3]Pflanzenegger\\c[0] in \\c[3]\\v[area.jungle.name]\\c[0]!",
+        "zh_CN": "在\\c[3]\\v[area.jungle.name]\\c[0]击败\\c[3]\\v[combat.name.jungle/special/powerplant-quest-1]\\c[0]!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.jungle.name]\\c[0]の\\c[3]\\v[combat.name.jungle/special/powerplant-quest-1]\\c[0]を倒せ！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.jungle.name]\\c[0]에 있는 \\c[3]\\v[combat.name.jungle/special/powerplant-quest-1]\\c[0]를 처치하세요!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 47
+      },
+      "points": 110000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.jungle-muscleplant-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 60,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 5,
+          "points": 5500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 20000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":558,
+          "count":1,
+          "condition":"true"
+        }
+      ]
+    },
+    {
+      "name": {
+        "en_US": "Dreaded Dry Dude",
+        "de_DE": "Tödlich-trockener Typ",
+        "zh_CN": "狂沙之怒<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "砂に潜む者<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "무시무시하고 건조한 녀석<<A<<[CHANGED 2019/07/31]",
+        "langUid": 52
+      },
+      "customCode": true,
+      "camFocus": "PLAYER_SPAWN",
+      "platPoints": 150000,
+      "coins": 1000,
+      "objective": {
+        "en_US": "Defeat the \\c[3]\\v[combat.name.heat/special/sandman-1]\\c[0] in \\c[3]\\v[area.heat-area.name]\\c[0]!\n\\c[3]Quicksand\\c[0] may be annoying but \\c[3]teleporters\\c[0] are your friend!",
+        "de_DE": "Besiege den \\c[3]König Kaktorro\\c[0] im \\c[3]\\v[area.heat-area.name]\\c[0]! \\c[3]Treibsand\\c[0] kann nervig sein, doch \\c[3]Teleporter\\c[0] helfen aus!",
+        "zh_CN": "在\\c[3]\\v[area.heat-area.name]\\c[0]击败\\c[3]\\v[combat.name.heat/special/sandman-1]\\c[0]!\n小心\\c[3]流沙\\c[0]，注意使用\\c[3]传送器\\c[0]!<<A<<[CHANGED 2019/07/31]",
+        "ja_JP": "\\c[3]\\v[area.heat-area.name]\\c[0]の\\c[3]\\v[combat.name.heat/special/sandman-1]\\c[0]を倒せ！\n\\c[3]流砂\\c[0]に巻き込まれないよう、\\c[3]テレポーター\\c[0]をうまく活用しよう！<<A<<[CHANGED 2019/07/31]",
+        "ko_KR": "\\c[3]\\v[area.heat-area.name]\\c[0]에 있는 \\c[3]\\v[combat.name.heat/special/sandman-1]\\c[0]를 처치하세요!\n\\c[3]유사\\c[0] 때문에 걸리적거릴 수도 있지만, \\c[3]텔레포터\\c[0]가 있으니 걱정 마세요!<<A<<[CHANGED 2019/07/31]",
+        "langUid": 53
+      },
+      "points": 125000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.faction.heat-sandman-1",
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 90,
+          "points": 10000
+        },
+        {
+          "type": "HIT_COUNTER",
+          "value": 5,
+          "points": 5500
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 20000,
+          "points": 5000
+        },
+        {
+          "type": "ITEMS_USED",
+          "amount": 2,
+          "points": 3000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    }
+  ]
+}

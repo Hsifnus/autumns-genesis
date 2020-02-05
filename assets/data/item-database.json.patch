@@ -188,5 +188,153 @@
       }
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 19996,
+      "name": {
+        "en_US": "Ruby Seed",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A shimmering seed-shaped crystal too beautiful for any Hillkat to hurl.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 3,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0] in Arena"
+            },
+            "type": "ENEMY",
+            "value": "meerkat-special-command-1"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 19997,
+      "name": {
+        "en_US": "Garnet Horn",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A horn-shaped fragment of a red gem. An intense warmth can be felt from within.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 3,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.autumn-fall/buffalo-fire-quest]\\c[0] in Arena"
+            },
+            "type": "ENEMY",
+            "value": "autumn-fall.buffalo-fire-quest"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 19998,
+      "name": {
+        "en_US": "Technicolor Pelt",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "Multicolored fur from a multicolored Frobbit.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 3,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.daft-frobbit]\\c[0] in Arena"
+            },
+            "type": "ENEMY",
+            "value": "daft-frobbit"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 19999,
+      "name": {
+        "en_US": "Amethyst Petal",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A deep purple petal that never seems to wilt. You can feel its urge to wiggle around.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 3,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/special/powerplant-quest-1]\\c[0] in Arena"
+            },
+            "type": "ENEMY",
+            "value": "jungle.special.powerplant-quest-1"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
 	"type": "EXIT"
 }]

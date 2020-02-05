@@ -107,7 +107,7 @@ ig.module("game.feature.arena.trial").requires(
 				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
 				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
-            this.parent();
+            this.parent(a);
         },
         restartCup: function(a) {
         	if (isTrial()) {
@@ -117,7 +117,7 @@ ig.module("game.feature.arena.trial").requires(
 				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
 				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
-            this.parent();
+            this.parent(a);
         },
         prepareLobbyReturn: function(a) {
         	if (isTrial()) {
@@ -127,7 +127,7 @@ ig.module("game.feature.arena.trial").requires(
 				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
 				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
 			}
-            this.parent();
+            this.parent(a);
         },
         exitArenaMode: function() {
 			if (isTrial()) {
@@ -218,25 +218,23 @@ ig.module("game.feature.arena.trial").requires(
             c.score = a;
             var e = b ? c.preTrophy : this.getCupTrophy(c.cup);
             c.prevMedal = d.medal;
-            if (isTrial()) {
-            	var g = this.getCupRounds(c.cup)[c.currentRound].firstClearBonus,
+            var g = this.getCupRounds(c.cup)[c.currentRound].firstClearBonus,
             		h = 0;
-            	if (g) {
-	            	if (!d.firstClearBonus) {
-	            		d.firstClearBonus = 1;
-		            	for (h = 0; h < g.length; h++) {
-		            		if (!g[h].condition) {
-		            			sc.model.player.addItem(g[h].item, g[h].count);
-		            		}
-		            	}
-	            	}
+            if (g) {
+            	if (isTrial() && !d.firstClearBonus) {
+            		d.firstClearBonus = 1;
 	            	for (h = 0; h < g.length; h++) {
-	            		if (g[h].condition && ig.VarCondition(g[h].condition).evaluate()) {
+	            		if (!g[h].condition) {
 	            			sc.model.player.addItem(g[h].item, g[h].count);
 	            		}
 	            	}
             	}
-            }
+            	for (h = 0; h < g.length; h++) {
+            		if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
+            			sc.model.player.addItem(g[h].item, g[h].count);
+            		}
+            	}
+        	}
             d.cleared++;
             d.points = Math.max(d.points, a);
             d.medal = this.getMedalForCurrentRound(d.points, b);
@@ -302,6 +300,23 @@ ig.module("game.feature.arena.trial").requires(
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
             return !this.cups[b] || !this.cups[b].progress ? false : this.cups[b].progress.rounds[c].firstClearBonus == 1;
+        },
+        hasSatisfiedCondition: function(b, c) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            if (c === -1) {
+            	return false;
+            }
+            var g = this.getCupRounds(b)[c].firstClearBonus,
+            	h = 0;
+            if (!!g) {
+	            for (h = 0; h < g.length; h++) {
+	        		if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
+	        			return true;
+	        		}
+	        	}
+            }
+        	return false;
         },
         onStorageSave: function(a) {
             var b = {
@@ -961,7 +976,7 @@ ig.module("game.feature.arena.trial").requires(
             var fc = false;
             this.summary = new sc.ArenaSummary(function() {
                 if (this.state == 0) {
-                	if ((fc = this.checkFirstClear()) && sc.options.get("show-items")) {
+                	if ((fc = this.checkFirstClear() || this.checkConditionalClear()) && sc.options.get("show-items")) {
                 		this.state = 99;
 	                    this.waitTimer = 0.4;
                 	} else {
@@ -1120,6 +1135,9 @@ ig.module("game.feature.arena.trial").requires(
             }
             return false;
         },
+        checkConditionalClear: function() {
+            return sc.arena.hasSatisfiedCondition();
+        },
         onInteraction: function() {
         	var a = false;
             if (!(this.waitTimer > 0 || this.initTimer > 0))
@@ -1128,7 +1146,7 @@ ig.module("game.feature.arena.trial").requires(
                     this.state = 1;
                     this.waitTimer = 0.2;
                     this.checkNewRecord();
-                    (a = this.checkFirstClear()) && (this.state = 99);
+                    (a = this.checkFirstClear() || this.checkConditionalClear()) && (this.state = 99);
                 } else if (this.state == 1) {
 	                this.state = 2;
 	                this.waitTimer = 0.2;
@@ -1516,6 +1534,7 @@ ig.module("game.feature.arena.trial").requires(
                     var h = 0;
                     if (x) {
                     	for (var f = this.firstClearBonuses, g = this.menuGfx, i = h = 0; i < x.length; i++) {
+                    		if (!!x[i].condition) continue;
 		                    var j = x[i].count,
 		                        k = sc.inventory.getItem(x[i].item),
 		                        l = "\\i[" + (k.icon + sc.inventory.getRaritySuffix(k.rarity || 0) || "item-default") + "]",
