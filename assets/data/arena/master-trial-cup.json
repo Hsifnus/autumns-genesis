@@ -30,6 +30,10 @@
         "en_US": "Magmoth's Master Trial",
         "langUid": 32
       },
+      "altName": {
+        "en_US": "Magmoth's Master Trial EX",
+        "langUid": 32
+      },
       "customCode": true,
       "camFocus": "PLAYER_SPAWN",
       "platPoints": 700000,
@@ -68,6 +72,10 @@
         "en_US": "Phantom's Master Trial",
         "langUid": 32
       },
+      "altName": {
+        "en_US": "Phantom's Master Trial EX",
+        "langUid": 32
+      },
       "customCode": true,
       "camFocus": "PLAYER_SPAWN",
       "platPoints": 750000,
@@ -104,6 +112,10 @@
     {
       "name": {
         "en_US": "Starnikus's Master Trial",
+        "langUid": 32
+      },
+      "altName": {
+        "en_US": "Starnikus's Master Trial EX",
         "langUid": 32
       },
       "customCode": true,

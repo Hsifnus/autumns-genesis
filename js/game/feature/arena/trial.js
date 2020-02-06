@@ -6,7 +6,8 @@ ig.module("game.feature.arena.trial").requires(
 	"game.feature.menu.gui.arena.arena-round-page",
 	"game.feature.arena.gui.arena-trophy-gui",
 	"game.feature.arena.gui.arena-start-gui",
-	"game.feature.arena.arena-steps").defines(function() {
+	"game.feature.arena.arena-steps",
+	"game.feature.new-game.new-game-model").defines(function() {
     var f = {
         value: 0
     };
@@ -1193,7 +1194,7 @@ ig.module("game.feature.arena.trial").requires(
 			}
             for (var f = 0; f <
                 c.length; f++) {
-                e = ig.LangLabel.getText(c[f].name);
+                e = c[f].altName && sc.newgame.hasHarderEnemies() ? ig.LangLabel.getText(c[f].altName) : ig.LangLabel.getText(c[f].name);
                 e = new sc.ArenaRoundEntryButton(e, this.currentCup, f, sc.arena.getCupMedal(this.currentCup, f), c.length, null, isTrial(this.currentCup));
                 e.setActive(isTrial(this.currentCup) || ig.perf.enableArenaRound || this.isRoundActive(this.currentCup, f));
                 a.addButton(e)
@@ -1205,7 +1206,8 @@ ig.module("game.feature.arena.trial").requires(
                 c = a.index,
                 a = null;
             if (isTrial(this.currentCup)) {
-            	a = ig.lang.get("sc.gui.arena.menu.startTrial").replace("[TRIAL_NAME]", ig.LangLabel.getText(sc.arena.getCupRounds(b)[c].name));
+            	var round = sc.arena.getCupRounds(b)[c];
+            	a = ig.lang.get("sc.gui.arena.menu.startTrial").replace("[TRIAL_NAME]", ig.LangLabel.getText(round.altName && sc.newgame.hasHarderEnemies() ? round.altName : round.name));
             } else {
             	a = c == -1 ?
 	            	ig.lang.get("sc.gui.arena.menu.startRushMode").replace("[CUP_NAME]", sc.arena.getCupName(b))
@@ -1562,6 +1564,11 @@ ig.module("game.feature.arena.trial").requires(
                     this.description.setText(ig.lang.get("sc.gui.arena.menu.objectiveRushMode"))
                 }
             } else {
+            	if (this.wasTrial) {
+	            	this.rightContent.addChildGui(this.challenges);
+	            	this.rightContent.removeChildGui(this.firstClearBonuses);
+	            	this.wasTrial = false;
+            	}
             	this.firstClearBonuses.removeAllChildren();
                 this.bonusTotal.setValueAsNumber(0,
                     true);
@@ -1749,6 +1756,22 @@ ig.module("game.feature.arena.trial").requires(
             this.platUnlocked && this.platin.setNumber(d, c)
         }
     });
+    sc.ArenaInfoBox.inject({
+    	 setRoundInfo: function(a, b) {
+            if (b == void 0) {
+                this.title.setText(ig.lang.get("sc.gui.arena.menu.noRound"));
+                this.pages[1].setData();
+                this.round = -2
+            } else if (!(this.key == a && this.round == b)) {
+                this.key =
+                    a;
+                this.round = b;
+                var roundData = this.cup.rounds[b];
+                (this.cup = sc.arena.getCupData(this.key)) ? b == -1 ? this.title.setText(ig.lang.get("sc.gui.arena.menu.rush")) : this.title.setText(ig.LangLabel.getText(roundData.altName && sc.newgame.hasHarderEnemies() ? roundData.altName : roundData.name)): this.title.setText(ig.lang.get("sc.gui.arena.menu.noRound"));
+                this.round >= -1 && this.pages[1].setData(a, this.round, true)
+            }
+        }
+    });
     sc.ArenaRoundStartHud = ig.GuiElementBase.extend({
         transitions: {
             DEFAULT: {
@@ -1842,7 +1865,7 @@ ig.module("game.feature.arena.trial").requires(
             }
             this.container.setSize(190, 18 * (~~(e / 10) + 1));
             this.addChildGui(this.container);
-            this.name = new sc.TextGui(ig.LangLabel.getText(a.name));
+            this.name = new sc.TextGui(ig.LangLabel.getText(a.altName && sc.newgame.hasHarderEnemies() ? a.altName : a.name));
             this.name.setAlign(ig.GUI_ALIGN_X.CENTER, ig.GUI_ALIGN_Y.BOTTOM);
             this.name.hook.transitions = {
                 DEFAULT: {
