@@ -1,5 +1,17 @@
 import "./js/game/feature/arena/trial.js";
 
+import "./js/game/feature/arena/trial-cup-overview.js";
+
+import "./js/game/feature/arena/trial-list.js";
+
+import "./js/game/feature/arena/trial-misc.js";
+
+import "./js/game/feature/arena/trial-round-page.js";
+
+import "./js/game/feature/arena/trial-start-gui.js";
+
+import "./js/game/feature/arena/trial-steps.js";
+
 import "./js/game/feature/combat/custom-sweep.js";
 
 import "./js/game/feature/combat/entities/custom-food-icon.js";
