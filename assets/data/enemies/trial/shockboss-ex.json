@@ -341,6 +341,37 @@
         }
       ]
     },
+    "WEAK_END": {
+      "walkAnims": "weak",
+      "shadow": 24,
+      "damageFactor": 0.1,
+      "enabledReactions": [
+        "HP_BREAK_WEAK",
+        "KILL_HIT"
+      ],
+      "elementFilter": "NEUTRAL",
+      "annotate": {
+        "active": "NONE",
+        "passive": "WEAK",
+        "weapon": "ANY",
+        "element": "ANY",
+        "extra": []
+      },
+      "choices": [
+        {
+          "req": [
+            {
+              "negated": false,
+              "type": "TRACKER_READY",
+              "name": "weakRegen"
+            }
+          ],
+          "action": "weakBreakEnd",
+          "postSwitchState": "DEFAULT",
+          "ignoreStun": true
+        }
+      ]
+    },
     "PASSIVE_INVIS": {
       "weight": -1,
       "hitIgnore": true,
@@ -9184,14 +9215,6 @@
         "config": "normal"
       },
       {
-        "type": "ENABLE_REACTION",
-        "reaction": "HP_BREAK"
-      },
-      {
-        "type": "DISABLE_REACTION",
-        "reaction": "HP_BREAK_WEAK"
-      },
-      {
         "offsetX": 0,
         "offsetY": 0,
         "speed": "FASTER",
@@ -9330,6 +9353,14 @@
         "wait": false,
         "waitSkip": 0,
         "type": "RESET_CAMERA"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "HP_BREAK"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "HP_BREAK_WEAK"
       },
       {
         "time": 0.4,
@@ -9489,10 +9520,11 @@
     },
     "HP_BREAK_WEAK": {
       "hitType": "HP_BREAK_HIT",
+      "preSwitchState": "WEAK_END",
       "postSwitchState": "DEFAULT",
       "preAction": "weakBreakEndPre",
       "action": "weakBreakEnd",
-      "blockFurtherHits": false,
+      "blockFurtherHits": true,
       "attackType": "MASSIVE",
       "flyLevel": "MASSIVE+",
       "stunChange": "FORCE_STUN",
