@@ -8262,6 +8262,10 @@
         "type": "CLEAR_EFFECTS"
       },
       {
+        "type": "DISABLE_REACTION",
+        "reaction": "COMPRESSOR_HIT"
+      },
+      {
         "duration": -1,
         "align": "BOTTOM",
         "rotateFace": -1,
@@ -8280,10 +8284,6 @@
           "y": 0,
           "z": 0
         }
-      },
-      {
-        "type": "DISABLE_REACTION",
-        "reaction": "COMPRESSOR_HIT"
       },
       {
         "time": 0.6,
