@@ -132,17 +132,8 @@ ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui
             this.addChildGui(this.name);
             this.doStateTransition("HIDDEN", true);
             this.doStateTransition("DEFAULT");
-            this.round.doStateTransition("CENTER", false, false, function() {
-                this.round.doStateTransition("DEFAULT", false, false,
-                    function() {
-                        this.round.doStateTransition("AWAY")
-                    }.bind(this))
-            }.bind(this));
-            this.name.doStateTransition("CENTER", false, false, function() {
-                this.name.doStateTransition("DEFAULT", false, false, function() {
-                    this.name.doStateTransition("AWAY")
-                }.bind(this))
-            }.bind(this))
+            this.round.doStateTransition("CENTER", false, false, () => this.round.doStateTransition("DEFAULT", false, false, () => this.round.doStateTransition("AWAY")));
+            this.name.doStateTransition("CENTER", false, false, () => this.name.doStateTransition("DEFAULT", false, false, () => this.name.doStateTransition("AWAY")));
         },
         updateDrawables: function(b) {
             var a = this.hook.size;
@@ -154,9 +145,7 @@ ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui
             if (this.timer >= 0 && !this.hasTransition()) {
                 this.timer =
                     this.timer - ig.system.tick;
-                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, function() {
-                    this.done = true
-                }.bind(this))
+                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, () => (this.done = true))
             }
         }
     });
@@ -226,11 +215,7 @@ ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui
             this.addChildGui(this.name);
             this.doStateTransition("HIDDEN", true);
             this.doStateTransition("DEFAULT");
-            this.name.doStateTransition("CENTER", false, false, function() {
-                this.name.doStateTransition("DEFAULT", false, false, function() {
-                    this.name.doStateTransition("AWAY")
-                }.bind(this))
-            }.bind(this))
+            this.name.doStateTransition("CENTER", false, false, () => this.name.doStateTransition("DEFAULT", false, false, () => this.name.doStateTransition("AWAY")));
         },
         updateDrawables: function(b) {
             var a = this.hook.size;
@@ -242,9 +227,7 @@ ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui
             if (this.timer >= 0 && !this.hasTransition()) {
                 this.timer =
                     this.timer - ig.system.tick;
-                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, function() {
-                    this.done = true
-                }.bind(this))
+                this.timer <= 0 && this.doStateTransition("HIDDEN", false, true, () => (this.done = true));
             }
         }
     });

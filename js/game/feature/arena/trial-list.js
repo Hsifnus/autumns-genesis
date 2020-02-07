@@ -32,13 +32,13 @@ ig.module("game.feature.arena.trial-list").requires("game.feature.menu.gui.arena
                     : ig.lang.get("sc.gui.arena.menu.startAtRound").replace("[CUP_NAME]", sc.arena.getCupName(b)).replace("[ROUND_INDEX]", c + 1);
             }
             sc.Dialogs.showYesNoDialog(a, sc.DIALOG_INFO_ICON.QUESTION,
-                function(a) {
+                (a) => {
                     if (a.data == 0) {
                         sc.arena.enterArenaMode(b, c);
                         this.submit.play();
                         sc.model.enterPrevSubState()
                     } else a.data > 0 && sc.BUTTON_SOUND.submit.play()
-                }.bind(this), true)
+                }, true)
         }
     });
 });

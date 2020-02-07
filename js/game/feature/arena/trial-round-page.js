@@ -325,9 +325,9 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                             k.setPos(0, h);
                             k.level = j;
                             k.numberGfx = g;
-                            j > 0 && !d && k.setDrawCallback(function(a, b) {
+                            j > 0 && !d && k.setDrawCallback((a, b) => {
                                 sc.MenuHelper.drawLevel(this.level, a, b, this.numberGfx)
-                            }.bind(k));
+                            });
                             f.addChildGui(k);
                             h = h + 17
                         }
@@ -423,9 +423,9 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
             var a =
                 0,
                 b = ig.copy(b);
-            b.sort(function(a, b) {
+            b.sort((a, b) => {
                 return (sc.ARENA_BONUS_OBJECTIVE[a.type] || 0).order - (sc.ARENA_BONUS_OBJECTIVE[b.type] || 0).order
-            }.bind(this));
+            });
             if (b)
                 for (var d = Math.min(b.length, sc.ARENA_MAX_BONUS_OBJECTIVES), c = 0; c < d; c++) {
                     b.length <= 4 ? this.createBonusEntry("\\i[insetArrow]" + this.getBonusText(b[c]), c * 14, this.getBonusPointsText(b[c])) : this.createBonusEntry("\\i[insetArrow]" + this.getBonusText(b[c]), 5 + c * 9, this.getBonusPointsText(b[c]), true);

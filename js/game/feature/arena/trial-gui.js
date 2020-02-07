@@ -2,13 +2,9 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	sc.ArenaPlayerDeathOverlay.inject({
 		show: function() {
 			if (sc.arena.isTrial()) {
-				this.header.show(function() {
-	                this.buttons.show()
-	            }.bind(this), ig.lang.get("sc.gui.arena.trialFail"));
+				this.header.show(() => this.buttons.show(), ig.lang.get("sc.gui.arena.trialFail"));
 			} else {
-	            this.header.show(function() {
-	                this.buttons.show()
-	            }.bind(this), ig.lang.get("sc.gui.arena.roundFail"));
+	            this.header.show(() => this.buttons.show(), ig.lang.get("sc.gui.arena.roundFail"));
 			}
             this.doStateTransition("DEFAULT", true)
         }
@@ -24,7 +20,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
             this.rushChain = new sc.ArenaChainHud(true);
             this.addChildGui(this.rushChain);
             var fc = false;
-            this.summary = new sc.ArenaSummary(function() {
+            this.summary = new sc.ArenaSummary(() => {
                 if (this.state == 0) {
                 	if ((fc = this.checkFirstClear() || this.checkConditionalClear()) && sc.options.get("show-items")) {
                 		this.state = 99;
@@ -35,19 +31,19 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
                 	}
                 	this.checkNewRecord();
                 }
-            }.bind(this));
+            });
             if (!sc.arena.isCupCustom(sc.arena.runtime.cup)) {
                 this.coins = new sc.ArenaCoinsHud;
                 this.addChildGui(this.coins)
             }
-            this.medal = new sc.ArenaMedalHud(function() {
+            this.medal = new sc.ArenaMedalHud(() => {
                 if (this.state == 1) {
                     this.state = 2;
                     this.waitTimer = 0.2;
                     !fc && this.saveScore();
                     this.coins && this.coins.show()
                 }
-            }.bind(this));
+            });
             this.addChildGui(this.medal);
             this.info = new sc.InfoBar(null, null, true);
             this.info.setAlign(ig.GUI_ALIGN_X.LEFT,
@@ -56,7 +52,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
             this.info.doStateTransition("DEFAULT");
             this.addChildGui(this.info);
             this.buttons = sc.arena.isTrial() ?
-	            new sc.ArenaRoundEndButtons(function(a, b) {
+	            new sc.ArenaRoundEndButtons((a, b) => {
                     if (a)
                         if (b == 0) {
                             sc.arena.restartCup();
@@ -73,9 +69,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	                        this.hide();
 	                        sc.commonEvents.startCallEvent("arena-teleport")
 	                    } else if (b == 1) {
-	                        this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, function() {
-	                            this.overview = null
-	                        }.bind(this), true);
+	                        this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, () => (this.overview = null), true);
 	                        ig.gui.addGuiElement(this.overview);
 	                        this.overview.show()
 	                    } else if (b == 2) {
@@ -83,8 +77,8 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	                        this.hide();
 	                        sc.commonEvents.startCallEvent("arena-end-cup")
 	                    }
-                }.bind(this), this.info, true)
-	        :   new sc.ArenaRoundEndButtons(function(a, b, c) {
+                }, this.info, true)
+	        :   new sc.ArenaRoundEndButtons((a, b, c) => {
 	                if (a)
 	                    if (c)
 	                        if (b == 0) {
@@ -93,9 +87,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	                            this.hide();
 	                            sc.commonEvents.startCallEvent("arena-teleport")
 	                        } else if (b == 1) {
-	                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, function() {
-	                        this.overview = null
-	                    }.bind(this), true);
+	                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, () => (this.overview = null), true);
 	                    ig.gui.addGuiElement(this.overview);
 	                    this.overview.show()
 	                } else {
@@ -125,9 +117,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	                    sc.commonEvents.startCallEvent("arena-teleport")
 	                } else if (b ==
 	                    2) {
-	                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, function() {
-	                        this.overview = null
-	                    }.bind(this), true);
+	                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, () => (this.overview = null), true);
 	                    ig.gui.addGuiElement(this.overview);
 	                    this.overview.show()
 	                } else if (b == 3) {
@@ -135,7 +125,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	                    this.hide();
 	                    sc.commonEvents.startCallEvent("arena-end-cup")
 	                }
-	            }.bind(this), this.info);
+	            }, this.info);
             this.addChildGui(this.buttons);
             this.doStateTransition("HIDDEN", true)
         },
@@ -149,22 +139,22 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
                     if (this.state == 1) this.medal.show(sc.arena.getMedalForCurrentRound(this.summary.totalValue));
                     else if (this.state == 2) this.buttons.show();
                 else if (this.state == 3) {
-                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, function() {
+                    this.overview = new sc.ArenaCupOverview(sc.arena.runtime.cup, () => {
                         this.state = 2;
                         this.waitTimer = 0.2;
                         this.overview = null
-                    }.bind(this));
+                    });
                     ig.gui.addGuiElement(this.overview);
                     this.overview.show(ig.lang.get("sc.gui.arena.newTrophy"))
                 } else if (this.state ==
                     4) {
                     var a = sc.arena.saveRushScore();
-                    this.overview = new sc.ArenaRushOverview(function() {
+                    this.overview = new sc.ArenaRushOverview(() => {
                         this.coins && this.coins.addRushCoins();
                         this.state = a ? 3 : 2;
                         this.waitTimer = 0.2;
                         this.overview = null
-                    }.bind(this));
+                    });
                     ig.gui.addGuiElement(this.overview);
                     this.overview.show()
                 } else if (this.state == 99 && sc.options.get("show-items")) {
@@ -213,13 +203,9 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
             ig.interact.addEntry(this.interact);
             sc.gui.rightHudPanel.addHudBoxBefore(this.summary, sc.gui.moneyHud);
             if (sc.arena.isTrial()) {
-				this.header.show(function() {
-	                this.summary.show()
-	            }.bind(this), ig.lang.get("sc.gui.arena.trialClear"));
+				this.header.show(() => this.summary.show(), ig.lang.get("sc.gui.arena.trialClear"));
 			} else {
-				this.header.show(function() {
-	                this.summary.show()
-	            }.bind(this));
+				this.header.show(() => this.summary.show());
 			}
             var a = sc.arena.runtime;
             if (a.rush && a.chain > 1) {

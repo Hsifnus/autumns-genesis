@@ -317,9 +317,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                     if (this.timer <= 0) {
                         this.totalOverlay.setMaxNumber(this.totalValue);
                         this.totalOverlay.setNumber(this.totalValue, true);
-                        this.totalOverlay.doStateTransition("DEFAULT", false, false, function() {
-                            this.totalOverlay.doStateTransition("HIDDEN")
-                        }.bind(this));
+                        this.totalOverlay.doStateTransition("DEFAULT", false, false, () => this.totalOverlay.doStateTransition("HIDDEN"));
                         this.scoreCountSound.play();
                         this.state = 1;
                         this.effect && this.effect.show(this.trophyType, true)
@@ -408,9 +406,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                 this.time.setTime(this.totalTime);
                 this.totalOverlay.setMaxNumber(this.totalValue);
                 this.totalOverlay.setNumber(this.totalValue, true);
-                this.totalOverlay.doStateTransition("DEFAULT", false, false, function() {
-                    this.totalOverlay.doStateTransition("HIDDEN")
-                }.bind(this));
+                this.totalOverlay.doStateTransition("DEFAULT", false, false, () => this.totalOverlay.doStateTransition("HIDDEN"));
                 this.scoreCountSound.play();
                 this.effect &&
                     this.effect.show(this.trophyType, true);
@@ -503,9 +499,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                     }
                 };
                 this.overlay.doStateTransition("HIDDEN", true);
-                this.overlay.doStateTransition("DEFAULT", false, false, function() {
-                    this.overlay.doStateTransition("HIDDEN_NO_SCALE")
-                }.bind(this));
+                this.overlay.doStateTransition("DEFAULT", false, false, () => this.overlay.doStateTransition("HIDDEN_NO_SCALE"));
                 this.addChildGui(this.overlay)
             }
             if (c) {
