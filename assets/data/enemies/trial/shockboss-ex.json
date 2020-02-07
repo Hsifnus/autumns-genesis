@@ -8266,6 +8266,10 @@
         "reaction": "COMPRESSOR_HIT"
       },
       {
+        "time": 0.6,
+        "type": "WAIT"
+      },
+      {
         "duration": -1,
         "align": "BOTTOM",
         "rotateFace": -1,
@@ -8284,10 +8288,6 @@
           "y": 0,
           "z": 0
         }
-      },
-      {
-        "time": 0.6,
-        "type": "WAIT"
       },
       {
         "type": "ENABLE_REACTION",
