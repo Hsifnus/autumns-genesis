@@ -5,7 +5,7 @@
       {
         "name":"GLOW_SQUARE",
         "sheet":{
-          "src":"media\/env\/particle.png",
+          "src":"media/env/particle.png",
           "width":8,
           "height":8,
           "offX":48,
@@ -22,7 +22,7 @@
       {
         "name":"leaf",
         "sheet":{
-          "src":"media\/entity\/objects\/autumn-destructibles.png",
+          "src":"media/entity/objects/autumn-destructibles.png",
           "offX":72,
           "offY":0,
           "width":8,
@@ -242,7 +242,7 @@
       {
         "name":"SNOW_BURST",
         "sheet":{
-          "src":"media\/entity\/effects\/hit2.png",
+          "src":"media/entity/effects/hit2.png",
           "offX":0,
           "offY":80,
           "width":32,
@@ -262,7 +262,7 @@
       {
         "name":"SNOWFLAKE",
         "sheet":{
-            "src":"media\/entity\/effects\/particles1.png ",
+            "src":"media/entity/effects/particles1.png ",
             "offX":224,
             "offY":32,
             "width":8,
@@ -279,7 +279,7 @@
       {
         "name":"COLD_WAVE_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":192,
           "offY":0,
           "width":96,
@@ -407,7 +407,7 @@
       {
         "name":"NEUTRAL_WAVE_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":0,
           "offY":0,
           "width":96,
@@ -564,7 +564,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/crab\/robot-land.ogg",
+        "sound":"media/sound/boss/crab/robot-land.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -572,7 +572,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -727,7 +727,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -908,7 +908,7 @@
         "global":false,
         "loop":false,
         "variance":0.2,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/cannon.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/cannon.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -940,7 +940,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
         "type":"PLAY_SOUND"
       }
     ],
@@ -963,7 +963,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1008,7 +1008,7 @@
         "loop":false,
         "variance":0.1,
         "speed":1.3,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream-2.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1029,7 +1029,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1038,7 +1038,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/puzzle\/element-ball-hit.ogg",
+        "sound":"media/sound/puzzle/element-ball-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1103,7 +1103,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1112,7 +1112,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/puzzle\/element-ball-hit.ogg",
+        "sound":"media/sound/puzzle/element-ball-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1128,7 +1128,7 @@
         "loop":false,
         "variance":0.1,
         "speed":1.6,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream-2.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream-2.ogg",
         "type":"PLAY_SOUND"
       }
     ],
@@ -1356,7 +1356,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1365,7 +1365,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/puzzle\/element-ball-hit.ogg",
+        "sound":"media/sound/puzzle/element-ball-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1444,7 +1444,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1453,7 +1453,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/puzzle\/element-ball-hit.ogg",
+        "sound":"media/sound/puzzle/element-ball-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1532,7 +1532,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1541,7 +1541,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/puzzle\/element-ball-hit.ogg",
+        "sound":"media/sound/puzzle/element-ball-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1620,7 +1620,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1710,7 +1710,7 @@
         "global":false,
         "loop":false,
         "speed":1.6,
-        "sound":"media\/sound\/battle\/enemies\/charge-05s.ogg",
+        "sound":"media/sound/battle/enemies/charge-05s.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -2907,7 +2907,7 @@
         "global":false,
         "loop":false,
         "variance":0.05,
-        "sound":"media\/sound\/environment\/plant-hit.ogg",
+        "sound":"media/sound/environment/plant-hit.ogg",
         "type":"PLAY_SOUND"
       },
       {

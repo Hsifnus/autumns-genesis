@@ -11,7 +11,7 @@
       "collType":"BLOCK",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":32,
           "height":32,
           "offX":256,
@@ -111,7 +111,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":321,
         "y":281,
         "w":62,
@@ -129,7 +129,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":385,
         "y":281,
         "w":62,
@@ -147,7 +147,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":449,
         "y":281,
         "w":62,
@@ -166,7 +166,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":321,
         "y":377,
         "w":62,
@@ -184,7 +184,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":385,
         "y":377,
         "w":62,
@@ -202,7 +202,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":449,
         "y":377,
         "w":62,
@@ -220,7 +220,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":385,
         "y":1,
         "w":62,
@@ -238,7 +238,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":449,
         "y":1,
         "w":62,
@@ -256,7 +256,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":385,
         "y":97,
         "w":62,
@@ -274,7 +274,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":449,
         "y":97,
         "w":62,
@@ -292,7 +292,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":329,
         "y":81,
         "w":54,
@@ -310,7 +310,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":416,
         "y":193,
         "w":98,
@@ -328,7 +328,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":335,
         "y":193,
         "w":38,
@@ -346,7 +346,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":208,
         "y":112,
         "w":24,
@@ -363,7 +363,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":232,
         "y":112,
         "w":24,
@@ -380,7 +380,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":0,
         "y":320,
         "w":24,
@@ -398,7 +398,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":24,
         "y":320,
         "w":24,
@@ -416,7 +416,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":480,
         "y":480,
         "w":24,
@@ -434,7 +434,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":241,
         "y":48,
         "w":30,
@@ -451,7 +451,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":241,
         "y":16,
         "w":38,
@@ -468,7 +468,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":280,
         "y":24,
         "w":24,
@@ -485,7 +485,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":304,
         "y":24,
         "w":24,
@@ -502,7 +502,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":272,
         "y":48,
         "w":24,
@@ -523,7 +523,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":296,
         "y":48,
         "w":24,
@@ -544,7 +544,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":320,
         "y":48,
         "w":24,
@@ -565,7 +565,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":344,
         "y":48,
         "w":24,
@@ -586,7 +586,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":272,
         "y":256,
         "w":16,
@@ -604,7 +604,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":288,
         "y":280,
         "w":24,
@@ -623,7 +623,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":288,
         "y":280,
         "w":24,
@@ -642,7 +642,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":288,
         "y":256,
         "w":16,
@@ -661,7 +661,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":288,
         "y":256,
         "w":16,
@@ -680,7 +680,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":304,
         "y":256,
         "w":16,
@@ -699,7 +699,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":304,
         "y":256,
         "w":16,
@@ -718,7 +718,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":304,
         "y":304,
         "w":16,
@@ -737,7 +737,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":304,
         "y":304,
         "w":16,
@@ -756,7 +756,7 @@
       },
       "collType":"IGNORE",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":160,
         "y":512,
         "w":32,
@@ -775,7 +775,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":216,
         "y":320,
         "w":48,
@@ -792,7 +792,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":216,
         "y":320,
         "w":48,
@@ -809,7 +809,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":80,
         "y":400,
         "w":8,
@@ -826,7 +826,7 @@
       },
       "collType":"BLOCK",
       "fix":{
-        "gfx":"media\/map\/autumn-ruins-sunset.png",
+        "gfx":"media/map/autumn-ruins-sunset.png",
         "x":88,
         "y":392,
         "w":8,
@@ -844,7 +844,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":24,
           "offX":32,
@@ -880,7 +880,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":24,
           "offX":32,
@@ -916,7 +916,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":24,
           "offX":192,
@@ -952,7 +952,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":24,
           "offX":240,
@@ -988,7 +988,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":24,
           "offX":288,
@@ -1024,7 +1024,7 @@
       "collType":"NONE",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":8,
           "height":40,
           "offX":80,
@@ -1060,7 +1060,7 @@
       "collType":"BLOCK",
       "anims":{
         "sheet":{
-          "src":"media\/map\/autumn-ruins-sunset.png",
+          "src":"media/map/autumn-ruins-sunset.png",
           "width":24,
           "height":32,
           "offX":0,

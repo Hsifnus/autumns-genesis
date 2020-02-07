@@ -521,7 +521,7 @@
 	        "volume":1.1,
 	        "global":true,
 	        "loop":false,
-	        "sound":"media\/sound\/battle\/sweep-long.ogg",
+	        "sound":"media/sound/battle/sweep-long.ogg",
 	        "type":"PLAY_SOUND"
 	      },
 	      {
@@ -709,7 +709,7 @@
 	        "volume":1.1,
 	        "global":true,
 	        "loop":false,
-	        "sound":"media\/sound\/battle\/sweep-long.ogg",
+	        "sound":"media/sound/battle/sweep-long.ogg",
 	        "type":"PLAY_SOUND"
 	      },
 	      {
@@ -6578,7 +6578,7 @@
         "volume":1.1,
         "global":true,
         "loop":false,
-        "sound":"media\/sound\/battle\/sweep-long.ogg",
+        "sound":"media/sound/battle/sweep-long.ogg",
         "type":"PLAY_SOUND"
       },
       {

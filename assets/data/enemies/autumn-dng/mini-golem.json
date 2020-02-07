@@ -813,7 +813,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/mine\/bot-lift-arm.ogg"
+        "sound":"media/sound/battle/enemies/mine/bot-lift-arm.ogg"
       },
       {
         "followUp":"charge",
@@ -1273,7 +1273,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/mine\/bot-lift-arm.ogg"
+        "sound":"media/sound/battle/enemies/mine/bot-lift-arm.ogg"
       },
       {
         "followUp":"charge",
@@ -1542,7 +1542,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/mine\/bot-lift-arm.ogg"
+        "sound":"media/sound/battle/enemies/mine/bot-lift-arm.ogg"
       },
       {
         "type":"SET_COLL_TYPE",

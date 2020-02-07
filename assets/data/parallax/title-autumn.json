@@ -2,23 +2,23 @@
   "entries":[
     {
       "name":"sky",
-      "gfx":"media\/parallax\/title\/sky.png"
+      "gfx":"media/parallax/title/sky.png"
     },
     {
       "name":"planet",
-      "gfx":"media\/parallax\/title\/planet.png",
+      "gfx":"media/parallax/title/planet.png",
       "renderMode":"lighter"
     },
     {
       "name":"clouds2",
-      "gfx":"media\/parallax\/title\/clouds-2.png",
+      "gfx":"media/parallax/title/clouds-2.png",
       "align":{
         "y":"BOTTOM"
       }
     },
     {
       "name":"clouds1",
-      "gfx":"media\/parallax\/title\/clouds-1.png",
+      "gfx":"media/parallax/title/clouds-1.png",
       "align":{
         "y":"BOTTOM",
         "x":"RIGHT"
@@ -26,14 +26,14 @@
     },
     {
       "name":"ground",
-      "gfx":"media\/parallax\/title\/ground.png",
+      "gfx":"media/parallax/title/ground.png",
       "align":{
         "y":"BOTTOM"
       }
     },
     {
       "name":"railings",
-      "gfx":"media\/parallax\/title\/railings.png",
+      "gfx":"media/parallax/title/railings.png",
       "align":{
         "y":"BOTTOM"
       }
@@ -44,7 +44,7 @@
     },
     {
       "name":"lineGlow",
-      "gfx":"media\/parallax\/logo\/glow.png",
+      "gfx":"media/parallax/logo/glow.png",
       "src":{
         "x":0,
         "y":0,
@@ -59,7 +59,7 @@
     },
     {
       "name":"rhombusLeft",
-      "gfx":"media\/parallax\/logo\/glow.png",
+      "gfx":"media/parallax/logo/glow.png",
       "src":{
         "x":0,
         "y":32,
@@ -74,7 +74,7 @@
     },
     {
       "name":"rhombusRight",
-      "gfx":"media\/parallax\/logo\/glow.png",
+      "gfx":"media/parallax/logo/glow.png",
       "src":{
         "x":0,
         "y":32,
@@ -89,7 +89,7 @@
     },
     {
       "name":"rhombusEmpty",
-      "gfx":"media\/parallax\/logo\/glow.png",
+      "gfx":"media/parallax/logo/glow.png",
       "src":{
         "x":128,
         "y":32,
@@ -107,7 +107,7 @@
     },
     {
       "name":"logoBG",
-      "gfx":"media\/gui\/title-logo-autumn.png",
+      "gfx":"media/gui/title-logo-autumn.png",
       "src":{
         "x":0,
         "y":112,
@@ -122,7 +122,7 @@
     },
     {
       "name":"logoFill",
-      "gfx":"media\/gui\/title-logo-autumn.png",
+      "gfx":"media/gui/title-logo-autumn.png",
       "src":{
         "x":0,
         "y":0,
@@ -137,7 +137,7 @@
     },
     {
       "name":"logoFillMod",
-      "gfx":"media\/gui\/title-logo-autumn.png",
+      "gfx":"media/gui/title-logo-autumn.png",
       "src":{
         "x":0,
         "y":256,
@@ -152,7 +152,7 @@
     },
     {
       "name":"lea",
-      "gfx":"media\/parallax\/title\/lea.png",
+      "gfx":"media/parallax/title/lea.png",
       "align":{
         "y":"BOTTOM",
         "x":"RIGHT"
@@ -182,13 +182,13 @@
     },
     {
       "name":"snd-bling",
-      "sound":"media\/sound\/menu\/logo-instant-bling.ogg",
+      "sound":"media/sound/menu/logo-instant-bling.ogg",
       "volume":0.8,
       "speed":1
     },
     {
       "name":"snd-bling-fast",
-      "sound":"media\/sound\/menu\/logo-instant-bling-quick.ogg",
+      "sound":"media/sound/menu/logo-instant-bling-quick.ogg",
       "volume":0.8,
       "speed":1
     }
