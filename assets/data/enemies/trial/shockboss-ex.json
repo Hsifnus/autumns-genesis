@@ -8286,6 +8286,10 @@
         "reaction": "COMPRESSOR_HIT"
       },
       {
+        "time": 0.6,
+        "type": "WAIT"
+      },
+      {
         "type": "ENABLE_REACTION",
         "reaction": "COMPRESSOR_BREAK"
       },
@@ -8295,7 +8299,7 @@
       },
       {
         "assistSlow": true,
-        "time": 2,
+        "time": 1.4,
         "type": "WAIT"
       },
       {
