@@ -169,6 +169,139 @@
 		]
 	},
 	"EFFECTS": {
+    "crimsonTakeoffInv": [
+      {
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "variance": 0.2,
+        "speed": 0.5,
+        "sound": "media/sound/battle/thud-1.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 1.2,
+        "global": false,
+        "loop": false,
+        "speed": 1.5,
+        "sound": "media/sound/battle/pre-explosion-1.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 2,
+        "global": false,
+        "loop": true,
+        "speed": 0.9,
+        "variance": 0.05,
+        "sound": "media/sound/battle/airon/fire-generic-attack-1.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "fadeIn": 0.3,
+        "fadeOut": 0.3,
+        "duration": -1,
+        "intensity": 0.6,
+        "type": "DARKNESS"
+      },
+      {
+        "size": "XXXXL",
+        "fadeIn": 0.1,
+        "fadeOut": 0.1,
+        "duration": -1,
+        "glow": false,
+        "type": "LIGHT"
+      },
+      {
+        "volume": 1.2,
+        "global": false,
+        "loop": false,
+        "speed": 0.8,
+        "variance": 0.05,
+        "sound": "media/sound/battle/special/special-impact.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "rumbleType": "RANDOM",
+        "power": "STRONG",
+        "speed": "FASTEST",
+        "duration": 0.5,
+        "fade": true,
+        "type": "RUMBLE"
+      },
+      {
+        "numParticles": 24,
+        "duration": 0.6,
+        "clockwise": false,
+        "centralAngle": 1,
+        "startAngle": 0,
+        "startDist": 16,
+        "particleRotate": false,
+        "moveDist": 40,
+        "moveVariance": 20,
+        "keySpline": "EASE_OUT",
+        "moveRotate": -0.1,
+        "inverse": true,
+        "collision": false,
+        "moveWithTarget": 0,
+        "pScale":{  
+          "init":{  
+            "x":1,
+            "y":1
+          },
+          "start":{  
+            "value":{  
+              "x":0.1,
+              "y":0.1
+            },
+            "time":0.4,
+            "spline":"EASE_OUT"
+          }
+        },
+        "anim": "BIGFIRE_GROUND",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.03,
+        "type": "WAIT"
+      },
+      {
+        "numParticles": 36,
+        "duration": 0.6,
+        "random": true,
+        "clockwise": false,
+        "centralAngle": 1,
+        "startAngle": 0.05,
+        "startDist": 16,
+        "particleRotate": false,
+        "moveDist": 80,
+        "moveVariance": 20,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 0.1,
+        "inverse": true,
+        "collision": false,
+        "moveWithTarget": 0,
+        "pScale":{  
+          "init":{  
+            "x":1,
+            "y":1
+          },
+          "start":{  
+            "value":{  
+              "x":0.1,
+              "y":0.1
+            },
+            "time":0.4,
+            "spline":"EASE_OUT"
+          }
+        },
+        "anim": "BIGFIRE_GROUND",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.9,
+        "type": "WAIT"
+      }
+    ],
 		"crimsonTakeoff": [
       {
         "volume": 2,
@@ -258,6 +391,13 @@
         "duration": -1,
         "intensity": 0.6,
         "type": "DARKNESS"
+      },
+      {
+        "color": "#772200",
+        "fadeIn": 2,
+        "fadeOut": 0.3,
+        "duration": 0.2,
+        "type": "SCREEN_FLASH"
       },
       {  
         "numParticles":40,
@@ -500,8 +640,8 @@
               "x":0,
               "y":0
             },
-            "time":0.3,
-            "spline":""
+            "time":1.2,
+            "spline":"EASE_IN"
           }
         },
         "moveWithTarget":1,
@@ -625,9 +765,18 @@
     ],
     "crimsonInferno": [
       {
-        "color": "#772200",
+        "volume": 1.2,
+        "global": false,
+        "loop": false,
+        "speed": 1,
+        "variance": 0.05,
+        "sound": "media/sound/battle/special/special-boom.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "color": "#992200",
         "fadeIn": 0,
-        "fadeOut": 0.4,
+        "fadeOut": 0.6,
         "duration": 0.2,
         "type": "SCREEN_FLASH"
       },
@@ -685,9 +834,9 @@
       },
       {
         "rumbleType": "RANDOM",
-        "power": "STRONGER",
+        "power": "STRONGEST",
         "speed": "FASTEST",
-        "duration": 0.5,
+        "duration": 0.7,
         "fade": true,
         "type": "RUMBLE"
       },
