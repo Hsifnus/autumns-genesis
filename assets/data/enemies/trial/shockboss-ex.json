@@ -5422,11 +5422,6 @@
             "min": 2,
             "negated": false,
             "type": "HP_BREAK"
-          },
-          {
-          	"condition":"entity.attrib.id % 2 == 1",
-          	"negated":false,
-          	"type":"VAR_CONDITION"
           }
         ],
         "withElse": true,
@@ -5712,89 +5707,6 @@
       },
       {
         "type": "UNSTICK_STICKING_PROXIES"
-      },
-      {
-        "conditions": [
-          {
-            "min": 1,
-            "max": 1,
-            "negated": false,
-            "type": "HP_BREAK"
-          },
-          {
-          	"condition":"entity.attrib.id % 2 == 0",
-          	"type":"VAR_CONDITION"
-          }
-        ],
-        "withElse": false,
-        "type": "COMBAT_IF",
-        "thenStep": [
-          {
-            "align": "BOTTOM",
-            "centralAngle": 0,
-            "startAngle": 0,
-            "angleVary": 0,
-            "startDist": 8,
-            "startDistCollide": false,
-            "random": false,
-            "count": 1,
-            "duration": 0,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": false,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "ShockMissileHoming",
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 12
-            }
-          }
-        ]
-      },
-      {
-        "conditions": [
-          {
-            "min": 2,
-            "negated": false,
-            "type": "HP_BREAK"
-          },
-          {
-          	"condition":"entity.attrib.id % 2 == 0",
-          	"type":"VAR_CONDITION"
-          }
-        ],
-        "withElse": false,
-        "type": "COMBAT_IF",
-        "thenStep": [
-          {
-            "align": "BOTTOM",
-            "centralAngle": 0,
-            "startAngle": 0.25,
-            "angleVary": 0,
-            "startDist": 8,
-            "startDistCollide": false,
-            "random": false,
-            "count": 2,
-            "duration": 0,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": false,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "ShockMissileHoming",
-            "offset": {
-              "x": 0,
-              "y": 0,
-              "z": 12
-            }
-          }
-        ]
       },
       {
         "withElse": false,
