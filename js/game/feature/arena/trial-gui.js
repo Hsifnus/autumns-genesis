@@ -2,10 +2,8 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
 	sc.ArenaPlayerDeathOverlay.inject({
 		show: function() {
 			if (sc.arena.isTrial()) {
-                console.log("hello");
 				this.header.show(() => this.buttons.show(), ig.lang.get("sc.gui.arena.trialFail"));
 			} else {
-                console.log("world");
 	            this.header.show(() => this.buttons.show(), ig.lang.get("sc.gui.arena.roundFail"));
 			}
             this.doStateTransition("DEFAULT", true)
