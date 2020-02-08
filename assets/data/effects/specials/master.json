@@ -432,6 +432,26 @@
         "type": "RUMBLE"
       },
       {
+        "numParticles":24,
+        "duration":0,
+        "centralAngle":1,
+        "random":true,
+        "startDist":24,
+        "moveDist":80,
+        "moveVariance":16,
+        "keySpline":"EASE",
+        "collision":false,
+        "moveWithTarget":0,
+        "pScale":{
+          "init":{
+            "x":0.7,
+            "y":0.7
+          }
+        },
+        "anim":"BIGFIRE",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
         "numParticles":32,
         "duration":0,
         "centralAngle":1,
@@ -515,11 +535,84 @@
         "moveWithTarget":0,
         "pScale":{
           "init":{
-            "x":0.8,
-            "y":0.8
+            "x":1.1,
+            "y":1.1
           }
         },
         "anim":"FLAME3",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles":6,
+        "duration":0.2,
+        "centralAngle":0.5,
+        "startAngle":0.25,
+        "random":true,
+        "startDist":24,
+        "moveDist":0,
+        "moveVariance":4,
+        "keySpline":"EASE",
+        "collision":false,
+        "moveWithTarget":0,
+        "pScale":{
+          "init":{
+            "x":0.7,
+            "y":0.7
+          }
+        },
+        "anim":"BIGFIRE",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles":6,
+        "duration":0.2,
+        "centralAngle":0.5,
+        "startAngle":0.25,
+        "random":true,
+        "startDist":24,
+        "moveDist":0,
+        "moveVariance":4,
+        "keySpline":"EASE",
+        "collision":false,
+        "moveWithTarget":0,
+        "pScale":{
+          "init":{
+            "x":0.7,
+            "y":0.7
+          }
+        },
+        "offset":{
+        	"x":0,
+        	"y":0,
+        	"z":24
+        },
+        "anim":"BIGFIRE",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles":6,
+        "duration":0.2,
+        "centralAngle":0.5,
+        "startAngle":0.25,
+        "random":true,
+        "startDist":24,
+        "moveDist":0,
+        "moveVariance":4,
+        "keySpline":"EASE",
+        "collision":false,
+        "moveWithTarget":0,
+        "pScale":{
+          "init":{
+            "x":0.7,
+            "y":0.7
+          }
+        },
+        "offset":{
+        	"x":0,
+        	"y":0,
+        	"z":48
+        },
+        "anim":"BIGFIRE",
         "type":"OFFSET_PARTICLE_CIRCLE"
       },
       {

@@ -363,12 +363,16 @@
           "en_US":"Regal Inferno"
         },
         "description":{
-          "en_US":"Engulfing yourself in the flames of Master Magmoth, ascend upwards before diving forwards and striking the ground with a ferocious impact."
+          "en_US":"Surrounding yourself in the flames of Master Magmoth, ascend upwards before diving forwards and striking the ground with a ferocious impact."
         },
         "dmgType":"MELEE",
         "stunType":"LOCK",
         "status":true,
         "steps":[
+          {
+            "value":"MASSIVE",
+            "type":"SET_HIT_STABLE"
+          },
           {
             "type":"STOP_XY"
           },
@@ -395,10 +399,6 @@
           },
           {
             "type":"WAIT_UNTIL_ON_GROUND"
-          },
-        	{
-            "value":"MASSIVE",
-            "type":"SET_HIT_STABLE"
           },
           {
             "duration":0,
@@ -466,10 +466,6 @@
             "align":"BASE",
             "type":"SHOOT_PROXY",
             "proxy":"crimsonInfernoMarker"
-          },
-          {
-            "value":-1,
-            "type":"SET_INVINCIBLE"
           },
           {
             "value":"IGNORE",
@@ -558,6 +554,10 @@
             "immediately":true,
             "type":"FACE_TO_TARGET"
           },
+          {
+            "value":-1,
+            "type":"SET_INVINCIBLE"
+          },
           { 
             "value":-800,
             "type":"SET_Z_VEL"
@@ -598,7 +598,7 @@
           },
           { 
             "align":"BOTTOM",
-            "radius":24,
+            "radius":36,
             "yScale":0,
             "zHeight":128,
             "centralAngle":1,

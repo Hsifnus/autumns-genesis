@@ -2466,6 +2466,12 @@
       }
     ],
     "IntroScene": [
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp._waveBossPresent",
+        "value": true
+      },
 			{
         "attribName": "memoryBoom",
         "changeType": "set",

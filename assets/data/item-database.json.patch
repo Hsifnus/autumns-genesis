@@ -5,7 +5,7 @@
 	"type": "ADD_ARRAY_ELEMENT",
 	"content":
     {
-      "order": 66,
+      "order": 1000,
       "name": {
         "en_US": "Shikizakura",
         "ja_JP": "四季桜",
@@ -335,6 +335,49 @@
         "sheet": "",
         "name": null
       }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1001,
+      "name": {
+        "en_US": "Mothblaze",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "An incandescent staff crafted from Master Magmoth's scalding scales.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 0,
+      "level": 75,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1.15,
+          0.85,
+          1,
+          1
+        ],
+        "attack": 73,
+        "defense": 45,
+        "focus": 110
+      },
+      "properties": {
+        "MOMENTUM": 1.10,
+        "AIM_SPEED": 1.25,
+        "AIMING_MOVEMENT": 0.9,
+        "MOTH_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
     }
 },{
 	"type": "EXIT"
