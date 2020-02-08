@@ -1086,7 +1086,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/fuse.ogg"
+        "sound":"media/sound/battle/enemies/vulturbine/fuse.ogg"
       },
       {
         "time":1,
@@ -1347,7 +1347,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/moth\/flap-01.ogg",
+        "sound":"media/sound/boss/moth/flap-01.ogg",
         "type":"PLAY_SOUND"
       },
 			{
@@ -1364,7 +1364,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/moth\/flap-01.ogg",
+        "sound":"media/sound/boss/moth/flap-01.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1373,7 +1373,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
         "type":"PLAY_SOUND"
       },
 			{
@@ -1390,7 +1390,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/moth\/flap-01.ogg",
+        "sound":"media/sound/boss/moth/flap-01.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1399,7 +1399,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
         "type":"PLAY_SOUND"
       },
 			{
@@ -1440,7 +1440,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/moth\/flap-01.ogg",
+        "sound":"media/sound/boss/moth/flap-01.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1449,7 +1449,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/enemies\/vulturbine\/vulturbine-scream.ogg",
+        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
         "type":"PLAY_SOUND"
       },
 			{

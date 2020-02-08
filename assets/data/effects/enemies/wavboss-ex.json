@@ -3,7 +3,7 @@
   "ANIMS":{
     "namedSheets":{
       "coldLine":{
-        "src":"media\/entity\/effects\/cold.png",
+        "src":"media/entity/effects/cold.png",
         "offX":0,
         "offY":0,
         "width":8,
@@ -14,7 +14,7 @@
       {
         "name":"DUST_UP",
         "sheet":{
-          "src":"media\/entity\/effects\/dust.png",
+          "src":"media/entity/effects/dust.png",
           "width":24,
           "height":32,
           "offY":32
@@ -38,7 +38,7 @@
       {
         "name":"DUST_UP_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/dust.png",
+          "src":"media/entity/effects/dust.png",
           "width":32,
           "height":48,
           "offY":64
@@ -67,7 +67,7 @@
           "y":40
         },
         "sheet":{
-          "src":"media\/entity\/effects\/dust.png",
+          "src":"media/entity/effects/dust.png",
           "width":32,
           "height":48,
           "offY":64
@@ -92,7 +92,7 @@
           "y":8
         },
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":1,
           "offX":0,
           "offY":16,
@@ -113,7 +113,7 @@
       {
         "name":"SHOCK_BALL_DOT2",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "xCount":2,
           "offX":176,
           "offY":72,
@@ -131,7 +131,7 @@
       {
         "name":"CIRCLE_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":0,
           "offY":0,
           "width":48,
@@ -147,7 +147,7 @@
       {
         "name":"CIRCLE_BIG_ANIM",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":0,
           "offY":0,
           "width":48,
@@ -167,7 +167,7 @@
       {
         "name":"CIRCLE_BIG_BACK",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":0,
           "offY":0,
           "width":48,
@@ -187,7 +187,7 @@
         "name":"CIRCLE_BIG_FLAT",
         "shapeType":"Z_FLAT",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":0,
           "offY":0,
           "width":48,
@@ -207,7 +207,7 @@
       {
         "name":"WAVE_DOT1",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "offX":184,
           "offY":40,
           "width":8,
@@ -224,7 +224,7 @@
       {
         "name":"WAVE_DOT2",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "offX":184,
           "offY":40,
           "width":8,
@@ -241,7 +241,7 @@
       {
         "name":"SHOCK_DOT1",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "offX":176,
           "offY":40,
           "width":8,
@@ -258,7 +258,7 @@
       {
         "name":"SHOCK_DOT2",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "offX":200,
           "offY":80,
           "width":8,
@@ -275,7 +275,7 @@
       {
         "name":"TELEPORT_RIPPLE",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png  ",
+          "src":"media/entity/effects/particles1.png  ",
           "xCount":2,
           "offX":192,
           "offY":64,
@@ -297,7 +297,7 @@
       {
         "name":"SMALL_WAVE",
         "sheet":{
-          "src":"media\/entity\/effects\/hit2.png",
+          "src":"media/entity/effects/hit2.png",
           "offX":0,
           "offY":112,
           "width":32,
@@ -320,7 +320,7 @@
       {
         "name":"SHOCKWAVE",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":208,
           "offY":0,
           "width":48,
@@ -336,7 +336,7 @@
         "name":"SHOCKWAVE_B_GROUND",
         "shapeType":"Z_FLAT",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":0,
           "offY":0,
           "width":96,
@@ -352,7 +352,7 @@
       {
         "name":"SHOCKWAVE_B_SHK",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":288,
           "offY":0,
           "width":96,
@@ -367,7 +367,7 @@
       {
         "name":"SHOCKWAVE_B_SHK_GUI",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":288,
           "offY":0,
           "width":96,
@@ -383,7 +383,7 @@
       {
         "name":"SHOCKWAVE_B_WAVE",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":384,
           "offY":0,
           "width":96,
@@ -398,7 +398,7 @@
       {
         "name":"SHOCKWAVE_B_WAVE_GUI",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":384,
           "offY":0,
           "width":96,
@@ -415,7 +415,7 @@
         "name":"SHOCKWAVE_B_WAVE_GROUND",
         "shapeType":"Z_FLAT",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle-big.png",
+          "src":"media/entity/effects/lighter-particle-big.png",
           "offX":384,
           "offY":0,
           "width":96,
@@ -430,7 +430,7 @@
       {
         "name":"SHOCKWAVE_S_WAVE",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":208,
           "offY":192,
           "width":48,
@@ -445,7 +445,7 @@
       {
         "name":"SHOCKWAVE_S_WAVE_GUI",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":208,
           "offY":192,
           "width":48,
@@ -461,7 +461,7 @@
       {
         "name":"SHOCKWAVE_S_SHK",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":208,
           "offY":144,
           "width":48,
@@ -476,7 +476,7 @@
       {
         "name":"SHOCK_BALL_DOT1",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png ",
+          "src":"media/entity/effects/particles1.png ",
           "xCount":2,
           "offX":192,
           "offY":48,
@@ -494,7 +494,7 @@
       {
         "name":"CIRCLE_BALL_TRAIL",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":0,
           "offY":0,
           "width":48,
@@ -511,7 +511,7 @@
       {
         "name":"SMALL_SHOCK",
         "sheet":{
-          "src":"media\/entity\/effects\/hit2.png",
+          "src":"media/entity/effects/hit2.png",
           "width":24,
           "height":24,
           "offY":24
@@ -532,7 +532,7 @@
       {
         "name":"SMALL_SHOCK2",
         "sheet":{
-          "src":"media\/entity\/effects\/hit2.png",
+          "src":"media/entity/effects/hit2.png",
           "width":32,
           "height":32,
           "offY":48
@@ -553,7 +553,7 @@
       {
         "name":"ARROW",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png  ",
+          "src":"media/entity/effects/particles1.png  ",
           "xCount":2,
           "offX":136,
           "offY":64,
@@ -577,7 +577,7 @@
       {
         "name":"CONFUSED",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png  ",
+          "src":"media/entity/effects/particles1.png  ",
           "xCount":2,
           "offX":152,
           "offY":64,
@@ -599,7 +599,7 @@
           "y":28
         },
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "offX":0,
           "offY":0,
           "width":64,
@@ -627,7 +627,7 @@
           "y":28
         },
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "offX":0,
           "offY":0,
           "width":64,
@@ -656,7 +656,7 @@
           "y":28
         },
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "offX":0,
           "offY":0,
           "width":64,
@@ -680,7 +680,7 @@
       {
         "name":"SHOCKWAVE_HALF",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":144,
           "offY":24,
           "width":48,
@@ -695,7 +695,7 @@
       {
         "name":"SHOCKWAVE_HALF_WAVE",
         "sheet":{
-          "src":"media\/entity\/effects\/lighter-particle.png",
+          "src":"media/entity/effects/lighter-particle.png",
           "offX":144,
           "offY":208,
           "width":48,
@@ -710,7 +710,7 @@
       {
         "name":"WAVE_EXPLODE",
         "sheet":{
-          "src":"media\/entity\/effects\/wave.png",
+          "src":"media/entity/effects/wave.png",
           "xCount":6,
           "offX":0,
           "offY":128,
@@ -737,7 +737,7 @@
       {
         "name":"WAVE_EXPLODE_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/wave.png",
+          "src":"media/entity/effects/wave.png",
           "xCount":5,
           "offX":0,
           "offY":224,
@@ -766,7 +766,7 @@
       {
         "name":"WAVE_EXPLODE_BIG_SLOW",
         "sheet":{
-          "src":"media\/entity\/effects\/wave.png",
+          "src":"media/entity/effects/wave.png",
           "xCount":5,
           "offX":0,
           "offY":224,
@@ -795,7 +795,7 @@
       {
         "name":"WAVE_CIRCLE_BIG",
         "sheet":{
-          "src":"media\/entity\/effects\/wave.png",
+          "src":"media/entity/effects/wave.png",
           "xCount":5,
           "offX":0,
           "offY":224,
@@ -811,7 +811,7 @@
       {
         "name":"SHOCK_EXPLODE",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":5,
           "offX":0,
           "offY":56,
@@ -838,7 +838,7 @@
       {
         "name":"SHOCK_EXPLODE2",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":5,
           "offX":0,
           "offY":56,
@@ -865,7 +865,7 @@
       {
         "name":"SPARK1",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":4,
           "offX":0,
           "offY":128,
@@ -886,7 +886,7 @@
       {
         "name":"SPARK2",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":4,
           "offX":128,
           "offY":128,
@@ -907,7 +907,7 @@
       {
         "name":"SPARK3",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":4,
           "offX":256,
           "offY":128,
@@ -928,7 +928,7 @@
       {
         "name":"SPARK4",
         "sheet":{
-          "src":"media\/entity\/effects\/shock.png",
+          "src":"media/entity/effects/shock.png",
           "xCount":4,
           "offX":384,
           "offY":128,
@@ -949,7 +949,7 @@
       {
         "name":"SHARD1",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":104,
           "offY":16,
@@ -965,7 +965,7 @@
       {
         "name":"SHARD2",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":104,
           "offY":16,
@@ -981,7 +981,7 @@
       {
         "name":"SHARD3",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":104,
           "offY":16,
@@ -997,7 +997,7 @@
       {
         "name":"SHARD4",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":104,
           "offY":16,
@@ -1013,7 +1013,7 @@
       {
         "name":"EXPLOSION_MEDIUM",
         "sheet":{
-          "src":"media\/entity\/effects\/explosion-round.png",
+          "src":"media/entity/effects/explosion-round.png",
           "width":48,
           "height":48
         },
@@ -1032,7 +1032,7 @@
       {
         "name":"BLACK_DUST",
         "sheet":{
-          "src":"media\/entity\/effects\/particles1.png",
+          "src":"media/entity/effects/particles1.png",
           "offX":136,
           "offY":80,
           "width":8,
@@ -1095,7 +1095,7 @@
       {
         "name":"PULSE",
         "sheet":{
-          "src":"media\/entity\/effects\/cold.png",
+          "src":"media/entity/effects/cold.png",
           "offX":64,
           "offY":0,
           "width":32,
@@ -1114,7 +1114,7 @@
       {
         "name":"CLOUD2",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":160,
           "offY":0,
@@ -1131,7 +1131,7 @@
       {
         "name":"CLOUD",
         "sheet":{
-          "src":"media\/entity\/enemy\/jungle-projectiles.png",
+          "src":"media/entity/enemy/jungle-projectiles.png",
           "xCount":2,
           "offX":160,
           "offY":0,
@@ -1310,7 +1310,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/crab\/robot-land.ogg",
+        "sound":"media/sound/boss/crab/robot-land.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1318,14 +1318,14 @@
         "global":false,
         "loop":false,
         "speed":2,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.7,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-5.ogg",
+        "sound":"media/sound/battle/explosion-5.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1333,7 +1333,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1439,7 +1439,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/crab\/robot-land.ogg",
+        "sound":"media/sound/boss/crab/robot-land.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1447,21 +1447,21 @@
         "global":false,
         "loop":false,
         "speed":2,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.8,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-5.ogg",
+        "sound":"media/sound/battle/explosion-5.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.8,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-3.ogg",
+        "sound":"media/sound/battle/explosion-3.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1470,14 +1470,14 @@
         "global": false,
         "loop": false,
         "type": "PLAY_SOUND",
-        "sound": "media\/sound\/battle\/magic-charge.ogg"
+        "sound": "media/sound/battle/magic-charge.ogg"
       },
       {
         "volume":0.7,
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1695,7 +1695,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/crab\/robot-land.ogg",
+        "sound":"media/sound/boss/crab/robot-land.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1703,28 +1703,28 @@
         "global":false,
         "loop":false,
         "speed":2,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.9,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-5.ogg",
+        "sound":"media/sound/battle/explosion-5.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.9,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-3.ogg",
+        "sound":"media/sound/battle/explosion-3.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.9,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-2.ogg",
+        "sound":"media/sound/battle/explosion-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -1733,14 +1733,14 @@
         "global": false,
         "loop": false,
         "type": "PLAY_SOUND",
-        "sound": "media\/sound\/battle\/magic-charge.ogg"
+        "sound": "media/sound/battle/magic-charge.ogg"
       },
       {
         "volume":0.8,
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -2050,7 +2050,7 @@
         "global": false,
         "loop": false,
         "type": "PLAY_SOUND",
-        "sound": "media\/sound\/battle\/wave-charge-2.ogg"
+        "sound": "media/sound/battle/wave-charge-2.ogg"
       },
       {
         "time":0.5,
@@ -2069,14 +2069,14 @@
         "global": false,
         "loop": false,
         "type": "PLAY_SOUND",
-        "sound": "media\/sound\/battle\/magic-charge.ogg"
+        "sound": "media/sound/battle/magic-charge.ogg"
       },
       {
         "volume":0.7,
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/boss\/crab\/robot-land.ogg",
+        "sound":"media/sound/boss/crab/robot-land.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -2084,14 +2084,14 @@
         "global":false,
         "loop":false,
         "speed":2,
-        "sound":"media\/sound\/battle\/shiny-effect.ogg",
+        "sound":"media/sound/battle/shiny-effect.ogg",
         "type":"PLAY_SOUND"
       },
       {
         "volume":0.7,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/battle\/explosion-5.ogg",
+        "sound":"media/sound/battle/explosion-5.ogg",
         "type":"PLAY_SOUND"
       },
       {
@@ -2099,7 +2099,7 @@
         "global":false,
         "loop":false,
         "variance":0.1,
-        "sound":"media\/sound\/battle\/wave-hit-2.ogg",
+        "sound":"media/sound/battle/wave-hit-2.ogg",
         "type":"PLAY_SOUND"
       },
       {
