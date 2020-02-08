@@ -2,13 +2,13 @@
   "DOCTYPE":"MULTI_DIR_ANIMATION",
   "namedSheets":{
     "move":{
-      "src":"media\/entity\/enemy\/hedgehog-ruins.png",
+      "src":"media/entity/enemy/hedgehog-ruins.png",
       "width":40,
       "height":32,
       "xCount":10
     },
     "roll":{
-      "src":"media\/entity\/enemy\/hedgehog-ruins.png",
+      "src":"media/entity/enemy/hedgehog-ruins.png",
       "width":40,
       "height":32,
       "xCount":4,

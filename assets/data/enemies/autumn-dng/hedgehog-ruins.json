@@ -1166,7 +1166,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-in.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-in.ogg"
       },
       {
         "time":1,
@@ -1204,14 +1204,14 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out-long.ogg"
       },
       {
         "volume":0.9,
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/dash-2.ogg"
+        "sound":"media/sound/battle/dash-2.ogg"
       },
       {
         "value":"IGNORE",
@@ -1341,7 +1341,7 @@
             "global":false,
             "loop":false,
             "type":"PLAY_SOUND",
-            "sound":"media\/sound\/battle\/dash-2.ogg"
+            "sound":"media/sound/battle/dash-2.ogg"
           },
           {
             "value":false,
@@ -1414,7 +1414,7 @@
             "global":false,
             "loop":false,
             "type":"PLAY_SOUND",
-            "sound":"media\/sound\/battle\/dash-2.ogg"
+            "sound":"media/sound/battle/dash-2.ogg"
           },
           {
             "value":false,
@@ -1537,7 +1537,7 @@
         "loop":false,
         "speed":0.7,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"L",
@@ -1551,7 +1551,7 @@
         "loop":false,
         "speed":0.85,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"L",
@@ -1587,7 +1587,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out-long.ogg"
       },
       {
         "duration":-1,
@@ -1824,7 +1824,7 @@
         "loop":false,
         "speed":0.7,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"L",
@@ -1882,7 +1882,7 @@
         "loop":false,
         "speed":0.7,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"XL",
@@ -1951,7 +1951,7 @@
 		        "loop":false,
 		        "speed":0.85,
 		        "type":"PLAY_SOUND",
-		        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+		        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
 		      },
 		      {
 		        "jumpHeight":"XL",
@@ -2018,7 +2018,7 @@
         "loop":false,
         "speed":0.7,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"L",
@@ -2054,7 +2054,7 @@
         "loop":false,
         "speed":0.7,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out.ogg"
       },
       {
         "jumpHeight":"XL",
@@ -2112,7 +2112,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-squeak-1.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-squeak-1.ogg"
       },
       {
         "text":{
@@ -2260,10 +2260,10 @@
             "text":{
               "en_US":"<SHIELD ON>",
               "langUid":11,
-              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9ON><<A<<[CHANGED 2017\/11\/04]",
-              "zh_CN":"<SHIELD ON><<A<<[CHANGED 2017\/10\/10]",
+              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9ON><<A<<[CHANGED 2017/11/04]",
+              "zh_CN":"<SHIELD ON><<A<<[CHANGED 2017/10/10]",
               "de_DE":"<SCHILD AN><<C<<IGNORE",
-              "ko_KR":"<\ubc29\uc5b4\ub9c9 \ucf1c\uc9d0><<A<<[CHANGED 2017\/10\/17]"
+              "ko_KR":"<\ubc29\uc5b4\ub9c9 \ucf1c\uc9d0><<A<<[CHANGED 2017/10/17]"
             },
             "mode":"NO_LINE",
             "color":"GREEN",
@@ -2296,10 +2296,10 @@
             "text":{
               "en_US":"<SHIELD OFF>",
               "langUid":9,
-              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9OFF><<A<<[CHANGED 2017\/08\/03]",
-              "zh_CN":"<SHIELD OFF><<A<<[CHANGED 2017\/10\/10]",
+              "ja_JP":"<\u30b7\u30fc\u30eb\u30c9OFF><<A<<[CHANGED 2017/08/03]",
+              "zh_CN":"<SHIELD OFF><<A<<[CHANGED 2017/10/10]",
               "de_DE":"<SCHILD AUS><<C<<IGNORE",
-              "ko_KR":"<\ubc29\uc5b4\ub9c9 \uaebc\uc9d0><<A<<[CHANGED 2017\/10\/17]"
+              "ko_KR":"<\ubc29\uc5b4\ub9c9 \uaebc\uc9d0><<A<<[CHANGED 2017/10/17]"
             },
             "mode":"NO_LINE",
             "color":"RED",
@@ -2323,11 +2323,11 @@
           {
             "text":{
               "en_US":"<SWITCH MARKER>",
-              "ja_JP":"<\u30de\u30fc\u30ab\u30fc\u5909\u66f4><<A<<[CHANGED 2017\/11\/04]",
+              "ja_JP":"<\u30de\u30fc\u30ab\u30fc\u5909\u66f4><<A<<[CHANGED 2017/11/04]",
               "langUid":12,
-              "zh_CN":"<SWITCH MARKER><<A<<[CHANGED 2017\/10\/10]",
+              "zh_CN":"<SWITCH MARKER><<A<<[CHANGED 2017/10/10]",
               "de_DE":"<SWITCH MARKER><<C<<IGNORE",
-              "ko_KR":"<\ubaa9\ud45c \uc804\ud658><<A<<[CHANGED 2017\/10\/17]"
+              "ko_KR":"<\ubaa9\ud45c \uc804\ud658><<A<<[CHANGED 2017/10/17]"
             },
             "mode":"NO_LINE",
             "color":"GREEN",
@@ -2387,16 +2387,16 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-squeak-1.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-squeak-1.ogg"
       },
       {
         "text":{
           "en_US":"[Focussing Probe]",
           "de_DE":"[Fokussiere Sonde]",
-          "zh_CN":"[\u6b63\u5bf9\u63a2\u673a\u96c6\u706b]<<A<<[CHANGED 2017\/12\/12]",
-          "ja_JP":"[\u30d7\u30ed\u30fc\u30d6\u306b\u96c6\u4e2d]<<A<<[CHANGED 2017\/11\/04]",
+          "zh_CN":"[\u6b63\u5bf9\u63a2\u673a\u96c6\u706b]<<A<<[CHANGED 2017/12/12]",
+          "ja_JP":"[\u30d7\u30ed\u30fc\u30d6\u306b\u96c6\u4e2d]<<A<<[CHANGED 2017/11/04]",
           "langUid":10,
-          "ko_KR":"[\ud0d0\uc0ac\uae30 \uc870\uc728 \uc911]<<A<<[CHANGED 2017\/10\/17]"
+          "ko_KR":"[\ud0d0\uc0ac\uae30 \uc870\uc728 \uc911]<<A<<[CHANGED 2017/10/17]"
         },
         "mode":"NO_LINE",
         "color":"GREEN",
@@ -2481,7 +2481,7 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-in.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-in.ogg"
       },
       {
         "time":1,
@@ -2514,14 +2514,14 @@
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/enemies\/hedgehog\/hedgehog-spin-out-long.ogg"
+        "sound":"media/sound/battle/enemies/hedgehog/hedgehog-spin-out-long.ogg"
       },
       {
         "volume":0.9,
         "global":false,
         "loop":false,
         "type":"PLAY_SOUND",
-        "sound":"media\/sound\/battle\/dash-2.ogg"
+        "sound":"media/sound/battle/dash-2.ogg"
       },
       {
         "value":"IGNORE",

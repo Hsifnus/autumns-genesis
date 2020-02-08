@@ -80,7 +80,7 @@
         "variance": 0.05,
         "global":false,
         "loop":false,
-        "sound":"media\/sound\/menu\/login-logo.ogg",
+        "sound":"media/sound/menu/login-logo.ogg",
         "type":"PLAY_SOUND"
       },
       {
