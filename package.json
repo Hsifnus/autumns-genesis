@@ -4,7 +4,7 @@
 	"prestart": "mod.js",
     "version" : "0.1.0",
     "module": true,
-    "dependencies": {
+    "ccmodDependencies": {
     	"item-api": "^0.*",
 	    "ccloader": "^2.14.1",
 	    "hardcoded-config-injector": "^0.1.0"
