@@ -8915,6 +8915,10 @@
         "config": "normal"
       },
       {
+      	"value":0.1,
+        "type": "SET_INVINCIBLE"
+      },
+      {
         "type": "ENABLE_REACTION",
         "reaction": "HP_BREAK"
       },
@@ -9125,6 +9129,10 @@
       {
         "type": "SET_WALK_ANIMS",
         "config": "normal"
+      },
+      {
+      	"value":0.1,
+        "type": "SET_INVINCIBLE"
       },
       {
         "type": "ENABLE_REACTION",
