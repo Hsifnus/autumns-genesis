@@ -39,7 +39,7 @@ ig.module("game.feature.skills.master-skills").requires(
         },
         getActiveCombatArt: function(a, b) {
             if (sc.MasterSkillChecks["MOTH_SPECIAL"](a, b, this.params)) {
-                return this.elementConfigs[a].getPlayerAction("DASH_SPECIAL3_MASTER");
+                return this.elementConfigs[a].getPlayerAction("DASH_SPECIAL3_MASTER").action;
             }
             return this.elementConfigs[a].getAction(b)
         },
@@ -496,9 +496,9 @@ ig.module("game.feature.skills.master-skills").requires(
             this.setSize(512, 41);
             this.info = b;
             this.addText("lvl", 9, 2);
-            var useAlt = b.icon == -1 && !!b.altSheet;
-            useAlt && (this.skillIcons = new ig.Image(b.altSheet));
-            var icon = useAlt ? b.altIcon : b.icon;
+            var useAlt = this.info.icon == -1 && !!this.info.altSheet;
+            useAlt && (this.skillIcons = new ig.Image(this.info.altSheet));
+            var icon = useAlt ? this.info.altIcon : this.info.icon;
             this.icon = new ig.ImageGui(this.skillIcons, icon % 10 * 24, Math.floor(icon / 10) * 24, 24, 24);
             this.icon.setPos(3, 12);
             this.addChildGui(this.icon);
