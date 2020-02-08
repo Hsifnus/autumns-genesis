@@ -2,6 +2,8 @@ import "./js/game/feature/arena/trial.js";
 
 import "./js/game/feature/arena/trial-cup-overview.js";
 
+import "./js/game/feature/arena/trial-gui.js";
+
 import "./js/game/feature/arena/trial-list.js";
 
 import "./js/game/feature/arena/trial-misc.js";
