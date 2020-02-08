@@ -9127,6 +9127,14 @@
         "config": "normal"
       },
       {
+        "type": "ENABLE_REACTION",
+        "reaction": "HP_BREAK"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "HP_BREAK_WEAK"
+      },
+      {
         "offsetX": 0,
         "offsetY": 0,
         "speed": "FASTER",
@@ -9265,14 +9273,6 @@
         "wait": false,
         "waitSkip": 0,
         "type": "RESET_CAMERA"
-      },
-      {
-        "type": "ENABLE_REACTION",
-        "reaction": "HP_BREAK"
-      },
-      {
-        "type": "DISABLE_REACTION",
-        "reaction": "HP_BREAK_WEAK"
       },
       {
         "time": 0.4,
