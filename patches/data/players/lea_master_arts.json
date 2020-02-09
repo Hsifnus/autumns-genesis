@@ -1,5 +1,54 @@
 {
 	"proxies": {
+    "waveAbsorbDot":{
+      "copyOwnerAnims":false,
+      "breakType":"NEVER",
+      "action":[
+        {
+          "factor":0.025,
+          "type":"ABSORB_DAMAGE"
+        },
+        {
+          "duration":0,
+          "target":"PROXY_OWNER",
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":true,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"drops",
+            "name":"healingFast"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.2,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":false,
+      "hp":0,
+      "stickToSource":"TARGET",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{
+        "x":8,
+        "y":8,
+        "z":8
+      },
+      "config":{
+
+      },
+      "type":"GENERIC"
+    },
     "crimsonInfernoMarker":{
       "copyOwnerAnims":false,
       "breakType":"COMBATANT",
@@ -354,6 +403,213 @@
         "collType":"NONE",
         "zGravityFactor":0
       }
+    },
+    "blobAura":{
+      "copyOwnerAnims":false,
+      "animation":"enemies.jungle-waveboss",
+      "breakType":"COMBATANT",
+      "noFallDestroy":true,
+      "action":[
+        {
+          "type": "SET_WALK_ANIMS",
+          "config": "blobXXL"
+        },
+        { 
+          "face":"SOUTH",
+          "rotate":false,
+          "rotateSpeed":10,
+          "type":"SET_FACE"
+        },
+        {
+          "value":-800,
+          "type":"SET_Z_VEL"
+        },
+        {
+          "value":76,
+          "type":"SET_FLOAT_HEIGHT"
+        },
+        { 
+          "duration":-1,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{ 
+            "sheet":"specials.master",
+            "name":"waveDummyAura"
+          },
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration": 2,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "group": "trail",
+          "effect": {
+            "sheet": "enemies.wavboss-ex",
+            "name": "wavBossBombCharge"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time":2,
+          "type":"WAIT"
+        },
+        {
+          "duration": 0,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "wavBossLand"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "wavBossPreJump"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "value":88,
+          "type":"SET_FLOAT_HEIGHT"
+        },
+        {
+          "time":1,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "type":"GENERIC",
+      "size":{
+        "x":80,
+        "y":80,
+        "z":80
+      },
+      "config":{
+        "collType":"NONE",
+        "zGravityFactor":0
+      }
+    },
+    "blobAura2":{
+      "copyOwnerAnims":false,
+      "animation":"enemies.jungle-waveboss",
+      "breakType":"COMBATANT",
+      "noFallDestroy":true,
+      "action":[
+        {
+          "type": "SET_WALK_ANIMS",
+          "config": "star"
+        },
+        { 
+          "face":"SOUTH",
+          "rotate":false,
+          "rotateSpeed":10,
+          "type":"SET_FACE"
+        },
+        {
+          "value":-800,
+          "type":"SET_Z_VEL"
+        },
+        {
+          "value":76,
+          "type":"SET_FLOAT_HEIGHT"
+        },
+        { 
+          "duration":-1,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{ 
+            "sheet":"specials.master",
+            "name":"waveDummyAura"
+          },
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":2,
+          "type":"WAIT"
+        },
+        {
+          "value":88,
+          "type":"SET_FLOAT_HEIGHT"
+        },
+        {
+          "time":1,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "type":"GENERIC",
+      "size":{
+        "x":80,
+        "y":80,
+        "z":80
+      },
+      "config":{
+        "collType":"NONE",
+        "zGravityFactor":0
+      }
     }
 	},
 	"actions": {
@@ -369,6 +625,10 @@
         "stunType":"LOCK",
         "status":true,
         "steps":[
+          {
+            "value":-1,
+            "type":"SET_WEIGHT"
+          },
           {
             "value":"MASSIVE",
             "type":"SET_HIT_STABLE"
@@ -476,7 +736,7 @@
             "type":"SET_Z_VEL"
           },
           {
-            "maxWait":0.1,
+            "minWait":0.1,
             "type":"STOP_Z_ZENITH"
           },
           {
@@ -561,6 +821,12 @@
           { 
             "value":-800,
             "type":"SET_Z_VEL"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"fall"
           },
           {
             "type":"WAIT_UNTIL_ON_GROUND"
@@ -695,12 +961,6 @@
             "value":"IGNORE",
             "type":"SET_COLL_TYPE"
           },
-          {
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"attackMirrEnd"
-          },
           { 
             "offsetX":0,
             "offsetY":0,
@@ -747,6 +1007,13 @@
             "time": 0,
             "removeEntityStatic": false,
             "type": "CLEAR_SLOW_MOTION"
+          },
+          {
+            "followUp":"attackMirrEnd",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"attackLong"
           },
           {
             "duration":0,
@@ -963,6 +1230,481 @@
           },
           {
             "time":0.8,
+            "type":"WAIT"
+          },
+          {
+            "followUp":"idle",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"preIdle"
+          },
+          {
+            "time":0.05,
+            "type":"WAIT"
+          }
+        ]
+      }
+    },
+    "WAVE": {
+      "GUARD_SPECIAL3_MASTER":{
+        "name":{
+          "en_US":"Vitalizing Vortex"
+        },
+        "description":{
+          "en_US":"Envelop yourself in a protective bubble while channeling the devastating torrents of Sir Blobus Starnikus to drain health from nearby enemies."
+        },
+        "dmgType":"MELEE",
+        "stunType":"INTERRUPT",
+        "status":true,
+        "steps":[
+          {
+            "value":-1,
+            "type":"SET_WEIGHT"
+          },
+          { 
+            "face":"SOUTH",
+            "rotate":false,
+            "rotateSpeed":10,
+            "type":"SET_FACE"
+          },
+          {
+            "value":"MASSIVE",
+            "type":"SET_HIT_STABLE"
+          },
+          {
+            "type":"WAIT_UNTIL_ON_GROUND"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"itemEffectLoop"
+          },
+          {
+            "name":"derp",
+            "actionDetached":false,
+            "type":"ADD_SHIELD",
+            "shield":{
+              "type":"PLAYER",
+              "settings":{
+                "baseFactor":0,
+                "strength":"BLOCK_ALL",
+                "hitResist":"MASSIVE",
+                "stableOverride":"MASSIVE",
+                "range":1,
+                "back":false,
+                "noShieldDamage":true,
+                "effect":{
+                  "sheet":"specials.master",
+                  "name":"bubbleTrail"
+                },
+                "noDefaultFX":false
+              }
+            }
+          },
+          {
+            "zoomType":"LIGHT",
+            "fadeIn":0,
+            "duration":0,
+            "fadeOut":0.3,
+            "type":"SET_ZOOM_BLUR"
+          },
+          {
+            "offsetX":0,
+            "offsetY":0,
+            "speed":"NORMAL",
+            "transition":"EASE_IN_OUT",
+            "wait":false,
+            "waitSkip":0,
+            "zoom":1.5,
+            "focusType":"SELF",
+            "type":"FOCUS_CAMERA"
+          },
+          {
+            "time":0.5,
+            "type":"WAIT"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"hover"
+          },
+          {
+            "value":240,
+            "type":"SET_Z_VEL"
+          },
+          {
+            "minWait":0.1,
+            "type":"STOP_Z_ZENITH"
+          },
+          {
+            "value":5,
+            "type":"SET_Z_VEL"
+          },
+          {
+            "zoom":1,
+            "duration":3.8,
+            "transition":"EASE_IN_OUT",
+            "type":"SET_CAMERA_ZOOM"
+          },
+          {
+            "align":"TOP",
+            "type":"SHOOT_PROXY",
+            "proxy":"blobAura",
+            "offset":{
+              "x":0,
+              "y":-32,
+              "z":320
+            }
+          },
+          {
+            "align":"TOP",
+            "type":"SHOOT_PROXY",
+            "proxy":"blobAura2",
+            "offset":{
+              "x":0,
+              "y":-32,
+              "z":320
+            }
+          },
+          {
+            "duration": 0,
+            "align": "BASE",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.master",
+              "name": "aquaSpiral"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "strength":"RUN_ESCAPE",
+            "pull":true,
+            "radius":32,
+            "fadeRadius":128,
+            "minRadius":0,
+            "zHeight":0,
+            "duration":2.8,
+            "align":"BASE",
+            "type":"PUSH_PULL_FORCE"
+          },
+          {
+            "time": 0.5,
+            "type": "WAIT"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"specialPre"
+          },
+          {
+            "time": 2.0,
+            "type": "WAIT"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"specialLoop"
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "zoom":1.25,
+            "duration":0.3,
+            "transition":"EASE_IN_OUT",
+            "type":"SET_CAMERA_ZOOM"
+          },
+          {
+            "posType":"TARGET",
+            "align":"CENTER",
+            "type":"SET_HIT_PROXY",
+            "proxy":"waveAbsorbDot",
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "duration": 3,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.master",
+              "name": "absorbAura"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          { 
+            "zoomType":"LIGHT",
+            "fadeIn":0.3,
+            "duration":3.7,
+            "fadeOut":0,
+            "type":"SET_ZOOM_BLUR"
+          },
+          {
+            "align": "BASE",
+            "radius": 96,
+            "yScale": 0,
+            "zHeight": 0,
+            "centralAngle": 0,
+            "duration": 0.2,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": true,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "hitInvincible": true,
+              "element": "WAVE",
+              "damageFactor": 3,
+              "status":7,
+              "fly": "LIGHT",
+              "stunSteps":[
+                {
+                  "type":"BLOCK_XY"
+                }
+              ],
+              "guardable": "FROM_ABOVE",
+              "skillBonus": "MELEE_DMG"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "time": 2.4,
+            "type": "WAIT"
+          },
+          {
+            "zoom":1.2,
+            "duration":0.3,
+            "transition":"EASE_IN_OUT",
+            "type":"SET_CAMERA_ZOOM"
+          },
+          {
+            "duration": 0.6,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.master",
+              "name": "aquaSpiralFinisher"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"dash"
+          },
+          {
+            "value":75,
+            "type":"SET_Z_VEL"
+          },
+          {
+            "time": 0.4,
+            "type": "WAIT"
+          },
+          {
+            "type":"STOP_REPEATING_FORCE"
+          },
+          {
+            "align": "BASE",
+            "radius": 96,
+            "yScale": 0,
+            "zHeight": 0,
+            "centralAngle": 0,
+            "duration": 0.2,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "hitInvincible": true,
+              "element": "WAVE",
+              "damageFactor": 3,
+              "status":7,
+              "fly": "LIGHT",
+              "stunSteps":[
+                {
+                  "type":"BLOCK_XY"
+                },
+                {
+                  "type":"START_LOCK"
+                },
+                {
+                  "accel":2,
+                  "offZ":0,
+                  "maxTime":0,
+                  "type":"Z_PULL"
+                }
+              ],
+              "guardable": "FROM_ABOVE",
+              "skillBonus": "MELEE_DMG"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "time": 0.2,
+            "type": "WAIT"
+          },
+          {
+            "type":"CLEAR_HIT_PROXY"
+          },
+          { 
+            "zoomType":"MEDIUM",
+            "fadeIn":0,
+            "duration":0.3,
+            "fadeOut":0.5,
+            "type":"SET_ZOOM_BLUR"
+          },
+          {
+            "align": "BOTTOM",
+            "radius": 96,
+            "yScale": 0,
+            "zHeight": 16,
+            "centralAngle": 0,
+            "duration": 0.5,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "hitInvincible": true,
+              "element": "WAVE",
+              "damageFactor": 5,
+              "status":7,
+              "fly": "MASSIVE+++",
+              "stunSteps":[
+                {
+                  "type":"END_LOCK"
+                }
+              ],
+              "guardable": "FROM_ABOVE",
+              "skillBonus": "MELEE_DMG"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "name":"derp",
+            "type":"REMOVE_SHIELD"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"itemEffectLoop"
+          },
+          {
+            "time": 0.5,
+            "type": "WAIT"
+          },
+          {
+            "speed":"FASTEST",
+            "transition":"EASE_IN_OUT",
+            "wait":false,
+            "waitSkip":0,
+            "type":"RESET_CAMERA"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"jump"
+          },
+          {
+            "value":150,
+            "type":"SET_Z_VEL"
+          },
+          {
+            "value":1,
+            "type":"SET_Z_GRAVITY_FACTOR"
+          },
+          {
+            "type":"WAIT_UNTIL_Z_ZENITH"
+          },
+          {
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"fall"
+          },
+          {
+            "type":"WAIT_UNTIL_ON_GROUND"
+          },
+          {
+            "followUp":"idle",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"preIdle"
+          },
+          {
+            "time":0.05,
             "type":"WAIT"
           }
         ]

@@ -1182,26 +1182,6 @@
         ]
       },
       {
-        "name":"WAVE_BUBBLE_LARGE",
-        "sheet":{
-          "src":"media/entity/effects/trial-bosses.png",
-          "xCount":0,
-          "offX":0,
-          "offY":40,
-          "width":64,
-          "height":64
-        },
-        "centerPivot":false,
-        "time":0.2,
-        "repeat":true,
-        "renderMode":"lighter",
-        "frames":[
-          0,
-          1,
-          2
-        ]
-      },
-      {
         "name":"WAVE_SPIRAL_PRE",
         "sheet":{
           "src":"media/entity/effects/trial-bosses.png",

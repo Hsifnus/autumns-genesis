@@ -40,11 +40,13 @@
 			"equip":{
 				"modifier":{
 					"WIND_MELEE": "Galeslash",
-					"MOTH_SPECIAL": "Regal Flare"
+					"MOTH_SPECIAL": "Regal Flare",
+					"BLOB_SPECIAL": "Aqua Vortex"
 				},
 				"descriptions":{
 					"WIND_MELEE": "Boosts neutral melee attacks and lets them inflict the \\c[3]Daze\\c[0] Condition and its effect. \\c[3]Daze\\c[0] stuns the victim in place for a short while.",
-					"MOTH_SPECIAL": "Grants access to the \\c[3]Regal Inferno\\c[0] Level 3 Heat Dash Art. \\c[1]Requires learning a Level 2 Heat Dash Art.\\c[0]"
+					"MOTH_SPECIAL": "Grants access to the \\c[3]Regal Inferno\\c[0] Level 3 Heat Dash Art. \\c[1]Requires learning a Level 2 Heat Dash Art.\\c[0]",
+					"BLOB_SPECIAL": "Grants access to the \\c[3]Vitalizing Vortex\\c[0] Level 3 Wave Guard Art. \\c[1]Requires learning a Level 2 Wave Guard Art.\\c[0]"
 				}
 			}
 		}

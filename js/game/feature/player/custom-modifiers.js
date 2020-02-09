@@ -13,12 +13,20 @@ ig.module("game.feature.player.custom-modifiers").requires(
         order: 100,
         noPercent: true
     };
+    sc.MODIFIERS.BLOB_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 12,
+        offY: 24,
+        icon: -1,
+        order: 101,
+        noPercent: true
+    };
     sc.MODIFIERS.WIND_MELEE = {
         altSheet: "media/gui/stun-status.png",
         offX: 96,
         offY: 0,
         icon: -1,
-        order: 101
+        order: 102
     };
     // more modifiers go here!
     sc.SimpleStatusDisplay = sc.SimpleStatusDisplay.extend({

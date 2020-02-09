@@ -380,5 +380,48 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1002,
+      "name": {
+        "en_US": "Blobus Pom",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A pompom comprised of gelatin once controlled by Sir Blobus Starnikus.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 0,
+      "level": 75,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          0.85,
+          1.15
+        ],
+        "hp": 1057,
+        "attack": 90,
+        "defense": 31
+      },
+      "properties": {
+        "GUARD_SP": 1.3,
+        "KNOCKBACK": 1.25,
+        "DASH_INVINC": 0.85,
+        "BLOB_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
+    }
+},{
 	"type": "EXIT"
 }]

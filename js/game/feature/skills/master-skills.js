@@ -6,52 +6,84 @@ ig.module("game.feature.skills.master-skills").requires(
     "game.feature.skills.skills",
     "game.feature.menu.gui.circuit.circuit-detail-elements")
 .defines(function() {
-    sc.MasterSkillChecks = {
-        MOTH_SPECIAL: function(a, b, params) {
-            return a == sc.ELEMENT.HEAT && (b === "DASH_SPECIAL3" || b === "DASH_SPECIAL3_A" || b === sc.PLAYER_ACTION.DASH_SPECIAL3) && params.getModifier("MOTH_SPECIAL");
+    sc.MasterSkills = [
+        {
+            element: sc.ELEMENT.HEAT,
+            actionCheckKeys: ["DASH_SPECIAL3", "DASH_SPECIAL3_A", sc.PLAYER_ACTION.DASH_SPECIAL3],
+            modifierKey: "DASH_SPECIAL3_MASTER",
+            modifier: "MOTH_SPECIAL"
+        },
+        {
+            element: sc.ELEMENT.WAVE,
+            actionCheckKeys: ["GUARD_SPECIAL3", "GUARD_SPECIAL3_A", sc.PLAYER_ACTION.GUARD_SPECIAL3],
+            modifierKey: "GUARD_SPECIAL3_MASTER",
+            modifier: "BLOB_SPECIAL"
         }
-    };
-    sc.PLAYER_ACTION.DASH_SPECIAL3_MASTER = 34;
+    ];
+    const checkMasterSkill = (a, b, params) => {
+        for (var i = 0; i < sc.MasterSkills.length; i++) {
+            var skill = sc.MasterSkills[i];
+            if (a == skill.element
+                && skill.actionCheckKeys.some(key => key == b)
+                && params.getModifier(skill.modifier)) {
+                return skill.modifierKey;
+            }
+        }
+        return "";
+    }
+    var actionIdx = Math.max(...Object.values(sc.PLAYER_ACTION)) + 1;
+    sc.MasterSkills.forEach(skill => {
+        if (!sc.PLAYER_ACTION[skill.modifierKey]) {
+            (sc.PLAYER_ACTION[skill.modifierKey] = actionIdx);
+            actionIdx++;
+        }
+    });
     ig.ENTITY.Player.inject({
         getChargeAction: function(a, b) {
             for (var c = a.actionKey; b && !this.model.getAction(sc.PLAYER_ACTION[c + b]);) b--;
             if (!b) return 0;
             var d = sc.PLAYER_SP_COST[b - 1];
             sc.newgame.get("infinite-sp") || this.model.params.consumeSp(d);
-            if (sc.MasterSkillChecks["MOTH_SPECIAL"](this.model.currentElementMode, c + b, this.model.params)) {
-                return "DASH_SPECIAL3_MASTER";
-            }
+            var actionKey = checkMasterSkill(this.model.currentElementMode, c + b, this.model.params);
+            if (actionKey) return actionKey;
             return c + b;
         }
     });
     sc.PlayerModel.inject({
         getCombatArt: function(a, b, c) {
-            if (!c && sc.MasterSkillChecks["MOTH_SPECIAL"](a, b, this.params)) {
-                return this.elementConfigs[a].getPlayerAction("DASH_SPECIAL3_MASTER");
+            if (!c) {
+                var actionKey;
+                if ((actionKey = checkMasterSkill(a, b, this.params))) {
+                    return this.elementConfigs[a].getPlayerAction(actionKey);
+                }
             }
             return this.elementConfigs[a].getPlayerAction(b)
         },
         getCombatArtName: function(a) {
-            if (sc.MasterSkillChecks["MOTH_SPECIAL"](this.currentElementMode, a, this.params)) {
-                return this.elementConfigs[this.currentElementMode].getPlayerAction("DASH_SPECIAL3_MASTER").name;
+            var actionKey;
+            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))) {
+                return this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey).name;
             }
             return this.elementConfigs[this.currentElementMode].getActiveCombatArtName(a)
         },
         getActiveCombatArt: function(a, b) {
-            if (sc.MasterSkillChecks["MOTH_SPECIAL"](a, b, this.params)) {
-                return this.elementConfigs[a].getPlayerAction("DASH_SPECIAL3_MASTER").action;
+            var actionKey;
+            if ((actionKey = checkMasterSkill(a, b, this.params))) {
+                return this.elementConfigs[a].getPlayerAction(actionKey).action;
             }
             return this.elementConfigs[a].getAction(b)
         },
         getAction: function(a) {
-            if (sc.MasterSkillChecks["MOTH_SPECIAL"](this.currentElementMode, a, this.params)) {
-                return this.elementConfigs[this.currentElementMode].getPlayerAction("DASH_SPECIAL3_MASTER").action;
+            var actionKey;
+            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))) {
+                return this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey).action;
             }
             return this.elementConfigs[this.currentElementMode].getAction(a) || this.baseConfig.getAction(a)
         },
         getActionByElement: function(a, b) {
-            if (sc.MasterSkillChecks["MOTH_SPECIAL"](a, b, this.params)) {
-                return this.elementConfigs[a].getPlayerAction("DASH_SPECIAL3_MASTER").action;
+            var actionKey;
+            if ((actionKey = checkMasterSkill(a, b, this.params))) {
+                return this.elementConfigs[a].getPlayerAction(actionKey).action;
             }
             return this.elementConfigs[a].getAction(b) || this.baseConfig.getAction(b)
         }
@@ -425,6 +457,11 @@ ig.module("game.feature.skills.master-skills").requires(
         }, {
             A: {
                 icon: 138
+            },
+            MASTER: {
+                icon: -1,
+                altSheet: "media/gui/master-arts.png",
+                altIcon: 1
             }
         }]
     };
