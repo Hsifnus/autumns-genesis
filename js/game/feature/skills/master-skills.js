@@ -477,6 +477,12 @@ ig.module("game.feature.skills.master-skills").requires(
             a(d[1], b, d[2], d[3])) && d.icon || 0;
         return 0
     };
+    sc.getCombatArtAltIcon = function(b, c) {
+        var d = h.exec(c);
+        if (d) return (d =
+            a(d[1], b, d[2], d[3])) && d.altIcon || 0;
+        return 0
+    };
     sc.getCombatArtAltSheet = function(b, c) {
         var d = h.exec(c);
         if (d) return (d =
@@ -507,6 +513,7 @@ ig.module("game.feature.skills.master-skills").requires(
         stunType: false,
         status: false,
         altSheet: "",
+        altIcon: 0,
         needsTarget: false,
         init: function(a, c, e) {
             this.key = a;
@@ -520,6 +527,7 @@ ig.module("game.feature.skills.master-skills").requires(
                 this.status = c.status || false;
                 this.needsTarget = c.needsTarget || false;
                 this.icon = sc.getCombatArtIcon(e, this.key);
+                this.altIcon = sc.getCombatArtAltIcon(e, this.key);
                 this.altSheet = sc.getCombatArtAltSheet(e, this.key)
             } else this.action = new ig.Action(a, c, b[a])
         },
