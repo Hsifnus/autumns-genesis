@@ -1415,10 +1415,11 @@
             "type": "WAIT"
           },
           {
+            "followUp":"specialLoop",
             "wait":false,
             "viaWalkConfig":false,
             "type":"SHOW_ANIMATION",
-            "anim":"specialLoop"
+            "anim":"special"
           },
           {
             "time": 0.3,

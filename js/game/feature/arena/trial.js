@@ -1,13 +1,37 @@
 ig.module("game.feature.arena.trial").requires(
 	"game.feature.arena.arena").defines(function() {
-    var f = {
-        value: 0
-    };
-	var moddedCups = {
-	    "master-trial-cup": {
-	      order: 100000
+	var c = null,
+		f = {
+        	value: 0
+    	},
+		moddedCups = {
+		    "master-trial-cup": {
+		      order: 100000
+		    }
+		},
+		b = {
+	        "rookie-cup": {
+	            order: 100
+	        },
+	        "seeker-cup": {
+	            order: 200
+	        },
+	        "boss-cup": {
+	            order: 1E3
+	        },
+	        "faction-cup-1": {
+	            order: 2E3
+	        },
+	        "faction-cup-2": {
+	            order: 2100
+	        },
+	        "rookie-team-cup": {
+	            order: 101
+	        },
+	        "faction-team-cup-1": {
+	            order: 200
+	        }
 	    }
-	};
 	sc.ArenaPlus = sc.Arena.extend({
 		init: function() {
 			this.parent();
@@ -15,7 +39,7 @@ ig.module("game.feature.arena.trial").requires(
 		},
 		isTrial: function(a) {
 			a = a ? a : sc.arena.runtime.cup;
-			return sc.arena.cups[a].isTrial;
+			return sc.arena.cups[a] && sc.arena.cups[a].isTrial;
 		},
 		startRound: function() {
 			var a = this.runtime,
@@ -277,6 +301,20 @@ ig.module("game.feature.arena.trial").requires(
                 }
             }
             return 0
+        },
+        getTotalArenaCompletion: function() {
+            var a = 0,
+                c = 0,
+                d;
+            for (d in b) {
+                a = a + this.getCupCompletion(d);
+                c++
+            }
+            for (d in moddedCups) {
+                a = a + this.getCupCompletion(d);
+                c++
+            }
+            return a / c
         },
         getCupTrophy: function(a) {
             if (this.cups[a]) {
