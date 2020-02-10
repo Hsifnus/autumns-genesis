@@ -1,0 +1,9 @@
+{
+	"bgm" : {
+		"autumnsGenesis" : {
+			"path" : "assets/media/bgm/muAutumnsgenesis.ogg",
+			"loopEnd" : 195.602,
+			"volume" : 2.5
+		}
+	}
+}
