@@ -579,8 +579,8 @@ ig.module("game.feature.font.font-system-override").requires("game.feature.font.
         updateGamepadSwapMap: function() {
             var a = this.gamepadIconStyle ? i : h,
                 b;
-            for (b in a) j[b] = sc.SMALL_ICON_BINDINGS[b];
-            for (b in k) l[b] = sc.SMALL_ICON_BINDINGS[k[b]]
+            for (b in a) j[b] = a[b];
+            for (b in k) l[b] = a[k[b]]
         },
         hasIcon: function(a) {
             return sc.ICON_BINDINGS[a]
