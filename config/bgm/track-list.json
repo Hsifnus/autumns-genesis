@@ -15,5 +15,10 @@
         "introEnd": 19.209,
         "loopEnd": 180.006,
         "volume": 1.8
+    },
+    "windwardSpirit": {
+        "path": "assets/media/bgm/muWindwardspirit.ogg",
+        "loopEnd": 171,
+        "volume": 1.8
     }
 }
