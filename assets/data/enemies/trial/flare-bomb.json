@@ -179,6 +179,10 @@
       	"type":"WAIT_UNTIL_ON_GROUND"
       },
       {
+      	"group":"crosshair",
+      	"type":"CLEAR_EFFECTS"
+      },
+      {
       	"value": "VIRTUAL",
       	"type": "SET_COLL_TYPE"
       },
