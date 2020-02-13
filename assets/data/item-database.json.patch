@@ -426,7 +426,7 @@
   "type": "ADD_ARRAY_ELEMENT",
   "content":
     {
-      "order": 20001,
+      "order": 20003,
       "name": {
         "en_US": "Niflheim Gear",
         "langUid": 2138
@@ -450,7 +450,7 @@
               "en_US": "\\c[3]\\v[combat.name.boss-driller]\\c[0]'s Master Trial"
             },
             "type": "ENEMY",
-            "value": "jungle.shockboss"
+            "value": "boss-driller"
           }
         }
       ],
