@@ -3538,6 +3538,34 @@
       {
       	"conditions": [
       		{
+      			"min":1,
+      			"negated":false,
+      			"type":"HP_BREAK"
+      		},
+      		{
+      			"condition":"newgame.harder-enemies",
+      			"negated":false,
+      			"type":"VAR_CONDITION"
+      		}
+      	],
+      	"withElse": false,
+      	"type": "COMBAT_IF",
+      	"thenStep":[
+      		{
+		        "align": "BOTTOM",
+		        "type": "SHOOT_PROXY",
+		        "proxy": "fallIcicleLine",
+		        "offset": {
+		          "x": 75,
+		          "y": 140,
+		          "z": 97
+		        }
+		      }
+      	]
+      },
+      {
+      	"conditions": [
+      		{
       			"min":2,
       			"negated":false,
       			"type":"HP_BREAK"
@@ -5839,57 +5867,119 @@
         "anim": "wheelBRunStart"
       },
       {
-        "duration": 3,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemies.driller-boss",
-          "name": "diggingSnow2"
-        },
-        "offset": {
-          "x": 5,
-          "y": 129,
-          "z": 97
-        }
-      },
-      {
-        "duration": 3,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "specials.cold",
-          "name": "starCharge3"
-        },
-        "offset": {
-          "x": 5,
-          "y": 129,
-          "z": 97
-        }
-      },
-      {
-        "rumbleType": "HORIZONTAL",
-        "name": "",
-        "duration": 3,
-        "power": "STRONG",
-        "speed": "FASTER",
-        "fade": false,
-        "type": "RUMBLE_SCREEN"
-      },
-      {
-      	"time":3,
-      	"type":"WAIT"
+      	"condition":"newgame.harder-enemies",
+      	"withElse":true,
+      	"type":"IF",
+      	"thenStep":[
+      		{
+		        "duration": 2.5,
+		        "align": "BOTTOM",
+		        "rotateFace": 0,
+		        "flipLeftFace": false,
+		        "wait": false,
+		        "waitSkip": 0,
+		        "actionDetached": false,
+		        "fixPos": false,
+		        "type": "SHOW_EFFECT",
+		        "effect": {
+		          "sheet": "enemies.driller-boss",
+		          "name": "diggingSnow2"
+		        },
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "duration": 2.5,
+		        "align": "BOTTOM",
+		        "rotateFace": 0,
+		        "flipLeftFace": false,
+		        "wait": false,
+		        "waitSkip": 0,
+		        "actionDetached": false,
+		        "fixPos": false,
+		        "type": "SHOW_EFFECT",
+		        "effect": {
+		          "sheet": "specials.cold",
+		          "name": "starCharge3"
+		        },
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "rumbleType": "HORIZONTAL",
+		        "name": "",
+		        "duration": 2.5,
+		        "power": "STRONG",
+		        "speed": "FASTER",
+		        "fade": false,
+		        "type": "RUMBLE_SCREEN"
+		      },
+		      {
+		      	"time":2.5,
+		      	"type":"WAIT"
+		      }
+      	],
+      	"elseStep":[
+		      {
+		        "duration": 3,
+		        "align": "BOTTOM",
+		        "rotateFace": 0,
+		        "flipLeftFace": false,
+		        "wait": false,
+		        "waitSkip": 0,
+		        "actionDetached": false,
+		        "fixPos": false,
+		        "type": "SHOW_EFFECT",
+		        "effect": {
+		          "sheet": "enemies.driller-boss",
+		          "name": "diggingSnow2"
+		        },
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "duration": 3,
+		        "align": "BOTTOM",
+		        "rotateFace": 0,
+		        "flipLeftFace": false,
+		        "wait": false,
+		        "waitSkip": 0,
+		        "actionDetached": false,
+		        "fixPos": false,
+		        "type": "SHOW_EFFECT",
+		        "effect": {
+		          "sheet": "specials.cold",
+		          "name": "starCharge3"
+		        },
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "rumbleType": "HORIZONTAL",
+		        "name": "",
+		        "duration": 3,
+		        "power": "STRONG",
+		        "speed": "FASTER",
+		        "fade": false,
+		        "type": "RUMBLE_SCREEN"
+		      },
+		      {
+		      	"time":3,
+		      	"type":"WAIT"
+		      }
+      	]
       },
       {
         "duration": 0,
