@@ -5915,6 +5915,34 @@
         "align": "BOTTOM",
         "dir": {
           "x": 0,
+          "y": -1
+        },
+        "centralAngle": 0.4,
+        "angleVary": 0.05,
+        "startDist": 6,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 40,
+        "duration": 0,
+        "clockwise": true,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "ballCount": 12,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "iceStoneBigDeadly",
+        "offset": {
+          "x": 5,
+          "y": 129,
+          "z": 97
+        }
+      },
+      {
+        "align": "BOTTOM",
+        "dir": {
+          "x": 0,
           "y": 1
         },
         "centralAngle": 0.6,
