@@ -4788,7 +4788,7 @@
 		"MemoryAttack":[
 			{ 
         "text":{ 
-          "en_US":"Charging memory bombs...",
+          "en_US":"Charging Memory Bombs...",
           "langUid":3
         },
         "mode":"LINE_FILL",

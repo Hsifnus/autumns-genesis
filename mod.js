@@ -30,6 +30,8 @@ import "./js/game/feature/player/custom-modifiers.js";
 
 import "./js/game/feature/puzzle/entities/wind-bubble.js";
 
+import "./js/game/feature/puzzle/rain-super-bombs.js";
+
 import "./js/game/feature/skills/master-skills.js";
 
 import "./js/impact/feature/bgm/bgm-autumn-dng.js";

@@ -150,6 +150,48 @@
           "count":1
         }
       ]
+    },
+    {
+      "name": {
+        "en_US": "Driller's Master Trial",
+        "langUid": 32
+      },
+      "altName": {
+        "en_US": "Driller's Master Trial EX",
+        "langUid": 32
+      },
+      "customCode": true,
+      "camFocus": "PLAYER_SPAWN",
+      "platPoints": 600000,
+      "coins": 0,
+      "objective": {
+        "en_US": "Confront the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0] at its highest power level!",
+        "langUid": 35
+      },
+      "points": 500000,
+      "type": "DEFAULT",
+      "medal": 0,
+      "waves": [],
+      "map": "arena.boss.cold-boss-ex",
+      "maxTime":300,
+      "bonuses": [
+        {
+          "type": "TIME",
+          "seconds": 180,
+          "points": 100000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN",
+      "firstClearBonus":[
+        {
+          "item":551,
+          "count":5
+        },
+        {
+          "item":554,
+          "count":1
+        }
+      ]
     }
   ]
 }

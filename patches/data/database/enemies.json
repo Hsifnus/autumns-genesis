@@ -401,5 +401,145 @@
     "exp": 2000,
     "itemDrops": [],
     "boss": true
-  }
+  },
+  "trial.boss-driller-ex": {
+    "name": {
+      "en_US": "X01 Driller H.F.S.",
+      "de_DE": "X01 Bohrer H.F.S.",
+      "zh_CN": "X01挖掘机兵H.F.S.",
+      "ja_JP": "X01 ドリラー H.F.S.",
+      "ko_KR": "X01 드릴러 H.F.S.",
+      "langUid": 763
+    },
+    "track": false,
+    "order": 200,
+    "area": "cold-dng",
+    "anim": false,
+    "extra": false,
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "This enormous mine robot was infected too and is the final test for the \\c[3]\\v[area.cold-dng.name]\\c[0]. Originally its purpose was to drill deep into the ground using its right arm to crack the stone. To avoid the cold in the deeper sections it could also use a flamethrower to battle the freezing temperatures and bombs to destroy even the thickest of rocks.\nHow it even got in here you ask? Don't be silly, every good miner knows not to share their secrets.",
+          "de_DE": "Dieser enorme Minenroboter wurde infiziert und ist die letzte Prüfung der \\c[3]\\v[area.cold-dng.name]\\c[0]. Seine ursprüngliche Funktion galt dem Bohren und Brechen von Gestein. Um der Kälte zu trotzen, wurde er mit einem Flammenwerfer bewaffnet. Außerdem ist er in der Lage, Bomben zu zünden, um sogar die hartnäckigsten Felsen zu sprengen. Du fragst dich, wie er überhaupt hierher gekommen ist? Sei nicht albern, jeder gute Minenarbeiter behält seine Geheimnisse für sich.<<C<<geprüft: Melsie",
+          "zh_CN": "这种庞大的矿用机器人被\\c[3]蚤虫\\c[0]感染了，它是\\c[3]神庙矿井\\c[0]的最终测试。它最初的用途是用其右臂粉碎岩石，钻入到地底深处。为避免地底深处的寒冷，它还能够使用火焰喷射器来对抗冰结温度，同时用炸弹摧毁哪怕最厚实的岩石。\n你问它是怎么到这儿来的？别傻了，这是矿工的秘密，怎么可能告诉你。<<A<<[CHANGED 2018/09/19]",
+          "ja_JP": "軌跡に寄生された非常に巨大な採掘ロボットで、\\c[3]\\v[area.cold-dng.name]\\c[0]の最終試練として待ち構えている。右腕で岩を砕いて地底へ掘り進むことが本来の目的だった。地底での気温低下に耐えるため火炎放射器を装備しており、非常に硬い岩盤を破壊するための爆弾も搭載していた。 どうやってこの中に運び込まれたのかって？バカな質問はやめてくれよ。腕のいい鉱山夫は、秘密を教えないものなのさ。<<A<<[CHANGED 2018/09/19]",
+          "ko_KR": "이 거대한 채굴 로봇도 감염되었으며, \\c[3]\\v[area.cold-dng.name]\\c[0]의 마지막 시험입니다. 원래의 목적은 이 로봇의 오른팔로 바위를 부숴 땅속 깊이 파고 들어가는 것이었습니다. 깊은 곳에서 추위를 견디기 위해 화염방사기를 사용하고, 폭탄을 사용해 가장 두꺼운 바위도 부술 수 있습니다.\n애초에 이게 어떻게 여기까지 들어왔냐고요? 에이, 좋은 광부는 비밀을 공유하지 않는다구요.<<A<<[CHANGED 2018/09/19]",
+          "langUid": -6
+        },
+        "condition": ""
+      }
+    ],
+    "species": {
+      "en_US": "Infected Mecha",
+      "de_DE": "Infizierter Mecha",
+      "zh_CN": "受感染的机甲",
+      "ja_JP": "侵食されたメカ",
+      "ko_KR": "감염된 메카",
+      "langUid": -1
+    },
+    "category": "MECHA",
+    "boostedLevel": 80,
+    "level": 80,
+    "params": {
+      "hp": 429001,
+      "attack": 472,
+      "defense": 490,
+      "focus": 535,
+      "elemFactor":[ 
+        1.25,
+        0.75,
+        1,
+        1
+      ],
+      "statusInflict": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "credit": 100000,
+    "exp": 2000,
+    "itemDrops": [],
+    "boss": true
+  },
+  "mine-kamikatze-alt": {
+      "name": {
+        "en_US": "Kamikatze",
+        "de_DE": "Kamikatze",
+        "zh_CN": "自杀机兵",
+        "ja_JP": "ニャミカゼ",
+        "ko_KR": "카미카제",
+        "langUid": 329
+      },
+      "track": false,
+      "order": 180,
+      "area": "cold-dng",
+      "anim": false,
+      "extra": false,
+      "descriptions": [
+        {
+          "text": {
+            "en_US": "This bot was used to produce and carry highly explosive bombs into smaller tunnels inside the mine for controlled explosions. Thanks to the track it now uses said bombs against us and also uses a spinning flamethrower that it had built in for... reasons?",
+            "de_DE": "Diese Roboter wurde für das Herstellen und Transportieren von hochexplosiven Bomben in enge Tunnel der Mine zu bringen um kontrollierte Explosionen zu erzeugen. Dank des Pfads benutzt er jetzt diese Bomben gegen uns. Zusätzlich zu dem Flammenwerfer, den es eingebaut hat. Warum auch immer.<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "这种机器人曾经被用来制造高爆炸弹并将其运送到矿坑的小型隧道中。由于受到了先祖之路的感染，它们将炸弹作为非法用途。同时它们还装备有旋转火焰喷射器...原因嘛，并不知道。<<A<<[CHANGED 2018/09/19]",
+            "ja_JP": "このロボットは元々、爆発を制御しながら採掘を行うために、強力な爆弾を生成し、鉱山の小さなトンネル内へと運搬する目的で使われていた。軌跡によって制御を奪われた今、このロボットはその爆弾を攻撃に転用しているほか、なぜだか内蔵されていた回転式火炎放射器で敵を一掃する。<<A<<[CHANGED 2018/09/19]",
+            "ko_KR": "이 봇은 세심히 관리되는 사원 내 폭발을 위해 고폭탄을 생성해 보다 작은 터널로 옮기는 역할을 하곤 했습니다. 고대인의 길 덕분에 당신을 상대로 앞서 언급한 고폭탄과 회전 화염방사기를 사용할 수 있게 된 데에는... 이유가 있겠죠?<<A<<[CHANGED 2018/09/19]",
+            "langUid": -40
+          },
+          "condition": ""
+        }
+      ],
+      "species": {
+        "en_US": "Mine Robot",
+        "de_DE": "Minenroboter<<C<<Überprüfen: Beschreibung",
+        "zh_CN": "矿井机兵",
+        "ja_JP": "採掘ロボット",
+        "ko_KR": "채굴 로봇",
+        "langUid": -2
+      },
+      "category": "MECHA",
+      "level": 18,
+      "boostedLevel": 0,
+      "params": {
+        "hp": 810,
+        "attack": 67,
+        "defense": 68,
+        "focus": 69,
+        "statusInflict": [
+          0.75,
+          1.25,
+          1,
+          1
+        ]
+      },
+      "credit": 136,
+      "exp": 60,
+      "itemDrops": [
+        {
+          "item": "163",
+          "prob": 0.16,
+          "min": 1,
+          "max": 1,
+          "rank": "D"
+        },
+        {
+          "item": "160",
+          "prob": 0.08,
+          "min": 1,
+          "max": 1,
+          "rank": "D"
+        },
+        {
+          "item": "460",
+          "prob": 0.05,
+          "min": 1,
+          "max": 1,
+          "boosted": true,
+          "condition": "item.448.toggled || stat.items.457>= 1",
+          "rank": "D"
+        }
+      ],
+      "boss": false
+    }
 }

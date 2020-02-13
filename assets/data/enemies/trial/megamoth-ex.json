@@ -4431,7 +4431,7 @@
             "thenStep":[
               { 
                 "text":{ 
-                  "en_US":"Incoming inferno!",
+                  "en_US":"Incoming Inferno!",
                   "langUid":3
                 },
                 "mode":"LINE_FILL",
@@ -4445,7 +4445,7 @@
             "elseStep":[
               { 
                 "text":{ 
-                  "en_US":"Incoming inferno!",
+                  "en_US":"Incoming Inferno!",
                   "langUid":3
                 },
                 "mode":"LINE_FILL",
@@ -4471,7 +4471,7 @@
             "thenStep":[
               { 
                 "text":{ 
-                  "en_US":"Incoming inferno!",
+                  "en_US":"Incoming Inferno!",
                   "langUid":3
                 },
                 "mode":"LINE_FILL",
@@ -4485,7 +4485,7 @@
             "elseStep":[
               { 
                 "text":{ 
-                  "en_US":"Incoming inferno!",
+                  "en_US":"Incoming Inferno!",
                   "langUid":3
                 },
                 "mode":"LINE_FILL",
