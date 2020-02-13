@@ -3198,7 +3198,7 @@
             "attribName": "shieldHp",
             "changeType": "set",
             "type": "SET_ATTRIB_NUMBER",
-            "value": 7
+            "value": 8
           },
           {
             "partName": "shield",
