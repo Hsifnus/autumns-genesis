@@ -7239,8 +7239,8 @@
 				        "type": "SHOOT_PROXY_RANGE",
 				        "proxy": "iceShardSmall",
 				        "offset": {
-				          "x": -30,
-				          "y": 60,
+				          "x": 55,
+				          "y": 250,
 				          "z": 97
 				        }
 				      }
@@ -7316,8 +7316,8 @@
 				        "type": "SHOOT_PROXY_RANGE",
 				        "proxy": "iceShardSmall",
 				        "offset": {
-				          "x": -30,
-				          "y": 60,
+				          "x": 55,
+				          "y": 250,
 				          "z": 97
 				        }
 				      },
@@ -7348,8 +7348,8 @@
 				        "type": "SHOOT_PROXY_RANGE",
 				        "proxy": "iceShardSmall",
 				        "offset": {
-				          "x": -30,
-				          "y": 60,
+				          "x": 55,
+				          "y": 250,
 				          "z": 97
 				        }
 				      },
