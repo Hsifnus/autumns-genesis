@@ -423,5 +423,42 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20001,
+      "name": {
+        "en_US": "Niflheim Gear",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A shiny gear that proves mastery over the deadly arsenal of H.F.S. Driller X01.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.boss-driller]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "jungle.shockboss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
 	"type": "EXIT"
 }]
