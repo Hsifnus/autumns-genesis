@@ -57,8 +57,7 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
             this.enemyInfo = {
                 type: sc.SUPER_BOMB_TYPES[a.bombType || "FLARE"],
                 attribs: {shield: a.shield || false},
-                targetOnSpawn: true,
-                manualKill: "tmp.superBombDeath"
+                targetOnSpawn: true
             };
             this.enemyInfo = new sc.EnemyInfo(this.enemyInfo);
             this.gfx = new ig.Image("media/entity/effects/trial-bosses.png");
@@ -83,9 +82,14 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
                             break
                         }
                 } while (h-- && i);
-                c.push(Vec2.create(j));
+                c.push(Vec2.create(j)); 
                 h = (Math.random() - 0.5) * this.zVary;
-                j = ig.game.spawnEntity(ig.ENTITY.Enemy, a.x + j.x - 24, a.y + j.y - 24, a.z + h, {enemyInfo: this.enemyInfo.getSettings()});
+                j = ig.game.spawnEntity(ig.ENTITY.Enemy, a.x + j.x - 24, a.y + j.y - 24, a.z + h,
+                    {
+                        enemyInfo: this.enemyInfo.getSettings(), 
+                        manualKill: "tmp.superBombDeath"
+                    }
+                );
             }
             c.length = 0
         }
