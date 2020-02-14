@@ -352,7 +352,7 @@
             "element":"COLD",
             "damageFactor":1,
             "fly":"MASSIVE+",
-            "reverse":false,
+            "reverse":true,
             "stunSteps":[
               {
                 "type":"START_LOCK"
@@ -585,6 +585,33 @@
             "guardable": "",
             "skillBonus": ""
           }
+        },
+        { 
+          "align":"BOTTOM",
+          "centralAngle":0,
+          "angleVary":0,
+          "startDist":0,
+          "startDistCollide":"NONE",
+          "random":false,
+          "count":10,
+          "duration":1,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":false,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleHuge",
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.1,
+          "type":"WAIT"
         }
       ],
       "config":{
