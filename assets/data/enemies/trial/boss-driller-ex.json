@@ -34,9 +34,9 @@
   "aiGroup": "",
   "aiLearnType": "REGULAR",
   "targetDetect": {
-    "detectDistance": 10000,
-    "loseDistance": 1000,
-    "notifyNeighbourRadius": 100
+    "detectDistance": 100000,
+    "loseDistance": 100000,
+    "notifyNeighbourRadius": 100000
   },
   "hpBreaks": [
     {
