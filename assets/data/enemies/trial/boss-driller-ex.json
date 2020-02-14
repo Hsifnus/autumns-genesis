@@ -4288,12 +4288,6 @@
         }
       },
       {
-        "changeType": "add",
-        "type": "CHANGE_VAR_NUMBER",
-        "varName": "tmp.superBombsPlaced",
-        "value": 1
-      },
-      {
         "conditions": [
           {
             "min": 2,
@@ -4383,13 +4377,7 @@
 				        }
 			      	}
 		        ]
-			    },
-		      {
-		        "changeType": "add",
-		        "type": "CHANGE_VAR_NUMBER",
-		        "varName": "tmp.superBombsPlaced",
-		        "value": 2
-		      }
+			    }
         ],
         "elseStep": [
           {
@@ -4448,13 +4436,7 @@
 						        }
 					      	}
 				        ]
-					    },
-				      {
-				        "changeType": "add",
-				        "type": "CHANGE_VAR_NUMBER",
-				        "varName": "tmp.superBombsPlaced",
-				        "value": 1
-				      }
+					    }
             ]
           }
         ]
@@ -4855,12 +4837,6 @@
           "y": 360,
           "z": 600
         }
-      },
-      {
-        "changeType": "add",
-        "type": "CHANGE_VAR_NUMBER",
-        "varName": "tmp.superBombsPlaced",
-        "value": 4
       },
       {
         "time": 0.5,
@@ -5325,12 +5301,6 @@
 				        }
 				      }
 		        ]
-		      },
-		      {
-		        "changeType": "add",
-		        "type": "CHANGE_VAR_NUMBER",
-		        "varName": "tmp.superBombsPlaced",
-		        "value": 2
 		      }
         ],
         "elseStep":[
@@ -5415,12 +5385,6 @@
 				        }
 				      }
 		        ]
-		      },
-        	{
-		        "changeType": "add",
-		        "type": "CHANGE_VAR_NUMBER",
-		        "varName": "tmp.superBombsPlaced",
-		        "value": 3
 		      }
         ]
       },
@@ -5440,12 +5404,6 @@
           "y": 240,
           "z": 600
         }
-      },
-      {
-        "changeType": "add",
-        "type": "CHANGE_VAR_NUMBER",
-        "varName": "tmp.superBombsPlaced",
-        "value": 1
       },
       {
         "time": 0.5,

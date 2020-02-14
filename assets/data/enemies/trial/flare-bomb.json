@@ -112,6 +112,12 @@
       }
     ],
     "idle": [
+    	{
+        "changeType": "add",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.superBombsPlaced",
+        "value": 1
+      },
       {
         "withElse": false,
         "type": "IF",
