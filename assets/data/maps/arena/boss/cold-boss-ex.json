@@ -461,22 +461,6 @@
         "endCondition": "false",
         "event": [
           {
-            "type": "PAUSE_TIMER",
-            "name": "trialTimer"
-          },
-          {
-            "type": "PAUSE_TIMER",
-            "name": "trialTimerSixty"
-          },
-          {
-            "type": "PAUSE_TIMER",
-            "name": "trialTimerTen"
-          },
-          {
-            "type": "PAUSE_TIMER",
-            "name": "trialTimerThirty"
-          },
-          {
             "entity": {
               "global": true,
               "name": "boss"
@@ -881,6 +865,22 @@
           {
             "type": "PAUSE_TIMER",
             "name": "arenaTimerReal"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimer"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerSixty"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerTen"
+          },
+          {
+            "type": "PAUSE_TIMER",
+            "name": "trialTimerThirty"
           },
           {
             "changeType": "set",
