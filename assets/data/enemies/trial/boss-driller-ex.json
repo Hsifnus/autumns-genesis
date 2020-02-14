@@ -2967,10 +2967,17 @@
         "value": 0
       },
       {
-        "changeType": "set",
-        "type": "CHANGE_VAR_NUMBER",
-        "varName": "tmp.superBombsPlaced",
-        "value": 0
+      	"condition":"!tmp.superBombsPlaced",
+      	"withElse":false,
+      	"type":"IF",
+      	"thenStep":[
+		      {
+		        "changeType": "set",
+		        "type": "CHANGE_VAR_NUMBER",
+		        "varName": "tmp.superBombsPlaced",
+		        "value": 0
+		      }
+      	]
       },
       {
         "changeType": "set",
