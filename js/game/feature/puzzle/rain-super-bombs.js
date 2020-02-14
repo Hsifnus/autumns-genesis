@@ -57,7 +57,8 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
             this.enemyInfo = {
                 type: sc.SUPER_BOMB_TYPES[a.bombType || "FLARE"],
                 attribs: {shield: a.shield || false},
-                targetOnSpawn: true
+                targetOnSpawn: true,
+                manualKill: true
             };
             this.enemyInfo = new sc.EnemyInfo(this.enemyInfo);
             this.gfx = new ig.Image("media/entity/effects/trial-bosses.png");

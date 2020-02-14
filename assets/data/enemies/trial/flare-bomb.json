@@ -573,7 +573,7 @@
   },
   "reactions": {
   	"KILL_SURVIVE":{ 
-      "hitType":"KILL_SURVIVE",
+      "hitType":"KILL_HIT",
       "preAction":"preDestroy",
       "action":"destroy",
       "blockFurtherHits":true,
