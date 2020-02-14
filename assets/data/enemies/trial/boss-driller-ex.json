@@ -7214,7 +7214,82 @@
         "type": "CHANGE_VAR_BOOL",
         "varName": "tmp.heroFallSave",
         "value": true
-      }
+      },
+    	{
+    		"conditions":[
+    			{
+            "name": "full",
+            "type": "HAS_SHIELD"
+          }
+    		],
+    		"withElse":false,
+    		"type":"COMBAT_IF",
+    		"thenStep":[
+    			{
+		        "conditions": [
+		          {
+		            "min": 2,
+		            "negated": false,
+		            "type": "HP_BREAK"
+		          }
+		        ],
+		        "withElse": true,
+		        "type": "COMBAT_IF",
+		        "thenStep": [
+		          {
+		            "attribName": "shieldHp",
+		            "changeType": "set",
+		            "type": "SET_ATTRIB_NUMBER",
+		            "value": 8
+		          },
+		          {
+		            "partName": "shield",
+		            "anim": "shieldA",
+		            "type": "SHOW_PART_ANIMATION"
+		          }
+		        ],
+		        "elseStep": [
+		          {
+		            "conditions": [
+		              {
+		                "min": 1,
+		                "negated": false,
+		                "type": "HP_BREAK"
+		              }
+		            ],
+		            "withElse": true,
+		            "type": "COMBAT_IF",
+		            "thenStep": [
+		              {
+		                "attribName": "shieldHp",
+		                "changeType": "set",
+		                "type": "SET_ATTRIB_NUMBER",
+		                "value": 5
+		              },
+		              {
+		                "partName": "shield",
+		                "anim": "shieldA",
+		                "type": "SHOW_PART_ANIMATION"
+		              }
+		            ],
+		            "elseStep": [
+		              {
+		                "attribName": "shieldHp",
+		                "changeType": "set",
+		                "type": "SET_ATTRIB_NUMBER",
+		                "value": 2
+		              },
+		              {
+		                "partName": "shield",
+		                "anim": "shieldD",
+		                "type": "SHOW_PART_ANIMATION"
+		              }
+		            ]
+		          }
+		        ]
+		      }
+    		]
+    	}
     ],
     "IcePunch": [
       {
