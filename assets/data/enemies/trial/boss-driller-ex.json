@@ -2534,7 +2534,7 @@
           "angleVary": 0,
           "random": false,
           "count": 2,
-          "duration": 1.8,
+          "duration": 1,
           "clockwise": false,
           "flipLeftFace": 0,
           "offsetArea": {
@@ -2558,7 +2558,7 @@
           "angleVary": 0,
           "random": false,
           "count": 3,
-          "duration": 2,
+          "duration": 1.2,
           "clockwise": false,
           "flipLeftFace": 0,
           "offsetArea": {
