@@ -859,6 +859,12 @@
             "sound": "media/sound/arena/round-end-swoosh.ogg"
           },
           {
+		        "changeType": "set",
+		        "type": "CHANGE_VAR_BOOL",
+		        "varName": "tmp.removeKamikatzes",
+		        "value": true
+		      },
+          {
             "type": "PAUSE_TIMER",
             "name": "arenaTimer"
           },
