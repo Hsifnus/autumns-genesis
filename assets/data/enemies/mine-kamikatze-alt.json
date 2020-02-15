@@ -173,6 +173,16 @@
         {
           "req": [
             {
+              "distance": 240,
+              "throwing": true,
+              "type": "!TARGET_REACHABLE"
+            }
+          ],
+          "action": "Adjust2"
+        },
+        {
+          "req": [
+            {
               "distance": 60,
               "throwing": true,
               "type": "TARGET_REACHABLE"
@@ -426,6 +436,19 @@
         "throwing": true,
         "planOnly": false,
         "type": "NAVIGATE_ESCAPE_TARGET"
+      }
+    ],
+    "Adjust2": [
+      {
+        "value": 0.7,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 1,
+        "distance": 180,
+        "throwing": true,
+        "planOnly": false,
+        "type": "NAVIGATE_TO_TARGET"
       }
     ],
     "Circle": [
