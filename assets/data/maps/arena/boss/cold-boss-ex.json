@@ -69,10 +69,9 @@
           {
             "entity": {
               "global": true,
-              "name": "superBomb",
-              "_killed": true
+              "name": "superBomb"
             },
-            "type": "MANUAL_COMBATANT_KILL"
+            "type": "MANUAL_COMBATANT_KILL_DEAD"
           },
           {
             "changeType": "set",
