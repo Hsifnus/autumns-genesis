@@ -162,7 +162,7 @@
       },
       "customCode": true,
       "camFocus": "PLAYER_SPAWN",
-      "platPoints": 600000,
+      "platPoints": 620000,
       "coins": 0,
       "objective": {
         "en_US": "Confront the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0] at its highest power level!\nDefuse the \\c[3]super bombs\\c[0] that get in the way, and take heed of its \\c[3]elimination protocol\\c[0]!",
