@@ -88,7 +88,7 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
                     {
                         enemyInfo: this.enemyInfo.getSettings(), 
                         manualKill: "tmp.superBombDeath",
-                        name: "superbomb"
+                        name: "superBomb"
                     }
                 );
             }
