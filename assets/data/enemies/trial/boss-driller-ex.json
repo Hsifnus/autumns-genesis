@@ -6018,77 +6018,163 @@
         "condition": "newgame.harder-enemies",
         "thenStep": [
         	{
-		        "type": "SELECT_RANDOM",
-		        "options": [
-		          {
-		            "0": " ",
-		            "count": 2,
-		            "weight": 1
-		          }
-		        ],
-		        "0_0":[
-		          {
-		            "align": "BOTTOM",
-		            "dir": {
-		              "x": 0,
-		              "y": 1
-		            },
-		            "centralAngle": 1,
-		            "startAngle":-0.25,
-		            "angleVary": 0.05,
-		            "startDist": 64,
-		            "startDistCollide": "NONE",
-		            "random": false,
-		            "count": 8,
-		            "duration": 1,
-		            "clockwise": true,
-		            "flipLeftFace": 0,
-		            "circularArea": false,
-		            "uniformDir": 0,
-		            "delay": 0,
-		            "repeat": false,
-		            "ballCount": 3,
-		            "type": "SHOOT_PROXY_RANGE",
-		            "proxy": "icicleBig",
-		            "offset": {
-		              "x": 5,
-		              "y": 129,
-		              "z": 97
-		            }
-		          }
-		        ],
-		        "0_1":[
-		        	{
-		            "align": "BOTTOM",
-		            "dir": {
-		              "x": 0,
-		              "y": 1
-		            },
-		            "centralAngle": 1,
-		            "startAngle":-0.25,
-		            "angleVary": 0.05,
-		            "startDist": 64,
-		            "startDistCollide": "NONE",
-		            "random": false,
-		            "count": 8,
-		            "duration": 1,
-		            "clockwise": false,
-		            "flipLeftFace": 0,
-		            "circularArea": false,
-		            "uniformDir": 0,
-		            "delay": 0,
-		            "repeat": false,
-		            "ballCount": 3,
-		            "type": "SHOOT_PROXY_RANGE",
-		            "proxy": "icicleBig",
-		            "offset": {
-		              "x": 5,
-		              "y": 129,
-		              "z": 97
-		            }
-		          }
-		        ]
-		      }
+        		"conditions": [
+        			{
+        				"condition":"entity.attrib.shieldHp != 0",
+        				"type":"VAR_CONDITION"
+        			}
+        		],
+        		"withElse":true,
+        		"type":"COMBAT_IF",
+        		"thenStep":[
+        			{
+				        "type": "SELECT_RANDOM",
+				        "options": [
+				          {
+				            "0": " ",
+				            "count": 2,
+				            "weight": 1
+				          }
+				        ],
+				        "0_0":[
+				          {
+				            "align": "BOTTOM",
+				            "dir": {
+				              "x": 0,
+				              "y": 1
+				            },
+				            "centralAngle": 1,
+				            "startAngle":-0.25,
+				            "angleVary": 0.05,
+				            "startDist": 64,
+				            "startDistCollide": "NONE",
+				            "random": false,
+				            "count": 8,
+				            "duration": 1,
+				            "clockwise": true,
+				            "flipLeftFace": 0,
+				            "circularArea": false,
+				            "uniformDir": 0,
+				            "delay": 0,
+				            "repeat": false,
+				            "ballCount": 3,
+				            "type": "SHOOT_PROXY_RANGE",
+				            "proxy": "icicleBig",
+				            "offset": {
+				              "x": 5,
+				              "y": 129,
+				              "z": 97
+				            }
+				          }
+				        ],
+				        "0_1":[
+				        	{
+				            "align": "BOTTOM",
+				            "dir": {
+				              "x": 0,
+				              "y": 1
+				            },
+				            "centralAngle": 1,
+				            "startAngle":-0.25,
+				            "angleVary": 0.05,
+				            "startDist": 64,
+				            "startDistCollide": "NONE",
+				            "random": false,
+				            "count": 8,
+				            "duration": 1,
+				            "clockwise": false,
+				            "flipLeftFace": 0,
+				            "circularArea": false,
+				            "uniformDir": 0,
+				            "delay": 0,
+				            "repeat": false,
+				            "ballCount": 3,
+				            "type": "SHOOT_PROXY_RANGE",
+				            "proxy": "icicleBig",
+				            "offset": {
+				              "x": 5,
+				              "y": 129,
+				              "z": 97
+				            }
+				          }
+				        ]
+				      }
+        		],
+        		"elseStep":[
+        			{
+				        "type": "SELECT_RANDOM",
+				        "options": [
+				          {
+				            "0": " ",
+				            "count": 2,
+				            "weight": 1
+				          }
+				        ],
+				        "0_0":[
+				          {
+				            "align": "BOTTOM",
+				            "dir": {
+				              "x": 0,
+				              "y": 1
+				            },
+				            "centralAngle": 0.5,
+				            "startAngle":-0.25,
+				            "angleVary": 0.05,
+				            "startDist": 64,
+				            "startDistCollide": "NONE",
+				            "random": false,
+				            "count": 5,
+				            "duration": 1,
+				            "clockwise": true,
+				            "flipLeftFace": 0,
+				            "circularArea": false,
+				            "uniformDir": 0,
+				            "delay": 0,
+				            "repeat": false,
+				            "ballCount": 3,
+				            "type": "SHOOT_PROXY_RANGE",
+				            "proxy": "icicleBig",
+				            "offset": {
+				              "x": 5,
+				              "y": 129,
+				              "z": 97
+				            }
+				          }
+				        ],
+				        "0_1":[
+				        	{
+				            "align": "BOTTOM",
+				            "dir": {
+				              "x": 0,
+				              "y": 1
+				            },
+				            "centralAngle": 0.5,
+				            "startAngle":-0.25,
+				            "angleVary": 0.05,
+				            "startDist": 64,
+				            "startDistCollide": "NONE",
+				            "random": false,
+				            "count": 5,
+				            "duration": 1,
+				            "clockwise": false,
+				            "flipLeftFace": 0,
+				            "circularArea": false,
+				            "uniformDir": 0,
+				            "delay": 0,
+				            "repeat": false,
+				            "ballCount": 3,
+				            "type": "SHOOT_PROXY_RANGE",
+				            "proxy": "icicleBig",
+				            "offset": {
+				              "x": 5,
+				              "y": 129,
+				              "z": 97
+				            }
+				          }
+				        ]
+				      }
+        		]
+        	}
         ],
         "elseStep":[
         	{
