@@ -6490,10 +6490,10 @@
       {
       	"conditions": [
       		{
-      			"condition":"newgame.harder-enemies",
-      			"negated":false,
-      			"type":"VAR_CONDITION"
-      		}
+            "min": 2,
+            "negated": false,
+            "type": "HP_BREAK"
+          }
       	],
       	"withElse": false,
       	"type": "COMBAT_IF",
@@ -6503,8 +6503,8 @@
 		        "type": "SHOOT_PROXY",
 		        "proxy": "fallIcicleLineRealShort",
 		        "offset": {
-		          "x": 75,
-		          "y": 140,
+		          "x": 5,
+		          "y": 129,
 		          "z": 97
 		        }
 		      }
