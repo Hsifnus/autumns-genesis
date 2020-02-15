@@ -39,7 +39,7 @@
       "platPoints": 700000,
       "coins": 0,
       "objective": {
-        "en_US": "Face the \\c[3]\\v[combat.name.heat/megamoth]\\c[0] boss from \\c[3]\\v[area.heat-dng.name]\\c[0] at her strongest!",
+        "en_US": "Face the \\c[3]\\v[combat.name.heat/megamoth]\\c[0] boss from \\c[3]\\v[area.heat-dng.name]\\c[0] at her strongest!\nWatch out for the powerful \\c[3]dives\\c[0], steer clear of the \\c[3]lingering flames\\c[0], and hide from the charged \\c[3]infernos\\c[0]!",
         "langUid": 27
       },
       "points": 550000,
@@ -81,7 +81,7 @@
       "platPoints": 750000,
       "coins": 0,
       "objective": {
-        "en_US": "Purify the \\c[3]\\v[combat.name.jungle/shockboss]\\c[0] boss from \\c[3]\\v[area.shock-dng.name]\\c[0] at its most sinister!",
+        "en_US": "Purify the \\c[3]\\v[combat.name.jungle/shockboss]\\c[0] boss from \\c[3]\\v[area.shock-dng.name]\\c[0] at its most sinister!\nMaster your guarding to block its \\c[3]flash slashes\\c[0], and watch out for the \\c[3]static\\c[0]!",
         "langUid": 35
       },
       "points": 600000,
@@ -123,7 +123,7 @@
       "platPoints": 1000000,
       "coins": 0,
       "objective": {
-        "en_US": "Endure the \\c[3]\\v[combat.name.jungle/waveboss]\\c[0] boss from \\c[3]\\v[area.wave-dng.name]\\c[0] at its mightiest!",
+        "en_US": "Endure the \\c[3]\\v[combat.name.jungle/waveboss]\\c[0] boss from \\c[3]\\v[area.wave-dng.name]\\c[0] at its mightiest!\nDash effectively to steer clear of \\c[3]whirlpools\\c[0], and pay attention to where it plants its \\c[3]memory bombs\\c[0]!",
         "langUid": 35
       },
       "points": 850000,
@@ -165,7 +165,7 @@
       "platPoints": 600000,
       "coins": 0,
       "objective": {
-        "en_US": "Confront the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0] at its highest power level!",
+        "en_US": "Confront the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0] at its highest power level!\nDefuse the \\c[3]super bombs\\c[0] that get in the way, and take heed of its \\c[3]elimination protocol\\c[0]!",
         "langUid": 35
       },
       "points": 500000,
