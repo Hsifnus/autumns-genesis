@@ -36,6 +36,32 @@
       "y": 1176,
       "level": 1,
       "settings": {
+        "name": "SuperBombDiesBandaid",
+        "eventType": "PARALLEL",
+        "endCondition": "false",
+        "event": [
+          {
+          	"time":15,
+          	"type":"WAIT"
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.superBombsPlaced",
+            "value": 0
+          }
+        ],
+        "triggerType": "ALWAYS",
+        "mapId": 101,
+        "startCondition": "tmp.superBombsPlaced > 0"
+      }
+    },
+    {
+      "type": "EventTrigger",
+      "x": 736,
+      "y": 1176,
+      "level": 1,
+      "settings": {
         "name": "SuperBombDies",
         "eventType": "PARALLEL",
         "endCondition": "false",
@@ -50,9 +76,9 @@
           },
           {
             "changeType": "set",
-            "type": "CHANGE_VAR_BOOL",
+            "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.superBombDeath",
-            "value": false
+            "value": 0
           }
         ],
         "triggerType": "ALWAYS",
