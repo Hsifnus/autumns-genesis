@@ -2524,6 +2524,82 @@
       },
       "type": "GENERIC"
     },
+    "fallIcicleLineRealShort": {
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "random": false,
+          "count": 2,
+          "duration": 1.8,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "offsetArea": {
+            "x": 128,
+            "y": 128
+          },
+          "circularArea": true,
+          "uniformDir": 0,
+          "delay": 0,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "smallFallingIcicle",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 240
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "random": false,
+          "count": 3,
+          "duration": 2,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "offsetArea": {
+            "x": 128,
+            "y": 128
+          },
+          "circularArea": true,
+          "uniformDir": 0,
+          "delay": 0,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "smallFallingIcicle",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 240
+          }
+        },
+      	{
+          "min": 0,
+          "max": 0,
+          "maxTime": 1.2,
+          "forceTime": true,
+          "type": "MOVE_TO_DISTANCE"
+      	}
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "collType": "NONE",
+        "maxVel": 200
+      },
+      "type": "GENERIC"
+    },
     "flame": {
       "size": {
         "x": 24,
@@ -6410,6 +6486,29 @@
 		        }
 		      }
         ]
+      },
+      {
+      	"conditions": [
+      		{
+      			"condition":"newgame.harder-enemies",
+      			"negated":false,
+      			"type":"VAR_CONDITION"
+      		}
+      	],
+      	"withElse": false,
+      	"type": "COMBAT_IF",
+      	"thenStep":[
+      		{
+		        "align": "BOTTOM",
+		        "type": "SHOOT_PROXY",
+		        "proxy": "fallIcicleLineRealShort",
+		        "offset": {
+		          "x": 75,
+		          "y": 140,
+		          "z": 97
+		        }
+		      }
+      	]
       },
       {
         "time": 3,
