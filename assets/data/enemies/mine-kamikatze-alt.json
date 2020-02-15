@@ -431,7 +431,7 @@
         "type": "SET_RELATIVE_SPEED"
       },
       {
-        "maxTime": 1,
+        "maxTime": 1.5,
         "distance": 120,
         "throwing": true,
         "planOnly": false,
@@ -444,8 +444,8 @@
         "type": "SET_RELATIVE_SPEED"
       },
       {
-        "maxTime": 1,
-        "distance": 180,
+        "maxTime": 1.5,
+        "distance": 120,
         "throwing": true,
         "planOnly": false,
         "type": "NAVIGATE_TO_TARGET"
