@@ -201,7 +201,7 @@
           "ignoreStun": true
         },
         {
-          "action": "ShootSingle",
+          "action": "Idle",
           "frequency": "NORMAL",
           "ignoreStun": true
         },
