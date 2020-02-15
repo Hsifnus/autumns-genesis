@@ -41,7 +41,7 @@
         "endCondition": "false",
         "event": [
           {
-          	"time":15,
+          	"time":20,
           	"type":"WAIT"
           },
           {
