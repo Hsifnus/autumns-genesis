@@ -30,6 +30,42 @@
     "y": 880
   },
   "entities": [
+
+    {
+      "type": "EventTrigger",
+      "x": 736,
+      "y": 1176,
+      "level": 1,
+      "settings": {
+        "name": "SuperBombDies",
+        "eventType": "PARALLEL",
+        "endCondition": "false",
+        "event": [
+          {
+            "ignoreSlowDown": false,
+            "time": 1,
+            "type": "WAIT"
+          },
+          {
+            "entity": {
+              "global": true,
+              "name": "superBomb",
+              "_killed": true
+            },
+            "type": "MANUAL_COMBATANT_KILL"
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.superBombDeath",
+            "value": false
+          }
+        ],
+        "triggerType": "ALWAYS",
+        "mapId": 100,
+        "startCondition": "tmp.superBombDeath"
+      }
+    },
     {
       "type": "EventTrigger",
       "x": 660,
