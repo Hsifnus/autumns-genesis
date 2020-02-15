@@ -6337,7 +6337,7 @@
         }
       },
       {
-      	"time":0.8,
+      	"time":0.6,
       	"aggroTime":0.4,
       	"type":"WAIT"
       },
