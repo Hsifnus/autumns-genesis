@@ -25,7 +25,7 @@
   },
   "material": "METAL",
   "aiGroup": "kamikatze",
-  "aiLearnType": "IMMEDIATELY",
+  "aiLearnType": "REGULAR",
   "itemDrops": [
     {
       "item": "163",
@@ -192,17 +192,17 @@
         },
         {
           "action": "FireWheel",
-          "frequency": "SOMETIMES",
+          "frequency": "RARE",
           "ignoreStun": true
         },
         {
           "action": "ShootBomb",
-          "frequency": "NORMAL",
+          "frequency": "SOMETIMES",
           "ignoreStun": true
         },
         {
           "action": "ShootSingle",
-          "frequency": "OFTEN",
+          "frequency": "NORMAL",
           "ignoreStun": true
         },
         {
