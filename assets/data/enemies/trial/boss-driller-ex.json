@@ -6336,6 +6336,11 @@
           "z": 97
         }
       },
+      {
+      	"time":0.8,
+      	"aggroTime":0.4,
+      	"type":"WAIT"
+      },
     	{
         "type": "SELECT_RANDOM",
         "options": [
