@@ -30,7 +30,6 @@
     "y": 880
   },
   "entities": [
-
     {
       "type": "EventTrigger",
       "x": 736,
