@@ -894,6 +894,12 @@
       {
         "value": true,
         "type": "SET_HIT_IGNORE"
+      },
+      {
+        "changeType": "sub",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.superBombsPlaced",
+        "value": 1
       }
     ],
     "destroy": [
@@ -913,7 +919,7 @@
         "flipLeftFace": false,
         "wait": false,
         "waitSkip": 0,
-        "actionDetached": false,
+        "actionDetached": true,
         "fixPos": false,
         "type": "SHOW_EFFECT",
         "effect": {
@@ -929,12 +935,6 @@
       {
         "value": -1,
         "type": "SET_INVINCIBLE"
-      },
-      {
-        "changeType": "sub",
-        "type": "CHANGE_VAR_NUMBER",
-        "varName": "tmp.superBombsPlaced",
-        "value": 1
       },
       {
         "type": "WAIT",
