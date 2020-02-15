@@ -3680,7 +3680,7 @@
         "anim": "hitBack"
       },
       {
-        "time": 6,
+        "time": 4,
         "type": "WAIT"
       },
       {
@@ -3939,7 +3939,7 @@
 				          "y": 200,
 				          "z": 240
 				        },
-				        "count": 1,
+				        "count": 2,
 				        "enemyInfo": {
 				          "group": "",
 				          "party": "",
