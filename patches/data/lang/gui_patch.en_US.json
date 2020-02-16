@@ -44,6 +44,8 @@
 					"BLOB_SPECIAL": "Aqua Vortex"
 				},
 				"descriptions":{
+					"COND_EFFECT_HEAT": "Increases the speed of inflicting the \\c[3]Burn\\c[0] Condition and its effect. \\c[3]Burn\\c[0] causes damage over time, depending on the victim MaxHP.",
+					"COND_GUARD_HEAT": "Increases the resistance against the \\c[3]Burn\\c[0] Condition and reduces its effect. \\c[3]Burn\\c[0] causes damage over time, depending on victim MaxHP.",
 					"WIND_MELEE": "Boosts neutral melee attacks and lets them inflict the \\c[3]Daze\\c[0] Condition and its effect. \\c[3]Daze\\c[0] stuns the victim in place for a short while.",
 					"MOTH_SPECIAL": "Grants access to the \\c[3]Regal Inferno\\c[0] Level 3 Heat Dash Art. \\c[1]Requires learning a Level 2 Heat Dash Art.\\c[0]",
 					"BLOB_SPECIAL": "Grants access to the \\c[3]Vitalizing Vortex\\c[0] Level 3 Wave Guard Art. \\c[1]Requires learning a Level 2 Wave Guard Art.\\c[0]"
