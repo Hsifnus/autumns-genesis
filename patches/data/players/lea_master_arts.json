@@ -2017,8 +2017,8 @@
             "type":"WAIT"
           },
           {
-            "time":0.033,
-            "cancelOnHit":true,
+            "time":0.05,
+            "cancelOnHit":false,
             "withBranches":false,
             "orthoDirFactor":0,
             "ignoreLastHit":false,
