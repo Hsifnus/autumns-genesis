@@ -2017,9 +2017,14 @@
             "type":"WAIT"
           },
           {
-            "time":0.05,
+            "value":"IGNORE",
+            "type":"SET_COLL_TYPE"
+          },
+          {
+            "time":0.033,
             "cancelOnHit":false,
             "withBranches":false,
+            "collideCancel":0,
             "orthoDirFactor":0,
             "ignoreLastHit":false,
             "collideSlip":false,
