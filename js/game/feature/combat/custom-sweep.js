@@ -44,6 +44,9 @@ ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.comb
         stunSteps:[
         	{
         		type:"START_LOCK"
+        	},
+        	{
+        		type:"BLOCK_XY"
         	}
         ]
       },
