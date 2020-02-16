@@ -2053,7 +2053,7 @@
           },
           {
             "sweepType":"PHANTOM_PLAYER",
-            "faceCount":-1,
+            "faceCount":8,
             "flipLeftFace":true,
             "type": "COMBAT_SWEEP"
           },
