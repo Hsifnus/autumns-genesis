@@ -2054,7 +2054,7 @@
           {
             "sweepType":"PHANTOM_PLAYER",
             "faceCount":-1,
-            "flipLeftFace":false,
+            "flipLeftFace":true,
             "type": "COMBAT_SWEEP"
           },
           {
