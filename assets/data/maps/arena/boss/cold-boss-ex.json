@@ -49,6 +49,13 @@
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.superBombsPlaced",
             "value": 0
+          },
+          {
+            "entity": {
+              "global": true,
+              "name": "superBomb"
+            },
+            "type": "MANUAL_COMBATANT_KILL_DEAD"
           }
         ],
         "triggerType": "ALWAYS",
