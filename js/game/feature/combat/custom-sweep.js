@@ -22,6 +22,34 @@ ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.comb
       checkCollision: false
     }
   };
+  sc.COMBAT_SWEEPS.PHANTOM_PLAYER = {
+    sheet: new ig.EffectSheet("enemies.shockboss-ex"),
+    keys: ["phantomSweep", "phantomSweep", "phantomSweep", "phantomSweep", "phantomSweep"],
+    fxDuration: 0.25,
+    force: {
+      radius: 192,
+      zHeight: 24,
+      centralAngle: 0.7,
+      duration: 0.1,
+      attack: {
+        type: "MASSIVE",
+        fly: "HEAVY",
+        damageFactor: 1.4,
+        spFactor: 1,
+        element: "SHOCK",
+       	guardable: "",
+       	hitInvincible: true,
+        skillBonus: "MELEE_DMG",
+        limiter:"",
+        stunSteps:[
+        	{
+        		type:"START_LOCK"
+        	}
+        ]
+      },
+      checkCollision: false
+    }
+  };
   var n = {
       STUN_LOCKED: 1,
       PREVIOUSLY_HIT: 2,

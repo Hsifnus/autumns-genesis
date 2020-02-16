@@ -1,5 +1,371 @@
 {
 	"proxies": {
+    "phantomDummyShooter":{
+      "copyOwnerAnims":true,
+      "breakType":"ACTION",
+      "action":[
+        {
+          "offsetX":0,
+          "offsetY":0,
+          "speed":"FASTEST",
+          "transition":"EASE_IN_OUT",
+          "wait":false,
+          "waitSkip":0,
+          "zoom":1.4,
+          "focusType":"SELF",
+          "type":"FOCUS_CAMERA"
+        },
+        {
+          "value":150,
+          "type":"SET_SPEED"
+        },
+        {
+          "value":3,
+          "type":"SET_ACCEL_SPEED"
+        },
+        {
+          "time":0.3,
+          "type":"MOVE_FORWARD"
+        },
+        {
+          "time":0.4,
+          "type":"WAIT"
+        },
+        {
+          "time":0,
+          "turn":0.25,
+          "random":0,
+          "type":"ROTATE_FACE"
+        },
+        {
+          "zoom":1,
+          "duration":3,
+          "transition":"EASE_IN_OUT",
+          "type":"SET_CAMERA_ZOOM"
+        },
+        {
+          "align":"BOTTOM",
+          "centralAngle":0.35,
+          "angleVary":0,
+          "startDist":128,
+          "startDistCollide":"CLOSER",
+          "random":true,
+          "duration":3.7,
+          "count":37,
+          "clockwise":true,
+          "flipLeftFace":8,
+          "circularArea":false,
+          "uniformDir":1,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"phantomDummy",
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":3.7,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{
+        "x":32,
+        "y":32,
+        "z":40
+      },
+      "config":{
+        "collType":"TRIGGER",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "phantomDummyShooterRev":{
+      "copyOwnerAnims":true,
+      "breakType":"ACTION",
+      "action":[
+        {
+          "value":150,
+          "type":"SET_SPEED"
+        },
+        {
+          "value":3,
+          "type":"SET_ACCEL_SPEED"
+        },
+        {
+          "time":0.3,
+          "type":"MOVE_FORWARD"
+        },
+        {
+          "time":0.4,
+          "type":"WAIT"
+        },
+        {
+          "time":0,
+          "turn":-0.25,
+          "random":0,
+          "type":"ROTATE_FACE"
+        },
+        {
+          "align":"BOTTOM",
+          "centralAngle":0.35,
+          "angleVary":0,
+          "startDist":128,
+          "startDistCollide":"CLOSER",
+          "random":true,
+          "duration":3.7,
+          "count":37,
+          "clockwise":true,
+          "flipLeftFace":8,
+          "circularArea":false,
+          "uniformDir":1,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"phantomDummy",
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":3.7,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{
+        "x":32,
+        "y":32,
+        "z":40
+      },
+      "config":{
+        "collType":"TRIGGER",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "phantomDummy":{
+      "copyOwnerAnims":true,
+      "breakType":"COMBATANT",
+      "action":[
+        {
+          "time":0,
+          "turn":0.5,
+          "random":0,
+          "type":"ROTATE_FACE"
+        },
+        {
+          "duration":-1,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":true,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.shock",
+            "name":"dummyAura"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"dash"
+        },
+        {
+          "time":0.3,
+          "type":"WAIT"
+        },
+        {
+          "value":1200,
+          "type":"SET_SPEED"
+        },
+        {
+          "value":3,
+          "type":"SET_ACCEL_SPEED"
+        },
+        {
+          "duration":0.4,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":true,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.master",
+            "name":"phantomDummyWhirl"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "followUp":"attackMirrEnd",
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"attackMirr"
+        },
+        {
+          "time":0.4,
+          "type":"MOVE_FORWARD"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{
+        "x":32,
+        "y":32,
+        "z":40
+      },
+      "config":{
+        "collType":"TRIGGER",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "staticMarker":{
+      "copyOwnerAnims":false,
+      "breakType":"ACTION",
+      "action":[
+        {
+          "attribName":"numTargets",
+          "changeType":"add",
+          "changeConnected":"PROXY_OWNER",
+          "proxyOwner":false,
+          "type":"SET_ATTRIB_NUMBER",
+          "value":1
+        },
+        {
+          "attribName":"signal",
+          "changeType":"set",
+          "proxyOwner":false,
+          "type":"SET_ATTRIB_NUMBER",
+          "value":0
+        },
+        {
+          "duration":-1,
+          "target":"TARGET",
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.master",
+            "name":"staticMarker"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "name":"loop",
+          "type":"LABEL"
+        },
+        {
+          "condition":"entity.ownerAttrib.signal != entity.attrib.signal",
+          "type":"WAIT_UNTIL",
+          "maxTime":2
+        },
+        {
+          "condition":"entity.ownerAttrib.signal >= entity.attrib.signal",
+          "withElse":false,
+          "type":"IF",
+          "thenStep":[
+            {
+              "attribName":"signal",
+              "changeType":"set",
+              "proxyOwner":false,
+              "type":"SET_ATTRIB_NUMBER",
+              "value":{
+                "varName":"entity.ownerAttrib.signal"
+              }
+            },
+            {
+              "selectType":"TARGET",
+              "hitDir":"AWAY",
+              "align":"BOTTOM",
+              "hitCount":1,
+              "hitDelay":0,
+              "type":"DIRECT_HIT",
+              "attack":{
+                "type":"MEDIUM",
+                "element":"SHOCK",
+                "fly":"LIGHT",
+                "damageFactor":0.8,
+                "reverse":false,
+                "stunSteps":[
+                  {
+                    "type":"BLOCK_XY"
+                  }
+                ],
+                "status":1,
+                "guardable":"",
+                "skillBonus":"MELEE_DMG",
+                "limiter":""
+              }
+            },
+            {
+              "name":"loop",
+              "type":"GOTO_LABEL"
+            }
+          ]
+        },
+        {
+          "time":0.1,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":false,
+      "hp":0,
+      "stickToSource":"TARGET",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{
+        "x":8,
+        "y":8,
+        "z":8
+      },
+      "config":{
+
+      },
+      "type":"GENERIC"
+    },
     "waveAbsorbDot":{
       "copyOwnerAnims":false,
       "breakType":"NEVER",
@@ -110,6 +476,152 @@
       "config":{
         "collType":"IGNORE",
         "zGravityFactor":100
+      }
+    },
+    "phantomAura":{
+      "copyOwnerAnims":false,
+      "animation":"enemies.jungle-shockboss",
+      "breakType":"COMBATANT",
+      "action":[
+        { 
+          "face":"SOUTH",
+          "rotate":false,
+          "rotateSpeed":10,
+          "type":"SET_FACE"
+        },
+        {
+          "value":-800,
+          "type":"SET_Z_VEL"
+        },
+        {
+          "type":"WAIT_UNTIL_ON_GROUND"
+        },
+        { 
+          "duration":1.5,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{ 
+            "sheet":"specials.master",
+            "name":"shockDummyAura"
+          },
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "target2": "SELF",
+          "target2Offset": {
+            "x": 0,
+            "y": 0,
+            "z": 480
+          },
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "shkBossBoldPre"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "groundPre"
+        },
+        {
+          "time": 0.3,
+          "type": "WAIT"
+        },
+        {
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "groundPre2"
+        },
+        {
+          "time": 0.7,
+          "type": "WAIT"
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "target2": "SELF",
+          "target2Offset": {
+            "x": 0,
+            "y": 0,
+            "z": 480
+          },
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "shkBossBoldLong"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "attribName":"ready",
+          "changeType":"set",
+          "changeConnected":"PROXY_OWNER",
+          "type":"SET_ATTRIB_NUMBER",
+          "value":1
+        },
+        {
+          "followUp":"groundPost",
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "ground"
+        },
+        {
+          "time": 1,
+          "type": "WAIT"
+        }
+      ],
+      "noFallDestroy":true,
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "type":"GENERIC",
+      "size":{
+        "x":32,
+        "y":32,
+        "z":32
+      },
+      "config":{
+        "collType":"NONE",
+        "zGravityFactor":0
       }
     },
     "mothAura":{
@@ -1070,7 +1582,48 @@
               "type":"MASSIVE",
               "fly":"LIGHT",
               "element":"HEAT",
-              "damageFactor":4.5,
+              "damageFactor":4,
+              "reverse":false,
+              "spFactor":0,
+              "status":3,
+              "hints":[
+                "NO_PUZZLE"
+              ],
+              "skillBonus":"MELEE_DMG",
+              "stunSteps":[
+                {
+                  "type":"START_LOCK"
+                }
+              ]
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "align":"BOTTOM",
+            "radius":24,
+            "yScale":0,
+            "zHeight":124,
+            "centralAngle":1,
+            "duration":0.4,
+            "expandRadius":108,
+            "alwaysFull":true,
+            "clockwise":false,
+            "flipLeftFace":0,
+            "rectangular":false,
+            "repeat":false,
+            "uniformHitDir":false,
+            "fixPos":false,
+            "checkCollision":true,
+            "type":"CIRCLE_ATTACK",
+            "attack":{
+              "type":"MASSIVE",
+              "fly":"LIGHT",
+              "element":"HEAT",
+              "damageFactor":4,
               "reverse":false,
               "spFactor":0,
               "status":3,
@@ -1113,7 +1666,46 @@
               "type":"MASSIVE",
               "fly":"LIGHT",
               "element":"HEAT",
-              "damageFactor":5.5,
+              "damageFactor":4,
+              "reverse":false,
+              "spFactor":0,
+              "status":3,
+              "hints":[
+                "NO_PUZZLE"
+              ],
+              "skillBonus":"MELEE_DMG",
+              "stunSteps":[
+                {"type":"START_LOCK"}
+              ]
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "align":"BOTTOM",
+            "radius":24,
+            "yScale":0,
+            "zHeight":124,
+            "centralAngle":1,
+            "duration":0.4,
+            "expandRadius":108,
+            "alwaysFull":true,
+            "clockwise":false,
+            "flipLeftFace":0,
+            "rectangular":false,
+            "repeat":false,
+            "uniformHitDir":false,
+            "fixPos":false,
+            "checkCollision":true,
+            "type":"CIRCLE_ATTACK",
+            "attack":{
+              "type":"MASSIVE",
+              "fly":"LIGHT",
+              "element":"HEAT",
+              "damageFactor":4,
               "reverse":false,
               "spFactor":0,
               "status":3,
@@ -1156,7 +1748,46 @@
               "type":"MASSIVE",
               "fly":"LIGHT",
               "element":"HEAT",
-              "damageFactor":6.5,
+              "damageFactor":4,
+              "reverse":false,
+              "spFactor":0,
+              "status":3,
+              "hints":[
+                "NO_PUZZLE"
+              ],
+              "skillBonus":"MELEE_DMG",
+              "stunSteps":[
+                {"type":"START_LOCK"}
+              ]
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "align":"BOTTOM",
+            "radius":24,
+            "yScale":0,
+            "zHeight":124,
+            "centralAngle":1,
+            "duration":0.4,
+            "expandRadius":108,
+            "alwaysFull":true,
+            "clockwise":false,
+            "flipLeftFace":0,
+            "rectangular":false,
+            "repeat":false,
+            "uniformHitDir":false,
+            "fixPos":false,
+            "checkCollision":true,
+            "type":"CIRCLE_ATTACK",
+            "attack":{
+              "type":"MASSIVE",
+              "fly":"LIGHT",
+              "element":"HEAT",
+              "damageFactor":4,
               "reverse":false,
               "spFactor":0,
               "status":3,
@@ -1199,7 +1830,46 @@
               "type":"MASSIVE",
               "fly":"MASSIVE+++",
               "element":"HEAT",
-              "damageFactor":8,
+              "damageFactor":6,
+              "reverse":false,
+              "spFactor":0,
+              "status":3,
+              "hints":[
+                "NO_PUZZLE"
+              ],
+              "skillBonus":"MELEE_DMG",
+              "stunSteps":[
+                {"type":"END_LOCK"}
+              ]
+            },
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "align":"BOTTOM",
+            "radius":24,
+            "yScale":0,
+            "zHeight":124,
+            "centralAngle":1,
+            "duration":0.4,
+            "expandRadius":108,
+            "alwaysFull":true,
+            "clockwise":false,
+            "flipLeftFace":0,
+            "rectangular":false,
+            "repeat":false,
+            "uniformHitDir":false,
+            "fixPos":false,
+            "checkCollision":true,
+            "type":"CIRCLE_ATTACK",
+            "attack":{
+              "type":"MASSIVE",
+              "fly":"MASSIVE+++",
+              "element":"HEAT",
+              "damageFactor":6,
               "reverse":false,
               "spFactor":0,
               "status":3,
@@ -1230,6 +1900,474 @@
           },
           {
             "time":0.8,
+            "type":"WAIT"
+          },
+          {
+            "followUp":"idle",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"preIdle"
+          },
+          {
+            "time":0.05,
+            "type":"WAIT"
+          }
+        ]
+      }
+    },
+    "SHOCK": {
+      "ATTACK_SPECIAL3_MASTER":{
+        "name":{
+          "en_US":"Thousand Curses"
+        },
+        "description":{
+          "en_US":"Lunge forward with a flash slash before unleashing the spiteful electricity of Plasma Phantom onto stricken foes and finishing off with thunder."
+        },
+        "dmgType":"MELEE",
+        "stunType":"LOCK",
+        "status":true,
+        "steps":[
+          {
+            "value":"MASSIVE",
+            "type":"SET_HIT_STABLE"
+          },
+          {
+            "value":20,
+            "type":"SET_RELATIVE_SPEED"
+          },
+          {
+            "value":3,
+            "type":"SET_ACCEL_SPEED"
+          },
+          {
+            "proxy":"staticMarker",
+            "align":"CENTER",
+            "type":"SET_HIT_PROXY"
+          },
+          {
+            "attribName":"ready",
+            "changeType":"set",
+            "type":"SET_ATTRIB_NUMBER",
+            "value":0
+          },
+          {
+            "followUp":"charge",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"startCharge"
+          },
+          {
+            "duration": 0.9,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.master",
+              "name": "phantomSweepPre"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": 0.9,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.master",
+              "name": "phantomSweepPre2"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "attribName":"numTargets",
+            "changeType":"set",
+            "proxyOwner":false,
+            "type":"SET_ATTRIB_NUMBER",
+            "value":0
+          },
+          {
+            "attribName":"signal",
+            "changeType":"set",
+            "proxyOwner":false,
+            "type":"SET_ATTRIB_NUMBER",
+            "value":0
+          },
+          {
+            "time":0.9,
+            "type":"WAIT"
+          },
+          {
+            "time":0.033,
+            "cancelOnHit":true,
+            "withBranches":false,
+            "orthoDirFactor":0,
+            "ignoreLastHit":false,
+            "collideSlip":false,
+            "type":"TACKLE",
+            "attack":{
+              "type":"LIGHT",
+              "element":"SHOCK",
+              "damageFactor":0.1,
+              "fly":"MEDIUM",
+              "reverse":false,
+              "stunSteps":[
+                {
+                  "type":"START_LOCK"
+                }
+              ],
+              "status":0.75,
+              "guardable":"",
+              "skillBonus":"MELEE_DMG",
+              "limiter":"NO_HIT_PROXY"
+            }
+          },
+          {
+            "type":"STOP_XY"
+          },
+          {
+            "followUp":"attackMirrEnd",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"attackMirr"
+          },
+          {
+            "sweepType":"PHANTOM_PLAYER",
+            "faceCount":-1,
+            "flipLeftFace":false,
+            "type": "COMBAT_SWEEP"
+          },
+          {
+            "time":0.4,
+            "type":"WAIT"
+          },
+          {
+            "type":"CLEAR_HIT_PROXY"
+          },
+          {
+            "condition":"entity.attrib.numTargets > 0",
+            "withElse":false,
+            "type":"IF",
+            "thenStep":[
+              {
+                "value":-1,
+                "type":"SET_INVINCIBLE"
+              },
+              {
+                "zoomType":"LIGHT",
+                "fadeIn":0,
+                "duration":4.7,
+                "fadeOut":0.3,
+                "type":"SET_ZOOM_BLUR"
+              },
+              {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "group":"fade",
+                "effect": {
+                  "sheet": "specials.master",
+                  "name": "phantomSweepFade"
+                },
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "factor":0.001,
+                "time":0,
+                "keepEntityStatic":false,
+                "inversAccelerate":true,
+                "type":"ADD_SLOW_MOTION"
+              },
+              {
+                "align":"BOTTOM",
+                "type":"SHOOT_PROXY",
+                "proxy":"phantomDummyShooter",
+                "offset":{
+                  "x":0,
+                  "y":0,
+                  "z":12
+                }
+              },
+              {
+                "align":"BOTTOM",
+                "type":"SHOOT_PROXY",
+                "proxy":"phantomDummyShooterRev",
+                "offset":{
+                  "x":0,
+                  "y":0,
+                  "z":12
+                }
+              },
+              {
+                "time":1,
+                "type":"WAIT"
+              },
+              {
+                "zoom":1,
+                "duration":4.7,
+                "transition":"EASE_IN_OUT",
+                "type":"SET_CAMERA_ZOOM"
+              },
+              {
+                "attribName":"numHits",
+                "changeType":"set",
+                "type":"SET_ATTRIB_NUMBER",
+                "value":37
+              },
+              {
+                "name":"useSignal",
+                "type":"LABEL"
+              },
+              {
+                "time":0.1,
+                "type":"WAIT"
+              },
+              {
+                "attribName":"signal",
+                "changeType":"add",
+                "type":"SET_ATTRIB_NUMBER",
+                "value":1
+              },
+              {
+                "attribName":"numHits",
+                "changeType":"sub",
+                "type":"SET_ATTRIB_NUMBER",
+                "value":1
+              },
+              {
+                "withElse":false,
+                "type":"IF",
+                "condition":"entity.attrib.numHits == 16",
+                "thenStep":[
+                  {
+                    "volume":1,
+                    "global":false,
+                    "loop":false,
+                    "type":"PLAY_SOUND",
+                    "sound":"media/sound/scenes/swoosh-rise-long.ogg"
+                  }
+                ]
+              },
+              {
+                "withElse":false,
+                "type":"IF",
+                "condition":"entity.attrib.numHits == 6",
+                "thenStep":[
+                  {
+                    "align":"BOTTOM",
+                    "type":"SHOOT_PROXY",
+                    "proxy":"phantomAura",
+                    "offset":{
+                      "x":0,
+                      "y":0,
+                      "z":320
+                    }
+                  },
+                  {
+                    "offsetX":0,
+                    "offsetY":0,
+                    "speed":"FASTER",
+                    "transition":"EASE_OUT",
+                    "wait":false,
+                    "waitSkip":0,
+                    "zoom":1.4,
+                    "focusType":"SELF",
+                    "keepPlayerOffset":0.5,
+                    "type":"FOCUS_CAMERA"
+                  },
+                  {
+                    "duration": -1,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group":"fade",
+                    "effect": {
+                      "sheet": "specials.master",
+                      "name": "phantomScreen1"
+                    },
+                    "offset": {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                    }
+                  }
+                ]
+              },
+              {
+                "withElse":false,
+                "type":"IF",
+                "condition":"entity.attrib.numHits > 0",
+                "thenStep":[
+                  {
+                    "name":"useSignal",
+                    "type":"GOTO_LABEL"
+                  }
+                ]
+              },
+              {
+                "condition":"entity.attrib.ready > 0",
+                "type":"WAIT_UNTIL",
+                "maxTime":1.5
+              },
+              {
+                "attribName":"signal",
+                "changeType":"set",
+                "type":"SET_ATTRIB_NUMBER",
+                "value":-1
+              },
+              {
+                "zoomType":"MEDIUM",
+                "fadeIn":0,
+                "duration":1,
+                "fadeOut":0.3,
+                "type":"SET_ZOOM_BLUR"
+              },
+              {
+                "group":"fade",
+                "type":"CLEAR_EFFECTS"
+              },
+              {
+                "duration": 1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "group":"fade",
+                "effect": {
+                  "sheet": "specials.master",
+                  "name": "phantomScreen2"
+                },
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "time": 0.3,
+                "removeEntityStatic": false,
+                "type": "CLEAR_SLOW_MOTION"
+              },
+              {
+                "selectType":"PREVIOUSLY_HIT",
+                "hitDir":"TOWARD",
+                "align":"BOTTOM",
+                "hitCount":10,
+                "hitDelay":0.1,
+                "type":"DIRECT_HIT",
+                "attack":{
+                  "type":"MASSIVE",
+                  "fly":"MASSIVE",
+                  "element":"SHOCK",
+                  "damageFactor":0.75,
+                  "reverse":false,
+                  "stunSteps":[
+                    {
+                      "distance":32,
+                      "speed":400,
+                      "maxTime":0,
+                      "type":"PULL"
+                    }
+                  ],
+                  "status":1,
+                  "guardable":"",
+                  "skillBonus":"MELEE_DMG"
+                }
+              },
+              {
+                "speed":"FASTEST",
+                "transition":"EASE_IN_OUT",
+                "wait":false,
+                "waitSkip":0,
+                "type":"RESET_CAMERA"
+              },
+              {
+                "followUp":"attackMirrEnd",
+                "wait":false,
+                "viaWalkConfig":false,
+                "type":"SHOW_ANIMATION",
+                "anim":"attackLong"
+              },
+              {
+                "value":0,
+                "type":"SET_INVINCIBLE"
+              },
+              {
+                "time":1,
+                "type":"WAIT"
+              },
+              {
+                "selectType":"PREVIOUSLY_HIT",
+                "hitDir":"AWAY",
+                "align":"BOTTOM",
+                "hitCount":1,
+                "hitDelay":0.1,
+                "type":"DIRECT_HIT",
+                "attack":{
+                  "type":"MASSIVE",
+                  "fly":"MASSIVE++",
+                  "element":"SHOCK",
+                  "damageFactor":3.5,
+                  "reverse":false,
+                  "stunSteps":[
+                    {
+                      "type":"END_LOCK"
+                    }
+                  ],
+                  "status":1,
+                  "guardable":"",
+                  "skillBonus":"MELEE_DMG"
+                }
+              }
+            ]
+          },
+          {
+            "attribName":"signal",
+            "changeType":"set",
+            "type":"SET_ATTRIB_NUMBER",
+            "value":-1
+          },
+          {
+            "time":0.45,
             "type":"WAIT"
           },
           {
@@ -1342,12 +2480,6 @@
           {
             "value":5,
             "type":"SET_Z_VEL"
-          },
-          {
-            "zoom":1,
-            "duration":3.8,
-            "transition":"EASE_IN_OUT",
-            "type":"SET_CAMERA_ZOOM"
           },
           {
             "align":"TOP",

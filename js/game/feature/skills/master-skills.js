@@ -18,6 +18,12 @@ ig.module("game.feature.skills.master-skills").requires(
             actionCheckKeys: ["GUARD_SPECIAL3", "GUARD_SPECIAL3_A", sc.PLAYER_ACTION.GUARD_SPECIAL3],
             modifierKey: "GUARD_SPECIAL3_MASTER",
             modifier: "BLOB_SPECIAL"
+        },
+        {
+            element: sc.ELEMENT.SHOCK,
+            actionCheckKeys: ["ATTACK_SPECIAL3", "ATTACK_SPECIAL3_A", sc.PLAYER_ACTION.ATTACK_SPECIAL3],
+            modifierKey: "ATTACK_SPECIAL3_MASTER",
+            modifier: "PHANTOM_SPECIAL"
         }
     ];
     const checkMasterSkill = (a, b, params) => {
@@ -352,6 +358,11 @@ ig.module("game.feature.skills.master-skills").requires(
         }, {
             A: {
                 icon: 110
+            },
+            MASTER: {
+                icon: -1,
+                altSheet: "media/gui/master-arts.png",
+                altIcon: 2
             }
         }],
         DASH: [{
