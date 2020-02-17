@@ -6018,10 +6018,14 @@
 	        	"type":"VAR_CONDITION"
 	        },
 	        {
-        		"min": 2,
+        		"min": 1,
         		"negated": false,
 	        	"type":"HP_BREAK"
-	        }
+	        },
+	        {
+    				"condition":"entity.attrib.shieldHp != 0",
+    				"type":"VAR_CONDITION"
+    			}
         ],
         "thenStep": [
 		      {
