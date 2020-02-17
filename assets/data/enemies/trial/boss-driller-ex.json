@@ -6009,6 +6009,111 @@
         ]
       },
       {
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "conditions": [
+        	{
+        		"condition": "!newgame.harder-enemies",
+        		"negated": false,
+	        	"type":"VAR_CONDITION"
+	        },
+	        {
+        		"min": 2,
+        		"negated": false,
+	        	"type":"HP_BREAK"
+	        }
+        ],
+        "thenStep": [
+		      {
+		        "align": "BOTTOM",
+		        "dir": {
+		          "x": 0,
+		          "y": 1
+		        },
+		        "centralAngle": 0.5,
+		        "startAngle":0.25,
+		        "angleVary": 0.05,
+		        "startDist": 24,
+		        "startDistCollide": "NONE",
+		        "random": false,
+		        "count": 36,
+		        "duration": 3,
+		        "clockwise": true,
+		        "flipLeftFace": 0,
+		        "circularArea": false,
+		        "uniformDir": 0,
+		        "delay": 0,
+		        "repeat": false,
+		        "ballCount": 12,
+		        "type": "SHOOT_PROXY_RANGE",
+		        "proxy": "iceStoneSmall",
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "align": "BOTTOM",
+		        "dir": {
+		          "x": 0,
+		          "y": 1
+		        },
+		        "centralAngle": 0.5,
+		        "startAngle":0.25,
+		        "angleVary": 0.05,
+		        "startDist": 24,
+		        "startDistCollide": "NONE",
+		        "random": false,
+		        "count": 18,
+		        "duration": 3,
+		        "clockwise": true,
+		        "flipLeftFace": 0,
+		        "circularArea": false,
+		        "uniformDir": 0,
+		        "delay": 0,
+		        "repeat": false,
+		        "ballCount": 6,
+		        "type": "SHOOT_PROXY_RANGE",
+		        "proxy": "iceStoneMedium",
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      },
+		      {
+		        "align": "BOTTOM",
+		        "dir": {
+		          "x": 0,
+		          "y": 1
+		        },
+		        "centralAngle": 0.5,
+		        "startAngle":0.25,
+		        "angleVary": 0.05,
+		        "startDist": 24,
+		        "startDistCollide": "NONE",
+		        "random": false,
+		        "count": 9,
+		        "duration": 3,
+		        "clockwise": true,
+		        "flipLeftFace": 0,
+		        "circularArea": false,
+		        "uniformDir": 0,
+		        "delay": 0,
+		        "repeat": false,
+		        "ballCount": 3,
+		        "type": "SHOOT_PROXY_RANGE",
+		        "proxy": "iceStoneBig",
+		        "offset": {
+		          "x": 5,
+		          "y": 129,
+		          "z": 97
+		        }
+		      }
+        ]
+      },
+      {
         "time": 1.5,
         "type": "WAIT"
       },
