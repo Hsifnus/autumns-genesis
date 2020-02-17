@@ -2021,33 +2021,19 @@
             "type":"SET_COLL_TYPE"
           },
           {
+            "value":1000,
+            "type":"SET_Z_GRAVITY_FACTOR"
+          },
+          {
             "time":0.033,
-            "cancelOnHit":false,
-            "withBranches":false,
-            "collideCancel":0,
-            "orthoDirFactor":0,
-            "ignoreLastHit":false,
-            "collideSlip":false,
-            "type":"TACKLE",
-            "attack":{
-              "type":"LIGHT",
-              "element":"SHOCK",
-              "damageFactor":0.1,
-              "fly":"MEDIUM",
-              "reverse":false,
-              "stunSteps":[
-                {
-                  "type":"START_LOCK"
-                }
-              ],
-              "status":0.75,
-              "guardable":"",
-              "skillBonus":"MELEE_DMG",
-              "limiter":"NO_HIT_PROXY"
-            }
+            "type":"MOVE_FORWARD"
           },
           {
             "type":"STOP_XY"
+          },
+          {
+            "value":1,
+            "type":"SET_Z_GRAVITY_FACTOR"
           },
           {
             "followUp":"attackMirrEnd",
