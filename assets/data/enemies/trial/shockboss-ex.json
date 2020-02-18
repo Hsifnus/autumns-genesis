@@ -4362,6 +4362,475 @@
       },
       "type": "GENERIC"
     },
+    "circleBall2": {
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "attribName": "id",
+          "changeType": "add",
+          "changeConnected": "PROXY_OWNER",
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 1
+        },
+        {
+          "attribName": "id",
+          "changeType": "set",
+          "proxyOwner": false,
+          "type": "SET_ATTRIB_NUMBER",
+          "value": {
+            "varName": "entity.ownerAttrib.id"
+          }
+        },
+        {
+          "duration": -1,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "shkBossBall"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "target": "PROXY_OWNER",
+          "distance": 40,
+          "duration": 0.4,
+          "ccw": false,
+          "rotateTime": 1,
+          "distAdjustSpeed": 64,
+          "zDistance": 12,
+          "waitUntil": "entity.ownerAttrib.launch >= entity.attrib.id",
+          "waitTargetAlign": false,
+          "collision": false,
+          "type": "STICKY_CIRCLE_AROUND"
+        },
+        {
+          "withElse": false,
+          "type": "IF",
+          "condition": "!entity.ownerAttrib.ballCancel",
+          "thenStep": [
+            {
+              "duration": 0.3,
+              "align": "CENTER",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossBallPre"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              }
+            },
+            {
+              "target": "PROXY_OWNER",
+              "distance": 40,
+              "duration": 0.3,
+              "ccw": false,
+              "rotateTime": 1,
+              "distAdjustSpeed": 64,
+              "zDistance": 12,
+              "waitTargetAlign": false,
+              "collision": false,
+              "type": "STICKY_CIRCLE_AROUND"
+            },
+            {
+              "value": false,
+              "immediately": true,
+              "type": "FACE_TO_TARGET"
+            },
+            {
+              "value": 1,
+              "type": "SET_AIR_FRICTION"
+            },
+            {
+              "value": 4,
+              "type": "SET_ACCEL_SPEED"
+            },
+            {
+              "value": 0,
+              "type": "SET_Z_GRAVITY_FACTOR"
+            },
+            {
+              "value": 6,
+              "type": "SET_RELATIVE_SPEED"
+            },
+            {
+              "duration": -1,
+              "align": "CENTER",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "group":"trail",
+              "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossBallTrail"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              }
+            },
+            {
+              "value": "PROJECTILE",
+              "type": "SET_COLL_TYPE"
+            },
+            {
+            	"proxy":"StaticAuraAdder",
+            	"align":"CENTER",
+            	"type":"SET_HIT_PROXY"
+            },
+            {
+		        	"condition":"entity.ownerAttrib.level == 0",
+		        	"withElse":true,
+		        	"type":"IF",
+		        	"thenStep":[
+		            {
+		              "time": 0.5,
+		              "cancelOnHit": false,
+		              "collideCancel": 1,
+		              "orthoDirFactor": 0,
+		              "ignoreLastHit": false,
+		              "type": "TACKLE",
+		              "attack": {
+		                "type": "MEDIUM",
+		                "element": "SHOCK",
+		                "damageFactor": 0.4,
+		                "reverse": false,
+		                "status": 4.5,
+		                "guardable": "",
+		                "skillBonus": "",
+		                "limiter": ""
+		              }
+		            }
+		        	],
+		        	"elseStep":[
+		        		{
+				        	"condition":"entity.ownerAttrib.level == 1",
+				        	"withElse":true,
+				        	"type":"IF",
+				        	"thenStep":[
+				            {
+				              "time": 0.5,
+				              "cancelOnHit": false,
+				              "collideCancel": 1,
+				              "orthoDirFactor": 0,
+				              "ignoreLastHit": false,
+				              "type": "TACKLE",
+				              "attack": {
+				                "type": "MEDIUM",
+				                "element": "SHOCK",
+				                "damageFactor": 0.5,
+				                "reverse": false,
+				                "status": 4.5,
+				                "guardable": "",
+				                "skillBonus": "",
+				                "limiter": ""
+				              }
+				            }
+				        	],
+				        	"elseStep":[
+				        		{
+						        	"condition":"entity.ownerAttrib.level == 2",
+						        	"withElse":true,
+						        	"type":"IF",
+						        	"thenStep":[
+						            {
+						              "time": 0.5,
+						              "cancelOnHit": false,
+						              "collideCancel": 1,
+						              "orthoDirFactor": 0,
+						              "ignoreLastHit": false,
+						              "type": "TACKLE",
+						              "attack": {
+						                "type": "MEDIUM",
+						                "element": "SHOCK",
+						                "damageFactor": 0.6,
+						                "reverse": false,
+						                "status": 4.5,
+						                "guardable": "",
+						                "skillBonus": "",
+						                "limiter": ""
+						              }
+						            }
+						        	],
+						        	"elseStep":[
+						        		{
+								        	"condition":"entity.ownerAttrib.level >= 3",
+								        	"withElse":false,
+								        	"type":"IF",
+								        	"thenStep":[
+								            {
+								              "time": 0.5,
+								              "cancelOnHit": false,
+								              "collideCancel": 1,
+								              "orthoDirFactor": 0,
+								              "ignoreLastHit": false,
+								              "type": "TACKLE",
+								              "attack": {
+								                "type": "MEDIUM",
+								                "element": "SHOCK",
+								                "damageFactor": 0.7,
+								                "reverse": false,
+								                "status": 4.5,
+								                "guardable": "",
+								                "skillBonus": "",
+								                "limiter": ""
+								              }
+								            }
+								        	]
+								        }
+						        	]
+						        }
+				        	]
+				        }
+		        	]
+		        },
+		        {
+		        	"group":"trail",
+		        	"type":"CLEAR_EFFECTS"
+		        },
+		        {
+		        	"type":"STOP_XY"
+		        },
+		        {
+		        	"maxTime":3,
+		        	"condition":"entity.ownerAttrib.launchAll",
+		        	"type":"WAIT_UNTIL"
+		        },
+		        {
+              "duration": 0.3,
+              "align": "CENTER",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossBallPre"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              }
+            },
+            {
+            	"time":0.3,
+            	"type":"WAIT"
+            },
+            {
+              "value": false,
+              "immediately": true,
+              "type": "FACE_TO_TARGET"
+            },
+		        {
+		        	"type":"CLEAR_EFFECTS"
+		        },
+            {
+              "duration": -1,
+              "align": "CENTER",
+              "rotateFace": 0,
+              "flipLeftFace": false,
+              "wait": false,
+              "waitSkip": 0,
+              "actionDetached": false,
+              "fixPos": false,
+              "type": "SHOW_EFFECT",
+              "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossBallTrail"
+              },
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              }
+            },
+		        {
+		          "duration": -1,
+		          "align": "CENTER",
+		          "rotateFace": 0,
+		          "flipLeftFace": false,
+		          "wait": false,
+		          "waitSkip": 0,
+		          "actionDetached": false,
+		          "fixPos": false,
+		          "type": "SHOW_EFFECT",
+		          "effect": {
+		            "sheet": "enemies.jungle",
+		            "name": "shkBossBall"
+		          },
+		          "offset": {
+		            "x": 0,
+		            "y": 0,
+		            "z": 0
+		          }
+		        },
+            {
+		        	"condition":"entity.ownerAttrib.level == 0",
+		        	"withElse":true,
+		        	"type":"IF",
+		        	"thenStep":[
+		            {
+		              "time": 0.5,
+		              "cancelOnHit": true,
+		              "collideCancel": 1,
+		              "orthoDirFactor": 0,
+		              "ignoreLastHit": false,
+		              "type": "TACKLE",
+		              "attack": {
+		                "type": "MEDIUM",
+		                "element": "SHOCK",
+		                "damageFactor": 0.4,
+		                "reverse": false,
+		                "status": 4.5,
+		                "guardable": "",
+		                "skillBonus": "",
+		                "limiter": ""
+		              }
+		            }
+		        	],
+		        	"elseStep":[
+		        		{
+				        	"condition":"entity.ownerAttrib.level == 1",
+				        	"withElse":true,
+				        	"type":"IF",
+				        	"thenStep":[
+				            {
+				              "time": 0.5,
+				              "cancelOnHit": true,
+				              "collideCancel": 1,
+				              "orthoDirFactor": 0,
+				              "ignoreLastHit": false,
+				              "type": "TACKLE",
+				              "attack": {
+				                "type": "MEDIUM",
+				                "element": "SHOCK",
+				                "damageFactor": 0.5,
+				                "reverse": false,
+				                "status": 4.5,
+				                "guardable": "",
+				                "skillBonus": "",
+				                "limiter": ""
+				              }
+				            }
+				        	],
+				        	"elseStep":[
+				        		{
+						        	"condition":"entity.ownerAttrib.level == 2",
+						        	"withElse":true,
+						        	"type":"IF",
+						        	"thenStep":[
+						            {
+						              "time": 0.5,
+						              "cancelOnHit": true,
+						              "collideCancel": 1,
+						              "orthoDirFactor": 0,
+						              "ignoreLastHit": false,
+						              "type": "TACKLE",
+						              "attack": {
+						                "type": "MEDIUM",
+						                "element": "SHOCK",
+						                "damageFactor": 0.6,
+						                "reverse": false,
+						                "status": 4.5,
+						                "guardable": "",
+						                "skillBonus": "",
+						                "limiter": ""
+						              }
+						            }
+						        	],
+						        	"elseStep":[
+						        		{
+								        	"condition":"entity.ownerAttrib.level >= 3",
+								        	"withElse":false,
+								        	"type":"IF",
+								        	"thenStep":[
+								            {
+								              "time": 0.5,
+								              "cancelOnHit": true,
+								              "collideCancel": 1,
+								              "orthoDirFactor": 0,
+								              "ignoreLastHit": false,
+								              "type": "TACKLE",
+								              "attack": {
+								                "type": "MEDIUM",
+								                "element": "SHOCK",
+								                "damageFactor": 0.7,
+								                "reverse": false,
+								                "status": 4.5,
+								                "guardable": "",
+								                "skillBonus": "",
+								                "limiter": ""
+								              }
+								            }
+								        	]
+								        }
+						        	]
+						        }
+				        	]
+				        }
+		        	]
+		        }
+          ]
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "lightningBall",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "effects": "",
+      "speed": 300,
+      "maxBounce": 0,
+      "timer": 0,
+      "trail": false,
+      "multiHit": false,
+      "noLightGlow": false,
+      "attack": {
+        "type": "NONE",
+        "element": "NEUTRAL",
+        "guardable": ""
+      },
+      "timeBoni": null,
+      "behaviors": null,
+      "config": {
+        "collType": "TRIGGER"
+      },
+      "type": "GENERIC"
+    },
     "lightning": {
       "copyOwnerAnims": false,
       "breakType": "ACTION",
@@ -4861,11 +5330,23 @@
         "value": 0
       },
       {
+        "attribName": "launchAll",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
         "conditions": [
           {
             "max": 0,
             "negated": false,
             "type": "HP_BREAK"
+          },
+          {
+          	"condition":"!newgame.harder-enemies",
+          	"negated":false,
+          	"type":"VAR_CONDITION"
           }
         ],
         "withElse": false,
@@ -4903,9 +5384,59 @@
       {
         "conditions": [
           {
+            "max": 0,
+            "negated": false,
+            "type": "HP_BREAK"
+          },
+          {
+          	"condition":"newgame.harder-enemies",
+          	"negated":false,
+          	"type":"VAR_CONDITION"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+          {
+            "align": "BOTTOM",
+            "dir": {
+              "x": 0,
+              "y": 1
+            },
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDist": 8,
+            "startDistCollide": false,
+            "random": false,
+            "count": 6,
+            "duration": 0.833,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "circleBall2",
+            "offset": {
+              "x": -12,
+              "y": 0,
+              "z": 64
+            }
+          }
+        ]
+      },
+      {
+        "conditions": [
+          {
             "min": 1,
             "negated": false,
             "type": "HP_BREAK"
+          },
+          {
+          	"condition":"!newgame.harder-enemies",
+          	"negated":false,
+          	"type":"VAR_CONDITION"
           }
         ],
         "withElse": false,
@@ -4932,6 +5463,51 @@
             "repeat": false,
             "type": "SHOOT_PROXY_RANGE",
             "proxy": "circleBall",
+            "offset": {
+              "x": -12,
+              "y": 0,
+              "z": 64
+            }
+          }
+        ]
+      },
+      {
+        "conditions": [
+          {
+            "min": 1,
+            "negated": false,
+            "type": "HP_BREAK"
+          },
+          {
+          	"condition":"newgame.harder-enemies",
+          	"negated":false,
+          	"type":"VAR_CONDITION"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+          {
+            "align": "BOTTOM",
+            "dir": {
+              "x": 0,
+              "y": 1
+            },
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDist": 8,
+            "startDistCollide": false,
+            "random": false,
+            "count": 10,
+            "duration": 0.9,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "circleBall2",
             "offset": {
               "x": -12,
               "y": 0,
@@ -5102,6 +5678,40 @@
         "precise": false,
         "stayBehind": false,
         "type": "NAVIGATE_TO_TARGET"
+      },
+      {
+        "conditions": "newgame.harder-enemies",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+        	{
+		        "maxTime": 0.3,
+		        "forceTime": true,
+		        "distance": 100,
+		        "planOnly": false,
+		        "targetType": "ENEMY",
+		        "precise": false,
+		        "stayBehind": false,
+		        "type": "NAVIGATE_TO_TARGET"
+		      },
+		      {
+		        "attribName": "launchAll",
+		        "changeType": "set",
+		        "proxyOwner": false,
+		        "type": "SET_ATTRIB_NUMBER",
+		        "value": 1
+		      },
+		      {
+		        "maxTime": 0.3,
+		        "forceTime": true,
+		        "distance": 100,
+		        "planOnly": false,
+		        "targetType": "ENEMY",
+		        "precise": false,
+		        "stayBehind": false,
+		        "type": "NAVIGATE_TO_TARGET"
+		      }
+        ]
       }
     ],
     "MultiDash": [
