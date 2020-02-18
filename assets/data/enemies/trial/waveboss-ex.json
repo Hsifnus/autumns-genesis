@@ -2139,6 +2139,7 @@
     "aquaticSphere": {
       "copyOwnerAnims": false,
       "breakType": "COMBATANT",
+      "shadow":48,
       "animation": {
         "SUB": [
 		      {
@@ -2151,6 +2152,10 @@
 		          "width":64,
 		          "height":64
 		        },
+		        "gfxOffset": {
+            	"x":0,
+            	"y":-24
+            },
 		        "centerPivot":false,
 		        "time":0.15,
 		        "repeat":true,
@@ -2187,7 +2192,7 @@
 	        "condition": "newgame.harder-enemies",
 	        "thenStep":[
 		        {
-		          "value": 30,
+		          "value": 25,
 		          "type": "SET_SPEED"
 		        }
 	        ],
@@ -2198,6 +2203,26 @@
 		        }
 	        ]
 	      },
+        {
+          "duration": -1,
+          "align": "BASE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.wavboss-ex",
+            "name": "aquaticSphereBase"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
         {
           "duration": -1,
           "align": "CENTER",

@@ -1857,6 +1857,51 @@
         "type":"LOOP_END"
       }
     ],
+    "aquaticSphereBase":[
+      {
+        "type":"LOOP_START"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "pAlpha": {
+          "init": 0.2,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0.2,
+            "y": 0.2
+          },
+          "start": {
+            "value": {
+              "x": 1,
+              "y": 1
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 0,
+        "particleDuration": 0.4,
+        "anim": "SHOCKWAVE_B_WAVE_GROUND",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "time":0.5,
+        "type":"WAIT"
+      },
+      {
+        "type":"LOOP_END"
+      }
+    ],
     "aquaticSphere":[
       {
         "volume": 2,
