@@ -1,0 +1,175 @@
+[{
+	"type": "ENTER",
+	"index": "entities"
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content": {
+    "type": "NPC",
+    "x": 660,
+    "y": 784,
+    "level": 0,
+    "settings": {
+      "name": "Coquelicot",
+      "characterName": "main.coquelicot",
+      "mapId": 216,
+      "npcStates": [
+        {
+          "reactType": "FIXED_POS",
+          "face": "EAST",
+          "action": [],
+          "hidden": false,
+          "condition": "    ",
+          "config": "normal",
+          "event": {
+            "trade": {
+              "event": [
+                {
+                  "entity": {
+                    "self": true
+                  },
+                  "action": [
+                    {
+                      "entity": {
+                        "player": true
+                      },
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE_TO_ENTITY"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": false,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "side": "LEFT",
+                  "order": 0,
+                  "clearSide": false,
+                  "type": "ADD_MSG_PERSON",
+                  "person": {
+                    "person": "main.coquelicot",
+                    "expression": "DEFAULT"
+                  }
+                },
+                {
+                  "side": "RIGHT",
+                  "order": 0,
+                  "clearSide": false,
+                  "type": "ADD_MSG_PERSON",
+                  "person": {
+                    "person": "main.lea",
+                    "expression": "DEFAULT"
+                  }
+                },
+                {
+                  "message": {
+                    "en_US": "I'm here until Autumn's Terminus gets developed enough to include me in a quest!",
+                    "langUid": 1
+                  },
+                  "autoContinue": false,
+                  "type": "SHOW_MSG",
+                  "person": {
+                    "person": "main.coquelicot",
+                    "expression": "DEFAULT"
+                  }
+                },
+                {
+                  "message": {
+                    "en_US": "Redeem your trophies from the Master Trials in exchange for some powerful weapons here!",
+                    "langUid": 1
+                  },
+                  "autoContinue": false,
+                  "type": "SHOW_MSG",
+                  "person": {
+                    "person": "main.coquelicot",
+                    "expression": "DEFAULT"
+                  }
+                },
+                {
+                  "withBranches": true,
+                  "type": "START_NPC_TRADE_MENU",
+                  "traded": [
+                    {
+                      "ignoreSlowDown": false,
+                      "type": "WAIT",
+                      "time": 0.2
+                    },
+                    {
+                      "message": {
+                        "en_US": "Have fun with your new goodies!",
+                        "langUid": 2
+                      },
+                      "autoContinue": false,
+                      "type": "SHOW_MSG",
+                      "person": {
+                        "person": "main.coquelicot",
+                        "expression": "DEFAULT"
+                      }
+                    },
+                    {
+                      "message": {
+                        "en_US": "[nods]",
+                        "langUid": 3,
+                        "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
+                        "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
+                        "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
+                        "de_DE": "[nickt]"
+                      },
+                      "autoContinue": false,
+                      "type": "SHOW_MSG",
+                      "person": {
+                        "person": "main.lea",
+                        "expression": "NOD"
+                      }
+                    }
+                  ],
+                  "canceled": [
+                    {
+                      "ignoreSlowDown": false,
+                      "type": "WAIT",
+                      "time": 0.2
+                    },
+                    {
+                      "message": {
+                        "en_US": "Come back when you've decided!",
+                        "langUid": 4
+                      },
+                      "autoContinue": false,
+                      "type": "SHOW_MSG",
+                      "person": {
+                        "person": "main.coquelicot",
+                        "expression": "DEFAULT"
+                      }
+                    },
+                    {
+                      "message": {
+                        "en_US": "...",
+                        "de_DE": "...",
+                        "fr_FR": "fr_FR",
+                        "langUid": 5,
+                        "zh_CN": "...",
+                        "ko_KR": "...",
+                        "ja_JP": "…"
+                      },
+                      "autoContinue": false,
+                      "type": "SHOW_MSG",
+                      "person": {
+                        "person": "main.lea",
+                        "expression": "THINKING"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "trader": "arenaCoquelicot"
+            }
+          }
+        }
+      ]
+    }
+  }
+},{
+	"type": "EXIT"
+}]

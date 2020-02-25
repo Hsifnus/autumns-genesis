@@ -1,0 +1,88 @@
+{
+  "arenaCoquelicot": {
+    "name": {
+      "en_US": "Master Trials Shop",
+      "langUid": 1
+    },
+    "order": 1000,
+    "options": [
+      {
+        "get": [
+          {
+            "id": "559",
+            "amount": 1
+          }
+        ],
+        "require": [
+          {
+            "id": "461",
+            "amount": 10
+          },
+          {
+            "id": "552",
+            "amount": 1
+          }
+        ],
+        "scale": 1
+      },
+      {
+        "get": [
+          {
+            "id": "562",
+            "amount": 1
+          }
+        ],
+        "require": [
+          {
+            "id": "463",
+            "amount": 10
+          },
+          {
+            "id": "553",
+            "amount": 1
+          }
+        ],
+        "scale": 1
+      },
+      {
+        "get": [
+          {
+            "id": "560",
+            "amount": 1
+          }
+        ],
+        "require": [
+          {
+            "id": "464",
+            "amount": 10
+          },
+          {
+            "id": "554",
+            "amount": 1
+          }
+        ],
+        "scale": 1
+      },
+      {
+        "get": [
+          {
+            "id": "563",
+            "amount": 1
+          }
+        ],
+        "require": [
+        	{
+            "id": "459",
+            "amount": 10
+          },
+          {
+            "id": "561",
+            "amount": 1
+          }
+        ],
+        "scale": 1
+      }
+    ],
+    "area": "rhombus-sqr"
+  }
+}

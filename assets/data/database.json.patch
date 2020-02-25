@@ -22,4 +22,12 @@
 	"src": "mod:patches/data/database/commonEvents.json"
 },{
 	"type":"EXIT"
+},{
+	"type": "ENTER",
+	"index": "traders"
+},{
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/traders.json"
+},{
+	"type":"EXIT"
 }]

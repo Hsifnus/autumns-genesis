@@ -204,4 +204,141 @@ ig.module("game.feature.player.custom-modifiers").requires(
             }
         }
     });
+    sc.TradeToggleStats.inject({
+        _createStatusDisplay: function(b, a, d, c,
+            e, f, g, h, i, j, k, l) {
+            var x, y, z;
+            if (d.length > 9 && d.slice(0, 9) == "modifier." && e == -1) {
+                var modifier = sc.MODIFIERS[d.slice(9)];
+                x = modifier.altSheet,
+                y = modifier.offX,
+                z = modifier.offY;
+            }
+            f = new sc.SimpleStatusDisplay(ig.lang.get("sc.gui.menu.equip." + d), c, e, f, g, null, 0, j, x, y, z);
+            f.setPos(b, a);
+            f.setCurrentValue(h, true);
+            if (d == "res") {
+                c == 1 && (d = "heat");
+                c == 2 && (d = "cold");
+                c == 3 && (d = "shock");
+                c == 4 && (d = "wave")
+            }
+            k || (k = d);
+            f.annotation = {
+                type: "INFO",
+                content: {
+                    title: "sc.gui.menu.equip." + d,
+                    description: "sc.gui.menu.equip.descriptions." + k
+                },
+                offset: {
+                    x: -1,
+                    y: -1
+                },
+                index: {
+                    x: 0,
+                    y: l + 8 || e
+                }
+            };
+            this.addChildGui(f);
+            return f
+        },
+        _setParameters: function(b) {
+            this._resetParameters();
+            var a = null,
+                d = sc.inventory.getItem(b),
+                b = null;
+            this.level = 0;
+            this.compareItem.setPos(this.titleOffset - 2 + this.compareHelpText.hook.size.x, 13);
+            var c = ig.lang.get("sc.gui.trade.compare") + " ";
+            if (sc.trade.compareMode ==
+                sc.TRADE_COMPARE_MODE.BASE_STATS) {
+                a = -1;
+                c = c + ig.lang.get("sc.gui.trade.compareBASE");
+                this.compareItem.setText("-----------------");
+                this.level = 0
+            } else {
+                switch (d.equipType) {
+                    case sc.ITEMS_EQUIP_TYPES.HEAD:
+                        a = sc.model.player.equip.head;
+                        c = c + ig.lang.get("sc.gui.trade.compareHEAD");
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.ARM:
+                        if (sc.trade.compareMode == sc.TRADE_COMPARE_MODE.OFF_HAND) {
+                            a = sc.model.player.equip.leftArm;
+                            c = c + ig.lang.get("sc.gui.trade.compareARMLeft")
+                        } else {
+                            a = sc.model.player.equip.rightArm;
+                            c = c + ig.lang.get("sc.gui.trade.compareARMRight")
+                        }
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.TORSO:
+                        a = sc.model.player.equip.torso;
+                        c = c + ig.lang.get("sc.gui.trade.compareTORSO");
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.FEET:
+                        a = sc.model.player.equip.feet;
+                        c = c + ig.lang.get("sc.gui.trade.compareFEET")
+                }
+                if (a >= 0) {
+                    b = sc.inventory.getItem(a);
+                    if (b.type == sc.ITEMS_TYPES.EQUIP) this.level = b.level || 1;
+                    var e;
+                    e = "" + ("\\i[" + (b.icon + sc.inventory.getRaritySuffix(b.rarity || 0) || "item-default") + "]");
+                    e = e + ig.LangLabel.getText(b.name);
+                    this.compareItem.setText(e)
+                } else {
+                    this.compareItem.setText("\\i[" + this._getBodyPartIcon(d.equipType) +
+                        "]-----------------");
+                    this.level = 0
+                }
+            }
+            this.compareText.setText(c);
+            this.level > 0 ? this.compareItem.setDrawCallback(function(a, b) {
+                sc.MenuHelper.drawLevel(this.level, a, b, this.ninepatch.gfx)
+            }.bind(this)) : this.compareItem.setDrawCallback(null);
+            c = d.params;
+            e = this._calculateDifference(a, "hp", c.hp || 0);
+            this.baseParams.hp.setChangeValue(e);
+            e = this._calculateDifference(a, "attack", c.attack || 0);
+            this.baseParams.atk.setChangeValue(e);
+            e = this._calculateDifference(a, "defense", c.defense || 0);
+            this.baseParams.def.setChangeValue(e);
+            e = this._calculateDifference(a, "focus", c.focus || 0);
+            this.baseParams.foc.setChangeValue(e);
+            e = this._calculateDifference(a, "elemFactor", c.elemFactor ? c.elemFactor[0] : 1, 0);
+            this.baseParams.fire.setChangeValue(e);
+            e = this._calculateDifference(a, "elemFactor", c.elemFactor ? c.elemFactor[1] : 1, 1);
+            this.baseParams.cold.setChangeValue(e);
+            e = this._calculateDifference(a, "elemFactor", c.elemFactor ? c.elemFactor[2] : 1, 2);
+            this.baseParams.shock.setChangeValue(e);
+            e = this._calculateDifference(a, "elemFactor", c.elemFactor ? c.elemFactor[3] : 1, 3);
+            this.baseParams.wave.setChangeValue(e);
+            if (d = d.properties) {
+                var b = b ? b.properties || {} : {},
+                    c = 166,
+                    g = 0,
+                    f;
+                for (f in this.modifierPool)
+                    if (d[f] != void 0 || b[f] != void 0) g++;
+                var h = g <= 6 ? 16 : 12;
+                for (f in this.modifierPool)
+                    if (d[f] != void 0) {
+                        this.modifierPool[f].doStateTransition("DEFAULT", true);
+                        if (b[f]) {
+                            this.modifierPool[f].setChangeValue(this._calculateDifferenceModifier(a, f, d[f]));
+                            this.modifierPool[f].setCurrentValue(b[f], true)
+                        } else this.modifierPool[f].setChangeValue(Math.round((d[f] || 0) * 100 - 100) / 100);
+                        this.modifierPool[f].setPos(this.lineOffset, c);
+                        c = c + h
+                    } else if (b[f] != void 0) {
+                    this.modifierPool[f].doStateTransition("DEFAULT",
+                        true);
+                    this.modifierPool[f].setChangeValue(this._calculateDifferenceModifier(a, f, 1));
+                    this.modifierPool[f].setCurrentValue(b[f], true);
+                    this.modifierPool[f].setPos(this.lineOffset, c);
+                    c = c + h
+                } else this.modifierPool[f].doStateTransition("HIDDEN", true)
+            }
+        }
+    });
 });
