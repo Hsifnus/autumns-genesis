@@ -3892,8 +3892,8 @@
             }
           },
           {
-            "time": 1.6,
-            "type": "WAIT"
+            "time":1.6,
+            "type":"PLAYER_ADJUST_FACE"
           },
           {
             "zoomType":"MEDIUM",
