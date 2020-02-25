@@ -453,6 +453,7 @@
       ]
     },
     "HP_BREAK_FLY":{ 
+      "damageFactor":0.1,
       "walkAnims":"weakFly",
       "flyHeight":48,
       "enabledReactions":[ 
@@ -7156,6 +7157,7 @@
     },
     "HP_BREAK":{
       "hitType":"HP_BREAK_HIT",
+      "preAction":"BreakPre",
       "blockFurtherHits":false,
       "attackType":"BREAK",
       "flyLevel":"MASSIVE+",
