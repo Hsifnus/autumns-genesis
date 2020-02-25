@@ -1397,7 +1397,7 @@
         },
         {
           "duration": 2,
-          "align": "BOTTOM",
+          "align": "TOP",
           "rotateFace": 0,
           "flipLeftFace": false,
           "wait": false,
@@ -1412,7 +1412,7 @@
           "offset": {
             "x": 0,
             "y": 0,
-            "z": 0
+            "z": -8
           }
         },
         {
@@ -1524,7 +1524,7 @@
         },
         {
           "duration": 3,
-          "align": "BOTTOM",
+          "align": "TOP",
           "rotateFace": 0,
           "flipLeftFace": false,
           "wait": false,
@@ -1539,7 +1539,7 @@
           "offset": {
             "x": 0,
             "y": 0,
-            "z": 0
+            "z": -8
           }
         },
         {
