@@ -1,5 +1,1676 @@
 {
 	"proxies": {
+    "iceStoneBig": {
+      "size": {
+        "x": 24,
+        "y": 24,
+        "z": 24
+      },
+      "shadow": 24,
+      "effects": "enemies.mine-bots",
+      "effectKeys": {
+        "kill": "iceStoneKill"
+      },
+      "maxBounce": 0,
+      "groundBounce": 2,
+      "speed": {
+        "base": 30,
+        "vary": 40
+      },
+      "zBounciness": 0,
+      "multiHit": true,
+      "light": "L",
+      "noLightGlow": true,
+      "attack": {
+        "type": "HEAVY",
+        "element": "COLD",
+        "damageFactor": 1.5,
+        "reverse": false,
+        "status": 3.5,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG",
+        "limiter": ""
+      },
+      "zVel": {
+        "base": 500,
+        "vary": 60
+      },
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "sheet": {
+              "src": "media/entity/enemy/mine-diggingbot.png",
+              "xCount": 1,
+              "offX": 1008,
+              "offY": 256,
+              "width": 32,
+              "height": 32
+            },
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "type": "STONE"
+    },
+    "iceStoneMedium": {
+      "size": {
+        "x": 24,
+        "y": 24,
+        "z": 24
+      },
+      "shadow": 24,
+      "effects": "enemies.mine-bots",
+      "effectKeys": {
+        "kill": "iceStoneKill"
+      },
+      "maxBounce": 0,
+      "groundBounce": 2,
+      "speed": {
+        "base": 30,
+        "vary": 40
+      },
+      "zBounciness": 0,
+      "multiHit": true,
+      "light": "L",
+      "noLightGlow": true,
+      "attack": {
+        "type": "HEAVY",
+        "element": "COLD",
+        "damageFactor": 1.25,
+        "reverse": false,
+        "status": 3.5,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG",
+        "limiter": ""
+      },
+      "zVel": {
+        "base": 500,
+        "vary": 60
+      },
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "sheet": {
+              "src": "media/entity/enemy/mine-diggingbot.png",
+              "xCount": 1,
+              "offX": 1008,
+              "offY": 288,
+              "width": 32,
+              "height": 32
+            },
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "type": "STONE"
+    },
+    "iceStoneSmall": {
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "shadow": 16,
+      "effects": "enemies.mine-bots",
+      "effectKeys": {
+        "kill": "iceStoneKill"
+      },
+      "maxBounce": 0,
+      "groundBounce": 2,
+      "speed": {
+        "base": 30,
+        "vary": 40
+      },
+      "zBounciness": 0,
+      "multiHit": true,
+      "light": "L",
+      "noLightGlow": true,
+      "attack": {
+        "type": "HEAVY",
+        "element": "COLD",
+        "damageFactor": 1,
+        "reverse": false,
+        "status": 3.5,
+        "guardable": "",
+        "skillBonus": "RANGED_DMG",
+        "limiter": ""
+      },
+      "zVel": {
+        "base": 500,
+        "vary": 60
+      },
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "sheet": {
+              "src": "media/entity/enemy/mine-diggingbot.png",
+              "xCount": 1,
+              "offX": 1024,
+              "offY": 320,
+              "width": 16,
+              "height": 16
+            },
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "type": "STONE"
+    },
+    "icicleHugeAlt":{
+      "animation":{
+        "shapeType":"Z_EXPAND",
+        "wallY":0,
+        "frames":[
+          0
+        ],
+        "SUB":[
+          {
+            "name":"default",
+            "pivot":{
+              "x":36,
+              "y":136
+            },
+            "offset":{
+              "x":0,
+              "y":8,
+              "z":0
+            },
+            "sheet":{
+              "src":"media/entity/effects/icicles.png",
+              "offX":256,
+              "offY":8,
+              "width":72,
+              "height":160
+            }
+          }
+        ]
+      },
+      "copyOwnerAnims":false,
+      "breakType":"COMBATANT",
+      "action":[
+        {
+          "offsetX":0,
+          "offsetY":0,
+          "speed":"NORMAL",
+          "transition":"EASE_IN_OUT",
+          "wait":false,
+          "waitSkip":0,
+          "zoom":1.3,
+          "focusType":"SELF",
+          "type":"FOCUS_CAMERA"
+        },
+        {
+          "duration":-1,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "group":"aura",
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"icicleAura"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration":0.8,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "group":"pre",
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"megaIcicleCircleEnd"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":12
+          }
+        },
+        {
+          "duration":-1,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"blueScreenLight"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration":0,
+          "align":"FACE",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"starExplosion"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.075,
+          "type":"WAIT"
+        },
+        {
+          "type":"STOP_REPEATING_FORCE"
+        },
+        {
+          "time":0.925,
+          "type":"WAIT"
+        },
+        {
+          "align":"BOTTOM",
+          "radius":48,
+          "yScale":0,
+          "zHeight":16,
+          "centralAngle":1,
+          "duration":0.05,
+          "expandRadius":0,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":true,
+          "uniformHitDir":true,
+          "fixPos":false,
+          "checkCollision":true,
+          "type":"CIRCLE_ATTACK",
+          "attack":{
+            "type":"MASSIVE",
+            "element":"COLD",
+            "damageFactor":5,
+            "fly":"MASSIVE+",
+            "reverse":false,
+            "stunSteps":[
+              {
+                "type":"BLOCK_XY"
+              },
+              {
+                "type":"START_LOCK"
+              },
+              {
+                "accel":1,
+                "offZ":8,
+                "maxTime":0,
+                "type":"Z_PULL"
+              }
+            ],
+            "status":0.9,
+            "hints":[
+              "NO_PUZZLE"
+            ],
+            "guardable":"",
+            "skillBonus":"",
+            "limiter":""
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0,
+          "removeEntityStatic":false,
+          "type":"CLEAR_SLOW_MOTION"
+        },
+        {
+          "zoomType":"LIGHT",
+          "fadeIn":0,
+          "duration":0.2,
+          "fadeOut":0.2,
+          "type":"SET_ZOOM_BLUR"
+        },
+        {
+          "offsetX":0,
+          "offsetY":-80,
+          "speed":"FASTEST",
+          "transition":"EASE_IN_OUT",
+          "wait":false,
+          "waitSkip":0,
+          "zoom":1,
+          "focusType":"SELF",
+          "type":"FOCUS_CAMERA"
+        },
+        {
+          "group":"aura",
+          "type":"CLEAR_EFFECTS"
+        },
+        {
+          "duration":-1,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "group":"aura",
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"icicleAura2"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":80
+          }
+        },
+        {
+          "align":"BOTTOM",
+          "radius":48,
+          "yScale":0,
+          "zHeight":96,
+          "centralAngle":1,
+          "duration":0.05,
+          "expandRadius":0,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":true,
+          "uniformHitDir":true,
+          "fixPos":false,
+          "checkCollision":true,
+          "type":"CIRCLE_ATTACK",
+          "attack":{
+            "type":"MASSIVE",
+            "element":"COLD",
+            "damageFactor":5,
+            "fly":"MASSIVE+",
+            "reverse":false,
+            "stunSteps":[
+              {
+                "type":"START_LOCK"
+              },
+              {
+                "distance":8,
+                "speed":200,
+                "maxTime":0,
+                "type":"PULL"
+              },
+              {
+                "accel":1,
+                "offZ":80,
+                "maxTime":0,
+                "type":"Z_PULL"
+              }
+            ],
+            "status":0.9,
+            "hints":[
+              "NO_PUZZLE"
+            ],
+            "guardable":"",
+            "skillBonus":"",
+            "limiter":""
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.cold",
+            "name":"icicleBoom"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":80
+          }
+        },
+        {
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.icicles",
+            "name":"hugeAppear"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "value":0,
+          "type":"SET_SPEED"
+        },
+        {
+          "time":0.175,
+          "type":"WAIT"
+        },
+        {
+          "type":"STOP_REPEATING_FORCE"
+        },
+        {
+          "time":0.825,
+          "type":"WAIT"
+        },
+        {
+          "zoomType":"LIGHT",
+          "fadeIn":0,
+          "duration":0.2,
+          "fadeOut":0.2,
+          "type":"SET_ZOOM_BLUR"
+        },
+        {
+          "speed":"NORMAL",
+          "transition":"EASE_IN_OUT",
+          "wait":false,
+          "waitSkip":0,
+          "type":"RESET_CAMERA"
+        },
+        {
+          "selectType":"PREVIOUSLY_HIT",
+          "hitDir":"TOWARD",
+          "align":"BOTTOM",
+          "hitCount":1,
+          "hitDelay":0,
+          "type":"DIRECT_HIT",
+          "attack":{
+            "type":"MASSIVE",
+            "element":"COLD",
+            "damageFactor":4,
+            "fly":"MASSIVE",
+            "reverse":false,
+            "stunSteps":[
+              {
+                "type":"BLOCK_XY"
+              },
+              {
+                "type":"END_LOCK"
+              }
+            ],
+            "status":0.9,
+            "hints":[
+              "NO_PUZZLE"
+            ],
+            "guardable":"",
+            "skillBonus":"",
+            "limiter":""
+          }
+        },
+        {
+          "duration":0.4,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"specials.icicles",
+            "name":"icicleExplodeHuge"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.4,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "timeDisconnect":false,
+      "size":{
+        "x":16,
+        "y":16,
+        "z":112
+      },
+      "config":{
+        "collType":"IGNORE",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "icicleHugeAlt2":{
+      "animation":{
+        "shapeType":"Z_EXPAND",
+        "wallY":0,
+        "frames":[
+          0
+        ],
+        "SUB":[
+          {
+            "name":"default",
+            "pivot":{
+              "x":36,
+              "y":136
+            },
+            "offset":{
+              "x":0,
+              "y":8,
+              "z":0
+            },
+            "sheet":{
+              "src":"media/entity/effects/icicles.png",
+              "offX":256,
+              "offY":8,
+              "width":72,
+              "height":160
+            }
+          }
+        ]
+      },
+      "copyOwnerAnims":false,
+      "breakType":"COMBATANT",
+      "action":[
+        {
+          "align":"BOTTOM",
+          "radius":48,
+          "yScale":0,
+          "zHeight":96,
+          "centralAngle":1,
+          "duration":0.05,
+          "expandRadius":0,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":false,
+          "uniformHitDir":true,
+          "fixPos":false,
+          "checkCollision":true,
+          "type":"CIRCLE_ATTACK",
+          "attack":{
+            "type":"MASSIVE",
+            "element":"COLD",
+            "damageFactor":7,
+            "fly":"MASSIVE+",
+            "reverse":true,
+            "stunSteps":[
+              {
+                "type":"START_LOCK"
+              },
+              {
+                "distance":8,
+                "speed":200,
+                "maxTime":0,
+                "type":"PULL"
+              },
+              {
+                "accel":1,
+                "offZ":80,
+                "maxTime":0,
+                "type":"Z_PULL"
+              }
+            ],
+            "status":0.9,
+            "hints":[
+              "NO_PUZZLE"
+            ],
+            "guardable":"NEVER",
+            "skillBonus":"",
+            "limiter":""
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"enemies.driller-boss-ex",
+            "name":"icicleBoom"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":80
+          }
+        },
+        {
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"enemies.driller-boss-ex",
+            "name":"hugeAppear"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "value":0,
+          "type":"SET_SPEED"
+        },
+        {
+          "time":0.175,
+          "type":"WAIT"
+        },
+        {
+          "type":"STOP_REPEATING_FORCE"
+        },
+        {
+          "time":0.425,
+          "type":"WAIT"
+        },
+        {
+          "zoomType":"LIGHT",
+          "fadeIn":0,
+          "duration":0.2,
+          "fadeOut":0.2,
+          "type":"SET_ZOOM_BLUR"
+        },
+        {
+          "speed":"NORMAL",
+          "transition":"EASE_IN_OUT",
+          "wait":false,
+          "waitSkip":0,
+          "type":"RESET_CAMERA"
+        },
+        {
+          "selectType":"PREVIOUSLY_HIT",
+          "hitDir":"TOWARD",
+          "align":"BOTTOM",
+          "hitCount":1,
+          "hitDelay":0,
+          "type":"DIRECT_HIT",
+          "attack":{
+            "type":"MASSIVE",
+            "element":"COLD",
+            "damageFactor":7,
+            "fly":"MASSIVE",
+            "reverse":false,
+            "stunSteps":[
+              {
+                "type":"BLOCK_XY"
+              },
+              {
+                "type":"END_LOCK"
+              }
+            ],
+            "status":0.9,
+            "hints":[
+              "NO_PUZZLE"
+            ],
+            "guardable":"NEVER",
+            "skillBonus":"",
+            "limiter":""
+          }
+        },
+        {
+          "duration":0.2,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{
+            "sheet":"enemies.driller-boss-ex",
+            "name":"icicleExplodeHuge"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.4,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "timeDisconnect":false,
+      "size":{
+        "x":16,
+        "y":16,
+        "z":112
+      },
+      "config":{
+        "collType":"IGNORE",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "icicleLine":{
+      "copyOwnerAnims":false,
+      "breakType":"COMBATANT",
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "timeDisconnect":false,
+      "size":{
+        "x":48,
+        "y":48,
+        "z":32
+      },
+      "action":[
+        {
+          "value":640,
+          "type":"SET_SPEED"
+        },
+        {
+          "value":3,
+          "type":"SET_ACCEL_SPEED"
+        },
+        { 
+          "align":"BOTTOM",
+          "centralAngle":0,
+          "angleVary":0,
+          "startDist":0,
+          "startDistCollide":"NONE",
+          "random":false,
+          "count":10,
+          "duration":1,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":false,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleHugeAlt2",
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time": 1,
+          "cancelOnHit": false,
+          "collideCancel": 1,
+          "orthoDirFactor": 0,
+          "ignoreLastHit": false,
+          "collideSlip": false,
+          "type": "TACKLE",
+          "attack": {
+            "type": "MASSIVE",
+            "element": "NEUTRAL",
+            "guardable": "",
+            "skillBonus": ""
+          }
+        },
+        { 
+          "align":"BOTTOM",
+          "centralAngle":0,
+          "angleVary":0,
+          "startDist":0,
+          "startDistCollide":"NONE",
+          "random":false,
+          "count":10,
+          "duration":1,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":false,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleHugeAlt2",
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.1,
+          "type":"WAIT"
+        }
+      ],
+      "config":{
+        "collType":"IGNORE",
+        "zGravityFactor":0
+      },
+      "type":"GENERIC"
+    },
+    "smallFallingIcicle":{  
+      "animation":{  
+        "SUB":[
+          {  
+            "name":"default",
+            "pivot":{  
+              "x":20,
+              "y":40
+            },
+            "offset":{  
+              "x":0,
+              "y":-4,
+              "z":0
+            },
+            "gfxOffset":{  
+              "x":0,
+              "y":8
+            },
+            "sheet":{  
+              "src":"media/entity/effects/trial-bosses.png",
+              "offX":464,
+              "offY":104,
+              "width":32,
+              "height":48
+            },
+            "time":0.1,
+            "repeat":false,
+            "frames":[  
+              0
+            ]
+          },
+          {  
+            "name":"landed",
+            "pivot":{  
+              "x":20,
+              "y":40
+            },
+            "offset":{  
+              "x":0,
+              "y":-4,
+              "z":0
+            },
+            "gfxOffset":{  
+              "x":0,
+              "y":8
+            },
+            "sheet":{  
+              "src":"media/entity/effects/trial-bosses.png",
+              "offX":496,
+              "offY":104,
+              "width":32,
+              "height":48
+            },
+            "time":0.1,
+            "repeat":false,
+            "frames":[  
+              0
+            ]
+          }
+        ]
+      },
+      "copyOwnerAnims":false,
+      "breakType":"NEVER",
+      "action":[
+        {
+          "duration": -1,
+          "align": "BASE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "crosshair"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {  
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"default"
+        },
+        {  
+          "volume":0.8,
+          "global":false,
+          "loop":false,
+          "type":"PLAY_SOUND",
+          "sound":"media/sound/designer/designer-appear.ogg"
+        },
+        {  
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{  
+            "sheet":"specials.icicles",
+            "name":"smallAppear"
+          },
+          "offset":{  
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {  
+          "size":"XL",
+          "fadeIn":0,
+          "fadeOut":0.4,
+          "duration":0.3,
+          "glow":true,
+          "type":"LIGHT"
+        },
+        {
+          "time":0.5,
+          "type":"WAIT"
+        },
+        {  
+          "value":1.0,
+          "type":"SET_Z_GRAVITY_FACTOR"
+        },
+        {  
+          "value":0,
+          "type":"SET_AIR_FRICTION"
+        },
+        {  
+          "type":"WAIT_UNTIL_ON_GROUND"
+        },
+        {  
+          "type":"CLEAR_EFFECTS"
+        },
+        {  
+          "type":"STOP_XY"
+        },
+        {  
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"landed"
+        },
+        {  
+          "value":false,
+          "immediately":true,
+          "type":"FACE_TO_TARGET"
+        },
+        {  
+          "align":"BOTTOM",
+          "radius":20,
+          "yScale":0,
+          "zHeight":32,
+          "centralAngle":1,
+          "duration":0.1,
+          "expandRadius":0,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":false,
+          "uniformHitDir":false,
+          "fixPos":false,
+          "checkCollision":false,
+          "type":"CIRCLE_ATTACK",
+          "attack":{  
+            "type":"HEAVY",
+            "element":"COLD",
+            "damageFactor":0.5,
+            "fly":"HEAVY",
+            "reverse":false,
+            "stunSteps":[  
+              {  
+                "type":"BLOCK_XY"
+              }
+            ],
+            "status":7,
+            "hints":[  
+              "CHARGED"
+            ],
+            "guardable":"FROM_ABOVE",
+            "skillBonus":"RANGED_DMG"
+          },
+          "offset":{  
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {  
+          "align":"BOTTOM",
+          "radius":40,
+          "yScale":0,
+          "zHeight":32,
+          "centralAngle":1,
+          "duration":0.1,
+          "expandRadius":0,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":false,
+          "uniformHitDir":false,
+          "fixPos":false,
+          "checkCollision":false,
+          "type":"CIRCLE_ATTACK",
+          "attack":{  
+            "type":"HEAVY",
+            "element":"COLD",
+            "damageFactor":0.5,
+            "fly":"HEAVY",
+            "reverse":false,
+            "stunSteps":[  
+              {  
+                "type":"BLOCK_XY"
+              }
+            ],
+            "status":7,
+            "hints":[  
+              "CHARGED"
+            ],
+            "guardable":"FROM_ABOVE",
+            "skillBonus":"RANGED_DMG"
+          },
+          "offset":{  
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0,
+          "turn":1,
+          "random":1,
+          "type":"ROTATE_FACE"
+        },
+        {  
+          "align":"BOTTOM",
+          "centralAngle":1,
+          "angleVary":0,
+          "startDist":30,
+          "startDistCollide":"DROP",
+          "random":false,
+          "count":4,
+          "duration":0,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":false,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "maxGroundDistance":16,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleSmall",
+          "offset":{  
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {  
+          "time":0.5,
+          "type":"WAIT"
+        },
+        {  
+          "duration":0,
+          "align":"BOTTOM",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "effect":{  
+            "sheet":"specials.icicles",
+            "name":"icicleExplodeBig"
+          },
+          "offset":{  
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {  
+          "time":0.3,
+          "type":"WAIT"
+        },
+        {  
+          "type":"CLEAR_EFFECTS"
+        }
+      ],
+      "invisible":false,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "size":{  
+        "x":48,
+        "y":48,
+        "z":48
+      },
+      "config":{  
+        "collType":"IGNORE",
+        "zGravityFactor":1.5,
+        "shadow":32
+      },
+      "type":"GENERIC"
+    },
+    "frostBomb":{
+      "copyOwnerAnims":false,
+      "breakType":"COMBATANT",
+      "animation":"enemies.flare-bomb",
+      "action":[
+        {
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"idleAlt"
+        },
+        {
+          "duration": 0,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.icicles",
+            "name": "bigAppear"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "value": 120,
+          "type": "SET_Z_VEL"
+        },
+        {
+          "value": 800,
+          "type": "SET_SPEED"
+        },
+        {
+          "value": 3,
+          "type": "SET_ACCEL_SPEED"
+        },
+        {
+          "time": 0.1,
+          "type":"MOVE_FORWARD"
+        },
+        {
+          "type": "WAIT_UNTIL_ON_GROUND"
+        },
+        {
+          "type": "STOP_XY"
+        },
+        {
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"activeAlt"
+        },
+        {
+          "duration": 0,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "bombImpact"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "proxy": "drillerAura",
+          "align": "BOTTOM",
+          "type": "SHOOT_PROXY",
+          "offset": {
+            "x": -5,
+            "y": -129,
+            "z": 320
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "random": false,
+          "count": 7,
+          "duration": 4.7,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "offsetArea": {
+            "x": 256,
+            "y": 256
+          },
+          "circularArea": true,
+          "uniformDir": 0,
+          "delay": 0,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "smallFallingIcicle",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 240
+          }
+        },
+        {
+          "duration": 0,
+          "align": "CENTER",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostImpact"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 5,
+          "align": "BOTTOM",
+          "rotateFace": -1,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.master",
+            "name": "frostBombMarkerFast"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 2,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostBombActive"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align":"BOTTOM",
+          "centralAngle":1,
+          "angleVary":0,
+          "startDist":32,
+          "startDistCollide":"DROP",
+          "random":false,
+          "count":9,
+          "duration":0.2,
+          "clockwise":true,
+          "flipLeftFace":0,
+          "circularArea":true,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "maxGroundDistance":16,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleSmallTurret",
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":0.2,
+          "type":"WAIT"
+        },
+        {
+          "align":"BOTTOM",
+          "centralAngle":1,
+          "angleVary":0,
+          "startDist":64,
+          "startAngle":0.232,
+          "startDistCollide":"DROP",
+          "random":false,
+          "count":15,
+          "duration":0.2,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":true,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "maxGroundDistance":16,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleSmallTurret",
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time": 1.8,
+          "type": "WAIT"
+        },
+        {
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"almostAlt"
+        },
+        {
+          "duration": 3,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostBombAlmost"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "centralAngle": 0,
+          "angleVary": 0,
+          "random": false,
+          "count": 8,
+          "duration": 3,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "offsetArea": {
+            "x": 256,
+            "y": 256
+          },
+          "circularArea": true,
+          "uniformDir": 0,
+          "delay": 0,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "smallFallingIcicle",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 240
+          }
+        },
+        {
+          "align":"BOTTOM",
+          "radius":24,
+          "yScale":0,
+          "zHeight":32,
+          "centralAngle":1,
+          "duration":0.3,
+          "expandRadius":32,
+          "alwaysFull":true,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "rectangular":false,
+          "repeat":false,
+          "uniformHitDir":false,
+          "fixPos":false,
+          "checkCollision":true,
+          "type":"CIRCLE_ATTACK",
+          "attack":{
+            "type":"MASSIVE",
+            "fly":"MASSIVE",
+            "visualType":"HEAVY",
+            "element":"COLD",
+            "damageFactor":1,
+            "reverse":false,
+            "spFactor":0,
+            "status":10,
+            "guardable":"FROM_ABOVE",
+            "skillBonus":"RANGED_DMG"
+          },
+          "offset":{
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "time":2,
+          "type":"WAIT"
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostBombPre"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align":"BOTTOM",
+          "type":"SHOOT_PROXY",
+          "proxy":"icicleHugeAlt"
+        },
+        {
+          "time":1,
+          "type":"WAIT"
+        },
+        {
+          "wait":false,
+          "viaWalkConfig":false,
+          "type":"SHOW_ANIMATION",
+          "anim":"idleAlt"
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostBombDestroy"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        { 
+          "align":"BOTTOM",
+          "centralAngle":1,
+          "angleVary":0,
+          "startDist":64,
+          "startDistCollide":"CLOSER",
+          "random":false,
+          "count":4,
+          "duration":0,
+          "clockwise":false,
+          "flipLeftFace":0,
+          "circularArea":false,
+          "uniformDir":0,
+          "delay":0,
+          "repeat":false,
+          "type":"SHOOT_PROXY_RANGE",
+          "proxy":"icicleLine",
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "duration": 1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss-ex",
+            "name": "frostBombExplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time":1,
+          "type":"WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"frostBomb",
+      "size":{
+        "x":48,
+        "y":48,
+        "z":32
+      },
+      "config":{
+        "collType":"IGNORE"
+      },
+      "type":"GENERIC"
+    },
     "phantomDummyShooter":{
       "copyOwnerAnims":true,
       "breakType":"ACTION",
@@ -622,6 +2293,224 @@
       "config":{
         "collType":"NONE",
         "zGravityFactor":0
+      }
+    },
+    "drillerAura":{
+      "copyOwnerAnims":false,
+      "animation":"boss.driller",
+      "breakType":"COMBATANT",
+      "noFallDestroy":true,
+      "action":[
+        { 
+          "face":"SOUTH",
+          "rotate":false,
+          "rotateSpeed":10,
+          "type":"SET_FACE"
+        },
+        {
+          "value":-800,
+          "type":"SET_Z_VEL"
+        },
+        {
+          "value": 24,
+          "type": "SET_FLY_HEIGHT"
+        },
+        { 
+          "duration":-1,
+          "align":"CENTER",
+          "rotateFace":0,
+          "flipLeftFace":false,
+          "wait":false,
+          "waitSkip":0,
+          "actionDetached":false,
+          "fixPos":false,
+          "type":"SHOW_EFFECT",
+          "partName":"leftHand",
+          "effect":{ 
+            "sheet":"specials.master",
+            "name":"coldDummyAura"
+          },
+          "offset":{ 
+            "x":0,
+            "y":0,
+            "z":0
+          }
+        },
+        {
+          "wait": true,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "wheelBPre"
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "group": "snow",
+          "partName": "leftHand",
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss",
+            "name": "handSnow"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "volume": 1,
+          "global": false,
+          "loop": false,
+          "type": "PLAY_SOUND",
+          "sound": "media/sound/battle/enemies/mine/bot-charge.ogg"
+        },
+        {
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "wheelBIdle"
+        },
+        {
+          "time": 0.3,
+          "type": "WAIT"
+        },
+        {
+          "duration": 2,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.driller-boss",
+            "name": "diggingSnow2"
+          },
+          "offset": {
+            "x": 5,
+            "y": 129,
+            "z": 97
+          }
+        },
+        {
+          "followUp": "wheelBRun",
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "wheelBRunStart"
+        },
+        {
+          "align": "BOTTOM",
+          "dir": {
+            "x": 0,
+            "y": 1
+          },
+          "centralAngle": 1,
+          "angleVary": 0.05,
+          "startDist": 24,
+          "startDistCollide": "NONE",
+          "random": true,
+          "count": 80,
+          "duration": 2,
+          "clockwise": true,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "ballCount": 12,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "iceStoneSmall",
+          "offset": {
+            "x": 5,
+            "y": 129,
+            "z": 97
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "dir": {
+            "x": 0,
+            "y": 1
+          },
+          "centralAngle": 1,
+          "angleVary": 0.05,
+          "startDist": 24,
+          "startDistCollide": "NONE",
+          "random": true,
+          "count": 48,
+          "duration": 2,
+          "clockwise": true,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "ballCount": 6,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "iceStoneMedium",
+          "offset": {
+            "x": 5,
+            "y": 129,
+            "z": 97
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "dir": {
+            "x": 0,
+            "y": 1
+          },
+          "centralAngle": 1,
+          "angleVary": 0.05,
+          "startDist": 24,
+          "startDistCollide": "NONE",
+          "random": true,
+          "count": 30,
+          "duration": 2,
+          "clockwise": true,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "ballCount": 3,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "iceStoneBig",
+          "offset": {
+            "x": 5,
+            "y": 129,
+            "z": 97
+          }
+        },
+        {
+          "time": 2,
+          "type": "WAIT"
+        }
+      ],
+      "invisible":true,
+      "hp":0,
+      "stickToSource":"NONE",
+      "stickFaceAlign":false,
+      "group":"",
+      "type":"GENERIC",
+      "size":{
+        "x": 288,
+        "y": 104,
+        "z": 48
+      },
+      "config":{
+        "collType":"NONE",
+        "zGravityFactor":10
       }
     },
     "mothAura":{
@@ -1912,6 +3801,150 @@
           {
             "time":0.05,
             "type":"WAIT"
+          }
+        ]
+      }
+    },
+    "COLD": {
+      "THROW_SPECIAL3_MASTER": {
+        "name":{
+          "en_US": "Glacial Cross"
+        },
+        "description":{
+          "en_US": "Launch forth one of H.F.S. Driller X01's forbidden super bombs to summon falling icicles and eventually detonate in a devastating cross of ice spikes."
+        },
+        "dmgType":"RANGE",
+        "stunType":"INTERRUPT",
+        "status":true,
+        "steps":[
+          {
+            "value":"MASSIVE",
+            "type":"SET_HIT_STABLE"
+          },
+          {
+            "followUp":"charge",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"startCharge"
+          },
+          {
+            "factor":0.1,
+            "time":0.1,
+            "keepEntityStatic":false,
+            "inversAccelerate":true,
+            "type":"ADD_SLOW_MOTION"
+          },
+          {
+            "zoomType":"LIGHT",
+            "fadeIn":0.1,
+            "duration":1,
+            "fadeOut":0.5,
+            "type":"SET_ZOOM_BLUR"
+          },
+          {
+            "offsetX":0,
+            "offsetY":0,
+            "speed":"FASTER",
+            "transition":"EASE_OUT",
+            "wait":false,
+            "waitSkip":0,
+            "zoom":2,
+            "focusType":"SELF",
+            "keepPlayerOffset":0.5,
+            "type":"FOCUS_CAMERA"
+          },
+          {
+            "duration": 1.6,
+            "align": "TOP",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "specials.cold",
+              "name": "starCharge3"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 20
+            }
+          },
+          {
+            "time": 1.6,
+            "type": "WAIT"
+          },
+          {
+            "zoomType":"MEDIUM",
+            "fadeIn":0.1,
+            "duration":0.2,
+            "fadeOut":0.2,
+            "type":"SET_ZOOM_BLUR"
+          },
+          {  
+            "volume":1,
+            "global":false,
+            "loop":false,
+            "type":"PLAY_SOUND",
+            "sound":"media/sound/designer/designer-appear.ogg"
+          },
+          {
+            "time": 0,
+            "removeEntityStatic": false,
+            "type": "CLEAR_SLOW_MOTION"
+          },
+          {
+            "followUp":"throwMirrEnd",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"throwMirr"
+          },
+          {
+            "speed":"FAST",
+            "transition":"EASE_IN_OUT",
+            "wait":false,
+            "waitSkip":0,
+            "type":"RESET_CAMERA"
+          },
+          {
+            "sticking":false,
+            "group":"wall",
+            "type":"REMOVE_PROXIES"
+          },
+          {
+            "sticking":false,
+            "group":"frostBomb",
+            "type":"REMOVE_PROXIES"
+          },
+          {
+            "align":"TOP",
+            "type":"SHOOT_PROXY",
+            "proxy":"frostBomb",
+            "offset":{
+              "x":0,
+              "y":0,
+              "z":0
+            }
+          },
+          {
+            "time": 0.9,
+            "type": "WAIT"
+          },
+          {
+            "followUp":"idle",
+            "wait":false,
+            "viaWalkConfig":false,
+            "type":"SHOW_ANIMATION",
+            "anim":"preIdle"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
           }
         ]
       }

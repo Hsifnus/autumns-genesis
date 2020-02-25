@@ -502,5 +502,48 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1004,
+      "name": {
+        "en_US": "H.F.S. Niflheim",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A forbidden bomb launcher originally developed for use on H.F.S. Driller X01.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 0,
+      "level": 75,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          0.85,
+          1.15,
+          1,
+          1
+        ],
+        "attack": 32,
+        "focus": 101,
+        "defense": 90
+      },
+      "properties": {
+        "RANGED_DMG": 1.3,
+        "AIM_STABILITY": 1.4,
+        "MELEE_DMG": 0.9,
+        "DRILLER_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
+    }
+},{
 	"type": "EXIT"
 }]

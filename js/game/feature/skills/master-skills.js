@@ -24,6 +24,12 @@ ig.module("game.feature.skills.master-skills").requires(
             actionCheckKeys: ["ATTACK_SPECIAL3", "ATTACK_SPECIAL3_A", sc.PLAYER_ACTION.ATTACK_SPECIAL3],
             modifierKey: "ATTACK_SPECIAL3_MASTER",
             modifier: "PHANTOM_SPECIAL"
+        },
+        {
+            element: sc.ELEMENT.COLD,
+            actionCheckKeys: ["THROW_SPECIAL3", "THROW_SPECIAL3_A", sc.PLAYER_ACTION.THROW_SPECIAL3],
+            modifierKey: "THROW_SPECIAL3_MASTER",
+            modifier: "DRILLER_SPECIAL"
         }
     ];
     const checkMasterSkill = (a, b, params) => {
@@ -51,45 +57,50 @@ ig.module("game.feature.skills.master-skills").requires(
             var d = sc.PLAYER_SP_COST[b - 1];
             sc.newgame.get("infinite-sp") || this.model.params.consumeSp(d);
             var actionKey = checkMasterSkill(this.model.currentElementMode, c + b, this.model.params);
-            if (actionKey) return actionKey;
+            if (actionKey && this.model.getAction(actionKey)) return actionKey;
             return c + b;
         }
     });
     sc.PlayerModel.inject({
         getCombatArt: function(a, b, c) {
             if (!c) {
-                var actionKey;
-                if ((actionKey = checkMasterSkill(a, b, this.params))) {
-                    return this.elementConfigs[a].getPlayerAction(actionKey);
+                var actionKey, customPlayerAction;
+                if ((actionKey = checkMasterSkill(a, b, this.params))
+                    && (customPlayerAction = this.elementConfigs[a].getPlayerAction(actionKey))) {
+                    return customPlayerAction
                 }
             }
             return this.elementConfigs[a].getPlayerAction(b)
         },
         getCombatArtName: function(a) {
-            var actionKey;
-            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))) {
-                return this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey).name;
+            var actionKey, customPlayerAction;
+            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))
+                && (customPlayerAction = this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey))) {
+                return customPlayerAction.name;
             }
             return this.elementConfigs[this.currentElementMode].getActiveCombatArtName(a)
         },
         getActiveCombatArt: function(a, b) {
-            var actionKey;
-            if ((actionKey = checkMasterSkill(a, b, this.params))) {
-                return this.elementConfigs[a].getPlayerAction(actionKey).action;
+            var actionKey, customPlayerAction;
+            if ((actionKey = checkMasterSkill(a, b, this.params))
+                && (customPlayerAction = this.elementConfigs[a].getPlayerAction(actionKey))) {
+                return customPlayerAction.action;
             }
             return this.elementConfigs[a].getAction(b)
         },
         getAction: function(a) {
-            var actionKey;
-            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))) {
-                return this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey).action;
+            var actionKey, customPlayerAction;
+            if ((actionKey = checkMasterSkill(this.currentElementMode, a, this.params))
+                && (customPlayerAction = this.elementConfigs[this.currentElementMode].getPlayerAction(actionKey))) {
+                return customPlayerAction.action;
             }
             return this.elementConfigs[this.currentElementMode].getAction(a) || this.baseConfig.getAction(a)
         },
         getActionByElement: function(a, b) {
-            var actionKey;
-            if ((actionKey = checkMasterSkill(a, b, this.params))) {
-                return this.elementConfigs[a].getPlayerAction(actionKey).action;
+            var actionKey, customPlayerAction;
+            if ((actionKey = checkMasterSkill(a, b, this.params))
+                && (customPlayerAction = this.elementConfigs[a].getPlayerAction(actionKey))) {
+                return customPlayerAction.action;
             }
             return this.elementConfigs[a].getAction(b) || this.baseConfig.getAction(b)
         }
@@ -262,6 +273,11 @@ ig.module("game.feature.skills.master-skills").requires(
         }, {
             A: {
                 icon: 84
+            },
+            MASTER: {
+                icon: -1,
+                altSheet: "media/gui/master-arts.png",
+                altIcon: 3
             }
         }],
         ATTACK: [{
@@ -476,11 +492,6 @@ ig.module("game.feature.skills.master-skills").requires(
             }
         }]
     };
-    sc.SKILLS.DASH_SPECIAL_MASTER = sc.SpecialSkill.extend({
-        init: function(a, b) {
-            this.parent(a, b, "DASH", "MASTER")
-        }
-    });
     var h = /(.+)_SPECIAL(\d)_(.+)/;
     sc.getCombatArtIcon = function(b, c) {
         var d = h.exec(c);
