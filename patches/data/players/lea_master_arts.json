@@ -1630,7 +1630,7 @@
           "centralAngle":1,
           "angleVary":0,
           "startDist":64,
-          "startDistCollide":"CLOSER",
+          "startDistCollide":"DROP",
           "random":false,
           "count":4,
           "duration":0,
