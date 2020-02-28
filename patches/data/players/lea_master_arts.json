@@ -830,7 +830,7 @@
       "stickToSource":"NONE",
       "stickFaceAlign":false,
       "group":"",
-      "timeDisconnect":false,
+      "timeDisconnect":true,
       "size":{
         "x":48,
         "y":48,
