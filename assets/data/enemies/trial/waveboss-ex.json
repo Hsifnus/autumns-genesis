@@ -1518,6 +1518,7 @@
     "aquaSpiral": {
       "copyOwnerAnims": false,
       "breakType": "ACTION",
+      "timeDisconnect":true,
       "action": [
         {
           "value": 1500,
@@ -1667,6 +1668,7 @@
     "aquaSpiralSlow": {
       "copyOwnerAnims": false,
       "breakType": "ACTION",
+      "timeDisconnect":true,
       "action": [
         {
           "value": 1500,
@@ -2345,6 +2347,7 @@
         "z": 64
       },
       "effects": "",
+      "timeDisconnect":true,
       "maxBounce": 0,
       "groundBounce": 0,
       "speed": 0,
