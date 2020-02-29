@@ -9,7 +9,7 @@
       {
         "get": [
           {
-            "id": "559",
+            "id": "equip-magmoth",
             "amount": 1
           }
         ],
@@ -19,7 +19,7 @@
             "amount": 10
           },
           {
-            "id": "552",
+            "id": "trade-magmoth",
             "amount": 1
           }
         ],
@@ -28,7 +28,7 @@
       {
         "get": [
           {
-            "id": "562",
+            "id": "equip-phantom",
             "amount": 1
           }
         ],
@@ -38,7 +38,7 @@
             "amount": 10
           },
           {
-            "id": "553",
+            "id": "trade-phantom",
             "amount": 1
           }
         ],
@@ -47,7 +47,7 @@
       {
         "get": [
           {
-            "id": "560",
+            "id": "equip-blobus",
             "amount": 1
           }
         ],
@@ -57,7 +57,7 @@
             "amount": 10
           },
           {
-            "id": "554",
+            "id": "trade-blobus",
             "amount": 1
           }
         ],
@@ -66,7 +66,7 @@
       {
         "get": [
           {
-            "id": "563",
+            "id": "equip-driller",
             "amount": 1
           }
         ],
@@ -76,7 +76,7 @@
             "amount": 10
           },
           {
-            "id": "561",
+            "id": "trade-driller",
             "amount": 1
           }
         ],

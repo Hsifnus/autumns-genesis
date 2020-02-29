@@ -58,11 +58,11 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":551,
+          "item":"cons-gapple",
           "count":5
         },
         {
-          "item":552,
+          "item":"trade-magmoth",
           "count":1
         }
       ]
@@ -100,11 +100,11 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":551,
+          "item":"cons-gapple",
           "count":5
         },
         {
-          "item":553,
+          "item":"trade-phantom",
           "count":1
         }
       ]
@@ -142,11 +142,11 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":551,
+          "item":"cons-gapple",
           "count":5
         },
         {
-          "item":554,
+          "item":"trade-blobus",
           "count":1
         }
       ]
@@ -184,11 +184,11 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":551,
+          "item":"cons-gapple",
           "count":5
         },
         {
-          "item":561,
+          "item":"trade-driller",
           "count":1
         }
       ]

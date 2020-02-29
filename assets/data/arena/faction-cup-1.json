@@ -82,7 +82,7 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":555,
+          "item":"trade-hilikat",
           "count":1,
           "condition":"true"
         }

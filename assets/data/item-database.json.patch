@@ -6,6 +6,7 @@
 	"content":
     {
       "order": 1000,
+      "customItem": "equip-coquelicot",
       "name": {
         "en_US": "Shikizakura",
         "ja_JP": "四季桜",
@@ -30,11 +31,13 @@
           1.1
         ],
         "attack": 121,
-        "defense": 51,
-        "focus": 53
+        "defense": 61,
+        "focus": 63
       },
       "properties": {
         "STUN_THRESHOLD": 1.03,
+        "KNOCKBACK": 1.4,
+        "AIM_SPEED": 0.85,
         "WIND_MELEE": 1.25
       },
       "effect": {
@@ -49,6 +52,7 @@
   "content":
     {
       "order": 1000,
+      "customItem": "cons-gapple",
       "name": {
         "en_US": "Genesis Apple",
         "langUid": 145
@@ -82,6 +86,7 @@
   "content":
     {
       "order": 20000,
+      "customItem": "trade-magmoth",
       "name": {
         "en_US": "Magmoth's Ember",
         "langUid": 2138
@@ -119,6 +124,7 @@
   "content":
     {
       "order": 20001,
+      "customItem": "trade-phantom",
       "name": {
         "en_US": "Phantom's Spark",
         "langUid": 2138
@@ -156,6 +162,7 @@
   "content":
     {
       "order": 20002,
+      "customItem": "trade-blobus",
       "name": {
         "en_US": "Blobus Orb",
         "langUid": 2138
@@ -193,6 +200,7 @@
   "content":
     {
       "order": 19996,
+      "customItem": "trade-hilikat",
       "name": {
         "en_US": "Ruby Seed",
         "langUid": 2138
@@ -230,6 +238,7 @@
   "content":
     {
       "order": 19997,
+      "customItem": "trade-blazehoof",
       "name": {
         "en_US": "Garnet Horn",
         "langUid": 2138
@@ -267,6 +276,7 @@
   "content":
     {
       "order": 19998,
+      "customItem": "trade-frobbit",
       "name": {
         "en_US": "Technicolor Pelt",
         "langUid": 2138
@@ -304,6 +314,7 @@
   "content":
     {
       "order": 19999,
+      "customItem": "trade-bloomy",
       "name": {
         "en_US": "Amethyst Petal",
         "langUid": 2138
@@ -341,6 +352,7 @@
   "content":
     {
       "order": 1001,
+      "customItem": "equip-magmoth",
       "name": {
         "en_US": "Mothblaze",
         "langUid": 1
@@ -384,6 +396,7 @@
   "content":
     {
       "order": 1003,
+      "customItem": "equip-blobus",
       "name": {
         "en_US": "Blobus Pom",
         "langUid": 1
@@ -427,6 +440,7 @@
   "content":
     {
       "order": 20003,
+      "customItem": "trade-driller",
       "name": {
         "en_US": "Niflheim Gear",
         "langUid": 2138
@@ -464,6 +478,7 @@
   "content":
     {
       "order": 1002,
+      "customItem": "equip-phantom",
       "name": {
         "en_US": "Phantom Edge",
         "langUid": 1
@@ -506,6 +521,7 @@
   "content":
     {
       "order": 1004,
+      "customItem": "equip-driller",
       "name": {
         "en_US": "H.F.S. Niflheim",
         "langUid": 1

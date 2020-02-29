@@ -240,7 +240,7 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":556,
+          "item":"trade-blazehoof",
           "count":1,
           "condition":"true"
         }
@@ -347,7 +347,7 @@
       "spawn": "PLAYER_SPAWN",
       "firstClearBonus":[
         {
-          "item":558,
+          "item":"trade-bloomy",
           "count":1,
           "condition":"true"
         }
