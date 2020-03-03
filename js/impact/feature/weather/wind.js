@@ -160,7 +160,9 @@ ig.module("impact.feature.weather.wind").requires(
                 && !(this.combatant.currentAction
                     && this.combatant.currentAction.name.includes("SPECIAL")
                     && this.combatant.coll.pos.z != this.combatant.coll.baseZPos)
-                && !sc.model.isCutscene()) {
+                && !sc.model.isCutscene()
+                && !this.combatant.interactObject
+                && !(this.combatant.stepData.path && this.combatant.stepData.path.isDestReachable())) {
                 var c = this.combatant.getAlignedPos(this.align, b);
                 var d = Vec2.create();
                 d.x = -10;
