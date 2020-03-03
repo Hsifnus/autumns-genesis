@@ -75,5 +75,61 @@ ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.featu
       quantity: 10
     }],
     outside: true
-  }
+  };
+  ig.RAIN_STRENGTH.WIND_LEFT_WEAK = {
+    pattern: 7,
+    windPattern: 1,
+    move: {
+      x: -150,
+      y: 27
+    },
+    duration: 0.5,
+    wait: 0.2,
+    dropsPerSecond: 0,
+    sound: null,
+    alpha: 0.8,
+    fade: 0.1
+  };
+  ig.RAIN_STRENGTH.WIND_LEFT_MEDIUM = {
+    pattern: 7,
+    windPattern: 3,
+    move: {
+      x: -250,
+      y: 45
+    },
+    duration: 0.5,
+    wait: 0.2,
+    dropsPerSecond: 0,
+    sound: null,
+    alpha: 0.8,
+    fade: 0.1
+  };
+  ig.RAIN_STRENGTH.WIND_RIGHT_WEAK = {
+    pattern: 7,
+    windPattern: 2,
+    move: {
+      x: 150,
+      y: 27
+    },
+    duration: 0.5,
+    wait: 0.2,
+    dropsPerSecond: 0,
+    sound: null,
+    alpha: 0.8,
+    fade: 0.1
+  };
+  ig.RAIN_STRENGTH.WIND_RIGHT_MEDIUM = {
+    pattern: 7,
+    windPattern: 4,
+    move: {
+      x: 250,
+      y: 45
+    },
+    duration: 0.5,
+    wait: 0.2,
+    dropsPerSecond: 0,
+    sound: null,
+    alpha: 0.8,
+    fade: 0.1
+  };
 });
