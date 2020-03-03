@@ -2,7 +2,7 @@ ig.module("impact.feature.weather.wind").requires(
     "impact.feature.weather.weather-steps",
     "game.feature.combat.combat-force",
     "impact.feature.map-sounds.map-sounds-steps",
-    "game.feature.combat.entities.ball").defines(function() {
+    "impact.base.game").defines(function() {
     sc.WIND_STRENGTH = {
         RIGHT_MEDIUM: 130,
         RIGHT_WEAK: 80,
@@ -42,8 +42,10 @@ ig.module("impact.feature.weather.wind").requires(
     const weakWindEntry = new ig.MapSoundEntry("BERGEN_TRAIL_WIND_SUBTLE");
     const mediumWindEntry = new ig.MapSoundEntry("BERGEN_TRAIL_WIND");
     sc.WindData = {
+        protoVictims: [],
         victims: [],
-        currentSpeed: 0
+        currentSpeed: 0,
+        strength: "NONE"
     };
     ig.EVENT_STEP.SET_WIND_ON_ENTITIES = ig.EventStepBase.extend({
         _wm: new ig.Config({
@@ -93,6 +95,8 @@ ig.module("impact.feature.weather.wind").requires(
                 }
             });
             ig.weather.setWeather(weather, this.immediately);
+            sc.WindData.protoVictims = [...this.entities.map(e => ({...e}))];
+            sc.WindData.strength = this.strength;
             this.entities = this.entities.map(e => ig.Event.getEntity(e, b)).filter(e => !!e);
             if (this.strength === "NONE") {
                 ig.mapSounds.setEntry(ig.mapSounds.mapEntry);
@@ -108,7 +112,7 @@ ig.module("impact.feature.weather.wind").requires(
                     var c = e[b];
                     if (c instanceof sc.WindForce && c.isRepeating()) c.stopWindForce();
                 }
-                var d = new sc.WindForce(a, this.strength);
+                var d = new sc.WindForce(a, this.strength, -1);
                 sc.combat.addCombatForce(d);
                 a.addActionAttached(d);
             });
@@ -136,7 +140,7 @@ ig.module("impact.feature.weather.wind").requires(
         getCombatantRoot: function() {
             return this.combatantRoot
         },
-        init: function(a, b) {
+        init: function(a, b, c) {
             this.combatant = a;
             this.combatantRoot = a.getCombatantRoot && a.getCombatantRoot() || a;
             this.radius = 512;
@@ -146,13 +150,13 @@ ig.module("impact.feature.weather.wind").requires(
             this.influence = new ig.InfluenceEntry;
             this.influence.setPushType(sc.INFLUENCE_PUSH.PUSH, this.minRadius, this.fadeRadius, this.strength);
             this.zHeight = 32;
-            this.timer = -1;
+            this.timer = c;
             this.party = this.combatant.party;
             this.align = ig.ENTITY_ALIGN.BOTTOM;
         },
         update: function() {
             if (this.dead) {
-                this.onEnd();
+                stopWindForce();
                 return;
             }
             if (!this.combatant.respawn.timer
@@ -161,9 +165,13 @@ ig.module("impact.feature.weather.wind").requires(
                     && this.combatant.coll.pos.z != this.combatant.coll.baseZPos)
                 && !sc.model.isCutscene()
                 && !this.combatant.interactObject
-                && !(!(this.combatant instanceof ig.ENTITY.Enemy)
+                && !(this.combatant === ig.game.playerEntity
                     && this.combatant.stepData.path
-                    && this.combatant.stepData.path.moveEntity())) {
+                    && this.combatant.stepData.path.moveEntity())
+                && !(this.combatant.currentActionStep
+                    && this.combatant.currentActionStep.target
+                    && this.combatant.currentActionStep.target.x !== undefined
+                    && this.combatant.currentActionStep.target.y !== undefined)) {
                 this.combatant.actionAttached.indexOf(this) === -1 && this.combatant.addActionAttached(this);
                 var c = this.combatant.getAlignedPos(this.align, b);
                 var d = Vec2.create();
@@ -171,15 +179,16 @@ ig.module("impact.feature.weather.wind").requires(
                 Vec2.add(c, d);
                 this.influence.setPushCenter(c);
                 this.combatant.influencer.addInfluence(this.influence);
-                if (this.timer > 0) {
-                    this.timer = this.timer - ig.system.tick;
-                    if (this.timer <= 0) this.timer = 0
-                }
-                return this.timer == 0
             } else {
                 this.combatant.influencer.removeInfluence(this.influence);
                 this.influence.updateInfluencer = this.combatant.influencer;
             }
+            if (this.timer > 0) {
+                this.timer = this.timer - ig.system.tick;
+                if (this.timer <= 0) this.timer = 0
+            }
+            this.dead = this.dead || this.timer == 0
+            return this.timer == 0
         },
         onEnd: function() {
             this.dead = true;
@@ -189,6 +198,25 @@ ig.module("impact.feature.weather.wind").requires(
         },
         isRepeating: function() {
             return this.timer < 0
+        }
+    });
+    ig.ENTITY.Combatant.inject({
+        show: function(a) {
+            this.parent(a);
+            if (sc.WindData.strength !== "NONE" && this instanceof ig.ENTITY.Combatant) {
+                if (this instanceof sc.PartyMemberEntity
+                    && sc.party.currentParty.includes(this.model.name)
+                    && !sc.party.partyEntities[this.model.name]) {
+                    sc.party.partyEntities[this.model.name] = this;
+                }
+                var currentVictims = sc.WindData.protoVictims.map(e => ig.Event.getEntity(e, this)).filter(e => !!e);
+                if (currentVictims.includes(this)) {
+                    var e = new sc.WindForce(this, sc.WindData.strength, -1);
+                    sc.combat.addCombatForce(e);
+                    this.addActionAttached(e);
+                    sc.WindData.victims.push(this);
+                }
+            }
         }
     });
 });
