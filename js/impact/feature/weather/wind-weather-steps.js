@@ -10,12 +10,12 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
         LEFT_WEAK: -80,
         LEFT_MEDIUM: -130
     };
-    sc.WIND_ALPHA = {
-        RIGHT_MEDIUM: 0.4,
-        RIGHT_WEAK: 0.2,
-        NONE: 0,
-        LEFT_WEAK: 0.2,
-        LEFT_MEDIUM: 0.4
+    sc.WIND_PARTICLE_COUNT = {
+        RIGHT_MEDIUM: 16,
+        RIGHT_WEAK: 9,
+        NONE: 2,
+        LEFT_WEAK: 9,
+        LEFT_MEDIUM: 16
     };
     sc.WIND_PARTICLE_DIR = {
         RIGHT_MEDIUM: {
@@ -78,15 +78,18 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
             weather.particleSpawners.forEach(spawner => {
                 if (this.strength === "NONE") {
                     spawner.config = ig.ENV_PARTICLES[spawner.name];
+                    spawner._initLevels();
                 } else {
                     spawner.config = {
                         ...spawner.config,
-                        dir: sc.WIND_PARTICLE_DIR[this.strength]
+                        dir: sc.WIND_PARTICLE_DIR[this.strength],
+                        speed: Math.abs(sc.WIND_STRENGTH[this.strength])
                     }
+                    spawner.setQuantity(sc.WIND_PARTICLE_COUNT[this.strength]);
                 }
             });
-            ig.weather.setWeather(weather, this.immediately)
-            this.entities = this.entities.map(e => ig.Event.getEntity(e, b));
+            ig.weather.setWeather(weather, this.immediately);
+            this.entities = this.entities.map(e => ig.Event.getEntity(e, b)).filter(e => !!e);
             if (this.strength === "NONE") {
                 ig.mapSounds.setEntry(ig.mapSounds.mapEntry);
             } else if (this.strength === "LEFT_WEAK" || this.strength === "RIGHT_WEAK") {
