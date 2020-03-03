@@ -72,14 +72,7 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
                 ...ig.weather.currentWeather,
                 config: {
                     ...ig.weather.currentWeather.config,
-                    rain: ig.RAIN_STRENGTH[this.strength === "NONE" ? "NONE" : "WIND_" + this.strength],
-                    fog: {
-                        alpha: sc.WIND_ALPHA[this.strength],
-                        vel: {
-                            x: sc.WIND_ALPHA[this.strength] * sc.WIND_STRENGTH[this.strength],
-                            y: 15
-                        }
-                    }
+                    rain: ig.RAIN_STRENGTH[this.strength === "NONE" ? "NONE" : "WIND_" + this.strength]
                 }
             };
             weather.particleSpawners.forEach(spawner => {
