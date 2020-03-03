@@ -155,14 +155,16 @@ ig.module("impact.feature.weather.wind").requires(
                 this.onEnd();
                 return;
             }
-            this.combatant.actionAttached.indexOf(this) === -1 && this.combatant.addActionAttached(this);
             if (!this.combatant.respawn.timer
                 && !(this.combatant.currentAction
                     && this.combatant.currentAction.name.includes("SPECIAL")
                     && this.combatant.coll.pos.z != this.combatant.coll.baseZPos)
                 && !sc.model.isCutscene()
                 && !this.combatant.interactObject
-                && !(this.combatant.stepData.path && this.combatant.stepData.path.isDestReachable())) {
+                && !(!(this.combatant instanceof ig.ENTITY.Enemy)
+                    && this.combatant.stepData.path
+                    && this.combatant.stepData.path.moveEntity())) {
+                this.combatant.actionAttached.indexOf(this) === -1 && this.combatant.addActionAttached(this);
                 var c = this.combatant.getAlignedPos(this.align, b);
                 var d = Vec2.create();
                 d.x = -10;
