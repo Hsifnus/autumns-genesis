@@ -40,4 +40,8 @@ import "./js/impact/feature/bgm/bgm-autumn-dng.js";
 
 import "./js/impact/feature/weather/weather-autumn-sunset.js";
 
-import "./js/impact/feature/weather/wind-weather-steps.js";
+import "./js/impact/feature/weather/wind.js";
+
+import "./js/impact/feature/weather/wind-aim.js";
+
+import "./js/impact/feature/weather/wind-weather.js";

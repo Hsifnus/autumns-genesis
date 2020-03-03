@@ -1,8 +1,8 @@
-ig.module("impact.feature.weather.wind-weather-steps").requires(
+ig.module("impact.feature.weather.wind").requires(
     "impact.feature.weather.weather-steps",
     "game.feature.combat.combat-force",
     "impact.feature.map-sounds.map-sounds-steps",
-    "impact.feature.weather.rain").defines(function() {
+    "game.feature.combat.entities.ball").defines(function() {
     sc.WIND_STRENGTH = {
         RIGHT_MEDIUM: 130,
         RIGHT_WEAK: 80,
@@ -41,6 +41,10 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
     }
     const weakWindEntry = new ig.MapSoundEntry("BERGEN_TRAIL_WIND_SUBTLE");
     const mediumWindEntry = new ig.MapSoundEntry("BERGEN_TRAIL_WIND");
+    sc.WindData = {
+        victims: [],
+        currentSpeed: 0
+    };
     ig.EVENT_STEP.SET_WIND_ON_ENTITIES = ig.EventStepBase.extend({
         _wm: new ig.Config({
             attributes: {
@@ -97,6 +101,8 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
             } else {
                 ig.mapSounds.setEntry(mediumWindEntry);
             }
+            sc.WindData.victims = this.strength === "NONE" ? [] : this.entities;
+            sc.WindData.currentSpeed = sc.WIND_STRENGTH[this.strength];
             this.entities.forEach(a => {
                 for (var e = a.actionAttached, b = e.length; b--;) {
                     var c = e[b];
@@ -180,48 +186,5 @@ ig.module("impact.feature.weather.wind-weather-steps").requires(
         isRepeating: function() {
             return this.timer < 0
         }
-    });
-    var m = 0,
-        n = 0;
-    ig.Rain.inject({
-        windGfx: new ig.ImagePatternSheet("media/map/wind.png", ig.ImagePattern.OPT.REPEAT_X_AND_Y, 128, 128),
-        draw: function() {
-            if (ig.perf.weather && sc.options.get("weather")) {
-                var a = ig.system.context.globalAlpha;
-                ig.system.context.globalCompositeOperation = "lighter";
-                for (var b = this.entries.length; b--;) {
-                    var e = this.entries[b],
-                        f = this.gfx.getPattern(e.pattern),
-                        g = 1;
-                    e.timer < e.fade ? g = e.timer / e.fade : e.timer > e.maxTime - e.fade && (g = (e.maxTime - e.timer) / e.fade);
-                    g = g * e.alpha;
-                    ig.system.context.globalAlpha = a * g;
-                    f.draw(0, 0, -e.pos.x +
-                        ig.game.screen.x, -e.pos.y + ig.game.screen.y, ig.system.width, ig.system.height);
-                    e.windPattern && this.windGfx.getPattern(e.windPattern-1).draw(0, 0, -e.pos.x +
-                        ig.game.screen.x, -e.pos.y + ig.game.screen.y, ig.system.width, ig.system.height);
-                }
-                ig.system.context.globalAlpha = a;
-                ig.system.context.globalCompositeOperation = "source-over"
-            }
-        },
-        spawnRain: function() {
-            var d = Math.random() * 0.75 + 0.25;
-            n = n + d * 128;
-            m = m + (1 - d) * 128;
-            this.entries.push({
-                timer: this.strength.duration,
-                maxTime: this.strength.duration,
-                pos: {
-                    x: n,
-                    y: m
-                },
-                move: this.strength.move,
-                alpha: this.strength.alpha || 0.2,
-                fade: this.strength.fade || 0.025,
-                pattern: this.strength.pattern,
-                windPattern: this.strength.windPattern
-            })
-        },
     });
 });

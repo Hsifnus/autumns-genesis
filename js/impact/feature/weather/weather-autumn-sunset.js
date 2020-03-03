@@ -81,7 +81,7 @@ ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.featu
     windPattern: 1,
     move: {
       x: -150,
-      y: 27
+      y: 50
     },
     duration: 0.5,
     wait: 0.2,
@@ -109,7 +109,7 @@ ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.featu
     windPattern: 2,
     move: {
       x: 150,
-      y: 27
+      y: 50
     },
     duration: 0.5,
     wait: 0.2,
