@@ -11,11 +11,11 @@ ig.module("impact.feature.weather.wind").requires(
         LEFT_MEDIUM: -130
     };
     sc.WIND_PARTICLE_COUNT = {
-        RIGHT_MEDIUM: 16,
-        RIGHT_WEAK: 9,
+        RIGHT_MEDIUM: 32,
+        RIGHT_WEAK: 20,
         NONE: 2,
-        LEFT_WEAK: 9,
-        LEFT_MEDIUM: 16
+        LEFT_WEAK: 20,
+        LEFT_MEDIUM: 32
     };
     sc.WIND_PARTICLE_DIR = {
         RIGHT_MEDIUM: {
