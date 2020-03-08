@@ -323,8 +323,8 @@ ig.module("game.feature.arena.trial").requires(
                 for (var a = this.cups[a].progress, b = 0, c = a.rounds.length; c--;) b = b + a.rounds[c].medal;
                 b = b / a.rounds.length;
                 c = ~~b;
-                b = b > c ? b - c >= sc.ARENA_TROPHY_QUOTA ? Math.round(b) : c : c;
-                if (b >= 4 && (this.isTrial(f) || a.rush.medal == 4)) {
+                var d = b > c ? b - c >= sc.ARENA_TROPHY_QUOTA ? Math.round(b) : c : c;
+                if (d >= 4 && ((this.isTrial(f) && b >= 4) || a.rush.medal == 4)) {
                     sc.stats.setMap("arena", "unlockedTruePlatin", 1);
                     return 5
                 }
