@@ -1,23 +1,23 @@
 {
     "autumnsGenesis" : {
-        "path" : "assets/media/bgm/muAutumnsgenesis.ogg",
+        "path" : "media/bgm/muAutumnsgenesis.ogg",
         "loopEnd" : 195.602,
         "volume" : 2.5
     },
     "titleAutumn": {
-        "path" : "assets/media/bgm/muTitleautumn.ogg",
+        "path" : "media/bgm/muTitleautumn.ogg",
         "loopEnd" : 37.419,
         "volume" : 1
     },
     "strikeHarder": {
-        "introPath": "assets/media/bgm/muStrikeharder-i.ogg",
-        "path": "assets/media/bgm/muStrikeharder.ogg",
+        "introPath": "media/bgm/muStrikeharder-i.ogg",
+        "path": "media/bgm/muStrikeharder.ogg",
         "introEnd": 19.209,
         "loopEnd": 180.006,
         "volume": 1.8
     },
     "windwardSpirit": {
-        "path": "assets/media/bgm/muWindwardspirit.ogg",
+        "path": "media/bgm/muWindwardspirit.ogg",
         "loopEnd": 171,
         "volume": 1.8
     }
