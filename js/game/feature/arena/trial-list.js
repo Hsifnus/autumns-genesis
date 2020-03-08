@@ -3,6 +3,7 @@ ig.module("game.feature.arena.trial-list").requires("game.feature.menu.gui.arena
     sc.ArenaRoundList.inject({
         onCreateListEntries: function(a, b) {
             var c = sc.arena.getCupRounds(this.currentCup);
+            sc.arena.resolveCupRounds(this.currentCup);
             a.clear();
             b.clear();
             if (!sc.arena.isTrial(this.currentCup)) {
