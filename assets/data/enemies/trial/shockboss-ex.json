@@ -314,6 +314,7 @@
       "walkAnims": "weak",
       "shadow": 24,
       "damageFactor": 1,
+      "hitStable": "HEAVY",
       "enabledReactions": [
         "HP_BREAK_WEAK",
         "KILL_HIT"
