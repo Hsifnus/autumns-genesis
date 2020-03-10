@@ -8414,6 +8414,38 @@
         }
       },
       {
+        "type":"DIRECT_HIT",
+        "selectType":"TRUE_TARGET",
+        "hitDir":"AWAY",
+        "hitCount":1,
+        "hitDelay":0,
+        "align":"FACE",
+        "attack":{
+          "type":"BREAK",
+          "fly":"MASSIVE+++",
+          "damageFactor":1,
+          "element":"SHOCK",
+          "spFactor":0,
+          "stunSteps":[
+            {
+              "type":"BLOCK_XY"
+            },
+            {
+              "value":150,
+              "type":"Z_VEL"
+            },
+            {
+              "type":"START_LOCK"
+            }
+          ],
+          "guardable":"NEVER",
+          "hitInvincible":true,
+          "noIronStance":true,
+          "skillBonus":"MELEE_DMG",
+          "limiter":"NO_DAMAGE"
+        }
+      },
+      {
         "poiFilter": {
           "name": "bossCenter",
           "type": "NAMED_ENTITY"
@@ -8527,6 +8559,9 @@
         "viaWalkConfig": false,
         "type": "SHOW_ANIMATION",
         "anim": "ground"
+      },
+      {
+        "type":"CLEAR_STUN_LOCKED"
       },
       {
         "conditions": [
