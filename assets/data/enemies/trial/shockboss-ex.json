@@ -8542,7 +8542,7 @@
         "radius": 200,
         "fadeRadius": 48,
         "minRadius": 0,
-        "zHeight": 64,
+        "zHeight": 6400,
         "duration": 1.2,
         "align": "BASE",
         "type": "PUSH_PULL_FORCE"
