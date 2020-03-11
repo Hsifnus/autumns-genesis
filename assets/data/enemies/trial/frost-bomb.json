@@ -286,7 +286,7 @@
       "stickToSource":"NONE",
       "stickFaceAlign":false,
       "group":"",
-      "timeDisconnect":false,
+      "timeDisconnect":true,
       "size":{
         "x":16,
         "y":16,
@@ -513,7 +513,7 @@
       "stickToSource":"NONE",
       "stickFaceAlign":false,
       "group":"",
-      "timeDisconnect":false,
+      "timeDisconnect":true,
       "size":{
         "x":16,
         "y":16,
@@ -533,7 +533,7 @@
       "stickToSource":"NONE",
       "stickFaceAlign":false,
       "group":"",
-      "timeDisconnect":false,
+      "timeDisconnect":true,
       "size":{
         "x":48,
         "y":48,
