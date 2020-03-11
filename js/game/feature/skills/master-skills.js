@@ -106,6 +106,7 @@ ig.module("game.feature.skills.master-skills").requires(
         }
     });
     function a(a, b, c, d) {
+        var g = sc.SPECIAL_ICONS;
         b = g[b];
         if (!b) return null;
         b = b[a];
@@ -113,8 +114,8 @@ ig.module("game.feature.skills.master-skills").requires(
         b = b[c - 1];
         return !b ? null : b[d] || null
     }
-    var g = {};
-    g[sc.ELEMENT.NEUTRAL] = {
+    sc.SPECIAL_ICONS = {};
+    sc.SPECIAL_ICONS[sc.ELEMENT.NEUTRAL] = {
         THROW: [{
             A: {
                 icon: 40
@@ -176,7 +177,7 @@ ig.module("game.feature.skills.master-skills").requires(
             }
         }]
     };
-    g[sc.ELEMENT.HEAT] = {
+    sc.SPECIAL_ICONS[sc.ELEMENT.HEAT] = {
         THROW: [{
             A: {
                 icon: 60
@@ -255,7 +256,7 @@ ig.module("game.feature.skills.master-skills").requires(
             }
         }]
     };
-    g[sc.ELEMENT.COLD] = {
+    sc.SPECIAL_ICONS[sc.ELEMENT.COLD] = {
         THROW: [{
             A: {
                 icon: 80
@@ -334,7 +335,7 @@ ig.module("game.feature.skills.master-skills").requires(
             }
         }]
     };
-    g[sc.ELEMENT.SHOCK] = {
+    sc.SPECIAL_ICONS[sc.ELEMENT.SHOCK] = {
         THROW: [{
             A: {
                 icon: 100
@@ -413,7 +414,7 @@ ig.module("game.feature.skills.master-skills").requires(
             }
         }]
     };
-    g[sc.ELEMENT.WAVE] = {
+    sc.SPECIAL_ICONS[sc.ELEMENT.WAVE] = {
         THROW: [{
             A: {
                 icon: 120
