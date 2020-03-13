@@ -146,7 +146,6 @@ ig.module("game.feature.player.custom-modifiers").requires(
             return g
         }
     });
-    ig.lang = new ig.Lang;
     sc.StatusViewModifiersContainer.inject({
         createLine: function(b, a, d, c, e) {
             var f = ig.lang.get("sc.gui.menu.equip.modifier." + b),

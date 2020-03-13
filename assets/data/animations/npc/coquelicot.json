@@ -3,9 +3,33 @@
   "namedSheets": {
     "walk": {
       "src": "media/entity/npc/coquelicot.png",
-      "xCount": 3,
+      "xCount": 17,
       "offX": 0,
       "offY": 0,
+      "width": 32,
+      "height": 40
+    },
+    "aim": {
+      "src": "media/entity/npc/coquelicot.png",
+      "xCount": 9,
+      "offX": 0,
+      "offY": 200,
+      "width": 32,
+      "height": 40
+    },
+    "spin": {
+      "src": "media/entity/npc/coquelicot.png",
+      "xCount": 12,
+      "offX": 0,
+      "offY": 320,
+      "width": 32,
+      "height": 40
+    },
+    "eat": {
+      "src": "media/entity/npc/coquelicot.png",
+      "xCount": 16,
+      "offX": 0,
+      "offY": 360,
       "width": 32,
       "height": 40
     }
@@ -34,15 +58,23 @@
         {
           "tileOffsets": [
             0,
-            3,
-            6,
-            9,
-            12,
-            9,
-            6,
-            3
+            17,
+            34,
+            51,
+            68,
+            51,
+            34,
+            17
           ],
           "SUB": [
+            {
+              "name": "preIdle",
+              "time": 1,
+              "repeat": false,
+              "frames": [
+                1
+              ]
+            },
             {
               "name": "idle",
               "time": 1,
@@ -61,7 +93,377 @@
                 2,
                 1
               ]
+            },
+            {
+              "name": "run",
+              "time": 0.086,
+              "repeat": true,
+              "frames": [
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+              ]
+            },
+            {
+              "name": "jump",
+              "time": 0.0666,
+              "repeat": false,
+              "frames": [
+                9
+              ]
+            },
+            {
+              "name": "fall",
+              "time": 0.0666,
+              "repeat": false,
+              "frames": [
+                10
+              ]
+            },
+            {
+              "name": "guard",
+              "time": 0.125,
+              "repeat": true,
+              "frames": [
+                11,
+                12,
+                13,
+                14
+              ]
+            },
+            {
+              "name": "charge",
+              "time": 0.1,
+              "repeat": false,
+              "frames": [
+                15
+              ]
+            },
+            {
+              "name": "chargeRev",
+              "time": 0.1,
+              "repeat": false,
+              "frames": [
+                16
+              ]
             }
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "aim",
+      "dirs": 6,
+      "flipX": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "dirOffsets": [
+        [0, 0, 0],
+        [-3, 0, 0],
+        [0, 0, 0],
+        [0, 0, 0],
+        [3, 0, 0],
+        [0, 0, 0]
+      ],
+      "tileOffsets": [
+        0,
+        9,
+        18,
+        18,
+        9,
+        0
+      ],
+      "SUB": [
+        {
+          "name": "aim",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "aimMove",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        {
+          "name": "aimMoveRev",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [
+            7,
+            6,
+            5,
+            4
+          ]
+        },
+        {
+          "name": "damage",
+          "time": 0.07,
+          "repeat": true,
+          "frames": [
+            8,
+            8
+          ],
+          "framesGfxOffset": [
+            0,
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "sheet":"spin",
+      "dirs": 8,
+      "flipX": [
+        0, 0, 0, 0, 0, 0, 0, 0
+      ],
+      "tileOffsets": [
+        0, 0, 0, 0, 0, 0, 0, 0
+      ],
+      "anchorOffsetX": [
+        1,
+        15,
+        20,
+        16,
+        0,
+        -16,
+        -20,
+        -15
+      ],
+      "anchorOffsetY": [
+        -21,
+        -18,
+        -6,
+        4,
+        10,
+        4,
+        -6,
+        -18
+      ],
+      "anchorOffsetZ": [
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12
+      ],
+      "SUB": [
+        {
+          "name": "idleBob",
+          "time": 0.25,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            1
+          ]
+        },
+        {
+          "name": "spinFull",
+          "time": 0.03,
+          "repeat": true,
+          "dirFrames": [
+            [
+              11,
+              10,
+              9,
+              8,
+              7,
+              6,
+              5
+            ],
+            [
+              4,
+              11,
+              10,
+              9,
+              8,
+              7,
+              6
+            ],
+            [
+              5,
+              4,
+              11,
+              10,
+              9,
+              8,
+              7
+            ],
+            [
+              6,
+              5,
+              4,
+              11,
+              10,
+              9,
+              8
+            ],
+            [
+              7,
+              6,
+              5,
+              4,
+              11,
+              10,
+              9
+            ],
+            [
+              8,
+              7,
+              6,
+              5,
+              4,
+              11,
+              10
+            ],
+            [
+              9,
+              8,
+              7,
+              6,
+              5,
+              5,
+              11
+            ],
+            [
+              10,
+              9,
+              8,
+              7,
+              6,
+              5,
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "eat",
+      "dirs": 1,
+      "flipX": [
+        0
+      ],
+      "tileOffsets": [
+        0
+      ],
+      "SUB": [
+        {
+          "name": "itemFetch",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "itemHold",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [
+            3
+          ]
+        },
+        {
+          "name": "itemEatFast",
+          "time": 0.06,
+          "repeat": false,
+          "frames": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            8,
+            8,
+            9,
+            9,
+            10,
+            10,
+            9,
+            9,
+            10,
+            10,
+            9,
+            9
+          ]
+        },
+        {
+          "name": "itemEffect",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            11,
+            11,
+            11,
+            11,
+            12,
+            13,
+            13,
+            14,
+            14,
+            15,
+            15,
+            13,
+            13,
+            14,
+            14,
+            15,
+            15,
+            13,
+            13,
+            14,
+            14,
+            15,
+            15
+          ]
+        },
+        {
+          "name": "itemEffectLoopFast",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "name": "itemEffectLoop",
+          "time": 0.1,
+          "repeat": true,
+          "frames": [
+            13,
+            14,
+            15
           ]
         }
       ]
