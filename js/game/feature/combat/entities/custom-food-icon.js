@@ -1,10 +1,10 @@
 ig.module("game.feature.combat.entities.custom-food-icon").requires(
-	"game.feature.combat.entities.food-icon", "game.feature.player.player-steps").defines(function() {
-	const customFoods = ["GENESIS_APPLE"];
-	for (var a = 0; a < customFoods.length; ++a) sc.FOOD_SPRITE[customFoods[a]] = -1;
-	sc.CUSTOM_FOOD_SPRITE = {};
-	for (var a = 0; a < customFoods.length; ++a) sc.CUSTOM_FOOD_SPRITE[customFoods[a]] = a;
-	ig.ACTION_STEP.SHOW_FOOD_ICON = ig.ActionStepBase.extend({
+    "game.feature.combat.entities.food-icon", "game.feature.player.player-steps").defines(function() {
+    const customFoods = ["GENESIS_APPLE"];
+    for (var a = 0; a < customFoods.length; ++a) sc.FOOD_SPRITE[customFoods[a]] = -1;
+    sc.CUSTOM_FOOD_SPRITE = {};
+    for (var a = 0; a < customFoods.length; ++a) sc.CUSTOM_FOOD_SPRITE[customFoods[a]] = a;
+    ig.ACTION_STEP.SHOW_FOOD_ICON = ig.ActionStepBase.extend({
         icon: null,
         _wm: new ig.Config({
             attributes: {
@@ -34,8 +34,8 @@ ig.module("game.feature.combat.entities.custom-food-icon").requires(
             this.offset && a.setState(sc.FOOD_ICON_STATE.HOLD, this.offset)
         }
     });
-	var d = {};
-	sc.FoodIconEntity.inject({
+    var d = {};
+    sc.FoodIconEntity.inject({
         customFoodSheet: new ig.TileSheet("media/entity/player/item-hold-custom.png", 16, 16, 0, 0),
         customIcon: 0,
         init: function(a, b, d, g) {

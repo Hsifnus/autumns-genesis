@@ -1,545 +1,424 @@
 {
-  "autumn-dng.hedgehog-ruins": {
-    "name": {
-      "en_US": "Hengehag",
-      "de_DE": "Hengehag",
-      "fr_FR": "Hengehag",
-      "zh_CN": "Hengehag",
-      "ja_JP": "Hengehag",
-      "ko_KR": "Hengehag",
-      "langUid": 67
-    },
-    "track": true,
-    "order": 54,
-    "area": "autumn-dng",
-    "anim": false,
-    "extra": false,
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "A hedgehag with a pelt overgrown in moss, thorns, and roses. Said to be several times more durable than a typical hedgehag, the Hengehag takes a liking to living with the ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. With a hide as hard as stone, the Hengehag's attacks hit harder than usual Hedgehag attacks, and it is also capable of spewing out seeds that burst forth in vines, making it a formidable Hedgehag to face."
+    "autumn-dng.hedgehog-ruins": {
+        "name": {
+            "en_US": "Hengehag",
+            "de_DE": "Hengehag",
+            "fr_FR": "Hengehag",
+            "zh_CN": "Hengehag",
+            "ja_JP": "Hengehag",
+            "ko_KR": "Hengehag",
+            "langUid": 67
         },
-        "condition": "",
-        "langUid": 14
-      }
-    ],
-    "species":{
-      "en_US":"Mammal",
-      "de_DE":"S\u00e4ugetier<<C<<gepr\u00fcft: Melsie",
-      "zh_CN":"\u54fa\u4e73\u7c7b",
-      "ja_JP":"\u54fa\u4e73\u985e",
-      "ko_KR":"\ud3ec\uc720\ub958",
-      "langUid":68
-    },
-    "category": "ANIMALS",
-    "level": 67,
-    "boostedLevel":67,
-    "params":{
-      "hp":22300,
-      "attack":370,
-      "defense":493,
-      "focus":373,
-      "elemFactor": [
-        1.25,
-        1,
-        1,
-        0.5
-      ],
-      "statusInflict":[
-        1.25,
-        0.5,
-        0.5,
-        0.5
-      ],
-      "statusEffect":[
-        1.5,
-        1,
-        1.5,
-        1
-      ]
-    },
-    "credit":1500,
-    "exp":60,
-    "itemDrops":[
-      {
-        "item":"81",
-        "prob":0.12,
-        "min":1,
-        "max":1,
-        "rank":""
-      },
-      {
-        "item":"87",
-        "prob":0.04,
-        "min":1,
-        "max":1,
-        "rank":"A"
-      }
-    ],
-    "boss": false
-  },
-  "autumn-dng.simurgh": {
-    "name": {
-      "en_US": "Shimmurgh",
-      "de_DE": "Shimmurgh",
-      "fr_FR": "Shimmurgh",
-      "zh_CN": "Shimmurgh",
-      "ja_JP": "Shimmurgh",
-      "ko_KR": "Shimmurgh",
-      "langUid": 67
-    },
-    "track": true,
-    "order": 252,
-    "area": "autumn-dng",
-    "anim": false,
-    "extra": "charge",
-    "species":{
-      "en_US":"Rainbow Bird",
-      "de_DE":"Rainbow Bird",
-      "zh_CN":"Rainbow Bird",
-      "ja_JP":"Rainbow Bird",
-      "ko_KR":"Rainbow Bird",
-      "langUid":1
-    },
-    "descriptions":[
-      {
-        "text":{
-          "en_US":"This bird is often seen flying about in \\c[3]\\v[area.bergen-trails.name]\\c[0]. However, it will flock to the trees of \\c[3]\\v[area.autumn-dng.name]\\c[0] to safely nest. As such, Shimmurgh are rather territorial and will retaliate at intruders with all their icy wrath. \nLike their cousins down in \\c[3]\\v[area.heat-area.name]\\c[0], they can use their jet turbines to boost into a chilling dive attack. However, this dive attack also leaves behind a trail of icy dust that can also chill careless attackers. Commit to countering their dives or play carefully!",
-          "langUid":3
+        "track": true,
+        "order": 54,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A hedgehag with a pelt overgrown in moss, thorns, and roses. Said to be several times more durable than a typical hedgehag, the Hengehag takes a liking to living with the ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. With a hide as hard as stone, the Hengehag's attacks hit harder than usual Hedgehag attacks, and it is also capable of spewing out seeds that burst forth in vines, making it a formidable Hedgehag to face."
+            },
+            "condition": "",
+            "langUid": 14
+        }],
+        "species": {
+            "en_US": "Mammal",
+            "de_DE": "Säugetier<<C<<geprüft: Melsie",
+            "zh_CN": "哺乳类",
+            "ja_JP": "哺乳類",
+            "ko_KR": "포유류",
+            "langUid": 68
         },
-        "condition":""
-      }
-    ],
-    "category": "ANIMALS",
-    "level":68,
-    "boostedLevel":68,
-    "params":{
-      "hp":31200,
-      "attack":454,
-      "defense":312,
-      "focus":423,
-      "elemFactor":[
-        0.75,
-        0.75,
-        1.25,
-        1
-      ],
-      "statusInflict":[
-        0.5,
-        0.5,
-        1,
-        1
-      ]
-    },
-    "credit":2120,
-    "exp":75,
-    "itemDrops": [
-      {
-        "item": "199",
-        "prob": 0.2,
-        "min": 1,
-        "max": 1,
-        "rank": ""
-      },
-      {
-        "item": "3",
-        "prob": 0.04,
-        "min": 1,
-        "max": 1,
-        "rank": "A"
-      }
-    ],
-    "boss": false
-  },
-  "autumn-dng.mini-golem": {
-    "name": {
-      "en_US": "Autumnaton",
-      "langUid": 67
-    },
-    "track": true,
-    "order": 312,
-    "area": "autumn-dng",
-    "anim": false,
-    "extra": false,
-    "species":{
-      "en_US":"Ruin Golem",
-      "langUid":1
-    },
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "A Neutral-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, dazing attack if provoked enough, which can conveniently be interrupted by launching a gust bullet into it. Somehow, this golem is capable of lifting itself into the air by spinning the sprout it has on its head rapidly.",
-          "langUid": 14
+        "category": "ANIMALS",
+        "level": 67,
+        "boostedLevel": 67,
+        "params": {
+            "hp": 22300,
+            "attack": 370,
+            "defense": 493,
+            "focus": 373,
+            "elemFactor": [1.25, 1, 1, 0.5],
+            "statusInflict": [1.25, 0.5, 0.5, 0.5],
+            "statusEffect": [1.5, 1, 1.5, 1]
         },
-        "condition": ""
-      }
-    ],
-    "category": "MECHA",
-    "level": 70,
-    "boostedLevel":70,
-    "params":{
-      "hp":36500,
-      "attack":465,
-      "defense":472,
-      "focus":398,
-      "elemFactor": [
-        1.15,
-        1,
-        1,
-        1
-      ],
-      "statusInflict":[
-        0,
-        0,
-        0,
-        0
-      ]
+        "credit": 1500,
+        "exp": 60,
+        "itemDrops": [{
+            "item": "81",
+            "prob": 0.12,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "87",
+            "prob": 0.04,
+            "min": 1,
+            "max": 1,
+            "rank": "A"
+        }],
+        "boss": false
     },
-    "credit":4550,
-    "exp":200,
-    "itemDrops":[],
-    "boss": false
-  },
-  "trial.megamoth-ex": {
-    "name": {
-      "en_US": "Master Magmoth",
-      "de_DE": "Meister Magmoth",
-      "zh_CN": "熔岩巨蛾王",
-      "ja_JP": "マスター・マグモス",
-      "ko_KR": "마스터 매그모스",
-      "langUid": 4580
-    },
-    "track": false,
-    "order": 10001,
-    "area": "heat-dng",
-    "anim": false,
-    "extra": false,
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "The moths of \\c[3]\\v[area.heat-dng.name]\\c[0] call this gigantic beast their mother. And it's pretty mad you hurt so many of its children. The only weak spot on its whole body is the eye at the head part and only if it's open and not closed. It will only open it right before it uses one of its attacks. When weak it tries to get away from its foe and regenerate, creating bubbles to fend off any attacks. Conveniently those can be used to create platforms on the hot coals! What are the chances?",
-          "de_DE": "Die Motten des \\c[3]\\v[area.heat-dng.name]s\\c[0] nennen dieses gigantische Biest ihre Mutter. Und sie ist ziemlich wütend darüber, dass du so viele ihrer Kinder verletzt hast. Die einzige Schwachstelle am Körper ist das Auge am Kopfteil, und das auch nur, wenn es geöffnet ist. Sie öffnet das Auge nur unmittelbar vor einer Attacke. Wenn sie schwach ist, versucht sie vor ihren Feinden zu fliehen und sich zu regenerieren, wobei sie Blasen erzeugt, um Attacken abzuwehren. Praktischerweise können diese benutzt werden, um Plattformen über die heißen Kohlen zu erzeugen. Was für ein Zufall!<<C<<Überprüfen: Beschreibung",
-          "zh_CN": "\\c[3]\\v[area.heat-dng.name]\\c[0]飞蛾们的母亲。你伤害了它的孩子们，它现在对你非常生气。它身上唯一的弱点就是头上的眼睛，而它的眼睛只在使用某些招式时才会睁开。当它的生命值降到一定程度，它会尝试躲避并进行生命恢复，这时它会创造一个可以阻挡所有攻击的泡泡。而这些泡泡正好处于热碳上，可以作为跳跃平台使用。真是方便！<<A<<[CHANGED 2018/09/19]",
-          "ja_JP": "\\c[3]\\v[area.heat-dng.name]\\c[0]に生息する蛾系モンスターの多くにとって、この巨大モンスターは母のような存在だ。愛しの子どもを傷つけたプレイヤーに激怒しているらしい。頭部に付いている眼球が弱点なのだが、閉じているとダメージを与えることができない。目を開くのは攻撃する時のみであるため、戦うのは困難を極める。また、弱ると敵から離れて自己回復を試みる他、バブルを生成して攻撃をかわそうとする。便利なことに、このバブルはマグマの足場として使うことができるのだ！ちょっと都合良すぎない？<<A<<[CHANGED 2018/09/19]",
-          "ko_KR": "\\c[3]\\v[area.heat-dng.name]\\c[0]의 나방은 이 거대한 괴물을 어미라고 부릅니다. 당신이 이 나방의 자식들을 너무 많이 죽여 화가 많이 났다고 합니다. 유일한 약점은 머리 쪽에 있는 눈이며, 그것도 눈을 뜨고 있을 때만 약합니다. 자신의 공격 중 어떤 것을 사용하기 직전에 눈을 뜹니다. 이 녀석은 약해지면 적으로부터 달아나 회복하고 거품을 생성해 공격을 방어합니다. 거품은 오히려 뜨거운 용암 위에 발판으로 만들 수 있습니다! 어떻게 이런 우연이 있을 수가!<<A<<[CHANGED 2018/09/19]",
-          "langUid": -5
+    "autumn-dng.simurgh": {
+        "name": {
+            "en_US": "Shimmurgh",
+            "de_DE": "Shimmurgh",
+            "fr_FR": "Shimmurgh",
+            "zh_CN": "Shimmurgh",
+            "ja_JP": "Shimmurgh",
+            "ko_KR": "Shimmurgh",
+            "langUid": 67
         },
-        "condition": ""
-      }
-    ],
-    "species": {
-      "en_US": "Mother of Moths",
-      "de_DE": "Mutter aller Motten<<C<<Überprüfen: Beschreibung",
-      "zh_CN": "飞蛾之母",
-      "ja_JP": "蛾の母",
-      "ko_KR": "나방의 어미",
-      "langUid": -1
-    },
-    "category": "ANIMALS",
-    "level": 80,
-    "boostedLevel": 80,
-    "params": {
-      "hp":458643,
-      "attack":468,
-      "defense":401,
-      "focus":507,
-      "elemFactor": [
-        0.2,
-        1.5,
-        1,
-        1
-      ],
-      "statusInflict": [
-        0,
-        0,
-        0.75,
-        0.75
-      ],
-      "statusEffect": [
-        0,
-        0.5,
-        0.5,
-        0.5
-      ]
-    },
-    "credit": 100000,
-    "exp": 2000,
-    "itemDrops": [],
-    "boss": true
-  },
-  "trial.waveboss-ex": {
-    "name": {
-      "en_US": "Sir Blobus Starnikus",
-      "de_DE": "Blobus Maximus Prallus",
-      "zh_CN": "布罗斯·斯塔尼库斯先生",
-      "ja_JP": "ブロブス・スターニクス卿",
-      "ko_KR": "블로버스 스타르니쿠스 경",
-      "langUid": 8830
-    },
-    "track": false,
-    "order": 10002,
-    "area": "wave-dng",
-    "anim": "idleStar",
-    "extra": false,
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "This starfish is the leader of both the \\v[combat.name.jungle/blob] and the \\v[combat.name.jungle/blob-wave]. It can enter a strange synthesis with them to create a large mass that is almost impenetrable. Only by using compressed shock balls can the bond be broken.",
-          "de_DE": "Dieser Seestern ist der Anführer der \\v[combat.name.jungle/blob] und der \\v[combat.name.jungle/blob-wave]. Es kann eine seltsame Synthese mit ihnen eingehen, die eine gewaltige undurchdringliche Masse bildet. Nur gebündelte Schock-Bälle können diesen Mantel brechen.<<C<<Überprüfen: Beschreibung",
-          "zh_CN": "这只海星是\\v[combat.name.jungle/blob]和\\v[combat.name.jungle/blob-wave]的领袖。它可以与它们产生奇妙的共生关系，结合成几乎不可破坏的巨型身体。只有通过蓄力电球才能破坏它们之间的联系。<<A<<[CHANGED 2018/10/16]",
-          "ja_JP": "\\v[combat.name.jungle/blob]と\\v[combat.name.jungle/blob-wave]の統率者であるヒトデ型モンスター。前述の2種と合体することによって巨大な体へと変身し、ほぼ無敵になることができる。圧縮した電撃攻撃を当ててその結合を解除することで、ダメージを与えられる。<<A<<[CHANGED 2018/10/16]",
-          "ko_KR": "이 불가사리는 \\v[combat.name.jungle/blob]과 \\v[combat.name.jungle/blob-wave]의 리더입니다. 불가사리는 그 둘과 이상한 형태로 합성해 거의 뚫을 수 없는 거대한 덩어리가 됩니다. 압축된 전기 공으로만 녀석들의 끈끈함을 부술 수 있습니다.<<A<<[CHANGED 2018/10/16]",
-          "langUid": -6
+        "track": true,
+        "order": 252,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": "charge",
+        "species": {
+            "en_US": "Rainbow Bird",
+            "de_DE": "Rainbow Bird",
+            "zh_CN": "Rainbow Bird",
+            "ja_JP": "Rainbow Bird",
+            "ko_KR": "Rainbow Bird",
+            "langUid": 1
         },
-        "condition": ""
-      }
-    ],
-    "species": {
-      "en_US": "Starfish",
-      "de_DE": "Seestern<<C<<Überprüfen: Beschreibung",
-      "zh_CN": "胶质生物<<A<<[CHANGED 2018/08/01]",
-      "ja_JP": "ヒトデ<<A<<[CHANGED 2018/08/01]",
-      "ko_KR": "불가사리<<A<<[CHANGED 2018/08/01]",
-      "langUid": -4
-    },
-    "category": "ABSTRACT",
-    "level": 80,
-    "boostedLevel": 0,
-    "params": {
-      "hp": 673414,
-      "attack": 480,
-      "defense": 510,
-      "focus": 456,
-      "elemFactor": [
-        0.75,
-        1.25,
-        1.5,
-        0.5
-      ],
-      "statusInflict": [
-        0.75,
-        0.5,
-        0.75,
-        0
-      ],
-      "statusEffect": [
-        0.05,
-        0.75,
-        0.05,
-        1
-      ]
-    },
-    "credit": 100000,
-    "exp": 2000,
-    "itemDrops": [],
-    "boss": true
-  },
-  "trial.shockboss-ex": {
-    "name": {
-      "en_US": "Plasma Phantom",
-      "de_DE": "Plasmaphantom",
-      "zh_CN": "离子幽灵",
-      "ja_JP": "プラズマファントム",
-      "ko_KR": "플라즈마 팬텀",
-      "langUid": 8074
-    },
-    "track": false,
-    "order": 10003,
-    "area": "shock-dng",
-    "kills": 1,
-    "anim": "idle",
-    "extra": false,
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "This cursed stone contains the soul of a once great Ancient. It mastered the shock element and can use it in all kinds of manners to disorient and overwhelm its enemies. Similar to the \\v[combat.name.jungle/ghost] it will cage itself to rain down lightning strikes upon its enemies. Use this window to shoot a compressed wave ball at it and break the curse!",
-          "de_DE": "Dieser verfluchter Stein beinhaltet eine Seele eines einst großen Ahnen. Er beherrschte das Schock-Element und kann es auf alle möglichen Arten einsetzen, um seine Feinde zu verwirren und zu überwältigen. Ähnlich dem \\v[combat.name.jungle/ghost] wird er sich in einen Käfig sperren, um Blitze auf seine Feinde niederzuschlagen. Nutze diesen Zeitpunkt, um einen kompakten Welle-Ball auf ihn zu feuern und den Fluch zu brechen!<<C<<Überprüfen: Beschreibung",
-          "zh_CN": "这块诅咒之石包含了一个曾经伟大的先祖灵魂。它掌握了电元素，能够巧妙的使用电元素来击晕或迷惑敌人。与\\v[combat.name.jungle/ghost]类似，它会保护好自身然后对敌人进行闪电狂轰乱炸。借这个机会向其射出蓄力波球！<<A<<[CHANGED 2018/08/01]",
-          "ja_JP": "かつての偉大な古代人の魂が封印されている呪われた石。電撃エレメントを極めており、ありとあらゆる戦術や技を駆使して敵を混乱させて圧倒する。また\\v[combat.name.jungle/ghost]と同じように、自身を壁の中に閉じ込めて、敵に稲妻の雨を降らせてくる。このチャンスを逃さず、圧縮した波動攻撃を命中させて、その呪いを打ち破ろう！<<A<<[CHANGED 2018/08/01]",
-          "ko_KR": "이 저주받은 돌에는 한때 위대했던 고대인의 영혼이 담겨 있습니다. 이 돌은 전기 속성을 마스터해 모든 방법으로 적을 교란하고 압도합니다. \\v[combat.name.jungle/ghost]와 비슷하게 자신의 몸을 숨겨 적에게 빗발치는 벼락을 선사합니다. 이 틈을 이용해 압축된 파동 공을 쏴 저주를 푸세요!<<A<<[CHANGED 2018/08/01]",
-          "langUid": -6
+        "descriptions": [{
+            "text": {
+                "en_US": "This bird is often seen flying about in \\c[3]\\v[area.bergen-trails.name]\\c[0]. However, it will flock to the trees of \\c[3]\\v[area.autumn-dng.name]\\c[0] to safely nest. As such, Shimmurgh are rather territorial and will retaliate at intruders with all their icy wrath. \nLike their cousins down in \\c[3]\\v[area.heat-area.name]\\c[0], they can use their jet turbines to boost into a chilling dive attack. However, this dive attack also leaves behind a trail of icy dust that can also chill careless attackers. Commit to countering their dives or play carefully!",
+                "langUid": 3
+            },
+            "condition": ""
+        }],
+        "category": "ANIMALS",
+        "level": 68,
+        "boostedLevel": 68,
+        "params": {
+            "hp": 31200,
+            "attack": 454,
+            "defense": 312,
+            "focus": 423,
+            "elemFactor": [0.75, 0.75, 1.25, 1],
+            "statusInflict": [0.5, 0.5, 1, 1]
         },
-        "condition": ""
-      }
-    ],
-    "species": {
-      "en_US": "Phantastical Being",
-      "de_DE": "Phantastisches Wesen<<C<<Überprüfen: Beschreibung",
-      "zh_CN": "幻之影",
-      "ja_JP": "幻想的な存在",
-      "ko_KR": "상상 속의 존재",
-      "langUid": -4
+        "credit": 2120,
+        "exp": 75,
+        "itemDrops": [{
+            "item": "199",
+            "prob": 0.2,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "3",
+            "prob": 0.04,
+            "min": 1,
+            "max": 1,
+            "rank": "A"
+        }],
+        "boss": false
     },
-    "category": "ABSTRACT",
-    "level": 44,
-    "boostedLevel": 0,
-    "params": {
-      "hp": 497256,
-      "attack": 514,
-      "defense": 435,
-      "focus": 502,
-      "elemFactor": [
-        1,
-        1,
-        0,
-        1.5
-      ],
-      "statusInflict": [
-        0.75,
-        0.5,
-        0,
-        0.75
-      ],
-      "statusEffect": [
-        0.2,
-        0.5,
-        0,
-        1
-      ]
-    },
-    "credit": 100000,
-    "exp": 2000,
-    "itemDrops": [],
-    "boss": true
-  },
-  "trial.boss-driller-ex": {
-    "name": {
-      "en_US": "X01 Driller H.F.S.",
-      "de_DE": "X01 Bohrer H.F.S.",
-      "zh_CN": "X01挖掘机兵H.F.S.",
-      "ja_JP": "X01 ドリラー H.F.S.",
-      "ko_KR": "X01 드릴러 H.F.S.",
-      "langUid": 763
-    },
-    "track": false,
-    "order": 200,
-    "area": "cold-dng",
-    "anim": false,
-    "extra": false,
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "This enormous mine robot was infected too and is the final test for the \\c[3]\\v[area.cold-dng.name]\\c[0]. Originally its purpose was to drill deep into the ground using its right arm to crack the stone. To avoid the cold in the deeper sections it could also use a flamethrower to battle the freezing temperatures and bombs to destroy even the thickest of rocks.\nHow it even got in here you ask? Don't be silly, every good miner knows not to share their secrets.",
-          "de_DE": "Dieser enorme Minenroboter wurde infiziert und ist die letzte Prüfung der \\c[3]\\v[area.cold-dng.name]\\c[0]. Seine ursprüngliche Funktion galt dem Bohren und Brechen von Gestein. Um der Kälte zu trotzen, wurde er mit einem Flammenwerfer bewaffnet. Außerdem ist er in der Lage, Bomben zu zünden, um sogar die hartnäckigsten Felsen zu sprengen. Du fragst dich, wie er überhaupt hierher gekommen ist? Sei nicht albern, jeder gute Minenarbeiter behält seine Geheimnisse für sich.<<C<<geprüft: Melsie",
-          "zh_CN": "这种庞大的矿用机器人被\\c[3]蚤虫\\c[0]感染了，它是\\c[3]神庙矿井\\c[0]的最终测试。它最初的用途是用其右臂粉碎岩石，钻入到地底深处。为避免地底深处的寒冷，它还能够使用火焰喷射器来对抗冰结温度，同时用炸弹摧毁哪怕最厚实的岩石。\n你问它是怎么到这儿来的？别傻了，这是矿工的秘密，怎么可能告诉你。<<A<<[CHANGED 2018/09/19]",
-          "ja_JP": "軌跡に寄生された非常に巨大な採掘ロボットで、\\c[3]\\v[area.cold-dng.name]\\c[0]の最終試練として待ち構えている。右腕で岩を砕いて地底へ掘り進むことが本来の目的だった。地底での気温低下に耐えるため火炎放射器を装備しており、非常に硬い岩盤を破壊するための爆弾も搭載していた。 どうやってこの中に運び込まれたのかって？バカな質問はやめてくれよ。腕のいい鉱山夫は、秘密を教えないものなのさ。<<A<<[CHANGED 2018/09/19]",
-          "ko_KR": "이 거대한 채굴 로봇도 감염되었으며, \\c[3]\\v[area.cold-dng.name]\\c[0]의 마지막 시험입니다. 원래의 목적은 이 로봇의 오른팔로 바위를 부숴 땅속 깊이 파고 들어가는 것이었습니다. 깊은 곳에서 추위를 견디기 위해 화염방사기를 사용하고, 폭탄을 사용해 가장 두꺼운 바위도 부술 수 있습니다.\n애초에 이게 어떻게 여기까지 들어왔냐고요? 에이, 좋은 광부는 비밀을 공유하지 않는다구요.<<A<<[CHANGED 2018/09/19]",
-          "langUid": -6
+    "autumn-dng.mini-golem": {
+        "name": {
+            "en_US": "Autumnaton",
+            "langUid": 67
         },
-        "condition": ""
-      }
-    ],
-    "species": {
-      "en_US": "Infected Mecha",
-      "de_DE": "Infizierter Mecha",
-      "zh_CN": "受感染的机甲",
-      "ja_JP": "侵食されたメカ",
-      "ko_KR": "감염된 메카",
-      "langUid": -1
-    },
-    "category": "MECHA",
-    "boostedLevel": 80,
-    "level": 80,
-    "params": {
-      "hp": 429001,
-      "attack": 472,
-      "defense": 490,
-      "focus": 535,
-      "elemFactor":[ 
-        1.25,
-        0.75,
-        1,
-        1
-      ],
-      "statusInflict": [
-        0,
-        0,
-        0,
-        0
-      ]
-    },
-    "credit": 100000,
-    "exp": 2000,
-    "itemDrops": [],
-    "boss": true
-  },
-  "mine-kamikatze-alt": {
-      "name": {
-        "en_US": "Kamikatze",
-        "de_DE": "Kamikatze",
-        "zh_CN": "自杀机兵",
-        "ja_JP": "ニャミカゼ",
-        "ko_KR": "카미카제",
-        "langUid": 329
-      },
-      "track": false,
-      "order": 180,
-      "area": "cold-dng",
-      "anim": false,
-      "extra": false,
-      "descriptions": [
-        {
-          "text": {
-            "en_US": "This bot was used to produce and carry highly explosive bombs into smaller tunnels inside the mine for controlled explosions. Thanks to the track it now uses said bombs against us and also uses a spinning flamethrower that it had built in for... reasons?",
-            "de_DE": "Diese Roboter wurde für das Herstellen und Transportieren von hochexplosiven Bomben in enge Tunnel der Mine zu bringen um kontrollierte Explosionen zu erzeugen. Dank des Pfads benutzt er jetzt diese Bomben gegen uns. Zusätzlich zu dem Flammenwerfer, den es eingebaut hat. Warum auch immer.<<C<<Überprüfen: Beschreibung",
-            "zh_CN": "这种机器人曾经被用来制造高爆炸弹并将其运送到矿坑的小型隧道中。由于受到了先祖之路的感染，它们将炸弹作为非法用途。同时它们还装备有旋转火焰喷射器...原因嘛，并不知道。<<A<<[CHANGED 2018/09/19]",
-            "ja_JP": "このロボットは元々、爆発を制御しながら採掘を行うために、強力な爆弾を生成し、鉱山の小さなトンネル内へと運搬する目的で使われていた。軌跡によって制御を奪われた今、このロボットはその爆弾を攻撃に転用しているほか、なぜだか内蔵されていた回転式火炎放射器で敵を一掃する。<<A<<[CHANGED 2018/09/19]",
-            "ko_KR": "이 봇은 세심히 관리되는 사원 내 폭발을 위해 고폭탄을 생성해 보다 작은 터널로 옮기는 역할을 하곤 했습니다. 고대인의 길 덕분에 당신을 상대로 앞서 언급한 고폭탄과 회전 화염방사기를 사용할 수 있게 된 데에는... 이유가 있겠죠?<<A<<[CHANGED 2018/09/19]",
-            "langUid": -40
-          },
-          "condition": ""
-        }
-      ],
-      "species": {
-        "en_US": "Mine Robot",
-        "de_DE": "Minenroboter<<C<<Überprüfen: Beschreibung",
-        "zh_CN": "矿井机兵",
-        "ja_JP": "採掘ロボット",
-        "ko_KR": "채굴 로봇",
-        "langUid": -2
-      },
-      "category": "MECHA",
-      "level": 18,
-      "boostedLevel": 0,
-      "params": {
-        "hp": 810,
-        "attack": 67,
-        "defense": 68,
-        "focus": 69,
-        "statusInflict": [
-          0.75,
-          1.25,
-          1,
-          1
-        ]
-      },
-      "credit": 136,
-      "exp": 60,
-      "itemDrops": [
-        {
-          "item": "163",
-          "prob": 0.16,
-          "min": 1,
-          "max": 1,
-          "rank": "D"
+        "track": true,
+        "order": 312,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Ruin Golem",
+            "langUid": 1
         },
-        {
-          "item": "160",
-          "prob": 0.08,
-          "min": 1,
-          "max": 1,
-          "rank": "D"
+        "descriptions": [{
+            "text": {
+                "en_US": "A Neutral-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, dazing attack if provoked enough, which can conveniently be interrupted by launching a gust bullet into it. Somehow, this golem is capable of lifting itself into the air by spinning the sprout it has on its head rapidly.",
+                "langUid": 14
+            },
+            "condition": ""
+        }],
+        "category": "MECHA",
+        "level": 70,
+        "boostedLevel": 70,
+        "params": {
+            "hp": 36500,
+            "attack": 465,
+            "defense": 472,
+            "focus": 398,
+            "elemFactor": [1.15, 1, 1, 1],
+            "statusInflict": [0, 0, 0, 0]
         },
-        {
-          "item": "460",
-          "prob": 0.05,
-          "min": 1,
-          "max": 1,
-          "boosted": true,
-          "condition": "item.448.toggled || stat.items.457>= 1",
-          "rank": "D"
-        }
-      ],
-      "boss": false
+        "credit": 4550,
+        "exp": 200,
+        "itemDrops": [],
+        "boss": false
+    },
+    "trial.megamoth-ex": {
+        "name": {
+            "en_US": "Master Magmoth",
+            "de_DE": "Meister Magmoth",
+            "zh_CN": "熔岩巨蛾王",
+            "ja_JP": "マスター・マグモス",
+            "ko_KR": "마스터 매그모스",
+            "langUid": 4580
+        },
+        "track": false,
+        "order": 10001,
+        "area": "heat-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "The moths of \\c[3]\\v[area.heat-dng.name]\\c[0] call this gigantic beast their mother. And it's pretty mad you hurt so many of its children. The only weak spot on its whole body is the eye at the head part and only if it's open and not closed. It will only open it right before it uses one of its attacks. When weak it tries to get away from its foe and regenerate, creating bubbles to fend off any attacks. Conveniently those can be used to create platforms on the hot coals! What are the chances?",
+                "de_DE": "Die Motten des \\c[3]\\v[area.heat-dng.name]s\\c[0] nennen dieses gigantische Biest ihre Mutter. Und sie ist ziemlich wütend darüber, dass du so viele ihrer Kinder verletzt hast. Die einzige Schwachstelle am Körper ist das Auge am Kopfteil, und das auch nur, wenn es geöffnet ist. Sie öffnet das Auge nur unmittelbar vor einer Attacke. Wenn sie schwach ist, versucht sie vor ihren Feinden zu fliehen und sich zu regenerieren, wobei sie Blasen erzeugt, um Attacken abzuwehren. Praktischerweise können diese benutzt werden, um Plattformen über die heißen Kohlen zu erzeugen. Was für ein Zufall!<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "\\c[3]\\v[area.heat-dng.name]\\c[0]飞蛾们的母亲。你伤害了它的孩子们，它现在对你非常生气。它身上唯一的弱点就是头上的眼睛，而它的眼睛只在使用某些招式时才会睁开。当它的生命值降到一定程度，它会尝试躲避并进行生命恢复，这时它会创造一个可以阻挡所有攻击的泡泡。而这些泡泡正好处于热碳上，可以作为跳跃平台使用。真是方便！<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "\\c[3]\\v[area.heat-dng.name]\\c[0]に生息する蛾系モンスターの多くにとって、この巨大モンスターは母のような存在だ。愛しの子どもを傷つけたプレイヤーに激怒しているらしい。頭部に付いている眼球が弱点なのだが、閉じているとダメージを与えることができない。目を開くのは攻撃する時のみであるため、戦うのは困難を極める。また、弱ると敵から離れて自己回復を試みる他、バブルを生成して攻撃をかわそうとする。便利なことに、このバブルはマグマの足場として使うことができるのだ！ちょっと都合良すぎない？<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "\\c[3]\\v[area.heat-dng.name]\\c[0]의 나방은 이 거대한 괴물을 어미라고 부릅니다. 당신이 이 나방의 자식들을 너무 많이 죽여 화가 많이 났다고 합니다. 유일한 약점은 머리 쪽에 있는 눈이며, 그것도 눈을 뜨고 있을 때만 약합니다. 자신의 공격 중 어떤 것을 사용하기 직전에 눈을 뜹니다. 이 녀석은 약해지면 적으로부터 달아나 회복하고 거품을 생성해 공격을 방어합니다. 거품은 오히려 뜨거운 용암 위에 발판으로 만들 수 있습니다! 어떻게 이런 우연이 있을 수가!<<A<<[CHANGED 2018/09/19]",
+                "langUid": -5
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Mother of Moths",
+            "de_DE": "Mutter aller Motten<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "飞蛾之母",
+            "ja_JP": "蛾の母",
+            "ko_KR": "나방의 어미",
+            "langUid": -1
+        },
+        "category": "ANIMALS",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 458643,
+            "attack": 468,
+            "defense": 401,
+            "focus": 507,
+            "elemFactor": [0.2, 1.5, 1, 1],
+            "statusInflict": [0, 0, 0.75, 0.75],
+            "statusEffect": [0, 0.5, 0.5, 0.5]
+        },
+        "credit": 100000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.waveboss-ex": {
+        "name": {
+            "en_US": "Sir Blobus Starnikus",
+            "de_DE": "Blobus Maximus Prallus",
+            "zh_CN": "布罗斯·斯塔尼库斯先生",
+            "ja_JP": "ブロブス・スターニクス卿",
+            "ko_KR": "블로버스 스타르니쿠스 경",
+            "langUid": 8830
+        },
+        "track": false,
+        "order": 10002,
+        "area": "wave-dng",
+        "anim": "idleStar",
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This starfish is the leader of both the \\v[combat.name.jungle/blob] and the \\v[combat.name.jungle/blob-wave]. It can enter a strange synthesis with them to create a large mass that is almost impenetrable. Only by using compressed shock balls can the bond be broken.",
+                "de_DE": "Dieser Seestern ist der Anführer der \\v[combat.name.jungle/blob] und der \\v[combat.name.jungle/blob-wave]. Es kann eine seltsame Synthese mit ihnen eingehen, die eine gewaltige undurchdringliche Masse bildet. Nur gebündelte Schock-Bälle können diesen Mantel brechen.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "这只海星是\\v[combat.name.jungle/blob]和\\v[combat.name.jungle/blob-wave]的领袖。它可以与它们产生奇妙的共生关系，结合成几乎不可破坏的巨型身体。只有通过蓄力电球才能破坏它们之间的联系。<<A<<[CHANGED 2018/10/16]",
+                "ja_JP": "\\v[combat.name.jungle/blob]と\\v[combat.name.jungle/blob-wave]の統率者であるヒトデ型モンスター。前述の2種と合体することによって巨大な体へと変身し、ほぼ無敵になることができる。圧縮した電撃攻撃を当ててその結合を解除することで、ダメージを与えられる。<<A<<[CHANGED 2018/10/16]",
+                "ko_KR": "이 불가사리는 \\v[combat.name.jungle/blob]과 \\v[combat.name.jungle/blob-wave]의 리더입니다. 불가사리는 그 둘과 이상한 형태로 합성해 거의 뚫을 수 없는 거대한 덩어리가 됩니다. 압축된 전기 공으로만 녀석들의 끈끈함을 부술 수 있습니다.<<A<<[CHANGED 2018/10/16]",
+                "langUid": -6
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Starfish",
+            "de_DE": "Seestern<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "胶质生物<<A<<[CHANGED 2018/08/01]",
+            "ja_JP": "ヒトデ<<A<<[CHANGED 2018/08/01]",
+            "ko_KR": "불가사리<<A<<[CHANGED 2018/08/01]",
+            "langUid": -4
+        },
+        "category": "ABSTRACT",
+        "level": 80,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 673414,
+            "attack": 480,
+            "defense": 510,
+            "focus": 456,
+            "elemFactor": [0.75, 1.25, 1.5, 0.5],
+            "statusInflict": [0.75, 0.5, 0.75, 0],
+            "statusEffect": [0.05, 0.75, 0.05, 1]
+        },
+        "credit": 100000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.shockboss-ex": {
+        "name": {
+            "en_US": "Plasma Phantom",
+            "de_DE": "Plasmaphantom",
+            "zh_CN": "离子幽灵",
+            "ja_JP": "プラズマファントム",
+            "ko_KR": "플라즈마 팬텀",
+            "langUid": 8074
+        },
+        "track": false,
+        "order": 10003,
+        "area": "shock-dng",
+        "kills": 1,
+        "anim": "idle",
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This cursed stone contains the soul of a once great Ancient. It mastered the shock element and can use it in all kinds of manners to disorient and overwhelm its enemies. Similar to the \\v[combat.name.jungle/ghost] it will cage itself to rain down lightning strikes upon its enemies. Use this window to shoot a compressed wave ball at it and break the curse!",
+                "de_DE": "Dieser verfluchter Stein beinhaltet eine Seele eines einst großen Ahnen. Er beherrschte das Schock-Element und kann es auf alle möglichen Arten einsetzen, um seine Feinde zu verwirren und zu überwältigen. Ähnlich dem \\v[combat.name.jungle/ghost] wird er sich in einen Käfig sperren, um Blitze auf seine Feinde niederzuschlagen. Nutze diesen Zeitpunkt, um einen kompakten Welle-Ball auf ihn zu feuern und den Fluch zu brechen!<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "这块诅咒之石包含了一个曾经伟大的先祖灵魂。它掌握了电元素，能够巧妙的使用电元素来击晕或迷惑敌人。与\\v[combat.name.jungle/ghost]类似，它会保护好自身然后对敌人进行闪电狂轰乱炸。借这个机会向其射出蓄力波球！<<A<<[CHANGED 2018/08/01]",
+                "ja_JP": "かつての偉大な古代人の魂が封印されている呪われた石。電撃エレメントを極めており、ありとあらゆる戦術や技を駆使して敵を混乱させて圧倒する。また\\v[combat.name.jungle/ghost]と同じように、自身を壁の中に閉じ込めて、敵に稲妻の雨を降らせてくる。このチャンスを逃さず、圧縮した波動攻撃を命中させて、その呪いを打ち破ろう！<<A<<[CHANGED 2018/08/01]",
+                "ko_KR": "이 저주받은 돌에는 한때 위대했던 고대인의 영혼이 담겨 있습니다. 이 돌은 전기 속성을 마스터해 모든 방법으로 적을 교란하고 압도합니다. \\v[combat.name.jungle/ghost]와 비슷하게 자신의 몸을 숨겨 적에게 빗발치는 벼락을 선사합니다. 이 틈을 이용해 압축된 파동 공을 쏴 저주를 푸세요!<<A<<[CHANGED 2018/08/01]",
+                "langUid": -6
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Phantastical Being",
+            "de_DE": "Phantastisches Wesen<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "幻之影",
+            "ja_JP": "幻想的な存在",
+            "ko_KR": "상상 속의 존재",
+            "langUid": -4
+        },
+        "category": "ABSTRACT",
+        "level": 44,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 497256,
+            "attack": 514,
+            "defense": 435,
+            "focus": 502,
+            "elemFactor": [1, 1, 0, 1.5],
+            "statusInflict": [0.75, 0.5, 0, 0.75],
+            "statusEffect": [0.2, 0.5, 0, 1]
+        },
+        "credit": 100000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.boss-driller-ex": {
+        "name": {
+            "en_US": "X01 Driller H.F.S.",
+            "de_DE": "X01 Bohrer H.F.S.",
+            "zh_CN": "X01挖掘机兵H.F.S.",
+            "ja_JP": "X01 ドリラー H.F.S.",
+            "ko_KR": "X01 드릴러 H.F.S.",
+            "langUid": 763
+        },
+        "track": false,
+        "order": 200,
+        "area": "cold-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This enormous mine robot was infected too and is the final test for the \\c[3]\\v[area.cold-dng.name]\\c[0]. Originally its purpose was to drill deep into the ground using its right arm to crack the stone. To avoid the cold in the deeper sections it could also use a flamethrower to battle the freezing temperatures and bombs to destroy even the thickest of rocks.\nHow it even got in here you ask? Don't be silly, every good miner knows not to share their secrets.",
+                "de_DE": "Dieser enorme Minenroboter wurde infiziert und ist die letzte Prüfung der \\c[3]\\v[area.cold-dng.name]\\c[0]. Seine ursprüngliche Funktion galt dem Bohren und Brechen von Gestein. Um der Kälte zu trotzen, wurde er mit einem Flammenwerfer bewaffnet. Außerdem ist er in der Lage, Bomben zu zünden, um sogar die hartnäckigsten Felsen zu sprengen. Du fragst dich, wie er überhaupt hierher gekommen ist? Sei nicht albern, jeder gute Minenarbeiter behält seine Geheimnisse für sich.<<C<<geprüft: Melsie",
+                "zh_CN": "这种庞大的矿用机器人被\\c[3]蚤虫\\c[0]感染了，它是\\c[3]神庙矿井\\c[0]的最终测试。它最初的用途是用其右臂粉碎岩石，钻入到地底深处。为避免地底深处的寒冷，它还能够使用火焰喷射器来对抗冰结温度，同时用炸弹摧毁哪怕最厚实的岩石。\n你问它是怎么到这儿来的？别傻了，这是矿工的秘密，怎么可能告诉你。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "軌跡に寄生された非常に巨大な採掘ロボットで、\\c[3]\\v[area.cold-dng.name]\\c[0]の最終試練として待ち構えている。右腕で岩を砕いて地底へ掘り進むことが本来の目的だった。地底での気温低下に耐えるため火炎放射器を装備しており、非常に硬い岩盤を破壊するための爆弾も搭載していた。 どうやってこの中に運び込まれたのかって？バカな質問はやめてくれよ。腕のいい鉱山夫は、秘密を教えないものなのさ。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "이 거대한 채굴 로봇도 감염되었으며, \\c[3]\\v[area.cold-dng.name]\\c[0]의 마지막 시험입니다. 원래의 목적은 이 로봇의 오른팔로 바위를 부숴 땅속 깊이 파고 들어가는 것이었습니다. 깊은 곳에서 추위를 견디기 위해 화염방사기를 사용하고, 폭탄을 사용해 가장 두꺼운 바위도 부술 수 있습니다.\n애초에 이게 어떻게 여기까지 들어왔냐고요? 에이, 좋은 광부는 비밀을 공유하지 않는다구요.<<A<<[CHANGED 2018/09/19]",
+                "langUid": -6
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Infected Mecha",
+            "de_DE": "Infizierter Mecha",
+            "zh_CN": "受感染的机甲",
+            "ja_JP": "侵食されたメカ",
+            "ko_KR": "감염된 메카",
+            "langUid": -1
+        },
+        "category": "MECHA",
+        "boostedLevel": 80,
+        "level": 80,
+        "params": {
+            "hp": 429001,
+            "attack": 472,
+            "defense": 490,
+            "focus": 535,
+            "elemFactor": [1.25, 0.75, 1, 1],
+            "statusInflict": [0, 0, 0, 0]
+        },
+        "credit": 100000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "mine-kamikatze-alt": {
+        "name": {
+            "en_US": "Kamikatze",
+            "de_DE": "Kamikatze",
+            "zh_CN": "自杀机兵",
+            "ja_JP": "ニャミカゼ",
+            "ko_KR": "카미카제",
+            "langUid": 329
+        },
+        "track": false,
+        "order": 180,
+        "area": "cold-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This bot was used to produce and carry highly explosive bombs into smaller tunnels inside the mine for controlled explosions. Thanks to the track it now uses said bombs against us and also uses a spinning flamethrower that it had built in for... reasons?",
+                "de_DE": "Diese Roboter wurde für das Herstellen und Transportieren von hochexplosiven Bomben in enge Tunnel der Mine zu bringen um kontrollierte Explosionen zu erzeugen. Dank des Pfads benutzt er jetzt diese Bomben gegen uns. Zusätzlich zu dem Flammenwerfer, den es eingebaut hat. Warum auch immer.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "这种机器人曾经被用来制造高爆炸弹并将其运送到矿坑的小型隧道中。由于受到了先祖之路的感染，它们将炸弹作为非法用途。同时它们还装备有旋转火焰喷射器...原因嘛，并不知道。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "このロボットは元々、爆発を制御しながら採掘を行うために、強力な爆弾を生成し、鉱山の小さなトンネル内へと運搬する目的で使われていた。軌跡によって制御を奪われた今、このロボットはその爆弾を攻撃に転用しているほか、なぜだか内蔵されていた回転式火炎放射器で敵を一掃する。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "이 봇은 세심히 관리되는 사원 내 폭발을 위해 고폭탄을 생성해 보다 작은 터널로 옮기는 역할을 하곤 했습니다. 고대인의 길 덕분에 당신을 상대로 앞서 언급한 고폭탄과 회전 화염방사기를 사용할 수 있게 된 데에는... 이유가 있겠죠?<<A<<[CHANGED 2018/09/19]",
+                "langUid": -40
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Mine Robot",
+            "de_DE": "Minenroboter<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "矿井机兵",
+            "ja_JP": "採掘ロボット",
+            "ko_KR": "채굴 로봇",
+            "langUid": -2
+        },
+        "category": "MECHA",
+        "level": 18,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 810,
+            "attack": 67,
+            "defense": 68,
+            "focus": 69,
+            "statusInflict": [0.75, 1.25, 1, 1]
+        },
+        "credit": 136,
+        "exp": 60,
+        "itemDrops": [{
+            "item": "163",
+            "prob": 0.16,
+            "min": 1,
+            "max": 1,
+            "rank": "D"
+        }, {
+            "item": "160",
+            "prob": 0.08,
+            "min": 1,
+            "max": 1,
+            "rank": "D"
+        }, {
+            "item": "460",
+            "prob": 0.05,
+            "min": 1,
+            "max": 1,
+            "boosted": true,
+            "condition": "item.448.toggled || stat.items.457>= 1",
+            "rank": "D"
+        }],
+        "boss": false
     }
 }

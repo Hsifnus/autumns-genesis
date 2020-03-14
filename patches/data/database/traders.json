@@ -1,88 +1,63 @@
 {
-  "arenaCoquelicot": {
-    "name": {
-      "en_US": "Master Trials Shop",
-      "langUid": 1
-    },
-    "order": 1000,
-    "options": [
-      {
-        "get": [
-          {
-            "id": "equip-magmoth",
-            "amount": 1
-          }
-        ],
-        "require": [
-          {
-            "id": "461",
-            "amount": 10
-          },
-          {
-            "id": "trade-magmoth",
-            "amount": 1
-          }
-        ],
-        "scale": 1
-      },
-      {
-        "get": [
-          {
-            "id": "equip-phantom",
-            "amount": 1
-          }
-        ],
-        "require": [
-          {
-            "id": "463",
-            "amount": 10
-          },
-          {
-            "id": "trade-phantom",
-            "amount": 1
-          }
-        ],
-        "scale": 1
-      },
-      {
-        "get": [
-          {
-            "id": "equip-blobus",
-            "amount": 1
-          }
-        ],
-        "require": [
-          {
-            "id": "464",
-            "amount": 10
-          },
-          {
-            "id": "trade-blobus",
-            "amount": 1
-          }
-        ],
-        "scale": 1
-      },
-      {
-        "get": [
-          {
-            "id": "equip-driller",
-            "amount": 1
-          }
-        ],
-        "require": [
-        	{
-            "id": "459",
-            "amount": 10
-          },
-          {
-            "id": "trade-driller",
-            "amount": 1
-          }
-        ],
-        "scale": 1
-      }
-    ],
-    "area": "rhombus-sqr"
-  }
+    "arenaCoquelicot": {
+        "name": {
+            "en_US": "Master Trials Shop",
+            "langUid": 1
+        },
+        "order": 1000,
+        "options": [{
+            "get": [{
+                "id": "equip-magmoth",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "461",
+                "amount": 10
+            }, {
+                "id": "trade-magmoth",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-phantom",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "463",
+                "amount": 10
+            }, {
+                "id": "trade-phantom",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-blobus",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "464",
+                "amount": 10
+            }, {
+                "id": "trade-blobus",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-driller",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "459",
+                "amount": 10
+            }, {
+                "id": "trade-driller",
+                "amount": 1
+            }],
+            "scale": 1
+        }],
+        "area": "rhombus-sqr"
+    }
 }

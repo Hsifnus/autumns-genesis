@@ -1,22 +1,22 @@
 {
-   "name": "autumns-genesis",
-   "displayName": "Autumn's Genesis",
-   "description": "Dungeon/Quest expansion to CrossCode",
-   "prestart": "mod.js",
-   "version": "0.1.0",
-   "module": true,
-   "ccmodDependencies": {
-      "item-api": "^0.*",
-      "hardcoded-config-injector": "^0.1.0"
-   },
-   "scripts": {
-      "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",
-      "minify-json": "minify-json ./",
-      "js-beautify": "js-beautify -js -q -r -f ./**/*.js",
-      "json-beautify": "js-beautify -js -r -f ./**/*.json"
-   },
-   "dependencies": {
-      "js-beautify": "^1.10.3",
-      "minify-json": "^1.0.0"
-   }
+    "name": "autumns-genesis",
+    "displayName": "Autumn's Genesis",
+    "description": "Dungeon/Quest expansion to CrossCode",
+    "prestart": "mod.js",
+    "version": "0.1.0",
+    "module": true,
+    "ccmodDependencies": {
+        "item-api": "^0.*",
+        "hardcoded-config-injector": "^0.1.0"
+    },
+    "scripts": {
+        "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",
+        "minify-json": "minify-json ./",
+        "js-beautify": "js-beautify -js -q -r -f ./**/*.js",
+        "json-beautify": "js-beautify -js -r -f ./**/*.json"
+    },
+    "dependencies": {
+        "js-beautify": "^1.10.3",
+        "minify-json": "^1.0.0"
+    }
 }

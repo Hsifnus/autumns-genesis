@@ -1,9 +1,9 @@
 ig.module("impact.feature.weather.wind-weather").requires(
-	"impact.feature.weather.wind",
-	"impact.feature.weather.rain",
-	"impact.feature.weather.weather"
-	).defines(function() {
-	var m = 0,
+    "impact.feature.weather.wind",
+    "impact.feature.weather.rain",
+    "impact.feature.weather.weather"
+).defines(function() {
+    var m = 0,
         n = 0;
     ig.Rain.inject({
         windGfx: new ig.ImagePatternSheet("media/map/wind.png", ig.ImagePattern.OPT.REPEAT_X_AND_Y, 128, 128),
@@ -20,7 +20,7 @@ ig.module("impact.feature.weather.wind-weather").requires(
                     ig.system.context.globalAlpha = a * g;
                     f.draw(0, 0, -e.pos.x +
                         ig.game.screen.x, -e.pos.y + ig.game.screen.y, ig.system.width, ig.system.height);
-                    e.windPattern && this.windGfx.getPattern(e.windPattern-1).draw(0, 0, -e.pos.x +
+                    e.windPattern && this.windGfx.getPattern(e.windPattern - 1).draw(0, 0, -e.pos.x +
                         ig.game.screen.x, -e.pos.y + ig.game.screen.y, ig.system.width, ig.system.height);
                 }
                 ig.system.context.globalAlpha = a;

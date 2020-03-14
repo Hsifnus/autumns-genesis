@@ -1,857 +1,761 @@
 {
-  "core": {
-    "type": "SOLO_CUP",
-    "name": {
-      "en_US": "Seeker Cup",
-      "de_DE": "Seeker-Pokal",
-      "zh_CN": "探索者杯赛<<A<<[CHANGED 2019/04/30]",
-      "ja_JP": "探索者カップ<<A<<[CHANGED 2019/04/30]",
-      "ko_KR": "시커 대회<<A<<[CHANGED 2019/04/30]",
-      "langUid": 4
+    "core": {
+        "type": "SOLO_CUP",
+        "name": {
+            "en_US": "Seeker Cup",
+            "de_DE": "Seeker-Pokal",
+            "zh_CN": "探索者杯赛<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "探索者カップ<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "시커 대회<<A<<[CHANGED 2019/04/30]",
+            "langUid": 4
+        },
+        "info": {
+            "en_US": "A challenging cup featuring both normal enemies and bosses.",
+            "de_DE": "Ein anspruchsvoller Pokal mit normalen Gegnern und Bossen.",
+            "zh_CN": "一个包含普通敌人和Boss的挑战杯赛。<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "通常の敵やボスと戦う、より難易度の高いカップ。<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "일반 적과 보스가 모두 등장하는 도전적인 대회입니다.<<A<<[CHANGED 2019/04/30]",
+            "langUid": 1
+        },
+        "creator": {
+            "en_US": "R.D.",
+            "de_DE": "R.D.",
+            "zh_CN": "R.D.<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "R.D.<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "R.D.<<A<<[CHANGED 2019/04/30]",
+            "langUid": 30
+        },
+        "music": "challenge",
+        "rushMusic": "raidTheme",
+        "level": 60,
+        "difficulty": "2",
+        "banner": {
+            "src": "media/gui/arena-banners.png",
+            "offX": 280,
+            "offY": 64,
+            "width": 280,
+            "height": 64
+        }
     },
-    "info": {
-      "en_US": "A challenging cup featuring both normal enemies and bosses.",
-      "de_DE": "Ein anspruchsvoller Pokal mit normalen Gegnern und Bossen.",
-      "zh_CN": "一个包含普通敌人和Boss的挑战杯赛。<<A<<[CHANGED 2019/04/30]",
-      "ja_JP": "通常の敵やボスと戦う、より難易度の高いカップ。<<A<<[CHANGED 2019/04/30]",
-      "ko_KR": "일반 적과 보스가 모두 등장하는 도전적인 대회입니다.<<A<<[CHANGED 2019/04/30]",
-      "langUid": 1
-    },
-    "creator": {
-      "en_US": "R.D.",
-      "de_DE": "R.D.",
-      "zh_CN": "R.D.<<A<<[CHANGED 2019/04/30]",
-      "ja_JP": "R.D.<<A<<[CHANGED 2019/04/30]",
-      "ko_KR": "R.D.<<A<<[CHANGED 2019/04/30]",
-      "langUid": 30
-    },
-    "music": "challenge",
-    "rushMusic": "raidTheme",
-    "level": 60,
-    "difficulty": "2",
-    "banner": {
-      "src": "media/gui/arena-banners.png",
-      "offX": 280,
-      "offY": 64,
-      "width": 280,
-      "height": 64
-    }
-  },
-  "rounds": [
-    {
-      "name": {
-        "en_US": "Rusty Robots",
-        "de_DE": "Rostige Roboter",
-        "zh_CN": "锈蚀机器人<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "赤錆ロボット<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "녹슨 로봇<<A<<[CHANGED 2019/04/30]",
-        "langUid": 22
-      },
-      "customCode": false,
-      "camFocus": "CAM_FOCUS",
-      "roundFocus": "CAM_FOCUS",
-      "platPoints": 220000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat enemies hailing from \\c[3]\\v[area.cold-dng.name]\\c[0]!",
-        "de_DE": "Besiege Gegner aus der \\c[3]\\v[area.cold-dng.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.cold-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "\\c[3]\\v[area.cold-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "\\c[3]\\v[area.cold-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
-        "langUid": 23
-      },
-      "mods": [
-        "ENVIRO_HAZARD"
-      ],
-      "points": 190000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [
-        {
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn1",
-              "type": "mine-runbot",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn2",
-              "type": "mine-runbot",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "SpawnAreaLarge",
-              "type": "mine-kamikatze",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            }
-          ]
+    "rounds": [{
+        "name": {
+            "en_US": "Rusty Robots",
+            "de_DE": "Rostige Roboter",
+            "zh_CN": "锈蚀机器人<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "赤錆ロボット<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "녹슨 로봇<<A<<[CHANGED 2019/04/30]",
+            "langUid": 22
         },
-        {
-          "camFocus": "CAM_FOCUS",
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "mine-diggingbot",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn1",
-              "type": "mine-coldbug",
-              "attribs": {
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn2",
-              "type": "mine-coldbug",
-              "attribs": {
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn3",
-              "type": "mine-coldbug",
-              "attribs": {
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn4",
-              "type": "mine-coldbug",
-              "attribs": {
-                "activeIf": ""
-              }
-            }
-          ]
-        }
-      ],
-      "map": "arena.dungeons.cold-dng-01",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 60,
-          "points": 10000
+        "customCode": false,
+        "camFocus": "CAM_FOCUS",
+        "roundFocus": "CAM_FOCUS",
+        "platPoints": 220000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat enemies hailing from \\c[3]\\v[area.cold-dng.name]\\c[0]!",
+            "de_DE": "Besiege Gegner aus der \\c[3]\\v[area.cold-dng.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.cold-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "\\c[3]\\v[area.cold-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "\\c[3]\\v[area.cold-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
+            "langUid": 23
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "CHAIN",
-          "target": 8,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 30000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "The Hungry Worm",
-        "de_DE": "Der hungrige Wurm",
-        "zh_CN": "饥饿蠕虫<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "空腹の虫<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "배고픈 지렁이<<A<<[CHANGED 2019/05/06]",
-        "langUid": 28
-      },
-      "customCode": true,
-      "platPoints": 300000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0] boss from \\c[3]\\v[area.heat-area.name]\\c[0]!",
-        "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0], dem Boss aus dem \\c[3]\\v[area.heat-area.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.heat-area.name]\\c[0]的强化版\\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]boss!<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "\\c[3]\\v[area.heat-area.name]\\c[0]のボス、\\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "\\c[3]\\v[area.heat-area.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/04/30]",
-        "langUid": 29
-      },
-      "points": 190000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.boss.worm-boss",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 180,
-          "points": 100000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 50000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "Hot Hombres",
-        "de_DE": "Hitzige Hombres",
-        "zh_CN": "狂暴热浪<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "炎の戦士たち<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "뜨거운 남자<<A<<[CHANGED 2019/04/30]",
-        "langUid": 5
-      },
-      "customCode": false,
-      "camFocus": "CAM_FOCUS",
-      "roundFocus": "CAM_FOCUS",
-      "platPoints": 180000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat enemies hailing from \\c[3]\\v[area.heat-dng.name]\\c[0]!",
-        "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.heat-dng.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.heat-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "\\c[3]\\v[area.heat-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "\\c[3]\\v[area.heat-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
-        "langUid": 21
-      },
-      "points": 150000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [
-        {
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn1",
-              "type": "heat.moth",
-              "attribs": {
-                "supportMode": false,
-                "noBuffs": false,
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn2",
-              "type": "heat.moth",
-              "attribs": {
-                "supportMode": false,
-                "noBuffs": false,
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "heat.darth-moth",
-              "attribs": {
-                "supportMode": false,
-                "noBuffs": false,
-                "hidden": false,
-                "activeIf": ""
-              }
-            }
-          ]
-        },
-        {
-          "camFocus": "CAM_FOCUS",
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "heat.heat-golem",
-              "attribs": {
-                "supportMode": false,
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "align": {
-                "alignX": "CENTER",
-                "alignY": "TOP"
-              },
-              "face": "SOUTH",
-              "marker": "SpawnAreaLarge",
-              "type": "heat.jellyfish",
-              "attribs": {
-                "supportMode": true
-              }
-            }
-          ]
-        }
-      ],
-      "map": "arena.dungeons.heat-dng-01",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 60,
-          "points": 10000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "CHAIN",
-          "target": 5,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 30000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "The Daft Trickster",
-        "de_DE": "Der hopsende Halunke",
-        "zh_CN": "狂闹诈徒<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "狂気のトリックスター<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "모자란 사기꾼<<A<<[CHANGED 2019/05/06]",
-        "langUid": 31
-      },
-      "customCode": true,
-      "platPoints": 110000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.daft-frobbit]\\c[0] boss from \\c[3]\\v[area.autumn-fall.name]\\c[0]!",
-        "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.daft-frobbit]\\c[0], dem Boss aus \\c[3]\\v[area.autumn-fall.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.autumn-fall.name]\\c[0]的强化版\\c[3]\\v[combat.name.daft-frobbit]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "\\c[3]\\v[area.autumn-fall.name]\\c[0]のボス、\\c[3]\\v[combat.name.daft-frobbit]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "\\c[3]\\v[area.autumn-fall.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.daft-frobbit]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
-        "langUid": 32
-      },
-      "points": 80000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.boss.frobbit-boss",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 90,
-          "points": 25000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 5000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN",
-      "firstClearBonus":[
-        {
-          "item":"trade-frobbit",
-          "count":1,
-          "condition":"true"
-        }
-      ]
-    },
-    {
-      "name": {
-        "en_US": "Blitz Ballers",
-        "de_DE": "Blitzballer",
-        "zh_CN": "闪电战士<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "電撃機動隊<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "블리츠볼 선수<<A<<[CHANGED 2019/04/30]",
-        "langUid": 24
-      },
-      "customCode": false,
-      "camFocus": "CAM_FOCUS",
-      "roundFocus": "CAM_FOCUS",
-      "platPoints": 125000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat enemies hailing from \\c[3]\\v[area.shock-dng.name]\\c[0]!",
-        "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.shock-dng.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.shock-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "\\c[3]\\v[area.shock-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "\\c[3]\\v[area.shock-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
-        "langUid": 25
-      },
-      "points": 110000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [
-        {
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "jungle.powerplant",
-              "attribs": {
-                "activeIf": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn1",
-              "type": "jungle.chicken",
-              "attribs": {
-                "activeIf": "",
-                "idAircon": 0,
-                "hidden": false,
-                "mapVar": null
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "state": "DEFAULT",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn2",
-              "type": "jungle.chicken",
-              "attribs": {
-                "activeIf": "",
-                "idAircon": 0,
-                "hidden": false,
-                "mapVar": null
-              }
-            }
-          ]
-        },
-        {
-          "camFocus": "CAM_FOCUS",
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn2",
-              "type": "jungle.ghost",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn1",
-              "type": "jungle.ghost",
-              "attribs": {
-                "hidden": false,
-                "activeIf": ""
-              }
-            }
-          ]
-        }
-      ],
-      "map": "arena.dungeons.shock-dng-01",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 75,
-          "points": 10000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "CHAIN",
-          "target": 5,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 20000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "The No-Winged Devil",
-        "de_DE": "Der flügellose Teufel",
-        "zh_CN": "无翼恶魔<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "無翼の悪魔<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "날개 없는 악마<<A<<[CHANGED 2019/05/06]",
-        "langUid": 33
-      },
-      "customCode": true,
-      "platPoints": 120000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0] boss from \\c[3]\\v[area.jungle.name]\\c[0]!",
-        "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0], dem Boss aus \\c[3]\\v[area.jungle.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.jungle.name]\\c[0]的强化版\\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "\\c[3]\\v[area.jungle.name]\\c[0]のボス、\\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "\\c[3]\\v[area.jungle.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
-        "langUid": 34
-      },
-      "points": 90000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.boss.sloth-boss",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 90,
-          "points": 25000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 10000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "Groovy Goofers",
-        "de_DE": "Groovige Gaffer",
-        "zh_CN": "音律节拍<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "グルーヴグループ<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "멋진 멍청이<<A<<[CHANGED 2019/04/30]",
-        "langUid": 26
-      },
-      "customCode": false,
-      "camFocus": "CAM_FOCUS",
-      "roundFocus": "CAM_FOCUS",
-      "platPoints": 245000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat enemies hailing from \\c[3]\\v[area.wave-dng.name]\\c[0]!",
-        "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.wave-dng.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.wave-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
-        "ja_JP": "\\c[3]\\v[area.wave-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
-        "ko_KR": "\\c[3]\\v[area.wave-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
-        "langUid": 27
-      },
-      "points": 210000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [
-        {
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn1",
-              "type": "jungle.blob-wave",
-              "attribs": {
-                "summon": "",
-                "activeIf": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn2",
-              "type": "jungle.blob-wave",
-              "attribs": {
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn3",
-              "type": "jungle.blob-wave",
-              "attribs": {
-                "summon": "",
-                "activeIf": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "Spawn4",
-              "type": "jungle.blob-wave",
-              "attribs": {
-                "summon": "",
-                "activeIf": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "align": {
-                "alignX": "CENTER",
-                "alignY": "CENTER",
-                "offset": {
-                  "x": -16,
-                  "y": 0
+        "mods": ["ENVIRO_HAZARD"],
+        "points": 190000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [{
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn1",
+                "type": "mine-runbot",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
                 }
-              },
-              "face": "SOUTH",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "jungle.octopus",
-              "attribs": {
-                "activeIf": "",
-                "summon": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "align": {
-                "alignX": "CENTER",
-                "alignY": "CENTER",
-                "offset": {
-                  "x": 16,
-                  "y": 0
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn2",
+                "type": "mine-runbot",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
                 }
-              },
-              "face": "SOUTH",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "jungle.octopus",
-              "attribs": {
-                "activeIf": "",
-                "summon": "",
-                "hidden": false
-              }
-            }
-          ]
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "SpawnAreaLarge",
+                "type": "mine-kamikatze",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }]
+        }, {
+            "camFocus": "CAM_FOCUS",
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "mine-diggingbot",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn1",
+                "type": "mine-coldbug",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn2",
+                "type": "mine-coldbug",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn3",
+                "type": "mine-coldbug",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn4",
+                "type": "mine-coldbug",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }]
+        }],
+        "map": "arena.dungeons.cold-dng-01",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 60,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "CHAIN",
+            "target": 8,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 30000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Hungry Worm",
+            "de_DE": "Der hungrige Wurm",
+            "zh_CN": "饥饿蠕虫<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "空腹の虫<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "배고픈 지렁이<<A<<[CHANGED 2019/05/06]",
+            "langUid": 28
         },
-        {
-          "camFocus": "CAM_FOCUS",
-          "enemies": [
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH",
-              "count": 1,
-              "enemy": "hedgehog",
-              "marker": "SpawnAreaLarge",
-              "type": "jungle.blueray",
-              "attribs": {
-                "activeIf": "",
-                "summon": "",
-                "hidden": false
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_EAST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn1",
-              "type": "jungle.fish",
-              "attribs": {
-                "activeIf": ""
-              }
-            },
-            {
-              "group": "",
-              "party": "",
-              "face": "SOUTH_WEST",
-              "count": 1,
-              "enemy": "meerkat",
-              "marker": "Spawn2",
-              "type": "jungle.fish",
-              "attribs": {
-                "activeIf": ""
-              }
-            }
-          ]
-        }
-      ],
-      "map": "arena.dungeons.wave-dng-01",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 60,
-          "points": 10000
+        "customCode": true,
+        "platPoints": 300000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0] boss from \\c[3]\\v[area.heat-area.name]\\c[0]!",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0], dem Boss aus dem \\c[3]\\v[area.heat-area.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.heat-area.name]\\c[0]的强化版\\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]boss!<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "\\c[3]\\v[area.heat-area.name]\\c[0]のボス、\\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "\\c[3]\\v[area.heat-area.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.heat/sandworm-boss]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/04/30]",
+            "langUid": 29
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
+        "points": 190000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.worm-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 180,
+            "points": 100000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 50000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Hot Hombres",
+            "de_DE": "Hitzige Hombres",
+            "zh_CN": "狂暴热浪<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "炎の戦士たち<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "뜨거운 남자<<A<<[CHANGED 2019/04/30]",
+            "langUid": 5
         },
-        {
-          "type": "CHAIN",
-          "target": 9,
-          "points": 2500
+        "customCode": false,
+        "camFocus": "CAM_FOCUS",
+        "roundFocus": "CAM_FOCUS",
+        "platPoints": 180000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat enemies hailing from \\c[3]\\v[area.heat-dng.name]\\c[0]!",
+            "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.heat-dng.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.heat-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "\\c[3]\\v[area.heat-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "\\c[3]\\v[area.heat-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
+            "langUid": 21
         },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 30000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "The Immortal Blade",
-        "de_DE": "Die unsterbliche Klinge",
-        "zh_CN": "不朽之刃<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "無限の刀剣<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "불멸의 검<<A<<[CHANGED 2019/05/06]",
-        "langUid": 35
-      },
-      "customCode": true,
-      "platPoints": 130000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0] boss from \\c[3]\\v[area.forest.name]\\c[0]!",
-        "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0], dem Boss aus dem \\c[3]\\v[area.forest.name]\\c[0]!",
-        "zh_CN": "击败来自\\c[3]\\v[area.forest.name]\\c[0]的强化版\\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
-        "ja_JP": "\\c[3]\\v[area.forest.name]\\c[0]のボス、\\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
-        "ko_KR": "\\c[3]\\v[area.forest.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
-        "langUid": 36
-      },
-      "points": 100000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.boss.samurai-boss",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 90,
-          "points": 25000
+        "points": 150000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [{
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn1",
+                "type": "heat.moth",
+                "attribs": {
+                    "supportMode": false,
+                    "noBuffs": false,
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn2",
+                "type": "heat.moth",
+                "attribs": {
+                    "supportMode": false,
+                    "noBuffs": false,
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "heat.darth-moth",
+                "attribs": {
+                    "supportMode": false,
+                    "noBuffs": false,
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }]
+        }, {
+            "camFocus": "CAM_FOCUS",
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "heat.heat-golem",
+                "attribs": {
+                    "supportMode": false,
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "align": {
+                    "alignX": "CENTER",
+                    "alignY": "TOP"
+                },
+                "face": "SOUTH",
+                "marker": "SpawnAreaLarge",
+                "type": "heat.jellyfish",
+                "attribs": {
+                    "supportMode": true
+                }
+            }]
+        }],
+        "map": "arena.dungeons.heat-dng-01",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 60,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "CHAIN",
+            "target": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 30000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Daft Trickster",
+            "de_DE": "Der hopsende Halunke",
+            "zh_CN": "狂闹诈徒<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "狂気のトリックスター<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "모자란 사기꾼<<A<<[CHANGED 2019/05/06]",
+            "langUid": 31
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 2500
+        "customCode": true,
+        "platPoints": 110000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.daft-frobbit]\\c[0] boss from \\c[3]\\v[area.autumn-fall.name]\\c[0]!",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.daft-frobbit]\\c[0], dem Boss aus \\c[3]\\v[area.autumn-fall.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.autumn-fall.name]\\c[0]的强化版\\c[3]\\v[combat.name.daft-frobbit]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "\\c[3]\\v[area.autumn-fall.name]\\c[0]のボス、\\c[3]\\v[combat.name.daft-frobbit]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "\\c[3]\\v[area.autumn-fall.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.daft-frobbit]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
+            "langUid": 32
         },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 10000,
-          "points": 5000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    }
-  ]
+        "points": 80000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.frobbit-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 90,
+            "points": 25000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 5000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN",
+        "firstClearBonus": [{
+            "item": "trade-frobbit",
+            "count": 1,
+            "condition": "true"
+        }]
+    }, {
+        "name": {
+            "en_US": "Blitz Ballers",
+            "de_DE": "Blitzballer",
+            "zh_CN": "闪电战士<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "電撃機動隊<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "블리츠볼 선수<<A<<[CHANGED 2019/04/30]",
+            "langUid": 24
+        },
+        "customCode": false,
+        "camFocus": "CAM_FOCUS",
+        "roundFocus": "CAM_FOCUS",
+        "platPoints": 125000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat enemies hailing from \\c[3]\\v[area.shock-dng.name]\\c[0]!",
+            "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.shock-dng.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.shock-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "\\c[3]\\v[area.shock-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "\\c[3]\\v[area.shock-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
+            "langUid": 25
+        },
+        "points": 110000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [{
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "jungle.powerplant",
+                "attribs": {
+                    "activeIf": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn1",
+                "type": "jungle.chicken",
+                "attribs": {
+                    "activeIf": "",
+                    "idAircon": 0,
+                    "hidden": false,
+                    "mapVar": null
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "state": "DEFAULT",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn2",
+                "type": "jungle.chicken",
+                "attribs": {
+                    "activeIf": "",
+                    "idAircon": 0,
+                    "hidden": false,
+                    "mapVar": null
+                }
+            }]
+        }, {
+            "camFocus": "CAM_FOCUS",
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn2",
+                "type": "jungle.ghost",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn1",
+                "type": "jungle.ghost",
+                "attribs": {
+                    "hidden": false,
+                    "activeIf": ""
+                }
+            }]
+        }],
+        "map": "arena.dungeons.shock-dng-01",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 75,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "CHAIN",
+            "target": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 20000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The No-Winged Devil",
+            "de_DE": "Der flügellose Teufel",
+            "zh_CN": "无翼恶魔<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "無翼の悪魔<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "날개 없는 악마<<A<<[CHANGED 2019/05/06]",
+            "langUid": 33
+        },
+        "customCode": true,
+        "platPoints": 120000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0] boss from \\c[3]\\v[area.jungle.name]\\c[0]!",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0], dem Boss aus \\c[3]\\v[area.jungle.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.jungle.name]\\c[0]的强化版\\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "\\c[3]\\v[area.jungle.name]\\c[0]のボス、\\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "\\c[3]\\v[area.jungle.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.minibosses/sloth-black]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
+            "langUid": 34
+        },
+        "points": 90000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.sloth-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 90,
+            "points": 25000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 10000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Groovy Goofers",
+            "de_DE": "Groovige Gaffer",
+            "zh_CN": "音律节拍<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "グルーヴグループ<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "멋진 멍청이<<A<<[CHANGED 2019/04/30]",
+            "langUid": 26
+        },
+        "customCode": false,
+        "camFocus": "CAM_FOCUS",
+        "roundFocus": "CAM_FOCUS",
+        "platPoints": 245000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat enemies hailing from \\c[3]\\v[area.wave-dng.name]\\c[0]!",
+            "de_DE": "Besiege Gegner aus dem \\c[3]\\v[area.wave-dng.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.wave-dng.name]\\c[0]的敌人!<<A<<[CHANGED 2019/04/30]",
+            "ja_JP": "\\c[3]\\v[area.wave-dng.name]\\c[0]の敵を倒せ！<<A<<[CHANGED 2019/04/30]",
+            "ko_KR": "\\c[3]\\v[area.wave-dng.name]\\c[0] 출신의 적을 처치하세요!<<A<<[CHANGED 2019/04/30]",
+            "langUid": 27
+        },
+        "points": 210000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [{
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn1",
+                "type": "jungle.blob-wave",
+                "attribs": {
+                    "summon": "",
+                    "activeIf": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn2",
+                "type": "jungle.blob-wave",
+                "attribs": {
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn3",
+                "type": "jungle.blob-wave",
+                "attribs": {
+                    "summon": "",
+                    "activeIf": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "Spawn4",
+                "type": "jungle.blob-wave",
+                "attribs": {
+                    "summon": "",
+                    "activeIf": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "align": {
+                    "alignX": "CENTER",
+                    "alignY": "CENTER",
+                    "offset": {
+                        "x": -16,
+                        "y": 0
+                    }
+                },
+                "face": "SOUTH",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "jungle.octopus",
+                "attribs": {
+                    "activeIf": "",
+                    "summon": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "align": {
+                    "alignX": "CENTER",
+                    "alignY": "CENTER",
+                    "offset": {
+                        "x": 16,
+                        "y": 0
+                    }
+                },
+                "face": "SOUTH",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "jungle.octopus",
+                "attribs": {
+                    "activeIf": "",
+                    "summon": "",
+                    "hidden": false
+                }
+            }]
+        }, {
+            "camFocus": "CAM_FOCUS",
+            "enemies": [{
+                "group": "",
+                "party": "",
+                "face": "SOUTH",
+                "count": 1,
+                "enemy": "hedgehog",
+                "marker": "SpawnAreaLarge",
+                "type": "jungle.blueray",
+                "attribs": {
+                    "activeIf": "",
+                    "summon": "",
+                    "hidden": false
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_EAST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn1",
+                "type": "jungle.fish",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }, {
+                "group": "",
+                "party": "",
+                "face": "SOUTH_WEST",
+                "count": 1,
+                "enemy": "meerkat",
+                "marker": "Spawn2",
+                "type": "jungle.fish",
+                "attribs": {
+                    "activeIf": ""
+                }
+            }]
+        }],
+        "map": "arena.dungeons.wave-dng-01",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 60,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "CHAIN",
+            "target": 9,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 30000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Immortal Blade",
+            "de_DE": "Die unsterbliche Klinge",
+            "zh_CN": "不朽之刃<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "無限の刀剣<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "불멸의 검<<A<<[CHANGED 2019/05/06]",
+            "langUid": 35
+        },
+        "customCode": true,
+        "platPoints": 130000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat a stronger version of the \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0] boss from \\c[3]\\v[area.forest.name]\\c[0]!",
+            "de_DE": "Besiege eine stärkere Version von \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0], dem Boss aus dem \\c[3]\\v[area.forest.name]\\c[0]!",
+            "zh_CN": "击败来自\\c[3]\\v[area.forest.name]\\c[0]的强化版\\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]boss!<<A<<[CHANGED 2019/05/06]",
+            "ja_JP": "\\c[3]\\v[area.forest.name]\\c[0]のボス、\\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]の強化版を倒せ！<<A<<[CHANGED 2019/05/06]",
+            "ko_KR": "\\c[3]\\v[area.forest.name]\\c[0]의 보스인 \\c[3]\\v[combat.name.forest/samurai-boss]\\c[0]의 더 강한 버전을 처치하세요!<<A<<[CHANGED 2019/05/06]",
+            "langUid": 36
+        },
+        "points": 100000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.samurai-boss",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 90,
+            "points": 25000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 2500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 10000,
+            "points": 5000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }]
 }

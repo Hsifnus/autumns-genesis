@@ -2,7 +2,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
     "game.feature.player.modifiers",
     "game.feature.menu.gui.item.item-status-equip",
     "game.feature.menu.gui.menu-misc",
-    "game.feature.menu.gui.status.status-misc").defines(function(){
+    "game.feature.menu.gui.status.status-misc").defines(function() {
     var a = Vec2.create();
     var b = ["#8bb5ff", "#ba0000", "#0036d0", "#a121bc", "#00994c", "#c7c7c7"];
     sc.MODIFIERS.MOTH_SPECIAL = {
@@ -210,8 +210,8 @@ ig.module("game.feature.player.custom-modifiers").requires(
             if (d.length > 9 && d.slice(0, 9) == "modifier." && e == -1) {
                 var modifier = sc.MODIFIERS[d.slice(9)];
                 x = modifier.altSheet,
-                y = modifier.offX,
-                z = modifier.offY;
+                    y = modifier.offX,
+                    z = modifier.offY;
             }
             f = new sc.SimpleStatusDisplay(ig.lang.get("sc.gui.menu.equip." + d), c, e, f, g, null, 0, j, x, y, z);
             f.setPos(b, a);

@@ -1,55 +1,51 @@
 {
-  "name": {
-    "en_US": "Coquelicot",
-    "langUid": 1
-  },
-  "size": {
-    "x": 16,
-    "y": 16,
-    "z": 24
-  },
-  "animSheet": "npc.coquelicot",
-  "walkAnimSet": {
-    "normal": {
-      "idle": "idle",
-      "move": "walk"
-    }
-  },
-  "walkAnims": "normal",
-  "configs": {
-    "normal": {
-      "relativeVel": 0.5
-    }
-  },
-  "face": {
-    "width": 120,
-    "height": 137,
-    "centerX": 48,
-    "centerY": 54,
-    "src": "coquelicot.png",
-    "parts": [
-      {
+    "name": {
+        "en_US": "Coquelicot",
+        "langUid": 1
+    },
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "animSheet": "npc.coquelicot",
+    "walkAnimSet": {
         "normal": {
-          "srcX": 10,
-          "srcY": 13,
-          "width": 120,
-          "height": 137,
-          "destX": 0,
-          "destY": 0,
-          "subX": 0,
-          "subY": 0,
-          "img": ""
+            "idle": "idle",
+            "move": "walk"
         }
-      }
-    ],
-    "expressions": {
-      "DEFAULT": {
-        "faces": [
-          [
-            "normal"
-          ]
-        ]
-      }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 120,
+        "height": 137,
+        "centerX": 48,
+        "centerY": 54,
+        "src": "coquelicot.png",
+        "parts": [{
+            "normal": {
+                "srcX": 10,
+                "srcY": 13,
+                "width": 120,
+                "height": 137,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
     }
-  }
 }

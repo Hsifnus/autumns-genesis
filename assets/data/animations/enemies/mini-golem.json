@@ -1,173 +1,78 @@
 {
-  "DOCTYPE":"MULTI_DIR_ANIMATION",
-  "namedSheets":{
-    "move":{
-      "src":"media/entity/enemy/mini-golem.png",
-      "offX":0,
-      "offY":0,
-      "width":48,
-      "height":48
-    }
-  },
-  "shapeType":"Y_FLAT",
-  "sheet":"move",
-  "SUB":[
-    {
-      "dirs":"6",
-      "flipX":[
-        0,
-        0,
-        0,
-        1,
-        1,
-        1
-      ],
-      "tileOffsets":[
-        0,
-        11,
-        22,
-        22,
-        11,
-        0
-      ],
-      "SUB":[
-        {
-          "name":"idle",
-          "time":0.25,
-          "repeat":true,
-          "frames":[
-            0,
-            1,
-            2,
-            1
-          ]
-        },
-        {
-          "name":"idleFast",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            0,
-            1,
-            2
-          ]
-        },
-        {
-          "name":"land",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            3
-          ]
-        },
-        {
-          "name":"jump",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            1
-          ]
-        },
-        {
-          "name":"chargePre",
-          "time":0.2,
-          "repeat":false,
-          "frames":[
-            4
-          ]
-        },
-        {
-          "name":"charge",
-          "time":0.05,
-          "repeat":true,
-          "frames":[
-            5,
-            5
-          ],
-          "framesGfxOffset":[
-            1,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "name":"damage",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            5
-          ]
-        },
-        {
-          "name":"attackStart",
-          "time":0.05,
-          "repeat":false,
-          "frames":[
-            6,
-            7
-          ]
-        },
-        {
-          "name":"attackShake",
-          "time":0.05,
-          "repeat":true,
-          "frames":[
-            7,
-            7
-          ],
-          "framesGfxOffset":[
-            0,
-            0,
-            1,
-            0
-          ]
-        },
-        {
-          "name":"attackHold",
-          "time":0.05,
-          "repeat":false,
-          "frames":[
-            7
-          ]
-        },
-        {
-          "name":"copter",
-          "time":0.05,
-          "repeat":true,
-          "frames":[
-            8,
-            8,
-            8,
-            9,
-            9,
-            9,
-            10,
-            10,
-            10
-          ],
-          "framesGfxOffset":[
-            0,
-            0,
-            0,
-            2,
-            0,
-            3,
-            0,
-            2,
-            0,
-            1,
-            0,
-            -1,
-            0,
-            -2,
-            0,
-            -3,
-            0,
-            -2
-          ]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/mini-golem.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 48,
+            "height": 48
         }
-      ]
-    }
-  ]
+    },
+    "shapeType": "Y_FLAT",
+    "sheet": "move",
+    "SUB": [{
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 11, 22, 22, 11, 0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.25,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "idleFast",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0, 1, 2]
+        }, {
+            "name": "land",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [3]
+        }, {
+            "name": "jump",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [1]
+        }, {
+            "name": "chargePre",
+            "time": 0.2,
+            "repeat": false,
+            "frames": [4]
+        }, {
+            "name": "charge",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [5, 5],
+            "framesGfxOffset": [1, 0, 0, 0]
+        }, {
+            "name": "damage",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [5]
+        }, {
+            "name": "attackStart",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [6, 7]
+        }, {
+            "name": "attackShake",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [7, 7],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "attackHold",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [7]
+        }, {
+            "name": "copter",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [8, 8, 8, 9, 9, 9, 10, 10, 10],
+            "framesGfxOffset": [0, 0, 0, 2, 0, 3, 0, 2, 0, 1, 0, -1, 0, -2, 0, -3, 0, -2]
+        }]
+    }]
 }
