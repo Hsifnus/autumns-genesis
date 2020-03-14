@@ -1,5 +1,6 @@
 {
-   "name": "Autumn's Genesis",
+   "name": "autumns-genesis",
+   "displayName": "Autumn's Genesis",
    "description": "Dungeon/Quest expansion to CrossCode",
    "prestart": "mod.js",
    "version": "0.1.0",
@@ -13,7 +14,7 @@
       "minify-json": "minify-json ./",
       "js-beautify": "js-beautify -js -q -r -f ./**/*.js",
       "json-beautify": "js-beautify -js -r -f ./**/*.json"
-  },
+   },
    "dependencies": {
       "js-beautify": "^1.10.3",
       "minify-json": "^1.0.0"
