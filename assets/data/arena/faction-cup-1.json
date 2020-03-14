@@ -1,356 +1,314 @@
 {
-  "core": {
-    "type": "SOLO_CUP",
-    "name": {
-      "en_US": "Faction Rookie Cup",
-      "de_DE": "Fraktionspokal - Anfänger",
-      "zh_CN": "派系新手杯赛<<A<<[CHANGED 2019/07/31]",
-      "ja_JP": "ファクションルーキーカップ<<A<<[CHANGED 2019/07/31]",
-      "ko_KR": "세력 초보자 대회<<A<<[CHANGED 2019/07/31]",
-      "langUid": 4
-    },
-    "info": {
-      "en_US": "Refight several early battles found during your quests for the factions!",
-      "de_DE": "Bekämpfe nochmals die frühen Bosse aus den Quests der Fraktionen!",
-      "zh_CN": "再次对抗几个早期派系任务！<<A<<[CHANGED 2019/07/31]",
-      "ja_JP": "ゲーム序盤のファクションクエストで出会った敵ともう一度戦おう！<<A<<[CHANGED 2019/07/31]",
-      "ko_KR": "초기 세력 퀘스트 진행 중 싸웠던 몬스터들과 다시 싸우세요!<<A<<[CHANGED 2019/07/31]",
-      "langUid": 1
-    },
-    "condition": "quest.fd-2-meerkat-cave.solved && quest.rhg-2-crate_smuggle.solved && quest.miners-1-dirtbunnies.solved && quest.bg-2-goat_cave_1.solved && quest.nomadAdv-1-turtle_bombing_1.solved && quest.bakiGuard-1-basar_thief_1.solved",
-    "music": "challenge",
-    "rushMusic": "raidTheme",
-    "level": 60,
-    "difficulty": "2",
-    "banner": {
-      "src": "media/gui/arena-banners.png",
-      "offX": 0,
-      "offY": 128,
-      "width": 280,
-      "height": 64
-    }
-  },
-  "rounds": [
-    {
-      "name": {
-        "en_US": "Hillkat Hoodlums",
-        "de_DE": "Hillkat-Halunken",
-        "zh_CN": "地鼠流氓<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "極道ヒルキャット<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "양아치 힐캣<<A<<[CHANGED 2019/07/31]",
-        "langUid": 28
-      },
-      "customCode": true,
-      "camFocus": "arena",
-      "platPoints": 250000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Refight the \\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0] and his gang of \\c[3]Hillkats\\c[0] in their cave in \\c[3]\\v[area.autumn-area.name]\\c[0]!",
-        "de_DE": "Bekämpfe nochmals den \\c[3]Hillkat-Anführer\\c[0] und seine Bande von \\c[3]Hillkats\\c[0] in ihrer Höhle in \\c[3]\\v[area.autumn-area.name]\\c[0]!",
-        "zh_CN": "在\\c[3]\\v[area.autumn-area.name]\\c[0]的洞穴中再次与\\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0]和他的\\c[3]地鼠\\c[0]走狗们对战!<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "\\c[3]\\v[area.autumn-area.name]\\c[0]の洞窟で出会った\\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0]と子分の\\c[3]ヒルキャット\\c[0]たちともう一度戦え！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "\\c[3]\\v[area.autumn-area.name]\\c[0]에 있는 \\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0] 및 \\c[3]힐캣\\c[0] 무리와 다시 싸우세요!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 29
-      },
-      "points": 200000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.autumn-meerkat-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 120,
-          "points": 10000
+    "core": {
+        "type": "SOLO_CUP",
+        "name": {
+            "en_US": "Faction Rookie Cup",
+            "de_DE": "Fraktionspokal - Anfänger",
+            "zh_CN": "派系新手杯赛<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "ファクションルーキーカップ<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "세력 초보자 대회<<A<<[CHANGED 2019/07/31]",
+            "langUid": 4
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 10,
-          "points": 5000
+        "info": {
+            "en_US": "Refight several early battles found during your quests for the factions!",
+            "de_DE": "Bekämpfe nochmals die frühen Bosse aus den Quests der Fraktionen!",
+            "zh_CN": "再次对抗几个早期派系任务！<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "ゲーム序盤のファクションクエストで出会った敵ともう一度戦おう！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "초기 세력 퀘스트 진행 중 싸웠던 몬스터들과 다시 싸우세요!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 1
         },
-        {
-          "type": "CHAIN",
-          "target": 7,
-          "points": 5500
-        },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 3000
+        "condition": "quest.fd-2-meerkat-cave.solved && quest.rhg-2-crate_smuggle.solved && quest.miners-1-dirtbunnies.solved && quest.bg-2-goat_cave_1.solved && quest.nomadAdv-1-turtle_bombing_1.solved && quest.bakiGuard-1-basar_thief_1.solved",
+        "music": "challenge",
+        "rushMusic": "raidTheme",
+        "level": 60,
+        "difficulty": "2",
+        "banner": {
+            "src": "media/gui/arena-banners.png",
+            "offX": 0,
+            "offY": 128,
+            "width": 280,
+            "height": 64
         }
-      ],
-      "spawn": "PLAYER_SPAWN",
-      "firstClearBonus":[
-        {
-          "item":"trade-hilikat",
-          "count":1,
-          "condition":"true"
-        }
-      ]
     },
-    {
-      "name": {
-        "en_US": "Turret Troubles",
-        "de_DE": "Geschützgefahr",
-        "zh_CN": "炮塔问题<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "タレット・トラブル<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "골치 아픈 포탑<<A<<[CHANGED 2019/07/31]",
-        "langUid": 48
-      },
-      "customCode": true,
-      "camFocus": "PLAYER_SPAWN",
-      "platPoints": 240000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat the \\c[3]\\v[combat.name.turret-rhg-1]\\c[0] that got you in a crossfire in \\c[3]\\v[area.rookie-harbor.name]\\c[0]!",
-        "de_DE": "Besiege das \\c[3]Illegale Rhombus-Geschütz\\c[0], das dich in \\c[3]\\v[area.rookie-harbor.name]\\c[0] unter Kreuzfeuer genommen hat!",
-        "zh_CN": "在\\c[3]\\v[area.rookie-harbor.name]\\c[0]的交叉火力中击败\\c[3]\\v[combat.name.turret-rhg-1]\\c[0]!<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "\\c[3]\\v[area.rookie-harbor.name]\\c[0]で集中砲火を浴びせられた\\c[3]\\v[combat.name.turret-rhg-1]\\c[0]を倒せ！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "\\c[3]\\v[area.rookie-harbor.name]\\c[0]에서 십자 포화를 퍼부었던 \\c[3]\\v[combat.name.turret-rhg-1]\\c[0]을 처치하세요!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 31
-      },
-      "points": 200000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.rh-turrets-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 60,
-          "points": 10000
+    "rounds": [{
+        "name": {
+            "en_US": "Hillkat Hoodlums",
+            "de_DE": "Hillkat-Halunken",
+            "zh_CN": "地鼠流氓<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "極道ヒルキャット<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "양아치 힐캣<<A<<[CHANGED 2019/07/31]",
+            "langUid": 28
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 5500
+        "customCode": true,
+        "camFocus": "arena",
+        "platPoints": 250000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Refight the \\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0] and his gang of \\c[3]Hillkats\\c[0] in their cave in \\c[3]\\v[area.autumn-area.name]\\c[0]!",
+            "de_DE": "Bekämpfe nochmals den \\c[3]Hillkat-Anführer\\c[0] und seine Bande von \\c[3]Hillkats\\c[0] in ihrer Höhle in \\c[3]\\v[area.autumn-area.name]\\c[0]!",
+            "zh_CN": "在\\c[3]\\v[area.autumn-area.name]\\c[0]的洞穴中再次与\\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0]和他的\\c[3]地鼠\\c[0]走狗们对战!<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "\\c[3]\\v[area.autumn-area.name]\\c[0]の洞窟で出会った\\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0]と子分の\\c[3]ヒルキャット\\c[0]たちともう一度戦え！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "\\c[3]\\v[area.autumn-area.name]\\c[0]에 있는 \\c[3]\\v[combat.name.meerkat-special-command-1]\\c[0] 및 \\c[3]힐캣\\c[0] 무리와 다시 싸우세요!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 29
         },
-        {
-          "type": "CHAIN",
-          "target": 6,
-          "points": 5500
+        "points": 200000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.autumn-meerkat-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 120,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 10,
+            "points": 5000
+        }, {
+            "type": "CHAIN",
+            "target": 7,
+            "points": 5500
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 3000
+        }],
+        "spawn": "PLAYER_SPAWN",
+        "firstClearBonus": [{
+            "item": "trade-hilikat",
+            "count": 1,
+            "condition": "true"
+        }]
+    }, {
+        "name": {
+            "en_US": "Turret Troubles",
+            "de_DE": "Geschützgefahr",
+            "zh_CN": "炮塔问题<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "タレット・トラブル<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "골치 아픈 포탑<<A<<[CHANGED 2019/07/31]",
+            "langUid": 48
         },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 30000,
-          "points": 5000
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 240000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat the \\c[3]\\v[combat.name.turret-rhg-1]\\c[0] that got you in a crossfire in \\c[3]\\v[area.rookie-harbor.name]\\c[0]!",
+            "de_DE": "Besiege das \\c[3]Illegale Rhombus-Geschütz\\c[0], das dich in \\c[3]\\v[area.rookie-harbor.name]\\c[0] unter Kreuzfeuer genommen hat!",
+            "zh_CN": "在\\c[3]\\v[area.rookie-harbor.name]\\c[0]的交叉火力中击败\\c[3]\\v[combat.name.turret-rhg-1]\\c[0]!<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "\\c[3]\\v[area.rookie-harbor.name]\\c[0]で集中砲火を浴びせられた\\c[3]\\v[combat.name.turret-rhg-1]\\c[0]を倒せ！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "\\c[3]\\v[area.rookie-harbor.name]\\c[0]에서 십자 포화를 퍼부었던 \\c[3]\\v[combat.name.turret-rhg-1]\\c[0]을 처치하세요!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 31
         },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 3000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "Besmirched Buns",
-        "de_DE": "Besudelte Hasen",
-        "zh_CN": "脏脏包<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "汚染ウサギ<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "더러운 토끼<<A<<[CHANGED 2019/07/31]",
-        "langUid": 30
-      },
-      "customCode": true,
-      "camFocus": "arena",
-      "platPoints": 175000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Defeat the \\c[3]\\v[combat.name.cold/frobbit-quest-dirty]s\\c[0] in \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nRemember to \\c[3]give them a bath\\c[0] first!",
-        "de_DE": "Besiege die \\c[3]Dreckigen Pogonickel\\c[0] auf dem \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nVergiss nicht, sie vorher \\c[3]zu baden\\c[0]!",
-        "zh_CN": "击败\\c[3]\\v[area.bergen-trails.name]\\c[0]的\\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]!\n记得\\c[3]先给它们洗个澡\\c[0]!<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "\\c[3]\\v[area.bergen-trails.name]\\c[0]の\\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]を倒せ！\n\\c[3]水に落としてから\\c[0]倒すことを忘れずに！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "\\c[3]\\v[area.bergen-trails.name]\\c[0]에 있는 \\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]을 처치하세요!\n먼저 \\c[3]목욕을 시키는\\c[0] 것을 잊지 마세요!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 49
-      },
-      "points": 145000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.bergen-dirtbuns-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 60,
-          "points": 10000
+        "points": 200000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.rh-turrets-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 60,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 5500
+        }, {
+            "type": "CHAIN",
+            "target": 6,
+            "points": 5500
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 30000,
+            "points": 5000
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 3000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Besmirched Buns",
+            "de_DE": "Besudelte Hasen",
+            "zh_CN": "脏脏包<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "汚染ウサギ<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "더러운 토끼<<A<<[CHANGED 2019/07/31]",
+            "langUid": 30
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 8,
-          "points": 5000
+        "customCode": true,
+        "camFocus": "arena",
+        "platPoints": 175000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Defeat the \\c[3]\\v[combat.name.cold/frobbit-quest-dirty]s\\c[0] in \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nRemember to \\c[3]give them a bath\\c[0] first!",
+            "de_DE": "Besiege die \\c[3]Dreckigen Pogonickel\\c[0] auf dem \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nVergiss nicht, sie vorher \\c[3]zu baden\\c[0]!",
+            "zh_CN": "击败\\c[3]\\v[area.bergen-trails.name]\\c[0]的\\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]!\n记得\\c[3]先给它们洗个澡\\c[0]!<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "\\c[3]\\v[area.bergen-trails.name]\\c[0]の\\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]を倒せ！\n\\c[3]水に落としてから\\c[0]倒すことを忘れずに！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "\\c[3]\\v[area.bergen-trails.name]\\c[0]에 있는 \\c[3]\\v[combat.name.cold/frobbit-quest-dirty]\\c[0]을 처치하세요!\n먼저 \\c[3]목욕을 시키는\\c[0] 것을 잊지 마세요!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 49
         },
-        {
-          "type": "CHAIN",
-          "target": 8,
-          "points": 7500
+        "points": 145000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.bergen-dirtbuns-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 60,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 8,
+            "points": 5000
+        }, {
+            "type": "CHAIN",
+            "target": 8,
+            "points": 7500
+        }, {
+            "type": "COMBAT_ARTS_USED",
+            "target": 13,
+            "points": 7500
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 3000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "The Goatfather, Part I",
+            "de_DE": "Der Geißpate, Teil 1",
+            "zh_CN": "羊父1<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "ゴートファーザー PART I<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "염소아빠 파트 1<<A<<[CHANGED 2019/07/31]",
+            "langUid": 32
         },
-        {
-          "type": "COMBAT_ARTS_USED",
-          "target": 13,
-          "points": 7500
+        "customCode": true,
+        "camFocus": "arena",
+        "platPoints": 240000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Meet the \\c[3]\\v[combat.name.cold/goat-father]\\c[0] again and \\c[3]defeat his subordinates\\c[0] in \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nBe careful of \\c[3]bombs\\c[0]!",
+            "de_DE": "Begegne nochmals dem \\c[3]Geißpaten\\c[0] und \\c[3]besiege seine Untergebenen\\c[0] auf dem \\c[3]\\v[area.bergen-trails.name]\\c[0]! Vorsicht vor den \\c[3]Bomben\\c[0]!",
+            "zh_CN": "在\\c[3]\\v[area.bergen-trails.name]\\c[0]再次击败\\c[3]\\v[combat.name.cold/goat-father]\\c[0]和他的\\c[3]手下们\\c[0]!\n小心\\c[3]炸弹\\c[0]!<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "\\c[3]\\v[area.bergen-trails.name]\\c[0]で出会った\\c[3]\\v[combat.name.cold/goat-father]\\c[0]と\\c[3]その部下たち\\c[0]をもう一度倒せ！\n\\c[3]爆弾\\c[0]に気を付けよう！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "\\c[3]\\v[area.bergen-trails.name]\\c[0]에서 \\c[3]\\v[combat.name.cold/goat-father]\\c[0]를 다시 만나 \\c[3]부하들을 처치\\c[0]하세요!\n\\c[3]폭탄\\c[0]을 조심해야 합니다!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 33
         },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 3000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "The Goatfather, Part I",
-        "de_DE": "Der Geißpate, Teil 1",
-        "zh_CN": "羊父1<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "ゴートファーザー PART I<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "염소아빠 파트 1<<A<<[CHANGED 2019/07/31]",
-        "langUid": 32
-      },
-      "customCode": true,
-      "camFocus": "arena",
-      "platPoints": 240000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Meet the \\c[3]\\v[combat.name.cold/goat-father]\\c[0] again and \\c[3]defeat his subordinates\\c[0] in \\c[3]\\v[area.bergen-trails.name]\\c[0]!\nBe careful of \\c[3]bombs\\c[0]!",
-        "de_DE": "Begegne nochmals dem \\c[3]Geißpaten\\c[0] und \\c[3]besiege seine Untergebenen\\c[0] auf dem \\c[3]\\v[area.bergen-trails.name]\\c[0]! Vorsicht vor den \\c[3]Bomben\\c[0]!",
-        "zh_CN": "在\\c[3]\\v[area.bergen-trails.name]\\c[0]再次击败\\c[3]\\v[combat.name.cold/goat-father]\\c[0]和他的\\c[3]手下们\\c[0]!\n小心\\c[3]炸弹\\c[0]!<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "\\c[3]\\v[area.bergen-trails.name]\\c[0]で出会った\\c[3]\\v[combat.name.cold/goat-father]\\c[0]と\\c[3]その部下たち\\c[0]をもう一度倒せ！\n\\c[3]爆弾\\c[0]に気を付けよう！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "\\c[3]\\v[area.bergen-trails.name]\\c[0]에서 \\c[3]\\v[combat.name.cold/goat-father]\\c[0]를 다시 만나 \\c[3]부하들을 처치\\c[0]하세요!\n\\c[3]폭탄\\c[0]을 조심해야 합니다!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 33
-      },
-      "points": 200000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.bergen-goatfather-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 90,
-          "points": 10000
+        "points": 200000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.bergen-goatfather-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 90,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 7,
+            "points": 5000
+        }, {
+            "type": "CHAIN",
+            "target": 8,
+            "points": 7500
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 3000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Tenacious Toises",
+            "de_DE": "Schildrige Kröten",
+            "zh_CN": "攻壳机动队<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "鉄壁甲羅<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "끈질긴 거북<<A<<[CHANGED 2019/07/31]",
+            "langUid": 34
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 7,
-          "points": 5000
+        "customCode": true,
+        "camFocus": "arena",
+        "platPoints": 260000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Crack the shells of \\c[3]\\v[combat.name.heat/drillertoise]s\\c[0] with the help of your trusty \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]!\nHitting the \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0] with \\c[3]charged projectiles\\c[0] will make it dispense \\c[3]bombs\\c[0]!\n\n",
+            "de_DE": "Knacke den Panzer der \\c[3]Drillkröten\\c[0] mit Hilfe deines treuen \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]!\nDu kannst \\c[3]Bomben\\c[0] legen, indem du den \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0] mit \\c[3]aufgeladenen Projektilen\\c[0] triffst!",
+            "zh_CN": "使用\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]打爆\\c[3]\\v[combat.name.heat/drillertoise]s\\c[0]的龟壳!\n使用\\c[3]蓄力飞弹\\c[0]击中\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]会让其产出\\c[3]炸弹\\c[0]!\n\n<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "頼れる\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]の助けを借りて、\\c[3]\\v[combat.name.heat/drillertoise]\\c[0]の甲羅を砕け！\n\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]に\\c[3]チャージ弾\\c[0]を当てて、\\c[3]爆弾\\c[0]を放出させよう！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "믿음직한 \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]의 도움을 받아 \\c[3]\\v[combat.name.heat/drillertoise]\\c[0]의 껍질을 부수세요!\n\\c[3]충전된 발사체\\c[0]로 \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]을 타격하면 \\c[3]폭탄\\c[0]이 나옵니다!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 35
         },
-        {
-          "type": "CHAIN",
-          "target": 8,
-          "points": 7500
+        "points": 210000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.maroon-turtlecave-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 150,
+            "points": 20000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 10,
+            "points": 15000
+        }, {
+            "type": "CHAIN",
+            "target": 7,
+            "points": 15000
+        }, {
+            "type": "EFFECTIVE_DAMAGE",
+            "target": 10000,
+            "points": 10000
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 6000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }, {
+        "name": {
+            "en_US": "Searing Circuit Squad",
+            "de_DE": "Glühende Geschütze",
+            "zh_CN": "火焰机兵<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "砂漠のタレット軍団<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "시어링 서킷 스쿼드<<A<<[CHANGED 2019/07/31]",
+            "langUid": 36
         },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 3000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "Tenacious Toises",
-        "de_DE": "Schildrige Kröten",
-        "zh_CN": "攻壳机动队<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "鉄壁甲羅<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "끈질긴 거북<<A<<[CHANGED 2019/07/31]",
-        "langUid": 34
-      },
-      "customCode": true,
-      "camFocus": "arena",
-      "platPoints": 260000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Crack the shells of \\c[3]\\v[combat.name.heat/drillertoise]s\\c[0] with the help of your trusty \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]!\nHitting the \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0] with \\c[3]charged projectiles\\c[0] will make it dispense \\c[3]bombs\\c[0]!\n\n",
-        "de_DE": "Knacke den Panzer der \\c[3]Drillkröten\\c[0] mit Hilfe deines treuen \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]!\nDu kannst \\c[3]Bomben\\c[0] legen, indem du den \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0] mit \\c[3]aufgeladenen Projektilen\\c[0] triffst!",
-        "zh_CN": "使用\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]打爆\\c[3]\\v[combat.name.heat/drillertoise]s\\c[0]的龟壳!\n使用\\c[3]蓄力飞弹\\c[0]击中\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]会让其产出\\c[3]炸弹\\c[0]!\n\n<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "頼れる\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]の助けを借りて、\\c[3]\\v[combat.name.heat/drillertoise]\\c[0]の甲羅を砕け！\n\\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]に\\c[3]チャージ弾\\c[0]を当てて、\\c[3]爆弾\\c[0]を放出させよう！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "믿음직한 \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]의 도움을 받아 \\c[3]\\v[combat.name.heat/drillertoise]\\c[0]의 껍질을 부수세요!\n\\c[3]충전된 발사체\\c[0]로 \\c[3]\\v[combat.name.heat/special/kamikatze-helper]\\c[0]을 타격하면 \\c[3]폭탄\\c[0]이 나옵니다!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 35
-      },
-      "points": 210000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.maroon-turtlecave-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 150,
-          "points": 20000
+        "customCode": true,
+        "platPoints": 170000,
+        "coins": 1000,
+        "objective": {
+            "en_US": "Fight the favored machinery of treacherous Baki'Kum guards, \\c[3]\\v[combat.name.heat/special/baki-turret_1]s\\c[0] led by a \\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]!\n\\c[3]Break the leader\\c[0] to deactivate the \\c[3]shields\\c[0] of the turrets!",
+            "de_DE": "Bekämpfe die Lieblingswaffe der heimtückischen Baki-Wachen, die \\c[3]Legionsgeschütze v1\\c[0], die vom \\c[3]Legionsanführer v1\\c[0] befehligt werden!\n\\c[3]Brich den Anführer\\c[0], um die \\c[3]Schilde\\c[0] der Geschütze zu deaktivieren!",
+            "zh_CN": "与巴基库姆险恶守卫的爱用机械\\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]作战，它们的首领是一个\\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]!\n\\c[3]破坏首领\\c[0]来降下炮台的\\c[3]护盾\\c[0]!<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "マルーン・バキ警備隊の裏切者が使用していた、\\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]率いる\\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]の部隊を倒せ！ \nまずは\\c[3]リーダーをブレイク\\c[0]させて、タレットの\\c[3]シールド\\c[0]を無効化しよう！<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "불성실한 바키쿰 경비원 사이에서 인기 있는 \\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]이 이끄는 \\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]과 싸우세요!\n포탑의 \\c[3]방어막\\c[0]을 비활성화하려면 \\c[3]리더를 격파\\c[0]해야 합니다!<<A<<[CHANGED 2019/07/31]",
+            "langUid": 37
         },
-        {
-          "type": "HIT_COUNTER",
-          "value": 10,
-          "points": 15000
-        },
-        {
-          "type": "CHAIN",
-          "target": 7,
-          "points": 15000
-        },
-        {
-          "type": "EFFECTIVE_DAMAGE",
-          "target": 10000,
-          "points": 10000
-        },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 6000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    },
-    {
-      "name": {
-        "en_US": "Searing Circuit Squad",
-        "de_DE": "Glühende Geschütze",
-        "zh_CN": "火焰机兵<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "砂漠のタレット軍団<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "시어링 서킷 스쿼드<<A<<[CHANGED 2019/07/31]",
-        "langUid": 36
-      },
-      "customCode": true,
-      "platPoints": 170000,
-      "coins": 1000,
-      "objective": {
-        "en_US": "Fight the favored machinery of treacherous Baki'Kum guards, \\c[3]\\v[combat.name.heat/special/baki-turret_1]s\\c[0] led by a \\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]!\n\\c[3]Break the leader\\c[0] to deactivate the \\c[3]shields\\c[0] of the turrets!",
-        "de_DE": "Bekämpfe die Lieblingswaffe der heimtückischen Baki-Wachen, die \\c[3]Legionsgeschütze v1\\c[0], die vom \\c[3]Legionsanführer v1\\c[0] befehligt werden!\n\\c[3]Brich den Anführer\\c[0], um die \\c[3]Schilde\\c[0] der Geschütze zu deaktivieren!",
-        "zh_CN": "与巴基库姆险恶守卫的爱用机械\\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]作战，它们的首领是一个\\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]!\n\\c[3]破坏首领\\c[0]来降下炮台的\\c[3]护盾\\c[0]!<<A<<[CHANGED 2019/07/31]",
-        "ja_JP": "マルーン・バキ警備隊の裏切者が使用していた、\\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]率いる\\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]の部隊を倒せ！ \nまずは\\c[3]リーダーをブレイク\\c[0]させて、タレットの\\c[3]シールド\\c[0]を無効化しよう！<<A<<[CHANGED 2019/07/31]",
-        "ko_KR": "불성실한 바키쿰 경비원 사이에서 인기 있는 \\c[3]\\v[combat.name.heat/special/baki-cmd_bot]\\c[0]이 이끄는 \\c[3]\\v[combat.name.heat/special/baki-turret_1]\\c[0]과 싸우세요!\n포탑의 \\c[3]방어막\\c[0]을 비활성화하려면 \\c[3]리더를 격파\\c[0]해야 합니다!<<A<<[CHANGED 2019/07/31]",
-        "langUid": 37
-      },
-      "points": 145000,
-      "type": "DEFAULT",
-      "medal": 0,
-      "waves": [],
-      "map": "arena.faction.baki-bots-1",
-      "bonuses": [
-        {
-          "type": "TIME",
-          "seconds": 90,
-          "points": 10000
-        },
-        {
-          "type": "HIT_COUNTER",
-          "value": 5,
-          "points": 5000
-        },
-        {
-          "type": "CHAIN",
-          "target": 8,
-          "points": 7500
-        },
-        {
-          "type": "ITEMS_USED",
-          "amount": 2,
-          "points": 3000
-        }
-      ],
-      "spawn": "PLAYER_SPAWN"
-    }
-  ]
+        "points": 145000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.faction.baki-bots-1",
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 90,
+            "points": 10000
+        }, {
+            "type": "HIT_COUNTER",
+            "value": 5,
+            "points": 5000
+        }, {
+            "type": "CHAIN",
+            "target": 8,
+            "points": 7500
+        }, {
+            "type": "ITEMS_USED",
+            "amount": 2,
+            "points": 3000
+        }],
+        "spawn": "PLAYER_SPAWN"
+    }]
 }

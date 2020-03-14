@@ -1,28 +1,28 @@
 {
-	"autumn-dng": {
-		"name": {
-			"en_US": "Autumn's Terminus",
-			"de_DE": "Autumn's Terminus",
-			"ja_JP": "Autumn's Terminus",
-			"ko_KR": "Autumn's Terminus",
-			"zh_CN": "Autumn's Terminus",
-			"langUid": 1
-		},
-		"description": {
-			"en_US": "A sunset-drenched forest with strange ruins and strong breezes.",
-			"de_DE": "A sunset-drenched forest with strange ruins and strong breezes.",
-			"ja_JP": "A sunset-drenched forest with strange ruins and strong breezes.",
-			"ko_KR": "A sunset-drenched forest with strange ruins and strong breezes.",
-			"zh_CN": "A sunset-drenched forest with strange ruins and strong breezes.",
-			"langUid": 3
-		},
-		"areaType": "DUNGEON",
-		"order": 0,
-		"track": true,
-		"chests": 0,
-		"position": {
-			"x": 336,
-			"y": 123
-		}
-	}
+    "autumn-dng": {
+        "name": {
+            "en_US": "Autumn's Terminus",
+            "de_DE": "Autumn's Terminus",
+            "ja_JP": "Autumn's Terminus",
+            "ko_KR": "Autumn's Terminus",
+            "zh_CN": "Autumn's Terminus",
+            "langUid": 1
+        },
+        "description": {
+            "en_US": "A sunset-drenched forest with strange ruins and strong breezes.",
+            "de_DE": "A sunset-drenched forest with strange ruins and strong breezes.",
+            "ja_JP": "A sunset-drenched forest with strange ruins and strong breezes.",
+            "ko_KR": "A sunset-drenched forest with strange ruins and strong breezes.",
+            "zh_CN": "A sunset-drenched forest with strange ruins and strong breezes.",
+            "langUid": 3
+        },
+        "areaType": "DUNGEON",
+        "order": 0,
+        "track": true,
+        "chests": 0,
+        "position": {
+            "x": 336,
+            "y": 123
+        }
+    }
 }

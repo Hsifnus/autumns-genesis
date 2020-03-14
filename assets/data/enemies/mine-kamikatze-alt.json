@@ -1,1106 +1,912 @@
 {
-  "level": 18,
-  "params": {
-    "hp": 810,
-    "attack": 67,
-    "defense": 68,
-    "focus": 69,
-    "statusInflict": [
-      0.75,
-      1.25,
-      1,
-      1
-    ]
-  },
-  "credit": 136,
-  "exp": 60,
-  "maxSp": 8,
-  "enduranceScale": 3,
-  "healDropRate": 0,
-  "boss": false,
-  "bossOrder": 0,
-  "padding": {
-    "x": 4,
-    "y": 4
-  },
-  "material": "METAL",
-  "aiGroup": "kamikatze",
-  "aiLearnType": "REGULAR",
-  "itemDrops": [
-    {
-      "item": "163",
-      "prob": 0.16,
-      "min": 1,
-      "max": 1,
-      "rank": "D"
+    "level": 18,
+    "params": {
+        "hp": 810,
+        "attack": 67,
+        "defense": 68,
+        "focus": 69,
+        "statusInflict": [0.75, 1.25, 1, 1]
     },
-    {
-      "item": "160",
-      "prob": 0.08,
-      "min": 1,
-      "max": 1,
-      "rank": "D"
+    "credit": 136,
+    "exp": 60,
+    "maxSp": 8,
+    "enduranceScale": 3,
+    "healDropRate": 0,
+    "boss": false,
+    "bossOrder": 0,
+    "padding": {
+        "x": 4,
+        "y": 4
     },
-    {
-      "item": "460",
-      "prob": 0.05,
-      "min": 1,
-      "max": 1,
-      "boosted": true,
-      "condition": "item.448.toggled || stat.items.457>= 1",
-      "rank": "D"
+    "material": "METAL",
+    "aiGroup": "kamikatze",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [{
+        "item": "163",
+        "prob": 0.16,
+        "min": 1,
+        "max": 1,
+        "rank": "D"
+    }, {
+        "item": "160",
+        "prob": 0.08,
+        "min": 1,
+        "max": 1,
+        "rank": "D"
+    }, {
+        "item": "460",
+        "prob": 0.05,
+        "min": 1,
+        "max": 1,
+        "boosted": true,
+        "condition": "item.448.toggled || stat.items.457>= 1",
+        "rank": "D"
+    }],
+    "targetDetect": {
+        "loseDistance": 32000,
+        "notifyNeighbourRadius": 10000,
+        "detectDistance": 10000,
+        "onDistance": true
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "anims": "enemies.mine-kamikatze",
+    "defaultState": "IDLE",
+    "walkConfigs": {
+        "normal": {
+            "idle": "idle",
+            "damage": "damage"
+        },
+        "weak": {
+            "idle": "damage",
+            "damage": "damage"
+        }
+    },
+    "_wm": null,
+    "walkAnims": "normal",
+    "weight": 50,
+    "maxVel": 180,
+    "jumpingEnabled": true,
+    "shadow": 20,
+    "floatVariance": 4,
+    "floatMaxSpeed": 500,
+    "floatAccel": 3,
+    "flyHeight": 10,
+    "damageFactor": 0.3,
+    "ballFactor": 1,
+    "hitStable": "LIGHT",
+    "faceToTarget": true,
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "MOVE": {
+            "target": 3,
+            "initRandom": 1,
+            "resetRandom": 0.3,
+            "noStateReset": false,
+            "noAssist": false,
+            "type": "TIME"
+        },
+        "weakRegen": {
+            "target": 6,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "type": "TIME"
+        }
+    },
+    "states": {
+        "IDLE": {
+            "enabledReactions": ["BOMB_HIT"],
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "HAS_TARGET"
+                }],
+                "action": "Activate",
+                "preSwitchState": "DEFAULT",
+                "ignoreStun": true
+            }, {
+                "req": [{
+                    "type": "!SPAWN_POINT_DISTANCE",
+                    "max": 64
+                }],
+                "action": "MoveToSpawnPoint"
+            }, {
+                "req": [{
+                    "type": "RANDOM",
+                    "max": 0.3
+                }],
+                "action": "MoveRandom"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "DEFAULT": {
+            "enabledReactions": ["BOMB_HIT"],
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "condition": "tmp.removeKamikatzes",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }],
+                "action": "iMustGoMyPeopleNeedMe"
+            }, {
+                "req": [{
+                    "distance": 240,
+                    "throwing": true,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "Adjust2"
+            }, {
+                "req": [{
+                    "distance": 60,
+                    "throwing": true,
+                    "type": "TARGET_REACHABLE"
+                }],
+                "action": "Adjust"
+            }, {
+                "action": "FireWheel",
+                "frequency": "RARE",
+                "ignoreStun": true
+            }, {
+                "action": "ShootBomb",
+                "frequency": "SOMETIMES",
+                "ignoreStun": true
+            }, {
+                "action": "Idle",
+                "frequency": "NORMAL",
+                "ignoreStun": true
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "MOVE"
+                }],
+                "sub": [{
+                    "action": "Circle"
+                }]
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "WEAK": {
+            "walkAnims": "weak",
+            "flyHeight": 0,
+            "damageFactor": 1,
+            "faceToTarget": false,
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "ENTERED_STATE"
+                }],
+                "action": "weakStart"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "weakRegen"
+                }],
+                "action": "weakEnd",
+                "preSwitchState": "DEFAULT",
+                "ignoreStun": true
+            }]
+        },
+        "PASSIVE_INVIS": {
+            "weight": -1,
+            "hitIgnore": true,
+            "aggression": "PEACEFUL",
+            "annotate": {
+                "active": "NONE",
+                "passive": "IMMUNE",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": []
+        }
+    },
+    "proxies": {
+        "fireball": {
+            "effects": "ball-heat",
+            "speed": 240,
+            "maxBounce": 0,
+            "timer": 3,
+            "trail": false,
+            "multiHit": false,
+            "noLightGlow": false,
+            "type": "BALL",
+            "effect": "ar",
+            "maxBounds": 0,
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/heat.png",
+                    "offX": 368,
+                    "offY": 0,
+                    "width": 16,
+                    "height": 32
+                },
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0, 1, 2]
+            },
+            "attack": {
+                "type": "MEDIUM",
+                "element": "HEAT",
+                "damageFactor": 0.3,
+                "reverse": false,
+                "status": 3.5,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "behaviors": [{
+                "type": "FOLLOW_TARGET",
+                "steerDegree": 0.1
+            }],
+            "timeBoni": null
+        },
+        "flame": {
+            "effects": "",
+            "speed": 300,
+            "maxBounce": 0,
+            "timer": 0.8,
+            "trail": false,
+            "multiHit": true,
+            "noLightGlow": false,
+            "type": "BALL",
+            "effect": "ar",
+            "maxBounds": 0,
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/ball.png",
+                    "offX": 0,
+                    "offY": 72,
+                    "width": 24,
+                    "height": 24
+                },
+                "time": 0.07,
+                "repeat": false,
+                "frames": [0, 1, 0, 1, 0, 1, 2, 3, 4, 5, 6],
+                "framesAlpha": [1, 1, 1, 1, 1, 1, 1, 1, 0.8, 0.6, 0.3]
+            },
+            "attack": {
+                "type": "LIGHT",
+                "element": "HEAT",
+                "damageFactor": 0.2,
+                "reverse": false,
+                "status": 3.5,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "behaviors": [{
+                "type": "SLOW_DOWN",
+                "speedFactor": 0,
+                "fadeOut": 0.25,
+                "pause": 5,
+                "fadeIn": 0.2,
+                "startWait": 0.05
+            }],
+            "timeBoni": null
+        }
+    },
+    "actions": {
+        "Activate": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "text": {
+                "en_US": "Threat detected",
+                "de_DE": "Bedrohung entdeckt<<C<<Überprüfen: Beschreibung",
+                "fr_FR": "fr_FR",
+                "langUid": 38,
+                "zh_CN": "检测到威胁",
+                "ko_KR": "위협 감지",
+                "ja_JP": "脅威を察知"
+            },
+            "mode": "NO_LINE",
+            "color": "RED",
+            "actionDetached": true,
+            "hideOutsideOfScreen": false,
+            "time": 1,
+            "type": "SHOW_AR_MSG"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "Idle": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "Adjust": [{
+            "value": 0.7,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1.5,
+            "distance": 120,
+            "throwing": true,
+            "planOnly": false,
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "Adjust2": [{
+            "value": 0.7,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1.5,
+            "distance": 120,
+            "throwing": true,
+            "planOnly": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }],
+        "Circle": [{
+            "value": 0.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1,
+            "distance": 150,
+            "distVariance": 80,
+            "throwing": true,
+            "planOnly": false,
+            "type": "NAVIGATE_SIDEWAYS_TARGET"
+        }],
+        "Escape": [{
+            "value": 24,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": "MEDIUM",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "maxTime": 1,
+            "distance": 200,
+            "throwing": true,
+            "planOnly": false,
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "ShootSingle": [{
+            "value": "HEAVY",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemy",
+                "name": "angry2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preShoot"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "shoot"
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "fireball",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 2
+            }
+        }, {
+            "time": 0.02,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "shoot"
+        }, {
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "fireball",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 2
+            }
+        }, {
+            "time": 0.02,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "postShoot"
+        }],
+        "ShootBomb": [{
+            "value": "HEAVY",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "charge",
+                "name": "light"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "variance": 6,
+            "accel": 30,
+            "type": "SET_FLOAT_PARAMS"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 0.8,
+            "distance": 80,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "variance": 4,
+            "accel": 3,
+            "type": "SET_FLOAT_PARAMS"
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preShoot"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "shoot"
+        }, {
+            "align": "CENTER",
+            "zVel": 40,
+            "timeAdvance": 1,
+            "type": "THROW_BOMB",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.04,
+            "stopBeforeEdge": false,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "postShoot"
+        }, {
+            "time": 0.4,
+            "type": "WAIT"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1,
+            "distance": 200,
+            "throwing": false,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "FireWheel": [{
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
+            "value": "HEAVY",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.mine-bots",
+                "name": "heatWheelPre"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 1,
+            "turn": -3,
+            "random": 0,
+            "type": "ROTATE_FACE"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 0.5,
+            "forceTime": false,
+            "distance": 32,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "value": 1,
+            "type": "SET_DAMAGE_FACTOR"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.mine-bots",
+                "name": "heatWheelBlink"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rotateStart"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rotate"
+        }, {
+            "value": 1.5,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+            "align": "BOTTOM",
+            "dir": {
+                "x": 0,
+                "y": 1
+            },
+            "centralAngle": 2,
+            "startAngle": -0.25,
+            "angleVary": 0,
+            "startDist": 12,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 50,
+            "duration": 2.4,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "flame",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 4
+            }
+        }, {
+            "align": "BOTTOM",
+            "dir": {
+                "x": 0,
+                "y": 1
+            },
+            "centralAngle": 2,
+            "startAngle": 0.25,
+            "angleVary": 0,
+            "startDist": 12,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 50,
+            "duration": 2.4,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "flame",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 4
+            }
+        }, {
+            "value": 0.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 2.4,
+            "forceTime": false,
+            "distance": 1,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "wait": true,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "rotateEnd"
+        }],
+        "BubbleShoot": [{
+            "duration": 1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "charge",
+                "name": "light"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preShoot"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemy",
+                "name": "angry2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "shoot"
+        }, {
+            "value": 1.5,
+            "forwardToProxies": false,
+            "type": "SET_DAMAGE_CEILING"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0.1,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 6,
+            "duration": 0.2,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "bubble",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 2
+            }
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }],
+        "MoveToSpawnPoint": [{
+            "value": 0.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 3,
+            "maxDistance": 16,
+            "precise": false,
+            "type": "NAVIGATE_TO_SPAWN_POINT"
+        }],
+        "MoveRandom": [{
+            "value": 0.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": false,
+            "type": "SET_JUMPING"
+        }, {
+            "minTime": 0.3,
+            "maxTime": 0.5,
+            "dirChanges": 0,
+            "stopBeforeEdge": true,
+            "type": "MOVE_RANDOM"
+        }, {
+            "minTime": 0.5,
+            "maxTime": 0.6,
+            "type": "WAIT_RANDOM"
+        }],
+        "weakStart": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "group": "weak",
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemy",
+                "name": "angry2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }],
+        "weakEnd": [{
+            "group": "weak",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }],
+        "iMustGoMyPeopleNeedMe": [{
+            "value": 600,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "noReward": true,
+            "type": "SELF_DESTRUCT"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.removeKamikatzes",
+            "value": false
+        }]
+    },
+    "reactions": {
+        "BOMB_HIT": {
+            "hitType": "REGULAR",
+            "preSwitchState": "WEAK",
+            "blockFurtherHits": false,
+            "damageFactor": 2,
+            "attackType": "MASSIVE",
+            "flyLevel": "MASSIVE+",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "BREAK",
+            "conditions": [{
+                "hint": "BOMB",
+                "negated": false,
+                "type": "HAS_HINT"
+            }],
+            "ignoreFailed": false,
+            "minDistance": 0,
+            "maxDistance": 0,
+            "type": "HIT_REACTION"
+        }
+    },
+    "meta": {
+        "species": {
+            "en_US": "Mine Robot",
+            "de_DE": "Minenroboter<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "矿井机兵",
+            "ja_JP": "採掘ロボット",
+            "ko_KR": "채굴 로봇",
+            "langUid": 2
+        },
+        "category": "MECHA",
+        "descriptions": [{
+            "text": {
+                "en_US": "This bot was used to produce and carry highly explosive bombs into smaller tunnels inside the mine for controlled explosions. Thanks to the track it now uses said bombs against us and also uses a spinning flamethrower that it had built in for... reasons?",
+                "de_DE": "Diese Roboter wurde für das Herstellen und Transportieren von hochexplosiven Bomben in enge Tunnel der Mine zu bringen um kontrollierte Explosionen zu erzeugen. Dank des Pfads benutzt er jetzt diese Bomben gegen uns. Zusätzlich zu dem Flammenwerfer, den es eingebaut hat. Warum auch immer.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "这种机器人曾经被用来制造高爆炸弹并将其运送到矿坑的小型隧道中。由于受到了先祖之路的感染，它们将炸弹作为非法用途。同时它们还装备有旋转火焰喷射器...原因嘛，并不知道。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "このロボットは元々、爆発を制御しながら採掘を行うために、強力な爆弾を生成し、鉱山の小さなトンネル内へと運搬する目的で使われていた。軌跡によって制御を奪われた今、このロボットはその爆弾を攻撃に転用しているほか、なぜだか内蔵されていた回転式火炎放射器で敵を一掃する。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "이 봇은 세심히 관리되는 사원 내 폭발을 위해 고폭탄을 생성해 보다 작은 터널로 옮기는 역할을 하곤 했습니다. 고대인의 길 덕분에 당신을 상대로 앞서 언급한 고폭탄과 회전 화염방사기를 사용할 수 있게 된 데에는... 이유가 있겠죠?<<A<<[CHANGED 2018/09/19]",
+                "langUid": 40
+            },
+            "condition": ""
+        }]
     }
-  ],
-  "targetDetect": {
-    "loseDistance": 32000,
-    "notifyNeighbourRadius": 10000,
-    "detectDistance": 10000,
-    "onDistance": true
-  },
-  "hpBreaks": [],
-  "size": {
-    "x": 16,
-    "y": 16,
-    "z": 24
-  },
-  "anims": "enemies.mine-kamikatze",
-  "defaultState": "IDLE",
-  "walkConfigs": {
-    "normal": {
-      "idle": "idle",
-      "damage": "damage"
-    },
-    "weak": {
-      "idle": "damage",
-      "damage": "damage"
-    }
-  },
-  "_wm": null,
-  "walkAnims": "normal",
-  "weight": 50,
-  "maxVel": 180,
-  "jumpingEnabled": true,
-  "shadow": 20,
-  "floatVariance": 4,
-  "floatMaxSpeed": 500,
-  "floatAccel": 3,
-  "flyHeight": 10,
-  "damageFactor": 0.3,
-  "ballFactor": 1,
-  "hitStable": "LIGHT",
-  "faceToTarget": true,
-  "DOCTYPE": "ENEMY",
-  "trackers": {
-    "MOVE": {
-      "target": 3,
-      "initRandom": 1,
-      "resetRandom": 0.3,
-      "noStateReset": false,
-      "noAssist": false,
-      "type": "TIME"
-    },
-    "weakRegen": {
-      "target": 6,
-      "initRandom": 0,
-      "resetRandom": 0,
-      "noStateReset": false,
-      "type": "TIME"
-    }
-  },
-  "states": {
-    "IDLE": {
-      "enabledReactions": [
-        "BOMB_HIT"
-      ],
-      "choices": [
-        {
-          "req": [
-            {
-              "negated": false,
-              "type": "HAS_TARGET"
-            }
-          ],
-          "action": "Activate",
-          "preSwitchState": "DEFAULT",
-          "ignoreStun": true
-        },
-        {
-          "req": [
-            {
-              "type": "!SPAWN_POINT_DISTANCE",
-              "max": 64
-            }
-          ],
-          "action": "MoveToSpawnPoint"
-        },
-        {
-          "req": [
-            {
-              "type": "RANDOM",
-              "max": 0.3
-            }
-          ],
-          "action": "MoveRandom"
-        },
-        {
-          "action": "Idle"
-        }
-      ]
-    },
-    "DEFAULT": {
-      "enabledReactions": [
-        "BOMB_HIT"
-      ],
-      "choices": [
-        {
-          "req": [
-            {
-              "type": "!HAS_TARGET"
-            }
-          ],
-          "postSwitchState": "IDLE"
-        },
-        {
-        	"req":[
-        		{
-        			"condition":"tmp.removeKamikatzes",
-        			"negated":false,
-        			"type":"VAR_CONDITION"
-        		}
-        	],
-        	"action": "iMustGoMyPeopleNeedMe"
-        },
-        {
-          "req": [
-            {
-              "distance": 240,
-              "throwing": true,
-              "type": "!TARGET_REACHABLE"
-            }
-          ],
-          "action": "Adjust2"
-        },
-        {
-          "req": [
-            {
-              "distance": 60,
-              "throwing": true,
-              "type": "TARGET_REACHABLE"
-            }
-          ],
-          "action": "Adjust"
-        },
-        {
-          "action": "FireWheel",
-          "frequency": "RARE",
-          "ignoreStun": true
-        },
-        {
-          "action": "ShootBomb",
-          "frequency": "SOMETIMES",
-          "ignoreStun": true
-        },
-        {
-          "action": "Idle",
-          "frequency": "NORMAL",
-          "ignoreStun": true
-        },
-        {
-          "req": [
-            {
-              "negated": false,
-              "type": "TRACKER_READY",
-              "name": "MOVE"
-            }
-          ],
-          "sub": [
-            {
-              "action": "Circle"
-            }
-          ]
-        },
-        {
-          "action": "Idle"
-        }
-      ]
-    },
-    "WEAK": {
-      "walkAnims": "weak",
-      "flyHeight": 0,
-      "damageFactor": 1,
-      "faceToTarget": false,
-      "choices": [
-        {
-          "req": [
-            {
-              "negated": false,
-              "type": "ENTERED_STATE"
-            }
-          ],
-          "action": "weakStart"
-        },
-        {
-          "req": [
-            {
-              "negated": false,
-              "type": "TRACKER_READY",
-              "name": "weakRegen"
-            }
-          ],
-          "action": "weakEnd",
-          "preSwitchState": "DEFAULT",
-          "ignoreStun": true
-        }
-      ]
-    },
-    "PASSIVE_INVIS": {
-      "weight": -1,
-      "hitIgnore": true,
-      "aggression": "PEACEFUL",
-      "annotate": {
-        "active": "NONE",
-        "passive": "IMMUNE",
-        "weapon": "ANY",
-        "element": "ANY",
-        "extra": []
-      },
-      "choices": []
-    }
-  },
-  "proxies": {
-    "fireball": {
-      "effects": "ball-heat",
-      "speed": 240,
-      "maxBounce": 0,
-      "timer": 3,
-      "trail": false,
-      "multiHit": false,
-      "noLightGlow": false,
-      "type": "BALL",
-      "effect": "ar",
-      "maxBounds": 0,
-      "animation": {
-        "name": "default",
-        "sheet": {
-          "src": "media/entity/effects/heat.png",
-          "offX": 368,
-          "offY": 0,
-          "width": 16,
-          "height": 32
-        },
-        "time": 0.05,
-        "repeat": true,
-        "frames": [
-          0,
-          1,
-          2
-        ]
-      },
-      "attack": {
-        "type": "MEDIUM",
-        "element": "HEAT",
-        "damageFactor": 0.3,
-        "reverse": false,
-        "status": 3.5,
-        "guardable": "",
-        "skillBonus": "",
-        "limiter": ""
-      },
-      "behaviors": [
-        {
-          "type": "FOLLOW_TARGET",
-          "steerDegree": 0.1
-        }
-      ],
-      "timeBoni": null
-    },
-    "flame": {
-      "effects": "",
-      "speed": 300,
-      "maxBounce": 0,
-      "timer": 0.8,
-      "trail": false,
-      "multiHit": true,
-      "noLightGlow": false,
-      "type": "BALL",
-      "effect": "ar",
-      "maxBounds": 0,
-      "animation": {
-        "name": "default",
-        "sheet": {
-          "src": "media/entity/effects/ball.png",
-          "offX": 0,
-          "offY": 72,
-          "width": 24,
-          "height": 24
-        },
-        "time": 0.07,
-        "repeat": false,
-        "frames": [
-          0,
-          1,
-          0,
-          1,
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "framesAlpha": [
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          0.8,
-          0.6,
-          0.3
-        ]
-      },
-      "attack": {
-        "type": "LIGHT",
-        "element": "HEAT",
-        "damageFactor": 0.2,
-        "reverse": false,
-        "status": 3.5,
-        "guardable": "",
-        "skillBonus": "",
-        "limiter": ""
-      },
-      "behaviors": [
-        {
-          "type": "SLOW_DOWN",
-          "speedFactor": 0,
-          "fadeOut": 0.25,
-          "pause": 5,
-          "fadeIn": 0.2,
-          "startWait": 0.05
-        }
-      ],
-      "timeBoni": null
-    }
-  },
-  "actions": {
-    "Activate": [
-      {
-        "value": true,
-        "type": "FACE_TO_TARGET"
-      },
-      {
-        "text": {
-          "en_US": "Threat detected",
-          "de_DE": "Bedrohung entdeckt<<C<<Überprüfen: Beschreibung",
-          "fr_FR": "fr_FR",
-          "langUid": 38,
-          "zh_CN": "检测到威胁",
-          "ko_KR": "위협 감지",
-          "ja_JP": "脅威を察知"
-        },
-        "mode": "NO_LINE",
-        "color": "RED",
-        "actionDetached": true,
-        "hideOutsideOfScreen": false,
-        "time": 1,
-        "type": "SHOW_AR_MSG"
-      },
-      {
-        "time": 0.5,
-        "type": "WAIT"
-      }
-    ],
-    "Idle": [
-      {
-        "value": true,
-        "type": "FACE_TO_TARGET"
-      },
-      {
-        "minTime": 0.1,
-        "maxTime": 0.3,
-        "type": "WAIT_RANDOM"
-      }
-    ],
-    "Adjust": [
-      {
-        "value": 0.7,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 1.5,
-        "distance": 120,
-        "throwing": true,
-        "planOnly": false,
-        "type": "NAVIGATE_ESCAPE_TARGET"
-      }
-    ],
-    "Adjust2": [
-      {
-        "value": 0.7,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 1.5,
-        "distance": 120,
-        "throwing": true,
-        "planOnly": false,
-        "type": "NAVIGATE_TO_TARGET"
-      }
-    ],
-    "Circle": [
-      {
-        "value": 0.5,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 1,
-        "distance": 150,
-        "distVariance": 80,
-        "throwing": true,
-        "planOnly": false,
-        "type": "NAVIGATE_SIDEWAYS_TARGET"
-      }
-    ],
-    "Escape": [
-      {
-        "value": 24,
-        "type": "SET_FLY_HEIGHT"
-      },
-      {
-        "value": 1,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "value": "MEDIUM",
-        "type": "SET_HIT_STABLE"
-      },
-      {
-        "value": "IGNORE",
-        "type": "SET_COLL_TYPE"
-      },
-      {
-        "maxTime": 1,
-        "distance": 200,
-        "throwing": true,
-        "planOnly": false,
-        "type": "NAVIGATE_ESCAPE_TARGET"
-      }
-    ],
-    "ShootSingle": [
-      {
-        "value": "HEAVY",
-        "type": "SET_HIT_STABLE"
-      },
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemy",
-          "name": "angry2"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 0.6,
-        "type": "WAIT"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "preShoot"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "shoot"
-      },
-      {
-        "align": "BOTTOM",
-        "type": "SHOOT_PROXY",
-        "proxy": "fireball",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "time": 0.02,
-        "type": "MOVE_BACKWARD"
-      },
-      {
-        "time": 0.1,
-        "type": "WAIT"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "shoot"
-      },
-      {
-        "align": "BOTTOM",
-        "type": "SHOOT_PROXY",
-        "proxy": "fireball",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "time": 0.02,
-        "type": "MOVE_BACKWARD"
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "postShoot"
-      }
-    ],
-    "ShootBomb": [
-      {
-        "value": "HEAVY",
-        "type": "SET_HIT_STABLE"
-      },
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "charge",
-          "name": "light"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "variance": 6,
-        "accel": 30,
-        "type": "SET_FLOAT_PARAMS"
-      },
-      {
-        "time": 0.6,
-        "type": "WAIT"
-      },
-      {
-        "value": 1,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 0.8,
-        "distance": 80,
-        "throwing": true,
-        "planOnly": false,
-        "targetType": "ENEMY",
-        "type": "NAVIGATE_ESCAPE_TARGET"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "variance": 4,
-        "accel": 3,
-        "type": "SET_FLOAT_PARAMS"
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "preShoot"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "shoot"
-      },
-      {
-        "align": "CENTER",
-        "zVel": 40,
-        "timeAdvance": 1,
-        "type": "THROW_BOMB",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 0.04,
-        "stopBeforeEdge": false,
-        "type": "MOVE_BACKWARD"
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "postShoot"
-      },
-      {
-        "time": 0.4,
-        "type": "WAIT"
-      },
-      {
-        "value": 1,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 1,
-        "distance": 200,
-        "throwing": false,
-        "planOnly": false,
-        "targetType": "ENEMY",
-        "type": "NAVIGATE_ESCAPE_TARGET"
-      }
-    ],
-    "FireWheel": [
-      {
-        "value": -1,
-        "type": "SET_WEIGHT"
-      },
-      {
-        "value": "HEAVY",
-        "type": "SET_HIT_STABLE"
-      },
-      {
-        "value": false,
-        "type": "FACE_TO_TARGET"
-      },
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemies.mine-bots",
-          "name": "heatWheelPre"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 1,
-        "turn": -3,
-        "random": 0,
-        "type": "ROTATE_FACE"
-      },
-      {
-        "value": true,
-        "type": "FACE_TO_TARGET"
-      },
-      {
-        "value": 1,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 0.5,
-        "forceTime": false,
-        "distance": 32,
-        "planOnly": false,
-        "targetType": "ENEMY",
-        "precise": false,
-        "stayBehind": false,
-        "type": "NAVIGATE_TO_TARGET"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "value": 1,
-        "type": "SET_DAMAGE_FACTOR"
-      },
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemies.mine-bots",
-          "name": "heatWheelBlink"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "rotateStart"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "rotate"
-      },
-      {
-        "value": 1.5,
-        "forwardToProxies": false,
-        "type": "SET_DAMAGE_CEILING"
-      },
-      {
-        "align": "BOTTOM",
-        "dir": {
-          "x": 0,
-          "y": 1
-        },
-        "centralAngle": 2,
-        "startAngle": -0.25,
-        "angleVary": 0,
-        "startDist": 12,
-        "startDistCollide": "NONE",
-        "random": false,
-        "count": 50,
-        "duration": 2.4,
-        "clockwise": false,
-        "flipLeftFace": 0,
-        "circularArea": false,
-        "uniformDir": 0,
-        "delay": 0,
-        "repeat": false,
-        "type": "SHOOT_PROXY_RANGE",
-        "proxy": "flame",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "align": "BOTTOM",
-        "dir": {
-          "x": 0,
-          "y": 1
-        },
-        "centralAngle": 2,
-        "startAngle": 0.25,
-        "angleVary": 0,
-        "startDist": 12,
-        "startDistCollide": "NONE",
-        "random": false,
-        "count": 50,
-        "duration": 2.4,
-        "clockwise": false,
-        "flipLeftFace": 0,
-        "circularArea": false,
-        "uniformDir": 0,
-        "delay": 0,
-        "repeat": false,
-        "type": "SHOOT_PROXY_RANGE",
-        "proxy": "flame",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 4
-        }
-      },
-      {
-        "value": 0.5,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 2.4,
-        "forceTime": false,
-        "distance": 1,
-        "planOnly": false,
-        "targetType": "ENEMY",
-        "precise": false,
-        "stayBehind": false,
-        "type": "NAVIGATE_TO_TARGET"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "time": 0.3,
-        "type": "WAIT"
-      },
-      {
-        "wait": true,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "rotateEnd"
-      }
-    ],
-    "BubbleShoot": [
-      {
-        "duration": 1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "charge",
-          "name": "light"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "preShoot"
-      },
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": false,
-        "fixPos": false,
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemy",
-          "name": "angry2"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      },
-      {
-        "time": 1,
-        "type": "WAIT"
-      },
-      {
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "wait": false,
-        "viaWalkConfig": false,
-        "type": "SHOW_ANIMATION",
-        "anim": "shoot"
-      },
-      {
-        "value": 1.5,
-        "forwardToProxies": false,
-        "type": "SET_DAMAGE_CEILING"
-      },
-      {
-        "align": "BOTTOM",
-        "centralAngle": 0.1,
-        "angleVary": 0,
-        "startDistCollide": "NONE",
-        "random": false,
-        "count": 6,
-        "duration": 0.2,
-        "clockwise": false,
-        "flipLeftFace": 0,
-        "circularArea": false,
-        "uniformDir": 0,
-        "delay": 0,
-        "repeat": false,
-        "type": "SHOOT_PROXY_RANGE",
-        "proxy": "bubble",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 2
-        }
-      },
-      {
-        "time": 0.5,
-        "type": "WAIT"
-      }
-    ],
-    "MoveToSpawnPoint": [
-      {
-        "value": 0.5,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime": 3,
-        "maxDistance": 16,
-        "precise": false,
-        "type": "NAVIGATE_TO_SPAWN_POINT"
-      }
-    ],
-    "MoveRandom": [
-      {
-        "value": 0.3,
-        "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "value": false,
-        "type": "SET_JUMPING"
-      },
-      {
-        "minTime": 0.3,
-        "maxTime": 0.5,
-        "dirChanges": 0,
-        "stopBeforeEdge": true,
-        "type": "MOVE_RANDOM"
-      },
-      {
-        "minTime": 0.5,
-        "maxTime": 0.6,
-        "type": "WAIT_RANDOM"
-      }
-    ],
-    "weakStart": [
-      {
-        "duration": -1,
-        "align": "BOTTOM",
-        "rotateFace": 0,
-        "flipLeftFace": false,
-        "wait": false,
-        "waitSkip": 0,
-        "actionDetached": true,
-        "group": "weak",
-        "type": "SHOW_EFFECT",
-        "effect": {
-          "sheet": "enemy",
-          "name": "angry2"
-        },
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 0
-        }
-      }
-    ],
-    "weakEnd": [
-      {
-        "group": "weak",
-        "type": "CLEAR_EFFECTS"
-      },
-      {
-        "value": true,
-        "type": "FACE_TO_TARGET"
-      }
-    ],
-    "iMustGoMyPeopleNeedMe":[
-    	{
-    		"value":600,
-    		"type":"SET_FLY_HEIGHT"
-    	},
-    	{
-    		"time":1,
-    		"type":"WAIT"
-    	},
-    	{
-    		"noReward":true,
-    		"type":"SELF_DESTRUCT"
-    	},
-      {
-        "changeType": "set",
-        "type": "CHANGE_VAR_BOOL",
-        "varName": "tmp.removeKamikatzes",
-        "value": false
-      }
-    ]
-  },
-  "reactions": {
-    "BOMB_HIT": {
-      "hitType": "REGULAR",
-      "preSwitchState": "WEAK",
-      "blockFurtherHits": false,
-      "damageFactor": 2,
-      "attackType": "MASSIVE",
-      "flyLevel": "MASSIVE+",
-      "stunChange": "FORCE_STUN",
-      "alignFace": false,
-      "dramaticEffect": "BREAK",
-      "conditions": [
-        {
-          "hint": "BOMB",
-          "negated": false,
-          "type": "HAS_HINT"
-        }
-      ],
-      "ignoreFailed": false,
-      "minDistance": 0,
-      "maxDistance": 0,
-      "type": "HIT_REACTION"
-    }
-  },
-  "meta": {
-    "species": {
-      "en_US": "Mine Robot",
-      "de_DE": "Minenroboter<<C<<Überprüfen: Beschreibung",
-      "zh_CN": "矿井机兵",
-      "ja_JP": "採掘ロボット",
-      "ko_KR": "채굴 로봇",
-      "langUid": 2
-    },
-    "category": "MECHA",
-    "descriptions": [
-      {
-        "text": {
-          "en_US": "This bot was used to produce and carry highly explosive bombs into smaller tunnels inside the mine for controlled explosions. Thanks to the track it now uses said bombs against us and also uses a spinning flamethrower that it had built in for... reasons?",
-          "de_DE": "Diese Roboter wurde für das Herstellen und Transportieren von hochexplosiven Bomben in enge Tunnel der Mine zu bringen um kontrollierte Explosionen zu erzeugen. Dank des Pfads benutzt er jetzt diese Bomben gegen uns. Zusätzlich zu dem Flammenwerfer, den es eingebaut hat. Warum auch immer.<<C<<Überprüfen: Beschreibung",
-          "zh_CN": "这种机器人曾经被用来制造高爆炸弹并将其运送到矿坑的小型隧道中。由于受到了先祖之路的感染，它们将炸弹作为非法用途。同时它们还装备有旋转火焰喷射器...原因嘛，并不知道。<<A<<[CHANGED 2018/09/19]",
-          "ja_JP": "このロボットは元々、爆発を制御しながら採掘を行うために、強力な爆弾を生成し、鉱山の小さなトンネル内へと運搬する目的で使われていた。軌跡によって制御を奪われた今、このロボットはその爆弾を攻撃に転用しているほか、なぜだか内蔵されていた回転式火炎放射器で敵を一掃する。<<A<<[CHANGED 2018/09/19]",
-          "ko_KR": "이 봇은 세심히 관리되는 사원 내 폭발을 위해 고폭탄을 생성해 보다 작은 터널로 옮기는 역할을 하곤 했습니다. 고대인의 길 덕분에 당신을 상대로 앞서 언급한 고폭탄과 회전 화염방사기를 사용할 수 있게 된 데에는... 이유가 있겠죠?<<A<<[CHANGED 2018/09/19]",
-          "langUid": 40
-        },
-        "condition": ""
-      }
-    ]
-  }
 }

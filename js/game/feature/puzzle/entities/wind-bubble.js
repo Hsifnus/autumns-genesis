@@ -144,17 +144,17 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }]
             },
             SHOT: {
-                "name":"default",
-                "sheet":{  
-                    "src":"media/entity/effects/autumn-dng.png",
-                    "offX":0,
-                    "offY":72,
-                    "width":16,
-                    "height":24
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 0,
+                    "offY": 72,
+                    "width": 16,
+                    "height": 24
                 },
-                "time":0.2,
-                "repeat":true,
-                "frames":[
+                "time": 0.2,
+                "repeat": true,
+                "frames": [
                     0
                 ]
             },
@@ -186,17 +186,17 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }]
             },
             SHOT: {
-                "name":"default",
-                "sheet":{  
-                    "src":"media/entity/effects/autumn-dng.png",
-                    "offX":0,
-                    "offY":96,
-                    "width":16,
-                    "height":24
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 0,
+                    "offY": 96,
+                    "width": 16,
+                    "height": 24
                 },
-                "time":0.2,
-                "repeat":true,
-                "frames":[
+                "time": 0.2,
+                "repeat": true,
+                "frames": [
                     0
                 ]
             },
@@ -228,17 +228,17 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }]
             },
             SHOT: {
-                "name":"default",
-                "sheet":{  
-                    "src":"media/entity/effects/autumn-dng.png",
-                    "offX":0,
-                    "offY":120,
-                    "width":16,
-                    "height":24
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 0,
+                    "offY": 120,
+                    "width": 16,
+                    "height": 24
                 },
-                "time":0.2,
-                "repeat":true,
-                "frames":[
+                "time": 0.2,
+                "repeat": true,
+                "frames": [
                     0
                 ]
             },
@@ -270,17 +270,17 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }]
             },
             SHOT: {
-                "name":"default",
-                "sheet":{  
-                    "src":"media/entity/effects/autumn-dng.png",
-                    "offX":0,
-                    "offY":144,
-                    "width":16,
-                    "height":24
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 0,
+                    "offY": 144,
+                    "width": 16,
+                    "height": 24
                 },
-                "time":0.2,
-                "repeat":true,
-                "frames":[
+                "time": 0.2,
+                "repeat": true,
+                "frames": [
                     0
                 ]
             },
@@ -312,17 +312,17 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }]
             },
             SHOT: {
-                "name":"default",
-                "sheet":{  
-                    "src":"media/entity/effects/autumn-dng.png",
-                    "offX":0,
-                    "offY":168,
-                    "width":16,
-                    "height":24
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 0,
+                    "offY": 168,
+                    "width": 16,
+                    "height": 24
                 },
-                "time":0.2,
-                "repeat":true,
-                "frames":[
+                "time": 0.2,
+                "repeat": true,
+                "frames": [
                     0
                 ]
             },
@@ -423,12 +423,10 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                     status: this.status,
                     spFactor: 0,
                     hints: [],
-                    stunSteps:[
-                        {
-                            "value":100,
-                            "type":"Z_VEL"
-                        }
-                    ],
+                    stunSteps: [{
+                        "value": 100,
+                        "type": "Z_VEL"
+                    }],
                     noHack: true
                 },
                 pos: b,
@@ -489,8 +487,8 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             }
         },
         hideBar: function() {
-            this.statusGui && this.statusGui.remove() && 
-            ig.gui.removeGuiElement(this.statusGui);
+            this.statusGui && this.statusGui.remove() &&
+                ig.gui.removeGuiElement(this.statusGui);
             this.statusGui = null;
         },
         kill: function() {
@@ -562,12 +560,12 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 var ball = new sc.BallInfo({
                     animation: sc.WIND_BUBBLE_ANIMS[this.element].SHOT,
                     effects: fx,
-                    speed:600,
-                    maxBounce:3,
-                    timer:1.5,
-                    trail:true,
-                    multiHit:false,
-                    noLightGlow:false,
+                    speed: 600,
+                    maxBounce: 3,
+                    timer: 1.5,
+                    trail: true,
+                    multiHit: false,
+                    noLightGlow: false,
                     attack: {
                         type: "HEAVY",
                         element: this.element,
@@ -614,10 +612,10 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             } else if (this.state != 1) this.coll.float.height = Math.max(8, this.startZ - this.coll.baseZPos);
             else if (this.panel) this.startZ =
                 this.panel.coll.pos.z + 8;
-            if (this.state == 3 && ig.game.playerEntity.playerTrack && 
-                (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED"
-                || ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV")
-                && !this.cooldown) {
+            if (this.state == 3 && ig.game.playerEntity.playerTrack &&
+                (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED" ||
+                    ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV") &&
+                !this.cooldown) {
                 this.circularBurstAndShoot();
             }
             if (this.cooldown && ig.game.playerEntity.playerTrack.startedAction == null) {
@@ -634,10 +632,10 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             this.parent()
         },
         hasHint: function(a) {
-            return a.attackInfo.hasHint("CHARGED")
-                || a.attackInfo.hasHint("COMPRESSED")
-                || a.attackInfo.hasHint("BOMB")
-                || a.attackInfo.hasHint("ICE_DISK");
+            return a.attackInfo.hasHint("CHARGED") ||
+                a.attackInfo.hasHint("COMPRESSED") ||
+                a.attackInfo.hasHint("BOMB") ||
+                a.attackInfo.hasHint("ICE_DISK");
         },
         ballHit: function(a) {
             var d = a.getElement();
@@ -661,8 +659,8 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
                     duration: -1
                 }));
-                if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED"
-                || ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV") {
+                if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED" ||
+                    ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV") {
                     this.cooldown = true;
                 }
             } else if (this.state == 2 && this.hasHint(a)) {
@@ -692,8 +690,8 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                     this.target = null;
                     this.timer = 0;
                     this.coll.accelDir = Vec2.create();
-                    if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED"
-                    || ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV") {
+                    if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED" ||
+                        ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED_REV") {
                         this.cooldown = true;
                     }
                 } else {

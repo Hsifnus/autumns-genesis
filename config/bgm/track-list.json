@@ -1,13 +1,13 @@
 {
-    "autumnsGenesis" : {
-        "path" : "media/bgm/muAutumnsgenesis.ogg",
-        "loopEnd" : 195.602,
-        "volume" : 2.5
+    "autumnsGenesis": {
+        "path": "media/bgm/muAutumnsgenesis.ogg",
+        "loopEnd": 195.602,
+        "volume": 2.5
     },
     "titleAutumn": {
-        "path" : "media/bgm/muTitleautumn.ogg",
-        "loopEnd" : 37.419,
-        "volume" : 1
+        "path": "media/bgm/muTitleautumn.ogg",
+        "loopEnd": 37.419,
+        "volume": 1
     },
     "strikeHarder": {
         "introPath": "media/bgm/muStrikeharder-i.ogg",

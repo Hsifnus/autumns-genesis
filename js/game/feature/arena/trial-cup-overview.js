@@ -1,5 +1,5 @@
-ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.gui.arena-trophy-gui").defines(function(){
-	sc.ArenaCupOverview = ig.GuiElementBase.extend({
+ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.gui.arena-trophy-gui").defines(function() {
+    sc.ArenaCupOverview = ig.GuiElementBase.extend({
         gfx: new ig.Image("media/gui/menu.png"),
         transitions: {
             DEFAULT: {
@@ -147,7 +147,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                 20);
             this.rushTime.setTime(0, true);
             if (!sc.arena.isTrial(this.cup)) {
-            	this.content.addChildGui(this.rushTime);
+                this.content.addChildGui(this.rushTime);
             }
             this.rushTime.hook.pos.x = this.rushTime.hook.pos.x + 24;
             d = new ig.ImageGui(this.gfx, 512, 207, 17, 16);
@@ -166,7 +166,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                 20);
             this.rushChain.setValueAsNumber(0, true);
             if (!sc.arena.isTrial(this.cup)) {
-            	this.content.addChildGui(this.rushChain);
+                this.content.addChildGui(this.rushChain);
             }
             this.trophy = new ig.GuiElementBase;
             this.trophy.setSize(96, 74);
@@ -254,7 +254,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
             this.addChildGui(this.msgBox);
             this.doStateTransition("HIDDEN", true)
         },
-    	update: function() {
+        update: function() {
             if (this.blockTimer > 0) this.blockTimer = this.blockTimer - ig.system.tick;
             else {
                 if (this.done) {
@@ -280,12 +280,12 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                             }
                             var b = this.entries[this.currentIndex];
                             if (sc.arena.isTrial(this.cup) && b.isRush) {
-                            	this.currentIndex++;
-                            	return;
+                                this.currentIndex++;
+                                return;
                             }
                             var a = new sc.ArenaCupOverview.MedalEntry(b.id, b.medal, false, b.isRush);
-                            var d = sc.arena.isTrial(this.cup) ? ~~((b.id-1) / 10) : ~~(b.id / 10);
-                            a.setPos(1 + (sc.arena.isTrial(this.cup) ? b.id-1 : b.id) % 10 * 18, 2 + d * 18);
+                            var d = sc.arena.isTrial(this.cup) ? ~~((b.id - 1) / 10) : ~~(b.id / 10);
+                            a.setPos(1 + (sc.arena.isTrial(this.cup) ? b.id - 1 : b.id) % 10 * 18, 2 + d * 18);
                             this.medals.addChildGui(a);
                             this.totalValue =
                                 this.totalValue + b.points;
@@ -307,7 +307,8 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                                 this.trophyFooter &&
                                     this.trophyFooter.doStateTransition("DEFAULT", false, false, null, 0.4)
                             }
-                        } else this.timer = this.timer - ig.system.tick
+                        }
+                    else this.timer = this.timer - ig.system.tick
                 } else if (this.done && this.timer > 0) {
                     this.timer = this.timer - ig.system.tick;
                     if (this.scoreDotPitch < 1.5) this.scoreDotPitch = this.scoreDotPitch + 0.6 * ig.system.tick;
@@ -385,11 +386,11 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                 for (var b = this.currentIndex; b < this.entries.length; b++) {
                     var a = this.entries[this.currentIndex];
                     if (sc.arena.isTrial(this.cup) && a.isRush) {
-                    	continue;
+                        continue;
                     }
                     var d = new sc.ArenaCupOverview.MedalEntry(a.id, a.medal, true, a.isRush);
-                    var c = sc.arena.isTrial(this.cup) ? ~~((a.id-1) / 10) : ~~(a.id / 10);
-                    d.setPos(1 + (sc.arena.isTrial(this.cup) ? a.id-1 : a.id) % 10 * 18, 2 + c * 18);
+                    var c = sc.arena.isTrial(this.cup) ? ~~((a.id - 1) / 10) : ~~(a.id / 10);
+                    d.setPos(1 + (sc.arena.isTrial(this.cup) ? a.id - 1 : a.id) % 10 * 18, 2 + c * 18);
                     this.medals.addChildGui(d);
                     this.totalValue = this.totalValue + a.points;
                     if (a.time) this.totalTime = this.totalTime + a.time;

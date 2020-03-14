@@ -1,1571 +1,1309 @@
 {
-  "level":68,
-  "boostedLevel":68,
-  "params":{
-    "hp":31200,
-    "attack":454,
-    "defense":312,
-    "focus":423,
-    "elemFactor":[
-      0.75,
-      0.75,
-      1.25,
-      1
-    ],
-    "statusInflict":[
-      0.5,
-      0.5,
-      1,
-      1
-    ]
-  },
-  "credit":2120,
-  "exp":100,
-  "maxSp":0,
-  "enduranceScale":3,
-  "healDropRate":0,
-  "boss":false,
-  "bossOrder":0,
-  "padding":{
-    "x":8,
-    "y":8
-  },
-  "material":"ORGANIC",
-  "aiGroup":"volturbine",
-  "aiLearnType":"REGULAR",
-  "itemDrops": [
-    {
-      "item": "199",
-      "prob": 0.2,
-      "min": 1,
-      "max": 1,
-      "rank": ""
+    "level": 68,
+    "boostedLevel": 68,
+    "params": {
+        "hp": 31200,
+        "attack": 454,
+        "defense": 312,
+        "focus": 423,
+        "elemFactor": [0.75, 0.75, 1.25, 1],
+        "statusInflict": [0.5, 0.5, 1, 1]
     },
-    {
-      "item": "3",
-      "prob": 0.04,
-      "min": 1,
-      "max": 1,
-      "rank": "A"
+    "credit": 2120,
+    "exp": 100,
+    "maxSp": 0,
+    "enduranceScale": 3,
+    "healDropRate": 0,
+    "boss": false,
+    "bossOrder": 0,
+    "padding": {
+        "x": 8,
+        "y": 8
+    },
+    "material": "ORGANIC",
+    "aiGroup": "volturbine",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [{
+        "item": "199",
+        "prob": 0.2,
+        "min": 1,
+        "max": 1,
+        "rank": ""
+    }, {
+        "item": "3",
+        "prob": 0.04,
+        "min": 1,
+        "max": 1,
+        "rank": "A"
+    }],
+    "targetDetect": {
+        "detectDistance": 12000,
+        "loseDistance": 32000,
+        "notifyNeighbourRadius": 10000
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "anims": "enemies.simurgh",
+    "defaultState": "IDLE",
+    "walkConfigs": {
+        "normal": {
+            "idle": "idle",
+            "damage": "damage"
+        },
+        "weak": {
+            "idle": "damage",
+            "damage": "damage"
+        }
+    },
+    "_wm": null,
+    "walkAnims": "normal",
+    "weight": 50,
+    "maxVel": 180,
+    "jumpingEnabled": true,
+    "shadow": 20,
+    "floatVariance": 0.5,
+    "floatMaxSpeed": 500,
+    "floatAccel": 2,
+    "flyHeight": 8,
+    "ballFactor": 1,
+    "hitStable": "LIGHT",
+    "faceToTarget": true,
+    "annotate": {
+        "active": "NONE",
+        "passive": "NONE",
+        "weapon": "RANGED",
+        "element": "ANY",
+        "extra": []
+    },
+    "DOCTYPE": "ENEMY",
+    "trackers": {
+        "MOVE": {
+            "target": 3,
+            "initRandom": 1,
+            "resetRandom": 0.3,
+            "noStateReset": false,
+            "type": "TIME"
+        },
+        "weakRegen": {
+            "target": 3,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "type": "TIME"
+        },
+        "flyRegen": {
+            "target": 3,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": true,
+            "type": "TIME"
+        }
+    },
+    "states": {
+        "IDLE": {
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "HAS_TARGET"
+                }],
+                "postSwitchState": "DEFAULT",
+                "ignoreStun": true
+            }, {
+                "req": [{
+                    "type": "!SPAWN_POINT_DISTANCE",
+                    "max": 64
+                }],
+                "action": "MoveToSpawnPoint"
+            }, {
+                "req": [{
+                    "type": "RANDOM",
+                    "max": 0.3
+                }],
+                "action": "MoveRandom"
+            }, {
+                "action": "Idle"
+            }]
+        },
+        "DEFAULT": {
+            "flyHeight": 8,
+            "choices": [{
+                "req": [{
+                    "type": "!HAS_TARGET"
+                }],
+                "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "name": "FLY_BLOCK",
+                    "negated": false,
+                    "type": "ATTRIB_IS_TRUE"
+                }, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "flyRegen"
+                }],
+                "action": "flyRegen"
+            }, {
+                "req": [{
+                    "min": 1.5,
+                    "negated": false,
+                    "type": "COMBO_TIME"
+                }],
+                "action": "AdjustEscape",
+                "ignoreStun": true
+            }, {
+                "req": [{
+                    "distance": 200,
+                    "throwing": true,
+                    "type": "!TARGET_REACHABLE"
+                }],
+                "action": "Adjust"
+            }, {
+                "action": "IcyTempests",
+                "frequency": "VERY_RARE"
+            }, {
+                "action": "NoseDive",
+                "frequency": "SOMETIMES"
+            }, {
+                "action": "ShootStuff",
+                "frequency": "NORMAL"
+            }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "MOVE"
+                }, {
+                    "name": "FLY_BLOCK",
+                    "type": "!ATTRIB_IS_TRUE"
+                }],
+                "action": "Circle"
+            }, {
+                "action": "BattleIdle"
+            }]
+        },
+        "WEAK": {
+            "walkAnims": "weak",
+            "flyHeight": 0,
+            "damageFactor": 1.25,
+            "annotate": {
+                "active": "NONE",
+                "passive": "WEAK",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": [{
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "weakRegen"
+                }],
+                "preSwitchState": "DEFAULT"
+            }]
+        },
+        "PASSIVE_INVIS": {
+            "weight": -1,
+            "hitIgnore": true,
+            "aggression": "PEACEFUL",
+            "annotate": {
+                "active": "NONE",
+                "passive": "IMMUNE",
+                "weapon": "ANY",
+                "element": "ANY",
+                "extra": []
+            },
+            "choices": []
+        }
+    },
+    "proxies": {
+        "bullet": {
+            "effects": "turret",
+            "speed": 400,
+            "maxBounce": 0,
+            "timer": 2,
+            "trail": false,
+            "multiHit": false,
+            "noLightGlow": true,
+            "shadow": 0,
+            "groundBounce": 0,
+            "zBounciness": 0,
+            "type": "BALL",
+            "effect": "ar",
+            "maxBounds": 0,
+            "animation": {
+                "name": "default",
+                "sheet": {
+                    "src": "media/entity/effects/autumn-dng.png",
+                    "offX": 96,
+                    "offY": 24,
+                    "width": 16,
+                    "height": 16
+                },
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "MEDIUM",
+                "element": "COLD",
+                "damageFactor": 0.4,
+                "reverse": false,
+                "status": 2.4,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "behaviors": [{
+                "type": "FOLLOW_TARGET",
+                "steerDegree": 0.15
+            }, {
+                "type": "SLOW_DOWN",
+                "speedFactor": 0.2,
+                "fadeOut": 0.3,
+                "fadeOutVary": 0.3,
+                "pause": 0.2,
+                "fadeIn": 0.2
+            }],
+            "timeBoni": null,
+            "zVel": 0
+        },
+        "iceCloudWeak": {
+            "animation": {
+                "frames": [0],
+                "SUB": [{
+                    "name": "alt_4",
+                    "renderMode": "lighter",
+                    "sheet": {
+                        "src": "media/entity/effects/autumn-dng.png",
+                        "offX": 0,
+                        "offY": 48,
+                        "width": 24,
+                        "height": 24
+                    },
+                    "time": 0.1,
+                    "repeat": false
+                }, {
+                    "name": "alt_1",
+                    "renderMode": "lighter",
+                    "sheet": {
+                        "src": "media/entity/effects/autumn-dng.png",
+                        "offX": 24,
+                        "offY": 48,
+                        "width": 24,
+                        "height": 24
+                    },
+                    "time": 0.1,
+                    "repeat": false
+                }, {
+                    "name": "alt_2",
+                    "renderMode": "lighter",
+                    "sheet": {
+                        "src": "media/entity/effects/autumn-dng.png",
+                        "offX": 48,
+                        "offY": 48,
+                        "width": 24,
+                        "height": 24
+                    },
+                    "time": 0.1,
+                    "repeat": false
+                }, {
+                    "name": "alt_3",
+                    "renderMode": "lighter",
+                    "sheet": {
+                        "src": "media/entity/effects/autumn-dng.png",
+                        "offX": 72,
+                        "offY": 48,
+                        "width": 24,
+                        "height": 24
+                    },
+                    "time": 0.1,
+                    "repeat": false
+                }, {
+                    "name": "default",
+                    "renderMode": "lighter",
+                    "sheet": {
+                        "src": "media/entity/effects/autumn-dng.png",
+                        "offX": 96,
+                        "offY": 48,
+                        "width": 24,
+                        "height": 24
+                    },
+                    "time": 0.1,
+                    "repeat": false
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "type": "SHOW_RANDOM_ANIMATION",
+                "randAnims": ["default", "alt_1", "alt_2", "alt_3", "alt_4"]
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.autumn-dng",
+                    "name": "iceCloudLoop"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 10,
+                "type": "SET_SPEED"
+            }, {
+                "value": 0.2,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "attribName": "hits",
+                "changeType": "set",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 20
+            }, {
+                "name": "linger",
+                "type": "LABEL"
+            }, {
+                "time": 0.25,
+                "cancelOnHit": false,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "LIGHT",
+                    "element": "COLD",
+                    "damageFactor": 0.1,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 6,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG"
+                }
+            }, {
+                "time": 0,
+                "turn": 0,
+                "random": 0.5,
+                "type": "ROTATE_FACE"
+            }, {
+                "attribName": "hits",
+                "changeType": "sub",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "withElse": false,
+                "condition": "entity.attrib.hits > 0",
+                "type": "IF",
+                "thenStep": [{
+                    "name": "linger",
+                    "type": "GOTO_LABEL"
+                }]
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "wall",
+            "killEffect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "iceCloudFade"
+            },
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 24
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": "0.5",
+                "floatHeight": "2",
+                "floatAccel": "1"
+            },
+            "type": "GENERIC"
+        },
+        "icyTempest": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.autumn-dng",
+                    "name": "iceTornado"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "time": 2.1,
+                "type": "WAIT"
+            }, {
+                "time": 1,
+                "cancelOnHit": false,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "COLD",
+                    "reverse": false,
+                    "damageFactor": 3.6,
+                    "guardable": "NEVER",
+                    "stunSteps": [{
+                        "value": 300,
+                        "type": "Z_VEL"
+                    }, {
+                        "type": "BLOCK_XY"
+                    }, {
+                        "type": "START_LOCK"
+                    }],
+                    "skillBonus": "",
+                    "limiter": ""
+                }
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "killEffect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "iceCloudFade"
+            },
+            "size": {
+                "x": 36,
+                "y": 36,
+                "z": 48
+            },
+            "config": {
+                "collType": "TRIGGER",
+                "zGravityFactor": "0"
+            },
+            "type": "GENERIC"
+        }
+    },
+    "actions": {
+        "Idle": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "BattleIdle": [{
+            "conditions": [{
+                "name": "FLY_BLOCK",
+                "type": "!ATTRIB_IS_TRUE"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "value": 48,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "passive": "IMMUNE",
+                "type": "CHANGE_ENEMY_ANNOTATION"
+            }]
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "minTime": 0.1,
+            "maxTime": 0.3,
+            "type": "WAIT_RANDOM"
+        }],
+        "Adjust": [{
+            "conditions": [{
+                "name": "FLY_BLOCK",
+                "type": "!ATTRIB_IS_TRUE"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "value": 48,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "passive": "IMMUNE",
+                "type": "CHANGE_ENEMY_ANNOTATION"
+            }]
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1,
+            "forceTime": false,
+            "distance": 120,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "AdjustEscape": [{
+            "value": 0.5,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "name": "FLY_BLOCK",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
+            "value": 48,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idleFast"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 1,
+            "forceTime": false,
+            "distance": 120,
+            "throwing": false,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "Circle": [{
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 1,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 48,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "maxTime": 0,
+            "forceTime": false,
+            "distance": 100,
+            "throwing": false,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "followUp": "dash",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preDash"
+        }, {
+            "minTime": 1.5,
+            "maxTime": 2,
+            "keepFaceDirection": false,
+            "type": "CIRCLE_TARGET"
+        }, {
+            "value": 1,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "postDash"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "NoseDive": [{
+            "value": 48,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "type": "ENABLE_REACTION",
+            "reaction": "GUARD_BREAK"
+        }, {
+            "maxTime": 2,
+            "forceTime": false,
+            "distance": 120,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "simurghPreDash"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "value": 80,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idleFast"
+        }, {
+            "active": "PRE_ATTACK",
+            "passive": "NONE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.9,
+            "type": "WAIT"
+        }, {
+            "followUp": "dash",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preDash"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "accel": 8,
+            "type": "SET_FLOAT_PARAMS"
+        }, {
+            "value": -300,
+            "type": "SET_Z_VEL"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "value": 2.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "iceCloudTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "simurghDash"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "name": "FLY_BLOCK",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "flyRegen"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0.05,
+            "startAngle": 0.475,
+            "angleVary": 0,
+            "startDist": 8,
+            "startDistCollide": false,
+            "random": true,
+            "count": 16,
+            "duration": 1,
+            "clockwise": true,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 1,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "iceCloudWeak",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "time": 1,
+            "missReactTime": 0.1,
+            "cancelOnHit": true,
+            "orthoDirFactor": 0,
+            "ignoreLastHit": false,
+            "type": "TACKLE",
+            "attack": {
+                "type": "HEAVY",
+                "element": "COLD",
+                "reverse": false,
+                "status": 5,
+                "damageFactor": 1,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            }
+        }, {
+            "time": 0.2,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "postDash"
+        }, {
+            "active": "POST_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "ShootStuff": [{
+            "value": 48,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "value": "LIGHT",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "maxTime": 2,
+            "forceTime": false,
+            "distance": 120,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "charge",
+                "name": "light"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "accel": 4,
+            "type": "SET_FLOAT_PARAMS"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "active": "PRE_ATTACK",
+            "passive": "NONE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "name": "FLY_BLOCK",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "flyRegen"
+        }, {
+            "volume": 0.8,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/enemies/vulturbine/fuse.ogg"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preShoot"
+        }, {
+            "time": 0.35,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "shoot"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "simurghShoot"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0.25,
+            "startAngle": 0,
+            "angleVary": 0,
+            "startDist": 8,
+            "startDistCollide": false,
+            "random": false,
+            "count": 5,
+            "duration": 0.2,
+            "clockwise": true,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0.6,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "bullet",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0.25,
+            "startAngle": 0,
+            "angleVary": 0,
+            "startDist": 8,
+            "startDistCollide": false,
+            "random": false,
+            "count": 5,
+            "duration": 0.2,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0.6,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "bullet",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": true,
+            "type": "SET_FACE_FIX"
+        }, {
+            "value": 2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "time": 0.05,
+            "stopBeforeEdge": false,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "active": "POST_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }],
+        "IcyTempests": [{
+            "value": "MASSIVE",
+            "type": "SET_HIT_STABLE"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "iceCloudTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "active": "PRE_ATTACK",
+            "passive": "NONE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "charge"
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "time": 0.45,
+            "type": "WAIT"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "charge",
+                "name": "light_lightBlue"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "conditions": [{
+                "value": 0.5,
+                "type": "!HP_BELOW"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 0.375,
+                "angleVary": 0,
+                "startDist": 48,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 3,
+                "duration": 0,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icyTempest",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 48,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 8,
+                "duration": 0,
+                "clockwise": true,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "icyTempest",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "volume": 0.6,
+            "speed": 1.3,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/boss/moth/flap-01.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.7,
+            "type": "WAIT"
+        }, {
+            "volume": 0.6,
+            "speed": 1.3,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/boss/moth/flap-01.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.6,
+            "speed": 1.4,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "value": 24,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.7,
+            "type": "WAIT"
+        }, {
+            "volume": 0.6,
+            "speed": 1.3,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/boss/moth/flap-01.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.6,
+            "speed": 1.45,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.4,
+            "type": "WAIT"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "simurghSubCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            }
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "volume": 0.6,
+            "speed": 1.3,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/boss/moth/flap-01.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.6,
+            "speed": 1.6,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "value": 40,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "followUp": "shoot",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preShoot"
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "active": "POST_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }],
+        "MoveToSpawnPoint": [{
+            "value": 0.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 3,
+            "maxDistance": 16,
+            "precise": false,
+            "type": "NAVIGATE_TO_SPAWN_POINT"
+        }],
+        "MoveRandom": [{
+            "value": 0.3,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": false,
+            "type": "SET_JUMPING"
+        }, {
+            "minTime": 0.3,
+            "maxTime": 0.5,
+            "dirChanges": 0,
+            "stopBeforeEdge": true,
+            "type": "MOVE_RANDOM"
+        }, {
+            "minTime": 0.5,
+            "maxTime": 0.6,
+            "type": "WAIT_RANDOM"
+        }],
+        "GuardCountered": [{
+            "flyLevel": "MASSIVE",
+            "breaking": false,
+            "stable": false,
+            "wait": true,
+            "type": "DO_DAMAGE_MOVEMENT"
+        }],
+        "flyRegen": [{
+            "name": "FLY_BLOCK",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }]
+    },
+    "reactions": {
+        "GUARD_BREAK": {
+            "preSwitchState": "WEAK",
+            "action": "GuardCountered",
+            "conditions": [],
+            "type": "GUARD_COUNTER"
+        }
+    },
+    "meta": {
+        "species": {
+            "en_US": "Rainbow Bird",
+            "de_DE": "Rainbow Bird",
+            "zh_CN": "Rainbow Bird",
+            "ja_JP": "Rainbow Bird",
+            "ko_KR": "Rainbow Bird",
+            "langUid": 1
+        },
+        "category": "ANIMALS",
+        "descriptions": [{
+            "text": {
+                "en_US": "This bird is often seen flying about in \\c[3]\\v[area.bergen-trail.name]\\c[0]. However, these birds will flock to remote parts of the Autumn area to safely nest in. As such, Shimmurgh are rather territorial and will retaliate at intruders all their icy wrath. \nLike their cousins down in \\c[3]\\v[area.heat-area.name]\\c[0], they can use their jet turbines to boost into a chilling dive attack. However, this dive attack also leaves behind a trail of icy dust that can also chill careless attackers. Commit to countering their dives or play carefully!",
+                "langUid": 3
+            },
+            "condition": ""
+        }]
     }
-  ],
-  "targetDetect":{
-    "detectDistance":12000,
-    "loseDistance":32000,
-    "notifyNeighbourRadius":10000
-  },
-  "hpBreaks":[
-
-  ],
-  "size":{
-    "x":16,
-    "y":16,
-    "z":24
-  },
-  "anims":"enemies.simurgh",
-  "defaultState":"IDLE",
-  "walkConfigs":{
-    "normal":{
-      "idle":"idle",
-      "damage":"damage"
-    },
-    "weak":{
-      "idle":"damage",
-      "damage":"damage"
-    }
-  },
-  "_wm":null,
-  "walkAnims":"normal",
-  "weight":50,
-  "maxVel":180,
-  "jumpingEnabled":true,
-  "shadow":20,
-  "floatVariance":0.5,
-  "floatMaxSpeed":500,
-  "floatAccel":2,
-  "flyHeight":8,
-  "ballFactor":1,
-  "hitStable":"LIGHT",
-  "faceToTarget":true,
-  "annotate":{
-    "active":"NONE",
-    "passive":"NONE",
-    "weapon":"RANGED",
-    "element":"ANY",
-    "extra":[
-
-    ]
-  },
-  "DOCTYPE":"ENEMY",
-  "trackers":{
-    "MOVE":{
-      "target":3,
-      "initRandom":1,
-      "resetRandom":0.3,
-      "noStateReset":false,
-      "type":"TIME"
-    },
-    "weakRegen":{
-      "target":3,
-      "initRandom":0,
-      "resetRandom":0,
-      "noStateReset":false,
-      "type":"TIME"
-    },
-    "flyRegen":{
-      "target":3,
-      "initRandom":0,
-      "resetRandom":0,
-      "noStateReset":true,
-      "type":"TIME"
-    }
-  },
-  "states":{
-    "IDLE":{
-      "choices":[
-        {
-          "req":[
-            {
-              "negated":false,
-              "type":"HAS_TARGET"
-            }
-          ],
-          "postSwitchState":"DEFAULT",
-          "ignoreStun":true
-        },
-        {
-          "req":[
-            {
-              "type":"!SPAWN_POINT_DISTANCE",
-              "max":64
-            }
-          ],
-          "action":"MoveToSpawnPoint"
-        },
-        {
-          "req":[
-            {
-              "type":"RANDOM",
-              "max":0.3
-            }
-          ],
-          "action":"MoveRandom"
-        },
-        {
-          "action":"Idle"
-        }
-      ]
-    },
-    "DEFAULT":{
-      "flyHeight":8,
-      "choices":[
-        {
-          "req":[
-            {
-              "type":"!HAS_TARGET"
-            }
-          ],
-          "postSwitchState":"IDLE"
-        },
-        {
-          "req":[
-            {
-              "name":"FLY_BLOCK",
-              "negated":false,
-              "type":"ATTRIB_IS_TRUE"
-            },
-            {
-              "negated":false,
-              "type":"TRACKER_READY",
-              "name":"flyRegen"
-            }
-          ],
-          "action":"flyRegen"
-        },
-        {
-          "req":[
-            {
-              "min":1.5,
-              "negated":false,
-              "type":"COMBO_TIME"
-            }
-          ],
-          "action":"AdjustEscape",
-          "ignoreStun":true
-        },
-        {
-          "req":[
-            {
-              "distance":200,
-              "throwing":true,
-              "type":"!TARGET_REACHABLE"
-            }
-          ],
-          "action":"Adjust"
-        },
-        {
-          "action":"IcyTempests",
-          "frequency":"VERY_RARE"
-        },
-        {
-          "action":"NoseDive",
-          "frequency":"SOMETIMES"
-        },
-        {
-          "action":"ShootStuff",
-          "frequency":"NORMAL"
-        },
-        {
-          "req":[
-            {
-              "negated":false,
-              "type":"TRACKER_READY",
-              "name":"MOVE"
-            },
-            {
-              "name":"FLY_BLOCK",
-              "type":"!ATTRIB_IS_TRUE"
-            }
-          ],
-          "action":"Circle"
-        },
-        {
-          "action":"BattleIdle"
-        }
-      ]
-    },
-    "WEAK":{
-      "walkAnims":"weak",
-      "flyHeight":0,
-      "damageFactor":1.25,
-      "annotate":{
-        "active":"NONE",
-        "passive":"WEAK",
-        "weapon":"ANY",
-        "element":"ANY",
-        "extra":[
-
-        ]
-      },
-      "choices":[
-        {
-          "req":[
-            {
-              "negated":false,
-              "type":"TRACKER_READY",
-              "name":"weakRegen"
-            }
-          ],
-          "preSwitchState":"DEFAULT"
-        }
-      ]
-    },
-    "PASSIVE_INVIS":{
-      "weight":-1,
-      "hitIgnore":true,
-      "aggression":"PEACEFUL",
-      "annotate":{
-        "active":"NONE",
-        "passive":"IMMUNE",
-        "weapon":"ANY",
-        "element":"ANY",
-        "extra":[
-
-        ]
-      },
-      "choices":[
-
-      ]
-    }
-  },
-  "proxies":{
-    "bullet":{
-      "effects":"turret",
-      "speed":400,
-      "maxBounce":0,
-      "timer":2,
-      "trail":false,
-      "multiHit":false,
-      "noLightGlow":true,
-      "shadow":0,
-      "groundBounce":0,
-      "zBounciness":0,
-      "type":"BALL",
-      "effect":"ar",
-      "maxBounds":0,
-      "animation":{
-        "name":"default",
-        "sheet":{
-          "src":"media/entity/effects/autumn-dng.png",
-          "offX":96,
-          "offY":24,
-          "width":16,
-          "height":16
-        },
-        "time":0.05,
-        "repeat":true,
-        "frames":[
-          0
-        ]
-      },
-      "attack":{
-        "type":"MEDIUM",
-        "element":"COLD",
-        "damageFactor":0.4,
-        "reverse":false,
-        "status":2.4,
-        "guardable":"",
-        "skillBonus":"",
-        "limiter":""
-      },
-      "behaviors":[
-        {
-          "type":"FOLLOW_TARGET",
-          "steerDegree":0.15
-        },
-        {
-          "type":"SLOW_DOWN",
-          "speedFactor":0.2,
-          "fadeOut":0.3,
-          "fadeOutVary":0.3,
-          "pause":0.2,
-          "fadeIn":0.2
-        }
-      ],
-      "timeBoni":null,
-      "zVel":0
-    },
-    "iceCloudWeak":{
-      "animation":{
-        "frames":[
-          0
-        ],
-        "SUB":[
-          {
-            "name":"alt_4",
-            "renderMode":"lighter",
-            "sheet":{
-              "src":"media/entity/effects/autumn-dng.png",
-              "offX":0,
-              "offY":48,
-              "width":24,
-              "height":24
-            },
-            "time":0.1,
-            "repeat":false
-          },
-          {
-            "name":"alt_1",
-            "renderMode":"lighter",
-            "sheet":{
-              "src":"media/entity/effects/autumn-dng.png",
-              "offX":24,
-              "offY":48,
-              "width":24,
-              "height":24
-            },
-            "time":0.1,
-            "repeat":false
-          },
-          {
-            "name":"alt_2",
-            "renderMode":"lighter",
-            "sheet":{
-              "src":"media/entity/effects/autumn-dng.png",
-              "offX":48,
-              "offY":48,
-              "width":24,
-              "height":24
-            },
-            "time":0.1,
-            "repeat":false
-          },
-          {
-            "name":"alt_3",
-            "renderMode":"lighter",
-            "sheet":{
-              "src":"media/entity/effects/autumn-dng.png",
-              "offX":72,
-              "offY":48,
-              "width":24,
-              "height":24
-            },
-            "time":0.1,
-            "repeat":false
-          },
-          {
-            "name":"default",
-            "renderMode":"lighter",
-            "sheet":{
-              "src":"media/entity/effects/autumn-dng.png",
-              "offX":96,
-              "offY":48,
-              "width":24,
-              "height":24
-            },
-            "time":0.1,
-            "repeat":false
-          }
-        ]
-      },
-      "copyOwnerAnims":false,
-      "breakType":"COMBATANT",
-      "action":[
-        {
-          "type":"SHOW_RANDOM_ANIMATION",
-          "randAnims":[
-            "default",
-            "alt_1",
-            "alt_2",
-            "alt_3",
-            "alt_4"
-          ]
-        },
-        {
-          "time":0.1,
-          "type":"WAIT"
-        },
-        {
-          "duration":-1,
-          "align":"BOTTOM",
-          "rotateFace":0,
-          "flipLeftFace":false,
-          "wait":false,
-          "waitSkip":0,
-          "actionDetached":false,
-          "fixPos":false,
-          "type":"SHOW_EFFECT",
-          "effect":{
-            "sheet":"enemies.autumn-dng",
-            "name":"iceCloudLoop"
-          },
-          "offset":{
-            "x":0,
-            "y":0,
-            "z":0
-          }
-        },
-        {
-          "value":10,
-          "type":"SET_SPEED"
-        },
-        {
-          "value":0.2,
-          "type":"SET_ACCEL_SPEED"
-        },
-        {
-          "time":0.3,
-          "type":"WAIT"
-        },
-        {
-          "attribName":"hits",
-          "changeType":"set",
-          "type":"SET_ATTRIB_NUMBER",
-          "value":20
-        },
-        {
-          "name":"linger",
-          "type":"LABEL"
-        },
-        {
-          "time":0.25,
-          "cancelOnHit":false,
-          "orthoDirFactor":0,
-          "ignoreLastHit":false,
-          "type":"TACKLE",
-          "attack":{
-            "type":"LIGHT",
-            "element":"COLD",
-            "damageFactor":0.1,
-            "reverse":false,
-            "spFactor":0,
-            "status":6,
-            "guardable":"",
-            "skillBonus":"MELEE_DMG"
-          }
-        },
-        {
-          "time":0,
-          "turn":0,
-          "random":0.5,
-          "type":"ROTATE_FACE"
-        },
-        {
-          "attribName":"hits",
-          "changeType":"sub",
-          "type":"SET_ATTRIB_NUMBER",
-          "value":1
-        },
-        {
-          "withElse":false,
-          "condition":"entity.attrib.hits > 0",
-          "type":"IF",
-          "thenStep":[
-            {
-              "name":"linger",
-              "type":"GOTO_LABEL"
-            }
-          ]
-        }
-      ],
-      "invisible":true,
-      "hp":0,
-      "stickToSource":"NONE",
-      "group":"wall",
-      "killEffect":{
-        "sheet":"enemies.autumn-dng",
-        "name":"iceCloudFade"
-      },
-      "size":{
-        "x":24,
-        "y":24,
-        "z":24
-      },
-      "config":{
-        "collType":"IGNORE",
-        "zGravityFactor":"0.5",
-        "floatHeight":"2",
-        "floatAccel":"1"
-      },
-      "type":"GENERIC"
-    },
-    "icyTempest":{
-      "copyOwnerAnims":false,
-      "breakType":"COMBATANT",
-      "action":[
-        {
-          "duration":-1,
-          "align":"BOTTOM",
-          "rotateFace":0,
-          "flipLeftFace":false,
-          "wait":false,
-          "waitSkip":0,
-          "actionDetached":false,
-          "fixPos":false,
-          "type":"SHOW_EFFECT",
-          "effect":{
-            "sheet":"enemies.autumn-dng",
-            "name":"iceTornado"
-          },
-          "offset":{
-            "x":0,
-            "y":0,
-            "z":0
-          }
-        },
-        {
-          "value":400,
-          "type":"SET_SPEED"
-        },
-        {
-          "value":3,
-          "type":"SET_ACCEL_SPEED"
-        },
-        {
-        	"time":2.1,
-        	"type":"WAIT"
-        },
-	      {
-	        "time":1,
-	        "cancelOnHit":false,
-	        "collideCancel":1,
-	        "orthoDirFactor":0,
-	        "ignoreLastHit":false,
-	        "type":"TACKLE",
-	        "attack":{
-	          "type":"MASSIVE",
-	          "element":"COLD",
-	          "reverse":false,
-	          "damageFactor":3.6,
-	          "guardable":"NEVER",
-	          "stunSteps":[
-	          	{
-	          		"value":300,
-	          		"type":"Z_VEL"
-	          	},
-	          	{
-	          		"type":"BLOCK_XY"
-	          	},
-	          	{
-	          		"type":"START_LOCK"
-	          	}
-	          ],
-	          "skillBonus":"",
-	          "limiter":""
-	        }
-	      },
-	      {
-	      	"type":"STOP_XY"
-	      },
-	      {
-	      	"time":0.3,
-	      	"type":"WAIT"
-	      }
-      ],
-      "invisible":true,
-      "hp":0,
-      "stickToSource":"NONE",
-      "group":"",
-      "killEffect":{
-        "sheet":"enemies.autumn-dng",
-        "name":"iceCloudFade"
-      },
-      "size":{
-        "x":36,
-        "y":36,
-        "z":48
-      },
-      "config":{
-        "collType":"TRIGGER",
-        "zGravityFactor":"0"
-      },
-      "type":"GENERIC"
-    }
-  },
-  "actions":{
-    "Idle":[
-      {
-        "value":true,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "minTime":0.1,
-        "maxTime":0.3,
-        "type":"WAIT_RANDOM"
-      }
-    ],
-    "BattleIdle":[
-      {
-        "conditions":[
-          {
-            "name":"FLY_BLOCK",
-            "type":"!ATTRIB_IS_TRUE"
-          }
-        ],
-        "withElse":false,
-        "type":"COMBAT_IF",
-        "thenStep":[
-          {
-            "value":48,
-            "type":"SET_FLY_HEIGHT"
-          },
-          {
-            "passive":"IMMUNE",
-            "type":"CHANGE_ENEMY_ANNOTATION"
-          }
-        ]
-      },
-      {
-        "value":true,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "minTime":0.1,
-        "maxTime":0.3,
-        "type":"WAIT_RANDOM"
-      }
-    ],
-    "Adjust":[
-      {
-        "conditions":[
-          {
-            "name":"FLY_BLOCK",
-            "type":"!ATTRIB_IS_TRUE"
-          }
-        ],
-        "withElse":false,
-        "type":"COMBAT_IF",
-        "thenStep":[
-          {
-            "value":48,
-            "type":"SET_FLY_HEIGHT"
-          },
-          {
-            "passive":"IMMUNE",
-            "type":"CHANGE_ENEMY_ANNOTATION"
-          }
-        ]
-      },
-      {
-        "value":1,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime":1,
-        "forceTime":false,
-        "distance":120,
-        "throwing":true,
-        "planOnly":false,
-        "targetType":"ENEMY",
-        "type":"NAVIGATE_ESCAPE_TARGET"
-      }
-    ],
-    "AdjustEscape":[
-      {
-        "value":0.5,
-        "type":"SET_INVINCIBLE"
-      },
-      {
-        "name":"FLY_BLOCK",
-        "type":"SET_ATTRIB_BOOL",
-        "value":false
-      },
-      {
-        "value":48,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "passive":"IMMUNE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"idleFast"
-      },
-      {
-        "value":1,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime":1,
-        "forceTime":false,
-        "distance":120,
-        "throwing":false,
-        "planOnly":false,
-        "targetType":"ENEMY",
-        "type":"NAVIGATE_ESCAPE_TARGET"
-      }
-    ],
-    "Circle":[
-      {
-        "value":false,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "value":1,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "value":48,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "passive":"IMMUNE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "maxTime":0,
-        "forceTime":false,
-        "distance":100,
-        "throwing":false,
-        "planOnly":false,
-        "targetType":"ENEMY",
-        "type":"NAVIGATE_ESCAPE_TARGET"
-      },
-      {
-        "followUp":"dash",
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"preDash"
-      },
-      {
-        "minTime":1.5,
-        "maxTime":2,
-        "keepFaceDirection":false,
-        "type":"CIRCLE_TARGET"
-      },
-      {
-        "value":1,
-        "type":"FACE_TO_TARGET_SPEED"
-      },
-      {
-        "value":true,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"postDash"
-      },
-      {
-        "time":0.2,
-        "type":"WAIT"
-      }
-    ],
-    "NoseDive":[
-      {
-        "value":48,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "passive":"IMMUNE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "type":"ENABLE_REACTION",
-        "reaction":"GUARD_BREAK"
-      },
-      {
-        "maxTime":2,
-        "forceTime":false,
-        "distance":120,
-        "throwing":true,
-        "planOnly":false,
-        "targetType":"ENEMY",
-        "type":"NAVIGATE_ESCAPE_TARGET"
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"simurghPreDash"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-        "value":80,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"idleFast"
-      },
-      {
-        "active":"PRE_ATTACK",
-        "passive":"NONE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "time":0.9,
-        "type":"WAIT"
-      },
-      {
-        "followUp":"dash",
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"preDash"
-      },
-      {
-        "time":0.1,
-        "type":"WAIT"
-      },
-      {
-        "value":"IGNORE",
-        "type":"SET_COLL_TYPE"
-      },
-      {
-        "accel":8,
-        "type":"SET_FLOAT_PARAMS"
-      },
-      {
-        "value":-300,
-        "type":"SET_Z_VEL"
-      },
-      {
-        "value":8,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "value":2.5,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "value":false,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "type":"CLEAR_EFFECTS"
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"iceCloudTrail"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":0
-        }
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"simurghDash"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-        "name":"FLY_BLOCK",
-        "type":"SET_ATTRIB_BOOL",
-        "value":true
-      },
-      {
-        "type":"RESET_TRACKER",
-        "tracker":"flyRegen"
-      },
-      {
-        "active":"ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "align":"BOTTOM",
-        "centralAngle":0.05,
-        "startAngle":0.475,
-        "angleVary":0,
-        "startDist":8,
-        "startDistCollide":false,
-        "random":true,
-        "count":16,
-        "duration":1,
-        "clockwise":true,
-        "flipLeftFace":0,
-        "circularArea":false,
-        "uniformDir":1,
-        "delay":0,
-        "repeat":false,
-        "type":"SHOOT_PROXY_RANGE",
-        "proxy":"iceCloudWeak",
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-        "time":1,
-        "missReactTime":0.1,
-        "cancelOnHit":true,
-        "orthoDirFactor":0,
-        "ignoreLastHit":false,
-        "type":"TACKLE",
-        "attack":{
-          "type":"HEAVY",
-          "element":"COLD",
-          "reverse":false,
-          "status":5,
-          "damageFactor":1,
-          "guardable":"",
-          "skillBonus":"",
-          "limiter":""
-        }
-      },
-      {
-        "time":0.2,
-        "stopBeforeEdge":false,
-        "type":"MOVE_FORWARD"
-      },
-      {
-        "type":"CLEAR_EFFECTS"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"postDash"
-      },
-      {
-        "active":"POST_ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "time":0.2,
-        "type":"WAIT"
-      }
-    ],
-    "ShootStuff":[
-      {
-        "value":48,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "passive":"IMMUNE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "value":"LIGHT",
-        "type":"SET_HIT_STABLE"
-      },
-      {
-        "value":true,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "maxTime":2,
-        "forceTime":false,
-        "distance":120,
-        "throwing":true,
-        "planOnly":false,
-        "targetType":"ENEMY",
-        "type":"NAVIGATE_ESCAPE_TARGET"
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"charge",
-          "name":"light"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":0
-        }
-      },
-      {
-        "accel":4,
-        "type":"SET_FLOAT_PARAMS"
-      },
-      {
-        "value":8,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "active":"PRE_ATTACK",
-        "passive":"NONE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "name":"FLY_BLOCK",
-        "type":"SET_ATTRIB_BOOL",
-        "value":true
-      },
-      {
-        "type":"RESET_TRACKER",
-        "tracker":"flyRegen"
-      },
-      {
-        "volume":0.8,
-        "global":false,
-        "loop":false,
-        "type":"PLAY_SOUND",
-        "sound":"media/sound/battle/enemies/vulturbine/fuse.ogg"
-      },
-      {
-        "time":1,
-        "type":"WAIT"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"preShoot"
-      },
-      {
-        "time":0.35,
-        "type":"WAIT"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"shoot"
-      },
-      {
-        "active":"ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "type":"CLEAR_EFFECTS"
-      },
-      {
-        "duration":0,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"simurghShoot"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-        "align":"BOTTOM",
-        "centralAngle":0.25,
-        "startAngle":0,
-        "angleVary":0,
-        "startDist":8,
-        "startDistCollide":false,
-        "random":false,
-        "count":5,
-        "duration":0.2,
-        "clockwise":true,
-        "flipLeftFace":0,
-        "circularArea":false,
-        "uniformDir":0.6,
-        "delay":0,
-        "repeat":false,
-        "type":"SHOOT_PROXY_RANGE",
-        "proxy":"bullet",
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-	    {
-        "align":"BOTTOM",
-        "centralAngle":0.25,
-        "startAngle":0,
-        "angleVary":0,
-        "startDist":8,
-        "startDistCollide":false,
-        "random":false,
-        "count":5,
-        "duration":0.2,
-        "clockwise":false,
-        "flipLeftFace":0,
-        "circularArea":false,
-        "uniformDir":0.6,
-        "delay":0,
-        "repeat":false,
-        "type":"SHOOT_PROXY_RANGE",
-        "proxy":"bullet",
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-        "value":false,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "value":true,
-        "type":"SET_FACE_FIX"
-      },
-      {
-        "value":2,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "time":0.05,
-        "stopBeforeEdge":false,
-        "type":"MOVE_BACKWARD"
-      },
-      {
-        "active":"POST_ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "time":0.3,
-        "type":"WAIT"
-      }
-    ],
-		"IcyTempests":[
-			{
-				"value":"MASSIVE",
-				"type":"SET_HIT_STABLE"
-			},
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"iceCloudTrail"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-			{
-        "value":8,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "active":"PRE_ATTACK",
-        "passive":"NONE",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"charge"
-      },
-      {
-        "value":true,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-      	"time":0.45,
-      	"type":"WAIT"
-      },
-      {
-        "value":false,
-        "type":"FACE_TO_TARGET"
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"charge",
-          "name":"light_lightBlue"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":0
-        }
-      },
-      {
-      	"conditions":[
-      		{
-      			"value":0.5,
-      			"type":"!HP_BELOW"
-      		}
-      	],
-      	"withElse":true,
-      	"type":"COMBAT_IF",
-      	"thenStep":[
-		      {
-		        "align":"BOTTOM",
-		        "centralAngle":0.375,
-		        "angleVary":0,
-		        "startDist":48,
-		        "startDistCollide":"NONE",
-		        "random":false,
-		        "count":3,
-		        "duration":0,
-		        "clockwise":true,
-		        "flipLeftFace":0,
-		        "circularArea":false,
-		        "uniformDir":0,
-		        "delay":0,
-		        "repeat":false,
-		        "type":"SHOOT_PROXY_RANGE",
-		        "proxy":"icyTempest",
-		        "offset":{
-		          "x":0,
-		          "y":0,
-		          "z":0
-		        }
-		      }
-      	],
-      	"elseStep":[
-		      {
-		        "align":"BOTTOM",
-		        "centralAngle":1,
-		        "angleVary":0,
-		        "startDist":48,
-		        "startDistCollide":"DROP",
-		        "random":false,
-		        "count":8,
-		        "duration":0,
-		        "clockwise":true,
-		        "flipLeftFace":0,
-		        "circularArea":false,
-		        "uniformDir":0,
-		        "delay":0,
-		        "repeat":false,
-		        "type":"SHOOT_PROXY_RANGE",
-		        "proxy":"icyTempest",
-		        "offset":{
-		          "x":0,
-		          "y":0,
-		          "z":0
-		        }
-		      }
-      	]	
-      },
-      {
-        "volume":0.6,
-        "speed":1.3,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/boss/moth/flap-01.ogg",
-        "type":"PLAY_SOUND"
-      },
-			{
-        "value":16,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-      	"time":0.7,
-      	"type":"WAIT"
-      },
-      {
-        "volume":0.6,
-        "speed":1.3,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/boss/moth/flap-01.ogg",
-        "type":"PLAY_SOUND"
-      },
-      {
-        "volume":0.6,
-        "speed":1.4,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
-        "type":"PLAY_SOUND"
-      },
-			{
-        "value":24,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-      	"time":0.7,
-      	"type":"WAIT"
-      },
-      {
-        "volume":0.6,
-        "speed":1.3,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/boss/moth/flap-01.ogg",
-        "type":"PLAY_SOUND"
-      },
-      {
-        "volume":0.6,
-        "speed":1.45,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
-        "type":"PLAY_SOUND"
-      },
-			{
-        "value":32,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-      	"time":0.4,
-      	"type":"WAIT"
-      },
-      {
-        "duration":-1,
-        "align":"BOTTOM",
-        "rotateFace":0,
-        "flipLeftFace":false,
-        "wait":false,
-        "waitSkip":0,
-        "actionDetached":false,
-        "fixPos":false,
-        "type":"SHOW_EFFECT",
-        "effect":{
-          "sheet":"enemies.autumn-dng",
-          "name":"simurghSubCharge"
-        },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":12
-        }
-      },
-      {
-      	"time":0.3,
-      	"type":"WAIT"
-      },
-      {
-        "volume":0.6,
-        "speed":1.3,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/boss/moth/flap-01.ogg",
-        "type":"PLAY_SOUND"
-      },
-      {
-        "volume":0.6,
-        "speed":1.6,
-        "global":false,
-        "loop":false,
-        "variance":0.1,
-        "sound":"media/sound/battle/enemies/vulturbine/vulturbine-scream.ogg",
-        "type":"PLAY_SOUND"
-      },
-			{
-        "value":40,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-      	"type":"CLEAR_EFFECTS"
-      },
-      {
-        "active":"ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-      	"followUp":"shoot",
-        "wait":false,
-        "viaWalkConfig":false,
-        "type":"SHOW_ANIMATION",
-        "anim":"preShoot"
-      },
-      {
-        "time":0.5,
-        "type":"WAIT"
-      },
-			{
-        "value":8,
-        "type":"SET_FLY_HEIGHT"
-      },
-      {
-        "active":"POST_ATTACK",
-        "type":"CHANGE_ENEMY_ANNOTATION"
-      },
-      {
-        "time":0.3,
-        "type":"WAIT"
-      }
-		],
-    "MoveToSpawnPoint":[
-      {
-        "value":0.5,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "maxTime":3,
-        "maxDistance":16,
-        "precise":false,
-        "type":"NAVIGATE_TO_SPAWN_POINT"
-      }
-    ],
-    "MoveRandom":[
-      {
-        "value":0.3,
-        "type":"SET_RELATIVE_SPEED"
-      },
-      {
-        "value":false,
-        "type":"SET_JUMPING"
-      },
-      {
-        "minTime":0.3,
-        "maxTime":0.5,
-        "dirChanges":0,
-        "stopBeforeEdge":true,
-        "type":"MOVE_RANDOM"
-      },
-      {
-        "minTime":0.5,
-        "maxTime":0.6,
-        "type":"WAIT_RANDOM"
-      }
-    ],
-    "GuardCountered":[
-      {
-        "flyLevel":"MASSIVE",
-        "breaking":false,
-        "stable":false,
-        "wait":true,
-        "type":"DO_DAMAGE_MOVEMENT"
-      }
-    ],
-    "flyRegen":[
-      {
-        "name":"FLY_BLOCK",
-        "type":"SET_ATTRIB_BOOL",
-        "value":false
-      }
-    ]
-  },
-  "reactions":{
-    "GUARD_BREAK":{
-      "preSwitchState":"WEAK",
-      "action":"GuardCountered",
-      "conditions":[
-
-      ],
-      "type":"GUARD_COUNTER"
-    }
-  },
-  "meta":{
-    "species":{
-      "en_US":"Rainbow Bird",
-      "de_DE":"Rainbow Bird",
-      "zh_CN":"Rainbow Bird",
-      "ja_JP":"Rainbow Bird",
-      "ko_KR":"Rainbow Bird",
-      "langUid":1
-    },
-    "category":"ANIMALS",
-    "descriptions":[
-      {
-        "text":{
-          "en_US":"This bird is often seen flying about in \\c[3]\\v[area.bergen-trail.name]\\c[0]. However, these birds will flock to remote parts of the Autumn area to safely nest in. As such, Shimmurgh are rather territorial and will retaliate at intruders all their icy wrath. \nLike their cousins down in \\c[3]\\v[area.heat-area.name]\\c[0], they can use their jet turbines to boost into a chilling dive attack. However, this dive attack also leaves behind a trail of icy dust that can also chill careless attackers. Commit to countering their dives or play carefully!",
-          "langUid":3
-        },
-        "condition":""
-      }
-    ]
-  }
 }

@@ -1,7 +1,7 @@
 ig.module("game.feature.arena.trial-misc").requires("game.feature.menu.gui.arena.arena-misc",
-    "game.feature.new-game.new-game-model").defines(function(){
+    "game.feature.new-game.new-game-model").defines(function() {
     sc.ArenaInfoBox.inject({
-    	 setRoundInfo: function(a, b) {
+        setRoundInfo: function(a, b) {
             if (b == void 0) {
                 this.title.setText(ig.lang.get("sc.gui.arena.menu.noRound"));
                 this.pages[1].setData();

@@ -1,4 +1,4 @@
-ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui.arena.arena-round-page").defines(function(){
+ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui.arena.arena-round-page").defines(function() {
     sc.ArenaRoundInfoPage = ig.GuiElementBase.extend({
         gfx: new ig.Image("media/gui/menu.png"),
         numberGFX: new ig.Image("media/gui/basic.png"),
@@ -301,9 +301,9 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                     var d = sc.arena.getCupRounds(b)[a],
                         c = d.objective ? ig.LangLabel.getText(d.objective) : ig.lang.get("sc.gui.arena.menu.objectiveDefault");
                     this.maxTime.setTime(d.maxTime || 0, true);
-                    this.headerChallenges.textGui.setText(!sc.arena.isTrial(b) ? ig.lang.get("sc.gui.arena.menu.challenges") : sc.arena.hasFirstCleared(b, a)
-                        ? ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-ok]"
-                        : ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-no]");
+                    this.headerChallenges.textGui.setText(!sc.arena.isTrial(b) ? ig.lang.get("sc.gui.arena.menu.challenges") : sc.arena.hasFirstCleared(b, a) ?
+                        ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-ok]" :
+                        ig.lang.get("sc.gui.arena.menu.firstClear") + " \\i[quest-mini-no]");
                     d.description && (c = c + ("\\n" + ig.LangLabel.getText(d.description)));
                     this.description.setText(c);
                     this.setBonusPoints(d.bonuses);
