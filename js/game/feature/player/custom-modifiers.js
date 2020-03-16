@@ -220,15 +220,15 @@ ig.module("game.feature.player.custom-modifiers").requires(
                         } else this.allModifiers[i].doStateTransition("HIDDEN", true);
                         h++
                     } else if (g[i] != void 0) {
-                        if (h < (this.mode ? 7 : 100)) {
-                            this.allModifiers[i].doStateTransition("DEFAULT", true);
-                            this.allModifiers[i].setChangeValue(this._calculateDifferenceModifier(c,
-                                i, 1));
-                            this.allModifiers[i].setPos(0, f);
-                            f = f + k
-                        } else this.allModifiers[i].doStateTransition("HIDDEN", true);
-                        h++
+                    if (h < (this.mode ? 7 : 100)) {
+                        this.allModifiers[i].doStateTransition("DEFAULT", true);
+                        this.allModifiers[i].setChangeValue(this._calculateDifferenceModifier(c,
+                            i, 1));
+                        this.allModifiers[i].setPos(0, f);
+                        f = f + k
                     } else this.allModifiers[i].doStateTransition("HIDDEN", true);
+                    h++
+                } else this.allModifiers[i].doStateTransition("HIDDEN", true);
                 this.updateModText(h)
             }
         }
@@ -417,13 +417,13 @@ ig.module("game.feature.player.custom-modifiers").requires(
                         this.modifierPool[f].setPos(this.lineOffset, c);
                         c = c + h
                     } else if (b[f] != void 0) {
-                        this.modifierPool[f].doStateTransition("DEFAULT",
-                            true);
-                        this.modifierPool[f].setChangeValue(this._calculateDifferenceModifier(a, f, 1));
-                        this.modifierPool[f].setCurrentValue(b[f], true);
-                        this.modifierPool[f].setPos(this.lineOffset, c);
-                        c = c + h
-                    } else this.modifierPool[f].doStateTransition("HIDDEN", true)
+                    this.modifierPool[f].doStateTransition("DEFAULT",
+                        true);
+                    this.modifierPool[f].setChangeValue(this._calculateDifferenceModifier(a, f, 1));
+                    this.modifierPool[f].setCurrentValue(b[f], true);
+                    this.modifierPool[f].setPos(this.lineOffset, c);
+                    c = c + h
+                } else this.modifierPool[f].doStateTransition("HIDDEN", true)
             }
         }
     });

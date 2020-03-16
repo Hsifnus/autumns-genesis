@@ -1,0 +1,10 @@
+[{
+	"type": "ENTER",
+	"index": "headIdx"
+},{
+	"type": "ADD_ARRAY_ELEMENT",
+	"content": {
+		"id": "mod.coquelicot",
+		"img" : "media/gui/severed-heads/coquelicot.png"
+	}
+}]
