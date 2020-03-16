@@ -1,4 +1,23 @@
 ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.combat-sweep").defines(function() {
+    sc.COMBAT_SWEEPS.COQUELICOT = {
+        sheet: new ig.EffectSheet("combat.coquelicot"),
+        keys: ["sweepNeutralFar", "sweepHeatFar", "sweepColdFar", "sweepShockFar", "sweepWaveFar"],
+        fxDuration: -1,
+        force: {
+            radius: 75,
+            zHeight: 24,
+            centralAngle: 0.3,
+            duration: 0.2,
+            attack: {
+                type: "MEDIUM",
+                fly: "HEAVY",
+                damageFactor: 1.5,
+                spFactor: 1,
+                skillBonus: "MELEE_DMG"
+            },
+            checkCollision: true
+        }
+    };
     sc.COMBAT_SWEEPS.PHANTOM = {
         sheet: new ig.EffectSheet("enemies.shockboss-ex"),
         keys: ["phantomSweep", "phantomSweep", "phantomSweep", "phantomSweep", "phantomSweep"],

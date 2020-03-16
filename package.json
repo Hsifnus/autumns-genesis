@@ -7,7 +7,8 @@
     "module": true,
     "ccmodDependencies": {
         "item-api": "^0.*",
-        "hardcoded-config-injector": "^0.1.0"
+        "hardcoded-config-injector": "^0.1.0",
+        "extendable-severed-heads": "^1.0.0"
     },
     "scripts": {
         "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",

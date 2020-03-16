@@ -48,6 +48,11 @@
                     "PHANTOM_SPECIAL": "Grants access to the \\c[3]Thousand Curses\\c[0] Level 3 Shock Melee Art. \\c[1]Requires learning a Level 2 Shock Melee Art.\\c[0]",
                     "DRILLER_SPECIAL": "Grants access to the \\c[3]Glacial Cross\\c[0] Level 3 Cold Throw Art. \\c[1]Requires learning a Level 2 Cold Throw Art.\\c[0]"
                 }
+            },
+            "social": {
+                "classes": {
+                    "SPIRIT": "Spirit"
+                }
             }
         }
     }
