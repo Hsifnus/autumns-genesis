@@ -1,72 +1,72 @@
 ig.module("game.feature.arena.trial").requires(
-	"game.feature.arena.arena").defines(function() {
-	var c = null,
-		f = {
-        	value: 0
-    	},
-		moddedCups = {
-		    "master-trial-cup": {
-		      order: 100000
-		    }
-		},
-		b = {
-	        "rookie-cup": {
-	            order: 100
-	        },
-	        "seeker-cup": {
-	            order: 200
-	        },
-	        "boss-cup": {
-	            order: 1E3
-	        },
-	        "faction-cup-1": {
-	            order: 2E3
-	        },
-	        "faction-cup-2": {
-	            order: 2100
-	        },
-	        "rookie-team-cup": {
-	            order: 101
-	        },
-	        "faction-team-cup-1": {
-	            order: 200
-	        }
-	    }
-	sc.ArenaPlus = sc.Arena.extend({
-		init: function() {
-			this.parent();
-			sc.Model.addObserver(sc.timers, this);
-		},
-		isTrial: function(a) {
-			a = a ? a : sc.arena.runtime.cup;
-			return sc.arena.cups[a] && sc.arena.cups[a].isTrial;
-		},
-		startRound: function() {
-			var a = this.runtime,
+    "game.feature.arena.arena").defines(function() {
+    var c = null,
+        f = {
+            value: 0
+        },
+        moddedCups = {
+            "master-trial-cup": {
+                order: 100000
+            }
+        },
+        b = {
+            "rookie-cup": {
+                order: 100
+            },
+            "seeker-cup": {
+                order: 200
+            },
+            "boss-cup": {
+                order: 1E3
+            },
+            "faction-cup-1": {
+                order: 2E3
+            },
+            "faction-cup-2": {
+                order: 2100
+            },
+            "rookie-team-cup": {
+                order: 101
+            },
+            "faction-team-cup-1": {
+                order: 200
+            }
+        }
+    sc.ArenaPlus = sc.Arena.extend({
+        init: function() {
+            this.parent();
+            sc.Model.addObserver(sc.timers, this);
+        },
+        isTrial: function(a) {
+            a = a ? a : sc.arena.runtime.cup;
+            return sc.arena.cups[a] && sc.arena.cups[a].isTrial;
+        },
+        startRound: function() {
+            var a = this.runtime,
                 b = this.getCurrentRound();
             a.scoreStats = {};
             this.addGui();
-			if (this.isTrial()) {
-				const maxTime = sc.arena.getCupData(sc.arena.runtime.cup).rounds[sc.arena.runtime.currentRound].maxTime;
-				sc.timers.addTimer("trialTimer", sc.TIMER_TYPES.COUNTDOWN, maxTime, null, null,
-	                true, true, null, ig.lang.get("sc.gui.arena.timeRemaining"), true);
-				if (maxTime >= 60) {
-					sc.timers.timers.trialTimerSixty && sc.timers.removeTimer("trialTimerSixty");
-					sc.timers.addTimer("trialTimerSixty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 60, null, null, false, true);
-				}
-				if (maxTime >= 30) {
-					sc.timers.timers.trialTimerThirty && sc.timers.removeTimer("trialTimerThirty");
-					sc.timers.addTimer("trialTimerThirty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 30, null, null, false, true);
-				}
-				if (maxTime >= 10) {
-					sc.timers.timers.trialTimerTen && sc.timers.removeTimer("trialTimerTen");
-					sc.timers.addTimer("trialTimerTen", sc.TIMER_TYPES.COUNTDOWN, maxTime - 10, null, null, false, true);
-				}
-	            sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null, false, true);
-			} else {
-	            sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null,
-	                true, true, null, ig.lang.get("sc.gui.arena.time"), true);
-			}
+            if (this.isTrial()) {
+                const maxTime = sc.arena.getCupData(sc.arena.runtime.cup).rounds[sc.arena.runtime.currentRound].maxTime;
+                sc.timers.addTimer("trialTimer", sc.TIMER_TYPES.COUNTDOWN, maxTime, null, null,
+                    true, true, null, ig.lang.get("sc.gui.arena.timeRemaining"), true);
+                if (maxTime >= 60) {
+                    sc.timers.timers.trialTimerSixty && sc.timers.removeTimer("trialTimerSixty");
+                    sc.timers.addTimer("trialTimerSixty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 60, null, null, false, true);
+                }
+                if (maxTime >= 30) {
+                    sc.timers.timers.trialTimerThirty && sc.timers.removeTimer("trialTimerThirty");
+                    sc.timers.addTimer("trialTimerThirty", sc.TIMER_TYPES.COUNTDOWN, maxTime - 30, null, null, false, true);
+                }
+                if (maxTime >= 10) {
+                    sc.timers.timers.trialTimerTen && sc.timers.removeTimer("trialTimerTen");
+                    sc.timers.addTimer("trialTimerTen", sc.TIMER_TYPES.COUNTDOWN, maxTime - 10, null, null, false, true);
+                }
+                sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null, false, true);
+            } else {
+                sc.timers.timers.arenaTimer ? sc.timers.resumeTimer("arenaTimer") : sc.timers.addTimer("arenaTimer", sc.TIMER_TYPES.COUNTER, null, null, null,
+                    true, true, null, ig.lang.get("sc.gui.arena.time"), true);
+            }
             ig.game.playerEntity.manualKill = "tmp.playerDeathArena";
             sc.timers.addTimer("arenaTimerReal", sc.TIMER_TYPES.COUNTER, null, null, null, false, true);
             a.customRound = b.customCode || false;
@@ -106,85 +106,85 @@ ig.module("game.feature.arena.trial").requires(
                     c instanceof ig.ENTITY.Enemy && c.setTarget(ig.game.playerEntity, true)
                 }
             }
-		},
-		endRoundDeath: function() {
-			if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
-			this.parent();
-		},
-		endRound: function() {
-			if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
-			this.parent();
-		},
-		startNextRound: function(a) {
-			if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.removeTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
+        },
+        endRoundDeath: function() {
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
+            this.parent();
+        },
+        endRound: function() {
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
+            this.parent();
+        },
+        startNextRound: function(a) {
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.removeTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
             this.parent(a);
         },
         restartCup: function(a) {
-        	if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.removeTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.removeTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
             this.parent(a);
         },
         prepareLobbyReturn: function(a) {
-        	if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.removeTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.removeTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
             this.parent(a);
         },
         exitArenaMode: function() {
-			if (this.isTrial()) {
-				sc.timers.stopTimer("trialTimer");
-				sc.timers.removeTimer("trialTimer");
-				sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
-				sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
-				sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
-			}
-			this.parent();
-		},
-		modelChanged: function(b, a) {
-			if (b == sc.timers && a == sc.TIMER_EVENT.COUNTDOWN_DONE) {
-				if (!!sc.timers.timers.trialTimerSixty && sc.timers.timers.trialTimerSixty.done()) {
-					sc.timers.removeTimer("trialTimerSixty");
-					sc.commonEvents.startCallEvent("trial-timer-sixty");	
-				} else if (!!sc.timers.timers.trialTimerThirty && sc.timers.timers.trialTimerThirty.done()) {
-					sc.timers.removeTimer("trialTimerThirty");
-					sc.commonEvents.startCallEvent("trial-timer-thirty");
-				} else if (!!sc.timers.timers.trialTimerTen && sc.timers.timers.trialTimerTen.done()) {
-					sc.timers.removeTimer("trialTimerTen");
-					sc.commonEvents.startCallEvent("trial-timer-ten");
-				} else if (!!sc.timers.timers.trialTimer && sc.timers.timers.trialTimer.done()) {
-	                this._pauseBlock = true;
-	                this._endRoundDone = false;
-	                ig.bgm.pause("IMMEDIATELY");
-	                sc.timers.stopTimer("trialTimer");
-					sc.commonEvents.startCallEvent("trial-timeout");
-					ig.vars.set("tmp.playerDeathArena", true);
-				}
-			}
+            if (this.isTrial()) {
+                sc.timers.stopTimer("trialTimer");
+                sc.timers.removeTimer("trialTimer");
+                sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
+                sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
+                sc.timers.timers.trialTimerThirty && sc.timers.stopTimer("trialTimerThirty");
+            }
+            this.parent();
+        },
+        modelChanged: function(b, a) {
+            if (b == sc.timers && a == sc.TIMER_EVENT.COUNTDOWN_DONE) {
+                if (!!sc.timers.timers.trialTimerSixty && sc.timers.timers.trialTimerSixty.done()) {
+                    sc.timers.removeTimer("trialTimerSixty");
+                    sc.commonEvents.startCallEvent("trial-timer-sixty");
+                } else if (!!sc.timers.timers.trialTimerThirty && sc.timers.timers.trialTimerThirty.done()) {
+                    sc.timers.removeTimer("trialTimerThirty");
+                    sc.commonEvents.startCallEvent("trial-timer-thirty");
+                } else if (!!sc.timers.timers.trialTimerTen && sc.timers.timers.trialTimerTen.done()) {
+                    sc.timers.removeTimer("trialTimerTen");
+                    sc.commonEvents.startCallEvent("trial-timer-ten");
+                } else if (!!sc.timers.timers.trialTimer && sc.timers.timers.trialTimer.done()) {
+                    this._pauseBlock = true;
+                    this._endRoundDone = false;
+                    ig.bgm.pause("IMMEDIATELY");
+                    sc.timers.stopTimer("trialTimer");
+                    sc.commonEvents.startCallEvent("trial-timeout");
+                    ig.vars.set("tmp.playerDeathArena", true);
+                }
+            }
         },
         initMetaData: function(a) {
             if (this.cups[a]) {
@@ -245,22 +245,22 @@ ig.module("game.feature.arena.trial").requires(
             var e = b ? c.preTrophy : this.getCupTrophy(c.cup);
             c.prevMedal = d.medal;
             var g = this.getCupRounds(c.cup)[c.currentRound].firstClearBonus,
-            		h = 0;
+                h = 0;
             if (g) {
-            	if (this.isTrial() && !d.firstClearBonus) {
-            		d.firstClearBonus = 1;
-	            	for (h = 0; h < g.length; h++) {
-	            		if (!g[h].condition) {
-	            			sc.model.player.addItem(g[h].item, g[h].count);
-	            		}
-	            	}
-            	}
-            	for (h = 0; h < g.length; h++) {
-            		if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
-            			sc.model.player.addItem(g[h].item, g[h].count);
-            		}
-            	}
-        	}
+                if (this.isTrial() && !d.firstClearBonus) {
+                    d.firstClearBonus = 1;
+                    for (h = 0; h < g.length; h++) {
+                        if (!g[h].condition) {
+                            sc.model.player.addItem(g[h].item, g[h].count);
+                        }
+                    }
+                }
+                for (h = 0; h < g.length; h++) {
+                    if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
+                        sc.model.player.addItem(g[h].item, g[h].count);
+                    }
+                }
+            }
             d.cleared++;
             d.points = Math.max(d.points, a);
             d.medal = this.getMedalForCurrentRound(d.points, b);
@@ -287,7 +287,7 @@ ig.module("game.feature.arena.trial").requires(
                 var b = a.progress;
                 var d = !this.isTrial(a);
                 var a = d ? 1 : 0;
-                    c = d && b.rush.medal >= sc.ARENA_MEDALS_TROPHIES.GOLD ?
+                c = d && b.rush.medal >= sc.ARENA_MEDALS_TROPHIES.GOLD ?
                     1 : 0;
                 if (b) {
                     for (var b = b.rounds, d = b.length; d--;) {
@@ -295,7 +295,7 @@ ig.module("game.feature.arena.trial").requires(
                         a++
                     }
                     if (c == a && a == 0) {
-                    	return 0;
+                        return 0;
                     }
                     return c / a
                 }
@@ -318,7 +318,7 @@ ig.module("game.feature.arena.trial").requires(
         },
         getCupTrophy: function(a) {
             if (this.cups[a]) {
-            	var f = a;
+                var f = a;
                 if (!this.hasMedalsForTrophy(a)) return 0;
                 for (var a = this.cups[a].progress, b = 0, c = a.rounds.length; c--;) b = b + a.rounds[c].medal;
                 b = b / a.rounds.length;
@@ -346,18 +346,18 @@ ig.module("game.feature.arena.trial").requires(
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
             if (c === -1) {
-            	return false;
+                return false;
             }
             var g = this.getCupRounds(b)[c].firstClearBonus,
-            	h = 0;
+                h = 0;
             if (!!g) {
-	            for (h = 0; h < g.length; h++) {
-	        		if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
-	        			return true;
-	        		}
-	        	}
+                for (h = 0; h < g.length; h++) {
+                    if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
+                        return true;
+                    }
+                }
             }
-        	return false;
+            return false;
         },
         onStorageSave: function(a) {
             var b = {
@@ -424,8 +424,8 @@ ig.module("game.feature.arena.trial").requires(
                 this.coinsSpend = a.arena.coinsSpend || 0
             }
         },
-		loadModdedCups: false,
-	    registerCup: function(a, b) {
+        loadModdedCups: false,
+        registerCup: function(a, b) {
             this.cups[a] ? ig.warn("Cup with id '" + a + "' already exists.") : this.cups[a] = {
                 path: b.path || a,
                 order: b.order != void 0 ? b.order : 9999999,
@@ -434,17 +434,17 @@ ig.module("game.feature.arena.trial").requires(
             }
             // a bit hacky, but minimizes the amount of stuff needed to inject
             if (!this.loadModdedCups) {
-            	this.loadModdedCups = true;
-            	for (var c in moddedCups) this.registerCup(c, moddedCups[c]);
+                this.loadModdedCups = true;
+                for (var c in moddedCups) this.registerCup(c, moddedCups[c]);
             }
-	    },
-	    isRoundActive: function(a, b) {
-        	if (sc.arena.getCupProgress(a) === undefined) {
-        		this.registerCup(a, moddedCups[a]);
-        	}
+        },
+        isRoundActive: function(a, b) {
+            if (sc.arena.getCupProgress(a) === undefined) {
+                this.registerCup(a, moddedCups[a]);
+            }
             return b <= 0 || sc.arena.getCupProgress(a).rounds[b].cleared >= 1 ? true : sc.arena
                 .getCupProgress(a).rounds[b - 1].cleared >= 1
-	    },
+        },
         resolveCupRounds: function(a) {
             if (this.cups[a]) {
                 var b = this.getCupProgress(a);
@@ -459,8 +459,8 @@ ig.module("game.feature.arena.trial").requires(
                 }
             }
         }
-	});
-	ig.addGameAddon(function() {
+    });
+    ig.addGameAddon(function() {
         return sc.arena = new sc.ArenaPlus;
     });
 });

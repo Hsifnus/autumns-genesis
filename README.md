@@ -4,7 +4,7 @@ A dungeon/quest expansion to CrossCode, currently in development!
 
 *The world of Shadoon has a diverse set of challenges to offer to Seekers, testing their kinetic and intellectual skills alike. Many journeys on the continent develop and culminate as part of a sublime gaming experience, but some Seekers notice the lack of climactic experiences in Autumn's Rise and Fall and wonder if there's something more to these simple areas than meets the eye.*
 
-*As it turns out, they are right.*
+*As it turns out, they're right.*
 
 # Prerequisites
 
@@ -44,4 +44,5 @@ CCLoader can be downloaded or updated through CCUpdaterUI. It will give you a pr
 ![Search 2](https://i.imgur.com/EkOW2Av.png)
 
 6. Click on the first result, then click install on the lower right corner. If the program exits again when you pressed Okay, then you saved yourself a click.
-7. Start the game.
+7. Repeat steps 5-6 except for `extendable-severed-heads`.
+8. Start the game.

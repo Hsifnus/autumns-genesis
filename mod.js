@@ -20,6 +20,8 @@ import "./js/game/feature/combat/entities/custom-food-icon.js";
 
 import "./js/game/feature/combat/manual-combatant-kill-dead.js";
 
+import "./js/game/feature/combat/true-target.js";
+
 import "./js/game/feature/combat/model/stun-status.js";
 
 import "./js/game/feature/font/font-system-override.js";
@@ -27,6 +29,8 @@ import "./js/game/feature/font/font-system-override.js";
 import "./js/game/feature/gui/screen/title-screen-autumn.js";
 
 import "./js/game/feature/map-content/cave-map-style.js";
+
+import "./js/game/feature/player/coquelicot-player.js";
 
 import "./js/game/feature/player/custom-modifiers.js";
 

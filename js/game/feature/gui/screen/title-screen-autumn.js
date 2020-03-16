@@ -1,7 +1,7 @@
 ig.module("game.feature.gui.screen.title-screen-autumn").requires("game.feature.gui.screen.title-screen").defines(function() {
-	ig.Bgm.preloadStartTrack("titleAutumn");
-	sc.TitleScreenGui.inject({
-		init: function() {
+    ig.Bgm.preloadStartTrack("titleAutumn");
+    sc.TitleScreenGui.inject({
+        init: function() {
             this.parent();
             this.hook.zIndex = 1E3;
             this.hook.size.x = ig.system.width;
@@ -43,5 +43,5 @@ ig.module("game.feature.gui.screen.title-screen-autumn").requires("game.feature.
             sc.Model.addObserver(sc.menu, this);
             this.doStateTransition("HIDDEN", true)
         }
-	});
+    });
 });

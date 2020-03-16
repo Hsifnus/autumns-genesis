@@ -2,7 +2,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
     "game.feature.player.modifiers",
     "game.feature.menu.gui.item.item-status-equip",
     "game.feature.menu.gui.menu-misc",
-    "game.feature.menu.gui.status.status-misc").defines(function(){
+    "game.feature.menu.gui.status.status-misc").defines(function() {
     var a = Vec2.create();
     var b = ["#8bb5ff", "#ba0000", "#0036d0", "#a121bc", "#00994c", "#c7c7c7"];
     sc.MODIFIERS.MOTH_SPECIAL = {
@@ -144,6 +144,93 @@ ig.module("game.feature.player.custom-modifiers").requires(
             };
             k ? k.addChildGui(g) : this.addChildGui(g);
             return g
+        },
+        _setParameters: function(a, d) {
+            this._resetChangeValue(d);
+            d && this._setCurrentModifiers();
+            if (!(a != -1E3 && a < 0)) {
+                var c = null,
+                    e = a != -1E3 ? sc.inventory.getItem(a) : b;
+                if (this.compareMode) switch (e.equipType) {
+                    case sc.ITEMS_EQUIP_TYPES.HEAD:
+                        c =
+                            sc.model.player.equip.head;
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.ARM:
+                        c = this.compareOffHand ? sc.model.player.equip.leftArm : sc.model.player.equip.rightArm;
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.TORSO:
+                        c = sc.model.player.equip.torso;
+                        break;
+                    case sc.ITEMS_EQUIP_TYPES.FEET:
+                        c = sc.model.player.equip.feet
+                } else switch (sc.menu.currentBodyPart) {
+                    case sc.MENU_EQUIP_BODYPART.NONE:
+                        return;
+                    case sc.MENU_EQUIP_BODYPART.HEAD:
+                        c = sc.model.player.equip.head;
+                        break;
+                    case sc.MENU_EQUIP_BODYPART.RIGHT_ARM:
+                        c = sc.model.player.equip.rightArm;
+                        break;
+                    case sc.MENU_EQUIP_BODYPART.LEFT_ARM:
+                        c = sc.model.player.equip.leftArm;
+                        break;
+                    case sc.MENU_EQUIP_BODYPART.TORSO:
+                        c = sc.model.player.equip.torso;
+                        break;
+                    case sc.MENU_EQUIP_BODYPART.FEET:
+                        c = sc.model.player.equip.feet
+                }
+                var f = e.params,
+                    e = e.properties,
+                    g = null,
+                    g = this._calculateDifference(c, "hp", f.hp || 0);
+                this.baseParams.hp.setChangeValue(g);
+                g = this._calculateDifference(c, "attack", f.attack || 0);
+                this.baseParams.atk.setChangeValue(g);
+                g = this._calculateDifference(c, "defense", f.defense || 0);
+                this.baseParams.def.setChangeValue(g);
+                g = this._calculateDifference(c, "focus", f.focus || 0);
+                this.baseParams.foc.setChangeValue(g);
+                g = this._calculateDifference(c, "elemFactor", f.elemFactor ? f.elemFactor[0] : 1, 0);
+                this.baseParams.fire.setChangeValue(g);
+                g = this._calculateDifference(c, "elemFactor", f.elemFactor ? f.elemFactor[1] : 1, 1);
+                this.baseParams.cold.setChangeValue(g);
+                g = this._calculateDifference(c, "elemFactor", f.elemFactor ? f.elemFactor[2] : 1, 2);
+                this.baseParams.shock.setChangeValue(g);
+                g = this._calculateDifference(c, "elemFactor", f.elemFactor ? f.elemFactor[3] :
+                    1, 3);
+                this.baseParams.wave.setChangeValue(g);
+                var f = 11,
+                    g = sc.model.player.equipModifiers,
+                    h = 0,
+                    i,
+                    j = 0;
+                for (i in this.allModifiers)
+                    if (e[i] != void 0 || g[i] != void 0) j++;
+                var k = this.mode || j <= 15 ? 16 : 12;
+                for (i in this.allModifiers)
+                    if (e[i] != void 0) {
+                        if (h < (this.mode ? 7 : 100)) {
+                            this.allModifiers[i].doStateTransition("DEFAULT", true);
+                            this.allModifiers[i].setChangeValue(this._calculateDifferenceModifier(c, i, e[i]));
+                            this.allModifiers[i].setPos(0, f);
+                            f = f + k
+                        } else this.allModifiers[i].doStateTransition("HIDDEN", true);
+                        h++
+                    } else if (g[i] != void 0) {
+                    if (h < (this.mode ? 7 : 100)) {
+                        this.allModifiers[i].doStateTransition("DEFAULT", true);
+                        this.allModifiers[i].setChangeValue(this._calculateDifferenceModifier(c,
+                            i, 1));
+                        this.allModifiers[i].setPos(0, f);
+                        f = f + k
+                    } else this.allModifiers[i].doStateTransition("HIDDEN", true);
+                    h++
+                } else this.allModifiers[i].doStateTransition("HIDDEN", true);
+                this.updateModText(h)
+            }
         }
     });
     sc.StatusViewModifiersContainer.inject({
@@ -210,8 +297,8 @@ ig.module("game.feature.player.custom-modifiers").requires(
             if (d.length > 9 && d.slice(0, 9) == "modifier." && e == -1) {
                 var modifier = sc.MODIFIERS[d.slice(9)];
                 x = modifier.altSheet,
-                y = modifier.offX,
-                z = modifier.offY;
+                    y = modifier.offX,
+                    z = modifier.offY;
             }
             f = new sc.SimpleStatusDisplay(ig.lang.get("sc.gui.menu.equip." + d), c, e, f, g, null, 0, j, x, y, z);
             f.setPos(b, a);

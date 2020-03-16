@@ -95,7 +95,9 @@ ig.module("impact.feature.weather.wind").requires(
                 }
             });
             ig.weather.setWeather(weather, this.immediately);
-            sc.WindData.protoVictims = [...this.entities.map(e => ({...e}))];
+            sc.WindData.protoVictims = [...this.entities.map(e => ({
+                ...e
+            }))];
             sc.WindData.strength = this.strength;
             this.entities = this.entities.map(e => ig.Event.getEntity(e, b)).filter(e => !!e);
             if (this.strength === "NONE") {
@@ -159,19 +161,19 @@ ig.module("impact.feature.weather.wind").requires(
                 stopWindForce();
                 return;
             }
-            if (!this.combatant.respawn.timer
-                && !(this.combatant.currentAction
-                    && this.combatant.currentAction.name.includes("SPECIAL")
-                    && this.combatant.coll.pos.z != this.combatant.coll.baseZPos)
-                && !sc.model.isCutscene()
-                && !this.combatant.interactObject
-                && !(this.combatant === ig.game.playerEntity
-                    && this.combatant.stepData.path
-                    && this.combatant.stepData.path.moveEntity())
-                && !(this.combatant.currentActionStep
-                    && this.combatant.currentActionStep.target
-                    && this.combatant.currentActionStep.target.x !== undefined
-                    && this.combatant.currentActionStep.target.y !== undefined)) {
+            if (!this.combatant.respawn.timer &&
+                !(this.combatant.currentAction &&
+                    this.combatant.currentAction.name.includes("SPECIAL") &&
+                    this.combatant.coll.pos.z != this.combatant.coll.baseZPos) &&
+                !sc.model.isCutscene() &&
+                !this.combatant.interactObject &&
+                !(this.combatant === ig.game.playerEntity &&
+                    this.combatant.stepData.path &&
+                    this.combatant.stepData.path.moveEntity()) &&
+                !(this.combatant.currentActionStep &&
+                    this.combatant.currentActionStep.target &&
+                    this.combatant.currentActionStep.target.x !== undefined &&
+                    this.combatant.currentActionStep.target.y !== undefined)) {
                 this.combatant.actionAttached.indexOf(this) === -1 && this.combatant.addActionAttached(this);
                 var c = this.combatant.getAlignedPos(this.align, b);
                 var d = Vec2.create();
@@ -204,9 +206,9 @@ ig.module("impact.feature.weather.wind").requires(
         show: function(a) {
             this.parent(a);
             if (sc.WindData.strength !== "NONE" && this instanceof ig.ENTITY.Combatant) {
-                if (this instanceof sc.PartyMemberEntity
-                    && sc.party.currentParty.includes(this.model.name)
-                    && !sc.party.partyEntities[this.model.name]) {
+                if (this instanceof sc.PartyMemberEntity &&
+                    sc.party.currentParty.includes(this.model.name) &&
+                    !sc.party.partyEntities[this.model.name]) {
                     sc.party.partyEntities[this.model.name] = this;
                 }
                 var currentVictims = sc.WindData.protoVictims.map(e => ig.Event.getEntity(e, this)).filter(e => !!e);

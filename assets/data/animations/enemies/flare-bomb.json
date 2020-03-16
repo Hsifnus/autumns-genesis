@@ -1,122 +1,63 @@
 {
-  "DOCTYPE":"MULTI_DIR_ANIMATION",
-  "namedSheets":{
-    "idle":{
-      "src":"media/entity/effects/trial-bosses.png",
-      "width":48,
-      "height":64,
-      "offX":272,
-      "offY":104
-    },
-    "idleAlt":{
-      "src":"media/entity/effects/trial-bosses.png",
-      "width":48,
-      "height":64,
-      "offX":272,
-      "offY":168
-    }
-  },
-  "shapeType":"Y_FLAT",
-  "SUB":[
-    {
-      "sheet":"idle",
-      "dirs":"1",
-      "tileOffsets":[0],
-      "flipX":[0],
-      "SUB":[
-        {
-          "name":"idle",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            0
-          ]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "idle": {
+            "src": "media/entity/effects/trial-bosses.png",
+            "width": 48,
+            "height": 64,
+            "offX": 272,
+            "offY": 104
         },
-        {
-          "name":"active",
-          "time":0.05,
-          "repeat":true,
-          "frames":[
-            0,
-            1,
-            2,
-            3,
-            2,
-            1,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "name":"almost",
-          "time":0.025,
-          "repeat":true,
-          "frames":[
-            0,
-            1,
-            2,
-            2,
-            3,
-            3,
-            2,
-            2,
-            1,
-            0
-          ]
+        "idleAlt": {
+            "src": "media/entity/effects/trial-bosses.png",
+            "width": 48,
+            "height": 64,
+            "offX": 272,
+            "offY": 168
         }
-      ]
     },
-    {
-      "sheet":"idleAlt",
-      "dirs":"1",
-      "tileOffsets":[0],
-      "flipX":[0],
-      "SUB":[
-        {
-          "name":"idleAlt",
-          "time":0.1,
-          "repeat":false,
-          "frames":[
-            0
-          ]
-        },
-        {
-          "name":"activeAlt",
-          "time":0.05,
-          "repeat":true,
-          "frames":[
-            0,
-            1,
-            2,
-            3,
-            2,
-            1,
-            0,
-            0,
-            0,
-            0
-          ]
-        },
-        {
-          "name":"almostAlt",
-          "time":0.025,
-          "repeat":true,
-          "frames":[
-            0,
-            1,
-            2,
-            2,
-            3,
-            3,
-            2,
-            2,
-            1,
-            0
-          ]
-        }
-      ]
-    }
-  ]
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "idle",
+        "dirs": "1",
+        "tileOffsets": [0],
+        "flipX": [0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0]
+        }, {
+            "name": "active",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 2, 1, 0, 0, 0, 0]
+        }, {
+            "name": "almost",
+            "time": 0.025,
+            "repeat": true,
+            "frames": [0, 1, 2, 2, 3, 3, 2, 2, 1, 0]
+        }]
+    }, {
+        "sheet": "idleAlt",
+        "dirs": "1",
+        "tileOffsets": [0],
+        "flipX": [0],
+        "SUB": [{
+            "name": "idleAlt",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0]
+        }, {
+            "name": "activeAlt",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 2, 1, 0, 0, 0, 0]
+        }, {
+            "name": "almostAlt",
+            "time": 0.025,
+            "repeat": true,
+            "frames": [0, 1, 2, 2, 3, 3, 2, 2, 1, 0]
+        }]
+    }]
 }

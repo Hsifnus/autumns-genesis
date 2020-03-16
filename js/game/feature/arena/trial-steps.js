@@ -1,4 +1,4 @@
-ig.module("game.feature.arena.trial-steps").requires("game.feature.arena.arena-steps").defines(function(){
+ig.module("game.feature.arena.trial-steps").requires("game.feature.arena.arena-steps").defines(function() {
     ig.EVENT_STEP.SHOW_TRIAL_TIME_REMAINING_GUI = ig.EventStepBase.extend({
         _wm: new ig.Config({
             attributes: {

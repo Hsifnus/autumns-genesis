@@ -1,6 +1,6 @@
 ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui.arena-start-gui",
-    "game.feature.new-game.new-game-model").defines(function(){
-        sc.ArenaRoundStartHud = ig.GuiElementBase.extend({
+    "game.feature.new-game.new-game-model").defines(function() {
+    sc.ArenaRoundStartHud = ig.GuiElementBase.extend({
         transitions: {
             DEFAULT: {
                 state: {},
