@@ -1,4 +1,4 @@
-on: [push, pull_request]
+on: push
 name: Node Code Formatter
 jobs:
   lint:
