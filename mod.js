@@ -48,4 +48,4 @@ import "./js/impact/feature/weather/wind.js";
 
 import "./js/impact/feature/weather/wind-aim.js";
 
-import "./js/impact/feature/weather/wind-weather.js"; 
+import "./js/impact/feature/weather/wind-weather.js";
