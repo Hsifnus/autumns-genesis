@@ -4,7 +4,7 @@ A dungeon/quest expansion to CrossCode, currently in development!
 
 *The world of Shadoon has a diverse set of challenges to offer to Seekers, testing their kinetic and intellectual skills alike. Many journeys on the continent develop and culminate as part of a sublime gaming experience, but some Seekers notice the lack of climactic experiences in Autumn's Rise and Fall and wonder if there's something more to these simple areas than meets the eye.*
 
-*As it turns out, they are right.*
+*As it turns out, they're right.*
 
 # Prerequisites
 
