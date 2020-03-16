@@ -44,4 +44,5 @@ CCLoader can be downloaded or updated through CCUpdaterUI. It will give you a pr
 ![Search 2](https://i.imgur.com/EkOW2Av.png)
 
 6. Click on the first result, then click install on the lower right corner. If the program exits again when you pressed Okay, then you saved yourself a click.
-7. Start the game.
+7. Repeat steps 5-6 except for `extendable-severed-heads`.
+8. Start the game.
