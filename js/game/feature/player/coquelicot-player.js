@@ -7,21 +7,21 @@ ig.module("game.feature.player.coquelicot-player").requires(
             this.parent();
             if (this.model.name == "Coquelicot") {
                 var a = new ig.Action("PLAYER_IDLE", [{
-                        type: "SET_FACE",
-                        face: "SOUTH",
-                        rotate: true
-                    }, {
-                        type: "SHOW_ANIMATION",
-                        anim: "idleBob",
-                        wait: false
-                    }, {
-                        time: 6,
-                        type: "WAIT"
-                    }, {
-                        type: "SHOW_ANIMATION",
-                        anim: "preIdle",
-                        wait: true
-                    }], false, false);
+                    type: "SET_FACE",
+                    face: "SOUTH",
+                    rotate: true
+                }, {
+                    type: "SHOW_ANIMATION",
+                    anim: "idleBob",
+                    wait: false
+                }, {
+                    time: 6,
+                    type: "WAIT"
+                }, {
+                    type: "SHOW_ANIMATION",
+                    anim: "preIdle",
+                    wait: true
+                }], false, false);
                 this.idle.actions.push(a)
             }
         }

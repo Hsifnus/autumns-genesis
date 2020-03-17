@@ -1,7 +1,7 @@
 ig.module("game.feature.combat.true-target").requires(
     "game.feature.combat.combat-action-steps",
     "game.feature.combat.entities.combat-proxy"
-    ).defines(function() {
+).defines(function() {
     var n = {
         STUN_LOCKED: 1,
         PREVIOUSLY_HIT: 2,
