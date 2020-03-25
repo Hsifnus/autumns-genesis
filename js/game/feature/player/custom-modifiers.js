@@ -190,8 +190,8 @@ ig.module("game.feature.player.custom-modifiers").requires(
                 }
                 var f = e.params,
                     e = e.properties,
-                    g = null,
-                    g = this._calculateDifference(c, "hp", f.hp || 0);
+                    g = null;
+                g = this._calculateDifference(c, "hp", f.hp || 0);
                 this.baseParams.hp.setChangeValue(g);
                 g = this._calculateDifference(c, "attack", f.attack || 0);
                 this.baseParams.atk.setChangeValue(g);
