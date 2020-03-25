@@ -1,0 +1,806 @@
+{
+  "DOCTYPE": "MULTI_DIR_ANIMATION",
+  "namedSheets": {
+    "move": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "offX": 0,
+      "offY": 0,
+      "width": 88,
+      "height": 88
+    },
+    "attack": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "offX": 0,
+      "offY": 264,
+      "width": 88,
+      "height": 88
+    },
+    "sit1": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "offX": 0,
+      "offY": 528,
+      "width": 88,
+      "height": 88
+    },
+    "sit2": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "offX": 0,
+      "offY": 616,
+      "width": 88,
+      "height": 88
+    },
+    "poses": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "offX": 0,
+      "offY": 704,
+      "width": 88,
+      "height": 88
+    },
+    "swirl": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "xCount": 4,
+      "offX": 528,
+      "offY": 528,
+      "width": 96,
+      "height": 72
+    },
+    "staff": {
+      "src": "media/entity/enemy/boss/ape-staff.png",
+      "offX": 0,
+      "offY": 0,
+      "width": 96,
+      "height": 104
+    },
+    "cloud": {
+      "src": "media/entity/enemy/boss/ape.png",
+      "xCount": 2,
+      "offX": 792,
+      "offY": 616,
+      "width": 48,
+      "height": 32
+    }
+  },
+  "shapeType": "Y_FLAT",
+  "SUB": [
+    {
+      "sheet": "move",
+      "dirs": "6",
+      "flipX": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "tileOffsets": [
+        0,
+        11,
+        22,
+        22,
+        11,
+        0
+      ],
+      "SUB": [
+        {
+          "name": "stand",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            0
+          ]
+        },
+        {
+          "name": "idle",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "name": "hidden",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            -1
+          ]
+        },
+        {
+          "name": "move",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "damage",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            9,
+            9
+          ],
+          "framesGfxOffset": [
+            0,
+            0,
+            1,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "attack",
+      "dirs": "6",
+      "flipX": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "tileOffsets": [
+        0,
+        11,
+        22,
+        22,
+        11,
+        0
+      ],
+      "SUB": [
+        {
+          "name": "dash",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            0
+          ]
+        },
+        {
+          "name": "attack",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            1,
+            2,
+            3,
+            4
+          ]
+        },
+        {
+          "name": "preJump",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "preJumpSlow",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [
+            5,
+            6
+          ]
+        },
+        {
+          "name": "postJump",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            6
+          ]
+        },
+        {
+          "name": "rage",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            6,
+            6
+          ],
+          "framesGfxOffset": [
+            0,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "name": "postJump2",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [
+            5
+          ]
+        },
+        {
+          "name": "jump",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            7
+          ]
+        },
+        {
+          "name": "fall",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            8
+          ]
+        },
+        {
+          "name": "guard",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "staff",
+      "dirs": "6",
+      "flipX": [
+        1,
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "tileOffsets": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "dirOffsets": [
+        [
+          10,
+          21,
+          0
+        ],
+        [
+          -2,
+          16,
+          0
+        ],
+        [
+          10,
+          25,
+          0
+        ],
+        [
+          -10,
+          25,
+          0
+        ],
+        [
+          2,
+          16,
+          0
+        ],
+        [
+          -10,
+          21,
+          0
+        ]
+      ],
+      "dirAngles": [
+        -120,
+        -60,
+        0,
+        0,
+        60,
+        120
+      ],
+      "SUB": [
+        {
+          "name": "attack",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "poses",
+      "dirs": "2",
+      "flipX": [
+        0,
+        1
+      ],
+      "tileOffsets": [
+        0,
+        0
+      ],
+      "SUB": [
+        {
+          "name": "preSpecial",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "preSpecial2",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            4,
+            5
+          ]
+        },
+        {
+          "name": "preSpecial3",
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            6
+          ]
+        },
+        {
+          "name": "special",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            7,
+            8,
+            9,
+            10
+          ]
+        },
+        {
+          "name": "weak",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            17,
+            18,
+            19,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "poses",
+      "dirs": "1",
+      "flipX": [
+        0
+      ],
+      "tileOffsets": [
+        0
+      ],
+      "SUB": [
+        {
+          "name": "standFront",
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            11
+          ]
+        },
+        {
+          "name": "foldArms",
+          "time": 0.1,
+          "repeat": false,
+          "frames": [
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "name": "laugh",
+          "time": 0.066,
+          "repeat": true,
+          "frames": [
+            15,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "swirl",
+      "dirs": "2",
+      "flipX": [
+        0,
+        1
+      ],
+      "tileOffsets": [
+        0,
+        0
+      ],
+      "SUB": [
+        {
+          "name": "preSpecial3",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 32
+          },
+          "time": 0.05,
+          "repeat": false,
+          "frames": [
+            3
+          ]
+        },
+        {
+          "name": "special",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 48
+          },
+          "time": 0.05,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "gfxOffset": {
+        "x": 1,
+        "y": -10
+      },
+      "sheet": "cloud",
+      "dirs": "4",
+      "flipX": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "tileOffsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "dirOffsets": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          -2,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          0
+        ]
+      ],
+      "anchorOffsetX": [
+        -2,
+        5,
+        -2,
+        -10
+      ],
+      "anchorOffsetY": [
+        -10,
+        -10,
+        -10,
+        -9
+      ],
+      "anchorOffsetZ": [
+        80,
+        80,
+        80,
+        80
+      ],
+      "time": 0.1,
+      "repeat": true,
+      "frames": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "SUB": [
+        {
+          "name": "cloudIdle"
+        },
+        {
+          "name": "cloudMove"
+        },
+        {
+          "name": "cloudMove"
+        },
+        {
+          "name": "cloud",
+          "shapeType": "Z_FLAT",
+          "dirOffsets": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        {
+          "name": "cloudAttack1"
+        },
+        {
+          "name": "cloudAttack2"
+        },
+        {
+          "name": "cloudAttack3"
+        },
+        {
+          "name": "cloudAttack4"
+        }
+      ]
+    },
+    {
+      "sheet": "sit1",
+      "dirs": "4",
+      "flipX": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "tileOffsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "dirAngles": [
+        0,
+        10,
+        0,
+        -10
+      ],
+      "SUB": [
+        {
+          "name": "cloudIdle",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "name": "cloudMove",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "sheet": "sit2",
+      "dirs": "4",
+      "flipX": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "tileOffsets": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "dirAngles": [
+        0,
+        10,
+        0,
+        -10
+      ],
+      "SUB": [
+        {
+          "name": "cloudAttack1",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "cloudAttack2",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "cloudAttack3",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "cloudAttack4",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "offset": {
+        "x": 0,
+        "y": 8,
+        "z": 0
+      },
+      "sheet": "sit1",
+      "dirs": "1",
+      "flipX": [
+        0
+      ],
+      "tileOffsets": [
+        0
+      ],
+      "dirAngles": [
+        0
+      ],
+      "SUB": [
+        {
+          "name": "sitIdle",
+          "time": 0.2,
+          "repeat": true,
+          "frames": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "offset": {
+        "x": 0,
+        "y": 8,
+        "z": 0
+      },
+      "sheet": "sit2",
+      "dirs": "1",
+      "flipX": [
+        0
+      ],
+      "tileOffsets": [
+        0
+      ],
+      "dirAngles": [
+        0
+      ],
+      "anchorOffsetX": [
+        -2
+      ],
+      "anchorOffsetY": [
+        0
+      ],
+      "anchorOffsetZ": [
+        80
+      ],
+      "SUB": [
+        {
+          "name": "sitAttack1",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "name": "sitAttack2",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "name": "sitAttack3",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            6,
+            7,
+            8
+          ]
+        },
+        {
+          "name": "sitAttack3Perma",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            8
+          ]
+        },
+        {
+          "name": "sitAttack4",
+          "time": 0.066,
+          "repeat": false,
+          "frames": [
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -16,7 +16,11 @@ import "./js/game/feature/arena/trial-steps.js";
 
 import "./js/game/feature/combat/custom-sweep.js";
 
+import "./js/game/feature/combat/entities/combat-proxy-move-rotate.js";
+
 import "./js/game/feature/combat/entities/custom-food-icon.js";
+
+import "./js/game/feature/combat/fancy-aim-fix.js";
 
 import "./js/game/feature/combat/manual-combatant-kill-dead.js";
 
