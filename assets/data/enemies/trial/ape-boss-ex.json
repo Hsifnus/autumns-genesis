@@ -9888,6 +9888,9 @@
                 "type": "NAVIGATE_SIDEWAYS_TARGET"
             }]
         }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }, {
             "conditions": [{
                 "min": 0,
                 "max": 100,
