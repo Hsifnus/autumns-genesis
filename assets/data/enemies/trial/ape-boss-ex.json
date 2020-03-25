@@ -7798,6 +7798,9 @@
                 "z": 16
             }
         }, {
+            "time": 0.1,
+        	"type": "WAIT"
+        }, {
             "attribName": "attacks",
             "changeType": "set",
             "proxyOwner": false,
@@ -7815,16 +7818,16 @@
         }, {
             "type": "FACE_TO_TARGET",
             "immediately": true,
-            "value": false
+            "value": true
         }, {
             "withElse": true,
             "condition": "entity.attrib.attacks % 2 == 0",
             "type": "IF",
             "thenStep": [{
                 "type": "COMBAT_SWEEP",
+                "faceCount": -1,
                 "sweepType": "APE",
-                "reversed": true,
-                "faceCount:": 6
+                "reversed": true
             }, {
                 "align": "BOTTOM",
                 "radius": 120,
@@ -7932,9 +7935,9 @@
             }],
             "elseStep": [{
                 "type": "COMBAT_SWEEP",
+                "faceCount": -1,
                 "sweepType": "APE",
-                "reversed": false,
-                "faceCount:": 6
+                "reversed": false
             }, {
                 "align": "BOTTOM",
                 "radius": 120,
@@ -8051,6 +8054,10 @@
                 "name": "redo",
                 "type": "GOTO_LABEL"
             }]
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
         }, {
             "type": "CLEAR_EFFECTS",
             "group": "charge"
