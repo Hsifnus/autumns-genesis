@@ -4115,7 +4115,7 @@
         },
         "heatSlashMarker": {
             "copyOwnerAnims": false,
-            "breakType": "NEVER",
+            "breakType": "COMBATANT",
             "action": [{
                 "attribName": "id",
                 "changeType": "set",
@@ -4225,7 +4225,7 @@
             "hp": 0,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "",
+            "group": "card",
             "size": {
                 "x": 16,
                 "y": 16,
@@ -5733,7 +5733,7 @@
                 }]
             },
             "copyOwnerAnims": false,
-            "breakType": "NEVER",
+            "breakType": "COMBATANT",
             "action": [{
                 "duration": 0.5,
                 "align": "BOTTOM",
@@ -9130,6 +9130,10 @@
         }, {
             "type": "REMOVE_SHIELD",
             "name": "counter"
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
         }, {
             "duration": 0,
             "align": "BOTTOM",
