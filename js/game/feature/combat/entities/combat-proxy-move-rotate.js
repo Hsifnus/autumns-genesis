@@ -6,7 +6,6 @@ ig.module("game.feature.combat.entities.combat-proxy-move-rotate").requires("gam
             this.moveRotate = g.data.moveRotate || false;
         },
         update: function() {
-            this.moveRotate && console.log(this.animState.angle);
             this.animState.angle = this.moveRotate ? Vec3.clockangle(this.face) : 0;
             this.parent();
         }
