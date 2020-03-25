@@ -3315,7 +3315,7 @@
                 }]
             },
             "copyOwnerAnims": false,
-            "breakType": "NEVER",
+            "breakType": "COMBATANT",
             "action": [{
                 "type": "SHOW_RANDOM_ANIMATION",
                 "randAnims": ["default", "alt"]
@@ -3366,7 +3366,7 @@
             },
             "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "",
+            "group": "card",
             "size": {
                 "x": 24,
                 "y": 24,
@@ -3379,7 +3379,7 @@
         },
         "coldChaser": {
             "copyOwnerAnims": false,
-            "breakType": "NEVER",
+            "breakType": "COMBATANT",
             "action": [{
                 "duration": -1,
                 "align": "BOTTOM",
@@ -5887,7 +5887,7 @@
             "hp": 0,
             "stickToSource": "NONE",
             "stickFaceAlign": false,
-            "group": "",
+            "group": "card",
             "startAnim": "",
             "size": {
                 "x": 8,
