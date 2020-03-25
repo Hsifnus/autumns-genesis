@@ -1258,6 +1258,58 @@
             "timeBoni": null,
             "behaviors": []
         },
+        "bubbleShot2": {
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 8
+            },
+            "effects": "specials.wave",
+            "effectKeys": {
+                "trail": "waveGun",
+                "wall": "waveGunXplode",
+                "air": "waveGunXplode"
+            },
+            "speed": 360,
+            "maxBounce": 4,
+            "timer": 10,
+            "trail": true,
+            "multiHit": true,
+            "light": "XL",
+            "noLightGlow": false,
+            "type": "BALL",
+            "animation": {
+                "name": "default",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": 0
+                },
+                "sheet": {
+                    "src": "media/entity/effects/trial-bosses.png",
+                    "offX": 0,
+                    "offY": 104,
+                    "width": 32,
+                    "height": 32
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "LIGHT",
+                "element": "WAVE",
+                "damageFactor": 0.4,
+                "status": 8,
+                "reverse": false,
+                "spFactor": 0,
+                "hints": ["CHARGED"],
+                "guardable": "",
+                "skillBonus": "RANGED_DMG"
+            },
+            "timeBoni": null,
+            "behaviors": []
+        },
         "waveBounce": {
             "copyOwnerAnims": false,
             "breakType": "ACTION",
@@ -10653,27 +10705,53 @@
                 "y": 64,
                 "z": 130
             }
-        }, {
-            "align": "BOTTOM",
-            "centralAngle": 0,
-            "angleVary": 0,
-            "random": false,
-            "count": 1,
-            "duration": 0.15,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "bubbleShot",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 12
-            }
-        }, {
+        },  {
+            "withElse": true,
+            "condition": "newgame.harder-enemies",
+            "type": "IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "random": false,
+                "count": 1,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "bubbleShot2",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            }],
+            "elseStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "random": false,
+                "count": 1,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "bubbleShot",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            }]
+        },  {
             "time": 4,
             "bounces": 2,
             "size": 32,
