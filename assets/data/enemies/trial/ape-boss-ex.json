@@ -3952,7 +3952,7 @@
                 "random": false,
                 "repeat": true,
                 "count": 1,
-                "duration": 0.1,
+                "duration": 0.2,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "offsetArea": {
