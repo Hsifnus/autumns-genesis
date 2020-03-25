@@ -1,7 +1,7 @@
 ig.module("game.feature.player.coquelicot-player").requires(
     "game.feature.player.entities.player",
     "game.feature.player.player-config").defines(function() {
-    sc.PLAYER_CLASSES.SPIRIT = 6;
+    sc.PLAYER_CLASSES.SPIRIT = Object.keys(sc.PLAYER_CLASSES).length;
     ig.ENTITY.Player.inject({
         initIdleActions: function() {
             this.parent();
