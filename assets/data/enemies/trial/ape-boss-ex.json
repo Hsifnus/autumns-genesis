@@ -308,8 +308,8 @@
                 "ignoreStun": true
             }, {
                 "req": [{
-                    "max": 0,
-                    "min": 0,
+                    "max": 3,
+                    "min": 3,
                     "negated": false,
                     "type": "HP_BREAK"
                 }, {
@@ -5138,7 +5138,7 @@
         },
         "waveBombSlow": {
             "copyOwnerAnims": false,
-            "breakType": "ACTION",
+            "breakType": "COMBATANT",
             "action": [{
                 "duration": -1,
                 "align": "CENTER",
