@@ -1,5 +1,6 @@
 {
     "level": 80,
+    "boostedLevel": 80,
     "params": {
         "hp": 429001,
         "attack": 472,
