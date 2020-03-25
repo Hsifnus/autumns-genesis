@@ -846,6 +846,7 @@
                 "height": 80
             },
             "centerPivot": false,
+            "shapeType": "Z_FLAT",
             "renderMode": "lighter",
             "time": 0.1,
             "repeat": false,
@@ -861,6 +862,7 @@
                 "height": 128
             },
             "centerPivot": false,
+            "shapeType": "Z_FLAT",
             "renderMode": "lighter",
             "time": 0.1,
             "repeat": false,
@@ -1940,6 +1942,11 @@
                     "spline": ""
                 }
             },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
+            },
             "particleDuration": 0.42,
             "anim": "WAVE_BUBBLE_SMALL",
             "type": "OFFSET_PARTICLE_CIRCLE"
@@ -1987,6 +1994,11 @@
                 }
             },
             "anim": "WAVE_SPIRAL_PRE",
+            "offset": {
+                "x":0,
+                "y":24,
+                "z":0
+            },
             "moveWithTarget": 1,
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
@@ -2113,6 +2125,11 @@
                     "spline": "EASE_IN"
                 }
             },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
+            },
             "anim": "WAVE_BUBBLE_MEDIUM",
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
@@ -2143,6 +2160,11 @@
                     "time": 0.3,
                     "spline": "EASE_IN"
                 }
+            },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
             },
             "anim": "WAVE_BUBBLE_SMALL",
             "type": "OFFSET_PARTICLE_CIRCLE"
@@ -2198,6 +2220,11 @@
                     "spline": ""
                 }
             },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
+            },
             "particleDuration": 0.42,
             "anim": "WAVE_BUBBLE_SMALL",
             "type": "OFFSET_PARTICLE_CIRCLE"
@@ -2245,6 +2272,11 @@
                 }
             },
             "anim": "WAVE_SPIRAL_PRE",
+            "offset": {
+                "x":0,
+                "y":24,
+                "z":0
+            },
             "moveWithTarget": 1,
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
@@ -2371,6 +2403,11 @@
                     "spline": "EASE_IN"
                 }
             },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
+            },
             "anim": "WAVE_BUBBLE_MEDIUM",
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
@@ -2401,6 +2438,11 @@
                     "time": 0.3,
                     "spline": "EASE_IN"
                 }
+            },
+            "offset": {
+                "x":0,
+                "y":64,
+                "z":0
             },
             "anim": "WAVE_BUBBLE_SMALL",
             "type": "OFFSET_PARTICLE_CIRCLE"
