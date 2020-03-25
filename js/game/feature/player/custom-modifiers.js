@@ -106,6 +106,12 @@ ig.module("game.feature.player.custom-modifiers").requires(
             return d
         }
     });
+    var defaultItem = {
+        params: {
+            elemFactor: [1, 1, 1, 1]
+        },
+        properties: {}
+    };
     sc.EquipStatusContainer.inject({
         _createStatusDisplay: function(a, b, c, e, f, g, h, i, j, k, l, o) {
             var x = "",
@@ -150,7 +156,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
             d && this._setCurrentModifiers();
             if (!(a != -1E3 && a < 0)) {
                 var c = null,
-                    e = a != -1E3 ? sc.inventory.getItem(a) : b;
+                    e = a != -1E3 ? sc.inventory.getItem(a) : defaultItem;
                 if (this.compareMode) switch (e.equipType) {
                     case sc.ITEMS_EQUIP_TYPES.HEAD:
                         c =
@@ -184,8 +190,8 @@ ig.module("game.feature.player.custom-modifiers").requires(
                 }
                 var f = e.params,
                     e = e.properties,
-                    g = null,
-                    g = this._calculateDifference(c, "hp", f.hp || 0);
+                    g = null;
+                g = this._calculateDifference(c, "hp", f.hp || 0);
                 this.baseParams.hp.setChangeValue(g);
                 g = this._calculateDifference(c, "attack", f.attack || 0);
                 this.baseParams.atk.setChangeValue(g);
