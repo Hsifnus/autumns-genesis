@@ -308,8 +308,8 @@
                 "ignoreStun": true
             }, {
                 "req": [{
-                    "max": 3,
-                    "min": 3,
+                    "max": 0,
+                    "min": 0,
                     "negated": false,
                     "type": "HP_BREAK"
                 }, {
@@ -1206,6 +1206,48 @@
         }
     },
     "proxies": {
+    	"waveBounce": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.wave",
+                    "name": "waveBigGunBounce"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "waveBounce",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "NONE",
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
         "bubbleShot": {
             "size": {
                 "x": 32,
@@ -1226,6 +1268,7 @@
             "light": "XL",
             "noLightGlow": false,
             "type": "BALL",
+            "bounceProxy": "waveBounce",
             "animation": {
                 "name": "default",
                 "gfxOffset": {
@@ -1278,6 +1321,7 @@
             "light": "XL",
             "noLightGlow": false,
             "type": "BALL",
+            "bounceProxy": "waveBounce",
             "animation": {
                 "name": "default",
                 "gfxOffset": {
@@ -1309,48 +1353,6 @@
             },
             "timeBoni": null,
             "behaviors": []
-        },
-        "waveBounce": {
-            "copyOwnerAnims": false,
-            "breakType": "ACTION",
-            "action": [{
-                "duration": -1,
-                "align": "BOTTOM",
-                "rotateFace": 0,
-                "flipLeftFace": false,
-                "wait": false,
-                "waitSkip": 0,
-                "actionDetached": false,
-                "fixPos": false,
-                "type": "SHOW_EFFECT",
-                "effect": {
-                    "sheet": "specials.wave",
-                    "name": "waveBigGunBounce"
-                },
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-            }, {
-                "time": 0.3,
-                "type": "WAIT"
-            }],
-            "invisible": false,
-            "hp": 0,
-            "stickToSource": "NONE",
-            "stickFaceAlign": false,
-            "group": "waveBounce",
-            "size": {
-                "x": 16,
-                "y": 16,
-                "z": 16
-            },
-            "config": {
-                "collType": "NONE",
-                "zGravityFactor": 0
-            },
-            "type": "GENERIC"
         },
         "waveCardPreview": {
             "size": {
@@ -1448,7 +1450,7 @@
                 "type": "MOVE_FORWARD"
             }, {
                 "condition": "entity.ownerAttrib.influenceCards",
-                "maxTime": 27,
+                "maxTime": 100,
                 "type": "WAIT_UNTIL"
             }, {
                 "duration": -1,
@@ -5132,6 +5134,158 @@
                 "collType": "TRIGGER",
                 "shadow": 16
             },
+            "type": "GENERIC"
+        },
+        "waveBombSlow": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossBomb"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 100,
+                "type": "SET_SPEED"
+            }, {
+                "target": "PROXY_OWNER",
+                "distance": 48,
+                "duration": 0.1,
+                "ccw": false,
+                "rotateTime": 2,
+                "distAdjustSpeed": 0,
+                "zDistance": 12,
+                "waitUntil": "entity.ownerAttrib.fire || entity.ownerAttrib.teleport",
+                "waitTargetAlign": false,
+                "type": "STICKY_CIRCLE_AROUND"
+            }, {
+                "value": "TRIGGER",
+                "type": "SET_COLL_TYPE"
+            }, {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "value": 125,
+                "type": "SET_SPEED"
+            }, {
+                "min": 0,
+                "max": 64,
+                "maxTime": 2,
+                "forceTime": false,
+                "rotateSpeed": 0.5,
+                "missReactTime": 0.2,
+                "type": "MOVE_TO_DISTANCE"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossBombXplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "WAVE",
+                    "damageFactor": 4,
+                    "fly": "MASSIVE+",
+                    "reverse": false,
+                    "status": 3,
+                    "guardable": "NEVER",
+                    "hitInvincible": true,
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.5,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 300,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "flyHeight": 8
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
             "type": "GENERIC"
         },
         "waveBomb": {
@@ -10693,6 +10847,10 @@
             "waitSkip": 0,
             "type": "RESET_CAMERA"
         }, {
+            "name": "fire",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+        }, {
             "duration": 4,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -10736,6 +10894,28 @@
                     "y": 0,
                     "z": 12
                 }
+            },  {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDist": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 1,
+                "duration": 10,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBombSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 40
+                }
             }],
             "elseStep": [{
                 "align": "BOTTOM",
@@ -10765,6 +10945,28 @@
             "type": "FANCY_AIM"
         }, {
             "type": "STOP_REPEATING_FORCE"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDist": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 1,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBombSlow",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 40
+            }
         }, {
             "group": "whirl",
             "type": "CLEAR_EFFECTS"
