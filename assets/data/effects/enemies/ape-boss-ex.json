@@ -1118,14 +1118,14 @@
             "name": "ANCIENT_SWORD",
             "pivot": {
                 "x": 12,
-                "y": 60
+                "y": 68
             },
             "sheet": {
                 "src": "media/entity/effects/trial-bosses.png",
                 "offX": 0,
-                "offY": 476,
+                "offY": 456,
                 "width": 24,
-                "height": 64
+                "height": 72
             },
             "guiSprites": true,
             "time": 0.025,
@@ -2010,7 +2010,7 @@
             "numParticles": 1,
             "duration": 0,
             "centralAngle": 0,
-            "startAngle": 0.3,
+            "startAngle": -0.3,
             "clockwise": false,
             "startDist": 48,
             "particleRotate": true,
@@ -2101,7 +2101,7 @@
             "numParticles": 1,
             "duration": 0,
             "centralAngle": 0,
-            "startAngle": 0.3,
+            "startAngle": -0.3,
             "startDist": 48,
             "particleRotate": true,
             "offset": {
