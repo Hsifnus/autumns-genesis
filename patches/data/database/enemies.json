@@ -422,43 +422,41 @@
         "boss": false
     },
     "trial.ape-boss-ex": {
-      "name": {
-        "en_US": "Son of the East",
-        "de_DE": "Sohn des Ostens",
-        "zh_CN": "东方之子",
-        "ja_JP": "東の御子",
-        "ko_KR": "동쪽의 아들",
-        "langUid": 10139
-      },
-      "track": false,
-      "order": 600,
-      "area": "tree-dng",
-      "kills": 2,
-      "anim": false,
-      "extra": false,
-      "descriptions": [
-        {
-          "text": {
-            "en_US": "Born atop a mountain from a magic stone, this wise ape serves as the caretaker of both the \\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0] and the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. He will test each Seeker to make sure only the worthy acquire the \\c[3]\\v[item.410.name]\\c[0]. He wields a long staff and flies around on a puffy little cloud. Although his job is to test Seekers, it seems he enjoys a good and honest fight.",
-            "de_DE": "Auf dem Gipfel eines Berges aus einem magischen Stein geboren, dient dieser weise Affe als Hüter über den \\c[3]Großen Krys'kajo\\c[0] und den \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. Er testet jeden Seeker und stellt sicher, das nur jene Würdige die \\c[3]\\v[item.410.name]\\c[0] erhalten. Er führt einen langen Stab und fliegt auf einer bauschigen kleinen Wolke umher. Obwohl es seine Aufgabe ist, Seekers zu testen, scheint es, dass er einen guten und ehrlichen Kampf genießt.<<C<<Überprüfen: Beschreibung",
-            "zh_CN": "诞生于山巅的一枚神石当中，这头灵猿是\\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0]和\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]的守护者。他会测试每一位前来的探索者，证明他们的实力配得上\\c[3]\\v[item.410.name]\\c[0]。他使用长棍作为武器，并且会腾云驾雾。虽然测试探索者是他的工作，但他还是喜欢实打实硬碰硬的战斗。<<A<<[CHANGED 2018/09/19]",
-            "ja_JP": "山の頂上に存在していた魔法の石から産まれ出でたこの英知にあふれる類人猿は、\\c[3]\\v[area.tree-dng.name]\\c[0]と\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]の管理人である。\\c[3]\\v[item.410.name]\\c[0]を授けるに相応しいかどうかを見極めるため、探索者一人一人の実力をその身をもって試している。長い棒を得物として扱い、フワフワの小さな雲に乗って飛び回る。探索者の実力を試すことは彼の任務ではあるものの、正々堂々と戦えることを楽しんでいるように見える。<<A<<[CHANGED 2018/09/19]",
-            "ko_KR": "산꼭대기에 있는 마법의 돌에서 태어난 이 똑똑한 유인원은 \\c[3]\\v[area.tree-dng.name]\\c[0]와 \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]의 관리인 역할을 합니다. 그는 시커를 시험해 오직 가치가 있는 자만이 \\c[3]\\v[item.410.name]\\c[0]를 손에 넣을 수 있게 합니다. 긴 곤봉을 휘두르며 폭신폭신한 작은 구름을 타고 날아다닙니다. 이 녀석의 의무는 시커를 시험하는 일이긴 하지만, 훌륭하고 정직한 싸움을 즐기는 것 같습니다.<<A<<[CHANGED 2018/09/19]",
-            "langUid": -8
-          },
-          "condition": ""
-        }
-      ],
-      "species": {
-        "en_US": "Handsome Ape",
-        "de_DE": "Ansehnlicher Affe<<C<<Überprüfen: Beschreibung",
-        "zh_CN": "猿帅<<A<<[CHANGED 2018/08/01]",
-        "ja_JP": "イケメンな類人猿<<A<<[CHANGED 2018/08/01]",
-        "ko_KR": "잘생긴 유인원<<A<<[CHANGED 2018/08/01]",
-        "langUid": -4
-      },
-      "category": "ANIMALS",
-      "boostedLevel": 80,
+        "name": {
+            "en_US": "Son of the East",
+            "de_DE": "Sohn des Ostens",
+            "zh_CN": "东方之子",
+            "ja_JP": "東の御子",
+            "ko_KR": "동쪽의 아들",
+            "langUid": 10139
+        },
+        "track": false,
+        "order": 600,
+        "area": "tree-dng",
+        "kills": 2,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "Born atop a mountain from a magic stone, this wise ape serves as the caretaker of both the \\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0] and the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. He will test each Seeker to make sure only the worthy acquire the \\c[3]\\v[item.410.name]\\c[0]. He wields a long staff and flies around on a puffy little cloud. Although his job is to test Seekers, it seems he enjoys a good and honest fight.",
+                "de_DE": "Auf dem Gipfel eines Berges aus einem magischen Stein geboren, dient dieser weise Affe als Hüter über den \\c[3]Großen Krys'kajo\\c[0] und den \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. Er testet jeden Seeker und stellt sicher, das nur jene Würdige die \\c[3]\\v[item.410.name]\\c[0] erhalten. Er führt einen langen Stab und fliegt auf einer bauschigen kleinen Wolke umher. Obwohl es seine Aufgabe ist, Seekers zu testen, scheint es, dass er einen guten und ehrlichen Kampf genießt.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "诞生于山巅的一枚神石当中，这头灵猿是\\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0]和\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]的守护者。他会测试每一位前来的探索者，证明他们的实力配得上\\c[3]\\v[item.410.name]\\c[0]。他使用长棍作为武器，并且会腾云驾雾。虽然测试探索者是他的工作，但他还是喜欢实打实硬碰硬的战斗。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "山の頂上に存在していた魔法の石から産まれ出でたこの英知にあふれる類人猿は、\\c[3]\\v[area.tree-dng.name]\\c[0]と\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]の管理人である。\\c[3]\\v[item.410.name]\\c[0]を授けるに相応しいかどうかを見極めるため、探索者一人一人の実力をその身をもって試している。長い棒を得物として扱い、フワフワの小さな雲に乗って飛び回る。探索者の実力を試すことは彼の任務ではあるものの、正々堂々と戦えることを楽しんでいるように見える。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "산꼭대기에 있는 마법의 돌에서 태어난 이 똑똑한 유인원은 \\c[3]\\v[area.tree-dng.name]\\c[0]와 \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]의 관리인 역할을 합니다. 그는 시커를 시험해 오직 가치가 있는 자만이 \\c[3]\\v[item.410.name]\\c[0]를 손에 넣을 수 있게 합니다. 긴 곤봉을 휘두르며 폭신폭신한 작은 구름을 타고 날아다닙니다. 이 녀석의 의무는 시커를 시험하는 일이긴 하지만, 훌륭하고 정직한 싸움을 즐기는 것 같습니다.<<A<<[CHANGED 2018/09/19]",
+                "langUid": -8
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Handsome Ape",
+            "de_DE": "Ansehnlicher Affe<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "猿帅<<A<<[CHANGED 2018/08/01]",
+            "ja_JP": "イケメンな類人猿<<A<<[CHANGED 2018/08/01]",
+            "ko_KR": "잘생긴 유인원<<A<<[CHANGED 2018/08/01]",
+            "langUid": -4
+        },
+        "category": "ANIMALS",
+        "boostedLevel": 80,
         "level": 80,
         "params": {
             "hp": 500000,
