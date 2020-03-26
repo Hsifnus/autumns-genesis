@@ -2869,7 +2869,7 @@
             "breakType": "COMBATANT",
             "action": [{
                 "align": "BOTTOM",
-                "radius": 72,
+                "radius": 64,
                 "yScale": 0,
                 "zHeight": 0,
                 "centralAngle": 0,
