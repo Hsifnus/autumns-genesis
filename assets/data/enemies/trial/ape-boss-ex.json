@@ -12459,6 +12459,10 @@
             "waitSkip": 0,
             "type": "RESET_CAMERA"
         }, {
+            "time": 1,
+            "aggroTime": 0.5,
+            "type": "WAIT"
+        }, {
             "attribName": "rightCmd",
             "changeType": "set",
             "proxyOwner": false,
