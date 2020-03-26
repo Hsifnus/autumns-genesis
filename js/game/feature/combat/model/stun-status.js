@@ -74,54 +74,12 @@ ig.module("game.feature.combat.model.stun-status").requires(
         });
         sc.STATUS_BAR_ENTRY.DAZED = {
             icon: 0,
-            isStun: true,
+            gfx: "media/gui/stun-status.png",
             init: null,
             barY: 0,
             barX: 0,
             half: true
         }
-        ig.GUI.StatusBar.inject({
-            stunGfx: new ig.Image("media/gui/stun-status.png"),
-            drawStatusEntry: function(b, c, e, f) {
-                var g = this.statusEntries[f],
-                    f = sc.STATUS_BAR_ENTRY[f],
-                    h = 1;
-                g.timer < 0.1 && (h = g.timer / 0.1);
-                h != 1 && b.addTransform().setPivot(c, e + 2).setScale(1, h);
-                var i = 24,
-                    j = 0;
-                if (f.half) j = i = i / 2;
-                if (f.isStun) {
-                    if (g.stick) b.addGfx(this.stunGfx, c - 6, e - 2, 24, 0, 8, 8);
-                    else {
-                        if (g.timer > 1.7) var l =
-                            Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
-                            c = c + l;
-                        g = 1 + Math.floor(g.value * (i - 2));
-                        l = i - 1 - g;
-                        c = c + j;
-                        b.addGfx(this.stunGfx, c, e, f.barX, f.barY, g, 4);
-                        l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
-                        b.addGfx(this.stunGfx, c + (i - 1), e - 2, 25, 0, 7, 8)
-                    }
-                } else {
-                    var k = this.barIconTiles.getTileSrc(a, f.icon);
-                    if (g.stick) b.addGfx(this.gfx, c - 6, e - 2, k.x, k.y, 8, 8);
-                    else {
-                        if (g.timer > 1.7) var l =
-                            Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
-                            c = c + l;
-                        g = 1 + Math.floor(g.value * (i - 2));
-                        l = i - 1 - g;
-                        c = c + j;
-                        b.addGfx(this.gfx, c, e, 216, f.barY, g, 4);
-                        l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
-                        b.addGfx(this.gfx, c + (i - 1), e - 2, k.x + 1, k.y, 7, 8)
-                    }
-                }
-                h != 1 && b.undoTransform()
-            }
-        });
 
         var b = Vec2.create(),
             a = Vec2.create(),
