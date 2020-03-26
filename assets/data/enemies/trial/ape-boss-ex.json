@@ -1206,7 +1206,7 @@
         }
     },
     "proxies": {
-    	"waveBounce": {
+        "waveBounce": {
             "copyOwnerAnims": false,
             "breakType": "ACTION",
             "action": [{
@@ -5495,13 +5495,11 @@
                 "type": "FACE_TO_TARGET"
             }, {
                 "withElse": true,
-                "conditions": [
-                    {
-                        "max": 0.5,
-                        "negated": false,
-                        "type": "RANDOM"
-                    }
-                ],
+                "conditions": [{
+                    "max": 0.5,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
                 "type": "COMBAT_IF",
                 "thenStep": [{
                     "align": "BOTTOM",
@@ -5573,7 +5571,7 @@
                         "y": 0,
                         "z": 40
                     }
-                },  {
+                }, {
                     "align": "BOTTOM",
                     "centralAngle": 0,
                     "startAngle": 0.2,
@@ -8096,7 +8094,7 @@
             }
         }, {
             "time": 0.1,
-        	"type": "WAIT"
+            "type": "WAIT"
         }, {
             "attribName": "attacks",
             "changeType": "set",
@@ -9491,11 +9489,11 @@
         }, {
             "type": "REMOVE_SHIELD",
             "name": "counter"
-        },{
+        }, {
             "value": false,
             "immediately": true,
             "type": "FACE_TO_TARGET"
-        },{
+        }, {
             "duration": 0,
             "align": "BOTTOM",
             "rotateFace": 6,
@@ -11025,7 +11023,7 @@
                 "y": 64,
                 "z": 130
             }
-        },  {
+        }, {
             "withElse": true,
             "condition": "newgame.harder-enemies",
             "type": "IF",
@@ -11049,7 +11047,7 @@
                     "y": 0,
                     "z": 12
                 }
-            },  {
+            }, {
                 "align": "BOTTOM",
                 "centralAngle": 0,
                 "angleVary": 0,
@@ -11093,7 +11091,7 @@
                     "z": 12
                 }
             }]
-        },  {
+        }, {
             "time": 4,
             "bounces": 2,
             "size": 32,

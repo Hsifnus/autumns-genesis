@@ -245,11 +245,15 @@ ig.module("game.feature.combat.model.stun-status").requires(
         !sc.DAMAGE_MODIFIER_FUNCS && (sc.DAMAGE_MODIFIER_FUNCS = {});
         sc.DAMAGE_MODIFIER_FUNCS.WIND_MELEE = (attackInfo, damageFactor, combatantRoot, shieldResult, hitIgnore, params) => {
             var n, applyDamageCallback;
-            !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG"
-                && (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) 
-                && (attackInfo.statusInflict = attackInfo.statusInflict + 0.75)
-                && (damageFactor = damageFactor + damageFactor * n);
-            return { attackInfo, damageFactor, applyDamageCallback };
+            !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG" &&
+                (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) &&
+                (attackInfo.statusInflict = attackInfo.statusInflict + 0.75) &&
+                (damageFactor = damageFactor + damageFactor * n);
+            return {
+                attackInfo,
+                damageFactor,
+                applyDamageCallback
+            };
         };
 
     });
