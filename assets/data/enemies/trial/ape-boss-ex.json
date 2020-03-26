@@ -321,8 +321,8 @@
                 "postSwitchState": "WAVE"
             }, {
                 "req": [{
-                    "max": 0,
-                    "min": 0,
+                    "max": 2,
+                    "min": 2,
                     "negated": false,
                     "type": "HP_BREAK"
                 }, {
