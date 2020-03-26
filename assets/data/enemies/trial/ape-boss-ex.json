@@ -321,8 +321,8 @@
                 "postSwitchState": "WAVE"
             }, {
                 "req": [{
-                    "max": 2,
-                    "min": 2,
+                    "max": 0,
+                    "min": 0,
                     "negated": false,
                     "type": "HP_BREAK"
                 }, {
@@ -2047,7 +2047,7 @@
                 }, {
                     "duration": 0,
                     "align": "BOTTOM",
-                    "rotateFace": 0,
+                    "rotateFace": -1,
                     "flipLeftFace": false,
                     "wait": false,
                     "waitSkip": 0,
@@ -2600,7 +2600,7 @@
                 }, {
                     "duration": 0,
                     "align": "BOTTOM",
-                    "rotateFace": 0,
+                    "rotateFace": -1,
                     "flipLeftFace": false,
                     "wait": false,
                     "waitSkip": 0,
