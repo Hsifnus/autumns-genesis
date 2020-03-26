@@ -88,7 +88,6 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
                 h = (Math.random() - 0.5) * this.zVary;
                 j = ig.game.spawnEntity(ig.ENTITY.Enemy, a.x + j.x - 24, a.y + j.y - 24, a.z + h, {
                     enemyInfo: this.enemyInfo.getSettings(),
-                    manualKill: "tmp.superBombDeath",
                     name: "superBomb"
                 });
             }
