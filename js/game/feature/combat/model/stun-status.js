@@ -1,7 +1,8 @@
 ig.module("game.feature.combat.model.stun-status").requires(
         "game.feature.combat.model.combat-status",
         "game.feature.combat.gui.status-bar",
-        "game.feature.combat.entities.combatant")
+        "game.feature.combat.entities.combatant",
+        "game.feature.combat.model.modifier-apply")
     .defines(function() {
         sc.StunStatus = sc.COMBAT_STATUS[4] = sc.CombatStatusBase.extend({
             id: 4,
@@ -242,12 +243,18 @@ ig.module("game.feature.combat.model.stun-status").requires(
             }
         });
 
-        !sc.DAMAGE_MODIFIER_FUNCS && (sc.DAMAGE_MODIFIER_FUNCS = {});
+        var aConst = 0.25,
+            dConst = 1.5,
+            cConst = 3;
         sc.DAMAGE_MODIFIER_FUNCS.WIND_MELEE = (attackInfo, damageFactor, combatantRoot, shieldResult, hitIgnore, params) => {
-            var n, applyDamageCallback;
+            var n, applyDamageCallback,
+                l = attackInfo.noHack || false,
+                r = attackInfo.attackerParams.getStat("focus", l) / params.getStat("focus", l),
+                v = (Math.pow(1 + (r >= 1 ? r - 1 : 1 - r) * cConst, aConst) - 1) * dConst;
+                r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
             !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG" &&
                 (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) &&
-                (attackInfo.statusInflict = attackInfo.statusInflict + 0.75) &&
+                (attackInfo.statusInflict = attackInfo.statusInflict + r * 2 * n) &&
                 (damageFactor = damageFactor + damageFactor * n);
             return {
                 attackInfo,
@@ -255,5 +262,4 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 applyDamageCallback
             };
         };
-
     });
