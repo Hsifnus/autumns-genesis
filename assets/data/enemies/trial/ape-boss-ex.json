@@ -5717,12 +5717,12 @@
             }, {
                 "type": "CLEAR_EFFECTS"
             }, {
+                "align": "BASE",
+                "type": "PLACE_WAVE_TELEPORT"
+            }, {
                 "type": "SHOOT_PROXY",
                 "align": "BOTTOM",
                 "proxy": "waveBombSlow"
-            }, {
-                "align": "BASE",
-                "type": "PLACE_WAVE_TELEPORT"
             }, {
             	"time": 12,
             	"type": "WAIT"
@@ -13323,8 +13323,8 @@
             "waitSkip": 0,
             "type": "RESET_CAMERA"
         }, {
-            "time": 3.5,
-            "aggroTime": 3,
+            "time": 3.8,
+            "aggroTime": 3.3,
             "type": "WAIT"
         }, {
             "type": "CLEAR_EFFECTS"
