@@ -5721,13 +5721,13 @@
                 "align": "BOTTOM",
                 "proxy": "waveBombSlow"
             }, {
-                "time": 2,
+                "time": 1.5,
                 "type": "WAIT"
             }, {
                 "align": "BASE",
                 "type": "PLACE_WAVE_TELEPORT"
             }, {
-            	"time": 10,
+            	"time": 10.5,
             	"type": "WAIT"
             }],
             "invisible": false,
