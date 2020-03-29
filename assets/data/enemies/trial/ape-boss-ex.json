@@ -5721,8 +5721,14 @@
                 "align": "BOTTOM",
                 "proxy": "waveBombSlow"
             }, {
-                "time": 12,
+                "time": 2,
                 "type": "WAIT"
+            }, {
+                "align": "BASE",
+                "type": "PLACE_WAVE_TELEPORT"
+            }, {
+            	"time": 10,
+            	"type": "WAIT"
             }],
             "invisible": false,
             "hp": 0,
