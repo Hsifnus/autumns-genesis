@@ -13324,7 +13324,7 @@
             "type": "RESET_CAMERA"
         }, {
             "time": 3.8,
-            "aggroTime": 3.3,
+            "aggroTime": 3.5,
             "type": "WAIT"
         }, {
             "type": "CLEAR_EFFECTS"
