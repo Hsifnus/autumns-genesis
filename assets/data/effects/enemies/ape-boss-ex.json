@@ -4849,6 +4849,12 @@
             "pRotate": {
                 "init": 0.25
             },
+            "pScale": {
+                "init": {
+                    "x": 0.4,
+                    "y": 0.4
+                }
+            },
             "anim": "SPARK4",
             "type": "PLAY_ANIMS_OVER_ENTITY"
         }, {
