@@ -166,7 +166,7 @@
             "type": "TIME"
         },
         "cloneAttack": {
-            "target": 15,
+            "target": 10,
             "initRandom": 0,
             "resetRandom": 0,
             "noStateReset": true,
@@ -895,10 +895,14 @@
                 }],
                 "sub": [{
                     "req": [{
-                        "max": 0.5,
+                        "max": 0.33,
                         "negated": false,
                         "type": "RANDOM"
-                    }, {
+                    },  {
+                        "condition": "entity.attrib.numCards <= 20",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
+                    },  {
                         "negated": false,
                         "type": "TRACKER_READY",
                         "name": "cloneAttack"
@@ -906,12 +910,25 @@
                     "action": "SpecialWave2"
                 }, {
                     "req": [{
+                        "max": 0.66,
+                        "negated": false,
+                        "type": "RANDOM"
+                    }, {
+                        "condition": "entity.attrib.numCards <= 20",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
+                    }, {
                         "negated": false,
                         "type": "TRACKER_READY",
                         "name": "cloneAttack"
                     }],
                     "action": "AttackWaveCloneFast"
                 }, {
+                	"req": [{
+                            "condition": "entity.attrib.numCards <= 20",
+                            "negated": false,
+                            "type": "VAR_CONDITION"
+                    }],
                     "action": "SpecialWave",
                     "frequency": "NORMAL"
                 }, {
@@ -925,9 +942,13 @@
                 }],
                 "sub": [{
                     "req": [{
-                        "max": 0.5,
+                        "max": 0.33,
                         "negated": false,
                         "type": "RANDOM"
+                    }, {
+                        "condition": "entity.attrib.numCards <= 16",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
                     }, {
                         "negated": false,
                         "type": "TRACKER_READY",
@@ -936,12 +957,25 @@
                     "action": "SpecialWave2"
                 }, {
                     "req": [{
+                        "max": 0.66,
+                        "negated": false,
+                        "type": "RANDOM"
+                    }, {
+                        "condition": "entity.attrib.numCards <= 16",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
+                    }, {
                         "negated": false,
                         "type": "TRACKER_READY",
                         "name": "cloneAttack"
                     }],
                     "action": "AttackWaveCloneFast"
                 }, {
+                	"req": [{
+                        "condition": "entity.attrib.numCards <= 16",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
+                    }],
                     "action": "SpecialWave",
                     "frequency": "SOMETIMES"
                 }, {
@@ -1421,6 +1455,12 @@
             "breakType": "COMBATANT",
             "moveRotate": true,
             "action": [{
+                "attribName": "numCards",
+                "changeType": "add",
+                "changeConnected": "PROXY_OWNER",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            },{
                 "duration": -1,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -10742,6 +10782,11 @@
             "type": "SET_ATTRIB_BOOL",
             "value": true
         }, {
+            "attribName": "numCards",
+            "changeType": "set",
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
             "wait": false,
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
@@ -14221,6 +14266,11 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "idle"
+        }, {
+            "attribName": "numCards",
+            "changeType": "set",
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
         }, {
             "time": 0.1,
             "type": "WAIT"
