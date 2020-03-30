@@ -166,7 +166,7 @@
             "type": "TIME"
         },
         "cloneAttack": {
-            "target": 10,
+            "target": 15,
             "initRandom": 0,
             "resetRandom": 0,
             "noStateReset": true,
