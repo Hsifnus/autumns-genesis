@@ -969,6 +969,11 @@
                         "z": 0
                     }
                 }, {
+                    "changeType": "set",
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "g.newgame.ignoreLeaMustDie",
+                    "value": true
+                }, {
                     "type": "DIRECT_HIT",
                     "selectType": "TRUE_TARGET",
                     "hitDir": "AWAY",
@@ -1025,6 +1030,11 @@
                     "type": "WAIT"
                 }, {
                     "type": "CLEAR_STUN_LOCKED"
+                }, {
+                    "changeType": "set",
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "g.newgame.ignoreLeaMustDie",
+                    "value": false
                 }, {
                     "withElse": true,
                     "type": "IF",
@@ -1534,6 +1544,11 @@
                         "z": 0
                     }
                 }, {
+                    "changeType": "set",
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "g.newgame.ignoreLeaMustDie",
+                    "value": true
+                }, {
                     "type": "DIRECT_HIT",
                     "selectType": "TRUE_TARGET",
                     "hitDir": "AWAY",
@@ -1604,6 +1619,11 @@
                         "type": "WAIT"
                     }, {
                         "type": "CLEAR_STUN_LOCKED"
+                    }, {
+                        "changeType": "set",
+                        "type": "CHANGE_VAR_BOOL",
+                        "varName": "g.newgame.ignoreLeaMustDie",
+                        "value": false
                     }, {
                         "type": "SELECT_RANDOM",
                         "options": [{
@@ -1729,6 +1749,11 @@
                     "time": 0.3,
                     "type": "WAIT"
                 }, {
+                    "changeType": "set",
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "g.newgame.ignoreLeaMustDie",
+                    "value": false
+                }, {
                     "type": "CLEAR_STUN_LOCKED"
                 }, {
                     "condition": "entity.ownerAttrib.attack1 == 0",
@@ -1776,6 +1801,11 @@
                 }, {
                     "time": 0.3,
                     "type": "WAIT"
+                }, {
+                    "changeType": "set",
+                    "type": "CHANGE_VAR_BOOL",
+                    "varName": "g.newgame.ignoreLeaMustDie",
+                    "value": false
                 }, {
                     "type": "CLEAR_STUN_LOCKED"
                 }, {
@@ -7197,6 +7227,11 @@
                 "z": 0
             }
         }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "g.newgame.ignoreLeaMustDie",
+            "value": true
+        }, {
             "type": "DIRECT_HIT",
             "selectType": "TRUE_TARGET",
             "hitDir": "AWAY",
@@ -7324,6 +7359,11 @@
             "anim": "ground"
         }, {
             "type": "CLEAR_STUN_LOCKED"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "g.newgame.ignoreLeaMustDie",
+            "value": false
         }, {
             "conditions": [{
                 "min": 1,

@@ -3375,80 +3375,176 @@
                 }],
                 "withElse": true,
                 "type": "COMBAT_IF",
-                "thenStep": [{
-                    "align": "BOTTOM",
-                    "dir": {
-                        "x": 0,
-                        "y": 1
-                    },
-                    "centralAngle": 0.5,
-                    "angleVary": 0,
-                    "startDistCollide": "NONE",
-                    "random": false,
-                    "duration": 0.5,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "offsetArea": {
-                        "x": 320,
-                        "y": 120
-                    },
-                    "circularArea": true,
-                    "uniformDir": 0,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SPAWN_ENEMIES",
-                    "offset": {
-                        "x": 0,
-                        "y": 200,
-                        "z": 240
-                    },
-                    "count": 2,
-                    "enemyInfo": {
-                        "group": "",
-                        "party": "",
-                        "targetOnSpawn": true,
-                        "level": 80,
-                        "type": "mine-kamikatze-alt",
-                        "attribs": {}
+                "thenStep": [
+                    {
+                        "condition": "entity.attrib.weakKamikatzes",
+                        "withElse": true,
+                        "type": "IF",
+                        "thenStep": [
+                            {
+                                "align": "BOTTOM",
+                                "dir": {
+                                    "x": 0,
+                                    "y": 1
+                                },
+                                "centralAngle": 0.5,
+                                "angleVary": 0,
+                                "startDistCollide": "NONE",
+                                "random": false,
+                                "duration": 0.5,
+                                "clockwise": false,
+                                "flipLeftFace": 0,
+                                "offsetArea": {
+                                    "x": 320,
+                                    "y": 120
+                                },
+                                "circularArea": true,
+                                "uniformDir": 0,
+                                "delay": 0,
+                                "repeat": false,
+                                "type": "SPAWN_ENEMIES",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 200,
+                                    "z": 240
+                                },
+                                "count": 2,
+                                "enemyInfo": {
+                                    "group": "",
+                                    "party": "",
+                                    "targetOnSpawn": true,
+                                    "level": 25,
+                                    "type": "mine-kamikatze-alt",
+                                    "attribs": {}
+                                }
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "align": "BOTTOM",
+                                "dir": {
+                                    "x": 0,
+                                    "y": 1
+                                },
+                                "centralAngle": 0.5,
+                                "angleVary": 0,
+                                "startDistCollide": "NONE",
+                                "random": false,
+                                "duration": 0.5,
+                                "clockwise": false,
+                                "flipLeftFace": 0,
+                                "offsetArea": {
+                                    "x": 320,
+                                    "y": 120
+                                },
+                                "circularArea": true,
+                                "uniformDir": 0,
+                                "delay": 0,
+                                "repeat": false,
+                                "type": "SPAWN_ENEMIES",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 200,
+                                    "z": 240
+                                },
+                                "count": 2,
+                                "enemyInfo": {
+                                    "group": "",
+                                    "party": "",
+                                    "targetOnSpawn": true,
+                                    "level": 80,
+                                    "type": "mine-kamikatze-alt",
+                                    "attribs": {}
+                                }
+                            }
+                        ]
                     }
-                }],
-                "elseStep": [{
-                    "align": "BOTTOM",
-                    "dir": {
-                        "x": 0,
-                        "y": 1
-                    },
-                    "centralAngle": 0.5,
-                    "angleVary": 0,
-                    "startDistCollide": "NONE",
-                    "random": false,
-                    "duration": 0.5,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "offsetArea": {
-                        "x": 320,
-                        "y": 120
-                    },
-                    "circularArea": true,
-                    "uniformDir": 0,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SPAWN_ENEMIES",
-                    "offset": {
-                        "x": 0,
-                        "y": 200,
-                        "z": 240
-                    },
-                    "count": 2,
-                    "enemyInfo": {
-                        "group": "",
-                        "party": "",
-                        "targetOnSpawn": true,
-                        "level": 80,
-                        "type": "mine-kamikatze-alt",
-                        "attribs": {}
+                ],
+                "elseStep": [
+                    {
+                        "condition": "entity.attrib.weakKamikatzes",
+                        "withElse": true,
+                        "type": "IF",
+                        "thenStep": [
+                            {
+                                "align": "BOTTOM",
+                                "dir": {
+                                    "x": 0,
+                                    "y": 1
+                                },
+                                "centralAngle": 0.5,
+                                "angleVary": 0,
+                                "startDistCollide": "NONE",
+                                "random": false,
+                                "duration": 0.5,
+                                "clockwise": false,
+                                "flipLeftFace": 0,
+                                "offsetArea": {
+                                    "x": 320,
+                                    "y": 120
+                                },
+                                "circularArea": true,
+                                "uniformDir": 0,
+                                "delay": 0,
+                                "repeat": false,
+                                "type": "SPAWN_ENEMIES",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 200,
+                                    "z": 240
+                                },
+                                "count": 2,
+                                "enemyInfo": {
+                                    "group": "",
+                                    "party": "",
+                                    "targetOnSpawn": true,
+                                    "level": 25,
+                                    "type": "mine-kamikatze-alt",
+                                    "attribs": {}
+                                }
+                            }
+                        ],
+                        "elseStep": [
+                            {
+                                "align": "BOTTOM",
+                                "dir": {
+                                    "x": 0,
+                                    "y": 1
+                                },
+                                "centralAngle": 0.5,
+                                "angleVary": 0,
+                                "startDistCollide": "NONE",
+                                "random": false,
+                                "duration": 0.5,
+                                "clockwise": false,
+                                "flipLeftFace": 0,
+                                "offsetArea": {
+                                    "x": 320,
+                                    "y": 120
+                                },
+                                "circularArea": true,
+                                "uniformDir": 0,
+                                "delay": 0,
+                                "repeat": false,
+                                "type": "SPAWN_ENEMIES",
+                                "offset": {
+                                    "x": 0,
+                                    "y": 200,
+                                    "z": 240
+                                },
+                                "count": 2,
+                                "enemyInfo": {
+                                    "group": "",
+                                    "party": "",
+                                    "targetOnSpawn": true,
+                                    "level": 80,
+                                    "type": "mine-kamikatze-alt",
+                                    "attribs": {}
+                                }
+                            }
+                        ]
                     }
-                }]
+                ]
             }],
             "elseStep": [{
                 "changeType": "set",
@@ -3462,41 +3558,87 @@
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 1
             }, {
-                "align": "BOTTOM",
-                "dir": {
-                    "x": 0,
-                    "y": 1
-                },
-                "centralAngle": 0.5,
-                "angleVary": 0,
-                "startDistCollide": "NONE",
-                "random": false,
-                "duration": 0.5,
-                "clockwise": false,
-                "flipLeftFace": 0,
-                "offsetArea": {
-                    "x": 320,
-                    "y": 120
-                },
-                "circularArea": true,
-                "uniformDir": 0,
-                "delay": 0,
-                "repeat": false,
-                "type": "SPAWN_ENEMIES",
-                "offset": {
-                    "x": 0,
-                    "y": 200,
-                    "z": 240
-                },
-                "count": 1,
-                "enemyInfo": {
-                    "group": "",
-                    "party": "",
-                    "targetOnSpawn": true,
-                    "level": 80,
-                    "type": "mine-kamikatze-alt",
-                    "attribs": {}
-                }
+                "condition": "entity.attrib.weakKamikatzes",
+                "withElse": true,
+                "type": "IF",
+                "thenStep": [
+                    {
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 1,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 25,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }
+                ],
+                "elseStep": [
+                    {
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 1,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 80,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }
+                ]
             }]
         }, {
             "time": 0.5,
