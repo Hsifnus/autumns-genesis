@@ -88,7 +88,7 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
                 c.push(Vec2.create(j));
                 h = (Math.random() - 0.5) * this.zVary;
                 j = ig.game.spawnEntity(ig.ENTITY.Enemy, a.x + j.x - 24, a.y + j.y - 24, a.z + h, {
-                    enemyInfo: { 
+                    enemyInfo: {
                         ...this.enemyInfo.getSettings(),
                         level: num
                     },

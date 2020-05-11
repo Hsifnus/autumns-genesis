@@ -34,7 +34,10 @@ ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.comb
                 damageFactor: 1.5,
                 spFactor: 1,
                 skillBonus: "MELEE_DMG",
-                stunSteps: [{ type: "BLOCK_FALL", duration: 0.15}]
+                stunSteps: [{
+                    type: "BLOCK_FALL",
+                    duration: 0.15
+                }]
             },
             checkCollision: true
         }

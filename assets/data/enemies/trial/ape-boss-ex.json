@@ -898,11 +898,11 @@
                         "max": 0.33,
                         "negated": false,
                         "type": "RANDOM"
-                    },  {
+                    }, {
                         "condition": "entity.attrib.numCards <= 20",
                         "negated": false,
                         "type": "VAR_CONDITION"
-                    },  {
+                    }, {
                         "negated": false,
                         "type": "TRACKER_READY",
                         "name": "cloneAttack"
@@ -924,10 +924,10 @@
                     }],
                     "action": "AttackWaveCloneFast"
                 }, {
-                	"req": [{
-                            "condition": "entity.attrib.numCards <= 20",
-                            "negated": false,
-                            "type": "VAR_CONDITION"
+                    "req": [{
+                        "condition": "entity.attrib.numCards <= 20",
+                        "negated": false,
+                        "type": "VAR_CONDITION"
                     }],
                     "action": "SpecialWave",
                     "frequency": "NORMAL"
@@ -971,7 +971,7 @@
                     }],
                     "action": "AttackWaveCloneFast"
                 }, {
-                	"req": [{
+                    "req": [{
                         "condition": "entity.attrib.numCards <= 16",
                         "negated": false,
                         "type": "VAR_CONDITION"
@@ -1460,7 +1460,7 @@
                 "changeConnected": "PROXY_OWNER",
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 1
-            },{
+            }, {
                 "duration": -1,
                 "align": "BOTTOM",
                 "rotateFace": 0,
@@ -5764,8 +5764,8 @@
                 "align": "BOTTOM",
                 "proxy": "waveBombSlow"
             }, {
-            	"time": 12,
-            	"type": "WAIT"
+                "time": 12,
+                "type": "WAIT"
             }],
             "invisible": false,
             "hp": 0,

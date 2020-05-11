@@ -34,6 +34,8 @@ import "./js/game/feature/gui/screen/title-screen-autumn.js";
 
 import "./js/game/feature/map-content/cave-map-style.js";
 
+import "./js/game/feature/party/entities/party-member-entity-enhancements.js";
+
 import "./js/game/feature/player/coquelicot-player.js";
 
 import "./js/game/feature/player/custom-modifiers.js";
@@ -53,3 +55,26 @@ import "./js/impact/feature/weather/wind.js";
 import "./js/impact/feature/weather/wind-aim.js";
 
 import "./js/impact/feature/weather/wind-weather.js";
+
+class Coquelicot {
+    constructor() {
+        this._init();
+    }
+
+    _init() {
+        this._addPartyMember();
+    }
+
+    _addPartyMember() {
+        /*
+         * The idea here is to add a new entry to the list of party members,
+         * and then call the functions that reference that list to reinit the
+         * list of data. The way I've implemented this *should* allow for
+         * multiple concurrent new party member mods to exist and work correctly
+         * with each other.
+         */
+        sc.PARTY_OPTIONS.push("Coquelicot");
+    }
+}
+
+new Coquelicot();

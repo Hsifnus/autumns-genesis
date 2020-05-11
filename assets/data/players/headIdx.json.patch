@@ -4,7 +4,7 @@
 },{
 	"type": "ADD_ARRAY_ELEMENT",
 	"content": {
-		"id": "mod.coquelicot",
+		"id": "main.coquelicot",
 		"img" : "media/gui/severed-heads/coquelicot.png"
 	}
 }]
