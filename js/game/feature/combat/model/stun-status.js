@@ -251,7 +251,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 l = attackInfo.noHack || false,
                 r = attackInfo.attackerParams.getStat("focus", l) / params.getStat("focus", l),
                 v = (Math.pow(1 + (r >= 1 ? r - 1 : 1 - r) * cConst, aConst) - 1) * dConst;
-                r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
+            r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
             !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG" &&
                 (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) &&
                 (attackInfo.statusInflict = attackInfo.statusInflict + r * 2 * n) &&
