@@ -1,0 +1,663 @@
+{
+  "coquelicot-battle-start": {
+    "frequency": "SOMETIMES",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Coquelicot && !tmp.common.passiveAttack",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Foes, prepare to be rend asunder!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "Let's show our true colors in combat!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "With us together, this should be a breeze!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "type": "ENEMY_ATTACKS",
+      "battleStarted": true
+    }
+  },
+  "coquelicot-cooldown-S": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Coquelicot",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Yes, yes! Keep dancing around them like the wind!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "I see in you a desire to push the limits of human endurance!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "This is where the fun really begins!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "S",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "coquelicot-cooldown-A": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Coquelicot",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "The gusts of combat are really picking up!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "I'm as ready to rip these foes apart as you are!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "Leave not an enemy behind!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "A",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "coquelicot-cooldown-B": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Coquelicot",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Let's stir up some gales in battle!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "Warm-ups are over! Let's get to this."
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "The leaves grow excited in this frenzy!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rankReached": "B",
+      "type": "COOLDOWN_START"
+    }
+  },
+  "coquelicot-battle-over-S": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "condition": "party.alive.Coquelicot",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Us spirits don't tire out quickly, but I am surprised to have such an active partner."
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "See? That was a breeze, after all!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "When together, we sure are unstoppable!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "killCount": 0,
+      "rank": "S",
+      "type": "BATTLE_OVER"
+    }
+  },
+  "coquelicot-contact": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "Heya! This is a dialogue test."
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "actionType": "CONTACT",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "coquelicot-join": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "You wish to call upon the spirit of autumn for help? Very well."
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "member": "Coquelicot",
+        "skipEffect": false,
+        "type": "ADD_PARTY_MEMBER"
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "actionType": "PARTY_JOIN",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "coquelicot-equip-update": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "message": {
+          "en_US": "It is only fair that I improve my tools of combat as my skills grow."
+        },
+        "type": "SHOW_SIDE_MSG",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "eventType": "EQUIP_UPDATE",
+      "actionType": "PARTY_JOIN",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  },
+  "coquelicot-remove": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "outgoing": true,
+        "type": "RING_PRIVATE_MSG"
+      },
+      {
+        "type": "START_PRIVATE_MSG"
+      },
+      {
+        "side": "LEFT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "side": "RIGHT",
+        "order": 0,
+        "clearSide": false,
+        "type": "ADD_MSG_PERSON",
+        "person": {
+          "person": "main.lea",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "message": {
+          "en_US": "Being your companion has been pretty refreshing! I wouldn't mind doing it again."
+        },
+        "autoContinue": false,
+        "type": "SHOW_MSG",
+        "person": {
+          "person": "main.coquelicot",
+          "expression": "DEFAULT"
+        }
+      },
+      {
+        "member": "Coquelicot",
+        "skipEffect": false,
+        "type": "REMOVE_PARTY_MEMBER"
+      },
+      {
+        "skipSounds": false,
+        "type": "END_PRIVATE_MSG"
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "actionType": "PARTY_LEAVE",
+      "type": "SOCIAL_ACTION"
+    }
+  },
+  "coquelicot-dies": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Oww! Where'd that come from?"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "Maybe I rushed into this a bit too quickly..."
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "These enemies are getting a bit annoying!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "eventType": "DIES",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  },
+  "coquelicot-revived": {
+    "frequency": "ALWAYS",
+    "repeat": "REPEAT",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "event": [
+      {
+        "type": "SELECT_RANDOM",
+        "options": [
+          {
+            "0": " ",
+            "count": 3,
+            "weight": 1
+          }
+        ],
+        "0_0": [
+          {
+            "message": {
+              "en_US": "Us spirits won't give up so easily!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_1": [
+          {
+            "message": {
+              "en_US": "Sorry for making you wait!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ],
+        "0_2": [
+          {
+            "message": {
+              "en_US": "This time will be the charm!"
+            },
+            "type": "SHOW_SIDE_MSG",
+            "person": {
+              "person": "main.coquelicot",
+              "expression": "DEFAULT"
+            }
+          }
+        ]
+      }
+    ],
+    "loopCount": 1,
+    "type": {
+      "member": "Coquelicot",
+      "eventType": "REVIVED",
+      "type": "PARTY_MEMBER_EVENT"
+    }
+  },
+  "coquelicotDebugLoad": {
+    "frequency": "ALWAYS",
+    "repeat": "ONCE",
+    "condition": "false",
+    "eventType": "PARALLEL",
+    "overrideSideMessage": false,
+    "loopCount": 1,
+    "event": [{
+      "type": "SET_PARTY_MEMBER_SP_LEVEL",
+      "member": "Coquelicot",
+      "level": 3
+    }, {
+      "type": "SET_PARTY_MEMBER_LEVEL",
+      "member": "Coquelicot",
+      "level": 65,
+      "exp": 100,
+      "updateEquipment": true
+    },{
+      "type": "SET_PARTY_MEMBER_ALL_ELEMENTS",
+      "member": "Coquelicot",
+      "allElements": true   
+    },{
+      "type": "SET_PARTY_MEMBER_PREFERRED_ELEMENT",
+      "member": "Coquelicot",
+      "element": "NEUTRAL"
+    },{
+      "type": "SET_CONTACT_TYPE",
+      "member": "Coquelicot",
+      "status": "FRIEND"
+    }],
+    "type": {
+      "type": "MAP_ENTERED"
+    }
+  }
+}

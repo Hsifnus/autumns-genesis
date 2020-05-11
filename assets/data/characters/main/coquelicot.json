@@ -3,6 +3,10 @@
         "en_US": "Coquelicot",
         "langUid": 1
     },
+    "realname": {  
+        "en_US": "Coquelicot",
+        "langUid": 2
+    },
     "size": {
         "x": 16,
         "y": 16,

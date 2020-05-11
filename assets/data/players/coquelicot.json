@@ -3,6 +3,7 @@
     "sheet": "npc.coquelicot",
     "headIdx": 2,
     "class": "SPIRIT",
+    "preferredElement": "NEUTRAL",
     "stats": {
         "hp": {
             "base": 200,
@@ -31,11 +32,11 @@
     },
     "combatStyle": {
         "comboCount": 4,
-        "throwCount": 0,
-        "throwProb": 0.3,
-        "sidewaySpeed": 0,
-        "normDistance": 0,
-        "meleeDistance": 0,
+        "throwCount": 3,
+        "throwProb": 0.25,
+        "sidewaySpeed": 0.5,
+        "normDistance": 40,
+        "meleeDistance": 40,
         "minDistance": 0,
         "foodSprites": ["WATER", "GREEN_TEA", "GENESIS_APPLE"]
     },
@@ -53,10 +54,10 @@
     "autoequip": [{
         "level": 1,
         "HEAD": 294,
-        "LEFT_ARM": 332,
+        "LEFT_ARM": 474,
         "RIGHT_ARM": "equip-coquelicot",
         "TORSO": 307,
-        "FEET": 417
+        "FEET": 482
     }],
     "DOCTYPE": "PLAYER",
     "proxies": {
