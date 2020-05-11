@@ -28,11 +28,13 @@ ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.comb
             centralAngle: 0.3,
             duration: 0.2,
             attack: {
-                type: "MEDIUM",
+                type: "HEAVY",
+                visualType: "MEDIUM",
                 fly: "HEAVY",
                 damageFactor: 1.5,
                 spFactor: 1,
-                skillBonus: "MELEE_DMG"
+                skillBonus: "MELEE_DMG",
+                stunSteps: [{ type: "BLOCK_FALL", duration: 0.15}]
             },
             checkCollision: true
         }

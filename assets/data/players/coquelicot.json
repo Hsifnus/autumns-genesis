@@ -1041,10 +1041,8 @@
                     "type": "SHOW_ANIMATION",
                     "anim": "jabPre"
                 }, {
-                    "time": 0.2,
+                    "time": 0.15,
                     "type": "WAIT"
-                }, {
-                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
@@ -1381,10 +1379,8 @@
                     "type": "SHOW_ANIMATION",
                     "anim": "jabPre"
                 }, {
-                    "time": 0.2,
+                    "time": 0.15,
                     "type": "WAIT"
-                }, {
-                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
@@ -1721,10 +1717,8 @@
                     "type": "SHOW_ANIMATION",
                     "anim": "jabPre"
                 }, {
-                    "time": 0.2,
+                    "time": 0.15,
                     "type": "WAIT"
-                }, {
-                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
@@ -2061,10 +2055,8 @@
                     "type": "SHOW_ANIMATION",
                     "anim": "jabPre"
                 }, {
-                    "time": 0.2,
+                    "time": 0.15,
                     "type": "WAIT"
-                }, {
-                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
@@ -2401,10 +2393,8 @@
                     "type": "SHOW_ANIMATION",
                     "anim": "jabPre"
                 }, {
-                    "time": 0.2,
+                    "time": 0.15,
                     "type": "WAIT"
-                }, {
-                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
