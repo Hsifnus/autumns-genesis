@@ -25,7 +25,7 @@ ig.module("game.feature.combat.custom-sweep").requires("game.feature.combat.comb
         force: {
             radius: 75,
             zHeight: 24,
-            centralAngle: 0.3,
+            centralAngle: 0.44,
             duration: 0.2,
             attack: {
                 type: "HEAVY",

@@ -53,7 +53,7 @@
     },
     "autoequip": [{
         "level": 1,
-        "HEAD": 294,
+        "HEAD": 532,
         "LEFT_ARM": 474,
         "RIGHT_ARM": "equip-coquelicot",
         "TORSO": 307,
