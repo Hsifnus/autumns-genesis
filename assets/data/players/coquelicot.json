@@ -465,14 +465,12 @@
                 "skillBonus": "RANGED_DMG",
                 "limiter": "",
                 "hints": ["NO_PUZZLE"],
-                "stunSteps": [
-                    {
-                        "distance": 8,
-                        "speed": -250,
-                        "maxTime": 0.3,
-                        "type": "PULL"
-                    }
-                ]
+                "stunSteps": [{
+                    "distance": 8,
+                    "speed": -250,
+                    "maxTime": 0.3,
+                    "type": "PULL"
+                }]
             },
             "timeBoni": null,
             "behaviors": [{
@@ -529,24 +527,19 @@
                     "reverse": false,
                     "guardable": "",
                     "hints": ["NO_PUZZLE"],
-                    "stunSteps": [
-                        {
-                            "type": "START_LOCK"
-                        },
-                        {
-                            "type": "BLOCK_XY"
-                        },
-                        {
-                            "distance": 8,
-                            "speed": 20,
-                            "maxTime": 0.2,
-                            "type": "PULL"
-                        },
-                        {
-                            "type": "BLOCK_FALL",
-                            "duration": 0.15
-                        }
-                    ],
+                    "stunSteps": [{
+                        "type": "START_LOCK"
+                    }, {
+                        "type": "BLOCK_XY"
+                    }, {
+                        "distance": 8,
+                        "speed": 20,
+                        "maxTime": 0.2,
+                        "type": "PULL"
+                    }, {
+                        "type": "BLOCK_FALL",
+                        "duration": 0.15
+                    }],
                     "skillBonus": "MELEE_DMG",
                     "limiter": ""
                 },
@@ -596,11 +589,9 @@
                     "status": 2,
                     "reverse": false,
                     "guardable": "",
-                    "stunSteps": [
-                        {
-                            "type": "END_LOCK"
-                        }
-                    ],
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }],
                     "skillBonus": "MELEE_DMG",
                     "limiter": ""
                 },
@@ -671,10 +662,11 @@
                 "withBranches": true,
                 "attack": {
                     "type": "MASSIVE",
-                    "stunSteps": [
-                        {"type": "START_LOCK"},
-                        {"type": "BLOCK_XY"}
-                    ],
+                    "stunSteps": [{
+                        "type": "START_LOCK"
+                    }, {
+                        "type": "BLOCK_XY"
+                    }],
                     "element": "NEUTRAL",
                     "damageFactor": 1,
                     "reverse": false,
@@ -709,66 +701,58 @@
         "neutralThorn1Hits": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-            "action": [
-                {
-                    "selectType": "TARGET",
-                    "hitDir": "AWAY",
-                    "align": "BOTTOM",
-                    "hitCount": 3,
-                    "hitDelay": 0.033,
-                    "type": "DIRECT_HIT",
-                    "attack": {
-                        "type": "MASSIVE",
-                        "element": "NEUTRAL",
-                        "fly": "MASSIVE",
-                        "damageFactor": 1,
-                        "reverse": false,
-                        "stunSteps": [
-                            {
-                                "type": "BLOCK_XY"
-                            },
-                            {
-                                "type": "BLOCK_FALL",
-                                "duration": 0.15
-                            }],
-                        "status": 1,
-                        "guardable": "",
-                        "skillBonus": "MELEE_DMG",
-                        "limiter": ""
-                    }
-                },
-                {
-                    "time": 0.1,
-                    "type": "WAIT"
-                },
-                {
-                    "selectType": "TARGET",
-                    "hitDir": "TOWARD",
-                    "align": "BOTTOM",
-                    "hitCount": 1,
-                    "hitDelay": 0,
-                    "type": "DIRECT_HIT",
-                    "attack": {
-                        "type": "MASSIVE",
-                        "element": "NEUTRAL",
-                        "fly": "MASSIVE++",
-                        "damageFactor": 2.2,
-                        "reverse": false,
-                        "stunSteps": [
-                            {
-                                "type": "END_LOCK"
-                            }],
-                        "status": 3,
-                        "guardable": "",
-                        "skillBonus": "MELEE_DMG",
-                        "limiter": ""
-                    }
-                },
-                {
-                    "time": 0.1,
-                    "type": "WAIT"
+            "action": [{
+                "selectType": "TARGET",
+                "hitDir": "AWAY",
+                "align": "BOTTOM",
+                "hitCount": 3,
+                "hitDelay": 0.033,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "NEUTRAL",
+                    "fly": "MASSIVE",
+                    "damageFactor": 1,
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "type": "BLOCK_FALL",
+                        "duration": 0.15
+                    }],
+                    "status": 1,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
                 }
-            ],
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "selectType": "TARGET",
+                "hitDir": "TOWARD",
+                "align": "BOTTOM",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "type": "DIRECT_HIT",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "NEUTRAL",
+                    "fly": "MASSIVE++",
+                    "damageFactor": 2.2,
+                    "reverse": false,
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }],
+                    "status": 3,
+                    "guardable": "",
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": ""
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
             "invisible": false,
             "hp": 0,
             "stickToSource": "OWNER",
@@ -982,141 +966,120 @@
                     "time": 0.433,
                     "type": "WAIT"
                 }]
-            },"DASH":{
-        "dmgType":"",
-        "stunType":"",
-        "status":false,
-        "steps":[
-          {
-            "volume":0.9,
-            "global":false,
-            "loop":false,
-            "type":"PLAY_SOUND",
-            "sound":"media\/sound\/battle\/dash-3.ogg"
-          },
-          {
-            "factor":1,
-            "type":"SET_PLAYER_INVINCIBLE"
-          },
-          {
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"idle"
-          },
-          {
-            "followUp":"aimMove",
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"spinFull"
-          },
-          {
-            "value":false,
-            "type":"SET_JUMPING"
-          },
-          {
-            "value":320,
-            "type":"SET_SPEED"
-          },
-          {
-            "value":2,
-            "type":"SET_ACCEL_SPEED"
-          },
-          {
-            "value":"IGNORE",
-            "type":"SET_COLL_TYPE"
-          },
-          {
-            "duration":0.2,
-            "align":"BOTTOM",
-            "rotateFace":0,
-            "flipLeftFace":false,
-            "wait":false,
-            "waitSkip":0,
-            "actionDetached":false,
-            "fixPos":false,
-            "type":"SHOW_EFFECT",
-            "effect":{
-              "sheet":"dust",
-              "name":"line"
             },
-            "offset":{
-              "x":0,
-              "y":3,
-              "z":6
-            }
-          },
-          {
-            "dir":{
-              "actorAttrib":"dashDir"
+            "DASH": {
+                "dmgType": "",
+                "stunType": "",
+                "status": false,
+                "steps": [{
+                    "volume": 0.9,
+                    "global": false,
+                    "loop": false,
+                    "type": "PLAY_SOUND",
+                    "sound": "media/sound/battle/dash-3.ogg"
+                }, {
+                    "factor": 1,
+                    "type": "SET_PLAYER_INVINCIBLE"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "idle"
+                }, {
+                    "followUp": "aimMove",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinFull"
+                }, {
+                    "value": false,
+                    "type": "SET_JUMPING"
+                }, {
+                    "value": 320,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 2,
+                    "type": "SET_ACCEL_SPEED"
+                }, {
+                    "value": "IGNORE",
+                    "type": "SET_COLL_TYPE"
+                }, {
+                    "duration": 0.2,
+                    "align": "BOTTOM",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "dust",
+                        "name": "line"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 3,
+                        "z": 6
+                    }
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.05,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "value": "VIRTUAL",
+                    "type": "SET_COLL_TYPE"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.11,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "time": 0.2,
+                    "type": "WAIT"
+                }]
             },
-            "time":0.05,
-            "stopBeforeEdge":false,
-            "type":"MOVE_TO_DIR"
-          },
-          {
-            "value":"VIRTUAL",
-            "type":"SET_COLL_TYPE"
-          },
-          {
-            "dir":{
-              "actorAttrib":"dashDir"
+            "DASH_SLOW": {
+                "dmgType": "",
+                "stunType": "",
+                "status": false,
+                "steps": [{
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "idle"
+                }, {
+                    "followUp": "aimMove",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinFull"
+                }, {
+                    "value": false,
+                    "type": "SET_JUMPING"
+                }, {
+                    "value": 160,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 2,
+                    "type": "SET_ACCEL_SPEED"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.12,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "time": 0.24,
+                    "type": "WAIT"
+                }]
             },
-            "time":0.11,
-            "stopBeforeEdge":false,
-            "type":"MOVE_TO_DIR"
-          },
-          {
-            "time":0.2,
-            "type":"WAIT"
-          }
-        ]
-      },
-      "DASH_SLOW":{
-        "dmgType":"",
-        "stunType":"",
-        "status":false,
-        "steps":[
-          {
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"idle"
-          },
-          {
-            "followUp":"aimMove",
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"spinFull"
-          },
-          {
-            "value":false,
-            "type":"SET_JUMPING"
-          },
-          {
-            "value":160,
-            "type":"SET_SPEED"
-          },
-          {
-            "value":2,
-            "type":"SET_ACCEL_SPEED"
-          },
-          {
-            "dir":{
-              "actorAttrib":"dashDir"
-            },
-            "time":0.12,
-            "stopBeforeEdge":false,
-            "type":"MOVE_TO_DIR"
-          },
-          {
-            "time":0.24,
-            "type":"WAIT"
-          }
-        ]
-      },
             "GUARD": {
                 "steps": [{
                     "followUp": "guard",
@@ -1523,138 +1486,122 @@
                 "dmgType": "MELEE",
                 "stunType": "LOCK",
                 "status": true,
-                "steps": [
-                    {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": 0,
-                            "action": -1,
-                            "move": -1,
-                            "reaim": -1
-                        }
-                    },
-                    {
-                        "wait": true,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "spinChargePre"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "spinCharge"
-                    },
-                    {
-                        "duration": -1,
-                        "align": "TOP",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        },
-                        "rotateFace": 8,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "combat.coquelicot",
-                            "name": "neutralSpinCharge"
-                        }
-                    },
-                    {
-                        "duration": 1,
-                        "align": "TOP",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 8
-                        },
-                        "rotateFace": 8,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "combat.coquelicot",
-                            "name": "neutralTornadoCharge"
-                        }
-                    },
-                    {
-                        "time": 1,
-                        "type": "WAIT"
-                    },
-                    {
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "type": "SET_PLAYER_ACTION_BLOCK",
-                        "blockData": {
-                            "dash": -1,
-                            "action": -1,
-                            "move": -1,
-                            "reaim": -1
-                        }
-                    },
-                    {
-                        "value": 3,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "time":0.05,
-                        "stopBeforeEdge": true,
-                        "type":"MOVE_FORWARD"  
-                    },
-                    {
-                        "wait": true,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "spinSweep2"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "sweep2"
-                    },
-                    {
-                        "time": 0.05,
-                        "stopBeforeEdge": true,
-                        "type":"MOVE_FORWARD"  
-                    },
-                    {
-                        "align": "FACE",
-                        "centralAngle": 0,
-                        "angleVary": 0,
-                        "startDist": 24,
-                        "startDistCollide": "NONE",
-                        "random": true,
-                        "count": 1,
-                        "duration": 0,
-                        "clockwise": false,
-                        "flipLeftFace": 0,
-                        "circularArea": false,
-                        "uniformDir": 1,
-                        "delay": 0,
-                        "repeat": false,
-                        "type": "SHOOT_PROXY_RANGE",
-                        "proxy": "neutralTornado1",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        }
-                    },
-                    {
-                        "time": 0.5,
-                        "type": "WAIT"
+                "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
                     }
-                ]
+                }, {
+                    "wait": true,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinChargePre"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinCharge"
+                }, {
+                    "duration": -1,
+                    "align": "TOP",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotateFace": 8,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.coquelicot",
+                        "name": "neutralSpinCharge"
+                    }
+                }, {
+                    "duration": 1,
+                    "align": "TOP",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    },
+                    "rotateFace": 8,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.coquelicot",
+                        "name": "neutralTornadoCharge"
+                    }
+                }, {
+                    "time": 1,
+                    "type": "WAIT"
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
+                    "value": 3,
+                    "type": "SET_ACCEL_SPEED"
+                }, {
+                    "time": 0.05,
+                    "stopBeforeEdge": true,
+                    "type": "MOVE_FORWARD"
+                }, {
+                    "wait": true,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinSweep2"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "sweep2"
+                }, {
+                    "time": 0.05,
+                    "stopBeforeEdge": true,
+                    "type": "MOVE_FORWARD"
+                }, {
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "angleVary": 0,
+                    "startDist": 24,
+                    "startDistCollide": "NONE",
+                    "random": true,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 1,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "neutralTornado1",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.5,
+                    "type": "WAIT"
+                }]
             },
             "THROW_SPECIAL1_A": {
                 "name": {
@@ -1666,109 +1613,98 @@
                 "dmgType": "RANGED",
                 "stunType": "",
                 "status": false,
-                "steps": [
-                    {
-                      "name": "spinShield",
-                      "actionDetached": false,
-                      "type": "ADD_SHIELD",
-                      "shield": {
+                "steps": [{
+                    "name": "spinShield",
+                    "actionDetached": false,
+                    "type": "ADD_SHIELD",
+                    "shield": {
                         "type": "PLAYER",
                         "settings": {
-                          "baseFactor": 0.25,
-                          "strength": "REGULAR",
-                          "hitResist": "HEAVY",
-                          "stableOverride": "HEAVY",
-                          "duration": 5,
-                          "range": 0.4,
-                          "back": false,
-                          "noShieldDamage": true,
-                          "noDefaultFX": true
+                            "baseFactor": 0.25,
+                            "strength": "REGULAR",
+                            "hitResist": "HEAVY",
+                            "stableOverride": "HEAVY",
+                            "duration": 5,
+                            "range": 0.4,
+                            "back": false,
+                            "noShieldDamage": true,
+                            "noDefaultFX": true
                         }
-                      }
-                    },
-                    {
-                        "wait": true,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "spinFrontPre"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "spinFront"
-                    },
-                    {
-                        "align": "BOTTOM",
-                        "centralAngle": 0.5,
-                        "angleVary": 0,
-                        "startDist": 24,
-                        "startDistCollide": "NONE",
-                        "random": true,
-                        "count": 11,
-                        "duration": 0.2,
-                        "clockwise": false,
-                        "flipLeftFace": 0,
-                        "circularArea": false,
-                        "uniformDir": 1,
-                        "delay": 0,
-                        "repeat": false,
-                        "type": "SHOOT_PROXY_RANGE",
-                        "proxy": "neutralLeaf1",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 12
-                        }
-                    },{
-                        "duration": 0,
-                        "align": "FACE",
-                        "offset": {
-                            "x": 0,
-                            "y": 0,
-                            "z": 0
-                        },
-                        "rotateFace": 8,
-                        "flipLeftFace": false,
-                        "wait": false,
-                        "waitSkip": 0,
-                        "actionDetached": false,
-                        "fixPos": false,
-                        "type": "SHOW_EFFECT",
-                        "effect": {
-                            "sheet": "combat.coquelicot",
-                            "name": "neutralLeafBurst"
-                        }
-                    },
-                    {
-                        "value": 3,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "time": 0.2,
-                        "stopBeforeEdge": true,
-                        "type": "MOVE_BACKWARD"
-                    },
-                    {
-                        "time": 0.1,
-                        "type": "WAIT"
-                    },
-                    {
-                        "name": "spinShield",
-                        "type": "REMOVE_SHIELD"
-                    },
-                    {
-                        "wait": false,
-                        "followUp": "idle",
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "guard"
-                    },
-                    {
-                        "time": 0.1,
-                        "type": "WAIT"
                     }
-                ]
+                }, {
+                    "wait": true,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinFrontPre"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinFront"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0.5,
+                    "angleVary": 0,
+                    "startDist": 24,
+                    "startDistCollide": "NONE",
+                    "random": true,
+                    "count": 11,
+                    "duration": 0.2,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 1,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "neutralLeaf1",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "FACE",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotateFace": 8,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.coquelicot",
+                        "name": "neutralLeafBurst"
+                    }
+                }, {
+                    "value": 3,
+                    "type": "SET_ACCEL_SPEED"
+                }, {
+                    "time": 0.2,
+                    "stopBeforeEdge": true,
+                    "type": "MOVE_BACKWARD"
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }, {
+                    "name": "spinShield",
+                    "type": "REMOVE_SHIELD"
+                }, {
+                    "wait": false,
+                    "followUp": "idle",
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "guard"
+                }, {
+                    "time": 0.1,
+                    "type": "WAIT"
+                }]
             },
             "DASH_SPECIAL1_A": {
                 "name": {
@@ -1780,53 +1716,102 @@
                 "dmgType": "MELEE",
                 "stunType": "LOCK",
                 "status": true,
-                "steps": [
-                     {
+                "steps": [{
                     "type": "STOP_XY"
+                }, {
+                    "dir": {
+                        "actorAttrib": "dashDir"
+                    },
+                    "time": 0.05,
+                    "stopBeforeEdge": false,
+                    "type": "MOVE_TO_DIR"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "jabRevPre"
+                }, {
+                    "time": 0.2,
+                    "type": "WAIT"
+                }, {
+                    "value": 800,
+                    "type": "SET_SPEED"
+                }, {
+                    "value": 3,
+                    "type": "SET_ACCEL_SPEED"
+                }, {
+                    "value": 100,
+                    "type": "SET_Z_GRAVITY_FACTOR"
+                }, {
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "jabRev"
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    },
+                    "rotateFace": 8,
+                    "flipLeftFace": false,
+                    "group": "dash",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.coquelicot",
+                        "name": "dashNeutral"
+                    }
+                }, {
+                    "value": 0.4,
+                    "type": "SET_INVINCIBLE"
+                }, {
+                    "time": 0.3,
+                    "cancelOnHit": true,
+                    "orthoDirFactor": 0,
+                    "ignoreLastHit": false,
+                    "type": "TACKLE",
+                    "withBranches": true,
+                    "attack": {
+                        "type": "HEAVY",
+                        "stunSteps": [{
+                            "type": "START_LOCK"
+                        }, {
+                            "type": "BLOCK_XY"
+                        }],
+                        "element": "NEUTRAL",
+                        "damageFactor": 0.8,
+                        "reverse": false,
+                        "spFactor": 0,
+                        "guardable": "",
+                        "skillBonus": "MELEE_DMG"
+                    },
+                    "hit": [{
+                        "value": "HEAVY",
+                        "type": "SET_HIT_STABLE"
                     }, {
-                        "dir": {
-                            "actorAttrib": "dashDir"
-                        },
-                        "time": 0.05,
-                        "stopBeforeEdge": false,
-                        "type": "MOVE_TO_DIR"
+                        "type": "STOP_XY"
                     }, {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "jabRevPre"
-                    },
-                    {
-                        "time": 0.2,
-                        "type": "WAIT"
-                    },
-                    {
-                        "value": 800,
-                        "type": "SET_SPEED"
-                    },
-                    {
-                        "value": 3,
-                        "type": "SET_ACCEL_SPEED"
-                    },
-                    {
-                        "value": 100,
-                        "type": "SET_Z_GRAVITY_FACTOR"
-                    },
-                    {
-                        "wait": false,
-                        "viaWalkConfig": false,
-                        "type": "SHOW_ANIMATION",
-                        "anim": "jabRev"
-                    },
-                    {
-                        "duration": -1,
+                        "group": "dash",
+                        "type": "CLEAR_EFFECTS"
+                    }, {
+                        "kind": "FIRST_HIT",
+                        "type": "SET_TEMP_TARGET"
+                    }, {
+                        "duration": 0.5,
                         "align": "BOTTOM",
                         "offset": {
                             "x": 0,
                             "y": 0,
-                            "z": 0
+                            "z": 12
                         },
                         "rotateFace": 8,
+                        "target2": "TARGET",
                         "flipLeftFace": false,
                         "group": "dash",
                         "wait": false,
@@ -1836,154 +1821,79 @@
                         "type": "SHOW_EFFECT",
                         "effect": {
                             "sheet": "combat.coquelicot",
-                            "name": "dashNeutral"
+                            "name": "dashNeutralFinisherPre"
                         }
-                    },
-                    {
-                        "value": 0.4,
-                        "type": "SET_INVINCIBLE"
-                    },
-                    {
-                        "time": 0.3,
-                        "cancelOnHit": true,
-                        "orthoDirFactor": 0,
-                        "ignoreLastHit": false,
-                        "type": "TACKLE",
-                        "withBranches": true,
-                        "attack": {
-                            "type": "HEAVY",
-                            "stunSteps": [
-                                {"type": "START_LOCK"},
-                                {"type": "BLOCK_XY"}
-                            ],
-                            "element": "NEUTRAL",
-                            "damageFactor": 0.8,
-                            "reverse": false,
-                            "spFactor": 0,
-                            "guardable": "",
-                            "skillBonus": "MELEE_DMG"
+                    }, {
+                        "time": 0.5,
+                        "type": "WAIT"
+                    }, {
+                        "duration": 0,
+                        "align": "BOTTOM",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 12
                         },
-                        "hit": [
-                            {
-                                "value": "HEAVY",
-                                "type": "SET_HIT_STABLE"
-                            },
-                            {
-                                "type": "STOP_XY"
-                            },
-                            {
-                                "group": "dash",
-                                "type": "CLEAR_EFFECTS"
-                            },
-                            {
-                                "kind": "FIRST_HIT",
-                                "type": "SET_TEMP_TARGET"
-                            },
-                            {
-                                "duration": 0.5,
-                                "align": "BOTTOM",
-                                "offset": {
-                                    "x": 0,
-                                    "y": 0,
-                                    "z": 12
-                                },
-                                "rotateFace": 8,
-                                "target2": "TARGET",
-                                "flipLeftFace": false,
-                                "group": "dash",
-                                "wait": false,
-                                "waitSkip": 0,
-                                "actionDetached": false,
-                                "fixPos": false,
-                                "type": "SHOW_EFFECT",
-                                "effect": {
-                                    "sheet": "combat.coquelicot",
-                                    "name": "dashNeutralFinisherPre"
-                                }
-                            },
-                            {
-                                "time": 0.5,
-                                "type": "WAIT"
-                            },
-                            {
-                                "duration": 0,
-                                "align": "BOTTOM",
-                                "offset": {
-                                    "x": 0,
-                                    "y": 0,
-                                    "z": 12
-                                },
-                                "rotateFace": 8,
-                                "target": "TARGET",
-                                "flipLeftFace": false,
-                                "group": "dash",
-                                "wait": false,
-                                "waitSkip": 0,
-                                "actionDetached": false,
-                                "fixPos": false,
-                                "type": "SHOW_EFFECT",
-                                "effect": {
-                                    "sheet": "combat.coquelicot",
-                                    "name": "dashNeutralFinisher"
-                                }
-                            },
-                            {
-                                "selectType": "TARGET",
-                                "hitDir": "AWAY",
-                                "align": "BOTTOM",
-                                "hitCount": 3,
-                                "hitDelay": 0.033,
-                                "type": "DIRECT_HIT",
-                                "attack": {
-                                    "type": "MASSIVE",
-                                    "element": "NEUTRAL",
-                                    "fly": "MASSIVE",
-                                    "damageFactor": 1.8,
-                                    "reverse": false,
-                                    "stunSteps": [
-                                    {
-                                        "type": "BLOCK_FALL",
-                                        "duration": 0.15
-                                    }],
-                                    "status": 3,
-                                    "guardable": "",
-                                    "skillBonus": "MELEE_DMG",
-                                    "limiter": ""
-                                }
-                            },
-                            {
-                                "wait": false,
-                                "viaWalkConfig": false,
-                                "type": "SHOW_ANIMATION",
-                                "anim": "jabRevPre"
-                            },
-                            {
-                                "time": 0.05,
-                                "type": "MOVE_BACKWARD"
-                            },
-                            {
-                                "value": "LIGHT",
-                                "type": "SET_HIT_STABLE"
-                            },
-                            {
-                                "time": 0.2,
-                                "type": "WAIT"
-                            }
-                        ]
-                    },
-                    {
+                        "rotateFace": 8,
+                        "target": "TARGET",
+                        "flipLeftFace": false,
+                        "group": "dash",
+                        "wait": false,
+                        "waitSkip": 0,
+                        "actionDetached": false,
+                        "fixPos": false,
+                        "type": "SHOW_EFFECT",
+                        "effect": {
+                            "sheet": "combat.coquelicot",
+                            "name": "dashNeutralFinisher"
+                        }
+                    }, {
+                        "selectType": "TARGET",
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 3,
+                        "hitDelay": 0.033,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "MASSIVE",
+                            "element": "NEUTRAL",
+                            "fly": "MASSIVE",
+                            "damageFactor": 1.8,
+                            "reverse": false,
+                            "stunSteps": [{
+                                "type": "BLOCK_FALL",
+                                "duration": 0.15
+                            }],
+                            "status": 3,
+                            "guardable": "",
+                            "skillBonus": "MELEE_DMG",
+                            "limiter": ""
+                        }
+                    }, {
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "jabRevPre"
+                    }, {
+                        "time": 0.05,
+                        "type": "MOVE_BACKWARD"
+                    }, {
+                        "value": "LIGHT",
+                        "type": "SET_HIT_STABLE"
+                    }, {
                         "time": 0.2,
                         "type": "WAIT"
-                    },
-                    {
-                        "group": "dash",
-                        "type": "CLEAR_EFFECTS"
-                    },
-                    {
-                        "time": 0.25,
-                        "type": "WAIT"
-                    }
-                ]
+                    }]
+                }, {
+                    "time": 0.2,
+                    "type": "WAIT"
+                }, {
+                    "group": "dash",
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "time": 0.25,
+                    "type": "WAIT"
+                }]
             },
             "GUARD_SPECIAL1_A": {
                 "name": {
@@ -1995,199 +1905,169 @@
                 "dmgType": "MELEE",
                 "stunType": "INTERRUPT",
                 "status": true,
-                "steps": [
-          {
-            "followUp":"spinFront",
-            "wait":false,
-            "viaWalkConfig":false,
-            "type":"SHOW_ANIMATION",
-            "anim":"spinFrontPre"
-          },
-          {
-            "type":"SET_PLAYER_ACTION_BLOCK",
-            "blockData":{
-              "dash":0,
-              "action":-1,
-              "move":-1,
-              "reaim":-1
-            }
-          },
-          {
-            "duration":-1,
-            "align":"BOTTOM",
-            "rotateFace":8,
-            "flipLeftFace":false,
-            "wait":false,
-            "waitSkip":0,
-            "actionDetached":false,
-            "fixPos":false,
-            "type":"SHOW_EFFECT",
-            "effect":{
-              "sheet":"combat.coquelicot",
-              "name":"leafGuard"
-            },
-            "offset":{
-              "x":0,
-              "y":0,
-              "z":8
-            }
-          },
-          {
-            "name":"counter",
-            "actionDetached":false,
-            "perfectGuardTime":10,
-            "type":"ADD_SHIELD",
-            "shield":{
-              "type":"PLAYER",
-              "settings":{
-                "baseFactor":1,
-                "range":0.5,
-                "hitResist":"MASSIVE",
-                "stableOverride":"MASSIVE"
-              }
-            }
-          },
-          {
-            "maxTime":1.2,
-            "meleeOnly":false,
-            "type":"WAIT_UNTIL_GUARDED"
-          },
-          {
-            "type":"CLEAR_EFFECTS"
-          },
-          {
-            "name":"counter",
-            "type":"REMOVE_SHIELD"
-          },
-          {
-            "conditions":[
-              {
-                "negated":false,
-                "type":"HAS_BLOCKED_HITS"
-              }
-            ],
-            "withElse":false,
-            "type":"COMBAT_IF",
-            "thenStep":[
-                {
-                    "type": "SET_HIT_STABLE",
-                    "value": "HEAVY"
-                },
-              {
-                "duration":0,
-                "align":"BOTTOM",
-                "rotateFace":8,
-                "flipLeftFace":false,
-                "wait":false,
-                "waitSkip":0,
-                "actionDetached":false,
-                "fixPos":false,
-                "type":"SHOW_EFFECT",
-                "effect":{
-                  "sheet":"combat.coquelicot",
-                  "name":"leafGuardActivate"
-                },
-                "offset":{
-                  "x":0,
-                  "y":0,
-                  "z":8
-                }
-              },
-              {
-                "kind":"GUARDED_ATTACKER",
-                "type":"SET_TEMP_TARGET"
-              },
-              {
-                "value":true,
-                "immediately":true,
-                "type":"FACE_TO_TARGET"
-              },
-              {
-                "followUp":"spinCharge",
-                "wait":false,
-                "viaWalkConfig":false,
-                "type":"SHOW_ANIMATION",
-                "anim":"spin"
-              },
-              {
-                "selectType":"TARGET",
-                "effect":{
-                  "sheet":"combat.coquelicot",
-                  "name":"leafGuardHit"
-                },
-                "hitDir":"AWAY",
-                "align":"BOTTOM",
-                "hitCount":1,
-                "hitDelay":0.15,
-                "type":"DIRECT_HIT",
-                "attack":{
-                  "type":"MASSIVE",
-                  "fly":"MASSIVE",
-                  "visualType":"MEDIUM",
-                  "element":"NEUTRAL",
-                  "damageFactor":1,
-                  "reverse":false,
-                  "stunSteps":[
-                    {
-                      "type":"START_LOCK"
+                "steps": [{
+                    "followUp": "spinFront",
+                    "wait": false,
+                    "viaWalkConfig": false,
+                    "type": "SHOW_ANIMATION",
+                    "anim": "spinFrontPre"
+                }, {
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
                     }
-                  ],
-                  "guardable":"",
-                  "skillBonus":"MELEE_DMG"
-                }
-              },
-              {
-                "time":0.5,
-                "type":"WAIT"
-              },
-              {
-                "value":false,
-                "type":"FACE_TO_TARGET"
-              },
-              {
-                "followUp":"jab",
-                "wait":false,
-                "viaWalkConfig":false,
-                "type":"SHOW_ANIMATION",
-                "anim":"jabPre"
-              },
-              {
-                "value":false,
-                "type":"SET_JUMPING"
-              },
-              {
-                "value":300,
-                "type":"SET_SPEED"
-              },
-              {
-                "value":3,
-                "type":"SET_ACCEL_SPEED"
-              },
-              {
-                "time":0.1,
-                "stopBeforeEdge":true,
-                "type":"MOVE_FORWARD"
-              },
-              {
-                "type":"STOP_XY"
-              },
-              {
-                "type":"SHOOT_PROXY",
-                "proxy":"neutralThorn1",
-                "align":"FACE",
-                "offset": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                }
-              },
-              {
-                "time":0.5,
-                "type":"WAIT"
-              }
-            ]
-          }
-                ]
+                }, {
+                    "duration": -1,
+                    "align": "BOTTOM",
+                    "rotateFace": 8,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "combat.coquelicot",
+                        "name": "leafGuard"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    }
+                }, {
+                    "name": "counter",
+                    "actionDetached": false,
+                    "perfectGuardTime": 10,
+                    "type": "ADD_SHIELD",
+                    "shield": {
+                        "type": "PLAYER",
+                        "settings": {
+                            "baseFactor": 1,
+                            "range": 0.5,
+                            "hitResist": "MASSIVE",
+                            "stableOverride": "MASSIVE"
+                        }
+                    }
+                }, {
+                    "maxTime": 1.2,
+                    "meleeOnly": false,
+                    "type": "WAIT_UNTIL_GUARDED"
+                }, {
+                    "type": "CLEAR_EFFECTS"
+                }, {
+                    "name": "counter",
+                    "type": "REMOVE_SHIELD"
+                }, {
+                    "conditions": [{
+                        "negated": false,
+                        "type": "HAS_BLOCKED_HITS"
+                    }],
+                    "withElse": false,
+                    "type": "COMBAT_IF",
+                    "thenStep": [{
+                        "type": "SET_HIT_STABLE",
+                        "value": "HEAVY"
+                    }, {
+                        "duration": 0,
+                        "align": "BOTTOM",
+                        "rotateFace": 8,
+                        "flipLeftFace": false,
+                        "wait": false,
+                        "waitSkip": 0,
+                        "actionDetached": false,
+                        "fixPos": false,
+                        "type": "SHOW_EFFECT",
+                        "effect": {
+                            "sheet": "combat.coquelicot",
+                            "name": "leafGuardActivate"
+                        },
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 8
+                        }
+                    }, {
+                        "kind": "GUARDED_ATTACKER",
+                        "type": "SET_TEMP_TARGET"
+                    }, {
+                        "value": true,
+                        "immediately": true,
+                        "type": "FACE_TO_TARGET"
+                    }, {
+                        "followUp": "spinCharge",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "spin"
+                    }, {
+                        "selectType": "TARGET",
+                        "effect": {
+                            "sheet": "combat.coquelicot",
+                            "name": "leafGuardHit"
+                        },
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 1,
+                        "hitDelay": 0.15,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "MASSIVE",
+                            "fly": "MASSIVE",
+                            "visualType": "MEDIUM",
+                            "element": "NEUTRAL",
+                            "damageFactor": 1,
+                            "reverse": false,
+                            "stunSteps": [{
+                                "type": "START_LOCK"
+                            }],
+                            "guardable": "",
+                            "skillBonus": "MELEE_DMG"
+                        }
+                    }, {
+                        "time": 0.5,
+                        "type": "WAIT"
+                    }, {
+                        "value": false,
+                        "type": "FACE_TO_TARGET"
+                    }, {
+                        "followUp": "jab",
+                        "wait": false,
+                        "viaWalkConfig": false,
+                        "type": "SHOW_ANIMATION",
+                        "anim": "jabPre"
+                    }, {
+                        "value": false,
+                        "type": "SET_JUMPING"
+                    }, {
+                        "value": 300,
+                        "type": "SET_SPEED"
+                    }, {
+                        "value": 3,
+                        "type": "SET_ACCEL_SPEED"
+                    }, {
+                        "time": 0.1,
+                        "stopBeforeEdge": true,
+                        "type": "MOVE_FORWARD"
+                    }, {
+                        "type": "STOP_XY"
+                    }, {
+                        "type": "SHOOT_PROXY",
+                        "proxy": "neutralThorn1",
+                        "align": "FACE",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }, {
+                        "time": 0.5,
+                        "type": "WAIT"
+                    }]
+                }]
             }
         },
         "HEAT": {
