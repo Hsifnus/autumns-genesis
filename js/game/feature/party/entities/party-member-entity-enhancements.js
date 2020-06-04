@@ -5,6 +5,7 @@ ig.module("game.feature.party.entities.party-member-entity-enhancements")
         "game.feature.player.player-config"
     ).defines(function() {
         sc.PartyMemberEntity.inject({
+            lastAction: "",
             getBestElement: function() {
                 if (this.model.preferredElement > 0) {
                     return this.model.preferredElement - 1;
@@ -27,6 +28,19 @@ ig.module("game.feature.party.entities.party-member-entity-enhancements")
                                 b = e[f - 1]
                             }
                         } return a
+            },
+            selectCombatArt: function() {
+                this.parent();
+                if (this.currentCombatArt && this.currentCombatArt.actionKey === "GUARD_SPECIAL") {
+                    this.timer.dodge = 1e10;
+                }
+            },
+            update: function() {
+                this.parent(); 
+                if (this.lastAction && this.currentAction && this.currentAction.name !== this.lastAction && this.lastAction.substring(0, 13) === "GUARD_SPECIAL") {
+                    this.timer.dodge = 0.25;
+                }
+                this.currentAction && (this.lastAction = this.currentAction.name);
             }
         });
         sc.PartyMemberModel.inject({
