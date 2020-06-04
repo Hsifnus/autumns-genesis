@@ -16,9 +16,25 @@
         {
           "reactType": "FIXED_POS",
           "face": "EAST",
+          "hideFx": {
+            "sheet": "teleport",
+            "name": "hideDefault"
+          },
+          "hidden": true,
+          "condition": "party.has.Coquelicot",
+          "config": "normal",
+          "event": []
+        },
+        {
+          "reactType": "FIXED_POS",
+          "face": "EAST",
           "action": [],
           "hidden": false,
-          "condition": "    ",
+          "showFx": {
+            "sheet": "teleport",
+            "name": "showDefault"
+          },
+          "condition": "!party.has.Coquelicot",
           "config": "normal",
           "event": {
             "trade": {

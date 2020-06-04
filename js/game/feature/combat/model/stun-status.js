@@ -15,6 +15,17 @@ ig.module("game.feature.combat.model.stun-status").requires(
             minDuration: 2,
             stunTimer: 0,
             targetFixed: false,
+            resFactor: 1,
+            lastActivate: -1,
+            cooldown: 5,
+            inflict: function(b, a, d) {
+                var c = a.combatant;
+                if (ig.Timer.time - this.lastActivate > this.cooldown) {
+                    this.resFactor = 1;
+                }
+                this.charge = this.charge + this.resFactor * b;
+                this.charge >= 1 ? this.activate(c, a, d) : this.statusBarEntry && c.statusGui && c.statusGui.setStatusEntry(this.statusBarEntry, this.charge)
+            },
             activate: function(b, a, d) {
                 this.charge = 1;
                 this.active = true;
@@ -34,6 +45,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 this.targetFixed = b instanceof ig.ENTITY.Enemy && b.targetFixed;
                 b instanceof ig.ENTITY.Enemy && (b.targetFixed = true);
                 this.stunTimer = 0;
+                this.resFactor /= 10;
             },
             cancelStun: function(b, a) {
                 if (this.stunTimer < this.minDuration) {
@@ -52,6 +64,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 b.params.endLock(b);
                 b.cancelAction(this.stallAction);
                 b instanceof ig.ENTITY.Enemy && (b.targetFixed = this.targetFixed);
+                this.lastActivate = ig.Timer.time;
             },
             onUpdate: function(b) {
                 this.stunTimer = this.stunTimer +
