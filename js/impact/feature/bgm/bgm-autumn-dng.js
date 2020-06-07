@@ -1,24 +1,24 @@
 ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm").defines(function() {
 
     ig.merge(ig.BGM_TRACK_LIST, {
-        "autumnsGenesis": {
+        autumnsGenesis: {
             "path": "media/bgm/muAutumnsgenesis.ogg",
             "loopEnd": 195.602,
             "volume": 2.5
         },
-        "titleAutumn": {
+        titleAutumn: {
             "path": "media/bgm/muTitleautumn.ogg",
             "loopEnd": 37.419,
             "volume": 1
         },
-        "strikeHarder": {
+        strikeHarder: {
             "introPath": "media/bgm/muStrikeharder-i.ogg",
             "path": "media/bgm/muStrikeharder.ogg",
             "introEnd": 19.209,
             "loopEnd": 180.006,
             "volume": 1.8
         },
-        "windwardSpirit": {
+        windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,
             "volume": 1.8
@@ -26,6 +26,7 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
     });
 
     ig.merge(ig.BGM_DEFAULT_TRACKS, {
+        autumnsGenesis: {
         field: {
             track: "autumnsGenesis",
             volume: 1
@@ -42,5 +43,6 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             track: "s-rank",
             volume: 1
         }
+    }
     });
 });
