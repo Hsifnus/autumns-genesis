@@ -3844,7 +3844,7 @@
                             "wait": false,
                             "viaWalkConfig": false,
                             "type": "SHOW_ANIMATION",
-                            "anim": "jabPre"
+                            "anim": "jump"
                         }, {
                             "duration": -1,
                             "align": "BOTTOM",
@@ -3876,6 +3876,13 @@
                         }, {
                             "time": 0.1,
                             "type": "MOVE_BACKWARD"
+                        }, {
+                            "type": "WAIT_UNTIL_Z_ZENITH"
+                        }, {
+                            "wait": false,
+                            "viaWalkConfig": false,
+                            "type": "SHOW_ANIMATION",
+                            "anim": "fall"
                         }, {
                             "type": "WAIT_UNTIL_ON_GROUND"
                         }, {

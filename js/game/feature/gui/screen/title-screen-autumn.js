@@ -1,4 +1,4 @@
-ig.module("game.feature.gui.screen.title-screen-autumn").requires("game.feature.gui.screen.title-screen").defines(function() {
+ig.module("game.feature.gui.screen.title-screen-autumn").requires("game.feature.gui.screen.title-screen", "impact.feature.bgm.bgm-autumn-dng").defines(function() {
     ig.Bgm.preloadStartTrack("titleAutumn");
     sc.TitleScreenGui.inject({
         init: function() {
