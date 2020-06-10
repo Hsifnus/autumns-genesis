@@ -2,6 +2,19 @@
     "DOCTYPE": "EFFECT",
     "ANIMS": {
         "SUB": [{
+            "name": "HEAT_SHIELD",
+            "sheet": {
+                "src": "media/entity/effects/autumn-dng.png",
+                "offX": 144,
+                "offY": 96,
+                "width": 24,
+                "height": 24
+            },
+            "renderMode": "lighter",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0]
+        }, {
             "name": "CIRCLE",
             "pivot": {
                 "x": 24,
@@ -262,6 +275,126 @@
         }]
     },
     "EFFECTS": {
+        "anticheeseShield": [{
+            "volume": 0.8,
+            "global": false,
+            "loop": false,
+            "speed": 0.7,
+            "variance": 0.05,
+            "sound": "media/sound/battle/shiny-effect.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "size": "XXXL",
+            "fadeIn": 0.3,
+            "fadeOut": 0.3,
+            "duration": -1,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 0.5,
+                    "time": 0.1,
+                    "spline": ""
+                },
+                "end": {
+                    "value": 0,
+                    "time": 0.8,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1.5,
+                    "y": 1.5
+                },
+                "start": {
+                    "value": {
+                        "x": 5,
+                        "y": 5
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 0,
+            "particleDuration": 1,
+            "anim": "HEAT_WAVE_BIG",
+            "type": "PLAY_ANIM"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 0.4,
+                    "time": 0.1,
+                    "spline": ""
+                },
+                "end": {
+                    "value": 0,
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1.5,
+                    "y": 1.5
+                },
+                "start": {
+                    "value": {
+                        "x": 2.5,
+                        "y": 2.5
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 0,
+            "particleDuration": 0.6,
+            "anim": "HEAT_WAVE_BIG",
+            "type": "PLAY_ANIM"
+        }, {
+            "numParticles": 8,
+            "duration": 0,
+            "random": false,
+            "centralAngle": 1,
+            "startDist": 48,
+            "useTargetAngle": false,
+            "moveDist": 0,
+            "moveVariance": 0,
+            "normalMoveDist": 0,
+            "inverse": false,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 12
+            },
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "time": 0.4,
+                    "spline": "EASE_IN"
+                }
+            },
+            "moveWithTarget": 1,
+            "moveRotate": 0.25,
+            "particleDuration": 0.5,
+            "anim": "HEAT_SHIELD",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.25,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
         "heatBigBoomPre": [{
             "numParticles": 40,
             "duration": 0,

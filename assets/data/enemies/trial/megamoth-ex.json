@@ -2699,6 +2699,9 @@
             "group": "pillar",
             "type": "REMOVE_PROXIES"
         }, {
+            "group": "wall",
+            "type": "REMOVE_PROXIES"
+        }, {
             "conditions": [{
                 "maxAngle": 0.5,
                 "type": "!FACING_TARGET"
@@ -4836,12 +4839,34 @@
             "anim": "rotateSidePart"
         }],
         "LaserAttack": [{
-            "condition": "!newgame.harder-enemies || entity.attrib.anticheese == 0",
-            "withElse": false,
+            "condition": "entity.attrib.anticheese == 0",
+            "withElse": true,
             "type": "IF",
             "thenStep": [{
                 "name": "face",
                 "type": "REMOVE_SHIELD"
+            }],
+            "elseStep": [{
+                "duration": -1,
+                "group": "shield",
+                "align": "BOTTOM",
+                "partName": "eye",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.megamoth-ex",
+                    "name": "anticheeseShield"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
             }]
         }, {
             "value": 4,
@@ -5151,8 +5176,8 @@
             "time": 0.5,
             "type": "WAIT"
         }, {
-            "condition": "newgame.harder-enemies && entity.attrib.anticheese == 1",
-            "withElse": false,
+            "condition": "entity.attrib.anticheese == 1",
+            "withElse": true,
             "type": "IF",
             "thenStep": [{
                 "name": "face",
@@ -5173,6 +5198,10 @@
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 0
+            }],
+            "elseStep": [{
+                "group": "shield",
+                "type": "CLEAR_EFFECTS"
             }]
         }, {
             "duration": 0,
@@ -5411,6 +5440,9 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "group": "shield",
+            "type": "CLEAR_EFFECTS"
         }, {
             "wait": true,
             "viaWalkConfig": false,
