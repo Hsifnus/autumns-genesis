@@ -5447,6 +5447,28 @@
             "group": "shield",
             "type": "CLEAR_EFFECTS"
         }, {
+            "conditions": [{
+                "name": "face",
+                "type": "!HAS_SHIELD"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                    "name": "face",
+                    "actionDetached": true,
+                    "type": "ADD_SHIELD",
+                    "shield": {
+                        "type": "PARTS",
+                        "settings": {
+                            "baseFactor": 0.01,
+                            "parts": ["head"],
+                            "inverse": false,
+                            "stableOverride": "MASSIVE"
+                        }
+                    }
+                }
+            ],
+        }, {
             "wait": true,
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
