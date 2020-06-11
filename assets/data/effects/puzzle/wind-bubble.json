@@ -202,6 +202,66 @@
         }]
     },
     "EFFECTS": {
+        "flash": [{
+            "color": "white",
+            "alpha": 1,
+            "fadeIn": 0,
+            "fadeOut": 0.3,
+            "duration": 0.2,
+            "noLighter": false,
+            "type": "FADE_COLOR"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.3,
+            "duration": 0.2,
+            "glow": true,
+            "type": "LIGHT"
+        }, {
+            "volume": 0.7,
+            "global": false,
+            "loop": false,
+            "speed": 0.6,
+            "variance": 0.05,
+            "sound": "media/sound/upgrade/collect.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.7,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "variance": 0.15,
+            "sound": "media/sound/upgrade/collect.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "color": "#aaaaaa",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.25,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.4,
+                        "y": 1.4
+                    },
+                    "spline": "EASE_IN"
+                }
+            },
+            "particleDuration": 0.4,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.6,
+            "type": "WAIT"
+        }],
         "appear": [{
             "volume": 1,
             "global": false,

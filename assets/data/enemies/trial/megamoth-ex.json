@@ -4839,7 +4839,7 @@
             "anim": "rotateSidePart"
         }],
         "LaserAttack": [{
-            "condition": "entity.attrib.anticheese == 0",
+            "condition": "entity.attrib.anticheese == 0 && !newgame.harder-enemies",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
@@ -5202,6 +5202,9 @@
             "elseStep": [{
                 "group": "shield",
                 "type": "CLEAR_EFFECTS"
+            }, {
+                "name": "face",
+                "type": "REMOVE_SHIELD"
             }]
         }, {
             "duration": 0,

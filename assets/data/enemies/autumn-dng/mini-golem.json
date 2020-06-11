@@ -364,6 +364,26 @@
             "type": "SHOW_EFFECT",
             "effect": {
                 "sheet": "enemies.autumn-dng",
+                "name": "neutralGolemAura2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "group": "shield",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
                 "name": "neutralGolemAura"
             },
             "offset": {
