@@ -7,7 +7,7 @@
     "module": true,
     "ccmodDependencies": {
         "item-api": "^0.*",
-        "extendable-severed-heads": "^1.0.0",
+        "party-player": "^1.0.0",
         "modifier-api": "^0.1.0"
     },
     "scripts": {
