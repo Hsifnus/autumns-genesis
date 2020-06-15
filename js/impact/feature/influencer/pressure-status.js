@@ -35,23 +35,25 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
                 this.enabled = false;
                 this.influenceEntry.moveXYScale = 1;
                 this.category = 0;
-                var a = ig.game.playerEntity, b;
+                var a = ig.game.playerEntity,
+                    b;
                 a.clearActionAttached(e => e instanceof ig.InfluenceConnection);
-                a.clearActionAttached(e => e instanceof ig.ENTITY.Effect 
-                    && ("pressure" == e.attachGroup));
-                a.clearActionAttached(e => e instanceof ig.ENTITY.Effect 
-                    && ("pressureLevel" == e.attachGroup))
+                a.clearActionAttached(e => e instanceof ig.ENTITY.Effect &&
+                    ("pressure" == e.attachGroup));
+                a.clearActionAttached(e => e instanceof ig.ENTITY.Effect &&
+                    ("pressureLevel" == e.attachGroup))
             }
         },
         set: function(level) {
             if (this.level >= 60 && level >= 60) {
                 return;
-            }
-            !this.attackInfo && ig.game.playerEntity.params && 
+            }!this.attackInfo && ig.game.playerEntity.params &&
                 (this.attackInfo = new sc.AttackInfo(ig.game.playerEntity.params, {
                     type: "BREAK",
                     fly: "LIGHT",
-                    stunSteps: [{type: "BLOCK_XY"}],
+                    stunSteps: [{
+                        type: "BLOCK_XY"
+                    }],
                     element: "WAVE",
                     damageFactor: 2,
                     guardable: "NEVER",
@@ -61,12 +63,16 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
                     hints: ["CHARGED"],
                     noHack: true
                 }));
-            !this.attackInfo2 && ig.game.playerEntity.params && 
+            !this.attackInfo2 && ig.game.playerEntity.params &&
                 (this.attackInfo2 = new sc.AttackInfo(ig.game.playerEntity.params, {
                     type: "BREAK",
                     visualType: "NONE",
                     fly: "LIGHT",
-                    stunSteps: [{type: "START_LOCK"}, {type: "BLOCK_XY"}],
+                    stunSteps: [{
+                        type: "START_LOCK"
+                    }, {
+                        type: "BLOCK_XY"
+                    }],
                     element: "WAVE",
                     damageFactor: 1,
                     guardable: "NEVER",
@@ -79,7 +85,8 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
                 }));
             if (this.enabled) {
                 this.level = Math.min(Math.max(0, level), 60);
-                var a = ig.game.playerEntity, b, c;
+                var a = ig.game.playerEntity,
+                    b, c;
                 this.fxHandle && this.fxHandle.stop();
                 this.fxHandle = this.effects.sheet.spawnOnTarget(`pressure${this.level}`, a, {
                     align: "CENTER",
@@ -204,7 +211,9 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
     });
     sc.CombatParams.inject({
         getDamage: function(e, g, h, i, j) {
-            var f = {...e};
+            var f = {
+                ...e
+            };
             h.getCombatantRoot().isPlayer && (f.damageFactor = f.damageFactor * ig.pressureStatus.getAttackFactor());
             return this.parent(f, g, h, i, j);
         }

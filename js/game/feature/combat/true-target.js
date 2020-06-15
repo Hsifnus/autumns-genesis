@@ -257,7 +257,7 @@ ig.module("game.feature.combat.true-target").requires(
                 if (a[c].entity.partName == this.partName) {
                     b = a[c].entity;
                     break;
-                } 
+                }
             }
             if (b) {
                 b.coll.type = this.value;

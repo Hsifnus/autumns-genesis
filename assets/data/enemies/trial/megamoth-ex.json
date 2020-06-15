@@ -5458,20 +5458,19 @@
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
-                    "name": "face",
-                    "actionDetached": true,
-                    "type": "ADD_SHIELD",
-                    "shield": {
-                        "type": "PARTS",
-                        "settings": {
-                            "baseFactor": 0.01,
-                            "parts": ["head"],
-                            "inverse": false,
-                            "stableOverride": "MASSIVE"
-                        }
+                "name": "face",
+                "actionDetached": true,
+                "type": "ADD_SHIELD",
+                "shield": {
+                    "type": "PARTS",
+                    "settings": {
+                        "baseFactor": 0.01,
+                        "parts": ["head"],
+                        "inverse": false,
+                        "stableOverride": "MASSIVE"
                     }
                 }
-            ]
+            }]
         }, {
             "wait": true,
             "viaWalkConfig": false,
