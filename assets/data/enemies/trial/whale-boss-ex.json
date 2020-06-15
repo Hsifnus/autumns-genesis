@@ -7007,7 +7007,7 @@
             "type": "SET_CLOSEST_FACE",
             "faces": ["WEST", "EAST"]
         }, {
-            "time": 0.2,
+            "time": 1,
             "type": "WAIT"
         }, {
             "value": false,
