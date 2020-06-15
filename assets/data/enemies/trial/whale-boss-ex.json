@@ -3203,6 +3203,21 @@
             "type": "WAIT"
         }],
         "RotationC": [{
+            "condition": "entity.attrib.antiskip",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "antiskip",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 4
+            }]
+        }, {
             "condition": "entity.attrib.step == 0",
             "withElse": false,
             "type": "IF",
@@ -3238,6 +3253,9 @@
                 "type": "SET_ATTRIB_BOOL",
                 "value": true
             }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
                 "stateReset": false,
                 "actionName": "TidalMoon",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3247,6 +3265,13 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "antiskip",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
                 "stateReset": false,
                 "actionName": "ShootTurrets",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3331,21 +3356,6 @@
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 1
-            }]
-        }, {
-            "condition": "entity.attrib.antiskip",
-            "withElse": false,
-            "type": "IF",
-            "thenStep": [{
-                "name": "antiskip",
-                "type": "SET_ATTRIB_BOOL",
-                "value": false
-            }, {
-                "attribName": "step",
-                "changeType": "set",
-                "proxyOwner": false,
-                "type": "SET_ATTRIB_NUMBER",
-                "value": 4
             }]
         }, {
             "time": 0.1,
