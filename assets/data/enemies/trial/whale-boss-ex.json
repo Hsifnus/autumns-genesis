@@ -4483,7 +4483,7 @@
             }, {
                 "conditions": [{
                     "min": 2,
-                    "max": 2,
+                    "max": 3,
                     "negated": false,
                     "type": "HP_BREAK_GLOBAL"
                 }],
@@ -4807,6 +4807,9 @@
             "stateReset": false,
             "actionName": "ShootQuick",
             "type": "DO_ENEMY_ACTION_INLINE"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
         }],
         "Shoot": [{
             "value": 1,
@@ -5931,8 +5934,11 @@
                         "z": 0
                     }
                 }, {
+                  "kind": "PLAYER",
+                  "type": "SET_TEMP_TARGET"
+                }, {
                     "type": "DIRECT_HIT",
-                    "selectType": "TRUE_TARGET",
+                    "selectType": "TARGET",
                     "hitDir": "AWAY",
                     "hitCount": 1,
                     "hitDelay": 0,
@@ -6162,6 +6168,8 @@
             }, {
                 "time": 0.2,
                 "type": "WAIT"
+            }, {
+                "type": "CLEAR_TEMP_TARGET"
             }, {
                 "name": "end",
                 "type": "GOTO_LABEL"
