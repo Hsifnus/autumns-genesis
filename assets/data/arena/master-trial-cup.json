@@ -3,10 +3,12 @@
         "type": "SOLO_CUP",
         "name": {
             "en_US": "Master Trials",
+            "ja_JP": "超級試練",
             "langUid": 4
         },
         "info": {
             "en_US": "Prove your mastery of Seeker prowess with these high-difficulty trials!",
+            "ja_JP": "これらのとても難しい試練で探索者の腕前を習得しましょう！",
             "langUid": 1
         },
         "creator": {
@@ -27,10 +29,12 @@
     "rounds": [{
         "name": {
             "en_US": "Magmoth's Master Trial",
+            "ja_JP": "マグモスの超級試練",
             "langUid": 32
         },
         "altName": {
             "en_US": "Magmoth's Master Trial EX",
+            "ja_JP": "マグモスの超級試練　EX",
             "langUid": 32
         },
         "customCode": true,
@@ -63,10 +67,12 @@
     }, {
         "name": {
             "en_US": "Phantom's Master Trial",
+            "ja_JP": "ファントムの超級試練",
             "langUid": 32
         },
         "altName": {
             "en_US": "Phantom's Master Trial EX",
+            "ja_JP": "ファントムの超級試練　EX",
             "langUid": 32
         },
         "customCode": true,
@@ -99,10 +105,12 @@
     }, {
         "name": {
             "en_US": "Starnikus's Master Trial",
+            "ja_JP": "スターニクスの超級試練",
             "langUid": 32
         },
         "altName": {
             "en_US": "Starnikus's Master Trial EX",
+            "ja_JP": "スターニクスの超級試練　EX",
             "langUid": 32
         },
         "customCode": true,
@@ -135,10 +143,12 @@
     }, {
         "name": {
             "en_US": "Driller's Master Trial",
+            "ja_JP": "ドリラーの試練",
             "langUid": 32
         },
         "altName": {
             "en_US": "Driller's Master Trial EX",
+            "ja_JP": "ドリラーの試練　EX",
             "langUid": 32
         },
         "customCode": true,
@@ -171,10 +181,12 @@
     }, {
         "name": {
             "en_US": "Ape's Master Trial",
+            "ja_JP": "東の御子の超級試練",
             "langUid": 32
         },
         "altName": {
             "en_US": "Ape's Master Trial EX",
+            "ja_JP": "東の御子の超級試練　EX",
             "langUid": 32
         },
         "customCode": true,
@@ -195,6 +207,44 @@
             "type": "TIME",
             "seconds": 240,
             "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN",
+        "firstClearBonus": [{
+            "item": "cons-gapple",
+            "count": 5
+        }, {
+            "item": "trade-ape",
+            "count": 1
+        }]
+    }, {
+        "name": {
+            "en_US": "Whale's Master Trial",
+            "ja_JP": "ガーディアンの超級試練",
+            "langUid": 32
+        },
+        "altName": {
+            "en_US": "Whale's Master Trial EX",
+            "ja_JP": "ガーディアンの超級試練　EX",
+            "langUid": 32
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 1900000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Besiege the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0] boss from \\c[3]\\v[area.tree-dng.name]\\c[0] at its most imposing!\nThe \\c[3]pressure status\\c[0] boosts your attack, but it reduces mobility and may overwhelm you if you get too careless!",
+            "langUid": 35
+        },
+        "points": 1700000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.whale-boss-ex",
+        "maxTime": 360,
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 240,
+            "points": 200000
         }],
         "spawn": "PLAYER_SPAWN",
         "firstClearBonus": [{

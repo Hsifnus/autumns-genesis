@@ -22,6 +22,8 @@ import "./js/game/feature/combat/entities/custom-food-icon.js";
 
 import "./js/game/feature/combat/fancy-aim-fix.js";
 
+import "./js/game/feature/combat/item-buffs-plus.js";
+
 import "./js/game/feature/combat/manual-combatant-kill-dead.js";
 
 import "./js/game/feature/combat/true-target.js";
@@ -49,6 +51,8 @@ import "./js/game/feature/puzzle/rain-super-bombs.js";
 import "./js/game/feature/skills/master-skills.js";
 
 import "./js/impact/feature/bgm/bgm-autumn-dng.js";
+
+import "./js/impact/feature/influencer/pressure-status.js";
 
 import "./js/impact/feature/weather/weather-autumn-sunset.js";
 

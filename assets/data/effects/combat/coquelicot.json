@@ -2924,12 +2924,12 @@
                     "spline": "EASE_OUT"
                 }
             },
-            "pRotate":{
-                "init":-0.25,
-                "start":{
-                    "value":0.25,
-                    "time":1,
-                    "spline":""
+            "pRotate": {
+                "init": -0.25,
+                "start": {
+                    "value": 0.25,
+                    "time": 1,
+                    "spline": ""
                 }
             },
             "moveWithTarget": 1,
@@ -2959,12 +2959,12 @@
                     "spline": "EASE_OUT"
                 }
             },
-            "pRotate":{
-                "init":-0.25,
-                "start":{
-                    "value":0.25,
-                    "time":1,
-                    "spline":""
+            "pRotate": {
+                "init": -0.25,
+                "start": {
+                    "value": 0.25,
+                    "time": 1,
+                    "spline": ""
                 }
             },
             "moveWithTarget": 1,
@@ -3838,9 +3838,9 @@
         }, {
             "numParticles": 1,
             "offset": {
-                "x":0,
-                "y":0,
-                "z":-12
+                "x": 0,
+                "y": 0,
+                "z": -12
             },
             "duration": 0,
             "centralAngle": 0,
@@ -5468,8 +5468,7 @@
             "loop": false,
             "sound": "media/sound/battle/airon/cold/ball-hit-cold-massive.ogg",
             "type": "PLAY_SOUND"
-        }, 
-        {
+        }, {
             "numParticles": 54,
             "duration": 0.9,
             "clockwise": true,
@@ -5482,8 +5481,7 @@
             "collision": false,
             "anim": "WIND_SWEEP",
             "type": "OFFSET_PARTICLE_CIRCLE"
-        },
-        {
+        }, {
             "numParticles": 36,
             "duration": 0.9,
             "centralAngle": 4.5,

@@ -39,15 +39,15 @@ ig.module("game.feature.party.entities.party-member-entity-enhancements")
             update: function() {
                 this.parent();
                 if (this.lastAction) {
-                    if ((this.currentAction && this.currentAction.name !== this.lastAction)
-                        || !this.currentAction) {
+                    if ((this.currentAction && this.currentAction.name !== this.lastAction) ||
+                        !this.currentAction) {
                         var substrA = this.lastAction.substring(0, 12);
                         var substrB = this.lastAction.substring(0, 13);
                         var substrC = this.lastAction.substring(0, 14);
-                        if (substrA === "DASH_SPECIAL"
-                                || substrB === "GUARD_SPECIAL"
-                                || substrB === "THROW_SPECIAL"
-                                || substrC === "ATTACK_SPECIAL") {
+                        if (substrA === "DASH_SPECIAL" ||
+                            substrB === "GUARD_SPECIAL" ||
+                            substrB === "THROW_SPECIAL" ||
+                            substrC === "ATTACK_SPECIAL") {
                             this.timer.dodge = 0;
                         }
                     }

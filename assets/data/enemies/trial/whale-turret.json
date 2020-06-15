@@ -1,0 +1,590 @@
+{
+    "level": 80,
+    "boostedLevel": 80,
+    "credit": 0,
+    "exp": 0,
+    "maxSp": 8,
+    "enduranceScale": 1,
+    "healDropRate": 0,
+    "boss": false,
+    "bossOrder": 0,
+    "params": {
+        "hp": 20000,
+        "attack": 500,
+        "defense": 500,
+        "focus": 500,
+        "elemFactor": [1, 1, 1.2, 0.8],
+        "statusInflict": [0, 0, 0, 0],
+        "statusEffect": [0, 0, 0, 0]
+    },
+    "padding": {
+        "x": 8,
+        "y": 8
+    },
+    "material": "METAL",
+    "aiGroup": "",
+    "aiLearnType": "REGULAR",
+    "itemDrops": [],
+    "targetDetect": {
+        "detectDistance": 12000,
+        "loseDistance": 32000,
+        "notifyNeighbourRadius": 10000
+    },
+    "hpBreaks": [],
+    "size": {
+        "x": 32,
+        "y": 16,
+        "z": 48
+    },
+    "anims": "enemies.whale-turret",
+    "defaultState": "IDLE",
+    "collType": "IGNORE",
+    "walkConfigs": {
+        "default": {
+            "idle": "idle"
+        }
+    },
+    "walkAnims": "default",
+    "weight": -1,
+    "maxVel": 0,
+    "jumpingEnabled": true,
+    "shadow": 0,
+    "hitStable": "MASSIVE",
+    "hitIgnore": false,
+    "DOCTYPE": "ENEMY",
+    "states": {
+        "IDLE": {
+            "appearAction": "appear",
+            "enabledReactions": ["KILL_SURVIVE"],
+            "choices": [{
+                "action": "idle"
+            }]
+        }
+    },
+    "proxies": {
+        "WaveGun": {
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 32
+            },
+            "effects": "specials.wave",
+            "effectKeys": {
+                "trail": "waveGun",
+                "wall": "waveGunXplode",
+                "air": "waveGunXplode"
+            },
+            "speed": 300,
+            "maxBounce": 0,
+            "timer": 3,
+            "trail": true,
+            "multiHit": true,
+            "light": "XL",
+            "noLightGlow": false,
+            "type": "BALL",
+            "animation": {
+                "name": "default",
+                "gfxOffset": {
+                    "x": 0,
+                    "y": -4
+                },
+                "sheet": {
+                    "src": "media/entity/effects/lighter-particle.png",
+                    "offX": 144,
+                    "offY": 0,
+                    "width": 16,
+                    "height": 16
+                },
+                "renderMode": "lighter",
+                "time": 0.05,
+                "repeat": true,
+                "frames": [0]
+            },
+            "attack": {
+                "type": "MASSIVE",
+                "element": "WAVE",
+                "damageFactor": 0.7,
+                "status": 0,
+                "reverse": false,
+                "spFactor": 0,
+                "hints": ["CHARGED"],
+                "guardable": "",
+                "skillBonus": "RANGED_DMG",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": [{
+                "type": "SLOW_DOWN",
+                "speedFactor": 0.1,
+                "fadeOut": 0.033,
+                "pause": 0.3,
+                "fadeIn": 0.2
+            }]
+        },
+        "waveBulletSlow": {
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 16
+            },
+            "effects": "",
+            "speed": 75,
+            "maxBounce": 0,
+            "timer": 10,
+            "trail": false,
+            "multiHit": true,
+            "light": "XL",
+            "noLightGlow": true,
+            "attack": {
+                "type": "MEDIUM",
+                "element": "WAVE",
+                "reverse": false,
+                "status": 2.5,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": [],
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "sheet": {
+                        "src": "media/entity/effects/wave.png",
+                        "xCount": 5,
+                        "offX": 0,
+                        "offY": 224,
+                        "width": 80,
+                        "height": 80
+                    },
+                    "renderMode": "lighter",
+                    "time": 0.033,
+                    "repeat": true,
+                    "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                }]
+            },
+            "type": "BALL"
+        }
+    },
+    "actions": {
+        "appear": [{
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretAppear"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }],
+        "idle": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretAura"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "name": "loop",
+            "type": "LABEL"
+        }, {
+            "type": "WAIT_UNTIL",
+            "condition": "tmp.turretCommand != 0"
+        }, {
+            "condition": "tmp.turretCommand == 1",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "chargeFast"
+            }]
+        }, {
+            "condition": "tmp.turretCommand == 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "chargeSlow"
+            }]
+        }, {
+            "condition": "tmp.turretCommand == 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "heal"
+            }]
+        }, {
+            "name": "loop",
+            "type": "GOTO_LABEL"
+        }],
+        "chargeFast": [{
+            "kind": "PLAYER",
+            "type": "SET_TEMP_TARGET"
+        }, {
+            "duration": 0.7,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretChargeFast"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "type": "WAIT",
+            "time": 1.2
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.9,
+            "variance": 0.05,
+            "sound": "media/sound/boss/turret/fast-shot.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "align": "BOTTOM",
+            "proxy": "WaveGun",
+            "type": "SHOOT_PROXY",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            }
+        }, {
+            "type": "CLEAR_TEMP_TARGET"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "chargeSlow": [{
+            "kind": "PLAYER",
+            "type": "SET_TEMP_TARGET"
+        }, {
+            "duration": 3,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretChargeSlow"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "type": "WAIT",
+            "time": 3
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 1,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 8,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": true,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            }
+        }, {
+            "align": "BOTTOM",
+            "radius": 48,
+            "yScale": 0,
+            "zHeight": 0,
+            "centralAngle": 1,
+            "duration": 0.2,
+            "expandRadius": 16,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+                "type": "HEAVY",
+                "element": "WAVE",
+                "damageFactor": 1.25,
+                "fly": "MASSIVE",
+                "reverse": false,
+                "status": 3,
+                "guardable": "FROM_ABOVE",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "whaleBombXplode"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 1,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 8,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": true,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            }
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "align": "BOTTOM",
+            "centralAngle": 1,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 8,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": true,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            }
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "CLEAR_TEMP_TARGET"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "preDestroy": [{
+            "value": true,
+            "type": "SET_HIT_IGNORE"
+        }],
+        "destroy": [{
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": true,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.driller-boss-ex",
+                "name": "flareBombDestroy"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "value": -1,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "type": "WAIT",
+            "time": 0.3
+        }, {
+            "noReward": true,
+            "type": "SELF_DESTRUCT"
+        }],
+        "heal": [{
+            "changeType": "add",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretHealers",
+            "value": 1
+        }, {
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "type": "SET_ENEMY_STATUS_VISIBILITY",
+            "hpBar": "HIDDEN"
+        }, {
+            "value": true,
+            "type": "SET_HIT_IGNORE"
+        }, {
+            "entityAttrib": "whale",
+            "selectBy": "SELF_DISTANCE",
+            "type": "SET_ATTRIB_CLOSEST_ENTITY",
+            "entities": [{
+                "global": true,
+                "name": "whale"
+            }]
+        }, {
+            "kind": "ATTRIB_ENTITY",
+            "key": "whale",
+            "type": "SET_TEMP_TARGET"
+        }, {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretDestroy"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 5,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "target2": "TARGET",
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.whale-boss-ex",
+                "name": "whaleTurretHeal"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "type": "WAIT",
+            "time": 1
+        }, {
+            "noReward": true,
+            "type": "SELF_DESTRUCT"
+        }]
+    },
+    "reactions": {
+        "KILL_SURVIVE": {
+            "hitType": "KILL_HIT",
+            "preAction": "preDestroy",
+            "action": "destroy",
+            "blockFurtherHits": true,
+            "attackType": "MASSIVE",
+            "flyLevel": "LIGHT",
+            "stunChange": "FORCE_STABLE",
+            "alignFace": false,
+            "dramaticEffect": "",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        }
+    },
+    "meta": {
+        "species": {
+            "en_US": "Whale Turret",
+            "langUid": 4
+        },
+        "category": "ABSTRACT",
+        "descriptions": []
+    }
+}
