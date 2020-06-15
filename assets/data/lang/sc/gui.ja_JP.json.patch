@@ -1,4 +1,4 @@
 [{
 	"type": "INCLUDE",
-	"src": "mod:patches/data/lang/gui_patch.en_US.json"
+	"src": "mod:patches/data/lang/gui_patch.ja_JP.json"
 }]

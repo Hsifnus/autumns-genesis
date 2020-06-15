@@ -13531,6 +13531,7 @@
         }, {
             "text": {
                 "en_US": "Blade Stance",
+                "ja_JP": "剣のスタンス",
                 "langUid": 3
             },
             "mode": "NO_LINE",
@@ -13740,7 +13741,7 @@
             }
         }, {
             "text": {
-                "en_US": "Guard Stance",
+                "en_US": "盾のスタンス",
                 "langUid": 3
             },
             "mode": "NO_LINE",
@@ -13979,6 +13980,7 @@
         }, {
             "text": {
                 "en_US": "Fist Stance",
+                "ja_JP": "拳のスタンス",
                 "langUid": 3
             },
             "mode": "NO_LINE",
@@ -14192,6 +14194,7 @@
         }, {
             "text": {
                 "en_US": "Cast Stance",
+                "ja_JP": "スペルカードのスタンス",
                 "langUid": 3
             },
             "mode": "NO_LINE",

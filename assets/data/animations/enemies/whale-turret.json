@@ -3,10 +3,10 @@
     "namedSheets": {
         "idle": {
             "src": "media/entity/effects/trial-bosses.png",
-            "width": 48,
-            "height": 64,
-            "offX": 272,
-            "offY": 104
+            "width": 32,
+            "height": 48,
+            "offX": 144,
+            "offY": 536
         }
     },
     "shapeType": "Y_FLAT",
@@ -17,9 +17,9 @@
         "flipX": [0],
         "SUB": [{
             "name": "idle",
-            "time": 0.125,
+            "time": 0.066,
             "repeat": true,
-            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
         }]
     }]
 }

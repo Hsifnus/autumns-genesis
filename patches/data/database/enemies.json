@@ -470,5 +470,77 @@
         "exp": 2000,
         "itemDrops": [],
         "boss": true
+    },
+    "trial.whale-boss-ex": {
+      "name": {
+        "en_US": "Ancient Guardian",
+        "zh_CN": "古代守护者",
+        "ja_JP": "エンシェント・ガーディアン",
+        "ko_KR": "고대 수호자",
+        "langUid": 10550,
+        "de_DE": "Ahnenwächter"
+      },
+      "track": true,
+      "order": 610,
+      "area": "tree-dng",
+      "kills": 1,
+      "anim": false,
+      "extra": false,
+      "offset": {
+        "x": -20,
+        "y": -10
+      },
+      "descriptions": [
+        {
+          "text": {
+            "en_US": "Enlightened and aloof, this wise whale is the true guardian of the \\c[3]\\v[area.tree-dng.name]\\c[0]. Together with the \\v[combat.name.jungle/ape-boss] it will combine wave and shock elemental attacks to test a Seeker. Shock balls will stun it, forcing the ape to try and heal it. Who you attack is your choice...",
+            "de_DE": "Erleuchtet und unnahbar ist dieser weise Wal der wahre Wächter des \\c[3]Großen Krys'kajo\\c[0]. Gemeinsam mit \\v[combat.name.jungle/ape-boss] kombiniert er Wellen- und Schockangriffe um Seeker zu prüfen. Schockbälle lähmen ihn, woraufhin der Affe versucht ihn zu heilen. Wen du dann angreifst, bleibt dir überlassen.<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "这只智慧而忧郁的生物是\\c[3]\\v[area.tree-dng.name]\\c[0]的真正守卫者。与\\v[combat.name.jungle/ape-boss]一道，他们将混合波与电的力量，为探索者们提供真正的挑战。电球能在猿治疗鲸的时候将他们击晕。<<A<<[CHANGED 2018/09/19]",
+            "ja_JP": "\\c[3]\\v[area.tree-dng.name]\\c[0]の真の守護者である聡明な鯨。世界の真理を理解しており、達観している。\\v[combat.name.jungle/ape-boss]と協力することで波動と電撃を組み合わせた攻撃を繰り出し、探索者の実力を試す。電撃攻撃を当てることでスタンさせることができ、その間は東の御子が鯨の回復を試みる。どちらを攻撃するかは、プレイヤーの手にゆだねられている…<<A<<[CHANGED 2018/09/19]",
+            "ko_KR": "깨달음을 얻어 냉담하며 현명한 이 고래는 \\c[3]\\v[area.tree-dng.name]\\c[0]의 진정한 수호자입니다. \\v[combat.name.jungle/ape-boss]와 함께 파동과 전기 속성 공격을 합쳐 시커를 시험할 것입니다. 유인원이 고래를 치유하려고 할 때 전기 공을 쏘면 기절시킬 수 있습니다. 누구를 공격할지는 당신의 선택입니다...<<A<<[CHANGED 2018/09/19]",
+            "langUid": -9
+          },
+          "condition": ""
+        }
+      ],
+      "species": {
+        "en_US": "Wisdom Bringer",
+        "de_DE": "Weisheitsbringer<<C<<Überprüfen: Beschreibung",
+        "zh_CN": "哺乳类<<A<<[CHANGED 2018/08/01]",
+        "ja_JP": "英知を与える者<<A<<[CHANGED 2018/08/01]",
+        "ko_KR": "지혜를 주는 자<<A<<[CHANGED 2018/08/01]",
+        "langUid": -4
+      },
+      "category": "ANIMALS",
+      "level": 46,
+      "boostedLevel": 0,
+      "params": {
+        "hp": 1440000,
+        "attack": 470,
+        "defense": 400,
+        "focus": 440,
+        "elemFactor": [
+          1,
+          1,
+          1,
+          0.5
+        ],
+        "statusInflict": [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "statusEffect": [
+          0.05,
+          0.4,
+          0.5,
+          1
+        ]
+      },
+      "credit": 200000,
+      "exp": 2000,
+      "itemDrops": [],
+      "boss": true
     }
 }

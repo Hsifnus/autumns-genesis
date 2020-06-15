@@ -2841,6 +2841,7 @@
                     "thenStep": [{
                         "text": {
                             "en_US": "Low Static",
+                            "ja_JP": "低度静電気",
                             "langUid": 3
                         },
                         "mode": "NO_LINE",
@@ -2880,6 +2881,7 @@
                         "thenStep": [{
                             "text": {
                                 "en_US": "Medium Static",
+                                "ja_JP": "適度静電気",
                                 "langUid": 3
                             },
                             "mode": "NO_LINE",
@@ -2919,6 +2921,7 @@
                             "thenStep": [{
                                 "text": {
                                     "en_US": "High Static",
+                                    "ja_JP": "高度静電気",
                                     "langUid": 3
                                 },
                                 "mode": "NO_LINE",
@@ -2954,6 +2957,7 @@
                             "elseStep": [{
                                 "text": {
                                     "en_US": "Static Overload!",
+                                    "ja_JP": "静電気過負荷",
                                     "langUid": 3
                                 },
                                 "mode": "NO_LINE",

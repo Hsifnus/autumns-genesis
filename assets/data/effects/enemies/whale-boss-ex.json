@@ -13,6 +13,38 @@
     },
     "SUB": [
       {
+        "name":"SHOCKWAVE_WAVE",
+        "sheet":{
+          "src":"media/entity/effects/lighter-particle.png",
+          "offX":208,
+          "offY":192,
+          "width":48,
+          "height":48
+        },
+        "guiSprites":false,
+        "renderMode":"lighter",
+        "time":0.4,
+        "repeat":true,
+        "frames":[
+          0
+        ]
+      },
+      {
+        "name": "WAVE_SHIELD",
+        "sheet": {
+            "src": "media/entity/effects/autumn-dng.png",
+            "offX": 144,
+            "offY": 168,
+            "width": 24,
+            "height": 24
+        },
+        "guiSprites": true,
+        "renderMode": "lighter",
+        "time": 0.1,
+        "repeat": false,
+        "frames": [0]
+      }, 
+      {
         "name": "DUST_UP",
         "sheet": {
           "src": "media/entity/effects/dust.png",
@@ -1106,6 +1138,7 @@
         "name": "pressure0",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [20]
@@ -1114,6 +1147,7 @@
         "name": "pressure1",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [19]
@@ -1122,6 +1156,7 @@
         "name": "pressure2",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [18]
@@ -1130,6 +1165,7 @@
         "name": "pressure3",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [17]
@@ -1138,6 +1174,7 @@
         "name": "pressure4",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [16]
@@ -1146,6 +1183,7 @@
         "name": "pressure5",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [15]
@@ -1154,6 +1192,7 @@
         "name": "pressure6",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [14]
@@ -1162,6 +1201,7 @@
         "name": "pressure7",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [13]
@@ -1170,6 +1210,7 @@
         "name": "pressure8",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [12]
@@ -1178,6 +1219,7 @@
         "name": "pressure9",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [11]
@@ -1186,6 +1228,7 @@
         "name": "pressure10",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [10]
@@ -1194,6 +1237,7 @@
         "name": "pressure11",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [9]
@@ -1202,6 +1246,7 @@
         "name": "pressure12",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [8]
@@ -1210,6 +1255,7 @@
         "name": "pressure13",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [7]
@@ -1218,6 +1264,7 @@
         "name": "pressure14",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [6]
@@ -1226,6 +1273,7 @@
         "name": "pressure15",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [5]
@@ -1234,6 +1282,7 @@
         "name": "pressure16",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [4]
@@ -1242,6 +1291,7 @@
         "name": "pressure17",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [3]
@@ -1250,6 +1300,7 @@
         "name": "pressure18",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [2]
@@ -1258,6 +1309,7 @@
         "name": "pressure19",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [1]
@@ -1266,6 +1318,7 @@
         "name": "pressure20",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [41]
@@ -1274,6 +1327,7 @@
         "name": "pressure21",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [40]
@@ -1282,6 +1336,7 @@
         "name": "pressure22",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [39]
@@ -1290,6 +1345,7 @@
         "name": "pressure23",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [38]
@@ -1297,6 +1353,7 @@
         "name": "pressure24",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [37]
@@ -1305,6 +1362,7 @@
         "name": "pressure25",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [36]
@@ -1313,6 +1371,7 @@
         "name": "pressure26",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [35]
@@ -1321,6 +1380,7 @@
         "name": "pressure27",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [34]
@@ -1329,6 +1389,7 @@
         "name": "pressure28",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [33]
@@ -1337,6 +1398,7 @@
         "name": "pressure29",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [32]
@@ -1345,6 +1407,7 @@
         "name": "pressure30",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [31]
@@ -1353,6 +1416,7 @@
         "name": "pressure31",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [30]
@@ -1361,6 +1425,7 @@
         "name": "pressure32",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [29]
@@ -1369,6 +1434,7 @@
         "name": "pressure33",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [28]
@@ -1377,6 +1443,7 @@
         "name": "pressure34",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [27]
@@ -1385,6 +1452,7 @@
         "name": "pressure35",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [26]
@@ -1393,6 +1461,7 @@
         "name": "pressure36",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [25]
@@ -1401,6 +1470,7 @@
         "name": "pressure37",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [24]
@@ -1409,6 +1479,7 @@
         "name": "pressure38",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [23]
@@ -1417,6 +1488,7 @@
         "name": "pressure39",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [22]
@@ -1425,6 +1497,7 @@
         "name": "pressure40",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [62]
@@ -1433,6 +1506,7 @@
         "name": "pressure41",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [61]
@@ -1441,6 +1515,7 @@
         "name": "pressure42",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [60]
@@ -1449,6 +1524,7 @@
         "name": "pressure43",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [59]
@@ -1457,6 +1533,7 @@
         "name": "pressure44",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [58]
@@ -1465,6 +1542,7 @@
         "name": "pressure45",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [57]
@@ -1473,6 +1551,7 @@
         "name": "pressure46",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [56]
@@ -1481,6 +1560,7 @@
         "name": "pressure47",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [55]
@@ -1489,6 +1569,7 @@
         "name": "pressure48",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [54]
@@ -1497,6 +1578,7 @@
         "name": "pressure49",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [53]
@@ -1505,6 +1587,7 @@
         "name": "pressure50",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [52]
@@ -1513,6 +1596,7 @@
         "name": "pressure51",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [51]
@@ -1521,6 +1605,7 @@
         "name": "pressure52",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [50]
@@ -1529,6 +1614,7 @@
         "name": "pressure53",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [49]
@@ -1537,6 +1623,7 @@
         "name": "pressure54",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [48]
@@ -1545,6 +1632,7 @@
         "name": "pressure55",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [47]
@@ -1553,6 +1641,7 @@
         "name": "pressure56",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [46]
@@ -1561,6 +1650,7 @@
         "name": "pressure57",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [45]
@@ -1569,6 +1659,7 @@
         "name": "pressure58",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [44]
@@ -1577,9 +1668,19 @@
         "name": "pressure59",
         "sheet": "pressure",
         "renderMode": "lighter",
+        "guiSprites": true,
         "time": 0.1,
         "repeat": false,
         "frames": [43]
+      },
+      {
+        "name": "pressure60",
+        "sheet": "pressure",
+        "renderMode": "lighter",
+        "guiSprites": true,
+        "time": 0.1,
+        "repeat": false,
+        "frames": [42]
       },
       {
         "name": "PROGRESS1_ICON",
@@ -1698,7 +1799,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -1834,7 +1935,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -1970,7 +2071,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2106,7 +2207,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2242,7 +2343,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2378,7 +2479,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2514,7 +2615,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2650,7 +2751,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2786,7 +2887,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -2922,7 +3023,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3058,7 +3159,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3194,7 +3295,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3330,7 +3431,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3466,7 +3567,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3602,7 +3703,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3738,7 +3839,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -3874,7 +3975,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4010,7 +4111,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4146,7 +4247,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4282,7 +4383,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4418,7 +4519,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4482,7 +4583,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -4554,7 +4655,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4618,7 +4719,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -4690,7 +4791,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4754,7 +4855,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -4826,7 +4927,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -4890,7 +4991,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -4962,7 +5063,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5026,7 +5127,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5098,7 +5199,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5162,7 +5263,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5234,7 +5335,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5298,7 +5399,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5370,7 +5471,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5434,7 +5535,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5506,7 +5607,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5570,7 +5671,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5642,7 +5743,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5706,7 +5807,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5778,7 +5879,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5842,7 +5943,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -5914,7 +6015,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -5978,7 +6079,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6050,7 +6151,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6114,7 +6215,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6186,7 +6287,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6250,7 +6351,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6322,7 +6423,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6386,7 +6487,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6458,7 +6559,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6522,7 +6623,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6594,7 +6695,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6658,7 +6759,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6730,7 +6831,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6794,7 +6895,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -6866,7 +6967,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -6930,7 +7031,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7002,7 +7103,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7066,7 +7167,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS2_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7138,7 +7239,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7202,7 +7303,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7274,7 +7375,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7338,7 +7439,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7410,7 +7511,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7474,7 +7575,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7546,7 +7647,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7610,7 +7711,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7682,7 +7783,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7746,7 +7847,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7818,7 +7919,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -7882,7 +7983,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -7954,7 +8055,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8018,7 +8119,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8090,7 +8191,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8154,7 +8255,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8226,7 +8327,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8290,7 +8391,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8362,7 +8463,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8426,7 +8527,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8498,7 +8599,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8562,7 +8663,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8634,7 +8735,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8698,7 +8799,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8770,7 +8871,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8834,7 +8935,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -8906,7 +9007,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -8970,7 +9071,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9042,7 +9143,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9106,7 +9207,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9178,7 +9279,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9242,7 +9343,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9314,7 +9415,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9378,7 +9479,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9450,7 +9551,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9514,7 +9615,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9586,7 +9687,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9650,7 +9751,7 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9722,7 +9823,7 @@
           "collision": false,
           "pAlpha": {
               "init": 1,
-              "start": {
+              "end": {
                   "value": 0,
                   "time": 0.3,
                   "spline": "EASE_IN"
@@ -9786,7 +9887,143 @@
           "moveWithTarget": 1,
           "particleDuration": -1,
           "cancelable": true,
-          "anim": "PROGRESS1_ICON",
+          "anim": "PROGRESS3_ICON",
+          "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "time": 0.033,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "pressure60": [{
+          "volume": 0.5,
+          "global": false,
+          "loop": false,
+          "speed": 0.7,
+          "variance": 0.05,
+          "sound": "media/sound/battle/wave-swell-3.ogg",
+          "type": "PLAY_SOUND"
+      },{
+          "numParticles": 1,
+          "duration": 0,
+          "centralAngle": 1,
+          "startDist": 0,
+          "particleRotate": false,
+          "moveDist": 0,
+          "moveVariance": 0,
+          "keySpline": "EASE_IN_OUT",
+          "moveRotate": 0,
+          "rotateWithTime": true,
+          "inverse": true,
+          "collision": false,
+          "pAlpha": {
+              "init": 0,
+              "start": {
+                  "value": 1,
+                  "time": 0.3,
+                  "spline": "EASE_OUT"
+              },
+              "end": {
+                  "value": 0,
+                  "time": 0.3,
+                  "spline": "EASE_IN"
+              }
+          },
+          "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 40
+          },
+          "moveWithTarget": 1,
+          "particleDuration": -1,
+          "anim": "pressure60",
+          "type": "OFFSET_PARTICLE_CIRCLE"
+      }, {
+          "numParticles": 1,
+          "duration": 0,
+          "centralAngle": 1,
+          "startDist": 0,
+          "particleRotate": false,
+          "moveDist": 0,
+          "moveVariance": 0,
+          "keySpline": "EASE_IN_OUT",
+          "moveRotate": 0,
+          "rotateWithTime": true,
+          "inverse": true,
+          "collision": false,
+          "pAlpha": {
+              "init": 1,
+              "end": {
+                  "value": 0,
+                  "time": 0.3,
+                  "spline": "EASE_IN"
+              }
+          },
+          "pScale": {
+              "init": {
+                  "x": 1,
+                  "y": 1
+              },
+              "start": {
+                  "value": {
+                      "x": 2,
+                      "y": 2
+                  },
+                  "time": 0.3,
+                  "spline": "EASE_OUT"
+              }
+          },
+          "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 40
+          },
+          "moveWithTarget": 1,
+          "particleDuration": 0.3,
+          "cancelable": true,
+          "anim": "PROGRESS_OUTER",
+          "type": "OFFSET_PARTICLE_CIRCLE"
+      }, {
+          "numParticles": 1,
+          "duration": 0,
+          "centralAngle": 1,
+          "startDist": 0,
+          "particleRotate": false,
+          "moveDist": 0,
+          "moveVariance": 0,
+          "keySpline": "EASE_IN_OUT",
+          "moveRotate": 0,
+          "rotateWithTime": true,
+          "inverse": true,
+          "collision": false,
+          "pAlpha": {
+              "init": 0,
+              "start": {
+                  "value": 1,
+                  "time": 0.3,
+                  "spline": "EASE_OUT"
+              },
+              "end": {
+                  "value": 0,
+                  "time": 0.3,
+                  "spline": "EASE_IN"
+              }
+          },
+          "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 40
+          },
+          "moveWithTarget": 1,
+          "particleDuration": -1,
+          "cancelable": true,
+          "anim": "PROGRESS3_ICON",
           "type": "OFFSET_PARTICLE_CIRCLE"
       },
       {
@@ -9839,14 +10076,14 @@
         "moveWithTarget":1,
         "keySpline":"EASE_IN",
         "moveRotate":0,
-        "inverse":true,
+        "inverse":false,
         "collision":false,
         "particleDuration":0.5,
         "anim":"WAVE_DOT1",
         "type":"OFFSET_PARTICLE_CIRCLE"
       },
       {
-        "time": 1,
+        "time": 0.5,
         "type": "WAIT"
       },
       {
@@ -9899,7 +10136,7 @@
         "type":"OFFSET_PARTICLE_CIRCLE"
       },
       {
-        "time": 0.5,
+        "time": 0.25,
         "type": "WAIT"
       },
       {
@@ -9952,7 +10189,7 @@
         "type":"OFFSET_PARTICLE_CIRCLE"
       },
       {
-        "time": 0.2,
+        "time": 0.125,
         "type": "WAIT"
       },
       {
@@ -9993,43 +10230,462 @@
         "type": "PLAY_SOUND"
       },
       {
-        "time": 1,
+        "scaleX": 1,
+        "scaleY": 1,
+        "duration": 0,
+        "type": "CHANGE_SCALE"
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      },
+      {
+        "scaleX": 1,
+        "scaleY": 0,
+        "duration": 0.9,
+        "type": "CHANGE_SCALE"
+      },
+      {
+        "time": 0.9,
         "type": "WAIT"
       },
       {
         "type": "LOOP_START"
       },
       {
-        "numParticles":32,
-        "duration":0,
-        "centralAngle":1,
-        "startAngle":0,
-        "startDist":32,
-        "random":false,
-        "particleRotate":true,
-        "useTargetAngle":true,
-        "moveDist":0,
-        "normalMoveDist":-64,
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "variance": 0.1,
+        "sound": "media/sound/boss/crab/robot-land.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "speed": 2,
+        "sound": "media/sound/battle/shiny-effect.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "sound": "media/sound/battle/explosion-5.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "variance": 0.1,
+        "sound": "media/sound/battle/wave-hit-2.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "rumbleType": "RANDOM",
+        "power": "STRONGEST",
+        "speed": "FASTER",
+        "duration": 0.8,
+        "fade": true,
+        "type": "RUMBLE"
+      },
+      {
+        "size": "XXXXL",
+        "fadeIn": 0,
+        "fadeOut": 0.4,
+        "duration": 0.2,
+        "glow": true,
+        "type": "LIGHT"
+      },
+      {
+        "color": "white",
+        "alpha": 1,
+        "duration": 0.3,
+        "keepDuration": 0.2,
+        "noLighter": false,
+        "type": "FLASH_COLOR"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
         "pAlpha": {
           "init": 1,
-          "start": {
+          "end": {
             "value": 0,
-            "spline": "EASE_IN"
+            "time": 0.15,
+            "spline": ""
           }
         },
-        "offset":{
-          "x":0,
-          "y":0,
-          "z":64
+        "pScale": {
+          "init": {
+            "x": 2,
+            "y": 2
+          },
+          "start": {
+            "value": {
+              "x": 4,
+              "y": 4
+            },
+            "spline": "EASE_OUT"
+          }
         },
-        "moveWithTarget":1,
-        "keySpline":"EASE_IN",
-        "moveRotate":0,
-        "inverse":true,
-        "collision":false,
-        "particleDuration":0.5,
-        "anim":"WAVE_DOT1",
-        "type":"OFFSET_PARTICLE_CIRCLE"
+        "particleDuration": 0.3,
+        "anim": "CIRCLE_BIG",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 64,
+          "z": 64
+        },
+        "pAlpha": {
+          "init": 0.5,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "start": {
+            "value": {
+              "x": 4,
+              "y": 4
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.4,
+        "anim": "SHOCKWAVE_B_WAVE",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "numParticles": 12,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 48,
+        "uniformRandom": 0.6,
+        "particleRotate": true,
+        "moveDist": 24,
+        "keySpline": "EASE_OUT",
+        "collision": false,
+        "anim": "WAVE_EXPLODE",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.05,
+        "type": "WAIT"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 64,
+          "z": 64
+        },
+        "pAlpha": {
+          "init": 0.5,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "start": {
+            "value": {
+              "x": 4,
+              "y": 4
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.4,
+        "anim": "SHOCKWAVE_B_WAVE",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "numParticles": 10,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 64,
+        "uniformRandom": 0.6,
+        "particleRotate": true,
+        "moveDist": 24,
+        "keySpline": "EASE_OUT",
+        "collision": false,
+        "anim": "WAVE_EXPLODE",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.05,
+        "type": "WAIT"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 64,
+          "z": 64
+        },
+        "pAlpha": {
+          "init": 0.5,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "start": {
+            "value": {
+              "x": 4,
+              "y": 4
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.4,
+        "anim": "SHOCKWAVE_B_WAVE",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "numParticles": 8,
+        "duration": 0,
+        "centralAngle": 1,
+        "startDist": 80,
+        "uniformRandom": 0.6,
+        "particleRotate": true,
+        "moveDist": 24,
+        "keySpline": "EASE_OUT",
+        "collision": false,
+        "anim": "WAVE_EXPLODE",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time": 0.05,
+        "type": "WAIT"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 64,
+          "z": 64
+        },
+        "pAlpha": {
+          "init": 0.5,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0.4,
+            "y": 0.4
+          },
+          "start": {
+            "value": {
+              "x": 4,
+              "y": 4
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.4,
+        "anim": "SHOCKWAVE_B_WAVE",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleBreak": [
+      {
+        "color": "#000099",
+        "maxAlpha": 1,
+        "minAlpha": 0.2,
+        "blinkDuration": 1,
+        "blinkCount": -1,
+        "noLighter": false,
+        "type": "BLINK_COLOR"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleSubCharge": [
+      {
+        "color": "#002212",
+        "fadeIn": 0.4,
+        "fadeOut": 0.2,
+        "duration": -1,
+        "type": "SCREEN_FLASH"
+      },
+      {
+        "volume": 0.8,
+        "global": false,
+        "loop": false,
+        "speed": 1.6,
+        "sound": "media/sound/battle/enemies/charge-05s.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "size": "XXL",
+        "fadeIn": 0,
+        "fadeOut": 0.2,
+        "duration": 0.2,
+        "glow": false,
+        "type": "LIGHT"
+      },
+      {
+        "volume": 0.8,
+        "global": false,
+        "loop": false,
+        "speed": 1.7,
+        "sound": "media/sound/battle/wave-charge-2.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "color": "#00ffaa",
+        "alpha": 1,
+        "duration": 0.4,
+        "keepDuration": 0,
+        "noLighter": false,
+        "type": "FLASH_COLOR"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 12
+        },
+        "pAlpha": {
+          "init": 0.8
+        },
+        "pScale": {
+          "init": {
+            "x": 0,
+            "y": 0
+          },
+          "start": {
+            "value": {
+              "x": 2,
+              "y": 2
+            },
+            "time": 0.4,
+            "spline": "EASE_OUT"
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.2,
+            "spline": ""
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": -1,
+        "anim": "CIRCLE_BIG",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 12
+        },
+        "pAlpha": {
+          "init": 0.8,
+          "start": {
+            "value": 0,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 5,
+            "y": 5
+          },
+          "start": {
+            "value": {
+              "x": 0.25,
+              "y": 0.25
+            },
+            "spline": "EASE_OUT"
+          }
+        },
+        "moveWithTarget": 1,
+        "particleDuration": 0.3,
+        "anim": "SHOCKWAVE_B_WAVE_GUI",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "numParticles": 20,
+        "duration": 0.2,
+        "centralAngle": 1,
+        "startDist": 16,
+        "random": true,
+        "particleRotate": true,
+        "moveDist": 32,
+        "moveVariance": 4,
+        "keySpline": "EASE_OUT",
+        "moveRotate": 0,
+        "inverse": true,
+        "collision": false,
+        "moveWithTarget": 1,
+        "particleDuration": 0.25,
+        "anim": "WAVE_DOT1",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "speed": 1.5,
+        "sound": "media/sound/battle/shock-add-2.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "type": "LOOP_START"
       },
       {
         "time": 0.2,
@@ -10037,6 +10693,972 @@
       },
       {
         "type": "LOOP_END"
+      }
+    ],
+    "whaleDefCharge": [
+    {
+      "volume": 0.5,
+      "global": false,
+      "loop": true,
+      "speed": 0.8,
+      "sound": "media/sound/battle/enemies/charge-loop.ogg",
+      "type": "PLAY_SOUND"
+    }, {
+        "volume": 0.8,
+        "global": false,
+        "loop": false,
+        "speed": 0.7,
+        "variance": 0.05,
+        "sound": "media/sound/battle/shiny-effect.ogg",
+        "type": "PLAY_SOUND"
+    }, {
+        "size": "XXXL",
+        "fadeIn": 0.3,
+        "fadeOut": 0.3,
+        "duration": -1,
+        "glow": false,
+        "type": "LIGHT"
+    }, {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "pAlpha": {
+            "init": 0,
+            "start": {
+                "value": 0.5,
+                "time": 1.5,
+                "spline": ""
+            },
+            "end": {
+                "value": 0,
+                "time": 0.8,
+                "spline": ""
+            }
+        },
+        "pScale": {
+            "init": {
+                "x": 1,
+                "y": 1
+            },
+            "start": {
+                "value": {
+                    "x": 5,
+                    "y": 5
+                },
+                "spline": "EASE_OUT"
+            }
+        },
+        "inverse": true,
+        "moveWithTarget": 0,
+        "particleDuration": 3,
+        "anim": "SHOCKWAVE_B_WAVE_GUI",
+        "type": "PLAY_ANIM"
+    }, {
+        "numParticles": 16,
+        "duration": 0,
+        "random": false,
+        "centralAngle": 1,
+        "startDist": 32,
+        "useTargetAngle": false,
+        "moveDist": 256,
+        "moveVariance": 0,
+        "normalMoveDist": 0,
+        "inverse": true,
+        "keySpline": "EASE_IN_OUT",
+        "collision": false,
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 12
+        },
+        "pAlpha": {
+            "init": 1,
+            "end": {
+                "value": 0,
+                "time": 0.4,
+                "spline": "EASE_IN"
+            }
+        },
+        "moveWithTarget": 1,
+        "moveRotate": 1,
+        "particleDuration": 3,
+        "anim": "WAVE_SHIELD",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+    }, {
+        "time": 0.033,
+        "type": "WAIT"
+    }, {
+        "numParticles": 16,
+        "duration": 0,
+        "random": false,
+        "centralAngle": 1,
+        "startDist": 32,
+        "useTargetAngle": false,
+        "moveDist": 256,
+        "moveVariance": 0,
+        "normalMoveDist": 0,
+        "inverse": true,
+        "keySpline": "EASE_IN_OUT",
+        "collision": false,
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 12
+        },
+        "pAlpha": {
+            "init": 0.75,
+            "end": {
+                "value": 0,
+                "time": 0.4,
+                "spline": "EASE_IN"
+            }
+        },
+        "moveWithTarget": 1,
+        "moveRotate": 1,
+        "particleDuration": 3,
+        "anim": "WAVE_SHIELD",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+    }, {
+        "time": 0.033,
+        "type": "WAIT"
+    }, {
+        "numParticles": 16,
+        "duration": 0,
+        "random": false,
+        "centralAngle": 1,
+        "startDist": 32,
+        "useTargetAngle": false,
+        "moveDist": 256,
+        "moveVariance": 0,
+        "normalMoveDist": 0,
+        "inverse": true,
+        "keySpline": "EASE_IN_OUT",
+        "collision": false,
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 12
+        },
+        "pAlpha": {
+            "init": 0.5,
+            "end": {
+                "value": 0,
+                "time": 0.4,
+                "spline": "EASE_IN"
+            }
+        },
+        "moveWithTarget": 1,
+        "moveRotate": 1,
+        "particleDuration": 3,
+        "anim": "WAVE_SHIELD",
+        "type": "OFFSET_PARTICLE_CIRCLE"
+    },
+    {
+        "time": 2.933,
+        "type": "WAIT"
+    },
+    {
+      "color": "#00ffdd",
+      "maxAlpha": 1,
+      "minAlpha": 0.2,
+      "blinkDuration": 1,
+      "blinkCount": -1,
+      "noLighter": false,
+      "type": "BLINK_COLOR"
+    },
+    {
+      "volume": 1.2,
+      "global": false,
+      "loop": false,
+      "speed": 0.8,
+      "variance": 0.05,
+      "sound": "media/sound/upgrade/blow.ogg",
+      "type": "PLAY_SOUND"
+    },
+    {
+      "volume": 1.2,
+      "global": false,
+      "loop": false,
+      "speed": 0.6,
+      "variance": 0.05,
+      "sound": "media/sound/upgrade/collect.ogg",
+      "type": "PLAY_SOUND"
+    },
+    {
+      "numParticles":32,
+      "duration":0,
+      "centralAngle":1,
+      "startAngle":0,
+      "startDist":24,
+      "random":false,
+      "particleRotate":true,
+      "useTargetAngle":true,
+      "moveDist":128,
+      "normalMoveDist":0,
+      "pAlpha": {
+        "init": 1,
+        "start": {
+          "value": 0,
+          "spline": "EASE_IN"
+        }
+      },
+      "pScale": {
+          "init": {
+              "x": 1,
+              "y": 1
+          },
+          "start": {
+              "value": {
+                  "x": 0,
+                  "1": 0
+              },
+              "spline": "EASE_IN"
+          }
+      },
+      "offset":{
+        "x":0,
+        "y":0,
+        "z":0
+      },
+      "moveWithTarget":1,
+      "keySpline":"EASE_IN",
+      "moveRotate":0,
+      "inverse":false,
+      "collision":false,
+      "particleDuration":1,
+      "anim":"TELEPORT_RIPPLE",
+      "type":"OFFSET_PARTICLE_CIRCLE"
+    },
+    {
+          "useTargetAngle": false,
+          "keepAngleSync": false,
+          "pAlpha": {
+              "init": 1,
+              "start": {
+                  "value": 0,
+                  "time": 1,
+                  "spline": "EASE_OUT"
+              }
+          },
+          "pScale": {
+              "init": {
+                  "x": 1,
+                  "y": 1
+              },
+              "start": {
+                  "value": {
+                      "x": 5,
+                      "y": 5
+                  },
+                  "spline": "EASE_OUT"
+              }
+          },
+          "moveWithTarget": 0,
+          "particleDuration": 1,
+          "anim": "SHOCKWAVE_B_WAVE_GUI",
+          "type": "PLAY_ANIM"
+    },
+    {
+        "time": 0.1,
+        "type": "WAIT"
+    },
+    {
+          "useTargetAngle": false,
+          "keepAngleSync": false,
+          "pAlpha": {
+              "init": 1,
+              "start": {
+                  "value": 0,
+                  "time": 1,
+                  "spline": ""
+              }
+          },
+          "pScale": {
+              "init": {
+                  "x": 1,
+                  "y": 1
+              },
+              "start": {
+                  "value": {
+                      "x": 5,
+                      "y": 5
+                  },
+                  "spline": "EASE_OUT"
+              }
+          },
+          "moveWithTarget": 0,
+          "particleDuration": 1,
+          "anim": "SHOCKWAVE_B_WAVE_GUI",
+          "type": "PLAY_ANIM"
+    },
+    {
+        "time": 0.1,
+        "type": "WAIT"
+    },
+    {
+          "useTargetAngle": false,
+          "keepAngleSync": false,
+          "pAlpha": {
+              "init": 1,
+              "start": {
+                  "value": 0,
+                  "time": 1,
+                  "spline": ""
+              }
+          },
+          "pScale": {
+              "init": {
+                  "x": 1,
+                  "y": 1
+              },
+              "start": {
+                  "value": {
+                      "x": 5,
+                      "y": 5
+                  },
+                  "spline": "EASE_OUT"
+              }
+          },
+          "moveWithTarget": 0,
+          "particleDuration": 1,
+          "anim": "SHOCKWAVE_B_WAVE_GUI",
+          "type": "PLAY_ANIM"
+    },
+    {
+        "time": 1,
+        "type": "WAIT"
+    }],
+    "whaleCall": [
+      {
+        "rumbleType": "RANDOM",
+        "power": "STRONGER",
+        "speed": "FASTER",
+        "duration": 3,
+        "fade": true,
+        "type": "RUMBLE"
+      },
+      {
+        "size": "XXXL",
+        "fadeIn": 0,
+        "fadeOut": 0.4,
+        "duration": -1,
+        "glow": true,
+        "type": "LIGHT"
+      },
+      {
+        "color": "aqua",
+        "alpha": 1,
+        "duration": 0.3,
+        "keepDuration": 0.2,
+        "noLighter": false,
+        "type": "FLASH_COLOR"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "volume": 0.9,
+        "global": false,
+        "loop": false,
+        "speed": 1.5,
+        "variance": 0.05,
+        "sound": "media/sound/battle/wave-swell-2.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "pAlpha": {
+            "init": 1,
+            "start": {
+                "value": 0,
+                "time": 1,
+                "spline": ""
+            }
+        },
+        "pScale": {
+            "init": {
+                "x": 1,
+                "y": 1
+            },
+            "start": {
+                "value": {
+                    "x": 5,
+                    "y": 5
+                },
+                "spline": "EASE_OUT"
+            }
+        },
+        "moveWithTarget": 0,
+        "particleDuration": 1,
+        "anim": "SHOCKWAVE_B_WAVE_GUI",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "time": 0.25,
+        "type": "WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleTurretAura": [
+      {
+        "size":"XXL",
+        "fadeIn":0.2,
+        "fadeOut":0.2,
+        "duration":-1,
+        "glow":true,
+        "type":"LIGHT"
+      },
+      {
+        "type":"LOOP_START"
+      },
+      {
+        "numParticles":1,
+        "duration":0,
+        "centralAngle":1,
+        "startDist":0,
+        "moveDist":0,
+        "keySpline":"EASE_IN_OUT",
+        "normalMoveDist":128,
+        "collision":false,
+        "pAlpha":{
+          "init":0.5,
+          "start":{
+            "value":0,
+            "spline":""
+          }
+        },
+        "pScale":{
+          "init":{
+            "x":1,
+            "y":1
+          },
+          "start":{
+            "value":{
+              "x":0,
+              "y":0
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"SHOCKWAVE_WAVE",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time":0.1,
+        "type":"WAIT"
+      },
+      {
+        "type":"LOOP_END"
+      }
+    ],
+    "whaleTurretChargeFast": [
+      {
+        "color": "#ffffff",
+        "maxAlpha": 1,
+        "minAlpha": 0.2,
+        "blinkDuration": 0.5,
+        "blinkCount": -1,
+        "noLighter": false,
+        "type": "BLINK_COLOR"
+      },
+      {
+        "volume": 0.9,
+        "global": false,
+        "loop": false,
+        "speed": 1,
+        "variance": 0.05,
+        "sound": "media/sound/boss/turret/big-charge.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles":6,
+        "duration":0.2,
+        "random":true,
+        "centralAngle":1,
+        "startDist":16,
+        "moveDist":64,
+        "keySpline":"EASE_IN_OUT",
+        "collision":false,
+        "inverse":true,
+        "pAlpha":{
+          "init":0.5,
+          "start":{
+            "value":0,
+            "spline":""
+          }
+        },
+        "offset": {
+          "x":0,
+          "y":0,
+          "z":19
+        },
+        "pScale":{
+          "init":{
+            "x":0,
+            "y":0
+          },
+          "start":{
+            "value":{
+              "x":1,
+              "y":1
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"WAVE_DOT1",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time":0.2,
+        "type":"WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleTurretChargeSlow": [
+      {
+        "color": "#ffffff",
+        "maxAlpha": 1,
+        "minAlpha": 0.2,
+        "blinkDuration": 0.5,
+        "blinkCount": -1,
+        "noLighter": false,
+        "type": "BLINK_COLOR"
+      },
+      {
+        "volume": 0.9,
+        "global": false,
+        "loop": false,
+        "speed": 0.66,
+        "variance": 0.05,
+        "sound": "media/sound/boss/turret/long-charge.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "pAlpha": {
+          "init": 1,
+          "end": {
+            "value": 0,
+            "time": 0.15,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0,
+            "y": 0
+          },
+          "start": {
+            "value": {
+              "x": 1,
+              "y": 1
+            },
+            "spline": "EASE_OUT"
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "time": 0.3,
+            "spline": "EASE_IN"
+          }
+        },
+        "particleDuration": 3,
+        "anim": "CIRCLE_BIG",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles":6,
+        "duration":0.2,
+        "random":true,
+        "centralAngle":1,
+        "startDist":16,
+        "moveDist":64,
+        "keySpline":"EASE_IN_OUT",
+        "collision":false,
+        "inverse":true,
+        "pAlpha":{
+          "init":0.5,
+          "start":{
+            "value":0,
+            "spline":""
+          }
+        },
+        "offset": {
+          "x":0,
+          "y":0,
+          "z":19
+        },
+        "pScale":{
+          "init":{
+            "x":0,
+            "y":0
+          },
+          "start":{
+            "value":{
+              "x":1,
+              "y":1
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"WAVE_DOT1",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "numParticles":1,
+        "duration":0,
+        "centralAngle":1,
+        "startDist":0,
+        "moveDist":0,
+        "keySpline":"EASE_IN_OUT",
+        "normalMoveDist":128,
+        "collision":false,
+        "pAlpha":{
+          "init":0.8,
+          "start":{
+            "value":0,
+            "spline":""
+          }
+        },
+        "pScale":{
+          "init":{
+            "x":2,
+            "y":2
+          },
+          "start":{
+            "value":{
+              "x":0.5,
+              "y":0.5
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"SHOCKWAVE_B_WAVE_GUI",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "time":0.2,
+        "type":"WAIT"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleTurretDestroy": [{
+        "volume": 1,
+        "global": false,
+        "loop": false,
+        "speed": 1.1,
+        "sound": "media/sound/battle/enemies/discharge.ogg",
+        "type": "PLAY_SOUND"
+    }, {
+        "volume": 0.6,
+        "global": false,
+        "loop": false,
+        "speed": 1.7,
+        "sound": "media/sound/battle/magic-charge.ogg",
+        "type": "PLAY_SOUND"
+    }, {
+        "volume": 0.8,
+        "global": false,
+        "loop": false,
+        "speed": 1.6,
+        "sound": "media/sound/battle/sweep-long.ogg",
+        "type": "PLAY_SOUND"
+    }, {
+        "color": "white",
+        "maxAlpha": 1,
+        "minAlpha": 0,
+        "blinkDuration": 0.3,
+        "blinkCount": -1,
+        "noLighter": false,
+        "type": "BLINK_COLOR"
+    }, {
+        "scaleX": 0,
+        "scaleY": 1.5,
+        "duration": 0.3,
+        "spline": "EASE_OUT",
+        "type": "CHANGE_SCALE"
+    }, {
+        "time": 0.3,
+        "type": "WAIT"
+    }],
+    "whaleTurretHeal": [
+      {
+        "duration": 0,
+        "numParticles": 5,
+        "flyType": "FLY_ARC",
+        "inverse": true,
+        "offRadiusZScale": 1,
+        "rotateMoveDir": "NONE",
+        "particleDuration": 1,
+        "anim": "CIRCLE_BIG",
+        "offsetRadius": 64,
+        "offsetAngle": 1,
+        "phaseDurations": [],
+        "pAlpha": {
+            "init": 0,
+            "start": {
+                "value": 1,
+                "time": 0.15,
+                "spline": "EASE_OUT"
+            },
+            "end": {
+                "value": 0,
+                "time": 0.15,
+                "spline": ""
+            }
+        },
+        "pScale": {
+            "init": {
+                "x": 1,
+                "y": 1
+            },
+            "end": {
+                "value": {
+                    "x": 0,
+                    "y": 0
+                },
+                "time": 0.1,
+                "spline": ""
+            }
+        },
+        "type": "SHOOT_HOMING_PARTICLE"
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      }
+    ],
+    "whaleTurretAppear": [{
+        "alpha": 1,
+        "duration": 0.3,
+        "type": "CHANGE_ALPHA"
+    }, {
+        "time": 0.3,
+        "type": "WAIT"
+    }],
+    "tidalMoon": [
+      {
+        "numParticles":12,
+        "duration":3,
+        "centralAngle":1,
+        "startDist":0,
+        "moveDist":0,
+        "keySpline":"EASE_IN_OUT",
+        "normalMoveDist":0,
+        "collision":false,
+        "pAlpha":{
+          "init":0,
+          "start":{
+            "value":0.4,
+            "spline":""
+          }
+        },
+        "pScale":{
+          "init":{
+            "x":2,
+            "y":2
+          },
+          "start":{
+            "value":{
+              "x":0.3,
+              "y":0.3
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"SHOCKWAVE_B_WAVE_GUI",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "rumbleType": "RANDOM",
+        "power": "STRONGER",
+        "speed": "FASTER",
+        "duration": -1,
+        "fade": true,
+        "type": "RUMBLE"
+      },
+      {
+        "volume": 0.7,
+        "global": false,
+        "loop": true,
+        "speed": 1.25,
+        "sound": "media/sound/battle/enemies/charge-loop.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 0.7,
+        "global": false,
+        "loop": true,
+        "speed": 0.9,
+        "sound": "media/sound/battle/enemies/charge-loop.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 0.7,
+        "global": false,
+        "loop": true,
+        "speed": 0.5,
+        "sound": "media/sound/battle/enemies/charge-loop.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "volume": 1.2,
+        "global": false,
+        "loop": false,
+        "speed": 0.1,
+        "sound": "media/sound/boss/turret/long-charge.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "useTargetAngle": false,
+        "keepAngleSync": false,
+        "pAlpha": {
+          "init": 1,
+          "end": {
+            "value": 0,
+            "time": 0.15,
+            "spline": ""
+          }
+        },
+        "pScale": {
+          "init": {
+            "x": 0,
+            "y": 0
+          },
+          "start": {
+            "value": {
+              "x": 5,
+              "y": 5
+            },
+            "time": 15,
+            "spline": "EASE_OUT"
+          },
+          "end": {
+            "value": {
+              "x": 0,
+              "y": 0
+            },
+            "spline": "EASE_IN"
+          }
+        },
+        "particleDuration": -1,
+        "anim": "CIRCLE_BIG",
+        "type": "PLAY_ANIM"
+      },
+      {
+        "type": "LOOP_START"
+      },
+      {
+        "numParticles":1,
+        "duration":0.25,
+        "centralAngle":1,
+        "startDist":0,
+        "moveDist":0,
+        "keySpline":"EASE_IN_OUT",
+        "normalMoveDist":0,
+        "collision":false,
+        "pAlpha":{
+          "init":0,
+          "start":{
+            "value":0.8,
+            "spline":""
+          }
+        },
+        "pScale":{
+          "init":{
+            "x":5,
+            "y":5
+          },
+          "start":{
+            "value":{
+              "x":0.3,
+              "y":0.3
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"SHOCKWAVE_B_WAVE_GUI",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "type": "WAIT",
+        "time": 0.25
+      },
+      {
+        "volume": 1.3,
+        "global": false,
+        "loop": false,
+        "speed": 1.4,
+        "variance": 0.1,
+        "sound": "media/sound/battle/wave-swell.ogg",
+        "type": "PLAY_SOUND"
+      },
+      {
+        "type": "LOOP_END"
+      }
+    ],
+    "whaleDiveNuke": [
+      {
+        "color": "#00ffff",
+        "fadeIn": 0.1,
+        "fadeOut": 0.4,
+        "duration": 0.2,
+        "type": "SCREEN_FLASH"
+      },
+      {
+        "numParticles":5,
+        "duration":1,
+        "centralAngle":1,
+        "startDist":0,
+        "moveDist":0,
+        "keySpline":"EASE_IN_OUT",
+        "normalMoveDist":0,
+        "collision":false,
+        "pAlpha":{
+          "init":1,
+          "start":{
+            "value":0,
+            "spline":""
+          }
+        },
+        "pScale":{
+          "init":{
+            "x":0.3,
+            "y":0.3
+          },
+          "start":{
+            "value":{
+              "x":6,
+              "y":6
+            },
+            "spline":"EASE_IN"
+          }
+        },
+        "anim":"SHOCKWAVE_B_WAVE_GUI",
+        "type":"OFFSET_PARTICLE_CIRCLE"
+      },
+      {
+        "type": "WAIT",
+        "time": 1
       }
     ]
   }

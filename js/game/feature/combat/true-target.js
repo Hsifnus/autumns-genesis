@@ -183,4 +183,85 @@ ig.module("game.feature.combat.true-target").requires(
             return !this.waitUntil.evaluate() ? false : a.stepTimer <= 0
         }
     });
+    ig.ACTION_STEP.WAIT_UNTIL_PLAYER_ACTION = ig.ActionStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {
+                actions: {
+                    _type: "Array",
+                    _info: "List of player actions to react to",
+                    _sub: {
+                        _type: "String",
+                        _select: sc.PLAYER_ACTION
+                    }
+                },
+                attrib: {
+                    _type: "String",
+                    _info: "Attrib name to store action value to if successfully found",
+                    _optional: true
+                },
+                target: {
+                    _type: "String",
+                    _info: "Where is player found?",
+                    _select: h,
+                    _optional: true
+                },
+                maxTime: {
+                    _type: "Number",
+                    _info: "Maximum time to wait",
+                    _optional: true
+                }
+            }
+        }),
+        init: function(a) {
+            this.actions = a.actions || [];
+            this.attrib = a.attrib || null;
+            this.target = h[a.target] || h.SELF;
+            this.maxTime = a.maxTime || 0
+        },
+        start: function(a) {
+            this.attrib &&
+                a.setAttribute(this.attrib, null);
+            a.stepTimer = a.stepTimer + this.maxTime
+        },
+        run: function(a) {
+            var b = this.target(a);
+            if ((b = (b = b && b.getCombatantRoot()) && b.playerTrack && b.playerTrack.startedAction) && this.actions.indexOf(b) != -1) {
+                this.attrib && a.setAttribute(this.attrib, b);
+                return true
+            }
+            return this.maxTime && a.stepTimer <= 0
+        }
+    });
+    ig.ACTION_STEP.SET_PART_COLL_TYPE = ig.ActionStepBase.extend({
+        value: null,
+        partName: null,
+        _wm: new ig.Config({
+            attributes: {
+                partName: {
+                    _type: "String",
+                    _info: "Name of part to change collision type of"
+                },
+                value: {
+                    _type: "String",
+                    _info: "Collision type of the part",
+                    _select: ig.COLLTYPE
+                }
+            }
+        }),
+        init: function(a) {
+            this.partName = a.partName;
+            this.value = ig.COLLTYPE[a.value];
+        },
+        start: function(a) {
+            for (var b = null, a = a.coll.subColls, c = a.length; c--;) {
+                if (a[c].entity.partName == this.partName) {
+                    b = a[c].entity;
+                    break;
+                } 
+            }
+            if (b) {
+                b.coll.type = this.value;
+            }
+        }
+    });
 });

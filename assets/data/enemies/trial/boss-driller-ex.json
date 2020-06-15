@@ -5721,6 +5721,7 @@
         }, {
             "text": {
                 "en_US": "Elimination Protocol Activated",
+                "ja_JP": "殺害手続きを準備中",
                 "langUid": 5
             },
             "time": 2.5,

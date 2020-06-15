@@ -3778,6 +3778,7 @@
                 "thenStep": [{
                     "text": {
                         "en_US": "Incoming Inferno!",
+                        "ja_JP": "インフェルノを準備する！",
                         "langUid": 3
                     },
                     "mode": "LINE_FILL",
@@ -3790,6 +3791,7 @@
                 "elseStep": [{
                     "text": {
                         "en_US": "Incoming Inferno!",
+                        "ja_JP": "インフェルノを準備する！",
                         "langUid": 3
                     },
                     "mode": "LINE_FILL",
@@ -3810,6 +3812,7 @@
                 "thenStep": [{
                     "text": {
                         "en_US": "Incoming Inferno!",
+                        "ja_JP": "インフェルノを準備する！",
                         "langUid": 3
                     },
                     "mode": "LINE_FILL",
@@ -3822,6 +3825,7 @@
                 "elseStep": [{
                     "text": {
                         "en_US": "Incoming Inferno!",
+                        "ja_JP": "インフェルノを準備する！",
                         "langUid": 3
                     },
                     "mode": "LINE_FILL",

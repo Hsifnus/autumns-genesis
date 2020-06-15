@@ -3,8 +3,14 @@
   "params": {
     "hp": 1440000,
     "attack": 470,
-    "defense": 485,
-    "focus": 475,
+    "defense": 400,
+    "focus": 440,
+    "elemFactor": [
+      1,
+      1,
+      1,
+      0.5
+    ],
     "statusInflict": [
       0.5,
       0.5,
@@ -32,7 +38,7 @@
     "ko_KR": "고래",
     "langUid": 8
   },
-  "bossOrder": 2,
+  "bossOrder": 1,
   "cameraZFocus": 64,
   "padding": {
     "x": 2,
@@ -108,7 +114,7 @@
       "type": "TIME"
     },
     "weak2Regen": {
-      "target": 10,
+      "target": 12,
       "initRandom": 0,
       "resetRandom": 0,
       "noStateReset": false,
@@ -128,7 +134,7 @@
       "type": "TIME"
     },
     "rageWeakRegen": {
-      "target": 6,
+      "target": 12,
       "initRandom": 0,
       "resetRandom": 0,
       "noStateReset": false,
@@ -140,13 +146,19 @@
       "scaleEnemyFactor": true,
       "type": "HIT"
     },
-    "shockHits": {
+    "baseHits": {
       "target": 0.2,
       "type": "HP"
     },
-    "shockHitsOD": {
+    "overdriveHits": {
       "target": 0.25,
       "type": "HP"
+    },
+    "weakSpotHits": {
+      "target": 6,
+      "scaleDmgFactor": true,
+      "scaleEnemyFactor": true,
+      "type": "HIT"
     }
   },
   "states": {
@@ -172,11 +184,13 @@
       ]
     },
     "DEFAULT": {
-      "damageFactor": 1,
+      "damageFactor": 0.95,
       "enabledReactions": [
-        "SHOCK_BREAK",
+        "OVERDRIVE",
+        "BREAK",
         "KILL_HIT",
-        "HP_BREAK"
+        "HP_BREAK",
+        "FALL_SAVE"
       ],
       "choices": [
         {
@@ -190,96 +204,45 @@
         {
           "req": [
             {
+              "condition": "entity.attrib.revenge == 1",
               "negated": false,
-              "type": "VAR_CONDITION",
-              "condition": "tmp.whapeRage"
+              "type": "VAR_CONDITION"
             }
           ],
-          "preSwitchState": "RAGE"
+          "action": "JumpStart"
+        },
+        {
+          "req": [
+            {
+              "min": 0,
+              "max": 0,
+              "negated": false,
+              "type": "HP_BREAK_GLOBAL"
+            }
+          ],
+          "action": "RotationA"
         },
         {
           "req": [
             {
               "min": 1,
+              "max": 1,
               "negated": false,
               "type": "HP_BREAK_GLOBAL"
-            },
-            {
-              "negated": false,
-              "type": "TRACKER_READY",
-              "name": "jumpReady"
             }
           ],
-          "action": "JumpStart"
+          "action": "RotationB"
         },
         {
           "req": [
             {
               "min": 2,
+              "max": 3,
               "negated": false,
               "type": "HP_BREAK_GLOBAL"
             }
           ],
-          "action": "Shoot",
-          "frequency": "NORMAL"
-        },
-        {
-          "req": [
-            {
-              "min": 2,
-              "negated": false,
-              "type": "HP_BREAK_GLOBAL"
-            }
-          ],
-          "action": "Dash",
-          "frequency": "OFTEN"
-        },
-        {
-          "action": "Shoot",
-          "frequency": "SOMETIMES"
-        },
-        {
-          "action": "Dash",
-          "frequency": "NORMAL"
-        },
-        {
-          "action": "Idle"
-        }
-      ]
-    },
-    "RAGE": {
-      "damageFactor": 1,
-      "enabledReactions": [
-        "SHOCK_BREAK_RAGE",
-        "KILL_HIT",
-        "HP_BREAK"
-      ],
-      "choices": [
-        {
-          "req": [
-            {
-              "type": "!HAS_TARGET"
-            }
-          ],
-          "postSwitchState": "IDLE"
-        },
-        {
-          "req": [
-            {
-              "negated": false,
-              "type": "TRACKER_READY",
-              "name": "jumpReady"
-            }
-          ],
-          "action": "JumpStart"
-        },
-        {
-          "action": "Shoot",
-          "frequency": "OFTEN"
-        },
-        {
-          "action": "Dash",
-          "frequency": "SPAMM"
+          "action": "RotationC"
         },
         {
           "action": "Idle"
@@ -289,11 +252,12 @@
     "WEAK1": {
       "walkAnims": "weak",
       "flyHeight": 0,
-      "damageFactor": 0.25,
+      "damageFactor": 1,
       "enabledReactions": [
         "SHOCK_BREAK2",
         "KILL_HIT",
-        "HP_BREAK"
+        "HP_BREAK",
+        "FALL_SAVE"
       ],
       "annotate": {
         "active": "NONE",
@@ -331,10 +295,11 @@
     "WEAK2": {
       "walkAnims": "weak2",
       "flyHeight": 0,
-      "damageFactor": 2,
+      "damageFactor": 1.5,
       "enabledReactions": [
         "KILL_HIT",
-        "HP_BREAK"
+        "HP_BREAK",
+        "FALL_SAVE"
       ],
       "annotate": {
         "active": "NONE",
@@ -406,10 +371,11 @@
     "RAGE_WEAK": {
       "walkAnims": "weak2",
       "flyHeight": 0,
-      "damageFactor": 2,
+      "damageFactor": 1.4,
       "enabledReactions": [
         "KILL_HIT",
-        "HP_BREAK"
+        "HP_BREAK",
+        "FALL_SAVE"
       ],
       "annotate": {
         "active": "NONE",
@@ -437,7 +403,7 @@
             }
           ],
           "action": "EndWeak1",
-          "postSwitchState": "RAGE"
+          "postSwitchState": "DEFAULT"
         }
       ]
     },
@@ -519,6 +485,224 @@
     }
   },
   "proxies": {
+    "pressureIncrementer": {
+      "copyOwnerAnims": false,
+      "breakType": "NONE",
+      "action": [
+        {
+          "name": "loop",
+          "type": "LABEL"
+        },
+        {
+          "type": "WAIT",
+          "time": 0.25
+        },
+        {
+          "condition": "entity.ownerAttrib.forceTick",
+          "type": "WAIT_UNTIL",
+          "maxTime": 0.75
+        },
+        {
+          "condition": "!tmp.bossKillHit",
+          "withElse": false,
+          "type": "IF",
+          "thenStep": [
+            {
+              "value": 1,
+              "type": "ADD_PLAYER_PRESSURE"
+            }
+          ]
+        },
+        {
+          "name": "loop",
+          "type": "GOTO_LABEL"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "pressure",
+      "startAnim": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 32
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "pressureDecrementer1": {
+      "copyOwnerAnims": false,
+      "breakType": "NONE",
+      "action": [
+        {
+          "name": "loop",
+          "type": "LABEL"
+        },
+        {
+          "attrib": "action",
+          "target": "TRUE_TARGET",
+          "type": "WAIT_UNTIL_PLAYER_ACTION",
+          "actions": [
+            "THROW_SPECIAL1",
+            "ATTACK_SPECIAL1",
+            "DASH_SPECIAL1",
+            "GUARD_SPECIAL1"
+          ]
+        },
+        {
+          "condition": "!tmp.bossKillHit",
+          "withElse": false,
+          "type": "IF",
+          "thenStep": [
+            {
+              "value": -6,
+              "type": "ADD_PLAYER_PRESSURE"
+            }
+          ]
+        },
+        {
+          "time": 0.25,
+          "type": "WAIT"
+        },
+        {
+          "name": "loop",
+          "type": "GOTO_LABEL"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "pressure",
+      "startAnim": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 32
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "pressureDecrementer2": {
+      "copyOwnerAnims": false,
+      "breakType": "NONE",
+      "action": [
+        {
+          "name": "loop",
+          "type": "LABEL"
+        },
+        {
+          "attrib": "action",
+          "target": "TRUE_TARGET",
+          "type": "WAIT_UNTIL_PLAYER_ACTION",
+          "actions": [
+            "THROW_SPECIAL2",
+            "ATTACK_SPECIAL2",
+            "DASH_SPECIAL2",
+            "GUARD_SPECIAL2"
+          ]
+        },
+        {
+          "condition": "!tmp.bossKillHit",
+          "withElse": false,
+          "type": "IF",
+          "thenStep": [
+            {
+              "value": -18,
+              "type": "ADD_PLAYER_PRESSURE"
+            }
+          ]
+        },
+        {
+          "time": 0.25,
+          "type": "WAIT"
+        },
+        {
+          "name": "loop",
+          "type": "GOTO_LABEL"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "pressure",
+      "startAnim": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 32
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
+    "pressureDecrementer3": {
+      "copyOwnerAnims": false,
+      "breakType": "NONE",
+      "action": [
+        {
+          "name": "loop",
+          "type": "LABEL"
+        },
+        {
+          "attrib": "action",
+          "target": "TRUE_TARGET",
+          "type": "WAIT_UNTIL_PLAYER_ACTION",
+          "actions": [
+            "THROW_SPECIAL3",
+            "ATTACK_SPECIAL3",
+            "DASH_SPECIAL3",
+            "GUARD_SPECIAL3"
+          ]
+        },
+        {
+          "condition": "!tmp.bossKillHit",
+          "withElse": false,
+          "type": "IF",
+          "thenStep": [
+            {
+              "value": -36,
+              "type": "ADD_PLAYER_PRESSURE"
+            }
+          ]
+        },
+        {
+          "time": 0.25,
+          "type": "WAIT"
+        },
+        {
+          "name": "loop",
+          "type": "GOTO_LABEL"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "pressure",
+      "startAnim": "",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 32
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
     "teslaCoil": {
       "animation": {
         "SUB": [
@@ -1049,18 +1233,18 @@
       },
       "type": "GENERIC"
     },
-    "waveBullet": {
+    "waveBulletSlow": {
       "size": {
         "x": 32,
         "y": 32,
-        "z": 16
+        "z": 8
       },
       "effects": "",
-      "speed": 150,
+      "speed": 75,
       "maxBounce": 0,
-      "timer": 3,
+      "timer": 10,
       "trail": false,
-      "multiHit": false,
+      "multiHit": true,
       "light": "XL",
       "noLightGlow": true,
       "attack": {
@@ -1108,6 +1292,424 @@
         ]
       },
       "type": "BALL"
+    },
+    "waveBullet": {
+      "size": {
+        "x": 32,
+        "y": 32,
+        "z": 8
+      },
+      "effects": "",
+      "speed": 150,
+      "maxBounce": 0,
+      "timer": 10,
+      "trail": false,
+      "multiHit": true,
+      "light": "XL",
+      "noLightGlow": true,
+      "attack": {
+        "type": "MEDIUM",
+        "element": "WAVE",
+        "reverse": false,
+        "status": 2.5,
+        "guardable": "",
+        "skillBonus": "",
+        "limiter": ""
+      },
+      "timeBoni": null,
+      "behaviors": [],
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "sheet": {
+              "src": "media/entity/effects/wave.png",
+              "xCount": 5,
+              "offX": 0,
+              "offY": 224,
+              "width": 80,
+              "height": 80
+            },
+            "renderMode": "lighter",
+            "time": 0.033,
+            "repeat": true,
+            "frames": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              12
+            ]
+          }
+        ]
+      },
+      "type": "BALL"
+    },
+    "waveFallBomb3": {
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "shapeType": "Y_FLAT",
+            "offset": {
+              "x": 0,
+              "y": 8,
+              "z": 0
+            },
+            "sheet": {
+              "src": "media/entity/effects/lighter-particle.png",
+              "offX": 0,
+              "offY": 192,
+              "width": 48,
+              "height": 48
+            },
+            "renderMode": "lighter",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "conditions": [
+            {
+              "min": 2,
+              "type": "HP_BREAK_GLOBAL"
+            }
+          ],
+          "withElse": false,
+          "type": "COMBAT_IF",
+          "thenStep": [
+            {
+              "entityAttrib": "turretPos1",
+              "selectBy": "SELF_DISTANCE",
+              "type": "SET_ATTRIB_CLOSEST_ENTITY",
+              "entities": [
+                {
+                  "global": true,
+                  "name": "turretPos1"
+                }
+              ]
+            },
+            {
+              "entityAttrib": "turretPos2",
+              "selectBy": "SELF_DISTANCE",
+              "type": "SET_ATTRIB_CLOSEST_ENTITY",
+              "entities": [
+                {
+                  "global": true,
+                  "name": "turretPos2"
+                }
+              ]
+            },
+            {
+              "entityAttrib": "turretPos3",
+              "selectBy": "SELF_DISTANCE",
+              "type": "SET_ATTRIB_CLOSEST_ENTITY",
+              "entities": [
+                {
+                  "global": true,
+                  "name": "turretPos3"
+                }
+              ]
+            },
+            {
+              "entityAttrib": "turretPos4",
+              "selectBy": "TSELF_DISTANCE",
+              "type": "SET_ATTRIB_CLOSEST_ENTITY",
+              "entities": [
+                {
+                  "global": true,
+                  "name": "turretPos4"
+                }
+              ]
+            },
+            {
+              "attribName": "id",
+              "changeType": "add",
+              "changeConnected": "PROXY_OWNER",
+              "type": "SET_ATTRIB_NUMBER",
+              "value": 1
+            }, {
+              "attribName": "id",
+              "changeType": "set",
+              "type": "SET_ATTRIB_NUMBER",
+              "value": {
+                  "varName": "entity.ownerAttrib.id"
+              }
+            }, {
+              "condition": "entity.attrib.id == 1",
+              "withElse": false,
+              "type": "IF",
+              "thenStep": [
+                {
+                  "kind": "ATTRIB_ENTITY",
+                  "key": "turretPos1",
+                  "type": "SET_TEMP_TARGET"
+                }
+              ]
+            }, {
+              "condition": "entity.attrib.id == 2",
+              "withElse": false,
+              "type": "IF",
+              "thenStep": [
+                {
+                  "kind": "ATTRIB_ENTITY",
+                  "key": "turretPos2",
+                  "type": "SET_TEMP_TARGET"
+                }
+              ]
+            }, {
+              "condition": "entity.attrib.id == 3",
+              "withElse": false,
+              "type": "IF",
+              "thenStep": [
+                {
+                  "kind": "ATTRIB_ENTITY",
+                  "key": "turretPos3",
+                  "type": "SET_TEMP_TARGET"
+                }
+              ]
+            }, {
+              "condition": "entity.attrib.id == 4",
+              "withElse": false,
+              "type": "IF",
+              "thenStep": [
+                {
+                  "kind": "ATTRIB_ENTITY",
+                  "key": "turretPos4",
+                  "type": "SET_TEMP_TARGET"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "duration": -1,
+          "align": "BASE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.whale-boss",
+            "name": "crosshair"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "target": "PROXY_OWNER",
+          "align": "FACE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleShoot"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleBombTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "value": 2,
+          "type": "SET_Z_GRAVITY_FACTOR"
+        },
+        {
+          "value": 900,
+          "type": "SET_Z_VEL"
+        },
+        {
+          "value": 400,
+          "type": "SET_SPEED"
+        },
+        {
+          "value": false,
+          "immediately": true,
+          "type": "FACE_TO_TARGET"
+        },
+        {
+          "time": 0.1,
+          "stopBeforeEdge": false,
+          "type": "MOVE_FORWARD"
+        },
+        {
+          "stopType": "LANDED",
+          "stopBeforeTime": 0.3,
+          "distance": 0,
+          "rotateSpeed": 0.25,
+          "adjustSpeedMax": 1500,
+          "missileMode": 0,
+          "cancelIfBelowFall": false,
+          "type": "JUMP_TARGET_MOVEMENT"
+        },
+        {
+          "value": 0,
+          "type": "SET_AIR_FRICTION"
+        },
+        {
+          "type": "WAIT_UNTIL_ON_GROUND"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 48,
+          "yScale": 0,
+          "zHeight": 0,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 16,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": false,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "HEAVY",
+            "element": "WAVE",
+            "damageFactor": 1.25,
+            "fly": "MASSIVE",
+            "reverse": false,
+            "status": 3,
+            "guardable": "FROM_ABOVE",
+            "skillBonus": "",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleBombXplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        }, {
+            "align": "BOTTOM",
+            "dir": {
+                "x": 0,
+                "y": 1
+            },
+            "centralAngle": 1,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "duration": 0.5,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "offsetArea": {
+                "x": 0,
+                "y": 0
+            },
+            "circularArea": true,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SPAWN_ENEMIES",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "count": 1,
+            "enemyInfo": {
+                "group": "",
+                "party": "",
+                "targetOnSpawn": true,
+                "level": 80,
+                "type": "trial.whale-turret",
+                "attribs": {}
+            }
+        }, {
+          "time": 0.2,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 8,
+        "y": 8,
+        "z": 16
+      },
+      "config": {
+        "collType": "PROJECTILE",
+        "zGravityFactor": 1,
+        "shadow": 48
+      },
+      "type": "GENERIC"
     },
     "waveFallBomb": {
       "animation": {
@@ -1226,7 +1828,7 @@
           "stopType": "LANDED",
           "stopBeforeTime": 0.3,
           "distance": 0,
-          "rotateSpeed": 0.5,
+          "rotateSpeed": 0.25,
           "adjustSpeedMax": 700,
           "missileMode": 0,
           "cancelIfBelowFall": false,
@@ -1262,7 +1864,7 @@
           "attack": {
             "type": "HEAVY",
             "element": "WAVE",
-            "damageFactor": 0.5,
+            "damageFactor": 1.25,
             "fly": "MASSIVE",
             "reverse": false,
             "status": 3,
@@ -1318,6 +1920,936 @@
       },
       "type": "GENERIC"
     },
+    "waveFallBomb2": {
+      "animation": {
+        "SUB": [
+          {
+            "name": "default",
+            "shapeType": "Y_FLAT",
+            "offset": {
+              "x": 0,
+              "y": 8,
+              "z": 0
+            },
+            "sheet": {
+              "src": "media/entity/effects/lighter-particle.png",
+              "offX": 0,
+              "offY": 192,
+              "width": 48,
+              "height": 48
+            },
+            "renderMode": "lighter",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [
+              0
+            ]
+          }
+        ]
+      },
+      "copyOwnerAnims": false,
+      "breakType": "NEVER",
+      "action": [
+        {
+          "duration": -1,
+          "align": "BASE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.whale-boss",
+            "name": "crosshair"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "target": "PROXY_OWNER",
+          "align": "FACE",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleShoot"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleBombTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "value": 2,
+          "type": "SET_Z_GRAVITY_FACTOR"
+        },
+        {
+          "value": 900,
+          "type": "SET_Z_VEL"
+        },
+        {
+          "value": 200,
+          "type": "SET_SPEED"
+        },
+        {
+          "time": 0.1,
+          "stopBeforeEdge": false,
+          "type": "MOVE_FORWARD"
+        },
+        {
+          "value": 0,
+          "type": "SET_AIR_FRICTION"
+        },
+        {
+          "type": "WAIT_UNTIL_ON_GROUND"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 48,
+          "yScale": 0,
+          "zHeight": 0,
+          "centralAngle": 1,
+          "duration": 0.2,
+          "expandRadius": 16,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": false,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "HEAVY",
+            "element": "WAVE",
+            "damageFactor": 1.5,
+            "fly": "MASSIVE",
+            "reverse": false,
+            "status": 3,
+            "guardable": "FROM_ABOVE",
+            "skillBonus": "",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleBombXplode"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 8,
+        "y": 8,
+        "z": 16
+      },
+      "config": {
+        "collType": "PROJECTILE",
+        "zGravityFactor": 1,
+        "shadow": 48
+      },
+      "type": "GENERIC"
+    },
+    "whaleJumpDummy": {
+      "copyOwnerAnims": true,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "specials.master",
+            "name": "waveDummyAura"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "radius": 96,
+          "yScale": 0,
+          "zHeight": 16,
+          "centralAngle": 0,
+          "duration": 0.4,
+          "expandRadius": 0,
+          "alwaysFull": true,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "rectangular": false,
+          "repeat": false,
+          "uniformHitDir": false,
+          "fixPos": false,
+          "checkCollision": false,
+          "type": "CIRCLE_ATTACK",
+          "attack": {
+            "type": "MASSIVE",
+            "element": "WAVE",
+            "fly": "MASSIVE+",
+            "reverse": false,
+            "damageFactor": 1.6,
+            "status": 3,
+            "guardable": "NEVER",
+            "hitInvincible": true,
+            "skillBonus": "",
+            "limiter": ""
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0.5,
+          "align": "BOTTOM",
+          "rotateFace": 2,
+          "flipLeftFace": true,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleJumpOut"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": 0.7,
+          "align": "BOTTOM",
+          "rotateFace": 2,
+          "flipLeftFace": true,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleJumpOutExtra"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 32
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 2,
+          "flipLeftFace": true,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "fixPos": false,
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleJumping"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 32
+          }
+        },
+        {
+          "offsetX": 0,
+          "offsetY": -64,
+          "speed": "FAST",
+          "transition": "EASE_IN_OUT",
+          "wait": false,
+          "waitSkip": 0,
+          "zoom": 1,
+          "focusType": "KEEP_TARGET_IN_SCREEN",
+          "type": "FOCUS_CAMERA"
+        },
+        {
+          "zoomType": "LIGHT",
+          "fadeIn": 0,
+          "duration": 0.5,
+          "fadeOut": 0.5,
+          "type": "SET_ZOOM_BLUR"
+        },
+        {
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "jump"
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        },
+        {
+          "type": "WAIT_UNTIL_ANIM_LOOP_END"
+        },
+        {
+          "speed": "NORMAL",
+          "transition": "EASE_IN_OUT",
+          "wait": false,
+          "waitSkip": 0,
+          "type": "RESET_CAMERA"
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "group": "trail",
+          "partName": "head",
+          "fixPos": false,
+          "spriteFilter": [
+            3
+          ],
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleFallTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "group": "trail",
+          "partName": "torso1",
+          "fixPos": false,
+          "spriteFilter": [
+            2,
+            4
+          ],
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleFallTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "duration": -1,
+          "align": "BOTTOM",
+          "rotateFace": 0,
+          "flipLeftFace": false,
+          "wait": false,
+          "waitSkip": 0,
+          "actionDetached": false,
+          "group": "trail",
+          "partName": "torso2",
+          "fixPos": false,
+          "spriteFilter": [
+            3
+          ],
+          "type": "SHOW_EFFECT",
+          "effect": {
+            "sheet": "enemies.jungle",
+            "name": "whaleFallTrail"
+          },
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "wait": false,
+          "viaWalkConfig": false,
+          "type": "SHOW_ANIMATION",
+          "anim": "fall"
+        },
+        {
+          "time": 0.2,
+          "type": "WAIT"
+        },
+        {
+          "type": "WAIT_UNTIL_ANIM_LOOP_END"
+        },
+        {
+          "type": "CLEAR_EFFECTS"
+        },{
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.3,
+            "fadeOut": 0.3,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "align": "FACE",
+            "radius": 200,
+            "yScale": 0.5,
+            "zHeight": 16,
+            "centralAngle": 0,
+            "duration": 0.3,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "element": "WAVE",
+              "fly": "MASSIVE++",
+              "reverse": false,
+              "damageFactor": 2.4,
+              "status": 3,
+              "hitInvincible": true,
+              "guardable": "NEVER",
+              "skillBonus": "",
+              "limiter": ""
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": 0.5,
+            "align": "FACE",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleFallBoomWide"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": -0.033,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 16,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+              "x": -64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0.033,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 15,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBullet",
+            "offset": {
+              "x": -64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 15,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBullet",
+            "offset": {
+              "x": 64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0.066,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 16,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+              "x": 64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "duration": 0,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                  "sheet": "enemies.whale-boss-ex",
+                  "name": "whaleDiveNuke"
+                },
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "duration": 0,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                  "sheet": "enemies.whale-boss-ex",
+                  "name": "whaleDiveNuke"
+                },
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 4",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "value": "TRIGGER",
+            "type": "SET_COLL_TYPE"
+          },
+          {
+            "time": 0.4,
+            "type": "WAIT"
+          },
+          {
+            "value": "TRIGGER",
+            "partName": "block1",
+            "type": "SET_PART_COLL_TYPE"
+          },
+          {
+            "value": "TRIGGER",
+            "partName": "block2",
+            "type": "SET_PART_COLL_TYPE"
+          },
+          {
+            "value": "TRIGGER",
+            "partName": "block3",
+            "type": "SET_PART_COLL_TYPE"
+          },
+          {
+            "value": "TRIGGER",
+            "partName": "block4",
+            "type": "SET_PART_COLL_TYPE"
+          },
+          {
+            "value": "TRIGGER",
+            "partName": "block5",
+            "type": "SET_PART_COLL_TYPE"
+          },
+          {
+            "time": -1,
+            "type": "WAIT"
+          }
+      ],
+      "invisible": true,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 320,
+        "y": 96,
+        "z": 80
+      },
+      "config": {
+        "collType": "IGNORE",
+        "zGravityFactor": 1,
+        "shadow": 0
+      },
+      "type": "GENERIC"
+    },
     "waveBulletSmall": {
       "size": {
         "x": 16,
@@ -1332,7 +2864,7 @@
       "maxBounce": 0,
       "timer": 1,
       "trail": true,
-      "multiHit": false,
+      "multiHit": true,
       "light": "L",
       "noLightGlow": true,
       "attack": {
@@ -1340,8 +2872,7 @@
         "element": "WAVE",
         "damageFactor": 0.5,
         "reverse": false,
-        "status": 2,
-        "guardable": "",
+        "status": 10,
         "skillBonus": "",
         "limiter": ""
       },
@@ -1781,7 +3312,714 @@
     }
   },
   "actions": {
+    "RotationA": [
+      {
+        "condition": "entity.attrib.step == 0",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "PressureCall",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 1",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DashSingle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 2",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootQuick",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 3",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Dash",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 4",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 5",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootCircle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 6",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 7",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "JumpStart",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 8",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 9",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootCircle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 10",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 11",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Shoot",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 12",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 13",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DashSingle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 14",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 15",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootQuick",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 16",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DefenseBuff",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step >= 16",
+        "withElse": true,
+        "type": "IF",
+        "thenStep": [
+          {
+            "attribName": "step",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+          }
+        ],
+        "elseStep": [
+          {
+            "attribName": "step",
+            "changeType": "add",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      }
+    ],
+    "RotationB": [
+      {
+        "condition": "entity.attrib.step == 0",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DashSingle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 1",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DefenseBuff",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 2",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootTurrets",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 3",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 4",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Dash",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 5",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootCircle2",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 6",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 7",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "PressureCall",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 8",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 9",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Shoot",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 10",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Idle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 11",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "JumpStart",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 12",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 13",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DefenseBuff",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 14",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Dash",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 15",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "IdleLong",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step >= 16",
+        "withElse": true,
+        "type": "IF",
+        "thenStep": [
+          {
+            "attribName": "step",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+          }
+        ],
+        "elseStep": [
+          {
+            "attribName": "step",
+            "changeType": "add",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      }
+    ],
+    "RotationC": [
+      {
+        "condition": "entity.attrib.step == 0",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "PressureCall",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 1",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DefenseBuff",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 2",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Dash",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 3",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "TidalMoon",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 4",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootTurrets",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 5",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootCircle2",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 6",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "TidalMoon",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 7",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DefenseBuff",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 8",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "DashSingle",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 9",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "Shoot",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 10",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "ShootQuick",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step == 11",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "stateReset": false,
+            "actionName": "JumpStart",
+            "type": "DO_ENEMY_ACTION_INLINE"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.step >= 11",
+        "withElse": true,
+        "type": "IF",
+        "thenStep": [
+          {
+            "attribName": "step",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+          }
+        ],
+        "elseStep": [
+          {
+            "attribName": "step",
+            "changeType": "add",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      }
+    ],
     "Init": [
+      {
+        "attribName": "tidalCharge",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "attribName": "revenge",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "attribName": "def",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "attribName": "step",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "kind": "PLAYER",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "type": "SHOOT_PROXY",
+        "proxy": "pressureIncrementer",
+        "align": "BOTTOM",
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 128
+          }
+      },
+      {
+        "type": "SHOOT_PROXY",
+        "proxy": "pressureDecrementer1",
+        "align": "BOTTOM",
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 128
+          }
+      },
+      {
+        "type": "SHOOT_PROXY",
+        "proxy": "pressureDecrementer2",
+        "align": "BOTTOM",
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 128
+          }
+      },
+      {
+        "type": "SHOOT_PROXY",
+        "proxy": "pressureDecrementer3",
+        "align": "BOTTOM",
+         "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 128
+          }
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
       {
         "type": "REASSIGN_TARGET"
       },
@@ -1826,7 +4064,65 @@
         "distance": 480,
         "orthogonalDist": 0,
         "adjustTarget": true,
-        "maxTime": 0.2,
+        "maxTime": 0.5,
+        "forceTime": true,
+        "precise": false,
+        "type": "MOVE_TO_ATTRIB_ENTITY"
+      }
+    ],
+    "IdleLong": [
+      {
+        "value": 0.3,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 1
+      },
+      {
+        "attrib": "center",
+        "positionType": "HORIZONTAL_CLOSE",
+        "distance": 480,
+        "orthogonalDist": 0,
+        "adjustTarget": true,
+        "maxTime": 0.5,
+        "forceTime": true,
+        "precise": false,
+        "type": "MOVE_TO_ATTRIB_ENTITY"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "attrib": "center",
+        "positionType": "HORIZONTAL_CLOSE",
+        "distance": 480,
+        "orthogonalDist": 0,
+        "adjustTarget": true,
+        "maxTime": 1.5,
         "forceTime": true,
         "precise": false,
         "type": "MOVE_TO_ATTRIB_ENTITY"
@@ -1838,16 +4134,23 @@
         "type": "SET_RELATIVE_SPEED"
       },
       {
+        "value": 32,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
         "value": true,
         "type": "FACE_TO_TARGET"
       },
       {
-        "value": 64,
-        "type": "SET_FLY_HEIGHT"
+        "value": 0.95,
+        "type": "SET_DAMAGE_FACTOR"
       },
       {
-        "value": 0.025,
-        "type": "SET_DAMAGE_FACTOR"
+        "attribName": "redash",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
       },
       {
         "conditions": [
@@ -1862,7 +4165,7 @@
         "thenStep": [
           {
             "attribName": "redash",
-            "changeType": "set",
+            "changeType": "add",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
             "value": 1
@@ -1872,9 +4175,9 @@
       {
         "conditions": [
           {
+            "min": 2,
             "negated": false,
-            "type": "VAR_CONDITION",
-            "condition": "tmp.whapeRage"
+            "type": "HP_BREAK_GLOBAL"
           }
         ],
         "withElse": false,
@@ -1882,10 +4185,10 @@
         "thenStep": [
           {
             "attribName": "redash",
-            "changeType": "set",
+            "changeType": "add",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
-            "value": 2
+            "value": 1
           }
         ]
       },
@@ -1988,9 +4291,56 @@
           "reverse": false,
           "status": 3,
           "guardable": "NEVER",
+          "hitInvincible": true,
           "skillBonus": "",
           "limiter": ""
         },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "align": "FACE_BASE",
+        "centralAngle": 1,
+        "startAngle": -0.25,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 2,
+        "duration": 0.25,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": true,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBulletSlow",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "align": "FACE_BASE",
+        "centralAngle": 1,
+        "startAngle": -0.25,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 2,
+        "duration": 0.25,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": true,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBullet",
         "offset": {
           "x": 0,
           "y": 0,
@@ -2416,13 +4766,918 @@
         "type": "CLEAR_EFFECTS"
       },
       {
-        "value": 0.1,
+        "value": 0.95,
         "type": "SET_DAMAGE_FACTOR"
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "TeleportTurn"
+      }
+    ],
+    "DashSingle": [
+      {
+        "value": 1,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "value": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "value": 32,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "value": 0.95,
+        "type": "SET_DAMAGE_FACTOR"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.whapeJump",
+        "value": 1
+      },
+      {
+        "followUp": "dash",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "preDash"
+      },
+      {
+        "duration": -1,
+        "align": "FACE_BASE",
+        "rotateFace": 2,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "group": "boom",
+        "fixPos": false,
+        "spriteFilter": [
+          2
+        ],
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleDashBorder"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "attrib": "center",
+        "positionType": "HORIZONTAL_CLOSE",
+        "distance": 560,
+        "orthogonalDist": 0,
+        "adjustTarget": true,
+        "maxTime": 1,
+        "forceTime": true,
+        "precise": false,
+        "type": "MOVE_TO_ATTRIB_ENTITY"
+      },
+      {
+        "name": "redash",
+        "type": "LABEL"
+      },
+      {
+        "value": false,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "value": 4,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "align": "FACE_BASE",
+        "radius": 56,
+        "yScale": 0,
+        "zHeight": 0,
+        "centralAngle": 1,
+        "duration": 3,
+        "expandRadius": 0,
+        "alwaysFull": true,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "rectangular": false,
+        "repeat": true,
+        "uniformHitDir": false,
+        "fixPos": false,
+        "checkCollision": false,
+        "type": "CIRCLE_ATTACK",
+        "attack": {
+          "type": "MASSIVE",
+          "element": "WAVE",
+          "damageFactor": 1.5,
+          "fly": "MASSIVE++",
+          "reverse": false,
+          "status": 3,
+          "guardable": "NEVER",
+          "hitInvincible": true,
+          "skillBonus": "",
+          "limiter": ""
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "align": "FACE_BASE",
+        "centralAngle": 1,
+        "startAngle": -0.25,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 2,
+        "duration": 0.25,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": true,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBulletSlow",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "align": "FACE_BASE",
+        "centralAngle": 1,
+        "startAngle": -0.25,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 2,
+        "duration": 0.25,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": true,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBullet",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "group": "trail",
+        "partName": "torso1",
+        "fixPos": false,
+        "spriteFilter": [
+          2,
+          3
+        ],
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleDash"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "group": "trail",
+        "partName": "torso2",
+        "fixPos": false,
+        "spriteFilter": [
+          2
+        ],
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleDash"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "zoomType": "LIGHT",
+        "fadeIn": 0.2,
+        "duration": 0.8,
+        "fadeOut": 0.2,
+        "type": "SET_ZOOM_BLUR"
+      },
+      {
+        "conditions": [
+          {
+            "min": 2,
+            "negated": false,
+            "type": "HP_BREAK_GLOBAL"
+          },
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "entity.attrib.redash"
+          },
+          {
+            "negated": false,
+            "type": "VAR_CONDITION",
+            "condition": "!tmp.whapeRage"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.whapeBold",
+            "value": 1
+          }
+        ]
+      },
+
+      {
+        "min": 0,
+        "max": 0,
+        "maxTime": 1.2,
+        "forceTime": true,
+        "rotateSpeed": 0.05,
+        "stopBeforeEdge": false,
+        "type": "MOVE_TO_DISTANCE"
+      },
+      {
+        "type": "STOP_REPEATING_FORCE"
+      },
+      {
+        "group": "boom",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "value": 0.25,
+        "type": "SET_AIR_FRICTION"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "postDash"
+      },
+      {
+        "time": 0.3,
+        "type": "WAIT"
+      },
+      {
+        "group": "trail",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "value": 0.95,
+        "type": "SET_DAMAGE_FACTOR"
+      },
+      {
+        "noStateReset": true,
+        "type": "DO_ENEMY_ACTION_INLINE",
+        "actionName": "TeleportTurn"
+      }
+    ],
+    "ShootTurrets": [
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretHealers",
+        "value": 0
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "attribName": "id",
+        "changeType": "set",
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "duration": 0.5,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleShootCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 0,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 4,
+        "duration": 2,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb3",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      }
+    ],
+    "ShootQuick": [
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "duration": 0.5,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleShootCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "withElse": true,
+        "type": "IF",
+        "condition": "tmp.whapeRage",
+        "thenStep": [
+          {
+            "align": "FACE",
+            "centralAngle": 0,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 5,
+            "duration": 2.6,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveFallBomb",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          }
+        ],
+        "elseStep": [
+          {
+            "conditions": [
+              {
+                "min": 0,
+                "max": 0,
+                "negated": false,
+                "type": "HP_BREAK_GLOBAL"
+              }
+            ],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [
+              {
+                "align": "FACE",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count":5,
+                "duration": 4,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "time": 4,
+                "type": "WAIT"
+              }
+            ]
+          },
+          {
+            "conditions": [
+              {
+                "min": 1,
+                "max": 1,
+                "negated": false,
+                "type": "HP_BREAK_GLOBAL"
+              }
+            ],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [
+              {
+                "align": "FACE",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 5,
+                "duration": 3.2,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "time": 3.2,
+                "type": "WAIT"
+              }
+            ]
+          },
+          {
+            "conditions": [
+              {
+                "min": 2,
+                "max": 2,
+                "negated": false,
+                "type": "HP_BREAK_GLOBAL"
+              }
+            ],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [
+              {
+                "align": "FACE",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 5,
+                "duration": 2.5,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb",
+                "offset": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "time": 2.5,
+                "type": "WAIT"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "time": 2,
+        "aggroTime": 1,
+        "type": "WAIT"
+      }
+    ],
+    "ShootCircle": [
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "duration": 2,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleShootCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 1
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "duration": 0.5,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleSubCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 12,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "startDist": 32,
+        "random": false,
+        "count": 15,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "startDist": 64,
+        "random": false,
+        "count": 18,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 4,
+        "aggroTime": 3,
+        "type": "WAIT"
+      }
+    ],
+    "ShootCircle2": [
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "duration": 2,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleShootCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 1
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "duration": 0.5,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleSubCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 12,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "startDist": 32,
+        "random": false,
+        "count": 15,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "startDist": 64,
+        "random": false,
+        "count": 18,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveFallBomb2",
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 2,
+        "aggroTime": 1.5,
+        "type": "WAIT"
+      },
+      {
+        "stateReset": false,
+        "actionName": "ShootQuick",
+        "type": "DO_ENEMY_ACTION_INLINE"
       }
     ],
     "Shoot": [
@@ -2449,7 +5704,7 @@
         "type": "CLEAR_TEMP_TARGET"
       },
       {
-        "value": 0.025,
+        "value": 0.95,
         "type": "SET_DAMAGE_FACTOR"
       },
       {
@@ -2472,13 +5727,8 @@
         "type": "WAIT"
       },
       {
-        "value": 1,
+        "value": 0.75,
         "type": "SET_RELATIVE_SPEED"
-      },
-      {
-        "value": 2,
-        "forwardToProxies": false,
-        "type": "SET_DAMAGE_CEILING"
       },
       {
         "align": "FACE_BASE",
@@ -2502,8 +5752,9 @@
           "element": "WAVE",
           "damageFactor": 0.5,
           "reverse": false,
-          "status": 3,
-          "guardable": "",
+          "status": 5,
+          "guardable": "NEVER",
+          "hitInvincible": true,
           "skillBonus": "",
           "limiter": ""
         },
@@ -2564,12 +5815,12 @@
           "x": 0,
           "y": 1
         },
-        "centralAngle": 0.1,
-        "angleVary": 0,
+        "centralAngle": 1,
+        "angleVary": 0.1,
         "startDistCollide": "NONE",
-        "random": true,
-        "count": 9,
-        "duration": 0.3,
+        "random": false,
+        "count": 180,
+        "duration": 6,
         "clockwise": false,
         "flipLeftFace": 0,
         "offsetArea": {
@@ -2594,12 +5845,12 @@
           "x": 0,
           "y": -1
         },
-        "centralAngle": 0.1,
-        "angleVary": 0,
+        "centralAngle": 1,
+        "angleVary": 0.1,
         "startDistCollide": "NONE",
-        "random": true,
-        "count": 9,
-        "duration": 0.3,
+        "random": false,
+        "count": 180,
+        "duration": 6,
         "clockwise": false,
         "flipLeftFace": 0,
         "offsetArea": {
@@ -2665,8 +5916,8 @@
                 "angleVary": 0,
                 "startDistCollide": "NONE",
                 "random": false,
-                "count": 2,
-                "duration": 1.5,
+                "count":4,
+                "duration": 2.8,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "circularArea": false,
@@ -2701,8 +5952,8 @@
                 "angleVary": 0,
                 "startDistCollide": "NONE",
                 "random": false,
-                "count": 3,
-                "duration": 2,
+                "count": 5,
+                "duration": 3.5,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "circularArea": false,
@@ -2723,7 +5974,7 @@
             "conditions": [
               {
                 "min": 2,
-                "max": 2,
+                "max": 3,
                 "negated": false,
                 "type": "HP_BREAK_GLOBAL"
               }
@@ -2737,8 +5988,8 @@
                 "angleVary": 0,
                 "startDistCollide": "NONE",
                 "random": false,
-                "count": 3,
-                "duration": 1.8,
+                "count": 6,
+                "duration": 4.2,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "circularArea": false,
@@ -2754,11 +6005,85 @@
                 }
               }
             ]
+          },
+          {
+            "conditions": [
+              {
+                "min": 3,
+                "max": 3,
+                "negated": false,
+                "type": "HP_BREAK_GLOBAL"
+              }
+            ],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [
+              {
+                "align": "BOTTOM",
+                "dir": {
+                  "x": 1,
+                  "y": 0
+                },
+                "centralAngle": 1,
+                "angleVary": 0.1,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 180,
+                "duration": 6,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "offsetArea": {
+                  "x": 64,
+                  "y": 4
+                },
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSmall",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 12
+                }
+              },
+              {
+                "align": "BOTTOM",
+                "dir": {
+                  "x": -1,
+                  "y": 0
+                },
+                "centralAngle": 1,
+                "angleVary": 0.1,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 180,
+                "duration": 6,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "offsetArea": {
+                  "x": 64,
+                  "y": 4
+                },
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSmall",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 12
+                }
+              }
+            ]
           }
         ]
       },
       {
-        "time": 3,
+        "time": 5,
         "stopBeforeEdge": false,
         "type": "MOVE_FORWARD"
       },
@@ -2792,16 +6117,23 @@
         "type": "CLEAR_EFFECTS"
       },
       {
-        "value": 0.1,
+        "value": 0.95,
         "type": "SET_DAMAGE_FACTOR"
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "TeleportTurn"
       }
     ],
     "JumpStart": [
+      {
+        "attribName": "revenge",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
       {
         "value": 2,
         "type": "SET_FLY_HEIGHT"
@@ -2854,7 +6186,7 @@
         "type": "MOVE_FORWARD"
       },
       {
-        "value": 0.025,
+        "value": 0.95,
         "type": "SET_DAMAGE_FACTOR"
       },
       {
@@ -3002,7 +6334,7 @@
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "Jump"
       }
     ],
@@ -3012,7 +6344,7 @@
         "changeType": "set",
         "proxyOwner": false,
         "type": "SET_ATTRIB_NUMBER",
-        "value": 1
+        "value": 2
       },
       {
         "conditions": [
@@ -3027,24 +6359,10 @@
         "thenStep": [
           {
             "attribName": "jump",
-            "changeType": "set",
+            "changeType": "add",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
-            "value": 2
-          }
-        ]
-      },
-      {
-        "withElse": false,
-        "type": "IF",
-        "condition": "tmp.whapeRage",
-        "thenStep": [
-          {
-            "attribName": "jump",
-            "changeType": "set",
-            "proxyOwner": false,
-            "type": "SET_ATTRIB_NUMBER",
-            "value": 2
+            "value": 1
           }
         ]
       },
@@ -3058,7 +6376,21 @@
             "changeType": "add",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
-            "value": 2
+            "value": 1
+          }
+        ]
+      },
+      {
+        "withElse": false,
+        "type": "IF",
+        "condition": "entity.attrib.tidalCharge > 0",
+        "thenStep": [
+          {
+            "attribName": "jump",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
           }
         ]
       },
@@ -3078,12 +6410,831 @@
         "type": "SET_RELATIVE_SPEED"
       },
       {
+          "type": "SELECT_RANDOM",
+          "options": [{
+              "0": " ",
+              "count": 2,
+              "weight": 1
+          }],
+          "0_0": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretCommand",
+            "value": 1
+          }],
+          "0_1": [
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretCommand",
+            "value": 2
+          }]
+      },
+      {
+        "conditions": [
+          {
+            "min": 1,
+            "negated": false,
+            "type": "HP_BREAK_GLOBAL"
+          },
+          {
+            "condition": "entity.attrib.jump == 0",
+            "negated": false,
+            "type": "VAR_CONDITION"
+          }
+        ],
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
+          {
+            "attrib": "center",
+            "positionType": "NORTH",
+            "distance": 120,
+            "orthogonalDist": 0,
+            "adjustTarget": false,
+            "maxTime": 1,
+            "forceTime": false,
+            "precise": false,
+            "saveToAttrib": "teleport",
+            "type": "MOVE_TO_ATTRIB_ENTITY"
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretCommand",
+            "value": 0
+          },
+          {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 2,
+            "flipLeftFace": true,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whalePreJump2"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+          },
+          {
+            "time": 0.7,
+            "type": "WAIT"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "searchType": "ENEMY_DIR",
+            "rotate": false,
+            "rotateSpeed": 3,
+            "type": "SET_CLOSEST_FACE",
+            "faces": [
+              "WEST",
+              "EAST"
+            ]
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "align": "BOTTOM",
+            "centralAngle": 0,
+            "startAngle": 0.5,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 1,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "whaleJumpDummy",
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "BOTTOM",
+            "radius": 96,
+            "yScale": 0,
+            "zHeight": 16,
+            "centralAngle": 0,
+            "duration": 0.4,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "element": "WAVE",
+              "fly": "MASSIVE+",
+              "reverse": false,
+              "damageFactor": 1.6,
+              "status": 3,
+              "guardable": "NEVER",
+              "hitInvincible": true,
+              "skillBonus": "",
+              "limiter": ""
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": 0.5,
+            "align": "BOTTOM",
+            "rotateFace": 2,
+            "flipLeftFace": true,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleJumpOut"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": 0.7,
+            "align": "BOTTOM",
+            "rotateFace": 2,
+            "flipLeftFace": true,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleJumpOutExtra"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 32
+            }
+          },
+          {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 2,
+            "flipLeftFace": true,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleJumping"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 32
+            }
+          },
+          {
+            "offsetX": 0,
+            "offsetY": -64,
+            "speed": "FAST",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "zoom": 1,
+            "focusType": "KEEP_TARGET_IN_SCREEN",
+            "type": "FOCUS_CAMERA"
+          },
+          {
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.5,
+            "fadeOut": 0.5,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "jump"
+          },
+          {
+            "time": 0.1,
+            "type": "WAIT"
+          },
+          {
+            "type": "WAIT_UNTIL_ANIM_LOOP_END"
+          },
+          {
+            "speed": "NORMAL",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "type": "RESET_CAMERA"
+          },
+          {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "partName": "head",
+            "fixPos": false,
+            "spriteFilter": [
+              3
+            ],
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleFallTrail"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "partName": "torso1",
+            "fixPos": false,
+            "spriteFilter": [
+              2,
+              4
+            ],
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleFallTrail"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "partName": "torso2",
+            "fixPos": false,
+            "spriteFilter": [
+              3
+            ],
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleFallTrail"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "fall"
+          },
+          {
+            "time": 0.2,
+            "type": "WAIT"
+          },
+          {
+            "type": "WAIT_UNTIL_ANIM_LOOP_END"
+          },
+          {
+            "type": "CLEAR_EFFECTS"
+          },
+          {
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.3,
+            "fadeOut": 0.3,
+            "type": "SET_ZOOM_BLUR"
+          },
+          {
+            "align": "FACE",
+            "radius": 200,
+            "yScale": 0.5,
+            "zHeight": 16,
+            "centralAngle": 0,
+            "duration": 0.3,
+            "expandRadius": 0,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": false,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+              "type": "MASSIVE",
+              "element": "WAVE",
+              "fly": "MASSIVE++",
+              "reverse": false,
+              "damageFactor": 2.4,
+              "status": 3,
+              "hitInvincible": true,
+              "guardable": "NEVER",
+              "skillBonus": "",
+              "limiter": ""
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "duration": 0.5,
+            "align": "FACE",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": true,
+            "type": "SHOW_EFFECT",
+            "effect": {
+              "sheet": "enemies.jungle",
+              "name": "whaleFallBoomWide"
+            },
+            "offset": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": -0.033,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 16,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+              "x": -64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0.033,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 15,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBullet",
+            "offset": {
+              "x": -64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 15,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBullet",
+            "offset": {
+              "x": 64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "align": "FACE",
+            "centralAngle": 1,
+            "startAngle": 0.066,
+            "angleVary": 0,
+            "startDistCollide": "NONE",
+            "random": false,
+            "count": 16,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveBulletSlow",
+            "offset": {
+              "x": 64,
+              "y": 0,
+              "z": 0
+            }
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "duration": 0,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                  "sheet": "enemies.whale-boss-ex",
+                  "name": "whaleDiveNuke"
+                },
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "duration": 0,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                  "sheet": "enemies.whale-boss-ex",
+                  "name": "whaleDiveNuke"
+                },
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "type": "DIRECT_HIT",
+                "selectType": "TRUE_TARGET",
+                "hitDir": "AWAY",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "align": "FACE",
+                "attack": {
+                  "type": "BREAK",
+                  "fly": "MASSIVE+++",
+                  "damageFactor": 3.6,
+                  "status": 100,
+                  "element": "WAVE",
+                  "spFactor": 0,
+                  "stunSteps": [],
+                  "guardable": "NEVER",
+                  "hitInvincible": true,
+                  "noIronStance": true,
+                  "skillBonus": "MELEE_DMG"
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 9,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 4",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": 64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "condition": "entity.attrib.tidalCharge >= 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "time": 0.3,
+                "type": "WAIT"
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              },
+              {
+                "align": "FACE",
+                "centralAngle": 1,
+                "startAngle": 0,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                  "x": -64,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            ]
+          },
+          {
+            "time": 0.2,
+            "type": "WAIT"
+          },
+          {
+            "name": "end",
+            "type": "GOTO_LABEL"
+          }
+        ]
+      },
+      {
         "min": 0,
         "max": 64,
         "maxTime": 1.5,
         "forceTime": false,
         "stopBeforeEdge": false,
         "type": "MOVE_TO_DISTANCE"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
       },
       {
         "type": "CLEAR_EFFECTS"
@@ -3161,8 +7312,10 @@
           "element": "WAVE",
           "fly": "MASSIVE+",
           "reverse": false,
+          "damageFactor": 1.6,
           "status": 3,
           "guardable": "NEVER",
+          "hitInvincible": true,
           "skillBonus": "",
           "limiter": ""
         },
@@ -3272,8 +7425,13 @@
       },
       {
         "withElse": false,
-        "type": "IF",
-        "condition": "tmp.whapeRage",
+        "type": "COMBAT_IF",
+        "conditions": [
+          {
+            "min":2,
+            "type":"HP_BREAK_GLOBAL"
+          }
+        ],
         "thenStep": [
           {
             "value": -1,
@@ -3538,7 +7696,9 @@
           "element": "WAVE",
           "fly": "MASSIVE++",
           "reverse": false,
+          "damageFactor": 2.4,
           "status": 3,
+          "hitInvincible": true,
           "guardable": "NEVER",
           "skillBonus": "",
           "limiter": ""
@@ -3572,6 +7732,29 @@
       {
         "time": 0.3,
         "type": "WAIT"
+      },
+      {
+        "align": "FACE",
+        "centralAngle": 1,
+        "startAngle": -0.033,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 16,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBulletSlow",
+        "offset": {
+          "x": -64,
+          "y": 0,
+          "z": 0
+        }
       },
       {
         "align": "FACE",
@@ -3620,8 +7803,35 @@
         }
       },
       {
+        "align": "FACE",
+        "centralAngle": 1,
+        "startAngle": 0.066,
+        "angleVary": 0,
+        "startDistCollide": "NONE",
+        "random": false,
+        "count": 16,
+        "duration": 0,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "circularArea": false,
+        "uniformDir": 0,
+        "delay": 0,
+        "repeat": false,
+        "type": "SHOOT_PROXY_RANGE",
+        "proxy": "waveBulletSlow",
+        "offset": {
+          "x": 64,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
         "time": 0.2,
         "type": "WAIT"
+      },
+      {
+        "name": "end",
+        "type": "LABEL"
       },
       {
         "value": 5,
@@ -3736,7 +7946,7 @@
         "type": "SET_INVINCIBLE"
       },
       {
-        "value": 0.1,
+        "value": 0.95,
         "type": "SET_DAMAGE_FACTOR"
       },
       {
@@ -3794,7 +8004,7 @@
         "changeType": "set",
         "type": "CHANGE_VAR_NUMBER",
         "varName": "tmp.whapeJump",
-        "value": 3
+        "value": 0
       },
       {
         "size": 400,
@@ -3805,10 +8015,6 @@
         "viaWalkConfig": false,
         "type": "SHOW_ANIMATION",
         "anim": "idle"
-      },
-      {
-        "type": "WAIT_UNTIL",
-        "condition": "tmp.whapeRage || tmp.whapeJump == 0"
       },
       {
         "forceValue": 0,
@@ -3834,7 +8040,27 @@
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
+        "actionName": "TeleportTurn"
+      }
+    ],
+    "TeleportFallSave": [
+      {
+        "value": 300,
+        "type": "SET_Z_VEL"
+      },
+      {
+        "accel": 3,
+        "speed": 500,
+        "type": "SET_FLOAT_PARAMS"
+      },
+      {
+        "value": 48,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "noStateReset": true,
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "TeleportTurn"
       }
     ],
@@ -4037,7 +8263,7 @@
         "changeType": "set",
         "type": "CHANGE_VAR_NUMBER",
         "varName": "tmp.whapeJump",
-        "value": 3
+        "value": 0
       },
       {
         "time": 1,
@@ -5405,8 +9631,15 @@
         "anim": "weakToIdle"
       },
       {
+        "attribName": "revenge",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "TeleportTurn"
       }
     ],
@@ -5945,7 +10178,7 @@
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "Jump"
       }
     ],
@@ -6296,7 +10529,7 @@
       },
       {
         "noStateReset": true,
-        "type": "DO_ENEMY_ACTION",
+        "type": "DO_ENEMY_ACTION_INLINE",
         "actionName": "TeleportTurn"
       }
     ],
@@ -6325,42 +10558,1049 @@
     ],
     "HpBreak": [
       {
-        "withElse": true,
-        "type": "IF",
-        "condition": "tmp.whapeStabilize",
-        "thenStep": [
+        "conditions": [
           {
-            "changeType": "set",
-            "type": "CHANGE_VAR_NUMBER",
-            "varName": "tmp.whapeStabilize",
-            "value": 3
+            "max": 2,
+            "negated": false,
+            "type": "HP_BREAK_GLOBAL"
           }
         ],
-        "elseStep": [
+        "withElse": false,
+        "type": "COMBAT_IF",
+        "thenStep": [
           {
-            "forceValue": 1,
-            "type": "RESET_TRACKER",
-            "tracker": "weak2Regen"
-          },
-          {
-            "forceValue": 1,
-            "type": "RESET_TRACKER",
-            "tracker": "weakRegen"
-          },
-          {
-            "forceValue": 1,
-            "type": "RESET_TRACKER",
-            "tracker": "jumpReady"
+            "attribName": "step",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
           }
         ]
       }
     ],
     "PreKill": [
       {
+        "group": "pressure",
+        "type": "REMOVE_PROXIES"
+      },
+      {
         "changeType": "set",
         "type": "CHANGE_VAR_BOOL",
         "varName": "tmp.bossKillHit",
         "value": true
+      }
+    ],
+    "OverdriveStart": [
+      {
+        "text": {
+            "en_US": "Overdrive! STR up!",
+            "langUid": 3
+        },
+        "mode": "NO_LINE",
+        "color": "RED",
+        "actionDetached": true,
+        "hideOutsideOfScreen": false,
+        "time": 1,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "attribName": "overdrive",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": true,
+        "group": "rage",
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleRage"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 1000000,
+        "stats": ["ATTACK-3"],
+        "name": "overdrive",
+        "type": "ADD_ITEM_BUFF_PLUS"
+      }
+    ],
+    "BreakStart": [
+      {
+        "type": "CLEAR_AR_MSG"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "text": {
+            "en_US": "Break!",
+            "langUid": 3
+        },
+        "mode": "NO_LINE",
+        "color": "RED",
+        "actionDetached": true,
+        "hideOutsideOfScreen": false,
+        "time": 1,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "attribName": "overdrive",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 0
+      },
+      {
+        "group": "rage",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": true,
+        "group": "weak",
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleBreak"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.1,
+        "stats": ["ATTACK-3"],
+        "name": "overdrive",
+        "type": "ADD_ITEM_BUFF_PLUS"
+      }
+    ],
+    "DefenseBuff": [
+      {
+        "followUp": "dash",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "preDash"
+      },
+      {
+        "duration": 3,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "group": "weak",
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleDefCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "attribName": "def",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "condition": "entity.attrib.def == 1",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-1"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 2",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-2"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 3",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-3"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 4",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-4"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 5",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-5"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 6",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-6"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 7",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-7"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 8",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-8"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def == 9",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-9"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "condition": "entity.attrib.def >= 10",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "time": 1000000,
+            "stats": ["WHALE-DEFENSE-10"],
+            "name": "defense",
+            "type": "ADD_ITEM_BUFF_PLUS"
+          }
+        ]
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 3
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "idle"
+      },
+      {
+        "text": {
+            "en_US": "DEF up!",
+            "langUid": 3
+        },
+        "mode": "NO_LINE",
+        "color": "RED",
+        "actionDetached": true,
+        "hideOutsideOfScreen": false,
+        "time": 1,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      },
+      {
+        "condition": "tmp.turretHealers > 0",
+        "withElse": false,
+        "type": "IF",
+        "thenStep": [
+          {
+            "duration": 0,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "drops",
+                "name": "healing"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+          },
+          {
+            "name": "heal",
+            "type": "LABEL"
+          },
+          {
+            "changeType": "sub",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretHealers",
+            "value": 1
+          }, {
+            "value": 0.05,
+            "hideNumbers": false,
+            "type": "REGEN_HP"
+          },
+          {
+            "condition": "tmp.turretHealers > 0",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [
+              {
+                "name": "heal",
+                "type": "GOTO_LABEL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "time": 2,
+        "aggroTime": 1,
+        "type": "WAIT"
+      }
+    ],
+    "PressureCall": [
+      {
+        "followUp": "dash",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "preDash"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 2
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      },
+      {
+        "zoomType": "LIGHT",
+        "fadeIn": 0,
+        "duration": 2.5,
+        "fadeOut": 0.5,
+        "type": "SET_ZOOM_BLUR"
+      },
+      {
+        "volume": 0.8,
+        "speed": 0.9,
+        "variance": 0.2,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/boss/whale/whale-call.ogg"
+      },
+      {
+        "duration": 3,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleCall"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "strength": "RUN_ESCAPE",
+        "pull": false,
+        "radius": 200,
+        "fadeRadius": 48,
+        "minRadius": 0,
+        "zHeight": 6400,
+        "duration": 3,
+        "align": "BASE",
+        "type": "PUSH_PULL_FORCE"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "idle"
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      }
+    ],
+    "WeakSpotBreak": [
+      {
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "type": "RESET_CAMERA"
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "attribName": "step",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "value": 0.95,
+        "type": "SET_DAMAGE_FACTOR"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "WEAK_SPOT"
+      },
+      {
+        "type": "CLEAR_AR_MSG"
+      },
+      {
+        "volume": 0.8,
+        "variance": 0.2,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/boss/whale/whale-call.ogg"
+      },
+      {
+        "text": {
+          "en_US": "\\c[3]\\v[entity.attrib.tidalCharge]\/5\\c[0] Strength",
+          "langUid": 3
+        },
+        "mode": "NO_FILL",
+        "color": "RED",
+        "actionDetached": false,
+        "partName": "head",
+        "time": 2,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "damage"
+      },
+      {
+        "value": 8,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "type": "SET_WALK_ANIMS",
+        "config": "weak2"
+      },
+      {
+        "wait": true,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "damageToWeak"
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "wait": true,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "weakToIdle"
+      },
+      {
+        "type": "SET_WALK_ANIMS",
+        "config": "normal"
+      },
+      {
+        "noStateReset": true,
+        "type": "DO_ENEMY_ACTION_INLINE",
+        "actionName": "JumpStart"
+      }
+    ],
+    "TidalMoon": [
+      {
+        "value": 8,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "value": 0.4,
+        "type": "SET_INVINCIBLE"
+      },
+      {
+        "value": "MASSIVE",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "duration": 0.5,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleTeleportHide"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.4,
+        "type": "WAIT"
+      },
+      {
+        "attrib": "center",
+        "positionType": "NORTH",
+        "distance": 120,
+        "orthogonalDist": 0,
+        "adjustTarget": false,
+        "maxTime": 1,
+        "forceTime": false,
+        "precise": false,
+        "saveToAttrib": "teleport",
+        "type": "MOVE_TO_ATTRIB_ENTITY"
+      },
+      {
+        "offsetX": 0,
+        "offsetY": -96,
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "zoom": 1,
+        "focusType": "KEEP_TARGET_IN_SCREEN",
+        "type": "FOCUS_CAMERA"
+      },
+      {
+        "duration": 0,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "target2": "ATTRIB_POINT",
+        "target2Key": "teleport",
+        "target2Offset": {
+          "x": -48,
+          "y": 0,
+          "z": 0
+        },
+        "fixPos": true,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleTeleportTrail"
+        },
+        "offset": {
+          "x": 48,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": 0,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "target2": "ATTRIB_POINT",
+        "target2Key": "teleport",
+        "target2Offset": {
+          "x": 48,
+          "y": 0,
+          "z": 0
+        },
+        "fixPos": true,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleTeleportTrail"
+        },
+        "offset": {
+          "x": -48,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.1,
+        "type": "WAIT"
+      },
+      {
+        "value": true,
+        "type": "SET_SLIP_THROUGH"
+      },
+      {
+        "value": 0.1,
+        "type": "SET_DAMAGE_FACTOR"
+      },
+      {
+        "attrib": "teleport",
+        "type": "TELEPORT_TO_ATTRIB_POS"
+      },
+      {
+        "kind": "ATTRIB_ENTITY",
+        "key": "center",
+        "type": "SET_TEMP_TARGET"
+      },
+      {
+        "searchType": "ENEMY_DIR",
+        "rotate": false,
+        "rotateSpeed": 3,
+        "type": "SET_CLOSEST_FACE",
+        "faces": [
+          "WEST",
+          "EAST"
+        ]
+      },
+      {
+        "type": "CLEAR_TEMP_TARGET"
+      },
+      {
+        "speed": "SLOWEST",
+        "actionDetached": false,
+        "type": "REMOVE_PLAYER_CAMERA_TARGET"
+      },
+      {
+        "speed": "NORMAL",
+        "actionDetached": false,
+        "onlyAfterRemove": false,
+        "type": "ADD_PLAYER_CAMERA_TARGET"
+      },
+      {
+        "time": 0.4,
+        "type": "WAIT"
+      },
+      {
+        "value": false,
+        "type": "SET_SLIP_THROUGH"
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "duration": 0.5,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.jungle",
+          "name": "whaleTeleportShow"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.5,
+        "type": "WAIT"
+      },
+      {
+        "followUp": "dash",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "preDash"
+      },
+      {
+        "duration": 18,
+        "align": "TOP",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "tidalMoon"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 64
+        }
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 2
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "time": 2,
+        "type": "WAIT"
+      },
+      {
+        "text": {
+          "en_US": "Charging...",
+          "langUid": 3
+        },
+        "mode": "LINE_FILL",
+        "color": "RED",
+        "actionDetached": false,
+        "partName": "head",
+        "time": 15,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "type": "ENABLE_REACTION",
+        "reaction": "WEAK_SPOT"
+      },
+      {
+        "volume": 0.8,
+        "speed": 0.7,
+        "variance": 0.1,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/boss/whale/whale-call.ogg"
+      },
+      {
+        "zoomType": "LIGHT",
+        "fadeIn": 0,
+        "duration": 2.5,
+        "fadeOut": 0.5,
+        "type": "SET_ZOOM_BLUR"
+      },
+      {
+        "duration": 3,
+        "align": "FACE",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.whale-boss-ex",
+          "name": "whaleCall"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "strength": "RUN_ESCAPE",
+        "pull": false,
+        "radius": 200,
+        "fadeRadius": 48,
+        "minRadius": 0,
+        "zHeight": 6400,
+        "duration": 3,
+        "align": "BASE",
+        "type": "PUSH_PULL_FORCE"
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": true
+      },
+      {
+        "attribName": "tidalCharge",
+        "changeType": "set",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 2
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "speed": "NORMAL",
+        "transition": "EASE_IN_OUT",
+        "wait": false,
+        "waitSkip": 0,
+        "type": "RESET_CAMERA"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 1
+      },
+      {
+        "time": 1.5,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "time": 1.5,
+        "type": "WAIT"
+      },
+      {
+        "attribName": "tidalCharge",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 2
+      },
+      {
+        "time": 1,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "time": 2,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 1
+      },
+      {
+        "time": 1.5,
+        "type": "WAIT"
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_NUMBER",
+        "varName": "tmp.turretCommand",
+        "value": 0
+      },
+      {
+        "time": 1.5,
+        "type": "WAIT"
+      },
+      {
+        "attribName": "tidalCharge",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "time": 3,
+        "type": "WAIT"
+      },
+      {
+        "type": "DISABLE_REACTION",
+        "reaction": "WEAK_SPOT"
+      },
+      {
+        "value": 0.95,
+        "type": "SET_DAMAGE_FACTOR"
+      },
+      {
+        "text": {
+          "en_US": "\\c[3]Max\\c[0] Strength",
+          "langUid": 3
+        },
+        "mode": "NO_LINE",
+        "color": "RED",
+        "actionDetached": false,
+        "partName": "head",
+        "time": 2,
+        "type": "SHOW_AR_MSG"
+      },
+      {
+        "attribName": "tidalCharge",
+        "changeType": "add",
+        "proxyOwner": false,
+        "type": "SET_ATTRIB_NUMBER",
+        "value": 1
+      },
+      {
+        "name": "forceTick",
+        "type": "SET_ATTRIB_BOOL",
+        "value": false
+      },
+      {
+        "time": 2,
+        "type": "WAIT"
+      },
+      {
+        "stateReset": false,
+        "actionName": "JumpStart",
+        "type": "DO_ENEMY_ACTION_INLINE"
       }
     ]
   },
@@ -6438,6 +11678,53 @@
       "ignoreFailed": false,
       "type": "HIT_REACTION"
     },
+    "OVERDRIVE": {
+      "hitType": "REGULAR",
+      "preAction": "OverdriveStart",
+      "blockFurtherHits": false,
+      "attackType": "HEAVY",
+      "flyLevel": "MASSIVE",
+      "stunChange": "FORCE_STABLE",
+      "alignFace": false,
+      "dramaticEffect": "BREAK_BIG",
+      "conditions": [
+        {
+          "condition": "entity.attrib.overdrive == 0",
+          "type": "VAR_CONDITION"
+        },
+        {
+          "negated": false,
+          "type": "TRACKER_READY",
+          "name": "baseHits"
+        }
+      ],
+      "ignoreFailed": false,
+      "type": "HIT_REACTION"
+    },
+    "BREAK": {
+      "hitType": "REGULAR",
+      "preAction": "BreakStart",
+      "preSwitchState": "RAGE_WEAK",
+      "blockFurtherHits": false,
+      "attackType": "MASSIVE",
+      "flyLevel": "MASSIVE",
+      "stunChange": "FORCE_STUN",
+      "alignFace": false,
+      "dramaticEffect": "BREAK_BIG",
+      "conditions": [
+        {
+          "condition": "entity.attrib.overdrive == 1",
+          "type": "VAR_CONDITION"
+        },
+        {
+          "negated": false,
+          "type": "TRACKER_READY",
+          "name": "overdriveHits"
+        }
+      ],
+      "ignoreFailed": false,
+      "type": "HIT_REACTION"
+    },
     "KILL_HIT": {
       "hitType": "KILL_HIT",
       "preAction": "PreKill",
@@ -6457,10 +11744,42 @@
       "blockFurtherHits": false,
       "attackType": "MASSIVE",
       "flyLevel": "",
-      "stunChange": "FORCE_STUN",
+      "stunChange": "FORCE_STABLE",
       "alignFace": false,
       "dramaticEffect": "HP_BREAK_ZOOM",
       "conditions": [],
+      "ignoreFailed": false,
+      "type": "HIT_REACTION"
+    },
+    "FALL_SAVE": {
+      "action": "TeleportFallSave",
+      "hitType": "REGULAR",
+      "blockFurtherHits": false,
+      "attackType": "",
+      "flyLevel": "",
+      "stunChange": "FORCE_STUN",
+      "alignFace": false,
+      "dramaticEffect": "",
+      "conditions": [],
+      "ignoreFailed": false,
+      "type": "FALL"
+    },
+    "WEAK_SPOT": {
+      "hitType": "REGULAR",
+      "action": "WeakSpotBreak",
+      "blockFurtherHits": false,
+      "attackType": "MASSIVE",
+      "flyLevel": "LIGHT",
+      "stunChange": "FORCE_STUN",
+      "alignFace": false,
+      "dramaticEffect": "BREAK",
+      "conditions": [
+        {
+          "negated": false,
+          "type": "TRACKER_READY",
+          "name": "weakSpotHits"
+        }
+      ],
       "ignoreFailed": false,
       "type": "HIT_REACTION"
     }

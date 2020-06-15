@@ -1398,7 +1398,8 @@
             "type": "PUSH_PULL_FORCE"
         }, {
             "text": {
-                "en_US": "Charging..."
+                "en_US": "Charging...",
+                "ja_JP": "チャージ"
             },
             "mode": "LINE_FILL",
             "color": "RED",
