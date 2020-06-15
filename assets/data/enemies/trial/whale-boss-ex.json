@@ -6891,15 +6891,21 @@
             "actionName": "TeleportTurn"
         }],
         "TeleportFallSave": [{
-            "value": 300,
-            "type": "SET_Z_VEL"
-        }, {
-            "accel": 3,
-            "speed": 500,
-            "type": "SET_FLOAT_PARAMS"
+          "type": "REASSIGN_TARGET"
         }, {
             "value": 300,
             "type": "SET_FLY_HEIGHT"
+        }, {
+           "distance": 32,
+           "fixEntityZ": false,
+           "type": "WAIT_UNTIL_Z_DISTANCE"
+        }, {
+            "maxTime": 5,
+            "distance": 80,
+            "throwing": false,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
         }, {
             "time": 1,
             "type": "WAIT"
