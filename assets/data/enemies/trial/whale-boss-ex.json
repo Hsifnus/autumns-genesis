@@ -4810,7 +4810,7 @@
         }, {
             "time": 0.1,
             "type": "WAIT"
-        }d],
+        }],
         "Shoot": [{
             "value": 1,
             "type": "SET_RELATIVE_SPEED"
