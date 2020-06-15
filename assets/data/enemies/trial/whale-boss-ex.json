@@ -9062,7 +9062,7 @@
         }],
         "OverdriveStart": [{
             "text": {
-                "en_US": "Overdrive! STR up!",
+                "en_US": "Overdrive! ATK up!",
                 "langUid": 3
             },
             "mode": "NO_LINE",
