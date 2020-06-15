@@ -8077,9 +8077,6 @@
             "saveToAttrib": "teleport",
             "type": "MOVE_TO_ATTRIB_ENTITY"
         }, {
-            "attrib": "teleport",
-            "type": "TELEPORT_TO_ATTRIB_POS"
-        }, {
             "duration": 0,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -8142,6 +8139,9 @@
             "type": "SET_FLY_HEIGHT"
         }, {
             "attrib": "teleport",
+            "type": "TELEPORT_TO_ATTRIB_POS"
+        }, {
+            "attrib": "center",
             "type": "TELEPORT_TO_ATTRIB_POS"
         }, {
             "kind": "ATTRIB_ENTITY",
