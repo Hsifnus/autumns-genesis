@@ -4810,7 +4810,7 @@
         }, {
             "time": 0.1,
             "type": "WAIT"
-        }],
+        }d],
         "Shoot": [{
             "value": 1,
             "type": "SET_RELATIVE_SPEED"
@@ -6898,12 +6898,21 @@
             "speed": 500,
             "type": "SET_FLOAT_PARAMS"
         }, {
-            "value": 48,
+            "value": 300,
             "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 1,
+            "type": "WAIT"
         }, {
             "noStateReset": true,
             "type": "DO_ENEMY_ACTION_INLINE",
             "actionName": "TeleportTurn"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
         }],
         "TeleportTurn": [{
             "value": -1,
