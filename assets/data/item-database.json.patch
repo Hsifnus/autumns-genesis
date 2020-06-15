@@ -599,5 +599,43 @@
       }
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20004,
+      "customItem": "trade-whale",
+      "name": {
+        "en_US": "Levitating Fin",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A massive, wavy fin that proves mastery over the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s oppressive bulk.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "jungle.whale-boss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
 	"type": "EXIT"
 }]
