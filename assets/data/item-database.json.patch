@@ -602,7 +602,7 @@
   "type": "ADD_ARRAY_ELEMENT",
   "content":
     {
-      "order": 20004,
+      "order": 20005,
       "customItem": "trade-whale",
       "name": {
         "en_US": "Levitating Fin",
@@ -635,6 +635,94 @@
         "sheet": "",
         "name": null
       }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1005,
+      "customItem": "equip-ape",
+      "name": {
+        "en_US": "Ruyi Yingu Bang",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A cloud-summoning replica of the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 500000,
+      "level": 75,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          1.15,
+          0.85
+        ],
+        "attack": 75,
+        "focus": 94,
+        "defense": 60
+      },
+      "properties": {
+        "PERFECT_GUARD_WINDOW": 2.5,
+        "BREAK_DMG": 1.35,
+        "AIM_SPEED": 0.8,
+        "PHANTOM_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1006,
+      "customItem": "equip-whale",
+      "name": {
+        "en_US": "Weltflipper",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A massive, airy longsword crafted from \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 4,
+      "cost": 500000,
+      "level": 75,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          0.85,
+          1.15
+        ],
+        "hp": 472,
+        "attack": 124,
+        "defense": 100
+      },
+      "properties": {
+        "OVERHEAT_REDUCTION": 0.85,
+        "MELEE_DMG": 1.3,
+        "HP_REGEN": 1.15,
+        "BLOB_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true
     }
 },{
 	"type": "EXIT"
