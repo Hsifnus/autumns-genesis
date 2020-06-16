@@ -159,7 +159,7 @@
         },
         "DEFAULT": {
             "damageFactor": 0.95,
-            "enabledReactions": ["OVERDRIVE", "BREAK", "KILL_HIT", "HP_BREAK", "FALL_SAVE"],
+            "enabledReactions": ["OVERDRIVE", "BREAK", "KILL_HIT", "HP_BREAK", "FALL_SAVE", "GAUGE_UPDATE"],
             "choices": [{
                 "req": [{
                     "type": "!HAS_TARGET"
@@ -289,7 +289,7 @@
             "walkAnims": "weak2",
             "flyHeight": 0,
             "damageFactor": 1.4,
-            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE"],
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE", "GAUGE_UPDATE"],
             "annotate": {
                 "active": "NONE",
                 "passive": "WEAK",
@@ -8746,6 +8746,16 @@
             "type": "WAIT"
         }],
         "EndWeak1": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.modeOverdrive",
+            "value": 0
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.startBaseBar",
+            "value": true
+        }, {
             "group": "weak",
             "type": "CLEAR_EFFECTS"
         }, {
@@ -9604,6 +9614,16 @@
             "value": true
         }],
         "OverdriveStart": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.startOverdriveBar",
+            "value": true
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.endBaseBar",
+            "value": true
+        }, {
             "text": {
                 "en_US": "Overdrive! ATK up!",
                 "langUid": 3
@@ -9647,6 +9667,16 @@
             "type": "ADD_ITEM_BUFF_PLUS"
         }],
         "BreakStart": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.modeBase",
+            "value": 0
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.endOverdriveBar",
+            "value": true
+        }, {
             "type": "CLEAR_AR_MSG"
         }, {
             "changeType": "set",
@@ -10305,6 +10335,12 @@
             "type": "PLAY_SOUND",
             "sound": "media/sound/boss/whale/whale-call.ogg"
         }, {
+            "speed": "SLOWEST",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "type": "RESET_CAMERA"
+        }, {
             "zoomType": "LIGHT",
             "fadeIn": 0,
             "duration": 2.5,
@@ -10352,12 +10388,6 @@
         }, {
             "time": 3,
             "type": "WAIT"
-        }, {
-            "speed": "NORMAL",
-            "transition": "EASE_IN_OUT",
-            "wait": false,
-            "waitSkip": 0,
-            "type": "RESET_CAMERA"
         }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
@@ -10455,9 +10485,37 @@
             "stateReset": false,
             "actionName": "JumpStart",
             "type": "DO_ENEMY_ACTION_INLINE"
+        }],
+        "GaugeUpdate": [{
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.modeBase",
+            "value": {
+              "varName": "entity.tracker.baseHits.progress"
+            }
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.modeOverdrive",
+            "value": {
+              "varName": "entity.tracker.overdriveHits.progress"
+            }
         }]
     },
     "reactions": {
+        "GAUGE_UPDATE": {
+            "hitType": "REGULAR",
+            "preAction": "GaugeUpdate",
+            "blockFurtherHits": false,
+            "attackType": "",
+            "flyLevel": "",
+            "stunChange": "NO_CHANGE",
+            "alignFace": false,
+            "dramaticEffect": "",
+            "conditions": [],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
         "SHOCK_BREAK": {
             "hitType": "REGULAR",
             "preSwitchState": "WEAK1",
@@ -10582,7 +10640,7 @@
             "blockFurtherHits": false,
             "attackType": "MASSIVE",
             "flyLevel": "",
-            "stunChange": "FORCE_STABLE",
+            "stunChange": "NO_CHANGE",
             "alignFace": false,
             "dramaticEffect": "HP_BREAK_ZOOM",
             "conditions": [],

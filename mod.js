@@ -28,6 +28,8 @@ import "./js/game/feature/combat/manual-combatant-kill-dead.js";
 
 import "./js/game/feature/combat/true-target.js";
 
+import "./js/game/feature/combat/model/enemy-tracker-access.js";
+
 import "./js/game/feature/combat/model/stun-status.js";
 
 import "./js/game/feature/font/font-system-override.js";
