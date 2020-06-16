@@ -129,10 +129,12 @@
         },
         "baseHits": {
             "target": 0.2,
+            "showWeakness": false,
             "type": "HP"
         },
         "overdriveHits": {
             "target": 0.25,
+            "showWeakness": false,
             "type": "HP"
         },
         "weakSpotHits": {
@@ -8753,6 +8755,11 @@
         }, {
             "changeType": "set",
             "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.endBreakBar",
+            "value": true
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.startBaseBar",
             "value": true
         }, {
@@ -9614,6 +9621,22 @@
             "value": true
         }],
         "OverdriveStart": [{
+            "volume": 1.5,
+            "speed": 2,
+            "variance": 0.1,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/water-explode.ogg"
+        }, {
+            "volume": 1.3,
+            "speed": 2,
+            "variance": 0.1,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/scenes/swoosh-rise-long.ogg"
+        }, {
             "changeType": "set",
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.startOverdriveBar",
@@ -9667,6 +9690,28 @@
             "type": "ADD_ITEM_BUFF_PLUS"
         }],
         "BreakStart": [{
+            "volume": 1.1,
+            "speed": 2,
+            "variance": 0,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/scenes/jumping-through-rooms.ogg"
+        }, {
+          "volume": 1,
+          "global": false,
+          "loop": false,
+          "speed": 0.5,
+          "sound": "media/sound/battle/thud-5.ogg",
+          "type": "PLAY_SOUND"
+        }, {
+          "volume": 1,
+          "global": false,
+          "loop": false,
+          "speed": 0.5,
+          "sound": "media/sound/battle/explosion-5.ogg",
+          "type": "PLAY_SOUND"
+        }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.modeBase",
@@ -9675,6 +9720,11 @@
             "changeType": "set",
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.endOverdriveBar",
+            "value": true
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.startBreakBar",
             "value": true
         }, {
             "type": "CLEAR_AR_MSG"
@@ -10588,7 +10638,7 @@
             "flyLevel": "MASSIVE",
             "stunChange": "FORCE_STABLE",
             "alignFace": false,
-            "dramaticEffect": "BREAK_BIG",
+            "dramaticEffect": "HP_BREAK_ZOOM",
             "conditions": [{
                 "condition": "entity.attrib.overdrive == 0",
                 "type": "VAR_CONDITION"
@@ -10642,7 +10692,7 @@
             "flyLevel": "",
             "stunChange": "NO_CHANGE",
             "alignFace": false,
-            "dramaticEffect": "HP_BREAK_ZOOM",
+            "dramaticEffect": "",
             "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"

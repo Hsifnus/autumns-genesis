@@ -12,7 +12,7 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
 	sc.ENEMY_TRACKER.HIT.inject({
 		target: 0,
 		onConditionEval: function(b, a, d, c) {
-			this,target = this._getTarget(b);
+			this.target = this._getTarget(b);
 			return this.parent(b, a, d, c);
 		},
 		onVarAccess: function(b, a) {
@@ -23,9 +23,16 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
 	});
 	sc.ENEMY_TRACKER.HP.inject({
 		progress: 0,
+		showWeakness: true,
+		init: function(b, a) {
+            this.parent(b, a);
+            if (a.showWeakness !== undefined)
+            	this.showWeakness = a.showWeakness;
+        },
 		onConditionEval: function(b, a, d, c) {
 			var result = this.parent(b, a, d, c);
 			this.progress = this.hpReduced / b.params.getStat("hp") / this.target;
+			d.weakness = this.showWeakness ? this.progress : 0;
 			return result;
 		},
 		onVarAccess: function(b, a) {

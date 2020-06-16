@@ -2002,6 +2002,12 @@
 	            "type": "CHANGE_VAR_BOOL",
 	            "varName": "tmp.startBaseBar",
 	            "value": true
+	          },
+	          {
+	            "changeType": "set",
+	            "type": "CHANGE_VAR_NUMBER",
+	            "varName": "tmp.modeBreak",
+	            "value": 0
 	          }
             ]
           },
@@ -2075,6 +2081,46 @@
       "y": 452,
       "level": 1,
       "settings": {
+        "name": "startBreakBar",
+        "eventType": "PARALLEL",
+        "endCondition": "false",
+        "event": [
+          {
+            "name": "breakBar",
+            "type": "ADD_GUI",
+            "guiInfo": {
+              "type": "BarWidget",
+              "settings": {
+                "text": {
+                  "en_US": "Break"
+                },
+                "maxValue": 1,
+                "barType": "FILL",
+                "color": "BLUE",
+                "position": 1,
+                "splits": [],
+                "variable": "tmp.dummy"
+              }
+            }
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.startBreakBar",
+            "value": false
+          }
+        ],
+        "triggerType": "ALWAYS",
+        "mapId": 34,
+        "startCondition": "tmp.startBreakBar"
+      }
+    },
+    {
+      "type": "EventTrigger",
+      "x": 904,
+      "y": 452,
+      "level": 1,
+      "settings": {
         "name": "startBaseBar",
         "eventType": "PARALLEL",
         "endCondition": "false",
@@ -2096,6 +2142,12 @@
                 "variable": "tmp.modeBase"
               }
             }
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.modeBase",
+            "value": 0
           },
           {
             "changeType": "set",
@@ -2147,6 +2199,32 @@
         "triggerType": "ALWAYS",
         "mapId": 34,
         "startCondition": "tmp.startOverdriveBar"
+      }
+    },
+    {
+      "type": "EventTrigger",
+      "x": 904,
+      "y": 452,
+      "level": 1,
+      "settings": {
+        "name": "endBreakBar",
+        "eventType": "PARALLEL",
+        "endCondition": "false",
+        "event": [
+          {
+            "name": "breakBar",
+            "type": "REMOVE_GUI"
+          },
+          {
+            "changeType": "set",
+            "type": "CHANGE_VAR_BOOL",
+            "varName": "tmp.endBaseBar",
+            "value": false
+          }
+        ],
+        "triggerType": "ALWAYS",
+        "mapId": 34,
+        "startCondition": "tmp.endBreakBar"
       }
     },
     {
@@ -2330,6 +2408,18 @@
           {
             "type": "PAUSE_TIMER",
             "name": "arenaTimerReal"
+          },
+          {
+            "name": "breakBar",
+            "type": "REMOVE_GUI"
+          },
+          {
+            "name": "baseBar",
+            "type": "REMOVE_GUI"
+          },
+          {
+            "name": "overdriveBar",
+            "type": "REMOVE_GUI"
           },
           {
             "type": "PAUSE_TIMER",
