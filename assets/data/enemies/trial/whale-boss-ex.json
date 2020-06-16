@@ -3362,6 +3362,14 @@
             "type": "WAIT"
         }],
         "Init": [{
+            "entityAttrib": "turretPos4",
+            "selectBy": "SELF_DISTANCE",
+            "type": "SET_ATTRIB_CLOSEST_ENTITY",
+            "entities": [{
+                "global": true,
+                "name": "turretPos4"
+            }]
+        }, {
             "name": "antiskip",
             "type": "SET_ATTRIB_BOOL",
             "value": false
@@ -5488,7 +5496,7 @@
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
-                "attrib": "center",
+                "attrib": "turretPos4",
                 "positionType": "NORTH",
                 "distance": 16,
                 "orthogonalDist": 0,
