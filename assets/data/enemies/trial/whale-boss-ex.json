@@ -4018,34 +4018,6 @@
                 "precise": false,
                 "type": "MOVE_TO_ATTRIB_ENTITY"
             }, {
-                "conditions": [{
-                    "min": 2,
-                    "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
-                }, {
-                    "negated": false,
-                    "type": "VAR_CONDITION",
-                    "condition": "!tmp.whapeRage"
-                }],
-                "withElse": false,
-                "type": "COMBAT_IF",
-                "thenStep": [{
-                    "changeType": "set",
-                    "type": "CHANGE_VAR_NUMBER",
-                    "varName": "tmp.whapeFocus",
-                    "value": 1
-                }, {
-                    "attrib": "center",
-                    "positionType": "HORIZONTAL_CLOSE",
-                    "distance": 560,
-                    "orthogonalDist": 0,
-                    "adjustTarget": true,
-                    "maxTime": 1,
-                    "forceTime": true,
-                    "precise": false,
-                    "type": "MOVE_TO_ATTRIB_ENTITY"
-                }]
-            }, {
                 "name": "redash",
                 "type": "GOTO_LABEL"
             }]
@@ -5518,13 +5490,12 @@
             "thenStep": [{
                 "attrib": "center",
                 "positionType": "NORTH",
-                "distance": 120,
+                "distance": 16,
                 "orthogonalDist": 0,
                 "adjustTarget": false,
                 "maxTime": 1,
-                "forceTime": false,
+                "forceTime": true,
                 "precise": false,
-                "saveToAttrib": "teleport",
                 "type": "MOVE_TO_ATTRIB_ENTITY"
             }, {
                 "changeType": "set",
@@ -7433,6 +7404,10 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "idle"
+        }, {
+            "forceValue": 0,
+            "type": "RESET_TRACKER",
+            "tracker": "jumpReady"
         }, {
             "forceValue": 0,
             "type": "RESET_TRACKER",
