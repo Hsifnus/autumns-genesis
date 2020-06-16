@@ -640,9 +640,6 @@
             "eventType": "CUTSCENE",
             "endCondition": "false",
             "event": [{
-                "type": "ADD_ARENA_IGNORE_TYPE",
-                "enemy": "trial/whale-turret"
-            }, {
                 "changeType": "set",
                 "type": "CHANGE_VAR_BOOL",
                 "varName": "tmp.bossKillHit",
