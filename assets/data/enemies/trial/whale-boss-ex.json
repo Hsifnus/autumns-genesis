@@ -3203,6 +3203,21 @@
             "type": "WAIT"
         }],
         "RotationC": [{
+            "condition": "entity.attrib.antiskip2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "antiskip2",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 7
+            }]
+        }, {
             "condition": "entity.attrib.antiskip",
             "withElse": false,
             "type": "IF",
@@ -3290,6 +3305,13 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "antiskip2",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
                 "stateReset": false,
                 "actionName": "TidalMoon",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3299,6 +3321,13 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "antiskip2",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
                 "stateReset": false,
                 "actionName": "DefenseBuff",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3371,6 +3400,10 @@
             }]
         }, {
             "name": "antiskip",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
+            "name": "antiskip2",
             "type": "SET_ATTRIB_BOOL",
             "value": false
         }, {
