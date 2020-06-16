@@ -179,7 +179,7 @@
                     "min": 0,
                     "max": 0,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "action": "RotationA"
             }, {
@@ -187,7 +187,7 @@
                     "min": 1,
                     "max": 1,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "action": "RotationB"
             }, {
@@ -195,7 +195,7 @@
                     "min": 2,
                     "max": 3,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "action": "RotationC"
             }, {
@@ -291,7 +291,7 @@
             "walkAnims": "weak2",
             "flyHeight": 0,
             "damageFactor": 1.4,
-            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE", "GAUGE_UPDATE"],
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE"],
             "annotate": {
                 "active": "NONE",
                 "passive": "WEAK",
@@ -313,6 +313,8 @@
                 }],
                 "action": "EndWeak1",
                 "postSwitchState": "DEFAULT"
+            }, {
+                "action": "BreakIdle"
             }]
         },
         "HIDDEN": {
@@ -1142,7 +1144,7 @@
             "action": [{
                 "conditions": [{
                     "min": 2,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -2868,6 +2870,10 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "stateReset": false,
                 "actionName": "PressureCall",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3017,10 +3023,14 @@
                 "type": "DO_ENEMY_ACTION_INLINE"
             }]
         }, {
-            "condition": "entity.attrib.step >= 16",
+            "condition": "entity.attrib.step >= 16 || entity.attrib.reset",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "attribName": "step",
                 "changeType": "set",
                 "proxyOwner": false,
@@ -3043,6 +3053,10 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "stateReset": false,
                 "actionName": "DashSingle",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3183,10 +3197,14 @@
                 "type": "DO_ENEMY_ACTION_INLINE"
             }]
         }, {
-            "condition": "entity.attrib.step >= 16",
+            "condition": "entity.attrib.step >= 15 || entity.attrib.reset",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "attribName": "step",
                 "changeType": "set",
                 "proxyOwner": false,
@@ -3239,6 +3257,10 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "stateReset": false,
                 "actionName": "PressureCall",
                 "type": "DO_ENEMY_ACTION_INLINE"
@@ -3371,10 +3393,14 @@
                 "type": "DO_ENEMY_ACTION_INLINE"
             }]
         }, {
-            "condition": "entity.attrib.step >= 11",
+            "condition": "entity.attrib.step >= 11 || entity.attrib.reset",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "attribName": "step",
                 "changeType": "set",
                 "proxyOwner": false,
@@ -3400,6 +3426,10 @@
                 "global": true,
                 "name": "south"
             }]
+        }, {
+            "name": "reset",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
         }, {
             "name": "antiskip",
             "type": "SET_ATTRIB_BOOL",
@@ -3582,7 +3612,7 @@
             "conditions": [{
                 "min": 1,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -3597,7 +3627,7 @@
             "conditions": [{
                 "min": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -3802,7 +3832,7 @@
             "conditions": [{
                 "min": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }, {
                 "negated": false,
                 "type": "VAR_CONDITION",
@@ -3849,7 +3879,7 @@
                 "conditions": [{
                     "min": 2,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }, {
                     "negated": false,
                     "type": "VAR_CONDITION",
@@ -4273,7 +4303,7 @@
             "conditions": [{
                 "min": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }, {
                 "negated": false,
                 "type": "VAR_CONDITION",
@@ -4465,7 +4495,7 @@
                     "min": 0,
                     "max": 0,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -4499,7 +4529,7 @@
                     "min": 1,
                     "max": 1,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -4533,7 +4563,7 @@
                     "min": 2,
                     "max": 3,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -5060,7 +5090,7 @@
                     "min": 0,
                     "max": 0,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -5091,7 +5121,7 @@
                     "min": 1,
                     "max": 1,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -5122,7 +5152,7 @@
                     "min": 2,
                     "max": 3,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -5153,7 +5183,7 @@
                     "min": 3,
                     "max": 3,
                     "negated": false,
-                    "type": "HP_BREAK_GLOBAL"
+                    "type": "HP_BREAK"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
@@ -5454,7 +5484,7 @@
             "conditions": [{
                 "min": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -5522,7 +5552,7 @@
             "conditions": [{
                 "min": 1,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }, {
                 "condition": "entity.attrib.jump == 0",
                 "negated": false,
@@ -6422,7 +6452,7 @@
             "type": "COMBAT_IF",
             "conditions": [{
                 "min": 2,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "thenStep": [{
                 "value": -1,
@@ -8032,6 +8062,10 @@
             "type": "PLAY_SOUND",
             "sound": "media/sound/boss/whale/whale-call.ogg"
         }, {
+            "forceValue": 0,
+            "type": "RESET_TRACKER",
+            "tracker": "rageWeakRegen"
+        }, {
             "wait": false,
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
@@ -8259,7 +8293,7 @@
                 "min": 0,
                 "max": 0,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -8368,7 +8402,7 @@
                 "min": 1,
                 "max": 1,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -8489,7 +8523,7 @@
                 "min": 2,
                 "max": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -8657,7 +8691,7 @@
             "conditions": [{
                 "min": 1,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": true,
             "type": "COMBAT_IF",
@@ -8713,7 +8747,7 @@
             "conditions": [{
                 "min": 1,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": true,
             "type": "COMBAT_IF",
@@ -8889,7 +8923,7 @@
             "conditions": [{
                 "max": 0,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": true,
             "type": "COMBAT_IF",
@@ -9324,7 +9358,7 @@
             "conditions": [{
                 "min": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": true,
             "type": "COMBAT_IF",
@@ -9597,18 +9631,23 @@
         }],
         "HpBreak": [{
             "conditions": [{
+              "min": 0,
                 "max": 2,
                 "negated": false,
-                "type": "HP_BREAK_GLOBAL"
+                "type": "HP_BREAK"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
                 "attribName": "step",
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER",
-                "value": 0
+                "value": 100
             }]
         }],
         "PreKill": [{
@@ -9689,8 +9728,12 @@
             "name": "overdrive",
             "type": "ADD_ITEM_BUFF_PLUS"
         }],
+        "BreakIdle": [{
+          "type": "WAIT",
+          "time": 1
+        }],
         "BreakStart": [{
-            "volume": 1.1,
+            "volume": 1,
             "speed": 2,
             "variance": 0,
             "global": false,
@@ -9698,14 +9741,14 @@
             "type": "PLAY_SOUND",
             "sound": "media/sound/scenes/jumping-through-rooms.ogg"
         }, {
-          "volume": 1,
+          "volume": 0.9,
           "global": false,
           "loop": false,
           "speed": 0.5,
           "sound": "media/sound/battle/thud-5.ogg",
           "type": "PLAY_SOUND"
         }, {
-          "volume": 1,
+          "volume": 0.9,
           "global": false,
           "loop": false,
           "speed": 0.5,
@@ -10636,9 +10679,9 @@
             "blockFurtherHits": false,
             "attackType": "HEAVY",
             "flyLevel": "MASSIVE",
-            "stunChange": "FORCE_STABLE",
+            "stunChange": "NO_CHANGE",
             "alignFace": false,
-            "dramaticEffect": "HP_BREAK_ZOOM",
+            "dramaticEffect": "BREAK",
             "conditions": [{
                 "condition": "entity.attrib.overdrive == 0",
                 "type": "VAR_CONDITION"
@@ -10655,8 +10698,8 @@
             "preAction": "BreakStart",
             "preSwitchState": "RAGE_WEAK",
             "blockFurtherHits": false,
-            "attackType": "MASSIVE",
-            "flyLevel": "MASSIVE",
+            "attackType": "BREAK",
+            "flyLevel": "MEDIUM",
             "stunChange": "FORCE_STUN",
             "alignFace": false,
             "dramaticEffect": "BREAK_BIG",
@@ -10690,9 +10733,9 @@
             "blockFurtherHits": false,
             "attackType": "MASSIVE",
             "flyLevel": "",
-            "stunChange": "NO_CHANGE",
+            "stunChange": "FORCE_STABLE",
             "alignFace": false,
-            "dramaticEffect": "",
+            "dramaticEffect": "HP_BREAK_ZOOM",
             "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"

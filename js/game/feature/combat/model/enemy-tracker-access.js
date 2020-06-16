@@ -1,5 +1,7 @@
 ig.module("game.feature.combat.model.enemy-tracker-access")
-.requires("game.feature.combat.model.enemy-tracker", "game.feature.combat.entities.enemy")
+.requires("game.feature.combat.model.enemy-tracker",
+	"game.feature.combat.entities.enemy",
+	"impact.base.actor-entity")
 .defines(function() {
 	sc.EnemyTracker.inject({
 		onVarAccess: function(b, a) {}
@@ -44,5 +46,39 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
 		onVarAccess: function(a, b) {
             return b[1] == "tracker" ? this.trackers[b[2]].onVarAccess(a, b) : this.parent(a, b);
         }
-	})
+	});
+	ig.ActorEntity.inject({
+		stashAction: function(a) {
+            if (this.currentAction) {
+            	!this.stashed.action && (this.stashed.action = []);
+                this.stashed.action.push(this.currentAction);
+                !this.stashed.step && (this.stashed.step = []);
+                this.stashed.step.push(this.currentActionStep);
+                !this.stashed.timer && (this.stashed.timer = []);
+                this.stashed.timer.push(this.stepTimer);
+                !this.stashed.data && (this.stashed.data = []);
+                this.stashed.data.push(ig.copy(this.stepData));
+                !this.stashed.inlineStack && (this.stashed.inlineStack = []);
+                if (this.inlineActionStack.length > 0) this.stashed.inlineStack.push(ig.copy(this.inlineActionStack));
+                this.cancelAction(a)
+            }
+        },
+        hasStashedAction: function() {
+            return !!this.stashed.action && this.stashed.action.length == 0;
+        },
+        clearStashedAction: function() {
+            this.stashed.action = [];
+            this.stashed.inlineStack = [];
+        },
+        resumeStashedAction: function(a) {
+            if (this.stashed.action && this.stashed.action.length > 0) {
+                this.setAction(this.stashed.action.pop(), false, a);
+                this.currentActionStep = this.stashed.step.pop();
+                this.stepTimer = this.stashed.timer.pop();
+                this.stepData = this.stashed.data.pop();
+                this.inlineActionStack.length = 0;
+                this.stashed.inlineStack && this.stashed.inlineStack.length > 0 && this.inlineActionStack.push.apply(this.inlineActionStack, this.stashed.inlineStack.pop())
+            }
+        }
+	});
 });
