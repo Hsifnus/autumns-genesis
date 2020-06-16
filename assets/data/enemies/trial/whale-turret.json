@@ -296,7 +296,7 @@
             "kind": "PLAYER",
             "type": "SET_TEMP_TARGET"
         }, {
-            "duration": 3,
+            "duration": -1,
             "align": "BOTTOM",
             "rotateFace": 0,
             "flipLeftFace": false,
@@ -305,6 +305,7 @@
             "actionDetached": true,
             "fixPos": true,
             "type": "SHOW_EFFECT",
+            "group": "charge",
             "effect": {
                 "sheet": "enemies.whale-boss-ex",
                 "name": "whaleTurretChargeSlow"
@@ -317,6 +318,9 @@
         }, {
             "type": "WAIT",
             "time": 3
+        }, {
+            "group": "charge",
+            "type": "CLEAR_EFFECTS"
         }, {
             "value": false,
             "immediately": true,

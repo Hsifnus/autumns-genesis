@@ -10542,6 +10542,7 @@
             },
             "particleDuration": 3,
             "anim": "CIRCLE_BIG",
+            "cancelable": true,
             "type": "PLAY_ANIM"
         }, {
             "type": "LOOP_START"

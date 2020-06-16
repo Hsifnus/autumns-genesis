@@ -2074,6 +2074,49 @@
                     "z": 0
                 }
             }, {
+                "condition": "entity.attrib.tidalCharge >= 5",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "duration": 0,
+                    "align": "FACE",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.whale-boss-ex",
+                        "name": "whaleDiveNuke"
+                    },
+                    "offset": {
+                        "x": 64,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "FACE",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.whale-boss-ex",
+                        "name": "whaleDiveNuke"
+                    },
+                    "offset": {
+                        "x": -64,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
+            }, {
                 "time": 0.3,
                 "type": "WAIT"
             }, {
@@ -2164,49 +2207,6 @@
                     "y": 0,
                     "z": 0
                 }
-            }, {
-                "condition": "entity.attrib.tidalCharge >= 5",
-                "withElse": false,
-                "type": "IF",
-                "thenStep": [{
-                    "duration": 0,
-                    "align": "FACE",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": true,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "enemies.whale-boss-ex",
-                        "name": "whaleDiveNuke"
-                    },
-                    "offset": {
-                        "x": 64,
-                        "y": 0,
-                        "z": 0
-                    }
-                }, {
-                    "duration": 0,
-                    "align": "FACE",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": true,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "enemies.whale-boss-ex",
-                        "name": "whaleDiveNuke"
-                    },
-                    "offset": {
-                        "x": -64,
-                        "y": 0,
-                        "z": 0
-                    }
-                }]
             }, {
                 "condition": "entity.attrib.tidalCharge >= 2",
                 "withElse": false,
@@ -3362,12 +3362,12 @@
             "type": "WAIT"
         }],
         "Init": [{
-            "entityAttrib": "turretPos4",
+            "entityAttrib": "south",
             "selectBy": "SELF_DISTANCE",
             "type": "SET_ATTRIB_CLOSEST_ENTITY",
             "entities": [{
                 "global": true,
-                "name": "turretPos4"
+                "name": "south"
             }]
         }, {
             "name": "antiskip",
@@ -5496,13 +5496,13 @@
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
-                "attrib": "turretPos4",
+                "attrib": "south",
                 "positionType": "NORTH",
                 "distance": 16,
                 "orthogonalDist": 0,
                 "adjustTarget": false,
-                "maxTime": 1,
-                "forceTime": true,
+                "maxTime": 3,
+                "forceTime": false,
                 "precise": false,
                 "type": "MOVE_TO_ATTRIB_ENTITY"
             }, {
@@ -5830,6 +5830,72 @@
                     "z": 0
                 }
             }, {
+                "condition": "entity.attrib.tidalCharge >= 5",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "duration": 0,
+                    "align": "FACE",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.whale-boss-ex",
+                        "name": "whaleDiveNuke"
+                    },
+                    "offset": {
+                        "x": 64,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "FACE",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.whale-boss-ex",
+                        "name": "whaleDiveNuke"
+                    },
+                    "offset": {
+                        "x": -64,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                  "kind": "PLAYER",
+                  "type": "SET_TEMP_TARGET"
+                }, {
+                    "type": "DIRECT_HIT",
+                    "selectType": "TARGET",
+                    "hitDir": "AWAY",
+                    "hitCount": 1,
+                    "hitDelay": 0,
+                    "align": "FACE",
+                    "attack": {
+                        "type": "BREAK",
+                        "fly": "MASSIVE+++",
+                        "damageFactor": 3.6,
+                        "status": 100,
+                        "element": "WAVE",
+                        "spFactor": 0,
+                        "stunSteps": [],
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "MELEE_DMG"
+                    }
+                }]
+            }, {
                 "time": 0.3,
                 "type": "WAIT"
             }, {
@@ -5920,72 +5986,6 @@
                     "y": 0,
                     "z": 0
                 }
-            }, {
-                "condition": "entity.attrib.tidalCharge >= 5",
-                "withElse": false,
-                "type": "IF",
-                "thenStep": [{
-                    "duration": 0,
-                    "align": "FACE",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": true,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "enemies.whale-boss-ex",
-                        "name": "whaleDiveNuke"
-                    },
-                    "offset": {
-                        "x": 64,
-                        "y": 0,
-                        "z": 0
-                    }
-                }, {
-                    "duration": 0,
-                    "align": "FACE",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "fixPos": true,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "enemies.whale-boss-ex",
-                        "name": "whaleDiveNuke"
-                    },
-                    "offset": {
-                        "x": -64,
-                        "y": 0,
-                        "z": 0
-                    }
-                }, {
-                  "kind": "PLAYER",
-                  "type": "SET_TEMP_TARGET"
-                }, {
-                    "type": "DIRECT_HIT",
-                    "selectType": "TARGET",
-                    "hitDir": "AWAY",
-                    "hitCount": 1,
-                    "hitDelay": 0,
-                    "align": "FACE",
-                    "attack": {
-                        "type": "BREAK",
-                        "fly": "MASSIVE+++",
-                        "damageFactor": 3.6,
-                        "status": 100,
-                        "element": "WAVE",
-                        "spFactor": 0,
-                        "stunSteps": [],
-                        "guardable": "NEVER",
-                        "hitInvincible": true,
-                        "noIronStance": true,
-                        "skillBonus": "MELEE_DMG"
-                    }
-                }]
             }, {
                 "condition": "entity.attrib.tidalCharge >= 2",
                 "withElse": false,
