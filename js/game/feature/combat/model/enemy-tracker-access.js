@@ -42,7 +42,6 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
 	});
 	ig.ENTITY.Enemy.inject({
 		onVarAccess: function(a, b) {
-			console.log(a, b);
             return b[1] == "tracker" ? this.trackers[b[2]].onVarAccess(a, b) : this.parent(a, b);
         }
 	})
