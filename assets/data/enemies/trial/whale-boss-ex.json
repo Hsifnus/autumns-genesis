@@ -7447,6 +7447,10 @@
                 "z": 0
             }
         }, {
+            "forceValue": 0,
+            "type": "RESET_TRACKER",
+            "tracker": "rageWeakRegen"
+        }, {
             "time": 0.1,
             "type": "WAIT"
         }, {
@@ -7477,10 +7481,6 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "idle"
-        }, {
-            "forceValue": 0,
-            "type": "RESET_TRACKER",
-            "tracker": "jumpReady"
         }, {
             "forceValue": 0,
             "type": "RESET_TRACKER",
