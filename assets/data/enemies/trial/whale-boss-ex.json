@@ -5937,8 +5937,8 @@
                         "z": 0
                     }
                 }, {
-                  "kind": "PLAYER",
-                  "type": "SET_TEMP_TARGET"
+                    "kind": "PLAYER",
+                    "type": "SET_TEMP_TARGET"
                 }, {
                     "type": "DIRECT_HIT",
                     "selectType": "TARGET",
@@ -9631,7 +9631,7 @@
         }],
         "HpBreak": [{
             "conditions": [{
-              "min": 0,
+                "min": 0,
                 "max": 2,
                 "negated": false,
                 "type": "HP_BREAK"
@@ -9729,8 +9729,8 @@
             "type": "ADD_ITEM_BUFF_PLUS"
         }],
         "BreakIdle": [{
-          "type": "WAIT",
-          "time": 1
+            "type": "WAIT",
+            "time": 1
         }],
         "BreakStart": [{
             "volume": 1,
@@ -9741,19 +9741,19 @@
             "type": "PLAY_SOUND",
             "sound": "media/sound/scenes/jumping-through-rooms.ogg"
         }, {
-          "volume": 0.9,
-          "global": false,
-          "loop": false,
-          "speed": 0.5,
-          "sound": "media/sound/battle/thud-5.ogg",
-          "type": "PLAY_SOUND"
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "speed": 0.5,
+            "sound": "media/sound/battle/thud-5.ogg",
+            "type": "PLAY_SOUND"
         }, {
-          "volume": 0.9,
-          "global": false,
-          "loop": false,
-          "speed": 0.5,
-          "sound": "media/sound/battle/explosion-5.ogg",
-          "type": "PLAY_SOUND"
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "speed": 0.5,
+            "sound": "media/sound/battle/explosion-5.ogg",
+            "type": "PLAY_SOUND"
         }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
@@ -10584,14 +10584,14 @@
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.modeBase",
             "value": {
-              "varName": "entity.tracker.baseHits.progress"
+                "varName": "entity.tracker.baseHits.progress"
             }
         }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.modeOverdrive",
             "value": {
-              "varName": "entity.tracker.overdriveHits.progress"
+                "varName": "entity.tracker.overdriveHits.progress"
             }
         }]
     },

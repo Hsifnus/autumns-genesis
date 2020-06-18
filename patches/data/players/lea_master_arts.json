@@ -3,73 +3,69 @@
         "shockBombBold": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
-            "action":[
-                {
-                    "duration": 0,
-                    "align": "BOTTOM",
-                    "rotateFace": 0,
-                    "flipLeftFace": false,
-                    "wait": false,
-                    "waitSkip": 0,
-                    "actionDetached": false,
-                    "target2": "SELF",
-                    "target2Offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 480
-                    },
-                    "fixPos": false,
-                    "type": "SHOW_EFFECT",
-                    "effect": {
-                        "sheet": "enemies.jungle",
-                        "name": "shkBossBold"
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
+            "action": [{
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "SELF",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 480
                 },
-                {
-                    "align": "BOTTOM",
-                    "radius": 30,
-                    "yScale": 0,
-                    "zHeight": 0,
-                    "centralAngle": 0,
-                    "duration": 0.1,
-                    "expandRadius": 0,
-                    "alwaysFull": true,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "rectangular": false,
-                    "repeat": false,
-                    "uniformHitDir": false,
-                    "fixPos": false,
-                    "checkCollision": false,
-                    "type": "CIRCLE_ATTACK",
-                    "attack": {
-                        "type": "MASSIVE",
-                        "fly": "LIGHT",
-                        "element": "SHOCK",
-                        "reverse": false,
-                        "status": 5,
-                        "damageFactor": 2.4,
-                        "guardable": "FROM_ABOVE",
-                        "hitInvincible": true,
-                        "skillBonus": "",
-                        "limiter": ""
-                    },
-                    "offset": {
-                        "x": 0,
-                        "y": 0,
-                        "z": 0
-                    }
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "shkBossBold"
                 },
-                {
-                    "type": "WAIT",
-                    "time": 0.3
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
                 }
-            ],
+            }, {
+                "align": "BOTTOM",
+                "radius": 30,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "fly": "LIGHT",
+                    "element": "SHOCK",
+                    "reverse": false,
+                    "status": 5,
+                    "damageFactor": 2.4,
+                    "guardable": "FROM_ABOVE",
+                    "hitInvincible": true,
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "type": "WAIT",
+                "time": 0.3
+            }],
             "invisible": false,
             "hp": 0,
             "stickToSource": "NONE",
@@ -325,15 +321,12 @@
                     "type": "MASSIVE",
                     "visualType": "NONE",
                     "fly": "MASSIVE+++",
-                    "stunSteps": [
-                        {
-                            "type": "BLOCK_XY"
-                        },
-                        {
-                            "value": 300,
-                            "type": "Z_VEL"
-                        }
-                    ],
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 300,
+                        "type": "Z_VEL"
+                    }],
                     "element": "NEUTRAL",
                     "reverse": false,
                     "status": 20,
@@ -606,7 +599,7 @@
             "type": "GENERIC"
         },
         "whaleJumpDummy": {
-            "animation":"boss.whale",
+            "animation": "boss.whale",
             "breakType": "COMBATANT",
             "action": [{
                 "kind": "PROXY_OWNER",
@@ -911,7 +904,9 @@
                     "element": "WAVE",
                     "fly": "LIGHT",
                     "reverse": false,
-                    "stunSteps": [{"type": "END_LOCK"}],
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }],
                     "damageFactor": 4,
                     "status": 4,
                     "guardable": "FROM_ABOVE",
@@ -951,7 +946,9 @@
                     "element": "WAVE",
                     "fly": "MASSIVE++",
                     "reverse": false,
-                    "stunSteps": [{"type": "END_LOCK"}],
+                    "stunSteps": [{
+                        "type": "END_LOCK"
+                    }],
                     "damageFactor": 5,
                     "status": 4,
                     "guardable": "FROM_ABOVE",
@@ -4970,23 +4967,20 @@
                 "dmgType": "MELEE",
                 "stunType": "LOCK",
                 "status": true,
-                "steps": [
-                  {
+                "steps": [{
                     "wait": false,
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
                     "anim": "guard"
-                  },
-                  {
+                }, {
                     "type": "SET_PLAYER_ACTION_BLOCK",
                     "blockData": {
-                      "dash": 0,
-                      "action": -1,
-                      "move": -1,
-                      "reaim": -1
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
                     }
-                  },
-                  {
+                }, {
                     "duration": -1,
                     "align": "BOTTOM",
                     "rotateFace": 8,
@@ -4997,78 +4991,66 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "apeGuardAura"
+                        "sheet": "specials.master",
+                        "name": "apeGuardAura"
                     },
                     "offset": {
-                      "x": 0,
-                      "y": 0,
-                      "z": 8
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
                     }
-                  },
-                  {
+                }, {
                     "name": "derp",
                     "actionDetached": false,
                     "perfectGuardTime": 10,
                     "type": "ADD_SHIELD",
                     "shield": {
-                      "type": "PLAYER",
-                      "settings": {
-                        "baseFactor": 1,
-                        "range": 0.5,
-                        "hitResist": "MASSIVE",
-                        "stableOverride": "MASSIVE"
-                      }
+                        "type": "PLAYER",
+                        "settings": {
+                            "baseFactor": 1,
+                            "range": 0.5,
+                            "hitResist": "MASSIVE",
+                            "stableOverride": "MASSIVE"
+                        }
                     }
-                  },
-                  {
+                }, {
                     "maxTime": 1.2,
                     "meleeOnly": true,
                     "type": "WAIT_UNTIL_GUARDED"
-                  },
-                  {
+                }, {
                     "type": "CLEAR_EFFECTS"
-                  },
-                  {
+                }, {
                     "name": "derp",
                     "type": "REMOVE_SHIELD"
-                  },
-                  {
-                    "conditions": [
-                      {
+                }, {
+                    "conditions": [{
                         "negated": false,
                         "type": "HAS_BLOCKED_ENTITY"
-                      }
-                    ],
+                    }],
                     "withElse": false,
                     "type": "COMBAT_IF",
-                    "thenStep": [
-                      {
+                    "thenStep": [{
                         "type": "SET_PLAYER_ACTION_BLOCK",
                         "blockData": {
-                          "dash": -1,
-                          "action": -1,
-                          "move": -1,
-                          "reaim": -1
+                            "dash": -1,
+                            "action": -1,
+                            "move": -1,
+                            "reaim": -1
                         }
-                      },
-                        {
-                            "value": "MASSIVE",
-                            "type": "SET_HIT_STABLE"
-                        },
-                        {
-                            "name": "bombLanded",
-                            "type": "SET_ATTRIB_BOOL",
-                            "value": false
-                        },
-                        {
-                            "zoomType": "LIGHT",
-                            "fadeIn": 0,
-                            "duration": 0.3,
-                            "fadeOut": 0.2,
-                            "type": "SET_ZOOM_BLUR"
-                        },
-                        {
+                    }, {
+                        "value": "MASSIVE",
+                        "type": "SET_HIT_STABLE"
+                    }, {
+                        "name": "bombLanded",
+                        "type": "SET_ATTRIB_BOOL",
+                        "value": false
+                    }, {
+                        "zoomType": "LIGHT",
+                        "fadeIn": 0,
+                        "duration": 0.3,
+                        "fadeOut": 0.2,
+                        "type": "SET_ZOOM_BLUR"
+                    }, {
                         "duration": 0,
                         "align": "BOTTOM",
                         "rotateFace": 8,
@@ -5079,97 +5061,82 @@
                         "fixPos": false,
                         "type": "SHOW_EFFECT",
                         "effect": {
-                          "sheet": "specials.master",
-                          "name": "apeGuardActivate"
+                            "sheet": "specials.master",
+                            "name": "apeGuardActivate"
                         },
                         "offset": {
-                          "x": 0,
-                          "y": 0,
-                          "z": 8
+                            "x": 0,
+                            "y": 0,
+                            "z": 8
                         }
-                      },
-                      {
+                    }, {
                         "followUp": "specialLoop",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "special"
-                      },
-                        {
-                            "kind": "GUARDED_ATTACKER",
-                            "type": "SET_TEMP_TARGET"
+                    }, {
+                        "kind": "GUARDED_ATTACKER",
+                        "type": "SET_TEMP_TARGET"
+                    }, {
+                        "value": false,
+                        "immediately": true,
+                        "type": "FACE_TO_TARGET"
+                    }, {
+                        "selectType": "TARGET",
+                        "effect": {
+                            "sheet": "specials.master",
+                            "name": "apeGuardHit"
                         },
-                        {
-                            "value": false,
-                            "immediately": true,
-                            "type": "FACE_TO_TARGET"
-                        },
-                        {
-                            "selectType": "TARGET",
-                            "effect": {
-                              "sheet": "specials.master",
-                              "name": "apeGuardHit"
-                            },
-                            "hitDir": "AWAY",
-                            "align": "BOTTOM",
-                            "hitCount": 1,
-                            "hitDelay": 0.15,
-                            "type": "DIRECT_HIT",
-                            "attack": {
-                              "type": "MASSIVE",
-                              "visualType": "MEDIUM",
-                              "element": "SHOCK",
-                              "damageFactor": 0.75,
-                              "reverse": false,
-                              "stunSteps": [
-                                {
-                                  "type": "START_LOCK"
-                                },
-                                {
-                                  "type": "BLOCK_XY"
-                                },
-                                {
-                                  "type": "Z_PULL",
-                                  "offZ": 8
-                                }
-                              ],
-                              "status": 1,
-                              "guardable": "",
-                              "skillBonus": "MELEE_DMG"
-                            }
-                          },
-                        {
-                            "time": 0.5,
-                            "type": "WAIT"
-                        },
-                      {
+                        "hitDir": "AWAY",
+                        "align": "BOTTOM",
+                        "hitCount": 1,
+                        "hitDelay": 0.15,
+                        "type": "DIRECT_HIT",
+                        "attack": {
+                            "type": "MASSIVE",
+                            "visualType": "MEDIUM",
+                            "element": "SHOCK",
+                            "damageFactor": 0.75,
+                            "reverse": false,
+                            "stunSteps": [{
+                                "type": "START_LOCK"
+                            }, {
+                                "type": "BLOCK_XY"
+                            }, {
+                                "type": "Z_PULL",
+                                "offZ": 8
+                            }],
+                            "status": 1,
+                            "guardable": "",
+                            "skillBonus": "MELEE_DMG"
+                        }
+                    }, {
+                        "time": 0.5,
+                        "type": "WAIT"
+                    }, {
                         "followUp": "throwMirrEnd",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "throwMirrShort"
-                      },
-                      {
+                    }, {
                         "value": 200,
                         "type": "SET_SPEED"
-                      },
-                      {
+                    }, {
                         "value": 3,
                         "type": "SET_ACCEL_SPEED"
-                      },
-                      {
+                    }, {
                         "time": 0.05,
                         "stopBeforeEdge": false,
                         "type": "MOVE_FORWARD"
-                      },
-                      {
+                    }, {
                         "zoomType": "LIGHT",
                         "fadeIn": 0,
                         "duration": 0.4,
                         "fadeOut": 0.4,
                         "type": "SET_ZOOM_BLUR"
-                    },
-                      {
+                    }, {
                         "duration": -1,
                         "align": "FACE",
                         "rotateFace": 8,
@@ -5180,11 +5147,10 @@
                         "fixPos": false,
                         "type": "SHOW_EFFECT",
                         "effect": {
-                          "sheet": "specials.master",
-                          "name": "apeSaw"
+                            "sheet": "specials.master",
+                            "name": "apeSaw"
                         }
-                      },
-                      {
+                    }, {
                         "align": "FACE",
                         "radius": 40,
                         "yScale": 0,
@@ -5202,42 +5168,34 @@
                         "checkCollision": true,
                         "type": "CIRCLE_ATTACK",
                         "attack": {
-                          "type": "MASSIVE",
-                          "visualType": "MEDIUM",
-                          "element": "SHOCK",
-                          "damageFactor": 0.9,
-                          "status": 1,
-                          "reverse": false,
-                          "spFactor": 0,
-                          "stunSteps": [
-                            {
-                              "type": "START_LOCK"
-                            },
-                            {
-                              "type": "BLOCK_XY"
-                            }
-                          ],
-                          "hints": [
-                            "NO_PUZZLE"
-                          ],
-                          "guardable": "",
-                          "skillBonus": "MELEE_DMG",
-                          "limiter": ""
+                            "type": "MASSIVE",
+                            "visualType": "MEDIUM",
+                            "element": "SHOCK",
+                            "damageFactor": 0.9,
+                            "status": 1,
+                            "reverse": false,
+                            "spFactor": 0,
+                            "stunSteps": [{
+                                "type": "START_LOCK"
+                            }, {
+                                "type": "BLOCK_XY"
+                            }],
+                            "hints": ["NO_PUZZLE"],
+                            "guardable": "",
+                            "skillBonus": "MELEE_DMG",
+                            "limiter": ""
                         },
                         "offset": {
-                          "x": 0,
-                          "y": 0,
-                          "z": 0
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
                         }
-                      },
-                      {
+                    }, {
                         "time": 0.8,
                         "type": "WAIT"
-                      },
-                      {
+                    }, {
                         "type": "STOP_REPEATING_FORCE"
-                      },
-                      {
+                    }, {
                         "align": "FACE",
                         "radius": 40,
                         "yScale": 0,
@@ -5255,46 +5213,38 @@
                         "checkCollision": true,
                         "type": "CIRCLE_ATTACK",
                         "attack": {
-                          "type": "MASSIVE",
-                          "element": "SHOCK",
-                          "damageFactor": 3.6,
-                          "status": 5,
-                          "fly": "MASSIVE++",
-                          "reverse": false,
-                          "spFactor": 0,
-                          "stunSteps": [
-                          ],
-                          "hints": [
-                            "NO_PUZZLE"
-                          ],
-                          "guardable": "",
-                          "skillBonus": "MELEE_DMG",
-                          "limiter": ""
+                            "type": "MASSIVE",
+                            "element": "SHOCK",
+                            "damageFactor": 3.6,
+                            "status": 5,
+                            "fly": "MASSIVE++",
+                            "reverse": false,
+                            "spFactor": 0,
+                            "stunSteps": [],
+                            "hints": ["NO_PUZZLE"],
+                            "guardable": "",
+                            "skillBonus": "MELEE_DMG",
+                            "limiter": ""
                         },
                         "offset": {
-                          "x": 0,
-                          "y": 0,
-                          "z": 0
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
                         }
-                      },
-                      {
+                    }, {
                         "type": "SHOOT_PROXY",
                         "proxy": "apeSpawnerPre",
                         "align": "BOTTOM"
-                      },
-                      {
+                    }, {
                         "time": 0.4,
                         "type": "WAIT"
-                      },
-                      {
+                    }, {
                         "type": "CLEAR_EFFECTS"
-                      },
-                      {
+                    }, {
                         "kind": "PROXY",
                         "key": "apeSpawner",
                         "type": "SET_TEMP_TARGET"
-                      },
-                      {
+                    }, {
                         "duration": 0.7,
                         "align": "FACE",
                         "rotateFace": 0,
@@ -5315,47 +5265,38 @@
                             "y": 0,
                             "z": 0
                         }
-                      },
-                      {
+                    }, {
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "specialPre"
-                      },
-                      {
+                    }, {
                         "type": "WAIT",
                         "time": 0.4
-                      },
-                      {
+                    }, {
                         "followUp": "specialLoop",
                         "wait": false,
                         "viaWalkConfig": false,
                         "type": "SHOW_ANIMATION",
                         "anim": "special"
-                      },
-                      {
+                    }, {
                         "condition": "entity.ownerAttrib.bombLanded",
                         "maxTime": 5,
                         "type": "WAIT_UNTIL"
-                      },
-                      {
+                    }, {
                         "time": 0.5,
                         "type": "WAIT"
-                      }
-                    ]
-                  },
-                  {
+                    }]
+                }, {
                     "followUp": "idle",
                     "wait": false,
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
                     "anim": "preIdle"
-                  },
-                  {
+                }, {
                     "time": 0.05,
                     "type": "WAIT"
-                  }
-                ]
+                }]
             }
         },
         "WAVE": {
@@ -5424,8 +5365,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "whaleSweep"
+                        "sheet": "specials.master",
+                        "name": "whaleSweep"
                     }
                 }, {
                     "align": "BOTTOM",
@@ -5491,8 +5432,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "whaleSweepRev"
+                        "sheet": "specials.master",
+                        "name": "whaleSweepRev"
                     }
                 }, {
                     "align": "BOTTOM",
@@ -5540,12 +5481,10 @@
                     "condition": "entity.attrib.hits > 0",
                     "withElse": false,
                     "type": "IF",
-                    "thenStep": [
-                        {
-                            "name": "pummel",
-                            "type": "GOTO_LABEL"
-                        }
-                    ]
+                    "thenStep": [{
+                        "name": "pummel",
+                        "type": "GOTO_LABEL"
+                    }]
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
@@ -5570,8 +5509,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.wave",
-                      "name": "waveDashTrail"
+                        "sheet": "specials.wave",
+                        "name": "waveDashTrail"
                     }
                 }, {
                     "duration": -1,
@@ -5589,8 +5528,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "whaleJumpAura"
+                        "sheet": "specials.master",
+                        "name": "whaleJumpAura"
                     }
                 }, {
                     "time": 0.2,
@@ -5622,8 +5561,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.wave",
-                      "name": "waveSubCharge"
+                        "sheet": "specials.wave",
+                        "name": "waveSubCharge"
                     }
                 }, {
                     "time": 0.4,
@@ -5706,8 +5645,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "whaleDive"
+                        "sheet": "specials.master",
+                        "name": "whaleDive"
                     }
                 }, {
                     "duration": -1,
@@ -5725,8 +5664,8 @@
                     "fixPos": false,
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "specials.master",
-                      "name": "whaleDiveFade"
+                        "sheet": "specials.master",
+                        "name": "whaleDiveFade"
                     }
                 }, {
                     "duration": -1,
@@ -5745,8 +5684,8 @@
                     "group": "preJump",
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "enemies.jungle",
-                      "name": "whalePreJump"
+                        "sheet": "enemies.jungle",
+                        "name": "whalePreJump"
                     }
                 }, {
                     "time": 0.5,
@@ -5774,8 +5713,8 @@
                     "group": "preJump",
                     "type": "SHOW_EFFECT",
                     "effect": {
-                      "sheet": "enemies.jungle",
-                      "name": "whalePreJump2"
+                        "sheet": "enemies.jungle",
+                        "name": "whalePreJump2"
                     }
                 }, {
                     "time": 0.5,
