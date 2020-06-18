@@ -363,7 +363,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -407,7 +407,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -489,7 +489,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -532,7 +532,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -647,12 +647,12 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A cloud-summoning replica of the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel.",
+        "en_US": "A jeweled replica of the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel, capable of mustering thunderclouds.",
         "langUid": 2
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -671,7 +671,7 @@
         "PERFECT_GUARD_WINDOW": 2.5,
         "BREAK_DMG": 1.35,
         "AIM_SPEED": 0.8,
-        "PHANTOM_SPECIAL": 2
+        "APE_SPECIAL": 2
       },
       "effect": {
         "sheet": "",
@@ -691,12 +691,12 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A massive, airy longsword crafted from \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin.",
+        "en_US": "A massive yet somehow lightweight longsword crafted from the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin.",
         "langUid": 2
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 500000,
+      "cost": 250000,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -712,10 +712,10 @@
         "defense": 100
       },
       "properties": {
-        "OVERHEAT_REDUCTION": 0.85,
+        "OVERHEAT_REDUCTION": 0.75,
         "MELEE_DMG": 1.3,
         "HP_REGEN": 1.15,
-        "BLOB_SPECIAL": 2
+        "WHALE_SPECIAL": 2
       },
       "effect": {
         "sheet": "",

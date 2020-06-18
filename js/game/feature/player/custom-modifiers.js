@@ -32,6 +32,22 @@ ig.module("game.feature.player.custom-modifiers").requires(
         order: 103,
         noPercent: true
     };
+    sc.MODIFIERS.APE_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 48,
+        offY: 24,
+        icon: -1,
+        order: 103,
+        noPercent: true
+    };
+    sc.MODIFIERS.WHALE_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 60,
+        offY: 24,
+        icon: -1,
+        order: 103,
+        noPercent: true
+    };
     sc.MODIFIERS.WIND_MELEE = {
         altSheet: "media/gui/stun-status.png",
         offX: 96,

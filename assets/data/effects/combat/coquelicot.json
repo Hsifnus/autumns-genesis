@@ -4756,7 +4756,7 @@
             "time": 0.05,
             "type": "WAIT"
         }, {
-            "color": "#eeeee",
+            "color": "#eeeeee",
             "noLighter": false,
             "pAlpha": {
                 "init": 0.8,

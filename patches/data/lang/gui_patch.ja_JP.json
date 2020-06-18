@@ -37,14 +37,18 @@
                     "MOTH_SPECIAL": "リーガルフレア",
                     "BLOB_SPECIAL": "アクアボルテックス",
                     "PHANTOM_SPECIAL": "カスドフォルガー",
-                    "DRILLER_SPECIAL": "サブゼロアッモ"
+                    "DRILLER_SPECIAL": "サブゼロアッモ",
+                    "APE_SPECIAL": "Oriental Bolts",
+                    "WHALE_SPECIAL": "Mighty Whale"
                 },
                 "descriptions": {
                     "WIND_MELEE": "無属性近接攻撃で与えるダメージを\\c[3][xyz]%\\c[0]増加。無属性近接攻撃に\\c[3]気絶\\c[0]状態を与える速度とその効果を増加。\\c[3]気絶\\c[0]状態になった者は短時間移動するのを防ぐ",
                     "MOTH_SPECIAL": "\\c[3]リーガルインフェルノ\\c[0]レベル3火炎ダッシュアートへのアクセスを許可を与える。\\c[1]レベル2火炎ダッシュアートのロック解除が必要。\\c[0]",
                     "BLOB_SPECIAL": "\\c[3]ヴィタラィジングボルテックス\\c[0]レベル3波動ガードアートへのアクセスを許可を与える。\\c[1]レベル2波動ガードアートのロック解除が必要だ。\\c[0]",
                     "PHANTOM_SPECIAL": "\\c[3]ダウセンドカセス\\c[0]レベル3電撃近接アートへのアクセスを許可を与える。\\c[1]レベル2電撃近接アートのロック解除が必要だ。\\c[0]",
-                    "DRILLER_SPECIAL": "\\c[3]グレィシャクロス\\c[0]レベル3冷気スローアートへのアクセスを許可を与える。\\c[1]レベル2冷気スローアートのロック解除が必要だ。\\c[0]"
+                    "DRILLER_SPECIAL": "\\c[3]グレィシャクロス\\c[0]レベル3冷気スローアートへのアクセスを許可を与える。\\c[1]レベル2冷気スローアートのロック解除が必要だ。\\c[0]",
+                    "APE_SPECIAL": "Grants access to the \\c[3]Indignant Sky\\c[0] Level 3 Shock Guard Art. \\c[1]Requires learning a Level 2 Shock Guard Art.\\c[0]",
+                    "WHALE_SPECIAL": "Grants access to the \\c[3]Cetacean Press\\c[0] Level 3 Wave Melee Art. \\c[1]Requires learning a Level 2 Wave Melee Art.\\c[0]"
                 }
             },
             "social": {
