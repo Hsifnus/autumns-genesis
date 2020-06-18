@@ -54,6 +54,7 @@
                     "damageFactor": 2.4,
                     "guardable": "FROM_ABOVE",
                     "hitInvincible": true,
+                    "hints": ["NO_PUZZLE"],
                     "skillBonus": "",
                     "limiter": ""
                 },
@@ -290,6 +291,7 @@
                     "reverse": false,
                     "status": 5,
                     "damageFactor": 5,
+                    "hints": ["NO_PUZZLE"],
                     "guardable": "FROM_ABOVE",
                     "hitInvincible": true,
                     "skillBonus": "",
@@ -330,6 +332,7 @@
                     "element": "NEUTRAL",
                     "reverse": false,
                     "status": 20,
+                    "hints": ["NO_PUZZLE"],
                     "damageFactor": 3,
                     "guardable": "FROM_ABOVE",
                     "hitInvincible": true,

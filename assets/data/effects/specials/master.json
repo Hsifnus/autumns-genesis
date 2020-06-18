@@ -39,6 +39,7 @@
             },
             "time": 0.25,
             "repeat": true,
+            "renderMode": "lighter",
             "frames": [0, 1, 2, 3]
         }, {
             "name": "SHOCK_BALL_DOT1",
