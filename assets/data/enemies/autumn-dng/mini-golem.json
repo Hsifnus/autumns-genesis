@@ -1579,10 +1579,6 @@
                 "hint": "GUST",
                 "negated": false,
                 "type": "HAS_HINT"
-            }, {
-                "element": "NEUTRAL",
-                "negated": false,
-                "type": "ELEMENT_HIT"
             }],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
