@@ -5369,7 +5369,7 @@
                     "type": "SHOW_EFFECT",
                     "effect": {
                         "sheet": "specials.master",
-                        "name": "whaleSweep"
+                        "name": "whaleSweepRev"
                     }
                 }, {
                     "align": "BOTTOM",
@@ -5380,7 +5380,7 @@
                     "duration": 0.1,
                     "expandRadius": 0,
                     "alwaysFull": false,
-                    "clockwise": true,
+                    "clockwise": false,
                     "flipLeftFace": 6,
                     "rectangular": false,
                     "repeat": false,
@@ -5436,7 +5436,7 @@
                     "type": "SHOW_EFFECT",
                     "effect": {
                         "sheet": "specials.master",
-                        "name": "whaleSweepRev"
+                        "name": "whaleSweep"
                     }
                 }, {
                     "align": "BOTTOM",
@@ -5447,7 +5447,7 @@
                     "duration": 0.1,
                     "expandRadius": 0,
                     "alwaysFull": false,
-                    "clockwise": false,
+                    "clockwise": true,
                     "flipLeftFace": 6,
                     "rectangular": false,
                     "repeat": false,
