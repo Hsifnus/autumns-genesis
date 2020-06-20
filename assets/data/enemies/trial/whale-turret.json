@@ -585,10 +585,15 @@
     },
     "meta": {
         "species": {
-            "en_US": "Whale Turret",
+            "en_US": "Wave Turret",
             "langUid": 4
         },
-        "category": "ABSTRACT",
-        "descriptions": []
+        "category": "MECHA",
+        "descriptions": [{
+            "text": {
+                "en_US": "A larger, upgraded version of the \\v[combat.name.forest/panda]'s wave turret. It is capable of shooting strong wave bullets and concentrated bursts of wave energy. Just how did these things end up inside the \\v[combat.name.jungle/whale-boss], you may ask? Try flinging that question at the Ancients next time you meet them."
+            },
+            "condition": ""
+        }]
     }
 }

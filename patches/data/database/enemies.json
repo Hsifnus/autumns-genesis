@@ -353,6 +353,80 @@
         "itemDrops": [],
         "boss": true
     },
+    "trial/flare-bomb": {
+        "name": {
+            "en_US": "Flare Super Bomb",
+            "langUid": 329
+        },
+        "kills": 1,
+        "track": true,
+        "order": 201,
+        "area": "cold-dng",
+        "anim": "idle",
+        "extra": "almost",
+        "descriptions": [{
+            "text": {
+                "en_US": "A long-forbidden armament stored deep within the \\c[3]\\v[area.cold-dng.name]\\c[0]. After making a landing, the bomb starts a countdown sequence that ends in a massive, lingering explosion of lethal flame. Try defusing the bomb with Cold attacks before it detonates!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Dangerous Bomb",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 28000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [0.8, 1.2, 1, 1],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "boss": false,
+        "credit": 0,
+        "exp": 0
+    },
+    "trial/frost-bomb": {
+        "name": {
+            "en_US": "Frost Super Bomb",
+            "langUid": 329
+        },
+        "kills": 1,
+        "track": true,
+        "order": 202,
+        "area": "cold-dng",
+        "anim": "idleAlt",
+        "extra": "almostAlt",
+        "descriptions": [{
+            "text": {
+                "en_US": "A long-forbidden armament stored deep within the \\c[3]\\v[area.cold-dng.name]\\c[0]. After making a landing, the bomb starts a countdown sequence that ends in a long-reaching, deadly cross of icicles. Try defusing the bomb with Heat attacks before it detonates!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Dangerous Bomb",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 28000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [1.2, 0.8, 1, 1],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "boss": false,
+        "credit": 0,
+        "exp": 0
+    },
     "mine-kamikatze-alt": {
         "name": {
             "en_US": "Kamikatze",
@@ -480,7 +554,7 @@
             "langUid": 10550,
             "de_DE": "Ahnenwächter"
         },
-        "track": true,
+        "track": false,
         "order": 610,
         "area": "tree-dng",
         "kills": 1,
@@ -525,5 +599,42 @@
         "exp": 2000,
         "itemDrops": [],
         "boss": true
+    },
+    "trial.whale-turret": {
+        "name": {
+            "en_US": "Wave Turret 2.0",
+            "langUid": 329
+        },
+        "track": true,
+        "order": 502,
+        "area": "tree-dng",
+        "anim": false,
+        "extra": false,
+        "kills": 1,
+        "descriptions": [{
+            "text": {
+                "en_US": "A larger, upgraded version of the \\v[combat.name.forest/panda]'s wave turret. It is capable of shooting strong wave bullets and concentrated bursts of wave energy. Just how did these things end up inside the \\v[combat.name.jungle/whale-boss], you may ask? Try flinging that question at the Ancients next time you meet them."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Wave Turret",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 20000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [1, 1, 1.2, 0.8],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "credit": 0,
+        "exp": 0,
+        "boss": false
     }
 }
