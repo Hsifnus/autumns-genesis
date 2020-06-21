@@ -10590,7 +10590,7 @@
             "startDist": 0,
             "moveDist": 0,
             "keySpline": "EASE_IN_OUT",
-            "normalMoveDist": 128,
+            "normalMoveDist": 0,
             "collision": false,
             "pAlpha": {
                 "init": 0.8,
