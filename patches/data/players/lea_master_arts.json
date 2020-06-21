@@ -4456,6 +4456,14 @@
                 "stunType": "INTERRUPT",
                 "status": true,
                 "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
                     "value": "MASSIVE",
                     "type": "SET_HIT_STABLE"
                 }, {
@@ -4526,6 +4534,14 @@
                     "removeEntityStatic": false,
                     "type": "CLEAR_SLOW_MOTION"
                 }, {
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
                     "followUp": "throwMirrEnd",
                     "wait": false,
                     "viaWalkConfig": false,
@@ -4581,6 +4597,14 @@
                 "stunType": "LOCK",
                 "status": true,
                 "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
                     "value": "MASSIVE",
                     "type": "SET_HIT_STABLE"
                 }, {
@@ -4666,6 +4690,14 @@
                 }, {
                     "time": 0.033,
                     "type": "MOVE_FORWARD"
+                }, {
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
                 }, {
                     "type": "STOP_XY"
                 }, {
@@ -5314,6 +5346,14 @@
                 "stunType": "LOCK",
                 "status": true,
                 "steps": [{
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": 0,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
+                }, {
                     "attribName": "signal",
                     "changeType": "set",
                     "proxyOwner": false,
@@ -5488,6 +5528,14 @@
                         "name": "pummel",
                         "type": "GOTO_LABEL"
                     }]
+                }, {
+                    "type": "SET_PLAYER_ACTION_BLOCK",
+                    "blockData": {
+                        "dash": -1,
+                        "action": -1,
+                        "move": -1,
+                        "reaim": -1
+                    }
                 }, {
                     "wait": false,
                     "viaWalkConfig": false,
