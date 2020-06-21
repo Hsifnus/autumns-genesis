@@ -1416,7 +1416,7 @@
                 "withElse": false,
                 "type": "IF",
                 "thenStep": [{
-                    "duration": 2.8,
+                    "duration": 3.8,
                     "align": "BOTTOM",
                     "rotateFace": 0,
                     "flipLeftFace": false,
@@ -1446,7 +1446,7 @@
                 "align": "CENTER",
                 "type": "PUSH_PULL_FORCE"
             }, {
-                "time": 3.5,
+                "time": 3.8,
                 "type": "WAIT"
             }, {
                 "align": "CENTER",
