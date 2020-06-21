@@ -5387,6 +5387,8 @@
                     "type": "SET_ATTRIB_NUMBER",
                     "value": 1
                 }, {
+                    "type": "PLAYER_ADJUST_MOVE_DIR"
+                }, {
                     "followUp": "attackMirrEnd",
                     "wait": false,
                     "viaWalkConfig": false,
@@ -5453,6 +5455,8 @@
                 }, {
                     "time": 0.45,
                     "type": "WAIT"
+                }, {
+                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "followUp": "attackMirrEndRev",
                     "wait": false,
@@ -5528,6 +5532,8 @@
                         "name": "pummel",
                         "type": "GOTO_LABEL"
                     }]
+                }, {
+                    "type": "PLAYER_ADJUST_MOVE_DIR"
                 }, {
                     "type": "SET_PLAYER_ACTION_BLOCK",
                     "blockData": {
