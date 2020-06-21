@@ -46,6 +46,8 @@ import "./js/game/feature/player/coquelicot-player.js";
 
 import "./js/game/feature/player/custom-modifiers.js";
 
+import "./js/game/feature/player/food-velocity-exploit-fix.js";
+
 import "./js/game/feature/puzzle/entities/wind-bubble.js";
 
 import "./js/game/feature/puzzle/rain-super-bombs.js";
