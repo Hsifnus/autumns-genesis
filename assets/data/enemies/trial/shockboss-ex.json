@@ -6001,7 +6001,7 @@
             "fixPos": false,
             "type": "SHOW_EFFECT",
             "effect": {
-                "sheet": "enemies.jungle",
+                "sheet": "enemies.shockboss-ex",
                 "name": "shkBossWhirlPre"
             },
             "offset": {
@@ -7022,7 +7022,7 @@
             "fixPos": false,
             "type": "SHOW_EFFECT",
             "effect": {
-                "sheet": "enemies.jungle",
+                "sheet": "enemies.shockboss-ex",
                 "name": "shkBossCagePre"
             },
             "offset": {
