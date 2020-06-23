@@ -9856,7 +9856,7 @@
             }
         }, {
             "time": 0.1,
-            "stats": ["ATTACK-3"],
+            "stats": ["NONE"],
             "name": "overdrive",
             "type": "ADD_ITEM_BUFF_PLUS"
         }],

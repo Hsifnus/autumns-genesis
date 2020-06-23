@@ -56,6 +56,13 @@ ig.module("game.feature.combat.item-buffs-plus").requires("game.feature.combat.s
         icon: "stat-attack",
         grade: "stat-rank-3"
     };
+    sc.STAT_CHANGE_SETTINGS["NONE"] = {
+        change: sc.STAT_CHANGE_TYPE.STATS,
+        type: sc.STAT_PARAM_TYPE.ATTACK,
+        value: 1,
+        icon: "stat-attack",
+        grade: "stat-rank-1"
+    };
     for (var i = 1; i <= 10; i++) {
         sc.STAT_CHANGE_SETTINGS[`WHALE-DEFENSE-${i}`] = {
             change: sc.STAT_CHANGE_TYPE.STATS,
