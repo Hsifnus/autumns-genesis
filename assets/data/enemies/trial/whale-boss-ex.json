@@ -3238,6 +3238,10 @@
                 "type": "SET_ATTRIB_BOOL",
                 "value": true
             }, {
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
                 "attribName": "step",
                 "changeType": "set",
                 "proxyOwner": false,
