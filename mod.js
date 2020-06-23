@@ -26,6 +26,8 @@ import "./js/game/feature/combat/item-buffs-plus.js";
 
 import "./js/game/feature/combat/manual-combatant-kill-dead.js";
 
+import "./js/game/feature/combat/part-hit-proxy-fix.js";
+
 import "./js/game/feature/combat/true-target.js";
 
 import "./js/game/feature/combat/model/enemy-tracker-access.js";

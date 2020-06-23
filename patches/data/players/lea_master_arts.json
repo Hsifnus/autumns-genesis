@@ -4616,6 +4616,7 @@
                 }, {
                     "proxy": "staticMarker",
                     "align": "CENTER",
+                    "oncePerEntity": true,
                     "type": "SET_HIT_PROXY"
                 }, {
                     "attribName": "ready",
