@@ -2767,6 +2767,76 @@
             },
             "type": "GENERIC"
         },
+        "StaticDispeller": {
+            "copyOwnerAnims": false,
+            "breakType": "NONE",
+            "action": [{
+                "name": "loop",
+                "type": "LABEL"
+            }, {
+                "attrib": "action",
+                "target": "TRUE_TARGET",
+                "type": "WAIT_UNTIL_PLAYER_ACTION",
+                "actions": ["DASH_SLOW"]
+            }, {
+                "conditions": [{
+                    "condition": "entity.ownerAttrib.level != 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.25,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "volume": 0.9,
+                    "global": false,
+                    "loop": false,
+                    "speed": 2,
+                    "variance": 0.05,
+                    "sound": "media/sound/upgrade/collect.ogg",
+                    "type": "PLAY_SOUND"
+                }, {
+                    "attribName": "level",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "changeConnected": "PROXY_OWNER",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 0
+                }, {
+                    "attribName": "addStatic",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "changeConnected": "PROXY_OWNER",
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": -1
+                }]
+            }, {
+                "time": 0.25,
+                "type": "WAIT"
+            }, {
+                "name": "loop",
+                "type": "GOTO_LABEL"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "static",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 32
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
         "StaticAura": {
             "copyOwnerAnims": false,
             "breakType": "NONE",
@@ -4333,6 +4403,15 @@
             "withElse": false,
             "type": "IF",
             "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "StaticDispeller",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 12
+                }
+            }, {
                 "align": "BOTTOM",
                 "type": "SHOOT_PROXY",
                 "proxy": "StaticAura",
