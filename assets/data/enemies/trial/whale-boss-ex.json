@@ -180,6 +180,10 @@
                     "max": 0,
                     "negated": false,
                     "type": "HP_BREAK"
+                }, {
+                    "condition": "!newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
                 }],
                 "action": "RotationA"
             }, {
@@ -188,6 +192,10 @@
                     "max": 1,
                     "negated": false,
                     "type": "HP_BREAK"
+                }, {
+                    "condition": "!newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
                 }],
                 "action": "RotationB"
             }, {
@@ -196,8 +204,48 @@
                     "max": 3,
                     "negated": false,
                     "type": "HP_BREAK"
+                }, {
+                    "condition": "!newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
                 }],
                 "action": "RotationC"
+            }, {
+                "req": [{
+                    "min": 0,
+                    "max": 0,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }],
+                "action": "RotationD"
+            }, {
+                "req": [{
+                    "min": 1,
+                    "max": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }],
+                "action": "RotationE"
+            }, {
+                "req": [{
+                    "min": 2,
+                    "max": 3,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }],
+                "action": "RotationF"
             }, {
                 "action": "Idle"
             }]
@@ -378,6 +426,82 @@
         }
     },
     "proxies": {
+        "waveWall": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "waveSpot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 64,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 1,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "NONE",
+                    "visualType": "LIGHT",
+                    "element": "WAVE",
+                    "damageFactor": 0.25,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 100,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "wall",
+            "type": "GENERIC",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 32
+            },
+            "config": {
+                "collType": "NONE"
+            }
+        },
         "pressureIncrementer": {
             "copyOwnerAnims": false,
             "breakType": "NONE",
@@ -386,7 +510,17 @@
                 "type": "LABEL"
             }, {
                 "type": "WAIT",
+                "aggroTime": 0.166,
                 "time": 0.25
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "condition": "entity.ownerAttrib.forceTick",
+                    "type": "WAIT_UNTIL",
+                    "maxTime": 0.0833
+                }]
             }, {
                 "condition": "entity.ownerAttrib.forceTick",
                 "type": "WAIT_UNTIL",
@@ -1072,6 +1206,50 @@
             },
             "type": "BALL"
         },
+        "waveBulletFast": {
+            "size": {
+                "x": 32,
+                "y": 32,
+                "z": 8
+            },
+            "effects": "",
+            "speed": 225,
+            "maxBounce": 0,
+            "timer": 10,
+            "trail": false,
+            "multiHit": true,
+            "light": "XL",
+            "noLightGlow": true,
+            "attack": {
+                "type": "MEDIUM",
+                "element": "WAVE",
+                "reverse": false,
+                "status": 2.5,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "timeBoni": null,
+            "behaviors": [],
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "sheet": {
+                        "src": "media/entity/effects/wave.png",
+                        "xCount": 5,
+                        "offX": 0,
+                        "offY": 224,
+                        "width": 80,
+                        "height": 80
+                    },
+                    "renderMode": "lighter",
+                    "time": 0.033,
+                    "repeat": true,
+                    "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+                }]
+            },
+            "type": "BALL"
+        },
         "waveBullet": {
             "size": {
                 "x": 32,
@@ -1601,6 +1779,18 @@
             }, {
                 "time": 0.2,
                 "type": "WAIT"
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "proxy": "waveWall",
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY"
+                }]
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
             }],
             "invisible": false,
             "hp": 0,
@@ -1791,6 +1981,483 @@
             "config": {
                 "collType": "PROJECTILE",
                 "zGravityFactor": 1,
+                "shadow": 48
+            },
+            "type": "GENERIC"
+        },
+        "waveFallBomb4": {
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "shapeType": "Y_FLAT",
+                    "offset": {
+                        "x": 0,
+                        "y": 8,
+                        "z": 0
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/lighter-particle.png",
+                        "offX": 0,
+                        "offY": 192,
+                        "width": 48,
+                        "height": 48
+                    },
+                    "renderMode": "lighter",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [0]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss",
+                    "name": "crosshair"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "target": "PROXY_OWNER",
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "whaleShoot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "whaleBombTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 2,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "value": 900,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 320,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.1,
+                "stopBeforeEdge": false,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": 0,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 48,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "WAVE",
+                    "damageFactor": 1.5,
+                    "fly": "MASSIVE",
+                    "reverse": false,
+                    "status": 3,
+                    "guardable": "FROM_ABOVE",
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "whaleBombXplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 16
+            },
+            "config": {
+                "collType": "PROJECTILE",
+                "zGravityFactor": 1,
+                "shadow": 48
+            },
+            "type": "GENERIC"
+        },
+        "waveFallBomb5": {
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "shapeType": "Y_FLAT",
+                    "offset": {
+                        "x": 0,
+                        "y": 8,
+                        "z": 0
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/lighter-particle.png",
+                        "offX": 0,
+                        "offY": 192,
+                        "width": 48,
+                        "height": 48
+                    },
+                    "renderMode": "lighter",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [0]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "duration": -1,
+                "align": "BASE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss",
+                    "name": "crosshair"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "whaleBombTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 2,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "value": 0,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 0,
+                "type": "SET_SPEED"
+            }, {
+                "value": 0,
+                "type": "SET_AIR_FRICTION"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 48,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "WAVE",
+                    "damageFactor": 1.5,
+                    "fly": "MASSIVE",
+                    "reverse": false,
+                    "status": 3,
+                    "guardable": "FROM_ABOVE",
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "whaleBombXplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 16
+            },
+            "config": {
+                "collType": "PROJECTILE",
+                "zGravityFactor": 1,
+                "shadow": 48
+            },
+            "type": "GENERIC"
+        },
+        "bulletStreamer": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "invisible": false,
+            "action": [{
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "value": true,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 3,
+                "duration": 0.1,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletFast",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 8
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }],
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 16
+            },
+            "config": {
+                "collType": "TRIGGER",
+                "zGravityFactor": 0,
+                "shadow": 48
+            },
+            "type": "GENERIC"
+        },
+        "homingFish": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "invisible": false,
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "whaleFishTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 8
+                }
+            }, {
+                "time": 2,
+                "type": "WAIT"
+            }, {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "value": 125,
+                "type": "SET_SPEED"
+            }, {
+                "min": 0,
+                "max": 20,
+                "maxTime": 10,
+                "forceTime": false,
+                "rotateSpeed": 0.5,
+                "type": "MOVE_TO_DISTANCE"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "align": "BOTTOM",
+                "radius": 24,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 1,
+                "duration": 0.2,
+                "expandRadius": 16,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "WAVE",
+                    "damageFactor": 15,
+                    "fly": "MASSIVE",
+                    "hitInvincible": true,
+                    "noIronStance": true,
+                    "reverse": false,
+                    "status": 100,
+                    "guardable": "NEVER",
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }],
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "fish",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 16
+            },
+            "config": {
+                "collType": "TRIGGER",
+                "zGravityFactor": 0,
                 "shadow": 48
             },
             "type": "GENERIC"
@@ -2077,6 +2744,15 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "proxy": "bulletStreamer",
+                    "type": "SHOOT_PROXY"
+                }]
             }, {
                 "condition": "entity.attrib.tidalCharge >= 5",
                 "withElse": false,
@@ -3224,12 +3900,11 @@
         }],
         "RotationC": [{
             "conditions": [{
-              "condition": "!entity.attrib.desperation",
-              "type": "VAR_CONDITION"
-            },
-            {
-              "value": 0.15,
-              "type": "HP_BELOW"
+                "condition": "!entity.attrib.desperation",
+                "type": "VAR_CONDITION"
+            }, {
+                "value": 0.15,
+                "type": "HP_BELOW"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -3424,6 +4099,571 @@
             }]
         }, {
             "condition": "entity.attrib.step >= 11 || entity.attrib.reset",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 0
+            }],
+            "elseStep": [{
+                "attribName": "step",
+                "changeType": "add",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "RotationD": [{
+            "condition": "entity.attrib.step == 0",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "stateReset": false,
+                "actionName": "PressureCall",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 1",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootQuick",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Dash",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 4",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "HomingFish",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootCircle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 6",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "IdleLong",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 7",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "JumpStart",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 8",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "IdleLong",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 9",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Shoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 10",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Idle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 11",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootQuick",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 12",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 13",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootCircle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 14",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 15",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "IdleLong",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 16",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step >= 16 || entity.attrib.reset",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 0
+            }],
+            "elseStep": [{
+                "attribName": "step",
+                "changeType": "add",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "RotationE": [{
+            "condition": "entity.attrib.step == 0",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 1",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "HomingFish",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootTurrets",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Dash",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "PressureCall",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 4",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Idle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootCircle2",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 6",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Idle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 7",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Shoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 8",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "PressureCall",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 9",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 10",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 11",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "JumpStart",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 12",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "IdleLong",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 13",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 14",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 15",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "TidalMoon",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step >= 15 || entity.attrib.reset",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 0
+            }],
+            "elseStep": [{
+                "attribName": "step",
+                "changeType": "add",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "RotationF": [{
+            "conditions": [{
+                "condition": "!entity.attrib.desperation",
+                "type": "VAR_CONDITION"
+            }, {
+                "value": 0.15,
+                "type": "HP_BELOW"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "name": "desperation",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "attribName": "step",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 4
+            }]
+        }, {
+            "condition": "entity.attrib.step == 0",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "reset",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 1",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Dash",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 2",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "HomingFish",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 3",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "TidalMoon",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 4",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "desperation",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "name": "antiskip",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "stateReset": false,
+                "actionName": "ShootTurrets",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 5",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 6",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "Shoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 7",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "antiskip2",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "stateReset": false,
+                "actionName": "TidalMoon",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 8",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 9",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "HomingFish",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 10",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DashSingle",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 11",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "ShootCircle2",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 12",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "DefenseBuff",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step == 13",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "stateReset": false,
+                "actionName": "JumpStart",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }]
+        }, {
+            "condition": "entity.attrib.step >= 13 || entity.attrib.reset",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
@@ -3732,8 +4972,17 @@
             "value": false,
             "type": "FACE_TO_TARGET"
         }, {
-            "value": 4,
-            "type": "SET_RELATIVE_SPEED"
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "value": 5,
+                "type": "SET_RELATIVE_SPEED"
+            }],
+            "elseStep": [{
+                "value": 4,
+                "type": "SET_RELATIVE_SPEED"
+            }]
         }, {
             "align": "FACE_BASE",
             "radius": 56,
@@ -3769,49 +5018,143 @@
                 "z": 0
             }
         }, {
-            "align": "FACE_BASE",
-            "centralAngle": 1,
-            "startAngle": -0.25,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 2,
-            "duration": 0.25,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBulletSlow",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "align": "FACE_BASE",
-            "centralAngle": 1,
-            "startAngle": -0.25,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 2,
-            "duration": 0.25,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBullet",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "align": "FACE_BASE",
+                "centralAngle": 0.3,
+                "startAngle": 0.35,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 0.3,
+                "startAngle": 0.35,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
         }, {
             "duration": -1,
             "align": "BOTTOM",
@@ -4203,8 +5546,17 @@
             "value": false,
             "type": "FACE_TO_TARGET"
         }, {
-            "value": 4,
-            "type": "SET_RELATIVE_SPEED"
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "value": 5,
+                "type": "SET_RELATIVE_SPEED"
+            }],
+            "elseStep": [{
+                "value": 4,
+                "type": "SET_RELATIVE_SPEED"
+            }]
         }, {
             "align": "FACE_BASE",
             "radius": 56,
@@ -4240,49 +5592,143 @@
                 "z": 0
             }
         }, {
-            "align": "FACE_BASE",
-            "centralAngle": 1,
-            "startAngle": -0.25,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 2,
-            "duration": 0.25,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBulletSlow",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
-        }, {
-            "align": "FACE_BASE",
-            "centralAngle": 1,
-            "startAngle": -0.25,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 2,
-            "duration": 0.25,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBullet",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "align": "FACE_BASE",
+                "centralAngle": 0.3,
+                "startAngle": 0.35,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 0.3,
+                "startAngle": 0.35,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.15,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.25,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 2,
+                "duration": 0.25,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBullet",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
         }, {
             "duration": -1,
             "align": "BOTTOM",
@@ -4721,6 +6167,7 @@
             }
         }, {
             "time": 0.2,
+            "aggroTime": 0.1,
             "type": "WAIT"
         }, {
             "align": "FACE",
@@ -4746,6 +6193,7 @@
             }
         }, {
             "time": 0.2,
+            "aggroTime": 0.1,
             "type": "WAIT"
         }, {
             "align": "FACE",
@@ -4769,6 +6217,83 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 0,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 36,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 72,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
         }, {
             "time": 4,
             "aggroTime": 3,
@@ -5928,6 +7453,15 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "proxy": "bulletStreamer",
+                    "type": "SHOOT_PROXY"
+                }]
             }, {
                 "condition": "entity.attrib.tidalCharge >= 5",
                 "withElse": false,
@@ -9664,6 +11198,10 @@
             }
         }],
         "HpBreak": [{
+            "sticking": false,
+            "group": "fish",
+            "type": "REMOVE_PROXIES"
+        }, {
             "conditions": [{
                 "min": 0,
                 "max": 2,
@@ -9767,6 +11305,10 @@
             "time": 1
         }],
         "BreakStart": [{
+            "sticking": false,
+            "group": "fish",
+            "type": "REMOVE_PROXIES"
+        }, {
             "volume": 1,
             "speed": 2,
             "variance": 0,
@@ -9867,27 +11409,54 @@
             "type": "SHOW_ANIMATION",
             "anim": "preDash"
         }, {
-            "duration": 3,
-            "align": "BOTTOM",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "group": "weak",
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.whale-boss-ex",
-                "name": "whaleDefCharge"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "duration": 1.5,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "weak",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "whaleDefChargeFast"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "duration": 3,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "weak",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "whaleDefCharge"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
         }, {
             "time": 3,
+            "aggroTime": 1.5,
             "type": "WAIT"
         }, {
             "attribName": "def",
@@ -10097,38 +11666,96 @@
             "type": "PLAY_SOUND",
             "sound": "media/sound/boss/whale/whale-call.ogg"
         }, {
-            "duration": 3,
-            "align": "FACE",
-            "rotateFace": 0,
-            "flipLeftFace": false,
-            "wait": false,
-            "waitSkip": 0,
-            "actionDetached": false,
-            "fixPos": false,
-            "type": "SHOW_EFFECT",
-            "effect": {
-                "sheet": "enemies.whale-boss-ex",
-                "name": "whaleCall"
-            },
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 0
-            }
+            "condition": "newgame.harder-enemies",
+            "type": "IF",
+            "withElse": true,
+            "thenStep": [{
+                "duration": 3,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "whaleCallBig"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "strength": "RUN_ESCAPE",
+                "pull": false,
+                "radius": 348,
+                "fadeRadius": 48,
+                "minRadius": 0,
+                "zHeight": 6400,
+                "duration": 3,
+                "align": "BASE",
+                "type": "PUSH_PULL_FORCE"
+            }, {
+                "align": "FACE_BASE",
+                "centralAngle": 1,
+                "startAngle": -0.033,
+                "startDist": 64,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 24,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "duration": 3,
+                "align": "FACE",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "whaleCall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "strength": "RUN_ESCAPE",
+                "pull": false,
+                "radius": 200,
+                "fadeRadius": 48,
+                "minRadius": 0,
+                "zHeight": 6400,
+                "duration": 3,
+                "align": "BASE",
+                "type": "PUSH_PULL_FORCE"
+            }]
         }, {
             "name": "forceTick",
             "type": "SET_ATTRIB_BOOL",
             "value": true
-        }, {
-            "strength": "RUN_ESCAPE",
-            "pull": false,
-            "radius": 200,
-            "fadeRadius": 48,
-            "minRadius": 0,
-            "zHeight": 6400,
-            "duration": 3,
-            "align": "BASE",
-            "type": "PUSH_PULL_FORCE"
         }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
@@ -10146,6 +11773,50 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "idle"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }],
+        "HomingFish": [{
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "followUp": "dash",
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "preDash"
+        }, {
+            "align": "FACE_BASE",
+            "proxy": "homingFish",
+            "type": "SHOOT_PROXY"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretCommand",
+            "value": 2
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "changeType": "set",
+            "type": "CHANGE_VAR_NUMBER",
+            "varName": "tmp.turretCommand",
+            "value": 0
+        }, {
+            "time": 1,
+            "type": "WAIT"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "idle"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
         }, {
             "time": 1,
             "type": "WAIT"
@@ -10398,6 +12069,69 @@
         }, {
             "time": 0.5,
             "type": "WAIT"
+        }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "conditions": [{
+                    "min": 2,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "centralAngle": 1,
+                    "angleVary": 0,
+                    "random": true,
+                    "count": 25,
+                    "duration": 15,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "waveFallBomb5",
+                    "offsetArea": {
+                        "x": 640,
+                        "y": 640
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1000
+                    }
+                }],
+                "elseStep": [{
+                    "align": "BOTTOM",
+                    "centralAngle": 1,
+                    "angleVary": 0,
+                    "random": true,
+                    "count": 15,
+                    "duration": 15,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "waveFallBomb5",
+                    "offsetArea": {
+                        "x": 640,
+                        "y": 640
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 1000
+                    }
+                }]
+            }]
         }, {
             "followUp": "dash",
             "wait": false,

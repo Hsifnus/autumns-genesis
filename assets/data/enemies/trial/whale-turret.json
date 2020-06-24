@@ -287,6 +287,59 @@
                 "z": 3
             }
         }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "type": "WAIT",
+                "time": 0.5
+            }, {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "speed": 0.9,
+                "variance": 0.05,
+                "sound": "media/sound/boss/turret/fast-shot.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "align": "BOTTOM",
+                "proxy": "WaveGun",
+                "type": "SHOOT_PROXY",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }, {
+                "type": "WAIT",
+                "time": 0.2
+            }, {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "volume": 1,
+                "global": false,
+                "loop": false,
+                "speed": 0.9,
+                "variance": 0.05,
+                "sound": "media/sound/boss/turret/fast-shot.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "align": "BOTTOM",
+                "proxy": "WaveGun",
+                "type": "SHOOT_PROXY",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }]
+        }, {
             "type": "CLEAR_TEMP_TARGET"
         }, {
             "time": 0.1,
@@ -402,53 +455,107 @@
             "time": 0.1,
             "type": "WAIT"
         }, {
-            "align": "BOTTOM",
-            "centralAngle": 1,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 8,
-            "duration": 0,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBulletSlow",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 3
-            }
-        }, {
-            "time": 0.1,
-            "type": "WAIT"
-        }, {
-            "align": "BOTTOM",
-            "centralAngle": 1,
-            "angleVary": 0,
-            "startDistCollide": "NONE",
-            "random": false,
-            "count": 8,
-            "duration": 0,
-            "clockwise": false,
-            "flipLeftFace": 0,
-            "circularArea": false,
-            "uniformDir": 0,
-            "delay": 0,
-            "repeat": true,
-            "type": "SHOOT_PROXY_RANGE",
-            "proxy": "waveBulletSlow",
-            "offset": {
-                "x": 0,
-                "y": 0,
-                "z": 3
-            }
-        }, {
-            "time": 0.1,
-            "type": "WAIT"
+            "condition": "newgame.harder-enemies",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 8,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 8,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }],
+            "elseStep": [{
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 8,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "random": false,
+                "count": 8,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": true,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveBulletSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 3
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }]
         }, {
             "type": "CLEAR_TEMP_TARGET"
         }, {

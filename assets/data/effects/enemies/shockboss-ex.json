@@ -1698,26 +1698,26 @@
             "inverse": false,
             "collision": false,
             "pAlpha": {
-              "init": 1,
-              "end": {
-                "value": 0,
-                "time": 0.15,
-                "spline": ""
-              }
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
             },
             "pScale": {
-              "init": {
-                "x": 1,
-                "y": 1
-              },
-              "end": {
-                "value": {
-                  "x": 0,
-                  "y": 1
+                "init": {
+                    "x": 1,
+                    "y": 1
                 },
-                "time": 0.1,
-                "spline": ""
-              }
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 1
+                    },
+                    "time": 0.1,
+                    "spline": ""
+                }
             },
             "moveWithTarget": 1,
             "particleDuration": 0.25,
@@ -1728,41 +1728,40 @@
             "color": "#bb99ff",
             "noLighter": false,
             "pAlpha": {
-              "init": 0.7,
-              "start": {
-                "value": 0,
-                "spline": ""
-              }
+                "init": 0.7,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
             },
             "pScale": {
-              "init": {
-                "x": 1,
-                "y": 1
-              },
-              "start": {
-                "value": {
-                  "x": 2,
-                  "y": 2
+                "init": {
+                    "x": 1,
+                    "y": 1
                 },
-                "spline": ""
-              }
+                "start": {
+                    "value": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "spline": ""
+                }
             },
             "particleDuration": 0.2,
             "type": "COPY_SPRITE"
-            },
-            {
+        }, {
             "numParticles": 1,
             "duration": 0.1,
             "circular": false,
             "xScale": 0.7,
             "yScale": 0.7,
             "offset": {
-              "x": 0,
-              "y": 32,
-              "z": 32
+                "x": 0,
+                "y": 32,
+                "z": 32
             },
             "pRotate": {
-              "init": 0.25
+                "init": 0.25
             },
             "anim": "SPARK4",
             "type": "PLAY_ANIMS_OVER_ENTITY"
@@ -1773,12 +1772,12 @@
             "xScale": 0.7,
             "yScale": 0.7,
             "offset": {
-              "x": 0,
-              "y": 32,
-              "z": 32
+                "x": 0,
+                "y": 32,
+                "z": 32
             },
             "pRotate": {
-              "init": 0
+                "init": 0
             },
             "anim": "SPARK3",
             "type": "PLAY_ANIMS_OVER_ENTITY"
@@ -1789,24 +1788,24 @@
             "color": "#bb99ff",
             "noLighter": false,
             "pAlpha": {
-              "init": 0.7,
-              "start": {
-                "value": 0,
-                "spline": ""
-              }
+                "init": 0.7,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
             },
             "pScale": {
-              "init": {
-                "x": 1,
-                "y": 1
-              },
-              "start": {
-                "value": {
-                  "x": 2,
-                  "y": 2
+                "init": {
+                    "x": 1,
+                    "y": 1
                 },
-                "spline": ""
-              }
+                "start": {
+                    "value": {
+                        "x": 2,
+                        "y": 2
+                    },
+                    "spline": ""
+                }
             },
             "particleDuration": 0.2,
             "type": "COPY_SPRITE"
@@ -2245,12 +2244,12 @@
             "inverse": true,
             "collision": false,
             "pAlpha": {
-              "init": 1,
-              "end": {
-                "value": 0,
-                "time": 0.15,
-                "spline": ""
-              }
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
             },
             "particleDuration": 0.25,
             "anim": "SHOCK_DOT1",
@@ -2259,31 +2258,31 @@
             "useTargetAngle": false,
             "keepAngleSync": false,
             "pAlpha": {
-              "init": 0.6,
-              "start": {
-                "value": 0,
-                "spline": ""
-              }
+                "init": 0.6,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
             },
             "pScale": {
-              "init": {
-                "x": 0.25,
-                "y": 0.25
-              },
-              "start": {
-                "value": {
-                  "x": 3,
-                  "y": 3
+                "init": {
+                    "x": 0.25,
+                    "y": 0.25
                 },
-                "spline": "EASE_IN"
-              }
+                "start": {
+                    "value": {
+                        "x": 3,
+                        "y": 3
+                    },
+                    "spline": "EASE_IN"
+                }
             },
             "pRotate": {
-              "init": -0.6,
-              "start": {
-                "value": -0.3,
-                "spline": ""
-              }
+                "init": -0.6,
+                "start": {
+                    "value": -0.3,
+                    "spline": ""
+                }
             },
             "moveWithTarget": 1,
             "particleDuration": 0.5,
