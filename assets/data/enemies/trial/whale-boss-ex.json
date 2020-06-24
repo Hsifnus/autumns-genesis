@@ -1590,18 +1590,6 @@
             }, {
                 "time": 0.2,
                 "type": "WAIT"
-            }, {
-                "condition": "newgame.harder-enemies",
-                "withElse": false,
-                "type": "IF",
-                "thenStep": [{
-                    "proxy": "waveWall",
-                    "align": "BOTTOM",
-                    "type": "SHOOT_PROXY"
-                }]
-            }, {
-                "time": 0.1,
-                "type": "WAIT"
             }],
             "invisible": false,
             "hp": 0,
@@ -11325,7 +11313,7 @@
         }],
         "BreakStart": [{
             "sticking": false,
-            "group": "coil",
+            "group": "fish",
             "type": "REMOVE_PROXIES"
         }, {
             "volume": 1,
