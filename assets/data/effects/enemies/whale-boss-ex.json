@@ -11346,14 +11346,6 @@
                 },
                 "start": {
                     "value": {
-                        "x": 1.5,
-                        "y": 1.5
-                    },
-                    "time": 2,
-                    "spline": "EASE_IN"
-                },
-                "start": {
-                    "value": {
                         "x": 1,
                         "y": 1
                     },
@@ -11366,8 +11358,8 @@
             "moveWithTarget": 1,
             "type": "PLAY_ANIM"
         }, {
-          "time": 2,
-          "type": "WAIT"
+            "time": 2,
+            "type": "WAIT"
         }, {
             "volume": 1.2,
             "global": false,
@@ -11449,7 +11441,7 @@
             "anim": "SHOCKWAVE_B_WAVE_GUI",
             "type": "PLAY_ANIM"
         }, {
-          "type": "LOOP_START"
+            "type": "LOOP_START"
         }, {
             "numParticles": 6,
             "duration": 0.2,
@@ -11561,10 +11553,10 @@
             "anim": "WAVE_BALL",
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
-          "time": 0.2,
-          "type": "WAIT"
+            "time": 0.2,
+            "type": "WAIT"
         }, {
-          "type": "LOOP_END"
+            "type": "LOOP_END"
         }, {
             "volume": 1,
             "global": false,
