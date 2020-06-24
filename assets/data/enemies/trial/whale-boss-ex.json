@@ -2389,7 +2389,6 @@
                 "wait": false,
                 "waitSkip": 0,
                 "actionDetached": false,
-
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
                 "effect": {
@@ -3913,11 +3912,11 @@
         }],
         "RotationC": [{
             "conditions": [{
-              "condition": "!entity.attrib.desperation",
-              "type": "VAR_CONDITION"
+                "condition": "!entity.attrib.desperation",
+                "type": "VAR_CONDITION"
             }, {
-              "value": 0.15,
-              "type": "HP_BELOW"
+                "value": 0.15,
+                "type": "HP_BELOW"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -4504,11 +4503,11 @@
         }],
         "RotationF": [{
             "conditions": [{
-              "condition": "!entity.attrib.desperation",
-              "type": "VAR_CONDITION"
+                "condition": "!entity.attrib.desperation",
+                "type": "VAR_CONDITION"
             }, {
-              "value": 0.15,
-              "type": "HP_BELOW"
+                "value": 0.15,
+                "type": "HP_BELOW"
             }],
             "withElse": false,
             "type": "COMBAT_IF",
@@ -6234,8 +6233,7 @@
             "condition": "newgame.harder-enemies",
             "withElse": false,
             "type": "IF",
-            "thenStep": [
-              {
+            "thenStep": [{
                 "align": "FACE",
                 "centralAngle": 0.33,
                 "angleVary": 0,
@@ -6257,12 +6255,10 @@
                     "y": 0,
                     "z": 0
                 }
-              },
-              {
+            }, {
                 "time": 0.1,
                 "type": "WAIT"
-              },
-              {
+            }, {
                 "align": "FACE",
                 "centralAngle": 0.33,
                 "angleVary": 0,
@@ -6284,12 +6280,10 @@
                     "y": 0,
                     "z": 0
                 }
-              },
-              {
+            }, {
                 "time": 0.1,
                 "type": "WAIT"
-              },
-              {
+            }, {
                 "align": "FACE",
                 "centralAngle": 0.33,
                 "angleVary": 0,
@@ -6311,8 +6305,7 @@
                     "y": 0,
                     "z": 0
                 }
-              }
-            ]
+            }]
         }, {
             "time": 4,
             "aggroTime": 3,
