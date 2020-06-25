@@ -6388,6 +6388,7 @@
             }
         }, {
             "time": 0.2,
+            "aggroTime": 0.1,
             "type": "WAIT"
         }, {
             "align": "FACE",
@@ -6413,6 +6414,7 @@
             }
         }, {
             "time": 0.2,
+            "aggroTime": 0.1,
             "type": "WAIT"
         }, {
             "align": "FACE",
@@ -6436,6 +6438,83 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 0,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 36,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "align": "FACE",
+                "centralAngle": 0.33,
+                "angleVary": 0,
+                "startDistCollide": "NONE",
+                "startDist": 72,
+                "random": false,
+                "count": 5,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveFallBomb4",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
         }, {
             "time": 2,
             "aggroTime": 1.5,
