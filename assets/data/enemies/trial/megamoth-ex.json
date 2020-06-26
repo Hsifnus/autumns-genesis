@@ -5709,6 +5709,9 @@
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
             "value": 1
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "ICE_HITS"
         }],
         "KillPre": [{
             "type": "CLEAR_AR_MSG"

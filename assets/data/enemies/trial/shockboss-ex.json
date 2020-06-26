@@ -8585,6 +8585,24 @@
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.bossKillHit",
             "value": true
+        }],
+        "removeBalls2": [{
+            "attribName": "launch",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": {
+                "varName": "entity.attrib.id"
+            }
+        }, {
+            "attribName": "ballCancel",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "waveBreak"
         }]
     },
     "reactions": {
@@ -8691,7 +8709,7 @@
         },
         "HP_BREAK": {
             "hitType": "HP_BREAK_HIT",
-            "preAction": "removeBalls",
+            "preAction": "removeBalls2",
             "preSwitchState": "DEFAULT",
             "blockFurtherHits": false,
             "attackType": "MASSIVE",
