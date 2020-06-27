@@ -3143,9 +3143,9 @@
             "stickFaceAlign": false,
             "group": "line",
             "size": {
-                "x": 40,
-                "y": 40,
-                "z": 32
+                "x": 8,
+                "y": 8,
+                "z": 16
             },
             "config": {
                 "collType": "TRIGGER",

@@ -5932,7 +5932,32 @@
         }, {
             "type": "LOOP_START"
         }, {
-            "time": 0.1,
+            "color": "#88aaff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.1,
+                        "y": 1.1
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.5,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 1,
             "type": "WAIT"
         }, {
             "type": "LOOP_END"
