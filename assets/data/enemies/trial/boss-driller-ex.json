@@ -2850,6 +2850,16 @@
             "time": 0.3,
             "type": "WAIT"
         }, {
+            "offsetX": 0,
+            "offsetY": 0,
+            "speed": "FAST",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "zoom": 1,
+            "focusType": "KEEP_TARGET_IN_SCREEN",
+            "type": "FOCUS_CAMERA"
+        }, {
             "type": "CLEAR_EFFECTS"
         }, {
             "time": 0.5,
@@ -6160,7 +6170,28 @@
             "type": "SHOW_ANIMATION",
             "anim": "topShootPre2"
         }, {
-            "time": 0.5,
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "conditions": [{
+                "min": 1,
+                "type": "HP_BREAK"
+            }],
+            "type": "COMBAT_IF",
+            "withElse": false,
+            "thenStep": [{
+                "offsetX": 0,
+                "offsetY": -32,
+                "speed": "SLOW",
+                "transition": "EASE_IN_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 1,
+                "focusType": "KEEP_TARGET_IN_SCREEN",
+                "type": "FOCUS_CAMERA"
+            }]
+        }, {
+            "time": 0.4,
             "type": "WAIT"
         }, {
             "wait": false,
@@ -6799,6 +6830,16 @@
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.heroFallSave",
             "value": true
+        }, {
+            "offsetX": 0,
+            "offsetY": -32,
+            "speed": "SLOW",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "zoom": 1,
+            "focusType": "KEEP_TARGET_IN_SCREEN",
+            "type": "FOCUS_CAMERA"
         }, {
             "volume": 1,
             "global": false,
