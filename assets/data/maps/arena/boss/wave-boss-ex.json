@@ -224,7 +224,7 @@
                 "active": true,
                 "type": "SET_COMBAT_ACTIVE"
             }, {
-                "enemyType": "jungle.blob-wave",
+                "enemyType": "jungle.blob-wave-alt",
                 "target": {
                     "player": true
                 },
@@ -320,7 +320,7 @@
                 "type": "SET_ENEMY_STATE",
                 "enemyState": "INTRO"
             }, {
-                "enemyType": "jungle.blob-wave",
+                "enemyType": "jungle.blob-wave-alt",
                 "target": {
                     "player": true
                 },
@@ -467,7 +467,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 1"
@@ -974,7 +974,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 2"
@@ -1003,7 +1003,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 3"
@@ -1032,7 +1032,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 4"
@@ -1061,7 +1061,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 5"
@@ -1090,7 +1090,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 6"
@@ -1119,7 +1119,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 7"
@@ -1148,7 +1148,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 8"
@@ -1177,7 +1177,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 9"
@@ -1206,7 +1206,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 10"
@@ -1235,7 +1235,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 11"
@@ -1264,7 +1264,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 12"
@@ -1293,7 +1293,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 12"
@@ -1322,7 +1322,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 13"
@@ -1351,7 +1351,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 14"
@@ -1380,7 +1380,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 15"
@@ -1409,7 +1409,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 16"
@@ -1438,7 +1438,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 17"
@@ -1467,7 +1467,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 18"
@@ -1496,7 +1496,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 19"
@@ -1525,7 +1525,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 20"
@@ -1554,7 +1554,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 21"
@@ -1583,7 +1583,7 @@
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
-                "type": "jungle.blob-wave",
+                "type": "jungle.blob-wave-alt",
                 "attribs": {}
             },
             "spawnCondition": "tmp.blob >= 22"

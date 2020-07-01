@@ -636,5 +636,88 @@
         "credit": 0,
         "exp": 0,
         "boss": false
+    },
+    "jungle.blob-wave-alt": {
+      "name": {
+        "en_US": "Jelleric",
+        "de_DE": "Jellerick",
+        "zh_CN": "史莱姆",
+        "ja_JP": "ゼリーリック",
+        "ko_KR": "젤레릭",
+        "langUid": 8733
+      },
+      "track": false,
+      "order": 411,
+      "area": "wave-dng",
+      "anim": false,
+      "extra": false,
+      "descriptions": [
+        {
+          "text": {
+            "en_US": "A stronger slime enemy? Really? Not really! Just like the \\v[combat.name.jungle/blob] the actual enemy is the light inside the mass. But the mass is harder and a bit darker which makes it stronger! Other than that it behaves exactly like its weaker kind, yep. ",
+            "de_DE": "Ein starker Schleimgegner? Ernsthaft? Nicht wirklich! Genau wie der \\v[combat.name.jungle/blob] ist der eigentliche Feind das Licht in der Masse. Aber die Masse ist härter und etwas dunkler, was ihn stärker macht! Ansonsten verhält er sich wie seine schwächere Variante, jup.<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "强力版史莱姆？并不是！就像\\v[combat.name.jungle/blob]一样，真正的敌人位于胶质之内。但是现在胶质更硬更黑更难打！除此之外和弱版没什么不同。嗯。<<A<<[CHANGED 2018/09/19]",
+            "ja_JP": "より強力なスライムだって？本当に？いや、正確には間違いだ！\\v[combat.name.jungle/blob]と同様に、実際の本体はゼラチンの中心に存在する光だ。しかしゼラチン体はより硬質に、色も少し暗くなっており、より強力な敵と化しているぞ！それ以外には、原種のモンスターと何ら変わりない行動を取るため、特に身構える必要はない。<<A<<[CHANGED 2018/09/19]",
+            "ko_KR": "더 강한 슬라임 적이냐고요? 정말 그럴까요? 그렇지 않습니다! \\v[combat.name.jungle/blob]처럼 이 녀석의 실체도 덩어리 안에 있는 빛입니다. 그 대신, 덩어리가 더 단단해졌으며 어두운색을 띠어 마치 더 강해 보이는군요! 그 외에는 이 녀석보다 약한 버전인 녀석과 한치도 다를 바 없습니다. 예, 그럼요.<<A<<[CHANGED 2018/09/19]",
+            "langUid": -6
+          },
+          "condition": ""
+        }
+      ],
+      "species": {
+        "en_US": "Gelatin Mass +",
+        "de_DE": "Gelantine Masse +<<C<<Überprüfen: Beschreibung",
+        "zh_CN": "胶质生物+<<A<<[CHANGED 2018/08/01]",
+        "ja_JP": "ゼラチンの塊+<<A<<[CHANGED 2018/08/01]",
+        "ko_KR": "젤라틴 덩어리 +<<A<<[CHANGED 2018/08/01]",
+        "langUid": -4
+      },
+      "category": "ABSTRACT",
+      "level": 42,
+      "boostedLevel": 0,
+      "params": {
+        "hp": 3000,
+        "attack": 208,
+        "defense": 211,
+        "focus": 199,
+        "elemFactor": [
+          0.75,
+          1,
+          1.5,
+          0.5
+        ],
+        "statusInflict": [
+          1.25,
+          1.25,
+          1.5,
+          1.25
+        ],
+        "statusEffect": [
+          1.25,
+          1,
+          1.5,
+          1
+        ]
+      },
+      "credit": 222,
+      "exp": 30,
+      "itemDrops": [
+        {
+          "item": "275",
+          "prob": 0.16,
+          "min": 1,
+          "max": 1,
+          "rank": ""
+        },
+        {
+          "item": "464",
+          "prob": 0.12,
+          "min": 1,
+          "max": 1,
+          "boosted": true,
+          "condition": "item.448.toggled || stat.items.457>= 1"
+        }
+      ],
+      "boss": false
     }
 }
