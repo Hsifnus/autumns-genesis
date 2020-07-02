@@ -1,7 +1,8 @@
 ig.module("game.feature.combat.model.enemy-tracker-access")
     .requires("game.feature.combat.model.enemy-tracker",
         "game.feature.combat.entities.enemy",
-        "impact.base.actor-entity")
+        "impact.base.actor-entity",
+        "impact.feature.base.action-steps")
     .defines(function() {
         sc.EnemyTracker.inject({
             onVarAccess: function(b, a) {}
