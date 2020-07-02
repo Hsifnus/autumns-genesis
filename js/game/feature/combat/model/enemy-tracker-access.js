@@ -48,6 +48,12 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
             }
         });
         ig.ActorEntity.inject({
+            stashed: {
+                action: [],
+                step: [],
+                timer: [],
+                data: []
+            },
             stashAction: function(a) {
                 if (this.currentAction) {
                     !this.stashed.action && (this.stashed.action = []);
@@ -59,12 +65,12 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
                     !this.stashed.data && (this.stashed.data = []);
                     this.stashed.data.push(ig.copy(this.stepData));
                     !this.stashed.inlineStack && (this.stashed.inlineStack = []);
-                    if (this.inlineActionStack.length > 0) this.stashed.inlineStack.push(ig.copy(this.inlineActionStack));
-                    this.cancelAction(a)
+                    this.stashed.inlineStack.push(ig.copy(this.inlineActionStack || []));
+                    this.cancelAction(a);
                 }
             },
             hasStashedAction: function() {
-                return !!this.stashed.action && this.stashed.action.length == 0;
+                return !!this.stashed.action && this.stashed.action.length > 0;
             },
             clearStashedAction: function() {
                 this.stashed.action = [];
@@ -77,8 +83,15 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
                     this.stepTimer = this.stashed.timer.pop();
                     this.stepData = this.stashed.data.pop();
                     this.inlineActionStack.length = 0;
-                    this.stashed.inlineStack && this.stashed.inlineStack.length > 0 && this.inlineActionStack.push.apply(this.inlineActionStack, this.stashed.inlineStack.pop())
+                    var nextInlineStack = this.stashed.inlineStack.pop();
+                    this.stashed.inlineStack && nextInlineStack.length > 0 && this.inlineActionStack.push.apply(this.inlineActionStack, nextInlineStack);
                 }
+            }
+        });
+        ig.ACTION_STEP.DO_ATTRIB_ACTION.inject({
+            start: function(a) {
+                var b = a.getAttribute(this.attrib);
+                this.resumeStashed && a.stashed.action[0] == b ? a.resumeStashedAction(this.noStateReset) : a.setAction(b, false, this.noStateReset)
             }
         });
     });
