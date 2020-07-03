@@ -6019,7 +6019,6 @@
                     "type": "CIRCLE_ATTACK",
                     "attack": {
                         "type": "MASSIVE",
-                        "hitInvincible": true,
                         "element": "WAVE",
                         "damageFactor": 4.5,
                         "status": 7,
@@ -6093,7 +6092,6 @@
                     "type": "CIRCLE_ATTACK",
                     "attack": {
                         "type": "MASSIVE",
-                        "hitInvincible": true,
                         "element": "WAVE",
                         "damageFactor": 4.5,
                         "status": 7,
@@ -6145,7 +6143,6 @@
                     "type": "CIRCLE_ATTACK",
                     "attack": {
                         "type": "MASSIVE",
-                        "hitInvincible": true,
                         "element": "WAVE",
                         "damageFactor": 5,
                         "status": 7,
