@@ -6304,6 +6304,12 @@
             "type": "SHOW_ANIMATION",
             "anim": "groundPre2"
         }, {
+            "attribName": "attackDone",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
             "offsetX": 0,
             "offsetY": 0,
             "speed": "FAST",
@@ -7001,7 +7007,7 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
-            "condition": "entity.attrib.attackDone",
+            "condition": "entity.attrib.attackDone != 0",
             "type": "WAIT_UNTIL"
         }, {
             "attribName": "attackDone",
@@ -7059,6 +7065,12 @@
         "WhyIsThereUndertaleInMyCrosscode": [{
             "type": "DISABLE_REACTION",
             "reaction": "COMPRESSOR_DODGE"
+        }, {
+            "attribName": "attackDone",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
         }, {
             "value": "MASSIVE",
             "type": "SET_HIT_STABLE"
@@ -7208,7 +7220,7 @@
                 "z": 0
             }
         }, {
-            "condition": "entity.attrib.attackDone",
+            "condition": "entity.attrib.attackDone != 0",
             "type": "WAIT_UNTIL"
         }, {
             "attribName": "attackDone",
