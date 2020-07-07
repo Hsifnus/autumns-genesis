@@ -22,6 +22,13 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,
             "volume": 1.8
+        },
+        autumnBoss: {
+            "introPath": "media/bgm/muAutumnboss-i.ogg",
+            "path": "media/bgm/muAutumnboss.ogg",
+            "introEnd": 16,
+            "loopEnd": 163,
+            "volume": 1.8
         }
     });
 
