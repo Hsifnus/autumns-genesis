@@ -28,7 +28,7 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "path": "media/bgm/muAutumnboss.ogg",
             "introEnd": 16,
             "loopEnd": 163,
-            "volume": 1.8
+            "volume": 2.2
         }
     });
 

@@ -2328,7 +2328,7 @@
                 "steps": [{
                     "type": "SET_PLAYER_ACTION_BLOCK",
                     "blockData": {
-                        "dash": 0,
+                        "dash": -1,
                         "action": -1,
                         "move": -1,
                         "reaim": -1
@@ -2455,7 +2455,7 @@
                 "steps": [{
                     "type": "SET_PLAYER_ACTION_BLOCK",
                     "blockData": {
-                        "dash": 0,
+                        "dash": -1,
                         "action": -1,
                         "move": -1,
                         "reaim": -1
