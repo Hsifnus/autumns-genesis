@@ -1,110 +1,80 @@
 {
-  "DOCTYPE": "EFFECT",
-  "ANIMS": {
-    "SUB": [
-      {
-        "name": "EARTH_GROUND",
-        "sheet": {
-          "src": "media/entity/enemy/groundhog.png",
-          "width": 16,
-          "height": 16,
-          "offY": 216
-        },
-        "time": 0.08,
-        "shapeType": "Y_EXPAND",
-        "frames": [
-          3,
-          4,
-          5,
-          6,
-          7,
-          8
-        ]
-      },
-      {
-        "name": "EARTH_STATIC",
-        "sheet": {
-          "src": "media/entity/enemy/groundhog.png",
-          "width": 40,
-          "height": 16,
-          "offX": 200,
-          "offY": 184
-        },
-        "time": 0.08,
-        "shapeType": "Y_EXPAND",
-        "frames": [
-          0
-        ]
-      },
-      {
-        "name": "EARTH_DUST",
-        "sheet": {
-          "src": "media/entity/enemy/groundhog.png",
-          "width": 40,
-          "height": 40,
-          "offX": 64,
-          "offY": 240
-        },
-        "time": 0.06,
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7
-        ]
-      }
-    ]
-  },
-  "EFFECTS": {
-    "earthDig": [
-      {
-        "type": "PLAY_ANIM",
-        "anim": "EARTH_GROUND",
-        "pAlpha": {
-          "init": 0.8,
-          "start": {
-            "value": 0.5
-          }
-        }
-      },
-      {
-        "type": "WAIT",
-        "time": 0.05
-      }
-    ],
-    "earthStatic": [
-      {
-        "type": "PLAY_ANIM",
-        "anim": "EARTH_STATIC",
-        "particleDuration": -1,
-        "offset": {
-          "y": 2
-        }
-      },
-      {
-        "type": "LOOP_START"
-      }
-    ],
-    "earthExplode": [
-      {
-        "type": "PARTICLE_CIRCLE",
-        "anim": "EARTH_DUST",
-        "numParticles": 5,
-        "minSpeed": 70,
-        "maxSpeed": 90,
-        "startDist": 4,
-        "centralAngle": 1,
-        "random": true,
-        "offset": {
-          "x": 0,
-          "y": 8,
-          "z": 8
-        }
-      }
-    ]
-  }
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [{
+            "name": "EARTH_GROUND",
+            "sheet": {
+                "src": "media/entity/enemy/groundhog.png",
+                "width": 16,
+                "height": 16,
+                "offY": 216
+            },
+            "time": 0.08,
+            "shapeType": "Y_EXPAND",
+            "frames": [3, 4, 5, 6, 7, 8]
+        }, {
+            "name": "EARTH_STATIC",
+            "sheet": {
+                "src": "media/entity/enemy/groundhog.png",
+                "width": 40,
+                "height": 16,
+                "offX": 200,
+                "offY": 184
+            },
+            "time": 0.08,
+            "shapeType": "Y_EXPAND",
+            "frames": [0]
+        }, {
+            "name": "EARTH_DUST",
+            "sheet": {
+                "src": "media/entity/enemy/groundhog.png",
+                "width": 40,
+                "height": 40,
+                "offX": 64,
+                "offY": 240
+            },
+            "time": 0.06,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
+        }]
+    },
+    "EFFECTS": {
+        "earthDig": [{
+            "type": "PLAY_ANIM",
+            "anim": "EARTH_GROUND",
+            "pAlpha": {
+                "init": 0.8,
+                "start": {
+                    "value": 0.5
+                }
+            }
+        }, {
+            "type": "WAIT",
+            "time": 0.05
+        }],
+        "earthStatic": [{
+            "type": "PLAY_ANIM",
+            "anim": "EARTH_STATIC",
+            "particleDuration": -1,
+            "offset": {
+                "y": 2
+            }
+        }, {
+            "type": "LOOP_START"
+        }],
+        "earthExplode": [{
+            "type": "PARTICLE_CIRCLE",
+            "anim": "EARTH_DUST",
+            "numParticles": 5,
+            "minSpeed": 70,
+            "maxSpeed": 90,
+            "startDist": 4,
+            "centralAngle": 1,
+            "random": true,
+            "offset": {
+                "x": 0,
+                "y": 8,
+                "z": 8
+            }
+        }]
+    }
 }

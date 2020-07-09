@@ -1,191 +1,97 @@
 {
-  "DOCTYPE": "MULTI_DIR_ANIMATION",
-  "namedSheets": {
-    "move": {
-      "src": "media/entity/enemy/groundhog.png",
-      "width": 40,
-      "height": 40,
-      "xCount": 13
-    },
-    "earth": {
-      "src": "media/entity/enemy/groundhog.png",
-      "width": 40,
-      "height": 40,
-      "xCount": 10,
-      "offY": 120
-    }
-  },
-  "shapeType": "Y_FLAT",
-  "SUB": [
-    {
-      "sheet": "move",
-      "dirs": 6,
-      "tileOffsets": [
-        0,
-        13,
-        26,
-        26,
-        13,
-        0
-      ],
-      "flipX": [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1
-      ],
-      "SUB": [
-        {
-          "name": "idle",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/groundhog.png",
+            "width": 40,
+            "height": 40,
+            "xCount": 13
         },
-        {
-          "name": "throwStart",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-            4,
-            5
-          ]
-        },
-        {
-          "name": "throwEnd",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-            6,
-            7
-          ]
-        },
-        {
-          "name": "throwStart2",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-            8
-          ]
-        },
-        {
-          "name": "throwEnd2",
-          "time": 0.07,
-          "repeat": false,
-          "frames": [
-            9,
-            10
-          ]
-        },
-        {
-          "name": "damage",
-          "time": 0.07,
-          "repeat": true,
-          "frames": [
-            11,
-            12
-          ]
+        "earth": {
+            "src": "media/entity/enemy/groundhog.png",
+            "width": 40,
+            "height": 40,
+            "xCount": 10,
+            "offY": 120
         }
-      ]
     },
-    {
-      "sheet": "earth",
-      "dirs": 2,
-      "tileOffsets": [
-        0,
-        0
-      ],
-      "flipX": [
-        0,
-        1
-      ],
-      "SUB": [
-        {
-          "name": "earthOut",
-          "time": 0.03,
-          "repeat": false,
-          "frames": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8
-          ]
-        },
-        {
-          "name": "earthIn",
-          "time": 0.03,
-          "repeat": false,
-          "frames": [
-            8,
-            7,
-            6,
-            5,
-            4,
-            3,
-            2,
-            1,
-            0,
-            9
-          ]
-        },
-        {
-          "name": "underground",
-          "time": 0.03,
-          "repeat": false,
-          "frames": [
-            9
-          ]
-        },
-        {
-          "name": "earthJump",
-          "time": 0.03,
-          "repeat": false,
-          "frames": [
-            11,
-            13
-          ]
-        },
-        {
-          "name": "jump",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            16
-          ]
-        },
-        {
-          "name": "fall",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            17
-          ]
-        },
-        {
-          "name": "earthFall",
-          "time": 0.05,
-          "repeat": false,
-          "frames": [
-            18,
-            13,
-            12,
-            11,
-            10,
-            9
-          ]
-        }
-      ]
-    }
-  ]
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "move",
+        "dirs": 6,
+        "tileOffsets": [0, 13, 26, 26, 13, 0],
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [0, 1, 2, 3]
+        }, {
+            "name": "throwStart",
+            "time": 0.07,
+            "repeat": false,
+            "frames": [4, 5]
+        }, {
+            "name": "throwEnd",
+            "time": 0.07,
+            "repeat": false,
+            "frames": [6, 7]
+        }, {
+            "name": "throwStart2",
+            "time": 0.07,
+            "repeat": false,
+            "frames": [8]
+        }, {
+            "name": "throwEnd2",
+            "time": 0.07,
+            "repeat": false,
+            "frames": [9, 10]
+        }, {
+            "name": "damage",
+            "time": 0.07,
+            "repeat": true,
+            "frames": [11, 12]
+        }]
+    }, {
+        "sheet": "earth",
+        "dirs": 2,
+        "tileOffsets": [0, 0],
+        "flipX": [0, 1],
+        "SUB": [{
+            "name": "earthOut",
+            "time": 0.03,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+        }, {
+            "name": "earthIn",
+            "time": 0.03,
+            "repeat": false,
+            "frames": [8, 7, 6, 5, 4, 3, 2, 1, 0, 9]
+        }, {
+            "name": "underground",
+            "time": 0.03,
+            "repeat": false,
+            "frames": [9]
+        }, {
+            "name": "earthJump",
+            "time": 0.03,
+            "repeat": false,
+            "frames": [11, 13]
+        }, {
+            "name": "jump",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [16]
+        }, {
+            "name": "fall",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [17]
+        }, {
+            "name": "earthFall",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [18, 13, 12, 11, 10, 9]
+        }]
+    }]
 }
