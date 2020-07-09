@@ -21,7 +21,7 @@
         "y": 8
     },
     "material": "ORGANIC",
-    "aiGroup": "volturbine",
+    "aiGroup": "simurgh",
     "aiLearnType": "REGULAR",
     "itemDrops": [{
         "item": "199",

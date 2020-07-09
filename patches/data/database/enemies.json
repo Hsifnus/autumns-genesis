@@ -153,6 +153,71 @@
         "itemDrops": [],
         "boss": false
     },
+    "autumn-dng.groundhog": {
+      "name": {
+        "en_US": "Jammin' Hillhog",
+        "langUid": 5941
+      },
+      "track": true,
+      "order": 64,
+      "area": "autumn-dng",
+      "anim": false,
+      "extra": false,
+      "species": {
+          "en_US": "Headbanging Mammal",
+          "langUid": 6
+        },
+        "category": "ANIMALS",
+        "descriptions": [
+          {
+            "text": {
+              "en_US": "An unusually rotund relative of the typical Hillkat. It likes to listen to an even mix of death metal and chill music, and as such has acquired the ability to throw both Heat and Cold projectiles. Its increased weight also makes it harder to break than typical Hillkats, so pay this rodent some attention!",
+              "langUid": 14
+            },
+            "condition": ""
+          }
+        ],
+      "category": "ANIMALS",
+      "level": 68,
+      "boostedLevel": 68,
+      "params": {
+        "hp": 39152,
+        "attack": 468,
+        "defense": 452,
+        "focus": 432,
+        "elemFactor": [
+          1.25,
+          0.5,
+          1,
+          1
+        ],
+        "statusInflict": [
+          1.25,
+          1.25,
+          1.25,
+          1.25
+        ]
+      },
+      "credit": 2520,
+      "exp": 110,
+      "itemDrops": [
+        {
+          "item": "80",
+          "prob": 0.12,
+          "min": 1,
+          "max": 1,
+          "rank": ""
+        },
+        {
+          "item": "74",
+          "prob": 0.04,
+          "min": 1,
+          "max": 1,
+          "rank": "B"
+        }
+      ],
+      "boss": false
+    },
     "trial.megamoth-ex": {
         "name": {
             "en_US": "Master Magmoth",
@@ -671,19 +736,27 @@
             "langUid": -4
         },
         "category": "ABSTRACT",
-        "level": 42,
-        "boostedLevel": 0,
-        "params": {
-            "hp": 3000,
-            "attack": 208,
-            "defense": 211,
-            "focus": 199,
-            "elemFactor": [0.75, 1, 1.5, 0.5],
-            "statusInflict": [1.25, 1.25, 1.5, 1.25],
-            "statusEffect": [1.25, 1, 1.5, 1]
-        },
-        "credit": 222,
-        "exp": 30,
+          "level": 68,
+          "params": {
+            "hp": 39152,
+            "attack": 468,
+            "defense": 452,
+            "focus": 432,
+            "elemFactor": [
+              1.25,
+              0.5,
+              1,
+              1
+            ],
+            "statusInflict": [
+              1.25,
+              1.25,
+              1.25,
+              1.25
+            ]
+          },
+          "credit": 2520,
+          "exp": 110,
         "itemDrops": [{
             "item": "275",
             "prob": 0.16,

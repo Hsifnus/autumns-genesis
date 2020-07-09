@@ -285,6 +285,26 @@
             "time": 0.04,
             "repeat": true,
             "frames": [0]
+        }, {
+            "name": "COLD_SWEEP_FLIP",
+            "pivot": {
+                "x": 16,
+                "y": 28
+            },
+            "sheet": {
+                "src": "media/entity/effects/cold.png",
+                "offX": 0,
+                "offY": 32,
+                "width": 64,
+                "height": 56,
+                "xCount": 5
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.033,
+            "repeat": false,
+            "flipX": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         }]
     },
     "EFFECTS": {
@@ -2650,6 +2670,275 @@
             "type": "PLAY_SOUND"
         }, {
             "time": 0.1,
+            "type": "WAIT"
+        }],
+        "groundhogColdShootPre": [{
+            "type": "LOOP_START"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1.25,
+                    "y": 1.25
+                },
+                "start": {
+                    "value": {
+                        "x": 0.35,
+                        "y": 0.35
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.35,
+            "anim": "COLD_WAVE_BIG",
+            "type": "PLAY_ANIM"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 1,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1.2,
+                    "y": 1.2
+                },
+                "start": {
+                    "value": {
+                        "x": 0.3,
+                        "y": 0.3
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.35,
+            "anim": "COLD_WAVE_BIG",
+            "type": "PLAY_ANIM"
+        }, {
+            "numParticles": 9,
+            "random": true,
+            "duration": 0.3,
+            "centralAngle": 1,
+            "startDist": 12,
+            "moveDist": 24,
+            "inverse": true,
+            "keySpline": "EASE_OUT",
+            "collision": false,
+            "anim": "SNOWFLAKE",
+            "particleDuration": 0.3,
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "volume": 0.7,
+            "speed": 1.1,
+            "variance": 0.05,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/shiny-effect.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "groundhogSpecialBurst": [{
+            "color": "#000066",
+            "fadeIn": 0,
+            "fadeOut": 0.4,
+            "duration": 0.1,
+            "type": "SCREEN_FLASH"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 1.7,
+            "sound": "media/sound/battle/enemies/discharge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1.1,
+            "global": false,
+            "loop": false,
+            "speed": 1.8,
+            "sound": "media/sound/battle/enemies/mine/ground-ice-crystal.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.35,
+            "speed": 2.2,
+            "variance": 0.05,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/airon/cold/ball-hit-cold-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "numParticles": 20,
+            "duration": 0,
+            "centralAngle": 1,
+            "startAngle": 0.25,
+            "startDist": 24,
+            "random": true,
+            "particleRotate": true,
+            "moveDist": 24,
+            "moveVariance": 4,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "particleDuration": 0.4,
+            "anim": "COLD_SWEEP_FLIP",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 10,
+            "duration": 0,
+            "centralAngle": 1,
+            "startAngle": 0.25,
+            "startDist": 36,
+            "random": true,
+            "particleRotate": true,
+            "moveDist": 60,
+            "moveVariance": 4,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "particleDuration": 0.4,
+            "anim": "COLD_SWEEP_FLIP",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "numParticles": 40,
+            "duration": 0,
+            "centralAngle": 1,
+            "startAngle": 0.25,
+            "startDist": 48,
+            "random": true,
+            "particleRotate": true,
+            "moveDist": 24,
+            "moveVariance": 4,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "particleDuration": 0.4,
+            "anim": "COLD_SWEEP_FLIP",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "STRONG",
+            "speed": "FASTER",
+            "duration": 0.3,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "time": 0.25,
+            "type": "WAIT"
+        }],
+        "groundhogColdExplode": [{
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 1.8,
+            "sound": "media/sound/battle/enemies/discharge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 1.1,
+            "global": false,
+            "loop": false,
+            "speed": 2.5,
+            "sound": "media/sound/battle/enemies/mine/ground-ice-crystal.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "numParticles": 20,
+            "duration": 0,
+            "centralAngle": 1,
+            "startAngle": 0.25,
+            "startDist": 24,
+            "random": true,
+            "particleRotate": true,
+            "moveDist": 24,
+            "moveVariance": 4,
+            "keySpline": "EASE_OUT",
+            "moveRotate": 0,
+            "inverse": false,
+            "collision": false,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.15,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                }
+            },
+            "particleDuration": 0.4,
+            "anim": "COLD_SWEEP_FLIP",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "rumbleType": "RANDOM",
+            "power": "MEDIUM",
+            "speed": "FASTER",
+            "duration": 0.3,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "time": 0.25,
             "type": "WAIT"
         }]
     }

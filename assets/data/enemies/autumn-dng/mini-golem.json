@@ -10,7 +10,7 @@
         "statusInflict": [0, 0, 0, 0]
     },
     "credit": 4550,
-    "exp": 200,
+    "exp": 150,
     "maxSp": 0,
     "enduranceScale": 1,
     "healDropRate": 0,
@@ -18,7 +18,7 @@
     "bossOrder": 0,
     "ballFactor": 0.05,
     "material": "METAL",
-    "aiGroup": "",
+    "aiGroup": "golem",
     "aiLearnType": "REGULAR",
     "itemDrops": [],
     "targetDetect": {
