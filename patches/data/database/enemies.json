@@ -203,57 +203,46 @@
         "boss": false
     },
     "autumn-dng.sunjelly": {
-      "name": {
-        "en_US": "Soljelly",
-        "langUid": 4225
-      },
-      "track": true,
-      "order": 311,
-      "area": "autumn-dng",
-      "anim": false,
-      "extra": "spin",
-      "species": {
-          "en_US": "Flaming Jellyfish",
-          "langUid": 1
+        "name": {
+            "en_US": "Soljelly",
+            "langUid": 4225
+        },
+        "track": true,
+        "order": 311,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": "spin",
+        "species": {
+            "en_US": "Flaming Jellyfish",
+            "langUid": 1
         },
         "category": "ABSTRACT",
-        "descriptions": [
-          {
+        "descriptions": [{
             "text": {
-              "en_US": "The mystical sunset of \\c[3]\\v[area.autumn-dng.name]\\c[0] imbues the fiery power of the sun into this jellyfish. Unlike its desert brethren, it summons fiery wind bubbles and tackles its prey with a long-lasting spinning attack.\nUse charged heat shots to activate their wind bubbles and shoot gust bullets that temporarily stun them. However, watch out for the curvy bullet attack that this jellyfish will sometimes charge up!",
-              "langUid": 3
+                "en_US": "The mystical sunset of \\c[3]\\v[area.autumn-dng.name]\\c[0] imbues the fiery power of the sun into this jellyfish. Unlike its desert brethren, it summons fiery wind bubbles and tackles its prey with a long-lasting spinning attack.\nUse charged heat shots to activate their wind bubbles and shoot gust bullets that temporarily stun them. However, watch out for the curvy bullet attack that this jellyfish will sometimes charge up!",
+                "langUid": 3
             },
             "condition": ""
-          }
-        ],
-      "level": 69,
-      "boostedLevel": 69,
-  "params": {
-    "hp": 28710,
-    "attack": 398,
-    "defense": 446,
-    "focus": 573,
-    "elemFactor": [
-      0,
-      1.5,
-      0.5,
-      0.5
-    ]
-  },
-  "credit": 2010,
-  "exp": 80,
-      "credit": 181,
-      "exp": 50,
-      "itemDrops": [
-        {
-          "item": "201",
-          "prob": 0.24,
-          "min": 1,
-          "max": 1,
-          "rank": ""
-        }
-      ],
-      "boss": false
+        }],
+        "level": 69,
+        "boostedLevel": 69,
+        "params": {
+            "hp": 28710,
+            "attack": 398,
+            "defense": 446,
+            "focus": 573,
+            "elemFactor": [0, 1.5, 0.5, 0.5]
+        },
+        "credit": 181,
+        "exp": 50,
+        "itemDrops": [{
+            "item": "201",
+            "prob": 0.24,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }],
+        "boss": false
     },
     "trial.megamoth-ex": {
         "name": {
