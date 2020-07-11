@@ -1,0 +1,1547 @@
+{
+  "level": 69,
+  "boostedLevel": 69,
+  "params": {
+    "hp": 28710,
+    "attack": 398,
+    "defense": 446,
+    "focus": 573,
+    "elemFactor": [
+      0,
+      1.5,
+      0.5,
+      0.5
+    ]
+  },
+  "credit": 2010,
+  "exp": 90,
+  "maxSp": 0,
+  "enduranceScale": 3,
+  "healDropRate": 0,
+  "boss": false,
+  "bossOrder": 0,
+  "padding": {
+    "x": 8,
+    "y": 8
+  },
+  "material": "ORGANIC",
+  "aiGroup": "",
+  "aiLearnType": "REGULAR",
+  "itemDrops": [
+    {
+      "item": "201",
+      "prob": 0.24,
+      "min": 1,
+      "max": 1,
+      "rank": ""
+    }
+  ],
+  "targetDetect": {
+    "detectDistance": 100,
+    "loseDistance": 400,
+    "notifyNeighbourRadius": 100,
+    "onDistance": true
+  },
+  "hpBreaks": [],
+  "size": {
+    "x": 24,
+    "y": 24,
+    "z": 36
+  },
+  "anims": "enemies.sunjelly",
+  "defaultState": "IDLE",
+  "walkConfigs": {
+    "normal": {
+      "idle": "idle",
+      "damage": "damage"
+    },
+    "weak": {
+      "idle": "damage",
+      "damage": "damage"
+    }
+  },
+  "_wm": {
+    "attributes": {
+      "supportMode": {
+        "_type": "Boolean",
+        "_info": "If true, only shoot water bubbles, no dash attack"
+      }
+    }
+  },
+  "walkAnims": "normal",
+  "weight": 80,
+  "maxVel": 180,
+  "jumpingEnabled": true,
+  "shadow": 20,
+  "floatVariance": 4,
+  "floatMaxSpeed": 500,
+  "floatAccel": 3,
+  "flyHeight": 5,
+  "ballFactor": 0.2,
+  "hitStable": "MEDIUM",
+  "faceToTarget": true,
+  "annotate": {
+    "active": "NONE",
+    "passive": "NONE",
+    "weapon": "RANGED",
+    "element": "ANY",
+    "extra": []
+  },
+  "DOCTYPE": "ENEMY",
+  "trackers": {
+    "MOVE": {
+      "target": 3,
+      "initRandom": 1,
+      "resetRandom": 0.3,
+      "noStateReset": false,
+      "noAssist": false,
+      "type": "TIME"
+    },
+    "WEAK_REGEN": {
+      "target": 5,
+      "initRandom": 0,
+      "resetRandom": 0,
+      "noStateReset": false,
+      "type": "TIME"
+    }
+  },
+  "states": {
+    "IDLE": {
+      "enabledReactions": [
+        "STEAM_WEAK"
+      ],
+      "choices": [
+        {
+          "req": [
+            {
+              "negated": false,
+              "type": "HAS_TARGET"
+            }
+          ],
+          "postSwitchState": "DEFAULT",
+          "ignoreStun": true
+        },
+        {
+          "req": [
+            {
+              "type": "!SPAWN_POINT_DISTANCE",
+              "max": 64
+            }
+          ],
+          "action": "MoveToSpawnPoint"
+        },
+        {
+          "req": [
+            {
+              "type": "RANDOM",
+              "max": 0.3
+            }
+          ],
+          "action": "MoveRandom"
+        },
+        {
+          "action": "Idle"
+        }
+      ]
+    },
+    "DEFAULT": {
+      "damageFactor": 0.5,
+      "enabledReactions": [
+        "STEAM_WEAK"
+      ],
+      "choices": [
+        {
+          "req": [
+            {
+              "negated": false,
+              "type": "VAR_CONDITION",
+              "condition": "tmp.jellyfishPassive"
+            }
+          ],
+          "preSwitchState": "PASSIVE"
+        },
+        {
+          "req": [
+            {
+              "type": "!HAS_TARGET"
+            }
+          ],
+          "postSwitchState": "IDLE"
+        },
+        {
+          "req": [
+            {
+              "distance": 250,
+              "throwing": true,
+              "type": "!TARGET_REACHABLE"
+            }
+          ],
+          "action": "Adjust"
+        },
+        {
+          "req": [
+            {
+              "min": 0,
+              "max": 150,
+              "negated": false,
+              "type": "TARGET_DISTANCE"
+            },
+            {
+              "name": "supportMode",
+              "negated": false,
+              "type": "ATTRIB_IS_TRUE"
+            }
+          ],
+          "action": "Escape",
+          "ignoreStun": true
+        },
+        {
+          "req": [
+            {
+              "min": 0,
+              "max": 80,
+              "negated": false,
+              "type": "TARGET_DISTANCE"
+            }
+          ],
+          "action": "Escape",
+          "ignoreStun": true
+        },
+        {
+          "action": "BubbleSingle",
+          "frequency": "RARE",
+          "ignoreStun": true
+        },
+        {
+          "req": [
+            {
+              "name": "supportMode",
+              "type": "!ATTRIB_IS_TRUE"
+            }
+          ],
+          "action": "LaserAttack",
+          "frequency": "SOMETIMES",
+          "ignoreStun": true
+        },
+        {
+          "req": [
+            {
+              "name": "supportMode",
+              "type": "!ATTRIB_IS_TRUE"
+            }
+          ],
+          "action": "FireSpin",
+          "frequency": "NORMAL",
+          "ignoreStun": true
+        },
+        {
+          "action": "Idle"
+        }
+      ]
+    },
+    "WEAK": {
+      "walkAnims": "weak",
+      "flyKeepHeight": true,
+      "damageFactor": 1.2,
+      "annotate": {
+        "active": "NONE",
+        "passive": "WEAK",
+        "weapon": "ANY",
+        "element": "ANY",
+        "extra": []
+      },
+      "choices": [
+        {
+          "req": [
+            {
+              "negated": false,
+              "type": "TRACKER_READY",
+              "name": "WEAK_REGEN"
+            }
+          ],
+          "action": "weakEnd",
+          "preSwitchState": "DEFAULT",
+          "ignoreStun": true
+        }
+      ]
+    },
+    "PASSIVE": {
+      "flyHeight": 64,
+      "choices": [
+        {
+          "req": [
+            {
+              "negated": false,
+              "type": "VAR_CONDITION",
+              "condition": "!tmp.jellyfishPassive"
+            }
+          ],
+          "preSwitchState": "DEFAULT"
+        },
+        {
+          "req": [
+            {
+              "distance": 250,
+              "throwing": true,
+              "type": "!TARGET_REACHABLE"
+            }
+          ],
+          "action": "Escape"
+        },
+        {
+          "req": [
+            {
+              "min": 0,
+              "max": 120,
+              "negated": false,
+              "type": "TARGET_DISTANCE"
+            }
+          ],
+          "action": "Escape",
+          "ignoreStun": true
+        }
+      ]
+    },
+    "PASSIVE_INVIS": {
+      "weight": -1,
+      "hitIgnore": true,
+      "aggression": "PEACEFUL",
+      "annotate": {
+        "active": "NONE",
+        "passive": "IMMUNE",
+        "weapon": "ANY",
+        "element": "ANY",
+        "extra": []
+      },
+      "choices": []
+    }
+  },
+  "proxies": {
+  	"bulletCCW": {
+        "copyOwnerAnims": false,
+        "breakType": "NEVER",
+        "action": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "heatJellyBullet"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "radius": 8,
+            "yScale": 0,
+            "zHeight": 0,
+            "centralAngle": 1,
+            "duration": 0.3,
+            "expandRadius": 16,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": true,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+                "type": "HEAVY",
+                "element": "HEAT",
+                "damageFactor": 0.04,
+                "reverse": false,
+                "status": 20,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+        	"kind": "PROXY_SRC",
+        	"type": "SET_TEMP_TARGET"
+        }, {
+            "target": "TARGET",
+            "distance": 1024,
+            "duration": 1.2,
+            "ccw": true,
+            "rotateTime": 2,
+            "distAdjustSpeed": 256,
+            "zDistance": 0,
+            "waitTargetAlign": false,
+            "type": "STICKY_CIRCLE_AROUND"
+        }],
+        "invisible": false,
+        "hp": 0,
+        "stickToSource": "NONE",
+        "stickFaceAlign": false,
+        "group": "",
+        "size": {
+            "x": 16,
+            "y": 16,
+            "z": 16
+        },
+        "config": {
+            "collType": "TRIGGER",
+            "zGravityFactor": 0
+        },
+        "type": "GENERIC"
+    },
+  	"bulletCW": {
+        "copyOwnerAnims": false,
+        "breakType": "NEVER",
+        "action": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "heatJellyBullet"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "BOTTOM",
+            "radius": 8,
+            "yScale": 0,
+            "zHeight": 0,
+            "centralAngle": 1,
+            "duration": 0.3,
+            "expandRadius": 16,
+            "alwaysFull": true,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "rectangular": false,
+            "repeat": true,
+            "uniformHitDir": false,
+            "fixPos": false,
+            "checkCollision": false,
+            "type": "CIRCLE_ATTACK",
+            "attack": {
+                "type": "HEAVY",
+                "element": "HEAT",
+                "damageFactor": 0.08,
+                "reverse": false,
+                "status": 10,
+                "guardable": "",
+                "skillBonus": "",
+                "limiter": ""
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+        	"kind": "PROXY_SRC",
+        	"type": "SET_TEMP_TARGET"
+        }, {
+            "target": "TARGET",
+            "distance": 1024,
+            "duration": 1.2,
+            "ccw": false,
+            "rotateTime": 2,
+            "distAdjustSpeed": 256,
+            "zDistance": 0,
+            "waitTargetAlign": false,
+            "type": "STICKY_CIRCLE_AROUND"
+        }],
+        "invisible": false,
+        "hp": 0,
+        "stickToSource": "NONE",
+        "stickFaceAlign": false,
+        "group": "",
+        "size": {
+            "x": 16,
+            "y": 16,
+            "z": 16
+        },
+        "config": {
+            "collType": "TRIGGER",
+            "zGravityFactor": 0
+        },
+        "type": "GENERIC"
+    },
+  	"laserEmitter": {
+        "copyOwnerAnims": false,
+        "breakType": "COMBATANT",
+        "action": [{
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.autumn-dng",
+                "name": "heatJellyEmitter"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, 
+        {
+	      	"conditions": [{
+	            "type": "!HP_BELOW",
+	            "value": "0.6"
+	        }],
+	        "withElse": true,
+	        "type": "COMBAT_IF",
+	        "thenStep": [
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.33,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.33,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.66,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.66,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          }
+	        ],
+	        "elseStep": [
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.25,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.25,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.5,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.5,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+		      {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.75,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          },
+	          {
+	            "align": "BOTTOM",
+	            "centralAngle": 0,
+	            "startAngle": 0.75,
+	            "angleVary": 0,
+	            "startDist": 8,
+	            "startDistCollide": false,
+	            "random": false,
+	            "count": 30,
+	            "duration": 1,
+	            "clockwise": true,
+	            "flipLeftFace": 0,
+	            "circularArea": false,
+	            "uniformDir": 0.6,
+	            "delay": 0,
+	            "repeat": false,
+	            "type": "SHOOT_PROXY_RANGE",
+	            "proxy": "bulletCCW",
+	            "offset": {
+	                "x": 0,
+	                "y": 0,
+	                "z": 12
+	            }
+	          }
+	        ]
+	    }, {
+        	"time": 1,
+        	"type": "WAIT"
+        }],
+        "invisible": false,
+        "hp": 0,
+        "stickToSource": "NONE",
+        "stickFaceAlign": false,
+        "group": "",
+        "size": {
+            "x": 16,
+            "y": 16,
+            "z": 16
+        },
+        "config": {
+            "collType": "TRIGGER",
+            "zGravityFactor": 0
+        },
+        "type": "GENERIC"
+    }
+  },
+  "actions": {
+    "Idle": [
+      {
+        "value": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "minTime": 0.1,
+        "maxTime": 0.3,
+        "type": "WAIT_RANDOM"
+      }
+    ],
+    "Adjust": [
+      {
+        "value": 0.7,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 1,
+        "distance": 200,
+        "throwing": true,
+        "planOnly": false,
+        "type": "NAVIGATE_ESCAPE_TARGET"
+      }
+    ],
+    "Circle": [
+      {
+        "value": 0.5,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 1,
+        "distance": 150,
+        "distVariance": 80,
+        "keepDirection": false,
+        "throwing": true,
+        "planOnly": false,
+        "type": "NAVIGATE_SIDEWAYS_TARGET"
+      }
+    ],
+    "Escape": [
+      {
+        "value": 24,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "value": 1,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "value": "MEDIUM",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "value": "IGNORE",
+        "type": "SET_COLL_TYPE"
+      },
+      {
+        "maxTime": 1,
+        "distance": 200,
+        "throwing": true,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "type": "NAVIGATE_ESCAPE_TARGET"
+      }
+    ],
+    "EscapePassive": [
+      {
+        "value": 64,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "value": 1,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "value": "MEDIUM",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "value": "IGNORE",
+        "type": "SET_COLL_TYPE"
+      },
+      {
+        "maxTime": 1,
+        "distance": 250,
+        "throwing": true,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "type": "NAVIGATE_ESCAPE_TARGET"
+      }
+    ],
+    "LaserAttack": [
+      {
+        "maxTime": 1,
+        "forceTime": false,
+        "distance": 200,
+        "throwing": true,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "type": "NAVIGATE_ESCAPE_TARGET"
+      },
+      {
+        "active": "PRE_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value": "MASSIVE",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "volume": 1,
+        "variance": 0.05,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/battle/enemies/jellyfish/bubble-sound.ogg"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "attackPre"
+      },
+      {
+      	"value": false,
+      	"type": "FACE_TO_TARGET"
+      },
+      {
+        "duration": 1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "group": "charge",
+        "effect": {
+          "sheet": "enemies.autumn-dng",
+          "name": "heatJellyLaserCharge"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "group": "charge",
+        "effect": {
+          "sheet": "enemy",
+          "name": "angry2"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 1.5,
+        "type": "WAIT"
+      },
+      {
+      	"group": "charge",
+      	"type": "CLEAR_EFFECTS"
+      },
+      {
+        "align": "BASE",
+        "type": "SHOOT_PROXY",
+        "proxy": "laserEmitter",
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+      },
+      {
+        "active": "ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value": 200,
+        "type": "SET_Z_VEL"
+      },
+      {
+        "value": 48,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "value": 0.3,
+        "type": "SET_INVINCIBLE"
+      },
+      {
+        "followUp": "idle",
+        "wait": true,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "attack"
+      },
+      {
+      	"group": "charge",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "idle"
+      },
+      {
+        "value": 4,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "active": "POST_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+      	"value": true,
+      	"type": "FACE_TO_TARGET"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      }
+    ],
+    "BubbleSingle": [
+      {
+        "maxTime": 1,
+        "forceTime": false,
+        "distance": 200,
+        "throwing": true,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "type": "NAVIGATE_ESCAPE_TARGET"
+      },
+      {
+        "active": "PRE_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value": "HEAVY",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "volume": 1,
+        "variance": 0.05,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/battle/enemies/jellyfish/bubble-sound.ogg"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "attackPre"
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "group": "charge",
+        "effect": {
+          "sheet": "enemy",
+          "name": "angry2"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "time": 0.4,
+        "type": "WAIT"
+      },
+      {
+        "volume": 1,
+        "variance": 0.05,
+        "global": false,
+        "loop": false,
+        "type": "PLAY_SOUND",
+        "sound": "media/sound/battle/enemies/jellyfish/spawn-bubble.ogg"
+      },
+      {
+        "align": "FACE",
+        "duration": 10,
+        "speed": 80,
+        "element": "HEAT",
+        "target": "TARGET",
+        "hp": 4,
+        "type": "SHOOT_WIND_BUBBLE",
+        "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+      },
+      {
+        "active": "ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value": 200,
+        "type": "SET_Z_VEL"
+      },
+      {
+        "value": 48,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "value": 0.3,
+        "type": "SET_INVINCIBLE"
+      },
+      {
+        "followUp": "idle",
+        "wait": true,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "attack"
+      },
+      {
+      	"group": "charge",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "idle"
+      },
+      {
+        "value": 4,
+        "type": "SET_FLY_HEIGHT"
+      },
+      {
+        "active": "POST_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      }
+    ],
+    "FireSpin": [
+      {
+        "value": false,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "active": "PRE_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "value": "HEAVY",
+        "type": "SET_HIT_STABLE"
+      },
+      {
+        "value": "IGNORE",
+        "type": "SET_COLL_TYPE"
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "spinPre"
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "type": "SHOW_EFFECT",
+        "group": "charge",
+        "effect": {
+          "sheet": "enemy",
+          "name": "angry2"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+      	"time": 0.6,
+      	"aggroTime": 0.4,
+      	"type": "WAIT"
+      },
+      {
+      	"group": "charge",
+      	"type": "CLEAR_EFFECTS"
+      },
+      {
+      	"conditions": [{
+            "type": "HP_BELOW",
+            "value": "0.6"
+        }],
+        "withElse": true,
+        "type": "COMBAT_IF",
+        "thenStep": [
+	      {
+	        "value": 1,
+	        "type": "SET_RELATIVE_SPEED"
+	      }
+        ],
+        "elseStep": [
+          {
+	        "value": 0.7,
+	        "type": "SET_RELATIVE_SPEED"
+	      }
+        ]
+      },
+      {
+        "active": "ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "group": "spin",
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemies.autumn-dng",
+          "name": "heatJellyWhirl"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": false,
+        "fixPos": false,
+        "group": "spin",
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "trail",
+          "name": "redQuick"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "spin"
+      },
+      {
+        "align": "BOTTOM",
+        "radius": 32,
+        "yScale": 0,
+        "zHeight": 64,
+        "centralAngle": 1,
+        "duration": 0.2,
+        "expandRadius": 0,
+        "alwaysFull": true,
+        "clockwise": false,
+        "flipLeftFace": 0,
+        "rectangular": false,
+        "repeat": true,
+        "uniformHitDir": false,
+        "fixPos": false,
+        "checkCollision": false,
+        "type": "CIRCLE_ATTACK",
+        "attack": {
+          "type": "LIGHT",
+          "visualType": "MEDIUM",
+          "element": "HEAT",
+          "damageFactor": 0.4,
+          "status": 10,
+          "stunSteps": [],
+          "guardable": "",
+          "skillBonus": ""
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "maxTime": 3,
+        "forceTime": true,
+        "distance": 8,
+        "planOnly": false,
+        "targetType": "ENEMY",
+        "precise": false,
+        "stayBehind": false,
+        "type": "NAVIGATE_TO_TARGET"
+      },
+      {
+      	"group": "spin",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+      	"type": "STOP_REPEATING_FORCE"
+      },
+      {
+      	"followUp": "idle",
+        "wait": false,
+        "viaWalkConfig": false,
+        "type": "SHOW_ANIMATION",
+        "anim": "spinPost"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      },
+      {
+        "active": "POST_ATTACK",
+        "type": "CHANGE_ENEMY_ANNOTATION"
+      },
+      {
+        "time": 0.2,
+        "type": "WAIT"
+      }
+    ],
+    "MoveToSpawnPoint": [
+      {
+        "value": 0.5,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "maxTime": 3,
+        "maxDistance": 16,
+        "precise": false,
+        "type": "NAVIGATE_TO_SPAWN_POINT"
+      }
+    ],
+    "MoveRandom": [
+      {
+        "value": 0.3,
+        "type": "SET_RELATIVE_SPEED"
+      },
+      {
+        "value": false,
+        "type": "SET_JUMPING"
+      },
+      {
+        "minTime": 0.3,
+        "maxTime": 0.5,
+        "dirChanges": 0,
+        "stopBeforeEdge": true,
+        "type": "MOVE_RANDOM"
+      },
+      {
+        "minTime": 0.5,
+        "maxTime": 0.6,
+        "type": "WAIT_RANDOM"
+      }
+    ],
+    "weakStart": [
+      {
+        "duration": -1,
+        "align": "BOTTOM",
+        "rotateFace": 0,
+        "flipLeftFace": false,
+        "wait": false,
+        "waitSkip": 0,
+        "actionDetached": true,
+        "group": "weak",
+        "type": "SHOW_EFFECT",
+        "effect": {
+          "sheet": "enemy",
+          "name": "angry2"
+        },
+        "offset": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      }
+    ],
+    "weakEnd": [
+      {
+        "group": "weak",
+        "type": "CLEAR_EFFECTS"
+      },
+      {
+        "value": true,
+        "type": "FACE_TO_TARGET"
+      }
+    ]
+  },
+  "reactions": {
+    "STEAM_WEAK": {
+      "hitType": "REGULAR",
+      "preAction": "weakStart",
+      "preSwitchState": "WEAK",
+      "blockFurtherHits": false,
+      "attackType": "MASSIVE",
+      "flyLevel": "MASSIVE",
+      "stunChange": "FORCE_STUN",
+      "alignFace": false,
+      "dramaticEffect": "BREAK",
+      "conditions": [
+      	{
+            "element": "HEAT",
+            "negated": false,
+            "type": "ELEMENT_HIT"
+        },
+        {
+          "hint": "GUST",
+          "negated": false,
+          "type": "HAS_HINT"
+        }
+      ],
+      "ignoreFailed": false,
+      "type": "HIT_REACTION"
+    }
+  },
+  "meta": {
+    "species": {
+      "en_US": "Flaming Jellyfish",
+      "langUid": 1
+    },
+    "category": "ABSTRACT",
+    "descriptions": [
+      {
+        "text": {
+          "en_US": "The mystical sunset of \\c[3]\\v[area.autumn-dng.name]\\c[0] imbues the fiery power of the sun into this jellyfish. Unlike its desert brethren, it summons fiery wind bubbles and tackles its prey with a long-lasting spinning attack.\nUse charged heat shots to activate their wind bubbles and shoot gust bullets that temporarily stun them. However, watch out for the curvy bullet attack that this jellyfish will sometimes charge up!",
+          "langUid": 3
+        },
+        "condition": ""
+      }
+    ]
+  }
+}

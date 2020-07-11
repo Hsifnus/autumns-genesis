@@ -2,6 +2,50 @@
     "DOCTYPE": "EFFECT",
     "ANIMS": {
         "SUB": [{
+            "name": "HEAT_WAVE_BIG",
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle-big.png",
+                "offX": 96,
+                "offY": 0,
+                "width": 96,
+                "height": 96
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.04,
+            "repeat": true,
+            "frames": [0]
+        }, {
+            "name": "CIRCLE_HEAT",
+            "pivot": {
+                "x": 24,
+                "y": 24
+            },
+            "sheet": {
+                "src": "media/entity/effects/lighter-particle.png",
+                "offX": 0,
+                "offY": 48,
+                "width": 48,
+                "height": 48
+            },
+            "renderMode": "lighter",
+            "guiSprites": true,
+            "time": 0.04,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "FLAME2",
+            "sheet": {
+                "src": "media/entity/effects/heat.png",
+                "offX": 0,
+                "offY": 392,
+                "width": 24,
+                "height": 24
+            },
+            "time": 0.06,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
+        }, {
             "name": "NEUTRAL_SHIELD",
             "sheet": {
                 "src": "media/entity/effects/autumn-dng.png",
@@ -2940,6 +2984,376 @@
         }, {
             "time": 0.25,
             "type": "WAIT"
-        }]
+        }],
+        "heatJellyWhirl": [
+          {
+            "size": "XXL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.1,
+            "duration": -1,
+            "glow": false,
+            "type": "LIGHT"
+          },
+          {
+            "type": "LOOP_START"
+          },
+          {
+            "numParticles": 20,
+            "duration": 0.6,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startDist": 24,
+            "startAngle": 0,
+            "particleRotate": false,
+            "moveDist": 16,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0.1,
+            "inverse": true,
+            "normalMoveDist": 80,
+            "collision": false,
+            "moveWithTarget": 0.2,
+            "anim": "FLAME2",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+          },
+          {
+            "numParticles": 20,
+            "duration": 0.6,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startAngle": 0.333,
+            "startDist": 24,
+            "particleRotate": false,
+            "moveDist": 16,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0.1,
+            "inverse": true,
+            "normalMoveDist": 80,
+            "collision": false,
+            "moveWithTarget": 0.2,
+            "anim": "FLAME2",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+          },
+          {
+            "numParticles": 20,
+            "duration": 0.6,
+            "clockwise": true,
+            "centralAngle": 1,
+            "startAngle": 0.666,
+            "startDist": 24,
+            "particleRotate": false,
+            "moveDist": 16,
+            "keySpline": "EASE_IN_OUT",
+            "moveRotate": 0.1,
+            "inverse": true,
+            "normalMoveDist": 80,
+            "collision": false,
+            "moveWithTarget": 0.2,
+            "anim": "FLAME2",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+          },
+          {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-4.ogg",
+            "type": "PLAY_SOUND"
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-2.ogg",
+            "type": "PLAY_SOUND"
+          },
+          {
+            "time": 0.3,
+            "type": "WAIT"
+          },
+          {
+            "type": "LOOP_END"
+          }
+        ],
+        "heatJellyEmitter": [
+            {
+                "volume": 0.8,
+                "global": false,
+                "loop": false,
+                "speed": 0.7,
+                "sound": "media/sound/battle/jelly-laser.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "volume": 0.8,
+                "global": false,
+                "loop": false,
+                "speed": 0.7,
+                "variance": 0.05,
+                "sound": "media/sound/battle/shiny-effect.ogg",
+                "type": "PLAY_SOUND"
+            }, {
+                "size": "XL",
+                "fadeIn": 0.3,
+                "fadeOut": 0.3,
+                "duration": -1,
+                "glow": false,
+                "type": "LIGHT"
+            }, {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0,
+                    "start": {
+                        "value": 0.5,
+                        "time": 0.1,
+                        "spline": ""
+                    },
+                    "end": {
+                        "value": 0,
+                        "time": 0.8,
+                        "spline": ""
+                    }
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0.75,
+                        "y": 0.75
+                    },
+                    "start": {
+                        "value": {
+                            "x": 3,
+                            "y": 3
+                        },
+                        "spline": "EASE_OUT"
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": 1,
+                "anim": "HEAT_WAVE_BIG",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.8
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 1,
+                            "y": 1
+                        },
+                        "time": 0.4,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 0,
+                "particleDuration": -1,
+                "anim": "CIRCLE_HEAT",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "heatJellyBullet": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.8
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.5,
+                            "y": 0.5
+                        },
+                        "time": 0.4,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": -1,
+                "anim": "CIRCLE_HEAT",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "heatJellyBulletMarker": [
+            {
+                "useTargetAngle": false,
+                "keepAngleSync": false,
+                "pAlpha": {
+                    "init": 0.8
+                },
+                "pScale": {
+                    "init": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "start": {
+                        "value": {
+                            "x": 0.1,
+                            "y": 0.1
+                        },
+                        "time": 0.4,
+                        "spline": "EASE_OUT"
+                    },
+                    "end": {
+                        "value": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "time": 0.2,
+                        "spline": ""
+                    }
+                },
+                "moveWithTarget": 1,
+                "particleDuration": -1,
+                "anim": "CIRCLE_HEAT",
+                "type": "PLAY_ANIM"
+            },
+            {
+                "type": "LOOP_START"
+            },
+            {
+                "time": 0.1,
+                "type": "WAIT"
+            },
+            {
+                "type": "LOOP_END"
+            }
+        ],
+        "heatJellyLaserCharge": [
+          {
+            "rumbleType": "RANDOM",
+            "power": "STRONG",
+            "speed": "SLOW",
+            "duration": -1,
+            "fade": false,
+            "type": "RUMBLE"
+          },
+          {
+            "size": "XXL",
+            "fadeIn": 0.3,
+            "fadeOut": 0.3,
+            "duration": -1,
+            "glow": false,
+            "type": "LIGHT"
+        },
+          {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "speed": 0.8,
+            "sound": "media/sound/boss/turret/long-charge.ogg",
+            "type": "PLAY_SOUND"
+          },
+          {
+            "type": "LOOP_START"
+          },
+          {
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
+            "type": "PLAY_SOUND"
+          },
+          {
+            "numParticles": 6,
+            "duration": 0.15,
+            "centralAngle": 1,
+            "startDist": 0,
+            "random": true,
+            "offset": {
+              "x": 0,
+              "y": 64,
+              "z": 64
+            },
+            "moveDist": 120,
+            "keySpline": "EASE_IN",
+            "moveRotate": 0.15,
+            "inverse": true,
+            "collision": false,
+            "pScale": {
+              "init": {
+                "x": 0.2,
+                "y": 0.2
+              },
+              "start": {
+                "value": {
+                  "x": 0.5,
+                  "y": 0.5
+                },
+                "time": 0.35,
+                "spline": ""
+              },
+              "end": {
+                "value": {
+                  "x": 0.2,
+                  "y": 0.2
+                },
+                "time": 0.05,
+                "spline": ""
+              }
+            },
+            "moveWithTarget": 1,
+            "particleDuration": 0.7,
+            "cancelable": false,
+            "anim": "CIRCLE_HEAT",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+          },
+          {
+            "time": 0.15,
+            "type": "WAIT"
+          },
+          {
+            "type": "LOOP_END"
+          }
+        ]
     }
 }
