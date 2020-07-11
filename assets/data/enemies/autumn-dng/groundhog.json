@@ -1008,7 +1008,7 @@
             "behaviors": null,
             "config": {
                 "zGravityFactor": 0,
-                "collType": "TRIGGER"
+                "collType": "PROJECTILE"
             }
         },
         "scatterStone": {

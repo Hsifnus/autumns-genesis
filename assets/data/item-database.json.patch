@@ -725,5 +725,52 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1100,
+      "customItem": "equip-coquelicot-ex",
+      "name": {
+        "en_US": "True Shikizakura",
+        "ja_JP": "本当の四季桜",
+        "zh_CN": "正確的四季桜",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "Coquelicot's leaf naginata, infused with the Ancients' blessings. [\\c[3]Ascended\\c[0]]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 0,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          0.75,
+          1,
+          1,
+          1.1
+        ],
+        "attack": 168,
+        "defense": 111,
+        "focus": 109
+      },
+      "properties": {
+        "STUN_THRESHOLD": 1.06,
+        "KNOCKBACK": 1.5,
+        "AIM_SPEED": 0.85,
+        "WIND_MELEE": 1.3
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+},{
 	"type": "EXIT"
 }]
