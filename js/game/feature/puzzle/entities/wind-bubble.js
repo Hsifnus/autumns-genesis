@@ -670,7 +670,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }
                 this.state = 3;
                 this.initAnimations(sc.WIND_BUBBLE_ANIMS[this.element].BASE);
-                this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
+                !this._killed && this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
                     duration: -1
                 }));
                 if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED" ||
@@ -698,7 +698,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                         if (action.repeat) action.onActionEndDetach()
                     }
                     this.clearActionAttached();
-                    this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
+                    !this._killed && this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
                         duration: -1
                     }));
                     this.target = null;
