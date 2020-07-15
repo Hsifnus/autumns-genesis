@@ -20,7 +20,7 @@
         "y": 8
     },
     "material": "ORGANIC",
-    "aiGroup": "",
+    "aiGroup": "jellyfish",
     "aiLearnType": "REGULAR",
     "itemDrops": [{
         "item": "201",

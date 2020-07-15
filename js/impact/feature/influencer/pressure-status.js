@@ -220,6 +220,7 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
     });
     sc.MapModel.inject({
         onLevelLoaded: function() {
+            this.parent();
             ig.pressureStatus.reset();
         }
     });

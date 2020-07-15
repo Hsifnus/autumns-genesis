@@ -89,7 +89,7 @@
             "type": "TIME"
         },
         "stunRegen": {
-            "target": 3,
+            "target": 5,
             "initRandom": 0,
             "resetRandom": 0,
             "noStateReset": false,
