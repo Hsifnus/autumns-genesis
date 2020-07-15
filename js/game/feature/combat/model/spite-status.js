@@ -33,8 +33,11 @@ ig.module("game.feature.combat.model.spite-status").requires("game.feature.comba
             this.level = 0;
             this.fxHandles = [];
         },
-        increment: function() {
+        increment: function(owner) {
             var player = ig.game.playerEntity;
+            if (owner.getTarget(true) !== player) {
+                return;
+            }
             if (this.level >= 5 || this.cooldownTimer > 0) {
                 return;
             }
@@ -49,6 +52,9 @@ ig.module("game.feature.combat.model.spite-status").requires("game.feature.comba
         },
         consume: function(proxy, owner) {
             var player = ig.game.playerEntity;
+            if (owner.getTarget(true) !== player) {
+                return;
+            }
             if (proxy) {
                 this.cooldownTimer = 1;
                 for (var b = this.level - 1; b >= 0; b--) {
@@ -69,8 +75,9 @@ ig.module("game.feature.combat.model.spite-status").requires("game.feature.comba
     });
     ig.spiteStatus = new sc.SpiteStatus();
     ig.ACTION_STEP.ADD_PLAYER_SPITE = ig.ActionStepBase.extend({
-        start: function() {
-            ig.game.playerEntity && ig.spiteStatus.increment();
+        run: function(adder) {
+            ig.game.playerEntity && ig.spiteStatus.increment(adder);
+            return true;
         }
     });
     ig.ACTION_STEP.SHOOT_PROXY_PLAYER_SPITE = ig.ActionStepBase.extend({
