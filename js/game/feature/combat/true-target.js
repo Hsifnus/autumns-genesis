@@ -267,6 +267,7 @@ ig.module("game.feature.combat.true-target").requires(
             }
         }
     });
+
     function navHelper(a, b, c) {
         if (!c) return true;
         if (a.maxTime && b.stepTimer <= 0 && !b.jumping) {
@@ -354,7 +355,7 @@ ig.module("game.feature.combat.true-target").requires(
                 a.distance || 0;
             this.forceTime = a.forceTime || false;
             this.planOnly = a.planOnly || false;
-            this.targetType =  navigateToTargets[a.targetType] || navigateToTargets.ENEMY;
+            this.targetType = navigateToTargets[a.targetType] || navigateToTargets.ENEMY;
             this.precise = a.precise || false
         },
         start: function(a) {

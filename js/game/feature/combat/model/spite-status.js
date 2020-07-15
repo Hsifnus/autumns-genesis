@@ -51,7 +51,7 @@ ig.module("game.feature.combat.model.spite-status").requires("game.feature.comba
             var player = ig.game.playerEntity;
             if (proxy) {
                 this.cooldownTimer = 1;
-                for (var b = this.level-1; b >= 0; b--) {
+                for (var b = this.level - 1; b >= 0; b--) {
                     this.fxHandles[b].stop();
                     var proxyPos = player.getCenter(Vec3.create());
                     proxyPos.x += this.spiteOffsets[b].x;
