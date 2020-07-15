@@ -53,9 +53,11 @@ ig.module("game.feature.combat.model.spite-status").requires("game.feature.comba
         consume: function(proxy, owner) {
             var player = ig.game.playerEntity;
             if (owner.getTarget(true) !== player) {
-                return;
-            }
-            if (proxy) {
+                var target = owner.getTarget(true);
+                var proxyPos = target.getCenter(Vec3.create());
+                proxyPos.z += target.coll.pos.z
+                proxy.spawn(proxyPos.x, proxyPos.y, proxyPos.z, owner, owner.face);
+            } else if (proxy) {
                 this.cooldownTimer = 1;
                 for (var b = this.level - 1; b >= 0; b--) {
                     this.fxHandles[b].stop();
