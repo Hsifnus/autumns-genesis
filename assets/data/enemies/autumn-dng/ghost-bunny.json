@@ -594,7 +594,7 @@
                 "attack": {
                     "type": "MASSIVE",
                     "element": "HEAT",
-                    "damageFactor": 1.2,
+                    "damageFactor": 0.9,
                     "reverse": false,
                     "status": 8,
                     "guardable": "NEVER",
