@@ -370,4 +370,24 @@ ig.module("game.feature.combat.true-target").requires(
             return this.planOnly ? true : navHelper(this, a, a.stepData.path)
         }
     });
+    sc.COMBAT_CONDITION.TARGET_IS_ENTITY = ig.Class.extend({
+        value: 0,
+        _wm: new ig.Config({
+            attributes: {
+                entity: {
+                    _type: "Entity",
+                    _info: "Entity to search for."
+                }
+            }
+        }),
+        init: function(a) {
+            assertContent(a, "entity");
+            this.entity = a.entity
+        },
+        check: function(a) {
+            var target = a.getTarget();
+            var comparee = ig.Event.getEntity(this.entity);
+            return target && comparee && target === comparee;
+        }
+    });
 });

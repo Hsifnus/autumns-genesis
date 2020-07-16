@@ -967,9 +967,9 @@
             "sound": "media/sound/battle/enemies/hillkat/hillkat-laugh.ogg"
         }, {
             "text": {
-                "en_US": "Hungry ghost noises"
+                "en_US": "[hungry ghost noises]"
             },
-            "mode": "LINE_FILL",
+            "mode": "NO_LINE",
             "color": "RED",
             "actionDetached": false,
             "time": 1,
@@ -1133,15 +1133,25 @@
             "thenStep": [{
                 "type": "STOP_XY"
             }, {
-                "offsetX": 0,
-                "offsetY": 0,
-                "speed": "FAST",
-                "transition": "EASE_OUT",
-                "wait": false,
-                "waitSkip": 0,
-                "zoom": 1.25,
-                "focusType": "SELF",
-                "type": "FOCUS_CAMERA"
+                "conditions": [{
+                    "entity": {
+                    	"player": true
+                    },
+                    "type": "TARGET_IS_ENTITY"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+	                "offsetX": 0,
+	                "offsetY": 0,
+	                "speed": "FAST",
+	                "transition": "EASE_OUT",
+	                "wait": false,
+	                "waitSkip": 0,
+	                "zoom": 1.25,
+	                "focusType": "SELF",
+	                "type": "FOCUS_CAMERA"
+	            }]
             }, {
                 "wait": false,
                 "viaWalkConfig": false,
