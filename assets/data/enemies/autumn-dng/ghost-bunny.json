@@ -1135,23 +1135,23 @@
             }, {
                 "conditions": [{
                     "entity": {
-                    	"player": true
+                        "player": true
                     },
                     "type": "TARGET_IS_ENTITY"
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
                 "thenStep": [{
-	                "offsetX": 0,
-	                "offsetY": 0,
-	                "speed": "FAST",
-	                "transition": "EASE_OUT",
-	                "wait": false,
-	                "waitSkip": 0,
-	                "zoom": 1.25,
-	                "focusType": "SELF",
-	                "type": "FOCUS_CAMERA"
-	            }]
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "speed": "FAST",
+                    "transition": "EASE_OUT",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "zoom": 1.25,
+                    "focusType": "SELF",
+                    "type": "FOCUS_CAMERA"
+                }]
             }, {
                 "wait": false,
                 "viaWalkConfig": false,
