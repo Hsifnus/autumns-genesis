@@ -250,12 +250,12 @@
             "langUid": 4225
         },
         "track": true,
-        "order": 320,
+        "order": 1000,
         "area": "autumn-dng",
         "anim": false,
         "extra": "dash",
         "species": {
-            "en_US": "Afterlife Rabbit",
+            "en_US": "Afterlife Mammal",
             "langUid": 1
         },
         "category": "ANIMALS",

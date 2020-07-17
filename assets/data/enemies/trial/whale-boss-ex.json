@@ -10429,6 +10429,9 @@
             "type": "WAIT"
         }],
         "EndWeak1": [{
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.modeOverdrive",
