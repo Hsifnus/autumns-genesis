@@ -308,14 +308,37 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                     this.description.setText(c);
                     this.setBonusPoints(d.bonuses);
                     this.setChallenges(sc.arena.getChallengeMods(b, a));
-                    var x = d.firstClearBonus;
+                    var x = d.firstClearBonus,
+                        y = d.exFirstClearBonus;
                     this.firstClearBonuses.removeAllChildren();
                     var h = 0;
+                    var alreadyAcquired = !sc.arena.hasFirstCleared(b, a) && sc.arena.hasFirstClearedAtAll(b, a);
                     if (x) {
                         for (var f = this.firstClearBonuses, g = this.menuGfx, i = h = 0; i < x.length; i++) {
                             if (!!x[i].condition) continue;
                             var j = x[i].count,
                                 k = sc.inventory.getItem(x[i].item),
+                                l = "\\i[" + (k.icon + sc.inventory.getRaritySuffix(k.rarity || 0) || "item-default") + "]",
+                                l = l + ig.LangLabel.getText(k.name);
+                            j > 1 && (l = l + (" x " + j));
+                            alreadyAcquired && (l = "\\c[4]" + l + "\\c[0]")
+                            j = 0;
+                            k.type == sc.ITEMS_TYPES.EQUIP && (j = k.level || 0);
+                            k = new sc.TextGui(l);
+                            k.setPos(0, h);
+                            k.level = j;
+                            k.numberGfx = g;
+                            j > 0 && !d && k.setDrawCallback((a, b) => {
+                                sc.MenuHelper.drawLevel(this.level, a, b, this.numberGfx)
+                            });
+                            f.addChildGui(k);
+                            h = h + 17
+                        }
+                    }
+                    if (y && sc.arena.exMode) {
+                        for (var f = this.firstClearBonuses, g = this.menuGfx, i = 0; i < y.length; i++) {
+                            var j = y[i].count,
+                                k = sc.inventory.getItem(y[i].item),
                                 l = "\\i[" + (k.icon + sc.inventory.getRaritySuffix(k.rarity || 0) || "item-default") + "]",
                                 l = l + ig.LangLabel.getText(k.name);
                             j > 1 && (l = l + (" x " + j));

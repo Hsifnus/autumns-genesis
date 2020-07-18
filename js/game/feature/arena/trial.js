@@ -47,6 +47,10 @@ ig.module("game.feature.arena.trial").requires(
             a.scoreStats = {};
             this.addGui();
             if (this.isTrial()) {
+                this.cachedHarderEnemies = !!sc.newgame.options["harder-enemies"];
+                this.cachedNewgameActive = sc.newgame.active;
+                sc.newgame.setActive(true);
+                this.cachedHarderEnemies !== this.exMode && sc.newgame.toggle("harder-enemies");
                 const maxTime = sc.arena.getCupData(sc.arena.runtime.cup).rounds[sc.arena.runtime.currentRound].maxTime;
                 sc.timers.addTimer("trialTimer", sc.TIMER_TYPES.COUNTDOWN, maxTime, null, null,
                     true, true, null, ig.lang.get("sc.gui.arena.timeRemaining"), true);
@@ -109,6 +113,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         endRoundDeath: function() {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
                 sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
@@ -118,6 +124,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         endRound: function() {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
                 sc.timers.timers.trialTimerTen && sc.timers.stopTimer("trialTimerTen");
@@ -127,6 +135,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         startNextRound: function(a) {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.removeTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
@@ -137,6 +147,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         restartCup: function(a) {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.removeTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
@@ -147,6 +159,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         prepareLobbyReturn: function(a) {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.removeTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
@@ -157,6 +171,8 @@ ig.module("game.feature.arena.trial").requires(
         },
         exitArenaMode: function() {
             if (this.isTrial()) {
+                sc.newgame.setActive(this.cachedNewgameActive);
+                this.cachedHarderEnemies != sc.newgame.options["harder-enemies"] && sc.newgame.toggle("harder-enemies");
                 sc.timers.stopTimer("trialTimer");
                 sc.timers.removeTimer("trialTimer");
                 sc.timers.timers.trialTimerSixty && sc.timers.stopTimer("trialTimerSixty");
@@ -209,7 +225,8 @@ ig.module("game.feature.arena.trial").requires(
                                 points: 0,
                                 time: 0,
                                 cleared: 0,
-                                firstClearBonus: 0
+                                firstClearBonus: 0,
+                                exFirstClearBonus: 0
                             });
                         else a.length = b.length
                 } else this.setEmptyProgress(a)
@@ -233,7 +250,8 @@ ig.module("game.feature.arena.trial").requires(
                 points: 0,
                 time: 0,
                 cleared: 0,
-                firstClearBonus: 0
+                firstClearBonus: 0,
+                exFirstClearBonus: 0
             });
             this.cups[a].progress = c
         },
@@ -245,7 +263,8 @@ ig.module("game.feature.arena.trial").requires(
             var e = b ? c.preTrophy : this.getCupTrophy(c.cup);
             c.prevMedal = d.medal;
             var g = this.getCupRounds(c.cup)[c.currentRound].firstClearBonus,
-                h = 0;
+                h = 0,
+                i = this.getCupRounds(c.cup)[c.currentRound].exFirstClearBonus;
             if (g) {
                 if (this.isTrial() && !d.firstClearBonus) {
                     d.firstClearBonus = 1;
@@ -258,6 +277,12 @@ ig.module("game.feature.arena.trial").requires(
                 for (h = 0; h < g.length; h++) {
                     if (g[h].condition && (new ig.VarCondition(g[h].condition)).evaluate()) {
                         sc.model.player.addItem(g[h].item, g[h].count);
+                    }
+                }
+                if (this.isTrial() && this.exMode && !d.exFirstClearBonus) {
+                    d.exFirstClearBonus = 1;
+                    for (h = 0; h < i.length; h++) {
+                        sc.model.player.addItem(i[h].item, i[h].count);
                     }
                 }
             }
@@ -335,12 +360,20 @@ ig.module("game.feature.arena.trial").requires(
         isFirstClear: function(b, c) {
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
-            return !this.cups[b] || !this.cups[b].progress ? false : !this.cups[b].progress.rounds[c].firstClearBonus;
+            return !this.cups[b] || !this.cups[b].progress ? false :
+                !this.cups[b].progress.rounds[c].firstClearBonus || (this.exMode && !this.cups[b].progress.rounds[c].exFirstClearBonus);
         },
         hasFirstCleared: function(b, c) {
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
-            return !this.cups[b] || !this.cups[b].progress ? false : this.cups[b].progress.rounds[c].firstClearBonus == 1;
+            return !this.cups[b] || !this.cups[b].progress ? false : 
+            (!this.exMode && this.cups[b].progress.rounds[c].firstClearBonus == 1) || (this.exMode && this.cups[b].progress.rounds[c].exFirstClearBonus == 1);
+        },
+        hasFirstClearedAtAll: function(b, c) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            return !this.cups[b] || !this.cups[b].progress ? false : 
+            this.cups[b].progress.rounds[c].firstClearBonus == 1 || this.cups[b].progress.rounds[c].exFirstClearBonus == 1;
         },
         hasSatisfiedCondition: function(b, c) {
             b = b || this.runtime.cup;
@@ -380,7 +413,8 @@ ig.module("game.feature.arena.trial").requires(
                         points: d.rounds[f].points,
                         time: d.rounds[f].time,
                         cleared: d.rounds[f].cleared,
-                        firstClearBonus: d.rounds[f].firstClearBonus
+                        firstClearBonus: d.rounds[f].firstClearBonus,
+                        exFirstClearBonus: d.rounds[f].exFirstClearBonus
                     });
                     b.cupData[c] = e;
                     b.cupData[c].name = ig.copy(this.cups[c].name);
@@ -388,6 +422,7 @@ ig.module("game.feature.arena.trial").requires(
                 } else b.cupData[c] = {};
             b.coins = this.coins || 0;
             b.coinsSpend = this.coinsSpend || 0;
+            b.exMode = this.exMode || false;
             a.arena = b
         },
         onStoragePreLoad: function(a) {
@@ -413,7 +448,8 @@ ig.module("game.feature.arena.trial").requires(
                                 points: d.rounds[f].points || 0,
                                 time: d.rounds[f].time || 0,
                                 cleared: d.rounds[f].cleared || 0,
-                                firstClearBonus: d.rounds[f].firstClearBonus || 0
+                                firstClearBonus: d.rounds[f].firstClearBonus || 0,
+                                exFirstClearBonus: d.rounds[f].exFirstClearBonus || 0
                             });
                             this.cups[c].progress = e;
                             this.cups[c].name = d.name || null;
@@ -421,8 +457,19 @@ ig.module("game.feature.arena.trial").requires(
                         }
                     }
                 this.coins = a.arena.coins || 0;
-                this.coinsSpend = a.arena.coinsSpend || 0
+                this.coinsSpend = a.arena.coinsSpend || 0;
+                this.exMode = a.arena.exMode || false;
             }
+        },
+        onVarAccess: function(a, b) {
+            if (b[0] == "arena" && b[1]) {
+                if (b[1] == "ex-mode") {
+                    return !!this.exMode;
+                } else {
+                    return this.parent(a, b);
+                }
+            }
+            throw Error("Unsupported var access path: " + a);
         },
         loadModdedCups: false,
         registerCup: function(a, b) {

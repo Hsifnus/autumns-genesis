@@ -640,6 +640,234 @@
   "type": "ADD_ARRAY_ELEMENT",
   "content":
     {
+      "order": 30000,
+      "customItem": "trade-magmoth-ex",
+      "name": {
+        "en_US": "Magmoth's Horn",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "An smoldering horn that proves total mastery over the fiery wrath of \\c[3]\\v[combat.name.heat/megamoth]\\c[0].",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.heat/megamoth]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "heat.megamoth"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30001,
+      "customItem": "trade-phantom-ex",
+      "name": {
+        "en_US": "Spectral Core",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "An ethereal heart that proves total mastery over the dazzling blitz of \\c[3]\\v[combat.name.jungle/shockboss]\\c[0].",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/shockboss]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "jungle.shockboss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30002,
+      "customItem": "trade-blobus-ex",
+      "name": {
+        "en_US": "Starnikus Arm",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A wiggling arm that proves total mastery over the pressure of \\c[3]\\v[combat.name.jungle/waveboss]\\c[0].",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/waveboss]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "jungle.waveboss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30003,
+      "customItem": "trade-driller-ex",
+      "name": {
+        "en_US": "Élivágar Engine",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A frozen engine that proves total mastery over the deadly arsenal of \\c[3]\\v[combat.name.boss-driller]\\c[0]",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.boss-driller]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "boss-driller"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30004,
+      "customItem": "trade-ape-ex",
+      "name": {
+        "en_US": "Yingu Bang Ring",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A metallic ring that proves total mastery over the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s diverse assault.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "jungle.ape-boss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30005,
+      "customItem": "trade-whale-ex",
+      "name": {
+        "en_US": "Nimbus Blubber",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "Cloud-like material that proves total mastery over the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s oppressive bulk.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s Master Trial EX"
+            },
+            "type": "ENEMY",
+            "value": "jungle.whale-boss"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
       "order": 1005,
       "customItem": "equip-ape",
       "name": {
