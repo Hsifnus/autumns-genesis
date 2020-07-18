@@ -366,14 +366,14 @@ ig.module("game.feature.arena.trial").requires(
         hasFirstCleared: function(b, c) {
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
-            return !this.cups[b] || !this.cups[b].progress ? false : 
-            (!this.exMode && this.cups[b].progress.rounds[c].firstClearBonus == 1) || (this.exMode && this.cups[b].progress.rounds[c].exFirstClearBonus == 1);
+            return !this.cups[b] || !this.cups[b].progress ? false :
+                (!this.exMode && this.cups[b].progress.rounds[c].firstClearBonus == 1) || (this.exMode && this.cups[b].progress.rounds[c].exFirstClearBonus == 1);
         },
         hasFirstClearedAtAll: function(b, c) {
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
-            return !this.cups[b] || !this.cups[b].progress ? false : 
-            this.cups[b].progress.rounds[c].firstClearBonus == 1 || this.cups[b].progress.rounds[c].exFirstClearBonus == 1;
+            return !this.cups[b] || !this.cups[b].progress ? false :
+                this.cups[b].progress.rounds[c].firstClearBonus == 1 || this.cups[b].progress.rounds[c].exFirstClearBonus == 1;
         },
         hasSatisfiedCondition: function(b, c) {
             b = b || this.runtime.cup;
