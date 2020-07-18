@@ -4591,6 +4591,9 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -4598,9 +4601,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -4834,6 +4834,9 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -4841,9 +4844,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -5036,6 +5036,9 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -5043,9 +5046,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -5621,6 +5621,9 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -5628,9 +5631,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -5893,6 +5893,9 @@
             "value": "IGNORE",
             "type": "SET_COLL_TYPE"
         }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -5900,9 +5903,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "withElse": false,
             "type": "IF",
