@@ -169,7 +169,7 @@
         },
         "descriptions": [{
             "text": {
-                "en_US": "A Heat-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, dazing attack if provoked enough, which can conveniently be interrupted by launching a Heat gust bullet into it. This golem specializes in spreading lingering fire around and will occasionally use the volcano on top of its body to launch fiery rocks from above.",
+                "en_US": "A Heat-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, burning cyclone if provoked enough, which can conveniently be interrupted by launching a Heat gust bullet into it. This golem specializes in spreading lingering fire around and will occasionally use the volcano on top of its body to launch fiery rocks from above.",
                 "langUid": 14
             },
             "condition": ""
