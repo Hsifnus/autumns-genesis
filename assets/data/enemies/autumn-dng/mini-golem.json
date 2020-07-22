@@ -353,7 +353,7 @@
     "actions": {
         "StartAura": [{
             "duration": -1,
-            "align": "BOTTOM",
+            "align": "FACE",
             "group": "shield",
             "rotateFace": 0,
             "flipLeftFace": false,

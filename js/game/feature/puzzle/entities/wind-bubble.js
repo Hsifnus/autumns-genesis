@@ -649,6 +649,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             return a.attackInfo.hasHint("CHARGED") ||
                 a.attackInfo.hasHint("COMPRESSED") ||
                 a.attackInfo.hasHint("BOMB") ||
+                a.attackInfo.hasHint("STEAM") ||
                 a.attackInfo.hasHint("ICE_DISK");
         },
         ballHit: function(a) {

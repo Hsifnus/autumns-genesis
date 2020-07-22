@@ -2,7 +2,7 @@
     "DOCTYPE": "MULTI_DIR_ANIMATION",
     "namedSheets": {
         "move": {
-            "src": "media/entity/enemy/mini-golem.png",
+            "src": "media/entity/enemy/mini-golem-heat.png",
             "offX": 0,
             "offY": 0,
             "width": 48,
@@ -14,7 +14,7 @@
     "SUB": [{
         "dirs": "6",
         "flipX": [0, 0, 0, 1, 1, 1],
-        "tileOffsets": [0, 11, 22, 22, 11, 0],
+        "tileOffsets": [0, 12, 24, 24, 12, 0],
         "anchorOffsetX": [-2, -4, -2, 2, 4, 2],
         "anchorOffsetY": [-12, -12, -12, -12, -12, -12],
         "anchorOffsetZ": [0, 0, 0, 0, 0, 0],
@@ -71,11 +71,15 @@
             "repeat": false,
             "frames": [7]
         }, {
-            "name": "copter",
+            "name": "eruptPre",
             "time": 0.05,
             "repeat": true,
-            "frames": [8, 8, 8, 9, 9, 9, 10, 10, 10],
-            "framesGfxOffset": [0, 0, 0, 2, 0, 3, 0, 2, 0, 1, 0, -1, 0, -2, 0, -3, 0, -2]
+            "frames": [8, 9]
+        }, {
+            "name": "erupt",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [10, 11]
         }]
     }]
 }

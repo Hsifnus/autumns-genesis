@@ -153,6 +153,49 @@
         "itemDrops": [],
         "boss": false
     },
+    "autumn-dng.mini-golem-heat": {
+        "name": {
+            "en_US": "Autumnatoast",
+            "langUid": 67
+        },
+        "track": true,
+        "order": 313,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Ruin Golem",
+            "langUid": 1
+        },
+        "descriptions": [
+          {
+            "text": {
+              "en_US": "A Heat-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, dazing attack if provoked enough, which can conveniently be interrupted by launching a Heat gust bullet into it. This golem specializes in spreading lingering fire around and will occasionally use the volcano on top of its body to launch fiery rocks from above.",
+              "langUid": 14
+            },
+            "condition": ""
+          }
+        ],
+        "category": "MECHA",
+        "level": 71,
+          "boostedLevel": 71,
+          "params": {
+            "hp": 41300,
+            "attack": 470,
+            "defense": 472,
+            "focus": 368,
+            "elemFactor": [
+              0.5,
+              1.25,
+              1,
+              1
+            ]
+          },
+          "credit": 5050,
+          "exp": 150,
+        "itemDrops": [],
+        "boss": false
+    },
     "autumn-dng.groundhog": {
         "name": {
             "en_US": "Jammin' Hillhog",
