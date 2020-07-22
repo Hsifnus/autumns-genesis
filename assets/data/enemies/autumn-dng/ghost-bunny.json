@@ -3,7 +3,7 @@
     "boostedLevel": 68,
     "params": {
         "hp": 32680,
-        "attack": 465,
+        "attack": 410,
         "defense": 360,
         "focus": 524,
         "elemFactor": [0.5, 1.25, 0.5, 0.5],
@@ -1253,7 +1253,7 @@
     },
     "meta": {
         "species": {
-            "en_US": "Afterlife Rabbit",
+            "en_US": "Afterlife Mammal",
             "langUid": 1
         },
         "category": "ANIMALS",
