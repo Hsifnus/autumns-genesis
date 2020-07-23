@@ -776,7 +776,7 @@
             "type": "FACE_TO_TARGET"
         }, {
             "duration": 0,
-            "align": "BOTTOM",
+            "align": "FACE",
             "rotateFace": 0,
             "flipLeftFace": false,
             "wait": false,
@@ -836,7 +836,7 @@
             "type": "STOP_XY"
         }, {
             "duration": 0,
-            "align": "BOTTOM",
+            "align": "FACE",
             "rotateFace": 0,
             "flipLeftFace": false,
             "wait": false,
@@ -973,7 +973,7 @@
             "anim": "attackShake"
         }, {
             "duration": 0,
-            "align": "BOTTOM",
+            "align": "FACE",
             "rotateFace": 0,
             "flipLeftFace": false,
             "wait": false,
@@ -1158,7 +1158,7 @@
             "type": "PLAY_SOUND"
         }, {
             "duration": 0,
-            "align": "BOTTOM",
+            "align": "FACE",
             "rotateFace": 0,
             "flipLeftFace": false,
             "wait": false,
