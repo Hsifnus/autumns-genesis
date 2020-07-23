@@ -5463,10 +5463,10 @@
             "sound": "media/sound/battle/airon/fire-generic-attack-3.ogg",
             "type": "PLAY_SOUND"
         }, {
-            "numParticles": 40,
+            "numParticles": 20,
             "duration": 0,
             "clockwise": true,
-            "centralAngle": 0.5,
+            "centralAngle": 1,
             "startDist": 76,
             "particleRotate": false,
             "moveDist": 0,
@@ -5481,7 +5481,7 @@
             "numParticles": 40,
             "duration": 0,
             "clockwise": true,
-            "centralAngle": 0.5,
+            "centralAngle": 1,
             "startDist": 128,
             "particleRotate": false,
             "moveDist": 0,
