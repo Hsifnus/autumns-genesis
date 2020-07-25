@@ -3369,14 +3369,14 @@
             "fade": true,
             "type": "RUMBLE_SCREEN"
         }, {
-                "align": "BOTTOM",
-                "type": "SHOOT_PROXY",
-                "proxy": "rockLine",
-                "offset": {
-                    "x": 75,
-                    "y": 140,
-                    "z": 97
-                }
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "rockLine",
+            "offset": {
+                "x": 75,
+                "y": 140,
+                "z": 97
+            }
         }, {
             "condition": "newgame.harder-enemies",
             "withElse": false,
