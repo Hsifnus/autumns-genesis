@@ -724,6 +724,10 @@
             "type": "SHOW_ANIMATION",
             "anim": "idleFast"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "duration": 0.8,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -764,6 +768,10 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "jump"
+        }, {
+            "active": "ATTACK",
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "volume": 1.3,
             "global": false,
@@ -834,6 +842,9 @@
             "anim": "land"
         }, {
             "type": "STOP_XY"
+        }, {
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "duration": 0,
             "align": "FACE",
@@ -917,6 +928,10 @@
             "value": 3,
             "type": "SET_ACCEL_SPEED"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "duration": 1.5,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -958,6 +973,9 @@
             "time": 1.3,
             "type": "WAIT"
         }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "stopBeforeEdge": true,
             "time": 0.05,
             "type": "MOVE_FORWARD"
@@ -990,6 +1008,16 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "strength": "NO_ESCAPE",
+            "pull": false,
+            "radius": 60,
+            "fadeRadius": 8,
+            "minRadius": 0,
+            "zHeight": 96,
+            "duration": 0.4,
+            "align": "BOTTOM",
+            "type": "PUSH_PULL_FORCE"
         }, {
             "duration": 0,
             "align": "BOTTOM",
@@ -1094,6 +1122,10 @@
             "type": "SHOW_ANIMATION",
             "anim": "idleFast"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "duration": 1,
             "align": "CENTER",
             "rotateFace": 0,
@@ -1126,6 +1158,19 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "erupt"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
+            "strength": "NO_ESCAPE",
+            "pull": false,
+            "radius": 60,
+            "fadeRadius": 8,
+            "minRadius": 0,
+            "zHeight": 96,
+            "duration": 0.4,
+            "align": "BOTTOM",
+            "type": "PUSH_PULL_FORCE"
         }, {
             "align": "TOP",
             "proxy": "volcanoMissile",
@@ -1241,16 +1286,20 @@
             "type": "SHOW_ANIMATION",
             "anim": "chargePre"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "time": 0.5,
             "type": "WAIT"
         }, {
             "type": "ENABLE_REACTION",
             "reaction": "GUST"
         }, {
-            "strength": "RUN_ESCAPE",
+            "strength": "DASH_ESCAPE",
             "pull": true,
-            "radius": 32,
-            "fadeRadius": 96,
+            "radius": 64,
+            "fadeRadius": 64,
             "minRadius": 0,
             "zHeight": 96,
             "duration": 8,
@@ -1291,6 +1340,9 @@
         }, {
             "type": "DISABLE_REACTION",
             "reaction": "GUST"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "time": 0.95,
             "type": "WAIT"
@@ -1352,7 +1404,7 @@
                 "element": "HEAT",
                 "damageFactor": 1.5,
                 "reverse": false,
-                "status": 5,
+                "status": 20,
                 "stunSteps": [],
                 "guardable": "NEVER",
                 "hitInvincible": true,

@@ -390,4 +390,11 @@ ig.module("game.feature.combat.true-target").requires(
             return target && comparee && target === comparee;
         }
     });
+    ig.ACTION_STEP.ADD_TARGET_STUN_LOCK.inject({
+        run: function(a) {
+            var b = a.getTarget();
+            b && (b.params && b.hasStun && b.hasStun()) && b.params.startLock(a);
+            return true
+        }
+    });
 });

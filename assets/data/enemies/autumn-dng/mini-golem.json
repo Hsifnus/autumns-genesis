@@ -469,6 +469,10 @@
                 "z": 0
             }
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "time": 0.2,
             "type": "WAIT"
         }, {
@@ -500,6 +504,10 @@
         }, {
             "value": false,
             "type": "FACE_TO_TARGET"
+        }, {
+            "active": "ATTACK",
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "duration": 0,
             "align": "BOTTOM",
@@ -560,6 +568,9 @@
             "anim": "land"
         }, {
             "type": "STOP_XY"
+        }, {
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "duration": 0,
             "align": "BOTTOM",
@@ -662,6 +673,10 @@
             "value": 3,
             "type": "SET_ACCEL_SPEED"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "duration": 1.5,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -701,6 +716,9 @@
         }, {
             "time": 1.3,
             "type": "WAIT"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "stopBeforeEdge": true,
             "time": 0.05,
@@ -920,6 +938,10 @@
             "value": 2,
             "type": "SET_RELATIVE_SPEED"
         }, {
+            "active": "PRE_ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "wait": true,
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
@@ -963,6 +985,10 @@
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
             "anim": "jump"
+        }, {
+            "active": "ATTACK",
+            "passive": "IMMUNE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "duration": 0,
             "align": "BOTTOM",
@@ -1091,6 +1117,9 @@
             "missReactTime": 0,
             "type": "MOVE_TO_DISTANCE"
         }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "volume": 1,
             "global": false,
             "loop": false,
@@ -1105,6 +1134,10 @@
         }, {
             "time": 0.5,
             "type": "WAIT"
+        }, {
+            "active": "ATTACK",
+            "passive": "VULNERABLE",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "wait": false,
             "viaWalkConfig": false,
@@ -1381,6 +1414,9 @@
             "type": "SHOW_ANIMATION",
             "anim": "chargePre"
         }, {
+            "active": "PRE_ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
+        }, {
             "time": 0.5,
             "type": "WAIT"
         }, {
@@ -1428,6 +1464,9 @@
         }, {
             "time": 5,
             "type": "WAIT"
+        }, {
+            "active": "ATTACK",
+            "type": "CHANGE_ENEMY_ANNOTATION"
         }, {
             "type": "DISABLE_REACTION",
             "reaction": "GUST"
