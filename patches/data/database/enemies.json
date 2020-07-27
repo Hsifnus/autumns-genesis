@@ -189,6 +189,42 @@
         "itemDrops": [],
         "boss": false
     },
+    "autumn-dng.mini-golem-cold": {
+        "name": {
+            "en_US": "Autumnafrost",
+            "langUid": 67
+        },
+        "track": true,
+        "order": 10002,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Ruin Golem",
+            "langUid": 1
+        },
+        "descriptions": [{
+            "text": {
+                "en_US": "A Cold-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, freezing cyclone if provoked enough, which can conveniently be interrupted by launching a Cold gust bullet into it. This golem specializes in sliding about the arena and will occasionally use the turret on top of its body to launch icicle mines that bounce around the area.",
+                "langUid": 14
+            },
+            "condition": ""
+        }],
+        "category": "MECHA",
+        "level": 71,
+        "boostedLevel": 71,
+        "params": {
+            "hp": 43900,
+            "attack": 440,
+            "defense": 481,
+            "focus": 402,
+            "elemFactor": [0.5, 1.25, 1, 1]
+        },
+        "credit": 5050,
+        "exp": 150,
+        "itemDrops": [],
+        "boss": false
+    },
     "autumn-dng.groundhog": {
         "name": {
             "en_US": "Jammin' Hillhog",
