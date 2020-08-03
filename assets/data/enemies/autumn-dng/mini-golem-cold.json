@@ -1662,7 +1662,7 @@
             }
         }, {
             "align": "FACE",
-            "radius": 32,
+            "radius": 48,
             "yScale": 0,
             "zHeight": 32,
             "centralAngle": 1,
