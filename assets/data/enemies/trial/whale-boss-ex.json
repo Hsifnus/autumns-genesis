@@ -1352,7 +1352,7 @@
                     }]
                 }, {
                     "entityAttrib": "turretPos4",
-                    "selectBy": "TSELF_DISTANCE",
+                    "selectBy": "SELF_DISTANCE",
                     "type": "SET_ATTRIB_CLOSEST_ENTITY",
                     "entities": [{
                         "global": true,

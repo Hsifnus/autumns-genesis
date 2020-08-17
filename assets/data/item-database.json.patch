@@ -1000,5 +1000,43 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 20006,
+      "customItem": "trade-artist",
+      "name": {
+        "en_US": "Miracle Paint",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "Reality-bending paint that proves mastery against \\c[3]\\v[combat.name.trial/slime-artist]\\c[0]'s creative antics.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 4,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.trial/slime-artist]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "trial.slime-artist"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
 	"type": "EXIT"
 }]

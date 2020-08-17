@@ -131,6 +131,9 @@ ig.module("game.feature.combat.true-target").requires(
             },
             TRUE_TARGET: function(a) {
                 return a.getTarget(true);
+            },
+            TRUE_PLAYER: function(a) {
+                return ig.game.playerEntity;
             }
         },
         c = Vec3.create();
@@ -394,6 +397,39 @@ ig.module("game.feature.combat.true-target").requires(
         run: function(a) {
             var b = a.getTarget();
             b && (b.params && b.hasStun && b.hasStun()) && b.params.startLock(a);
+            return true
+        }
+    });
+    ig.ACTION_STEP.FACE_TO_TRUE_TARGET = ig.ActionStepBase.extend({
+        value: false,
+        immediately: false,
+        _wm: new ig.Config({
+            attributes: {
+                value: {
+                    _type: "Boolean",
+                    _info: "True if enemy should always look at the target."
+                },
+                immediately: {
+                    _type: "Boolean",
+                    _info: "True if enemy should always look at the target IMMEDIATLY.",
+                    _optional: true
+                }
+            }
+        }),
+        init: function(a) {
+            this.value = a.value;
+            this.immediately = a.immediately || false
+        },
+        run: function(a) {
+            a.faceToTarget.active = this.value;
+            a.forceFaceDirFixed = this.value;
+            var b = a.getTarget(true);
+            if (this.immediately && b) {
+                b = Vec2.sub(b.getCenter(), a.getCenter());
+                Vec2.isZero(b) && Vec2.assignC(b, 0, 1);
+                a.faceToTarget.offset && Vec2.rotate(b, a.faceToTarget.offset * 2 * Math.PI);
+                Vec2.assign(a.face, b)
+            }
             return true
         }
     });

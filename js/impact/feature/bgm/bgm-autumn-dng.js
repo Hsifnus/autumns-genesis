@@ -18,6 +18,13 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "loopEnd": 180.006,
             "volume": 1.8
         },
+        strikeTruer: {
+            "introPath": "media/bgm/muStriketruer-i.ogg",
+            "path": "media/bgm/muStriketruer.ogg",
+            "introEnd": 10.105,
+            "loopEnd": 176.842,
+            "volume": 1.8
+        },
         windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,

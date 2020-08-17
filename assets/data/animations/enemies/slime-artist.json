@@ -1,0 +1,223 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/slime-artist.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 80,
+            "height": 80,
+            "xCount": 15
+        },
+        "paint": {
+            "src": "media/entity/enemy/slime-artist.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 80,
+            "height": 80
+        },
+        "leap": {
+            "src": "media/entity/enemy/slime-artist.png",
+            "offX": 0,
+            "offY": 240,
+            "width": 80,
+            "height": 80,
+            "xCount": 9
+        },
+        "poses": {
+            "src": "media/entity/enemy/slime-artist.png",
+            "offX": 0,
+            "offY": 480,
+            "width": 80,
+            "height": 80
+        },
+        "poses2": {
+            "src": "media/entity/enemy/slime-artist.png",
+            "offX": 0,
+            "offY": 480,
+            "width": 80,
+            "height": 80
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "move",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 15, 30, 30, 15, 0],
+        "anchorOffsetX": [4, 12, 4, -4, -12, -4],
+        "anchorOffsetY": [-8, 0, 8, 8, 0, -8],
+        "anchorOffsetZ": [12, 12, 12, 12, 12, 12],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.2,
+            "repeat": true,
+            "frames": [0, 1, 2, 3],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "swingPre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [4, 5, 6],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "swing",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [7, 8, 9, 10],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "swingRevPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [11, 3],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "swingRevPre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [11, 10],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "swingRev",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [12, 13, 14, 6],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "swingPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [5, 4, 3],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14]
+        }]
+    }, {
+        "sheet": "paint",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "paint",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [7, 8, 9, 10, 12, 13, 14, 6],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14, 0, 14, 0, 14, 0, 14, 0, 14]
+        }]
+    }, {
+        "sheet": "leap",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 9, 18, 18, 9, 0],
+        "anchorOffsetX": [24, 32, 24, -24, -32, -24],
+        "anchorOffsetY": [-8, 0, 8, 8, 0, -8],
+        "anchorOffsetZ": [0, 0, 0, 0, 0, 0],
+        "SUB": [{
+            "name": "leapPre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [0, 1],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "leapStart",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [2],
+            "framesGfxOffset": [0, 14]
+        }, {
+            "name": "leapEnd",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [3, 4],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "leapPost1",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [5, 5],
+            "framesGfxOffset": [1, 14, 0, 14]
+        }, {
+            "name": "leapPost2",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [6],
+            "framesGfxOffset": [0, 14]
+        }, {
+            "name": "rise",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [7],
+            "framesGfxOffset": [0, 14]
+        }, {
+            "name": "hidden",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [8]
+        }]
+    }, {
+        "sheet": "poses",
+        "dirs": "2",
+        "flipX": [0, 1],
+        "tileOffsets": [0, 0],
+        "SUB": [{
+            "name": "crouch",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0],
+            "framesGfxOffset": [0, 14]
+        }, {
+            "name": "castBrush",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [1, 2],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "castBrushLoop",
+            "time": 0.15,
+            "repeat": true,
+            "frames": [3, 4, 5, 4],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "castBrushPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [2],
+            "framesGfxOffset": [0, 14]
+        }, {
+            "name": "castHand",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [6, 7],
+            "framesGfxOffset": [0, 14, 0, 14]
+        }, {
+            "name": "castHandLoop",
+            "time": 0.15,
+            "repeat": true,
+            "frames": [8, 9, 10, 9],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "castHandPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [7],
+            "framesGfxOffset": [0, 14]
+        }]
+    }, {
+        "sheet": "poses2",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [11, 11],
+            "framesGfxOffset": [1, 14, 0, 14]
+        }, {
+            "name": "weak",
+            "time": 0.25,
+            "repeat": true,
+            "frames": [12, 13, 12, 14],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }]
+    }]
+}

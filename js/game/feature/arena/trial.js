@@ -7,6 +7,9 @@ ig.module("game.feature.arena.trial").requires(
         moddedCups = {
             "master-trial-cup": {
                 order: 100000
+            },
+            "master-trial-cup-2": {
+                order: 100001
             }
         },
         b = {

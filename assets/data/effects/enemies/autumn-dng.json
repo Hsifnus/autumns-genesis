@@ -30,7 +30,7 @@
         }, {
             "name": "COLD_DOT",
             "sheet": {
-                "src": "media/entity/effects/autumn-dng.png ",
+                "src": "media/entity/effects/autumn-dng.png",
                 "offX": 88,
                 "offY": 80,
                 "width": 8,
@@ -482,6 +482,21 @@
             "time": 0.05,
             "repeat": true,
             "frames": [0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "CROSSHAIR",
+            "sheet": {
+                "src": "media/entity/effects/trial-bosses.png",
+                "offX": 320,
+                "offY": 232,
+                "width": 16,
+                "height": 16
+            },
+            "guiSprites": true,
+            "renderMode": "lighter",
+            "time": 0.033,
+            "repeat": true,
+            "frames": [0, 0],
+            "framesAlpha": [1, 0.5]
         }, {
             "name": "WIND_DOT",
             "sheet": {
