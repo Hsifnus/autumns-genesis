@@ -5385,7 +5385,7 @@
                         "type": "STOP_XY"
                     }, {
                         "type": "CLEAR_TEMP_TARGET"
-                    },{
+                    }, {
                         "type": "WAIT",
                         "time": 0.5
                     }, {
