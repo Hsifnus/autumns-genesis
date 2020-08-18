@@ -744,6 +744,15 @@
             "type": "WAIT"
         }],
         "destroy": [{
+            "type": "DISABLE_REACTION",
+            "reaction": "ESCAPE"
+        }, {
+            "type": "DISABLE_REACTION",
+            "reaction": "AGGRO"
+        }, {
+            "type": "DISABLE_REACTION",
+            "reaction": "AGGRO_WEAK"
+        }, {
             "type": "REMOVE_PLAYER_CAMERA_TARGET",
             "actionDetached": true,
             "speed": "NORMAL"
