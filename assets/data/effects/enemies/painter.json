@@ -9729,13 +9729,14 @@
                 }
             },
             "particleDuration": -1,
+            "moveWithTarget": 1,
             "anim": "CIRCLE_BIG",
             "cancelable": true,
             "type": "PLAY_ANIM"
         }, {
             "volume": 0.7,
             "global": false,
-            "loop": true,
+            "loop": false,
             "speed": 1,
             "sound": "media/sound/battle/enemies/charge-05s.ogg",
             "type": "PLAY_SOUND"
