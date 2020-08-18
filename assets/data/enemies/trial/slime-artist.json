@@ -8095,7 +8095,7 @@
                 "actionDetached": false,
                 "fixPos": false,
                 "type": "SHOW_EFFECT",
-                "group": "command",
+                "group": "command2",
                 "effect": {
                     "sheet": "enemies.painter",
                     "name": "shockCommand2"
@@ -8170,7 +8170,13 @@
                 "align": "BOTTOM"
             }]
         }, {
-            "time": 2,
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "group": "command2",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 1.5,
             "type": "WAIT"
         }, {
             "wait": true,
@@ -11551,6 +11557,11 @@
             "value": true
         }],
         "WeakStart": [{
+            "attribName": "canvasCommand",
+            "changeType": "set",
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
             "element": "NEUTRAL",
             "skipEffect": false,
             "type": "SET_ENEMY_ELEMENT_MODE"
@@ -11559,6 +11570,11 @@
             "type": "WAIT"
         }],
         "HpBreak": [{
+            "attribName": "canvasCommand",
+            "changeType": "set",
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
             "name": "paintTime",
             "type": "SET_ATTRIB_BOOL",
             "value": true
