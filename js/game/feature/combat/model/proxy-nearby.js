@@ -45,12 +45,10 @@ ig.module("game.feature.combat.model.proxy-nearby").requires("game.feature.comba
                     var dist = Math.sqrt(x * x + y * y);
                     minDist > dist && (minDist = dist);
                     if (dist <= this.max) {
-                        console.log("success! minDist: " + minDist);
                         return true;
                     }
                 }
             }
-            console.log("failed! minDist: " + minDist);
             return false;
         }
     });

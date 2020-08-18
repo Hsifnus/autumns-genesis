@@ -1157,7 +1157,7 @@
             "en_US": "Jellectris Type-B",
             "langUid": 16684
         },
-        "track": false,
+        "track": true,
         "order": 100000,
         "area": "forest",
         "anim": false,
