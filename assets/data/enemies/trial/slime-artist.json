@@ -842,6 +842,11 @@
             }, {
                 "type": "WAIT",
                 "time": 1
+            }, {
+              "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.5,
+                "type": "WAIT"
             }],
             "invisible": false,
             "hp": 0,
@@ -2188,6 +2193,11 @@
                 }]
             }, {
                 "time": 9,
+                "type": "WAIT"
+            }, {
+              "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.5,
                 "type": "WAIT"
             }],
             "invisible": false,
