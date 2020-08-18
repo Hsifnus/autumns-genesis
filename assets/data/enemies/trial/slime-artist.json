@@ -3143,6 +3143,9 @@
             "copyOwnerAnims": false,
             "breakType": "NEVER",
             "action": [{
+                "value": "STRONG_FLIGHT",
+                "type": "SET_GROUND_CONNECTED"
+            }, {
                 "value": "BLOCK",
                 "type": "SET_COLL_TYPE"
             }, {
