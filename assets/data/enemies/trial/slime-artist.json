@@ -3570,7 +3570,7 @@
             "size": {
                 "x": 2,
                 "y": 2,
-                "z": 2
+                "z": 64
             },
             "config": {
                 "collType": "PROJECTILE",
