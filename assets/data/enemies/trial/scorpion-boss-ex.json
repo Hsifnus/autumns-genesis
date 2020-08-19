@@ -3309,6 +3309,16 @@
                 "value": 1
             }]
         }, {
+        	"condition": "newgame.harder-enemies",
+        	"withElse": false,
+        	"type": "IF",
+        	"thenStep": [{
+	            "attribName": "attacks",
+	            "changeType": "add",
+	            "type": "SET_ATTRIB_NUMBER",
+	            "value": 1
+	        }]
+        }, {
             "wait": false,
             "viaWalkConfig": false,
             "type": "SHOW_ANIMATION",
@@ -3654,6 +3664,16 @@
                 "type": "SET_ATTRIB_NUMBER",
                 "value": 2
             }]
+        }, {
+        	"condition": "newgame.harder-enemies",
+        	"withElse": false,
+        	"type": "IF",
+        	"thenStep": [{
+	            "attribName": "throws",
+	            "changeType": "add",
+	            "type": "SET_ATTRIB_NUMBER",
+	            "value": 1
+	        }]
         }, {
             "offsetX": 48,
             "offsetY": 0,
@@ -4070,7 +4090,8 @@
                     "condition": "entity.attrib.throws > 0",
                     "thenStep": [{
                         "type": "WAIT",
-                        "time": 0.1
+                        "time": 0.1,
+                        "aggroTIme": 0
                     }, {
                         "name": "start",
                         "type": "GOTO_LABEL"

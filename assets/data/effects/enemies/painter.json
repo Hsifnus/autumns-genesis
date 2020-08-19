@@ -1856,7 +1856,7 @@
             "type": "STOP_SOUNDS"
         }],
         "heatPaintBeamBloop": [{
-            "numParticles": 24,
+            "numParticles": 12,
             "duration": 0,
             "centralAngle": 1,
             "startDist": 4,
@@ -3416,7 +3416,7 @@
             "type": "STOP_SOUNDS"
         }],
         "coldPaintBeamBloop": [{
-            "numParticles": 24,
+            "numParticles": 12,
             "duration": 0,
             "centralAngle": 1,
             "startDist": 4,
@@ -5018,7 +5018,7 @@
             "type": "STOP_SOUNDS"
         }],
         "shockPaintBeamBloop": [{
-            "numParticles": 24,
+            "numParticles": 12,
             "duration": 0,
             "centralAngle": 1,
             "startDist": 4,
@@ -6584,7 +6584,7 @@
             "type": "STOP_SOUNDS"
         }],
         "wavePaintBeamBloop": [{
-            "numParticles": 24,
+            "numParticles": 12,
             "duration": 0,
             "centralAngle": 1,
             "startDist": 4,

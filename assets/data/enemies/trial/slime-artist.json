@@ -410,6 +410,86 @@
         }
     },
     "proxies": {
+        "flameWall": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "specials.heat",
+                    "name": "flameWall"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 20,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 1,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "NONE",
+                    "visualType": "LIGHT",
+                    "element": "HEAT",
+                    "damageFactor": 0.5,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 100,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "maxTime": 8,
+                "condition": "entity.ownerAttrib.clearWall",
+                "type": "WAIT_UNTIL"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "wall",
+            "type": "GENERIC",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 32
+            },
+            "config": {
+                "collType": "NONE"
+            }
+        },
         "doubleBeamHitbox": {
             "copyOwnerAnims": false,
             "breakType": "ACTION",
@@ -2166,6 +2246,66 @@
                         "y": 0,
                         "z": 8
                     }
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "type": "IF",
+                    "withElse": false,
+                    "thenStep": [{
+                        "type": "SELECT_RANDOM",
+                        "options": [{
+                            "0": " ",
+                            "count": 2,
+                            "weight": 1
+                        }],
+                        "0_0": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0,
+                            "startAngle": 0.5,
+                            "angleVary": 0,
+                            "startDist": 40,
+                            "startDistCollide": "NONE",
+                            "random": false,
+                            "count": 1,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "doubleBeamRunner",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 8
+                            }
+                        }],
+                        "0_1": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0,
+                            "startAngle": 0,
+                            "angleVary": 0,
+                            "startDist": 40,
+                            "startDistCollide": "NONE",
+                            "random": false,
+                            "count": 1,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "doubleBeamRunner",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 8
+                            }
+                        }]
+                    }]
                 }],
                 "0_1": [{
                     "align": "BOTTOM",
@@ -2190,6 +2330,67 @@
                         "y": 0,
                         "z": 8
                     }
+                }, 
+                {
+                    "condition": "newgame.harder-enemies",
+                    "type": "IF",
+                    "withElse": false,
+                    "thenStep": [{
+                        "type": "SELECT_RANDOM",
+                        "options": [{
+                            "0": " ",
+                            "count": 2,
+                            "weight": 1
+                        }],
+                        "0_0": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0,
+                            "startAngle": 0.25,
+                            "angleVary": 0,
+                            "startDist": 40,
+                            "startDistCollide": "NONE",
+                            "random": false,
+                            "count": 1,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "doubleBeamRunner",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 8
+                            }
+                        }],
+                        "0_1": [{
+                            "align": "BOTTOM",
+                            "centralAngle": 0,
+                            "startAngle": -0.25,
+                            "angleVary": 0,
+                            "startDist": 40,
+                            "startDistCollide": "NONE",
+                            "random": false,
+                            "count": 1,
+                            "duration": 0,
+                            "clockwise": false,
+                            "flipLeftFace": 0,
+                            "circularArea": false,
+                            "uniformDir": 0,
+                            "delay": 0,
+                            "repeat": false,
+                            "type": "SHOOT_PROXY_RANGE",
+                            "proxy": "doubleBeamRunner",
+                            "offset": {
+                                "x": 0,
+                                "y": 0,
+                                "z": 8
+                            }
+                        }]
+                    }]
                 }]
             }, {
                 "time": 9,
@@ -2209,6 +2410,553 @@
                 "x": 24,
                 "y": 24,
                 "z": 40
+            },
+            "config": {
+                "collType": "NONE",
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
+        "subQuickBeamFollower": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "condition": "entity.ownerAttrib.fireBeams",
+                "type": "WAIT_UNTIL"
+            }, {
+                "value": 4000,
+                "type": "SET_SPEED"
+            }, {
+                "kind": "PROXY_SRC",
+                "type": "SET_TEMP_TARGET"
+            }, {
+                "type": "FACE_TO_TARGET",
+                "value": false,
+                "immediately": true
+            }, {
+                "conditions": [{
+                  "element": "HEAT",
+                  "type": "ELEMENT_MODE"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "duration": 0.4,
+                    "target2": "TARGET",
+                    "target2Offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    },
+                    "align": "BOTTOM",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "blink",
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "heatPaintBeam"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }, {
+                    "align": "BASE",
+                    "radius": 16,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 0.4,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": true,
+                    "repeat": false,
+                    "uniformHitDir": true,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "BREAK",
+                        "element": "HEAT",
+                        "damageFactor": 3.6,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "",
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 300,
+                            "type": "Z_VEL"
+                        }]
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.4,
+                    "cancelOnHit": false,
+                    "withBranches": false,
+                    "collideCancel": 1,
+                    "ignoreLastHit": false,
+                    "collideSlip": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "HEAT",
+                        "damageFactor": 4,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "NO_DAMAGE"
+                    }
+                }, {
+                    "type": "STOP_XY"
+                }, {
+                    "time": 0,
+                    "turn": 0.5,
+                    "random": 0,
+                    "type": "ROTATE_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0.5,
+                    "angleVary": 0,
+                    "startDist": 4,
+                    "startDistCollide": "CLOSER",
+                    "random": true,
+                    "count": 4,
+                    "duration": 0.4,
+                    "clockwise": false,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "heatPaintFallBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    }
+                }]
+            }, {
+                "conditions": [{
+                  "element": "COLD",
+                  "type": "ELEMENT_MODE"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "duration": 0.4,
+                    "target2": "TARGET",
+                    "target2Offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    },
+                    "align": "BOTTOM",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "blink",
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "coldPaintBeam"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }, {
+                    "align": "BASE",
+                    "radius": 16,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 0.4,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": true,
+                    "repeat": false,
+                    "uniformHitDir": true,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "BREAK",
+                        "element": "COLD",
+                        "damageFactor": 3.6,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "",
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 300,
+                            "type": "Z_VEL"
+                        }]
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.4,
+                    "cancelOnHit": false,
+                    "withBranches": false,
+                    "collideCancel": 1,
+                    "ignoreLastHit": false,
+                    "collideSlip": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "COLD",
+                        "damageFactor": 4,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "NO_DAMAGE"
+                    }
+                }, {
+                    "type": "STOP_XY"
+                }, {
+                    "time": 0,
+                    "turn": 0.5,
+                    "random": 0,
+                    "type": "ROTATE_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0.5,
+                    "angleVary": 0,
+                    "startDist": 4,
+                    "startDistCollide": "CLOSER",
+                    "random": true,
+                    "count": 4,
+                    "duration": 0.4,
+                    "clockwise": false,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "coldPaintFallBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    }
+                }]
+            }, {
+                "conditions": [{
+                  "element": "SHOCK",
+                  "type": "ELEMENT_MODE"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "duration": 0.4,
+                    "target2": "TARGET",
+                    "target2Offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    },
+                    "align": "BOTTOM",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "blink",
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "shockPaintBeam"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }, {
+                    "align": "BASE",
+                    "radius": 16,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 0.4,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": true,
+                    "repeat": false,
+                    "uniformHitDir": true,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "BREAK",
+                        "element": "SHOCK",
+                        "damageFactor": 3.6,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "",
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 300,
+                            "type": "Z_VEL"
+                        }]
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.4,
+                    "cancelOnHit": false,
+                    "withBranches": false,
+                    "collideCancel": 1,
+                    "ignoreLastHit": false,
+                    "collideSlip": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "SHOCK",
+                        "damageFactor": 4,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "NO_DAMAGE"
+                    }
+                }, {
+                    "type": "STOP_XY"
+                }, {
+                    "time": 0,
+                    "turn": 0.5,
+                    "random": 0,
+                    "type": "ROTATE_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0.5,
+                    "angleVary": 0,
+                    "startDist": 4,
+                    "startDistCollide": "CLOSER",
+                    "random": true,
+                    "count": 4,
+                    "duration": 0.4,
+                    "clockwise": false,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "shockPaintFallBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    }
+                }]
+            }, {
+                "conditions": [{
+                  "element": "WAVE",
+                  "type": "ELEMENT_MODE"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "duration": 0.4,
+                    "target2": "TARGET",
+                    "target2Offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 12
+                    },
+                    "align": "BOTTOM",
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "group": "blink",
+                    "fixPos": true,
+                    "type": "SHOW_EFFECT",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "wavePaintBeam"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }, {
+                    "align": "BASE",
+                    "radius": 16,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 0.4,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": true,
+                    "repeat": false,
+                    "uniformHitDir": true,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "BREAK",
+                        "element": "WAVE",
+                        "damageFactor": 3.6,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "",
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 300,
+                            "type": "Z_VEL"
+                        }]
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "time": 0.4,
+                    "cancelOnHit": false,
+                    "withBranches": false,
+                    "collideCancel": 1,
+                    "ignoreLastHit": false,
+                    "collideSlip": false,
+                    "type": "TACKLE",
+                    "attack": {
+                        "type": "NONE",
+                        "element": "WAVE",
+                        "damageFactor": 4,
+                        "status": 10,
+                        "reverse": false,
+                        "guardable": "NEVER",
+                        "hitInvincible": true,
+                        "noIronStance": true,
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": "NO_DAMAGE"
+                    }
+                }, {
+                    "type": "STOP_XY"
+                }, {
+                    "time": 0,
+                    "turn": 0.5,
+                    "random": 0,
+                    "type": "ROTATE_FACE"
+                }, {
+                    "align": "BOTTOM",
+                    "centralAngle": 0.5,
+                    "angleVary": 0,
+                    "startDist": 4,
+                    "startDistCollide": "CLOSER",
+                    "random": true,
+                    "count": 4,
+                    "duration": 0.4,
+                    "clockwise": false,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "wavePaintFallBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 8
+                    }
+                }]
+            }, {
+                "time": 0.4,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 2,
+                "y": 2,
+                "z": 2
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
+        "subQuickBeamRunner": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "action": [{
+                "align": "BOTTOM",
+                "proxy": "subQuickBeamFollower",
+                "type": "SHOOT_PROXY"
+            }, {
+                "value": 8000,
+                "type": "SET_SPEED"
+            }, {
+                "time": 0.2,
+                "type": "MOVE_FORWARD"
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "type": "WAIT",
+                "time": 3
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 2,
+                "y": 2,
+                "z": 2
             },
             "config": {
                 "collType": "NONE",
@@ -2923,7 +3671,240 @@
             },
             "type": "GENERIC"
         },
+        "groundShockRowAlt": {
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "startDist": 0,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 1,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 1,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "groundShockAlt",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 16,
+                "startAngle": 0.25,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 1,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "groundShockAlt",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "startDist": 32,
+                "startAngle": 0.25,
+                "startDistCollide": "DROP",
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 1,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "groundShockAlt",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.5,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 8,
+                "z": 48
+            },
+            "config": {
+                "collType": "PROJECTILE",
+                "zGravityFactor": 1,
+                "shadow": 16
+            },
+            "type": "GENERIC"
+        },
         "groundShock": {
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "pivot": {
+                        "x": 8,
+                        "y": 44
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/painter.png",
+                        "offX": 432,
+                        "offY": 240,
+                        "width": 16,
+                        "height": 48
+                    },
+                    "shapeType": "Y_FLAT",
+                    "time": 0.1,
+                    "repeat": true,
+                    "renderMode": "lighter",
+                    "frames": [0, 1, 2]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "NEVER",
+            "action": [{
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "align": "BOTTOM",
+                "radius": 8,
+                "yScale": 0,
+                "zHeight": 80,
+                "centralAngle": 1,
+                "duration": 10,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": true,
+                "repeat": false,
+                "uniformHitDir": true,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "NEUTRAL",
+                    "damageFactor": 0.6,
+                    "reverse": false,
+                    "status": 5,
+                    "guardable": "NEVER",
+                    "noIronStance": true,
+                    "hitInvincible": true,
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": "NONE",
+                "type": "SET_COLL_TYPE"
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                  "align": "BOTTOM",
+                  "centralAngle": 1,
+                  "angleVary": 0,
+                  "startDist": 0,
+                  "startDistCollide": "DROP",
+                  "random": false,
+                  "count": 1,
+                  "duration": 0.1,
+                  "clockwise": false,
+                  "flipLeftFace": 0,
+                  "circularArea": false,
+                  "uniformDir": 1,
+                  "delay": 0,
+                  "repeat": true,
+                  "type": "SHOOT_PROXY_RANGE",
+                  "proxy": "flameWall",
+                  "offset": {
+                      "x": 0,
+                      "y": 0,
+                      "z": 0
+                  }
+              }]
+            }, {
+                "time": 0.4,
+                "type": "MOVE_FORWARD"
+            }, {
+                "value": "PROJECTILE",
+                "type": "SET_COLL_TYPE"
+            }, {
+              "type": "STOP_REPEATING_FORCE"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.painter",
+                    "name": "puddleDisappear"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.5,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 8,
+                "z": 48
+            },
+            "config": {
+                "collType": "IGNORE",
+                "zGravityFactor": 1,
+                "shadow": 16
+            },
+            "type": "GENERIC"
+        },
+        "groundShockAlt": {
             "animation": {
                 "SUB": [{
                     "name": "default",
@@ -2996,25 +3977,7 @@
                 "value": "PROJECTILE",
                 "type": "SET_COLL_TYPE"
             }, {
-                "time": 10,
-                "cancelOnHit": false,
-                "collideCancel": 1,
-                "orthoDirFactor": 0,
-                "ignoreLastHit": false,
-                "collideSlip": false,
-                "type": "TACKLE",
-                "attack": {
-                    "type": "NONE",
-                    "element": "NEUTRAL",
-                    "damageFactor": 1,
-                    "reverse": false,
-                    "status": 5,
-                    "guardable": "NEVER",
-                    "noIronStance": true,
-                    "hitInvincible": true,
-                    "skillBonus": "",
-                    "limiter": "NO_DAMAGE"
-                }
+              "type": "STOP_REPEATING_FORCE"
             }, {
                 "duration": 0,
                 "align": "BOTTOM",
@@ -5203,7 +6166,7 @@
                         "circularArea": false,
                         "uniformDir": 0,
                         "delay": 0,
-                        "repeat": true,
+                        "repeat": false,
                         "type": "SHOOT_PROXY_RANGE",
                         "proxy": "groundShock",
                         "offset": {
@@ -5226,7 +6189,7 @@
                         "circularArea": false,
                         "uniformDir": 0,
                         "delay": 0,
-                        "repeat": true,
+                        "repeat": false,
                         "type": "SHOOT_PROXY_RANGE",
                         "proxy": "groundShock",
                         "offset": {
@@ -5249,7 +6212,7 @@
                         "circularArea": false,
                         "uniformDir": 0,
                         "delay": 0,
-                        "repeat": true,
+                        "repeat": false,
                         "type": "SHOOT_PROXY_RANGE",
                         "proxy": "groundShockRow",
                         "offset": {
@@ -5272,7 +6235,7 @@
                         "circularArea": false,
                         "uniformDir": 0,
                         "delay": 0,
-                        "repeat": true,
+                        "repeat": false,
                         "type": "SHOOT_PROXY_RANGE",
                         "proxy": "groundShockRow",
                         "offset": {
@@ -5323,6 +6286,103 @@
                         "skillBonus": "",
                         "limiter": ""
                     }
+                }, {
+                    "condition": "entity.attrib.stomps <= 1",
+                    "withElse": true,
+                    "type": "IF", 
+                    "thenStep": [{
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 48,
+                        "startAngle": 0.75,
+                        "startDistCollide": "DROP",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0.3,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": true,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "groundShockAlt",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }, {
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 48,
+                        "startAngle": 0.25,
+                        "startDistCollide": "DROP",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0.3,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": true,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "groundShockAlt",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }, {
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 16,
+                        "startAngle": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0.3,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": true,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "groundShockRowAlt",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }, {
+                        "align": "BOTTOM",
+                        "centralAngle": 0,
+                        "angleVary": 0,
+                        "startDist": 16,
+                        "startAngle": 0.5,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "count": 1,
+                        "duration": 0.3,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "circularArea": false,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": true,
+                        "type": "SHOOT_PROXY_RANGE",
+                        "proxy": "groundShockRowAlt",
+                        "offset": {
+                            "x": 0,
+                            "y": 0,
+                            "z": 0
+                        }
+                    }]
                 }, {
                     "time": 0.2,
                     "type": "WAIT"
@@ -8029,6 +9089,10 @@
             "type": "WAIT"
         }],
         "CanvasAttack": [{
+            "name": "clearWall",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
             "face": "SOUTH",
             "rotate": true,
             "rotateSpeed": 1,
@@ -8172,6 +9236,10 @@
         }, {
             "time": 0.5,
             "type": "WAIT"
+        }, {
+            "name": "clearWall",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
         }, {
             "group": "command2",
             "type": "CLEAR_EFFECTS"
@@ -8891,6 +9959,16 @@
                 "value": 1
             }]
         }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "attribName": "swings",
+                "changeType": "add",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
+        }, {
             "name": "outStroke",
             "type": "SET_ATTRIB_BOOL",
             "value": true
@@ -9206,6 +10284,7 @@
                 }
             }]
         }, {
+            "aggroTime": 0.35,
             "time": 0.55,
             "type": "WAIT"
         }],
@@ -9335,6 +10414,7 @@
             }]
         }, {
             "time": 0.55,
+            "aggroTime": 0.35,
             "type": "WAIT"
         }],
         "JumpHeat": [{
@@ -9491,6 +10571,7 @@
             "type": "MOVE_FORWARD"
         }, {
             "time": 0.4,
+            "aggroTime": 0.2,
             "type": "WAIT"
         }, {
             "value": 2,
@@ -9754,6 +10835,7 @@
                     "anim": "leapPost1"
                 }, {
                     "time": 0.5,
+                    "aggroTime": 0.4,
                     "type": "WAIT"
                 }, {
                     "wait": false,
@@ -9762,6 +10844,7 @@
                     "anim": "leapPost2"
                 }, {
                     "time": 0.5,
+                    "aggroTime": 0.4,
                     "type": "WAIT"
                 }, {
                     "attribName": "struggles",
@@ -11171,6 +12254,10 @@
             }]
         }],
         "QuickBeam": [{
+            "name": "fireBeams",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
             "value": true,
             "type": "FACE_TO_TARGET"
         }, {
@@ -11242,15 +12329,69 @@
                 "value": false,
                 "type": "FACE_TO_TARGET"
             }, {
+                "value": -1,
+                "type": "SET_WEIGHT"
+            }, {
                 "align": "FACE",
                 "proxy": "quickBeamRunner",
                 "type": "SHOOT_PROXY"
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": 0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": -0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
             }, {
                 "time": 0.1,
                 "type": "WAIT"
             }, {
                 "conditions": [{
-                    "max": 1,
+                    "max": 0,
                     "type": "HP_BREAK"
                 }],
                 "withElse": false,
@@ -11261,7 +12402,7 @@
                 }]
             }, {
                 "conditions": [{
-                    "max": 2,
+                    "max": 1,
                     "type": "HP_BREAK"
                 }],
                 "withElse": false,
@@ -11279,6 +12420,10 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "swing"
+            }, {
+                "name": "fireBeams",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             }, {
                 "duration": 0.4,
                 "target2": "TARGET",
@@ -11340,12 +12485,88 @@
                 "value": false,
                 "type": "FACE_TO_TARGET"
             }, {
+                "value": -1,
+                "type": "SET_WEIGHT"
+            }, {
                 "align": "FACE",
                 "proxy": "quickBeamRunner",
                 "type": "SHOOT_PROXY"
             }, {
-                "time": 0.4,
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": 0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": -0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
+            }, {
+                "time": 0.1,
                 "type": "WAIT"
+            }, {
+                "conditions": [{
+                    "max": 0,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
+            }, {
+                "conditions": [{
+                    "max": 1,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
             }, {
                 "kind": "ACTION_PROXY",
                 "key": "runner",
@@ -11355,6 +12576,10 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "swing"
+            }, {
+                "name": "fireBeams",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             }, {
                 "duration": 0.4,
                 "target2": "TARGET",
@@ -11416,12 +12641,88 @@
                 "value": false,
                 "type": "FACE_TO_TARGET"
             }, {
+                "value": -1,
+                "type": "SET_WEIGHT"
+            }, {
                 "align": "FACE",
                 "proxy": "quickBeamRunner",
                 "type": "SHOOT_PROXY"
             }, {
-                "time": 0.4,
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": 0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": -0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
+            }, {
+                "time": 0.1,
                 "type": "WAIT"
+            }, {
+                "conditions": [{
+                    "max": 0,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
+            }, {
+                "conditions": [{
+                    "max": 1,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
             }, {
                 "kind": "ACTION_PROXY",
                 "key": "runner",
@@ -11431,6 +12732,10 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "swing"
+            }, {
+                "name": "fireBeams",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             }, {
                 "duration": 0.4,
                 "target2": "TARGET",
@@ -11492,12 +12797,88 @@
                 "value": false,
                 "type": "FACE_TO_TARGET"
             }, {
+                "value": -1,
+                "type": "SET_WEIGHT"
+            }, {
                 "align": "FACE",
                 "proxy": "quickBeamRunner",
                 "type": "SHOOT_PROXY"
             }, {
-                "time": 0.4,
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": 0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
+                    "align": "FACE",
+                    "centralAngle": 0,
+                    "startAngle": -0.15,
+                    "angleVary": 0,
+                    "startDist": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 1,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "subQuickBeamRunner",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
+            }, {
+                "time": 0.1,
                 "type": "WAIT"
+            }, {
+                "conditions": [{
+                    "max": 0,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
+            }, {
+                "conditions": [{
+                    "max": 1,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 0.05,
+                    "type": "WAIT"
+                }]
             }, {
                 "kind": "ACTION_PROXY",
                 "key": "runner",
@@ -11507,6 +12888,10 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "swing"
+            }, {
+                "name": "fireBeams",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
             }, {
                 "duration": 0.4,
                 "target2": "TARGET",
@@ -11557,6 +12942,10 @@
             "value": true
         }],
         "WeakStart": [{
+            "name": "clearWall",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+        }, {
             "attribName": "canvasCommand",
             "changeType": "set",
             "type": "SET_ATTRIB_NUMBER",
