@@ -3309,15 +3309,15 @@
                 "value": 1
             }]
         }, {
-        	"condition": "newgame.harder-enemies",
-        	"withElse": false,
-        	"type": "IF",
-        	"thenStep": [{
-	            "attribName": "attacks",
-	            "changeType": "add",
-	            "type": "SET_ATTRIB_NUMBER",
-	            "value": 1
-	        }]
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "attribName": "attacks",
+                "changeType": "add",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
         }, {
             "wait": false,
             "viaWalkConfig": false,
@@ -3665,15 +3665,15 @@
                 "value": 2
             }]
         }, {
-        	"condition": "newgame.harder-enemies",
-        	"withElse": false,
-        	"type": "IF",
-        	"thenStep": [{
-	            "attribName": "throws",
-	            "changeType": "add",
-	            "type": "SET_ATTRIB_NUMBER",
-	            "value": 1
-	        }]
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "attribName": "throws",
+                "changeType": "add",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
         }, {
             "offsetX": 48,
             "offsetY": 0,

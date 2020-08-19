@@ -1302,15 +1302,15 @@
             "type": "SET_ATTRIB_NUMBER",
             "value": 3
         }, {
-        	"condition": "newgame.harder-enemies",
-        	"withElse": false,
-        	"type": "IF",
-        	"thenStep": [{
-	            "attribName": "jump",
-	            "changeType": "add",
-	            "type": "SET_ATTRIB_NUMBER",
-	            "value": 1
-	        }]
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "attribName": "jump",
+                "changeType": "add",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }]
         }, {
             "active": "ATTACK",
             "type": "CHANGE_ENEMY_ANNOTATION"
