@@ -8735,6 +8735,9 @@
             "type": "WAIT"
         }],
         "PaintTime": [{
+            "type": "DISABLE_REACTION",
+            "reaction": "BREAK"
+        }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.minionCount",
