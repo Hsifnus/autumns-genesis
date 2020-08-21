@@ -9696,6 +9696,8 @@
             "group": "bubble",
             "type": "CLEAR_EFFECTS"
         }, {
+            "type": "STOP_REPEATING_FORCE"
+        }, {
             "conditions": [{
                 "element": "HEAT",
                 "type": "ELEMENT_MODE"
