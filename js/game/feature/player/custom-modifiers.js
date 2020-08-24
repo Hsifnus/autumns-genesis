@@ -5,7 +5,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 0,
         offY: 24,
         icon: -1,
-        order: 100,
+        order: 200,
         noPercent: true
     };
     sc.MODIFIERS.DRILLER_SPECIAL = {
@@ -13,7 +13,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 36,
         offY: 24,
         icon: -1,
-        order: 101,
+        order: 201,
         noPercent: true
     };
     sc.MODIFIERS.PHANTOM_SPECIAL = {
@@ -21,7 +21,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 24,
         offY: 24,
         icon: -1,
-        order: 102,
+        order: 202,
         noPercent: true
     };
     sc.MODIFIERS.BLOB_SPECIAL = {
@@ -29,7 +29,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 12,
         offY: 24,
         icon: -1,
-        order: 103,
+        order: 203,
         noPercent: true
     };
     sc.MODIFIERS.APE_SPECIAL = {
@@ -37,7 +37,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 48,
         offY: 24,
         icon: -1,
-        order: 103,
+        order: 204,
         noPercent: true
     };
     sc.MODIFIERS.WHALE_SPECIAL = {
@@ -45,7 +45,7 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 60,
         offY: 24,
         icon: -1,
-        order: 103,
+        order: 205,
         noPercent: true
     };
     sc.MODIFIERS.WIND_MELEE = {
@@ -53,6 +53,13 @@ ig.module("game.feature.player.custom-modifiers").requires(
         offX: 96,
         offY: 0,
         icon: -1,
-        order: 102
+        order: 190
+    };
+    sc.MODIFIERS.STATUS_PUNISHER = {
+        altSheet: "media/gui/extra-modifiers.png",
+        offX: 0,
+        offY: 0,
+        icon: -1,
+        order: 191
     };
 });

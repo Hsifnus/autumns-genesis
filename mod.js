@@ -40,6 +40,8 @@ import "./js/game/feature/combat/model/proxy-nearby.js";
 
 import "./js/game/feature/combat/model/spite-status.js";
 
+import "./js/game/feature/combat/model/status-punisher.js";
+
 import "./js/game/feature/combat/model/stun-status.js";
 
 import "./js/game/feature/font/font-system-override.js";
