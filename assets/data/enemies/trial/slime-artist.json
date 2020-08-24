@@ -225,7 +225,7 @@
                     "element": "HEAT",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.heatPuddleCount >= 5",
+                    "condition": "tmp.heatPuddleCount >= 5 && tmp.heatPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }, {
                     "name": "jumpTime",
@@ -241,7 +241,7 @@
                     "element": "COLD",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.coldPuddleCount >= 5",
+                    "condition": "tmp.coldPuddleCount >= 5 && tmp.coldPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }, {
                     "name": "jumpTime",
@@ -257,7 +257,7 @@
                     "element": "SHOCK",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.shockPuddleCount >= 5",
+                    "condition": "tmp.shockPuddleCount >= 5 && tmp.shockPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }, {
                     "name": "jumpTime",
@@ -273,7 +273,7 @@
                     "element": "WAVE",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.wavePuddleCount >= 5",
+                    "condition": "tmp.wavePuddleCount >= 5 && tmp.wavePuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }, {
                     "name": "jumpTime",
@@ -286,7 +286,7 @@
                     "element": "HEAT",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.heatPuddleCount >= 30",
+                    "condition": "tmp.heatPuddleCount >= 30 && tmp.heatPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }],
                 "frequency": "SOMETIMES",
@@ -296,7 +296,7 @@
                     "element": "COLD",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.coldPuddleCount >= 30",
+                    "condition": "tmp.coldPuddleCount >= 30 && tmp.coldPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }],
                 "frequency": "SOMETIMES",
@@ -306,7 +306,7 @@
                     "element": "SHOCK",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.shockPuddleCount >= 30",
+                    "condition": "tmp.shockPuddleCount >= 30 && tmp.shockPuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }],
                 "frequency": "SOMETIMES",
@@ -316,7 +316,7 @@
                     "element": "WAVE",
                     "type": "ELEMENT_MODE"
                 }, {
-                    "condition": "tmp.wavePuddleCount >= 30",
+                    "condition": "tmp.wavePuddleCount >= 30 && tmp.wavePuddleCount < tmp.totalPuddleCount",
                     "type": "VAR_CONDITION"
                 }],
                 "frequency": "SOMETIMES",
@@ -6674,6 +6674,11 @@
                 "varName": "tmp.heatPuddleCount",
                 "value": 1
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
+            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -6737,6 +6742,11 @@
                 "changeType": "sub",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.heatPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "sub",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 1
             }, {
                 "time": 1,
@@ -7154,6 +7164,11 @@
                 "varName": "tmp.coldPuddleCount",
                 "value": 1
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
+            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -7217,6 +7232,11 @@
                 "changeType": "sub",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.coldPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "sub",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 1
             }, {
                 "time": 1,
@@ -7634,6 +7654,11 @@
                 "varName": "tmp.shockPuddleCount",
                 "value": 1
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
+            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -7697,6 +7722,11 @@
                 "changeType": "sub",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.shockPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "sub",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 1
             }, {
                 "time": 1,
@@ -8121,6 +8151,11 @@
                 "varName": "tmp.wavePuddleCount",
                 "value": 1
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
+            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -8184,6 +8219,11 @@
                 "changeType": "sub",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.wavePuddleCount",
+                "value": 1
+            }, {
+                "changeType": "sub",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 1
             }, {
                 "time": 1,
@@ -8518,6 +8558,11 @@
                 "changeType": "set",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.wavePuddleCount",
+                "value": 0
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 0
             }, {
                 "changeType": "set",

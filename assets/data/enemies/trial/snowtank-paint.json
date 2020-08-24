@@ -391,6 +391,11 @@
                 "varName": "tmp.coldPuddleCount",
                 "value": 1
             }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
+            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -454,6 +459,11 @@
                 "changeType": "sub",
                 "type": "CHANGE_VAR_NUMBER",
                 "varName": "tmp.coldPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "sub",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
                 "value": 1
             }, {
                 "time": 1,
