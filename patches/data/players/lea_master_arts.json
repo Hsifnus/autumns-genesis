@@ -4155,7 +4155,7 @@
                     "z": 0
                 }
             }, {
-                "time": 1.4,
+                "time": 1,
                 "type": "WAIT"
             }, {
                 "name": "loop",
