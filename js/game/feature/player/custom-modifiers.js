@@ -48,6 +48,14 @@ ig.module("game.feature.player.custom-modifiers").requires(
         order: 205,
         noPercent: true
     };
+    sc.MODIFIERS.ARTIST_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 72,
+        offY: 24,
+        icon: -1,
+        order: 206,
+        noPercent: true
+    };
     sc.MODIFIERS.WIND_MELEE = {
         altSheet: "media/gui/stun-status.png",
         offX: 96,

@@ -1110,7 +1110,8 @@
       "properties": {
         "COND_EFFECT_ALL": 0.7,
         "STATUS_PUNISHER": 1.3,
-        "ASSAULT": 1.5
+        "ASSAULT": 1.5,
+        "ARTIST_SPECIAL": 2
       },
       "effect": {
         "sheet": "",

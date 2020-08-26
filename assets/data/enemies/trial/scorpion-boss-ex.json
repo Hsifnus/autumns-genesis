@@ -68,7 +68,7 @@
     "shadow": 200,
     "shadowScaleY": 0.75,
     "dustType": "NONE",
-    "hitStable": "LIGHT",
+    "hitStable": "MASSIVE",
     "DOCTYPE": "ENEMY",
     "trackers": {
         "headHits": {
