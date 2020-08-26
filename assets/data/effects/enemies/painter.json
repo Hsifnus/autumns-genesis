@@ -1681,6 +1681,55 @@
         }, {
             "type": "STOP_SOUNDS"
         }],
+        "neutralPaintBeamBloop": [{
+            "numParticles": 12,
+            "duration": 0,
+            "centralAngle": 1,
+            "startDist": 4,
+            "random": true,
+            "particleRotate": false,
+            "minSpeed": 20,
+            "maxSpeed": 80,
+            "minZSpeed": 20,
+            "maxZSpeed": 280,
+            "zGravityFactor": 1,
+            "zBounciness": 0.2,
+            "collision": true,
+            "pAlpha": {
+                "init": 1,
+                "end": {
+                    "value": 0,
+                    "time": 0.2
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1.5,
+                    "y": 1.5
+                },
+                "start": {
+                    "value": {
+                        "x": 0.2,
+                        "y": 0.2
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "particleDuration": 0.8,
+            "anim": "NEUTRAL_PAINT_BLOB_SMALL",
+            "type": "DEBRIS_CIRCLE"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.3,
+            "speed": 2,
+            "sound": "media/sound/battle/blubb-2.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
         "neutralPaintExplode": [{
             "type": "LOOP_START"
         }, {

@@ -4269,6 +4269,26 @@
                         }]
                     }
                 }, {
+                    "duration": 0,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group": "bubble",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "heatPaintBeamBloop"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
                     "name": "end",
                     "type": "GOTO_LABEL"
                 }]
@@ -4349,6 +4369,26 @@
                             "value": 150,
                             "type": "Z_VEL"
                         }]
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group": "bubble",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "coldPaintBeamBloop"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
                     }
                 }, {
                     "name": "end",
@@ -4433,6 +4473,26 @@
                         }]
                     }
                 }, {
+                    "duration": 0,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group": "bubble",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "shockPaintBeamBloop"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
                     "name": "end",
                     "type": "GOTO_LABEL"
                 }]
@@ -4513,6 +4573,26 @@
                             "value": 150,
                             "type": "Z_VEL"
                         }]
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group": "bubble",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "wavePaintBeamBloop"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
                     }
                 }, {
                     "name": "end",
@@ -4624,6 +4704,26 @@
                             "value": 150,
                             "type": "Z_VEL"
                         }]
+                    }
+                }, {
+                    "duration": 0,
+                    "align": "CENTER",
+                    "rotateFace": 0,
+                    "flipLeftFace": false,
+                    "wait": false,
+                    "waitSkip": 0,
+                    "actionDetached": false,
+                    "fixPos": false,
+                    "type": "SHOW_EFFECT",
+                    "group": "bubble",
+                    "effect": {
+                        "sheet": "enemies.painter",
+                        "name": "neutralPaintBeamBloop"
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
                     }
                 }]
             }, {
