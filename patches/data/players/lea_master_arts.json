@@ -4268,6 +4268,9 @@
                             "type": "Z_VEL"
                         }]
                     }
+                }, {
+                    "name": "end",
+                    "type": "GOTO_LABEL"
                 }]
             }, {
                 "conditions": [{
@@ -4347,6 +4350,9 @@
                             "type": "Z_VEL"
                         }]
                     }
+                }, {
+                    "name": "end",
+                    "type": "GOTO_LABEL"
                 }]
             }, {
                 "conditions": [{
@@ -4426,6 +4432,9 @@
                             "type": "Z_VEL"
                         }]
                     }
+                }, {
+                    "name": "end",
+                    "type": "GOTO_LABEL"
                 }]
             }, {
                 "conditions": [{
@@ -4505,6 +4514,9 @@
                             "type": "Z_VEL"
                         }]
                     }
+                }, {
+                    "name": "end",
+                    "type": "GOTO_LABEL"
                 }]
             }, {
                 "conditions": [{
@@ -4614,6 +4626,9 @@
                         }]
                     }
                 }]
+            }, {
+                "name": "end",
+                "type": "LABEL"
             }, {
                 "type": "STOP_XY"
             }, {
