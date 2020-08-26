@@ -3928,9 +3928,6 @@
             }, {
                 "time": 6,
                 "type": "WAIT"
-            }, {
-                "group": "paint",
-                "type": "REMOVE_PROXIES"
             }],
             "invisible": true,
             "hp": 0,
@@ -4158,7 +4155,7 @@
                     "z": 0
                 }
             }, {
-                "time": 1.6,
+                "time": 1.4,
                 "type": "WAIT"
             }, {
                 "name": "loop",
@@ -4661,7 +4658,7 @@
                 "type": "STOP_XY"
             }, {
                 "type": "WAIT",
-                "time": 3
+                "time": 0.4
             }],
             "invisible": false,
             "hp": 0,
@@ -4711,8 +4708,8 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER_RANDOM",
-                "minValue": 200,
-                "maxValue": 400
+                "minValue": 300,
+                "maxValue": 600
             }, {
                 "value": 100,
                 "type": "SET_Z_VEL"
@@ -4741,10 +4738,10 @@
                 "attack": {
                     "type": "HEAVY",
                     "element": "HEAT",
-                    "damageFactor": 0.8,
+                    "damageFactor": 0.9,
                     "fly": "HEAVY",
                     "reverse": false,
-                    "guardable": "FROM_ABOVE",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "hints": ["NO_PUZZLE"],
                     "limiter": ""
@@ -4844,8 +4841,8 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER_RANDOM",
-                "minValue": 200,
-                "maxValue": 400
+                "minValue": 300,
+                "maxValue": 600
             }, {
                 "value": 100,
                 "type": "SET_Z_VEL"
@@ -4874,10 +4871,10 @@
                 "attack": {
                     "type": "HEAVY",
                     "element": "COLD",
-                    "damageFactor": 0.8,
+                    "damageFactor": 0.9,
                     "fly": "HEAVY",
                     "reverse": false,
-                    "guardable": "FROM_ABOVE",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "hints": ["NO_PUZZLE"],
                     "limiter": ""
@@ -4977,8 +4974,8 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER_RANDOM",
-                "minValue": 200,
-                "maxValue": 400
+                "minValue": 300,
+                "maxValue": 600
             }, {
                 "value": 100,
                 "type": "SET_Z_VEL"
@@ -5007,10 +5004,10 @@
                 "attack": {
                     "type": "HEAVY",
                     "element": "SHOCK",
-                    "damageFactor": 0.8,
+                    "damageFactor": 0.9,
                     "fly": "HEAVY",
                     "reverse": false,
-                    "guardable": "FROM_ABOVE",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "hints": ["NO_PUZZLE"],
                     "limiter": ""
@@ -5110,8 +5107,8 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER_RANDOM",
-                "minValue": 200,
-                "maxValue": 400
+                "minValue": 300,
+                "maxValue": 600
             }, {
                 "value": 100,
                 "type": "SET_Z_VEL"
@@ -5140,10 +5137,10 @@
                 "attack": {
                     "type": "HEAVY",
                     "element": "WAVE",
-                    "damageFactor": 0.8,
+                    "damageFactor": 0.9,
                     "fly": "HEAVY",
                     "reverse": false,
-                    "guardable": "FROM_ABOVE",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "hints": ["NO_PUZZLE"],
                     "limiter": ""
@@ -5243,8 +5240,8 @@
                 "changeType": "set",
                 "proxyOwner": false,
                 "type": "SET_ATTRIB_NUMBER_RANDOM",
-                "minValue": 200,
-                "maxValue": 400
+                "minValue": 300,
+                "maxValue": 600
             }, {
                 "value": 100,
                 "type": "SET_Z_VEL"
@@ -5276,7 +5273,7 @@
                     "damageFactor": 0.9,
                     "fly": "HEAVY",
                     "reverse": false,
-                    "guardable": "FROM_ABOVE",
+                    "guardable": "",
                     "skillBonus": "MELEE_DMG",
                     "hints": ["NO_PUZZLE"],
                     "limiter": ""
