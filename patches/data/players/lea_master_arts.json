@@ -4158,7 +4158,7 @@
                     "z": 0
                 }
             }, {
-                "time": 1,
+                "time": 1.6,
                 "type": "WAIT"
             }, {
                 "name": "loop",
@@ -4259,11 +4259,17 @@
                     "attack": {
                         "type": "HEAVY",
                         "element": "HEAT",
-                        "damageFactor": 3.5,
+                        "damageFactor": 5.5,
                         "status": 10,
                         "guardable": "",
                         "skillBonus": "RANGED_DMG",
-                        "hints": ["NO_PUZZLE"]
+                        "hints": ["NO_PUZZLE"],
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 150,
+                            "type": "Z_VEL"
+                        }]
                     }
                 }]
             }, {
@@ -4332,11 +4338,17 @@
                     "attack": {
                         "type": "HEAVY",
                         "element": "COLD",
-                        "damageFactor": 3.5,
+                        "damageFactor": 5.5,
                         "status": 10,
                         "guardable": "",
                         "skillBonus": "RANGED_DMG",
-                        "hints": ["NO_PUZZLE"]
+                        "hints": ["NO_PUZZLE"],
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 150,
+                            "type": "Z_VEL"
+                        }]
                     }
                 }]
             }, {
@@ -4405,11 +4417,17 @@
                     "attack": {
                         "type": "HEAVY",
                         "element": "SHOCK",
-                        "damageFactor": 3.5,
+                        "damageFactor": 5.5,
                         "status": 10,
                         "guardable": "",
                         "skillBonus": "RANGED_DMG",
-                        "hints": ["NO_PUZZLE"]
+                        "hints": ["NO_PUZZLE"],
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 150,
+                            "type": "Z_VEL"
+                        }]
                     }
                 }]
             }, {
@@ -4478,11 +4496,17 @@
                     "attack": {
                         "type": "HEAVY",
                         "element": "WAVE",
-                        "damageFactor": 3.5,
+                        "damageFactor": 5.5,
                         "status": 10,
                         "guardable": "",
                         "skillBonus": "RANGED_DMG",
-                        "hints": ["NO_PUZZLE"]
+                        "hints": ["NO_PUZZLE"],
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 150,
+                            "type": "Z_VEL"
+                        }]
                     }
                 }]
             }, {
@@ -4541,6 +4565,35 @@
                         "z": 12
                     }
                 }, {
+                    "align": "BOTTOM",
+                    "radius": 16,
+                    "yScale": 0,
+                    "zHeight": 24,
+                    "centralAngle": 1,
+                    "duration": 0.4,
+                    "alwaysFull": true,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "rectangular": true,
+                    "repeat": false,
+                    "uniformHitDir": true,
+                    "fixPos": false,
+                    "checkCollision": false,
+                    "type": "CIRCLE_ATTACK",
+                    "attack": {
+                        "type": "HEAVY",
+                        "element": "NEUTRAL",
+                        "damageFactor": 2,
+                        "guardable": "",
+                        "skillBonus": "RANGED_DMG",
+                        "limiter": ""
+                    },
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }, {
                     "time": 0.4,
                     "cancelOnHit": false,
                     "collideCancel": 1,
@@ -4555,7 +4608,13 @@
                         "status": 10,
                         "guardable": "",
                         "skillBonus": "RANGED_DMG",
-                        "hints": ["NO_PUZZLE"]
+                        "hints": ["NO_PUZZLE"],
+                        "stunSteps": [{
+                            "type": "BLOCK_XY"
+                        }, {
+                            "value": 150,
+                            "type": "Z_VEL"
+                        }]
                     }
                 }]
             }, {

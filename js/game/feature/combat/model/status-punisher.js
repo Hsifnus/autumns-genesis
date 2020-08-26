@@ -8,7 +8,7 @@ ig.module("game.feature.combat.model.status-punisher").requires(
                 attackInfo = {
                     ...attackInfo
                 };
-            var idx = attackInfo.element ? attackInfo.element - 1 : 4;
+            var idx = attackInfo.element > 0 ? attackInfo.element - 1 : 4;
             if (params.statusStates[idx].active) {
                 damageFactor = damageFactor + damageFactor * n
             }
