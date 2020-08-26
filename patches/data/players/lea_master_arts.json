@@ -3766,7 +3766,7 @@
                 "viaWalkConfig": false,
                 "type": "SHOW_ANIMATION",
                 "anim": "crouch"
-            },{
+            }, {
                 "duration": -1,
                 "align": "CENTER",
                 "rotateFace": 0,
@@ -3968,7 +3968,7 @@
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
-                    "thenStep": [{
+                "thenStep": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "uniformRandom": 0.12,
@@ -3999,7 +3999,7 @@
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
-                    "thenStep": [{
+                "thenStep": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "uniformRandom": 0.12,
@@ -4029,7 +4029,7 @@
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
-                    "thenStep": [{
+                "thenStep": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "uniformRandom": 0.12,
@@ -4059,7 +4059,7 @@
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
-                    "thenStep": [{
+                "thenStep": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "uniformRandom": 0.12,
@@ -4089,7 +4089,7 @@
                 }],
                 "withElse": false,
                 "type": "COMBAT_IF",
-                    "thenStep": [{
+                "thenStep": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "uniformRandom": 0.12,
@@ -5364,7 +5364,7 @@
                     "zoom": 1.4,
                     "focusType": "SELF",
                     "type": "FOCUS_CAMERA"
-                },  {
+                }, {
                     "wait": false,
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
