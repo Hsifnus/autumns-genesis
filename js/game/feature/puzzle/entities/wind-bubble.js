@@ -657,6 +657,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             var d = a.getElement();
             var c = a.getHitCenter(this),
                 e = a.getHitVel(this, b);
+            this.timer = 30;
             if ((this.state == 1 || this.state == 4) && this.hasHint(a)) {
                 if (this.element == "NEUTRAL") {
                     if (d == sc.ELEMENT.HEAT) {
