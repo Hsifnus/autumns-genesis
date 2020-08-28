@@ -2,6 +2,11 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
     "impact.base.event", "impact.base.entity", "impact.feature.effect.effect-sheet").defines(function() {
     var b = Vec2.create();
     Vec3.create();
+    new ig.EffectSheet("puzzle.gust");
+    new ig.EffectSheet("puzzle.gust-heat");
+    new ig.EffectSheet("puzzle.gust-cold");
+    new ig.EffectSheet("puzzle.gust-shock");
+    new ig.EffectSheet("puzzle.gust-wave");
     ig.ENTITY.WindBubblePanel = ig.AnimatedEntity.extend({
         respawnTimer: 0,
         currentBubble: null,
@@ -555,15 +560,15 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
         },
         circularBurstAndShoot: function(a) {
             if (!this._killed) {
-                var fx = "ball";
+                var fx = "puzzle.gust";
                 if (this.element == "HEAT") {
-                    fx = "ball-heat";
+                    fx = "puzzle.gust-heat";
                 } else if (this.element == "COLD") {
-                    fx = "ball-cold";
+                    fx = "puzzle.gust-cold";
                 } else if (this.element == "SHOCK") {
-                    fx = "ball-shock";
+                    fx = "puzzle.gust-shock";
                 } else if (this.element == "WAVE") {
-                    fx = "ball-wave";
+                    fx = "puzzle.gust-wave";
                 }
                 var ball = new sc.BallInfo({
                     animation: sc.WIND_BUBBLE_ANIMS[this.element].SHOT,
