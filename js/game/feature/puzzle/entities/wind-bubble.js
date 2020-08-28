@@ -582,7 +582,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                     attack: {
                         type: "HEAVY",
                         element: this.element,
-                        damageFactor: 1.3,
+                        damageFactor: 2.8,
                         skillBonus: "RANGED_DMG",
                         hints: ["CHARGED", "GUST", "STEAM"]
                     }
