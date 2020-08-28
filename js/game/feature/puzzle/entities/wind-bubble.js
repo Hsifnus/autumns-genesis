@@ -653,10 +653,10 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 a.attackInfo.hasHint("ICE_DISK");
         },
         ballHit: function(a) {
+            if (a.party == sc.COMBATANT_PARTY.ENEMY) return;
             var d = a.getElement();
             var c = a.getHitCenter(this),
                 e = a.getHitVel(this, b);
-
             if ((this.state == 1 || this.state == 4) && this.hasHint(a)) {
                 if (this.element == "NEUTRAL") {
                     if (d == sc.ELEMENT.HEAT) {
