@@ -156,7 +156,7 @@
                 "ignoreStun": true
             }, {
                 "req": [{
-                    "distance": 200,
+                    "distance": 140,
                     "throwing": true,
                     "type": "!TARGET_REACHABLE"
                 }],
@@ -571,7 +571,7 @@
             "throwing": true,
             "planOnly": false,
             "targetType": "ENEMY",
-            "type": "NAVIGATE_ESCAPE_TARGET"
+            "type": "NAVIGATE_TO_TARGET"
         }],
         "AdjustEscape": [{
             "value": 0.5,

@@ -2200,7 +2200,8 @@
         "level": 1,
         "settings": {
             "name": "",
-            "mapId": 20
+            "spawnCondition": "map.battleDone",
+            "mapId": 200
         }
     }, {
         "type": "WindBubblePanel",
@@ -2209,6 +2210,7 @@
         "level": 0,
         "settings": {
             "name": "",
+            "spawnCondition": "map.wave3Bubble",
             "mapId": 20
         }
     }, {
@@ -3007,6 +3009,26 @@
             "eventType": "PARALLEL",
             "endCondition": "false",
             "event": [{
+                "pos": {
+                    "x": 388,
+                    "y": 436
+                },
+                "speed": "FAST",
+                "transition": "EASE_IN_OUT",
+                "wait": true,
+                "waitSkip": 0,
+                "zoom": 1,
+                "type": "SET_CAMERA_POS"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "map.wave3Bubble",
+                "value": true
+            }, {
+                "ignoreSlowDown": false,
+                "type": "WAIT",
+                "time": 1
+            }, {
                 "pos": {
                     "x": 528,
                     "y": 160
