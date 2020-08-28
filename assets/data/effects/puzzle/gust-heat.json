@@ -1,311 +1,249 @@
 {
-  "DOCTYPE": "EFFECT",
-  "ANIMS": {
-    "SUB": [
-      {
-        "name": "BOUNCE",
-        "sheet": {
-          "src": "media/entity/effects/ball.png",
-          "width": 24,
-          "height": 16,
-          "offX": 0,
-          "offY": 32
-        },
-        "time": 0.04,
-        "repeat": false,
-        "pivot": {
-          "x": 12,
-          "y": 0
-        },
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
-        ]
-      },
-      {
-        "name": "CIRCLE",
-        "sheet": {
-          "src": "media/entity/effects/ball.png",
-          "width": 16,
-          "height": 16,
-          "offX": 144,
-          "offY": 32
-        },
-        "time": 0.05,
-        "repeat": false,
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4
-        ]
-      },
-      {
-        "name": "KILL",
-        "sheet": {
-          "src": "media/entity/effects/ball.png",
-          "width": 32,
-          "height": 24,
-          "offX": 0,
-          "offY": 48
-        },
-        "time": 0.04,
-        "repeat": false,
-        "pivot": {
-          "x": 16,
-          "y": 0
-        },
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
-        ]
-      },
-      {
-        "name": "TRAIL",
-        "sheet": {
-          "src": "media/entity/effects/autumn-dng.png",
-          "width": 24,
-          "height": 24,
-          "offX": 0,
-          "offY": 472
-        },
-        "time": 0.04,
-        "repeat": false,
-        "flipY": true,
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      },
-      {
-        "name": "TRAIL_R",
-        "sheet": {
-          "src": "media/entity/effects/autumn-dng.png",
-          "width": 24,
-          "height": 24,
-          "offX": 0,
-          "offY": 472
-        },
-        "time": 0.04,
-        "repeat": false,
-        "flipX": true,
-        "frames": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ]
-      }
-    ]
-  },
-  "EFFECTS": {
-    "ballBounce": [
-      {
-        "useTargetAngle": false,
-        "keepAngleSync": false,
-        "pAlpha": {
-          "init": 1,
-          "start": {
-            "value": 1
-          }
-        },
-        "type": "PLAY_ANIM",
-        "anim": "BOUNCE"
-      },
-      {
-        "size": "XL",
-        "fadeIn": 0,
-        "fadeOut": 0.35,
-        "duration": 0,
-        "glow": false,
-        "type": "LIGHT"
-      },
-      {
-        "volume": 0.75,
-        "global": false,
-        "loop": false,
-        "variance": 0.1,
-        "sound": "media/sound/battle/airon/ball-bounce-heat3.ogg",
-        "type": "PLAY_SOUND"
-      }, 
-      {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 3,
-          "variance": 0.1,
-          "sound": "media/sound/boss/crab/robot-land.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 2,
-          "sound": "media/sound/battle/explosion-5.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.9,
-          "global": false,
-          "loop": false,
-          "speed": 2,
-          "sound": "media/sound/battle/sweep-longer.ogg",
-          "type": "PLAY_SOUND"
-      }
-    ],
-    "ballAirKill": [
-      {
-        "useTargetAngle": false,
-        "pAlpha": {
-          "init": 1,
-          "start": {
-            "value": 1
-          }
-        },
-        "type": "PLAY_ANIM",
-        "anim": "CIRCLE"
-      },
-      {
-        "size": "XL",
-        "fadeIn": 0,
-        "fadeOut": 0.35,
-        "duration": 0,
-        "glow": false,
-        "type": "LIGHT"
-      },
-      {
-        "volume": 0.5,
-        "global": false,
-        "loop": false,
-        "type": "PLAY_SOUND",
-        "sound": "media/sound/battle/ball-kill.ogg"
-      }, 
-      {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 3,
-          "variance": 0.1,
-          "sound": "media/sound/boss/crab/robot-land.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 2,
-          "sound": "media/sound/battle/explosion-5.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.9,
-          "global": false,
-          "loop": false,
-          "speed": 2,
-          "sound": "media/sound/battle/sweep-longer.ogg",
-          "type": "PLAY_SOUND"
-      }
-    ],
-    "ballWallKill": [
-      {
-        "type": "PLAY_ANIM",
-        "anim": "KILL",
-        "pAlpha": {
-          "init": 1,
-          "start": {
-            "value": 1
-          }
-        }
-      },
-      {
-        "type": "LIGHT",
-        "size": "XL",
-        "fadeOut": 0.35
-      },
-      {
-        "type": "PLAY_SOUND",
-        "sound": "media/sound/battle/ball-kill.ogg",
-        "volume": 0.5
-      }, 
-      {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 2,
-          "variance": 0.1,
-          "sound": "media/sound/boss/crab/robot-land.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.5,
-          "global": false,
-          "loop": false,
-          "speed": 1.33,
-          "sound": "media/sound/battle/explosion-5.ogg",
-          "type": "PLAY_SOUND"
-      }, {
-          "volume": 0.9,
-          "global": false,
-          "loop": false,
-          "speed": 1.33,
-          "sound": "media/sound/battle/sweep-longer.ogg",
-          "type": "PLAY_SOUND"
-      }
-    ],
-    "ballTrail": [
-      {
-        "type": "PLAY_ANIM",
-        "anim": "TRAIL",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 3
-        },
-        "pAlpha": {
-          "init": 0.9,
-          "start": {
-            "value": 0.4
-          }
-        },
-        "useTargetAngle": true
-      },
-      {
-        "type": "WAIT",
-        "time": 0.015
-      },
-      {
-        "type": "PLAY_ANIM",
-        "anim": "TRAIL_R",
-        "offset": {
-          "x": 0,
-          "y": 0,
-          "z": 3
-        },
-        "pAlpha": {
-          "init": 0.9,
-          "start": {
-            "value": 0.4
-          }
-        },
-        "useTargetAngle": true
-      },
-      {
-        "type": "WAIT",
-        "time": 0.015
-      }
-    ]
-  }
+    "DOCTYPE": "EFFECT",
+    "ANIMS": {
+        "SUB": [{
+            "name": "BOUNCE",
+            "sheet": {
+                "src": "media/entity/effects/ball.png",
+                "width": 24,
+                "height": 16,
+                "offX": 0,
+                "offY": 32
+            },
+            "time": 0.04,
+            "repeat": false,
+            "pivot": {
+                "x": 12,
+                "y": 0
+            },
+            "frames": [0, 1, 2, 3, 4, 5]
+        }, {
+            "name": "CIRCLE",
+            "sheet": {
+                "src": "media/entity/effects/ball.png",
+                "width": 16,
+                "height": 16,
+                "offX": 144,
+                "offY": 32
+            },
+            "time": 0.05,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4]
+        }, {
+            "name": "KILL",
+            "sheet": {
+                "src": "media/entity/effects/ball.png",
+                "width": 32,
+                "height": 24,
+                "offX": 0,
+                "offY": 48
+            },
+            "time": 0.04,
+            "repeat": false,
+            "pivot": {
+                "x": 16,
+                "y": 0
+            },
+            "frames": [0, 1, 2, 3, 4, 5]
+        }, {
+            "name": "TRAIL",
+            "sheet": {
+                "src": "media/entity/effects/autumn-dng.png",
+                "width": 24,
+                "height": 24,
+                "offX": 0,
+                "offY": 472
+            },
+            "time": 0.04,
+            "repeat": false,
+            "flipY": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }, {
+            "name": "TRAIL_R",
+            "sheet": {
+                "src": "media/entity/effects/autumn-dng.png",
+                "width": 24,
+                "height": 24,
+                "offX": 0,
+                "offY": 472
+            },
+            "time": 0.04,
+            "repeat": false,
+            "flipX": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6]
+        }]
+    },
+    "EFFECTS": {
+        "ballBounce": [{
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 1
+                }
+            },
+            "type": "PLAY_ANIM",
+            "anim": "BOUNCE"
+        }, {
+            "size": "XL",
+            "fadeIn": 0,
+            "fadeOut": 0.35,
+            "duration": 0,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "volume": 0.75,
+            "global": false,
+            "loop": false,
+            "variance": 0.1,
+            "sound": "media/sound/battle/airon/ball-bounce-heat3.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 3,
+            "variance": 0.1,
+            "sound": "media/sound/boss/crab/robot-land.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/explosion-5.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/sweep-longer.ogg",
+            "type": "PLAY_SOUND"
+        }],
+        "ballAirKill": [{
+            "useTargetAngle": false,
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 1
+                }
+            },
+            "type": "PLAY_ANIM",
+            "anim": "CIRCLE"
+        }, {
+            "size": "XL",
+            "fadeIn": 0,
+            "fadeOut": 0.35,
+            "duration": 0,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/ball-kill.ogg"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 3,
+            "variance": 0.1,
+            "sound": "media/sound/boss/crab/robot-land.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/explosion-5.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/sweep-longer.ogg",
+            "type": "PLAY_SOUND"
+        }],
+        "ballWallKill": [{
+            "type": "PLAY_ANIM",
+            "anim": "KILL",
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 1
+                }
+            }
+        }, {
+            "type": "LIGHT",
+            "size": "XL",
+            "fadeOut": 0.35
+        }, {
+            "type": "PLAY_SOUND",
+            "sound": "media/sound/battle/ball-kill.ogg",
+            "volume": 0.5
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "variance": 0.1,
+            "sound": "media/sound/boss/crab/robot-land.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.5,
+            "global": false,
+            "loop": false,
+            "speed": 1.33,
+            "sound": "media/sound/battle/explosion-5.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "speed": 1.33,
+            "sound": "media/sound/battle/sweep-longer.ogg",
+            "type": "PLAY_SOUND"
+        }],
+        "ballTrail": [{
+            "type": "PLAY_ANIM",
+            "anim": "TRAIL",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            },
+            "pAlpha": {
+                "init": 0.9,
+                "start": {
+                    "value": 0.4
+                }
+            },
+            "useTargetAngle": true
+        }, {
+            "type": "WAIT",
+            "time": 0.015
+        }, {
+            "type": "PLAY_ANIM",
+            "anim": "TRAIL_R",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 3
+            },
+            "pAlpha": {
+                "init": 0.9,
+                "start": {
+                    "value": 0.4
+                }
+            },
+            "useTargetAngle": true
+        }, {
+            "type": "WAIT",
+            "time": 0.015
+        }]
+    }
 }
