@@ -2716,6 +2716,47 @@
             "group": "tmpShieldSide",
             "type": "CLEAR_EFFECTS"
         }, {
+            "conditions": [{
+                "min": 0,
+                "max": 0,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 7
+            }]
+        }, {
+            "conditions": [{
+                "min": 1,
+                "max": 1,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 11
+            }]
+        }, {
+            "conditions": [{
+                "min": 2,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 15
+            }]
+        }, {
             "duration": 0,
             "align": "BOTTOM",
             "rotateFace": 0,

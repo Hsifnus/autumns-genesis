@@ -2939,7 +2939,7 @@
                 "target": {
                     "player": true
                 },
-                "type": "SET_SCREEN_ENEMY_TARGET"
+                "type": "SET_ALL_ENEMY_TARGET"
             }, {
                 "value": true,
                 "type": "SET_FORCE_COMBAT"
@@ -2987,7 +2987,7 @@
                 "target": {
                     "player": true
                 },
-                "type": "SET_SCREEN_ENEMY_TARGET"
+                "type": "SET_ALL_ENEMY_TARGET"
             }, {
                 "speed": "NORMAL",
                 "transition": "EASE_IN_OUT",
@@ -3052,7 +3052,7 @@
                 "target": {
                     "player": true
                 },
-                "type": "SET_SCREEN_ENEMY_TARGET"
+                "type": "SET_ALL_ENEMY_TARGET"
             }, {
                 "speed": "NORMAL",
                 "transition": "EASE_IN_OUT",

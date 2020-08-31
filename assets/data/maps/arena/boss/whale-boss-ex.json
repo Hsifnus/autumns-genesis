@@ -52,7 +52,6 @@
                 "party": "",
                 "face": "WEST",
                 "state": "PASSIVE_HIDDEN",
-                "targetOnSpawn": false,
                 "level": {
                     "varName": "arena.enemyLevel"
                 },
@@ -1681,9 +1680,6 @@
                     "viaWalkConfig": false,
                     "type": "SHOW_ANIMATION",
                     "anim": "idle"
-                }, {
-                    "type": "WAIT_UNTIL",
-                    "condition": "tmp.whapeRage || tmp.whapeJump == 0"
                 }],
                 "repeating": false,
                 "wait": false,
@@ -1758,7 +1754,21 @@
                 "type": "WAIT",
                 "time": 0.5
             }, {
+                "entity": {
+                    "global": true,
+                    "name": "whale"
+                },
+                "type": "ADD_PLAYER_CAMERA_TARGET"
+            }, {
+                "target": {
+                    "player": true
+                },
+                "type": "SET_ALL_ENEMY_TARGET"
+            }, {
                 "type": "START_ARENA_ROUND"
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
             }],
             "triggerType": "ONCE_PER_ENTRY",
             "mapId": 26,

@@ -117,12 +117,18 @@
             }]
         },
         "DEFAULT": {
-            "enabledReactions": ["TEAM_ATTACK", "BOSS_JOIN_START", "WATER"],
+            "enabledReactions": ["TEAM_ATTACK", "BOSS_JOIN_START", "WATER", "KILL_SURVIVE"],
             "choices": [{
                 "req": [{
                     "type": "!HAS_TARGET"
                 }],
                 "postSwitchState": "IDLE"
+            }, {
+                "req": [{
+                    "type": "ENTERED_STATE"
+                }],
+                "action": "Init",
+                "ignoreStun": true
             }, {
                 "req": [{
                     "negated": false,
@@ -204,7 +210,7 @@
         "JOIN_READY": {
             "collType": "TRIGGER",
             "flyHeight": 48,
-            "enabledReactions": ["BOSS_RELEASE", "BOSS_JOIN"],
+            "enabledReactions": ["BOSS_RELEASE", "BOSS_JOIN", "KILL_SURVIVE"],
             "aggression": "PEACEFUL",
             "invincibleTimer": -1,
             "choices": [{
@@ -316,6 +322,66 @@
         }
     },
     "actions": {
+        "Init": [{
+            "condition": "!entity.attrib.initialized",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "name": "initialized",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "attribName": "id",
+                "changeType": "set",
+                "type": "SET_ATTRIB_NUMBER",
+                "value": {
+                    "varName": "tmp.blobId"
+                }
+            }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobId",
+                "value": 1
+            }]
+        }, {
+            "condition": "entity.attrib.id > tmp.blobConsume",
+            "withElse": true,
+            "type": "IF",
+            "thenStep": [{
+                "name": "protecc",
+                "type": "SET_ATTRIB_BOOL",
+                "value": true
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "group": "protecc",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobProteccAura"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "name": "protecc",
+                "type": "SET_ATTRIB_BOOL",
+                "value": false
+            }]
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "Survive": [],
         "Idle": [{
             "value": true,
             "type": "FACE_TO_TARGET"
@@ -983,6 +1049,9 @@
         "WaveBossJoinReady": [{
             "type": "HEAL_STATUS"
         }, {
+            "group": "protecc",
+            "type": "CLEAR_EFFECTS"
+        }, {
             "duration": -1,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -1170,6 +1239,23 @@
             "action": "WaterReact",
             "terrain": "WATER",
             "type": "FALL"
+        },
+        "KILL_SURVIVE": {
+            "conditions": [{
+                "negated": false,
+                "type": "VAR_CONDITION",
+                "condition": "entity.attrib.id > tmp.blobConsume"
+            }],
+            "blockFurtherHits": false,
+            "attackType": "",
+            "flyLevel": "",
+            "stunChange": "NO_CHANGE",
+            "ignoreStun": true,
+            "alignFace": false,
+            "dramaticEffect": "",
+            "ignoreFailed": false,
+            "hitType": "KILL_SURVIVE",
+            "type": "HIT_REACTION"
         }
     },
     "meta": {

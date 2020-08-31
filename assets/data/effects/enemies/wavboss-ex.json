@@ -11,6 +11,21 @@
             }
         },
         "SUB": [{
+            "name": "WAVE_SHIELD",
+            "sheet": {
+                "src": "media/entity/effects/autumn-dng.png",
+                "width": 24,
+                "height": 24,
+                "offX": 144,
+                "offY": 168,
+                "xCount": null
+            },
+            "time": 0.1,
+            "guiSprites": true,
+            "repeat": false,
+            "frames": [0],
+            "renderMode": "lighter"
+        }, {
             "name": "DUST_UP",
             "sheet": {
                 "src": "media/entity/effects/dust.png",
@@ -2682,6 +2697,78 @@
             "type": "COPY_SPRITE"
         }, {
             "time": 0.2,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "blobProteccAura": [{
+            "type": "LOOP_START"
+        }, {
+            "useTargetAngle": false,
+            "keepAngleSync": false,
+            "pAlpha": {
+                "init": 0,
+                "start": {
+                    "value": 0.4,
+                    "time": 0.1,
+                    "spline": ""
+                },
+                "end": {
+                    "value": 0,
+                    "time": 0.3,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 0.5,
+                    "y": 0.5
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "spline": "EASE_OUT"
+                }
+            },
+            "moveWithTarget": 0,
+            "particleDuration": 0.6,
+            "anim": "SHOCKWAVE_S_WAVE",
+            "type": "PLAY_ANIM"
+        }, {
+            "numParticles": 1,
+            "duration": 0,
+            "random": false,
+            "centralAngle": 1,
+            "startDist": 0,
+            "useTargetAngle": false,
+            "moveDist": 0,
+            "moveVariance": 0,
+            "normalMoveDist": 0,
+            "inverse": false,
+            "keySpline": "EASE_IN_OUT",
+            "collision": false,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "pAlpha": {
+                "init": 1,
+                "start": {
+                    "value": 0,
+                    "time": 0.4,
+                    "spline": "EASE_IN"
+                }
+            },
+            "moveWithTarget": 1,
+            "moveRotate": 0.25,
+            "particleDuration": 0.5,
+            "anim": "WAVE_SHIELD",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.25,
             "type": "WAIT"
         }, {
             "type": "LOOP_END"
