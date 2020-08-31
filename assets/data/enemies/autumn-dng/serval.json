@@ -51,7 +51,8 @@
             "damage": "damage"
         },
         "hidden": {
-            "idle": "hidden"
+            "idle": "hidden",
+            "damage": "damage"
         },
         "weak": {
             "idle": "damage",
@@ -136,6 +137,7 @@
             "shadow": 0,
             "walkAnims": "hidden",
             "hitStable": "MASSIVE",
+            "collType": "IGNORE",
             "invincibleTimer": -1,
             "damageFactor": 0,
             "enabledReactions": [],
