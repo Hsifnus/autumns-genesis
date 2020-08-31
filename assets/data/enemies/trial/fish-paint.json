@@ -2123,6 +2123,10 @@
                 "z": 0
             }
         }, {
+            "type": "SET_ENEMY_STATUS_VISIBILITY",
+            "hpBar": "HIDDEN",
+            "analyzable": false
+        }, {
             "value": false,
             "immediately": true,
             "type": "FACE_TO_TARGET"
@@ -2215,6 +2219,10 @@
                 "y": 0,
                 "z": 0
             }
+        }, {
+            "type": "SET_ENEMY_STATUS_VISIBILITY",
+            "hpBar": "AUTO",
+            "analyzable": true
         }, {
             "value": 3,
             "type": "SET_Z_GRAVITY_FACTOR"
