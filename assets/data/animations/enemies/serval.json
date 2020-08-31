@@ -1,470 +1,173 @@
 {
-  "DOCTYPE": "MULTI_DIR_ANIMATION",
-  "namedSheets": {
-    "move": {
-      "src": "media/entity/enemy/serval.png",
-      "xCount": 6,
-      "offX": 0,
-      "offY": 0,
-      "width": 32,
-      "height": 40
-    },
-    "attack": {
-      "src": "media/entity/enemy/serval.png",
-      "xCount": 6,
-      "offX": 0,
-      "offY": 120,
-      "width": 32,
-      "height": 40
-    },
-    "special": {
-      "src": "media/entity/enemy/serval.png",
-      "xCount": 8,
-      "offX": 0,
-      "offY": 200,
-      "width": 32,
-      "height": 40
-    }
-  },
-  "shapeType": "Y_FLAT",
-  "sheet": "move",
-  "SUB": [
-    {
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        1,
-        1,
-        1
-      ],
-      "tileOffsets": [
-        0,
-        6,
-        12,
-        12,
-        6,
-        0
-      ],
-      "SUB": [
-      	{
-          "name": "idle",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/serval.png",
+            "xCount": 6,
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 40
         },
-        {
-          "name": "combatIdle",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            0,
-            1,
-            2,
-            3
-          ]
+        "attack": {
+            "src": "media/entity/enemy/serval.png",
+            "xCount": 6,
+            "offX": 0,
+            "offY": 120,
+            "width": 32,
+            "height": 40
         },
-        {
-          "name": "dash",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [
-            4
-          ]
-        },
-        {
-          "name": "damage",
-          "time": 0.05,
-          "repeat": true,
-          "frames": [
-            5,
-            5
-          ],
-          "framesGfxOffset": [
-            0,
-            0,
-            1,
-            0
-          ]
+        "special": {
+            "src": "media/entity/enemy/serval.png",
+            "xCount": 8,
+            "offX": 0,
+            "offY": 200,
+            "width": 32,
+            "height": 40
         }
-      ]
     },
-    {
-      "sheet": "attack",
-      "dirs": "6",
-      "flipX": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "tileOffsets": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "SUB": [
-      	{
-          "name": "attackLoop",
-          "time": 0.033,
-          "repeat": true,
-          "dirFrames": [
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
+    "shapeType": "Y_FLAT",
+    "sheet": "move",
+    "SUB": [{
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 6, 12, 12, 6, 0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [0, 1, 2, 3]
+        }, {
+            "name": "combatIdle",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [0, 1, 2, 3]
+        }, {
+            "name": "dash",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [4]
+        }, {
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [5, 5],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }]
+    }, {
+        "sheet": "attack",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 0, 0, 0],
+        "tileOffsets": [0, 1, 2, 3, 4, 5],
+        "SUB": [{
+            "name": "attackLoop",
+            "time": 0.033,
+            "repeat": true,
+            "dirFrames": [
+                [4, 5, 0, 1, 2, 3],
+                [4, 5, 0, 1, 2, 3],
+                [4, 5, 0, 1, 2, 3],
+                [4, 5, 0, 1, 2, 3],
+                [4, 5, 0, 1, 2, 3],
+                [4, 5, 0, 1, 2, 3]
             ]
-          ]
-        },
-        {
-          "name": "attack",
-          "time": 0.033,
-          "repeat": false,
-          "dirFrames": [
-            [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5
-            ],
-            [
-              1,
-              2,
-              3,
-              4,
-              5,
-              0
-            ],
-            [
-              2,
-              3,
-              4,
-              5,
-              0,
-              1
-            ],
-            [
-              3,
-              4,
-              5,
-              0,
-              1,
-              2
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              5,
-              0,
-              1,
-              2,
-              3,
-              4
+        }, {
+            "name": "attack",
+            "time": 0.033,
+            "repeat": false,
+            "dirFrames": [
+                [0, 1, 2, 3, 4, 5],
+                [1, 2, 3, 4, 5, 0],
+                [2, 3, 4, 5, 0, 1],
+                [3, 4, 5, 0, 1, 2],
+                [4, 5, 0, 1, 2, 3],
+                [5, 0, 1, 2, 3, 4]
             ]
-          ]
-        },
-        {
-          "name": "attackEnd",
-          "dirOffsets": [
-            [
-              0,
-              8,
-              0
+        }, {
+            "name": "attackEnd",
+            "dirOffsets": [
+                [0, 8, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 8, 0]
             ],
-            [
-              0,
-              0,
-              0
+            "time": 0.133,
+            "repeat": false,
+            "frames": [6]
+        }, {
+            "name": "attackEnd2",
+            "dirOffsets": [
+                [0, 8, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 8, 0]
             ],
-            [
-              0,
-              0,
-              0
+            "dirFrames": [
+                [11],
+                [6],
+                [7],
+                [8],
+                [9],
+                [10]
             ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              8,
-              0
+            "time": 0.133,
+            "repeat": false
+        }]
+    }, {
+        "sheet": "attack",
+        "dirs": "6",
+        "flipX": [1, 1, 1, 1, 1, 1],
+        "tileOffsets": [5, 4, 3, 2, 1, 0],
+        "SUB": [{
+            "name": "attackRev",
+            "time": 0.033,
+            "repeat": false,
+            "dirFrames": [
+                [5, 0, 1, 2, 3, 4],
+                [4, 5, 0, 1, 2, 3],
+                [3, 4, 5, 0, 1, 2],
+                [2, 3, 4, 5, 0, 1],
+                [1, 2, 3, 4, 5, 0],
+                [0, 1, 2, 3, 4, 5]
             ]
-          ],
-          "time": 0.133,
-          "repeat": false,
-          "frames": [
-            6
-          ]
-        },
-        {
-          "name": "attackEnd2",
-          "dirOffsets": [
-            [
-              0,
-              8,
-              0
+        }, {
+            "name": "attackEndRev",
+            "dirOffsets": [
+                [0, 8, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 8, 0]
             ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              8,
-              0
-            ]
-          ],
-          "dirFrames": [[11], [6], [7], [8], [9], [10]],
-          "time": 0.133,
-          "repeat": false
-        }
-      ]
-    },
-    {
-      "sheet": "attack",
-      "dirs": "6",
-      "flipX": [
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
-      ],
-      "tileOffsets": [
-        5,
-        4,
-        3,
-        2,
-        1,
-        0
-      ],
-      "SUB": [
-        {
-          "name": "attackRev",
-          "time": 0.033,
-          "repeat": false,
-          "dirFrames": [
-            [
-              5,
-              0,
-              1,
-              2,
-              3,
-              4
-            ],
-            [
-              4,
-              5,
-              0,
-              1,
-              2,
-              3
-            ],
-            [
-              3,
-              4,
-              5,
-              0,
-              1,
-              2
-            ],
-            [
-              2,
-              3,
-              4,
-              5,
-              0,
-              1
-            ],
-            [
-              1,
-              2,
-              3,
-              4,
-              5,
-              0
-            ],
-            [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5
-            ]
-          ]
-        },
-        {
-          "name": "attackEndRev",
-          "dirOffsets": [
-            [
-              0,
-              8,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              0,
-              0
-            ],
-            [
-              0,
-              8,
-              0
-            ]
-          ],
-          "time": 0.133,
-          "repeat": false,
-          "frames": [
-            6
-          ]
-        }
-      ]
-    },
-    {
-    	"sheet": "special",
-      "dirs": "1",
-      "flipX": [0],
-      "tileOffsets": [0],
-      "SUB": [
-        {
-          "name": "disappear",
-          "time": 0.033,
-          "repeat": false,
-          "frames": [
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7
-          ]
-        },
-        {
-          "name": "appear",
-          "time": 0.033,
-          "repeat": false,
-          "frames": [
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15
-          ]
-        },
-        {
-          "name": "hidden",
-          "time": 0.1,
-          "repeat": true,
-          "frames": [7]
-        }
-      ]
-    }
-  ]
+            "time": 0.133,
+            "repeat": false,
+            "frames": [6]
+        }]
+    }, {
+        "sheet": "special",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "disappear",
+            "time": 0.033,
+            "repeat": false,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
+        }, {
+            "name": "appear",
+            "time": 0.033,
+            "repeat": false,
+            "frames": [8, 9, 10, 11, 12, 13, 14, 15]
+        }, {
+            "name": "hidden",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [7]
+        }]
+    }]
 }

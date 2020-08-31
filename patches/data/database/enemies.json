@@ -1190,71 +1190,52 @@
         "boss": true
     },
     "autumn-dng.serval": {
-      "name": {
-        "en_US": "Servolt",
-        "langUid": 6835
-      },
-      "track": true,
-      "order": 422,
-      "area": "autumn-dng",
-      "anim": false,
-      "extra": false,
-      "descriptions": [
-          {
+        "name": {
+            "en_US": "Servolt",
+            "langUid": 6835
+        },
+        "track": true,
+        "order": 422,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
             "text": {
-              "en_US": "A considerably more feral feline than the cuddly jungle variety, these cats devote much of their activity to hunting prey in the bountiful woods of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Key to their hunting technique is the ability to cloak themselves from view, ambushing unaware passersby with swift, unrelenting tail attacks.",
-              "langUid": 13
+                "en_US": "A considerably more feral feline than the cuddly jungle variety, these cats devote much of their activity to hunting prey in the bountiful woods of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Key to their hunting technique is the ability to cloak themselves from view, ambushing unaware passersby with swift, unrelenting tail attacks.",
+                "langUid": 13
             },
             "condition": ""
-          }
-      ],
-      "species": {
-        "en_US": "Mammal",
-        "de_DE": "Säugetier",
-        "zh_CN": "哺乳类",
-        "ja_JP": "哺乳類",
-        "ko_KR": "포유류",
-        "langUid": -4,
-        "zh_TW": "哺乳類"
-      },
-      "category": "ANIMALS",
-      "level": 68,
-      "boostedLevel": 68,
-      "params": {
-        "hp": 27800,
-        "attack": 401,
-        "defense": 390,
-        "focus": 427,
-        "elemFactor": [
-          1,
-          1,
-          0,
-          1.2
-        ],
-        "statusInflict": [
-          1.5,
-          1.25,
-          0,
-          1.5
-        ],
-        "statusEffect": [
-          1.5,
-          1,
-          0,
-          1.5
-        ]
-      },
-      "credit": 1850,
-      "exp": 80,
-      "itemDrops": [
-        {
-          "item": "274",
-          "prob": 0.16,
-          "min": 1,
-          "max": 1,
-          "rank": ""
-        }
-      ],
-      "boss": false
+        }],
+        "species": {
+            "en_US": "Mammal",
+            "de_DE": "Säugetier",
+            "zh_CN": "哺乳类",
+            "ja_JP": "哺乳類",
+            "ko_KR": "포유류",
+            "langUid": -4,
+            "zh_TW": "哺乳類"
+        },
+        "category": "ANIMALS",
+        "level": 68,
+        "boostedLevel": 68,
+        "params": {
+            "hp": 27800,
+            "attack": 401,
+            "defense": 390,
+            "focus": 427,
+            "elemFactor": [1, 1, 0, 1.2],
+            "statusInflict": [1.5, 1.25, 0, 1.5],
+            "statusEffect": [1.5, 1, 0, 1.5]
+        },
+        "credit": 1850,
+        "exp": 80,
+        "itemDrops": [{
+            "item": "274",
+            "prob": 0.16,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }],
+        "boss": false
     }
 }
