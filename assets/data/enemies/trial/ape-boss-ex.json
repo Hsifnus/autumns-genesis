@@ -6291,6 +6291,165 @@
             },
             "type": "GENERIC"
         },
+        "shockBombS3": {
+            "animation": {
+                "SUB": [{
+                    "name": "default",
+                    "shapeType": "Y_FLAT",
+                    "offset": {
+                        "x": 0,
+                        "y": 8,
+                        "z": 0
+                    },
+                    "sheet": {
+                        "src": "media/entity/effects/lighter-particle.png",
+                        "offX": 144,
+                        "offY": 144,
+                        "width": 16,
+                        "height": 16
+                    },
+                    "renderMode": "lighter",
+                    "time": 0.1,
+                    "repeat": false,
+                    "frames": [0],
+                    "framesAlpha": [0]
+                }]
+            },
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "target2": "SELF",
+                "target2Offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 960
+                },
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.ape-boss-ex",
+                    "name": "apeBossBoldLong"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 40,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "element": "SHOCK",
+                    "reverse": false,
+                    "status": 3,
+                    "damageFactor": 1,
+                    "guardable": "NEVER",
+                    "hitInvincible": true,
+                    "skillBonus": "",
+                    "limiter": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 80,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "HEAVY",
+                    "element": "SHOCK",
+                    "damageFactor": 0,
+                    "reverse": false,
+                    "hints": ["COMPRESSED"],
+                    "guardable": "FROM_ABOVE",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 0.05,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "time": 5,
+                "cancelOnHit": false,
+                "collideCancel": 1,
+                "orthoDirFactor": 0,
+                "ignoreLastHit": false,
+                "collideSlip": false,
+                "type": "TACKLE",
+                "attack": {
+                    "type": "NONE",
+                    "damageFactor": 0,
+                    "element": "NEUTRAL",
+                    "guardable": "",
+                    "skillBonus": ""
+                }
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "card",
+            "startAnim": "",
+            "size": {
+                "x": 8,
+                "y": 8,
+                "z": 8
+            },
+            "config": {
+                "collType": "TRIGGER",
+                "zGravityFactor": 1,
+                "shadow": 24
+            },
+            "type": "GENERIC"
+        },
         "shockBombS": {
             "animation": {
                 "SUB": [{
@@ -6459,6 +6618,25 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "value": 120,
+                    "type": "SET_SPEED"
+                }, {
+                    "maxTime": 1,
+                    "rotateSpeed": 0.2,
+                    "forceTime": true,
+                    "distance": 0,
+                    "planOnly": false,
+                    "targetType": "ENEMY",
+                    "precise": true,
+                    "type": "NAVIGATE_TO_TARGET"
+                }, {
+                    "type": "STOP_XY"
+                }]
             }, {
                 "condition": "entity.ownerAttrib.gather",
                 "type": "WAIT_UNTIL",
@@ -6700,6 +6878,32 @@
                 "changeConnected": "PROXY_OWNER",
                 "type": "SET_ATTRIB_BOOL",
                 "value": true
+            }, {
+                "condition": "newgame.harder-enemies",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "centralAngle": 1,
+                    "angleVary": 0,
+                    "startDistCollide": "NONE",
+                    "random": false,
+                    "count": 6,
+                    "duration": 0,
+                    "clockwise": false,
+                    "flipLeftFace": 0,
+                    "circularArea": false,
+                    "uniformDir": 0,
+                    "delay": 0,
+                    "repeat": false,
+                    "type": "SHOOT_PROXY_RANGE",
+                    "proxy": "shockBombS3",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 0
+                    }
+                }]
             }, {
                 "time": 1,
                 "type": "WAIT"

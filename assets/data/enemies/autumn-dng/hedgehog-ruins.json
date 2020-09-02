@@ -22,7 +22,7 @@
         "y": 2
     },
     "material": "METAL",
-    "aiGroup": "hedgehog",
+    "aiGroup": "hedgehog-ex",
     "aiLearnType": "REGULAR",
     "itemDrops": [{
         "item": "81",

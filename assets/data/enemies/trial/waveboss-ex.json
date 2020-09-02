@@ -343,6 +343,22 @@
                 "action": "MemoryAttack"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "max": 0.3,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
+            }, {
+                "req": [{
                     "sticking": false,
                     "group": "antiField",
                     "negated": false,
@@ -444,6 +460,26 @@
                     "type": "RANDOM"
                 }],
                 "action": "MemoryAttack"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.4,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
             }, {
                 "req": [{
                     "sticking": false,
@@ -570,6 +606,26 @@
                 "action": "MemoryAttack"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.8,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCallAlt",
+                "frequency": "VERY_RARE"
+            }, {
+                "req": [{
                     "sticking": false,
                     "group": "antiField",
                     "negated": false,
@@ -585,6 +641,26 @@
                 }],
                 "action": "AquaSpiralsAlt",
                 "frequency": "VERY_RARE"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.5,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
             }, {
                 "req": [{
                     "sticking": false,
@@ -691,6 +767,21 @@
                 "frequency": "VERY_RARE"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.5,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCallAlt",
+                "frequency": "RARE"
+            }, {
+                "req": [{
                     "condition": "entity.attrib.aquaticCount == 0",
                     "negated": false,
                     "type": "VAR_CONDITION"
@@ -701,6 +792,21 @@
                 }],
                 "action": "AquaSpiralsAlt",
                 "frequency": "RARE"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.8,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "SOMETIMES"
             }, {
                 "req": [{
                     "condition": "entity.attrib.aquaticCount == 0",
@@ -1318,13 +1424,13 @@
                 "yScale": 0,
                 "zHeight": 0,
                 "centralAngle": 0,
-                "duration": 3,
+                "duration": 1,
                 "expandRadius": 0,
                 "alwaysFull": true,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "rectangular": false,
-                "repeat": false,
+                "repeat": true,
                 "uniformHitDir": false,
                 "fixPos": false,
                 "type": "CIRCLE_ATTACK",
@@ -1350,7 +1456,12 @@
                     "z": 0
                 }
             }, {
-                "time": 3.6,
+                "time": 2.9,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -1454,13 +1565,13 @@
                 "yScale": 0,
                 "zHeight": 0,
                 "centralAngle": 0,
-                "duration": 3,
+                "duration": 1,
                 "expandRadius": 0,
                 "alwaysFull": true,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "rectangular": false,
-                "repeat": false,
+                "repeat": true,
                 "uniformHitDir": false,
                 "fixPos": false,
                 "type": "CIRCLE_ATTACK",
@@ -1486,7 +1597,270 @@
                     "z": 0
                 }
             }, {
-                "time": 3.6,
+                "time": 2.9,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 80,
+                "y": 80,
+                "z": 8
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 0,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "zGravityFactor": 1
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "aquaSpiralDelay": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "timeDisconnect": true,
+            "action": [{
+                "value": 1500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }, {
+                "duration": 2.8,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralMarker"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 5.9,
+                "type": "WAIT"
+            }, {
+                "duration": 3,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralSudden"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -64,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "BREAK",
+                    "hitInvincible": true,
+                    "element": "WAVE",
+                    "damageFactor": 15,
+                    "status": 20,
+                    "fly": "MASSIVE+",
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 500,
+                        "type": "Z_VEL"
+                    }],
+                    "guardable": "NEVER",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 80,
+                "y": 80,
+                "z": 8
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 0,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "zGravityFactor": 1
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "aquaSpiralDelaySlow": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "timeDisconnect": true,
+            "action": [{
+                "value": 1500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }, {
+                "duration": 3.5,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralMarker"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 6.9,
+                "type": "WAIT"
+            }, {
+                "duration": 3,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralSudden"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -64,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "BREAK",
+                    "hitInvincible": true,
+                    "element": "WAVE",
+                    "damageFactor": 15,
+                    "status": 20,
+                    "fly": "MASSIVE+",
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 500,
+                        "type": "Z_VEL"
+                    }],
+                    "guardable": "NEVER",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -2341,6 +2715,47 @@
         }, {
             "group": "tmpShieldSide",
             "type": "CLEAR_EFFECTS"
+        }, {
+            "conditions": [{
+                "min": 0,
+                "max": 0,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 7
+            }]
+        }, {
+            "conditions": [{
+                "min": 1,
+                "max": 1,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 11
+            }]
+        }, {
+            "conditions": [{
+                "min": 2,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 15
+            }]
         }, {
             "duration": 0,
             "align": "BOTTOM",
@@ -4206,13 +4621,19 @@
             "time": 2,
             "type": "WAIT"
         }],
-        "AquaSpirals": [{
+        "TidalCall": [{
             "poiFilter": {
                 "name": "bossCenter",
                 "type": "NAMED_ENTITY"
             },
             "distance": 10000,
             "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
         }, {
             "maxTime": 3,
             "forceTime": false,
@@ -4222,8 +4643,248 @@
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
         }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiral",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelay",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_1": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiral",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelay",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "duration": 0,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 3,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "memoryBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 3,
+            "type": "WAIT"
+        }, {
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "actionName": "StunShoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }, {
+                "conditions": [{
+                    "min": 3,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "actionName": "StunShoot",
+                    "type": "DO_ENEMY_ACTION_INLINE"
+                }],
+                "elseStep": [{
+                    "time": 4,
+                    "type": "WAIT"
+                }]
+            }],
+            "elseStep": [{
+                "value": 64,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossLand"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossPreJump"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 6,
+                "type": "WAIT"
+            }]
+        }],
+        "AquaSpirals": [{
+            "poiFilter": {
+                "name": "bossCenter",
+                "type": "NAMED_ENTITY"
+            },
+            "distance": 10000,
+            "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
             "value": -1,
             "type": "SET_WEIGHT"
+        }, {
+            "maxTime": 3,
+            "forceTime": false,
+            "distance": 0,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": true,
+            "type": "NAVIGATE_TO_TARGET"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -4405,13 +5066,19 @@
                 "type": "WAIT"
             }]
         }],
-        "AquaSpiralsAlt": [{
+        "TidalCallAlt": [{
             "poiFilter": {
                 "name": "bossCenter",
                 "type": "NAMED_ENTITY"
             },
             "distance": 10000,
             "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
         }, {
             "maxTime": 3,
             "forceTime": false,
@@ -4421,8 +5088,590 @@
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
         }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 8,
+                "weight": 1
+            }],
+            "0_0": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_6": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_1": [{
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_7": [{
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_2": [{
+                "face": "NORTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_3": [{
+                "face": "NORTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_4": [{
+                "face": "SOUTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_5": [{
+                "face": "SOUTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "duration": 0,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 3,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "memoryBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 6,
+            "type": "WAIT"
+        }, {
+            "actionName": "StunShoot",
+            "type": "DO_ENEMY_ACTION_INLINE"
+        }, {
+            "conditions": [{
+                "min": 3,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "actionName": "StunShoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }],
+            "elseStep": [{
+                "time": 1,
+                "type": "WAIT"
+            }]
+        }],
+        "AquaSpiralsAlt": [{
+            "poiFilter": {
+                "name": "bossCenter",
+                "type": "NAMED_ENTITY"
+            },
+            "distance": 10000,
+            "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
             "value": -1,
             "type": "SET_WEIGHT"
+        }, {
+            "maxTime": 3,
+            "forceTime": false,
+            "distance": 0,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": true,
+            "type": "NAVIGATE_TO_TARGET"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -4682,6 +5931,12 @@
             "value": 16,
             "type": "SET_FLOAT_HEIGHT"
         }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -4689,9 +5944,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "withElse": false,
             "type": "IF",

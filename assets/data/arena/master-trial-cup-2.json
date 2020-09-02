@@ -1,0 +1,69 @@
+{
+    "core": {
+        "type": "SOLO_CUP",
+        "name": {
+            "en_US": "Neo Master Trials",
+            "ja_JP": "超級試練・ニオ",
+            "langUid": 4
+        },
+        "info": {
+            "en_US": "Continue your quest for Seeker mastery by facing these strong foes recent or anew!",
+            "langUid": 1
+        },
+        "creator": {
+            "en_US": "Bakafish",
+            "langUid": 44
+        },
+        "level": 80,
+        "difficulty": "6",
+        "isTrial": true,
+        "banner": {
+            "src": "media/gui/master-trial-banner.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 276,
+            "height": 64
+        }
+    },
+    "rounds": [{
+        "name": {
+            "en_US": "Artist's Master Trial",
+            "langUid": 32
+        },
+        "altName": {
+            "en_US": "Artist's Master Trial EX",
+            "langUid": 32
+        },
+        "customCode": true,
+        "camFocus": "PLAYER_SPAWN",
+        "platPoints": 980000,
+        "coins": 0,
+        "objective": {
+            "en_US": "Confront \\c[3]Facility X\\c[0]'s latest experiment, \\c[3]\\v[combat.name.trial/slime-artist]\\c[0]!\nPay attention to the \\c[3]elemental modes\\c[0] this adversary switches to, and pay attention to her various \\c[3]paint-based attacks\\c[0]!",
+            "langUid": 27
+        },
+        "points": 900000,
+        "type": "DEFAULT",
+        "medal": 0,
+        "waves": [],
+        "map": "arena.boss.painter-boss-ex",
+        "maxTime": 420,
+        "bonuses": [{
+            "type": "TIME",
+            "seconds": 300,
+            "points": 100000
+        }],
+        "spawn": "PLAYER_SPAWN",
+        "firstClearBonus": [{
+            "item": "cons-gapple",
+            "count": 5
+        }, {
+            "item": "trade-artist",
+            "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-artist-ex",
+            "count": 1
+        }]
+    }]
+}

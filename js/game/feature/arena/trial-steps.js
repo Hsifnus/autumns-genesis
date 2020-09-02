@@ -25,4 +25,20 @@ ig.module("game.feature.arena.trial-steps").requires("game.feature.arena.arena-s
             return this.wait ? b._gui.done : true
         }
     });
+    ig.EVENT_STEP.SET_TRIAL_EX_MODE_ENABLED = ig.EventStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {
+                value: {
+                    _type: "Boolean",
+                    _info: "Whether EX mode should be enabled or not for trials."
+                }
+            }
+        }),
+        init: function(b) {
+            this.value = b.value;
+        },
+        start: function(b) {
+            sc.arena.exMode = this.value;
+        }
+    });
 });

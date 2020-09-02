@@ -2,12 +2,12 @@
     "core": {
         "type": "SOLO_CUP",
         "name": {
-            "en_US": "Master Trials",
+            "en_US": "Retro Master Trials",
             "ja_JP": "超級試練",
             "langUid": 4
         },
         "info": {
-            "en_US": "Prove your mastery of Seeker prowess with these high-difficulty trials!",
+            "en_US": "Prove your mastery of Seeker prowess with these high-difficulty trials from foes past!",
             "ja_JP": "これらのとても難しい試練で探索者の腕前を習得しましょう！",
             "langUid": 1
         },
@@ -63,6 +63,10 @@
         }, {
             "item": "trade-magmoth",
             "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-magmoth-ex",
+            "count": 1
         }]
     }, {
         "name": {
@@ -100,6 +104,10 @@
             "count": 5
         }, {
             "item": "trade-phantom",
+            "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-phantom-ex",
             "count": 1
         }]
     }, {
@@ -139,6 +147,10 @@
         }, {
             "item": "trade-blobus",
             "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-blobus-ex",
+            "count": 1
         }]
     }, {
         "name": {
@@ -176,6 +188,10 @@
             "count": 5
         }, {
             "item": "trade-driller",
+            "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-driller-ex",
             "count": 1
         }]
     }, {
@@ -215,6 +231,10 @@
         }, {
             "item": "trade-ape",
             "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-ape-ex",
+            "count": 1
         }]
     }, {
         "name": {
@@ -252,6 +272,10 @@
             "count": 5
         }, {
             "item": "trade-whale",
+            "count": 1
+        }],
+        "exFirstClearBonus": [{
+            "item": "trade-whale-ex",
             "count": 1
         }]
     }]

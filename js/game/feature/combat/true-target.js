@@ -8,6 +8,9 @@ ig.module("game.feature.combat.true-target").requires(
         TARGET: 3,
         TRUE_TARGET: 4
     };
+    ig.FX_FIRST_TARGET_OPTION.TRUE_TARGET = function(a) {
+        return a.getTarget(true)
+    };
     ig.ACTION_STEP.DIRECT_HIT = ig.ActionStepBase.extend({
         directHitSettings: null,
         effect: null,
@@ -128,6 +131,9 @@ ig.module("game.feature.combat.true-target").requires(
             },
             TRUE_TARGET: function(a) {
                 return a.getTarget(true);
+            },
+            TRUE_PLAYER: function(a) {
+                return ig.game.playerEntity;
             }
         },
         c = Vec3.create();
@@ -262,6 +268,169 @@ ig.module("game.feature.combat.true-target").requires(
             if (b) {
                 b.coll.type = this.value;
             }
+        }
+    });
+
+    function navHelper(a, b, c) {
+        if (!c) return true;
+        if (a.maxTime && b.stepTimer <= 0 && !b.jumping) {
+            c.interrupt();
+            return true
+        }
+        return c.moveEntity() && !a.forceTime
+    }
+    var navigateToTargets = {
+        ENEMY: function(a, b, c, d) {
+            if (b = b.getTarget()) {
+                a.toEntity(b, c, void 0, d);
+                return true
+            }
+        },
+        TRUE_ENEMY: function(a, b, c, d) {
+            if (b = b.getTarget(true)) {
+                a.toEntity(b, c, void 0, d);
+                return true
+            }
+        },
+        PROXY_OWNER: function(a, b, c, d) {
+            if (b.combatant) {
+                a.toEntity(b.combatant, c, void 0, d);
+                return true
+            }
+        },
+        PROXY_SRC: function(a, b, c, d) {
+            if (b.sourceEntity) {
+                a.toEntity(b.sourceEntity, c, void 0, d);
+                return true
+            }
+        },
+        COLLAB_ENTITY: function(a, b, c, d) {
+            if (b.collabAttribs && b.collabAttribs.entity) {
+                a.toEntity(b.collabAttribs.entity, c, void 0, d);
+                return true
+            }
+        },
+        COLLAB_POINT: function(a, b, c, d) {
+            if (b.collabAttribs && b.collabAttribs.point) {
+                a.toPoint(b.collabAttribs.point, c, d);
+                return true
+            }
+        }
+    };
+    ig.ACTION_STEP.NAVIGATE_TO_TARGET = ig.ActionStepBase.extend({
+        maxTime: 0,
+        forceTime: false,
+        distance: 0,
+        planOnly: false,
+        targetType: 0,
+        _wm: new ig.Config({
+            attributes: {
+                maxTime: {
+                    _type: "Number",
+                    _info: "Maximum time spent on navigation"
+                },
+                forceTime: {
+                    _type: "Boolean",
+                    _info: "Keep moving, never stop until maxTime has been reached"
+                },
+                distance: {
+                    _type: "Number",
+                    _info: "The maximum amount of distance to the target"
+                },
+                planOnly: {
+                    _type: "Boolean",
+                    _info: "If true, only plan navigation, but don't execute it"
+                },
+                targetType: {
+                    _type: "String",
+                    _info: "Type of target",
+                    _select: navigateToTargets
+                },
+                precise: {
+                    _type: "Boolean",
+                    _info: "Reach the target precisely, slowing down accordingly"
+                }
+            }
+        }),
+        init: function(a) {
+            this.maxTime = a.maxTime || 0;
+            this.distance =
+                a.distance || 0;
+            this.forceTime = a.forceTime || false;
+            this.planOnly = a.planOnly || false;
+            this.targetType = navigateToTargets[a.targetType] || navigateToTargets.ENEMY;
+            this.precise = a.precise || false
+        },
+        start: function(a) {
+            a.stepData.path = null;
+            var b = a.nav ? a.nav.path : ig.navigation.getNavPath(a);
+            if (this.targetType(b, a, this.distance, this.precise)) {
+                a.stepTimer = a.stepTimer + this.maxTime;
+                a.stepData.path = b
+            }
+        },
+        run: function(a) {
+            return this.planOnly ? true : navHelper(this, a, a.stepData.path)
+        }
+    });
+    sc.COMBAT_CONDITION.TARGET_IS_ENTITY = ig.Class.extend({
+        value: 0,
+        _wm: new ig.Config({
+            attributes: {
+                entity: {
+                    _type: "Entity",
+                    _info: "Entity to search for."
+                }
+            }
+        }),
+        init: function(a) {
+            assertContent(a, "entity");
+            this.entity = a.entity
+        },
+        check: function(a) {
+            var target = a.getTarget();
+            var comparee = ig.Event.getEntity(this.entity);
+            return target && comparee && target === comparee;
+        }
+    });
+    ig.ACTION_STEP.ADD_TARGET_STUN_LOCK.inject({
+        run: function(a) {
+            var b = a.getTarget();
+            b && (b.params && b.hasStun && b.hasStun()) && b.params.startLock(a);
+            return true
+        }
+    });
+    ig.ACTION_STEP.FACE_TO_TRUE_TARGET = ig.ActionStepBase.extend({
+        value: false,
+        immediately: false,
+        _wm: new ig.Config({
+            attributes: {
+                value: {
+                    _type: "Boolean",
+                    _info: "True if enemy should always look at the target."
+                },
+                immediately: {
+                    _type: "Boolean",
+                    _info: "True if enemy should always look at the target IMMEDIATLY.",
+                    _optional: true
+                }
+            }
+        }),
+        init: function(a) {
+            this.value = a.value;
+            this.immediately = a.immediately || false
+        },
+        run: function(a) {
+            a.faceToTarget.active = this.value;
+            a.forceFaceDirFixed = this.value;
+            var b = a.getTarget(true);
+            if (this.immediately && b) {
+                b = Vec2.sub(b.getCenter(), a.getCenter());
+                Vec2.isZero(b) && Vec2.assignC(b, 0, 1);
+                a.faceToTarget.offset && Vec2.rotate(b, a.faceToTarget.offset * 2 * Math.PI);
+                Vec2.assign(a.face, b)
+            }
+            return true
         }
     });
 });

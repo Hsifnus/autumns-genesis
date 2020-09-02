@@ -18,10 +18,24 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "loopEnd": 180.006,
             "volume": 1.8
         },
+        strikeTruer: {
+            "introPath": "media/bgm/muStriketruer-i.ogg",
+            "path": "media/bgm/muStriketruer.ogg",
+            "introEnd": 10.105,
+            "loopEnd": 176.842,
+            "volume": 1.8
+        },
         windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,
             "volume": 1.8
+        },
+        autumnBoss: {
+            "introPath": "media/bgm/muAutumnboss-i.ogg",
+            "path": "media/bgm/muAutumnboss.ogg",
+            "introEnd": 16,
+            "loopEnd": 163,
+            "volume": 2.2
         }
     });
 

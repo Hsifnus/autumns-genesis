@@ -281,6 +281,25 @@
                     "negated": false,
                     "type": "TRACKER_READY",
                     "name": "superBombTimer"
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "min": 0,
+                    "max": 0,
+                    "type": "HP_BREAK"
+                }],
+                "action": "SuperHitFlare"
+            }, {
+                "req": [{
+                    "condition": "entity.attrib.frostAttacks == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "superBombTimer"
                 }],
                 "action": "SuperHit"
             }, {
@@ -3358,6 +3377,29 @@
                 "y": 140,
                 "z": 97
             }
+        }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "rockLine",
+                "offset": {
+                    "x": -125,
+                    "y": 160,
+                    "z": 97
+                }
+            }, {
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "rockLine",
+                "offset": {
+                    "x": 125,
+                    "y": 160,
+                    "z": 97
+                }
+            }]
         }, {
             "conditions": [{
                 "min": 2,

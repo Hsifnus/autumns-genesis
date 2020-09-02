@@ -20,6 +20,8 @@ ig.module("game.feature.combat.model.stun-status").requires(
             cooldown: 5,
             inflict: function(b, a, d) {
                 var c = a.combatant;
+                var fly = d.fly || d.type;
+                if (c.hitStable && c.hitStable >= fly) return;
                 if (ig.Timer.time - this.lastActivate > this.cooldown) {
                     this.resFactor = 1;
                 }
