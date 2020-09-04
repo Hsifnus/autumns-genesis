@@ -81,13 +81,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 740000,
+        "platPoints": 750000,
         "coins": 0,
         "objective": {
             "en_US": "Purify the \\c[3]\\v[combat.name.jungle/shockboss]\\c[0] boss from \\c[3]\\v[area.shock-dng.name]\\c[0] at its most sinister!\nMaster your guarding to block its \\c[3]flash slashes\\c[0], and watch out for the \\c[3]static\\c[0]!",
             "langUid": 35
         },
-        "points": 600000,
+        "points": 610000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -123,13 +123,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 1150000,
+        "platPoints": 1200000,
         "coins": 0,
         "objective": {
             "en_US": "Endure the \\c[3]\\v[combat.name.jungle/waveboss]\\c[0] boss from \\c[3]\\v[area.wave-dng.name]\\c[0] at its mightiest!\nDash effectively to steer clear of \\c[3]whirlpools\\c[0], and pay attention to where it plants its \\c[3]memory bombs\\c[0]!",
             "langUid": 35
         },
-        "points": 950000,
+        "points": 1000000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -179,7 +179,7 @@
         "maxTime": 300,
         "bonuses": [{
             "type": "TIME",
-            "seconds": 180,
+            "seconds": 210,
             "points": 100000
         }],
         "spawn": "PLAYER_SPAWN",
