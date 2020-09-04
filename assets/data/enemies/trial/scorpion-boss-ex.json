@@ -2489,7 +2489,7 @@
                     "z": 0
                 }
             }, {
-                "label": "end",
+                "name": "end",
                 "type": "LABEL"
             }, {
                 "time": 1,
