@@ -2317,16 +2317,6 @@
                 "type": "SHOW_RANDOM_ANIMATION",
                 "randAnims": ["default", "alt1", "alt2", "alt3", "alt4", "alt5", "alt6", "alt7", "alt8", "alt9", "alt10", "alt11"]
             }, {
-                "changeType": "add",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.heatPuddleCount",
-                "value": 1
-            }, {
-                "changeType": "add",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.totalPuddleCount",
-                "value": 1
-            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -2345,6 +2335,24 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "condition": "tmp.heatPuddleCount > 40",
+                "type": "IF",
+                "withElse": false,
+                "thenStep": [{
+                    "name": "end",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.heatPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
             }, {
                 "duration": 0,
                 "align": "BOTTOM",
@@ -2480,6 +2488,9 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "name": "end",
+                "type": "LABEL"
             }, {
                 "time": 1,
                 "type": "WAIT"
@@ -2667,16 +2678,6 @@
                 "type": "SHOW_RANDOM_ANIMATION",
                 "randAnims": ["default", "alt1", "alt2", "alt3", "alt4", "alt5", "alt6", "alt7", "alt8", "alt9", "alt10", "alt11"]
             }, {
-                "changeType": "add",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.shockPuddleCount",
-                "value": 1
-            }, {
-                "changeType": "add",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.totalPuddleCount",
-                "value": 1
-            }, {
                 "duration": 0,
                 "align": "BASE",
                 "rotateFace": 0,
@@ -2695,6 +2696,24 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "condition": "tmp.shockPuddleCount > 40",
+                "type": "IF",
+                "withElse": false,
+                "thenStep": [{
+                    "name": "end",
+                    "type": "GOTO_LABEL"
+                }]
+            }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.shockPuddleCount",
+                "value": 1
+            }, {
+                "changeType": "add",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.totalPuddleCount",
+                "value": 1
             }, {
                 "duration": 0,
                 "align": "BOTTOM",
@@ -2837,6 +2856,9 @@
                     "y": 0,
                     "z": 0
                 }
+            }, {
+                "name": "end",
+                "type": "LABEL"
             }, {
                 "time": 1,
                 "type": "WAIT"
