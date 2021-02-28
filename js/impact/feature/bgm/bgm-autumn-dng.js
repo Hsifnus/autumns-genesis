@@ -18,6 +18,13 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "loopEnd": 180.006,
             "volume": 1.8
         },
+        strikeTruer: {
+            "introPath": "media/bgm/muStriketruer-i.ogg",
+            "path": "media/bgm/muStriketruer.ogg",
+            "introEnd": 10.105,
+            "loopEnd": 176.842,
+            "volume": 1.8
+        },
         windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,
@@ -28,7 +35,19 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "path": "media/bgm/muAutumnboss.ogg",
             "introEnd": 16,
             "loopEnd": 163,
-            "volume": 2.2
+            "volume": 1.8
+        },
+        hazelTheme: {
+            "path": "media/bgm/muHazeltheme.ogg",
+            "loopEnd": 180,
+            "volume": 1.8
+        },
+        crasher: {
+            "introPath": "media/bgm/muCrasher-i.ogg",
+            "path": "media/bgm/muCrasher.ogg",
+            "introEnd": 58.445,
+            "loopEnd": 147.661, 
+            "volume": 1.8
         }
     });
 

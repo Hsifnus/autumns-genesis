@@ -10,7 +10,7 @@
         "statusInflict": [1.25, 1.25, 1.25, 1.25]
     },
     "credit": 2520,
-    "exp": 110,
+    "exp": 100,
     "maxSp": 0,
     "enduranceScale": 1.5,
     "healDropRate": 0,
@@ -89,7 +89,7 @@
             "type": "TIME"
         },
         "stunRegen": {
-            "target": 3,
+            "target": 5,
             "initRandom": 0,
             "resetRandom": 0,
             "noStateReset": false,
@@ -1008,7 +1008,7 @@
             "behaviors": null,
             "config": {
                 "zGravityFactor": 0,
-                "collType": "TRIGGER"
+                "collType": "PROJECTILE"
             }
         },
         "scatterStone": {

@@ -1,8 +1,9 @@
-ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.influencer.influencer-steps").defines(function() {
+ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.influencer.influencer-steps", "game.feature.combat.combat-action-steps").defines(function() {
     sc.PressureStatus = ig.Class.extend({
         init: function() {
             this.level = 0;
             this.category = 0;
+            this.holdCategory = 0;
             this.enabled = false;
             this.influenceEntry = new ig.InfluenceEntry;
             this.influenceEntry.timeScale = 1;
@@ -24,14 +25,30 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
             this.fxHandle = null;
             this.fxHandle2 = null;
             this.fxHandle3 = null;
-            this.attackFactors = [1, 1.25, 1.5, 1.5]
+            this.attackFactors = [1, 1.25, 1.6, 1.6];
+            this.spFactors = [0.5, 0.8, 1.2];
+            this.holdCategoryOnSpecial = false;
         },
         getAttackFactor: function() {
-            return this.attackFactors[this.category];
+            var c = this.enabled && this.holdCategoryOnSpecial ? Math.max(this.category, this.holdCategory) : this.category;
+            return this.attackFactors[c];
+        },
+        getSpFactor: function() {
+            return this.spFactors[this.category];
+        },
+        doHoldCategory: function() {
+            if (this.enabled) {
+                this.holdCategory = this.category;
+            }
+        },
+        resetHoldCategory: function() {
+            this.holdCategory = 0;
         },
         reset: function() {
             this.level = 0;
             if (this.enabled) {
+                this.holdCategory = 0;
+                this.holdCategoryOnSpecial = false;
                 this.enabled = false;
                 this.influenceEntry.moveXYScale = 1;
                 this.category = 0;
@@ -98,10 +115,10 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
                     this.influenceEntry.moveXYScale = 1;
                     c = 0;
                 } else if (this.level < 40) {
-                    this.influenceEntry.moveXYScale = 0.7;
+                    this.influenceEntry.moveXYScale = 0.75;
                     c = 1;
                 } else if (this.level < 60) {
-                    this.influenceEntry.moveXYScale = 0.4;
+                    this.influenceEntry.moveXYScale = 0.5;
                     c = 2;
                 } else if (this.level == 60) {
                     this.influenceEntry.moveXYScale = 0;
@@ -135,6 +152,9 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
             this.enabled = enabled;
             !this.enabled && this.reset();
             this.enabled && this.set(0);
+        },
+        setHoldCategoryOnSpecial: function(enabled) {
+            this.holdCategoryOnSpecial = enabled;
         },
         update: function() {
             var a = ig.game.playerEntity;
@@ -187,6 +207,31 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
             ig.game.playerEntity && ig.pressureStatus.setEnabled(this.value);
         }
     });
+    ig.ACTION_STEP.SET_PLAYER_PRESSURE_HOLD_CATEGORY_ON_SPECIAL = ig.ActionStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {
+                value: {
+                    _type: "Boolean",
+                    _info: "Whether to hold player pressure category on combat art or not"
+                }
+            }
+        }),
+        init: function(b) {
+            this.value = b.value;
+        },
+        start: function() {
+            ig.game.playerEntity && ig.pressureStatus.setHoldCategoryOnSpecial(this.value);
+        }
+    });
+    ig.ACTION_STEP.RESET_PLAYER_PRESSURE_HOLD_CATEGORY = ig.ActionStepBase.extend({
+        _wm: new ig.Config({
+            attributes: {}
+        }),
+        init: function(b) {},
+        start: function() {
+            ig.game.playerEntity && ig.pressureStatus.resetHoldCategory();
+        }
+    });
     ig.ACTION_STEP.ADD_PLAYER_PRESSURE = ig.ActionStepBase.extend({
         _wm: new ig.Config({
             attributes: {
@@ -201,6 +246,15 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
         },
         start: function() {
             ig.game.playerEntity && ig.pressureStatus.set(ig.pressureStatus.level + this.value);
+        }
+    });
+    sc.COMBAT_CONDITION.PRESSURE_STATUS_HOLDING = ig.Class.extend({
+        _wm: new ig.Config({
+            attributes: {}
+        }),
+        init: function(a) {},
+        check: function(a) {
+            return ig.pressureStatus.holdCategory > 0;
         }
     });
     ig.Game.inject({
@@ -220,7 +274,22 @@ ig.module("impact.feature.influencer.pressure-status").requires("impact.feature.
     });
     sc.MapModel.inject({
         onLevelLoaded: function() {
+            this.parent();
             ig.pressureStatus.reset();
         }
     });
+    ig.ENTITY.Player.inject({
+        onTargetHit: function(a, b, c) {
+            if (ig.pressureStatus.enabled && b.spFactor) {
+                b.spFactor *= ig.pressureStatus.getSpFactor();
+            }
+            this.parent(a, b, c);
+        },
+        handleStateStart: function(a, b) {
+            if (a.startState === 5) {
+                ig.pressureStatus.doHoldCategory();
+            }
+            this.parent(a, b);
+        }
+    })
 });

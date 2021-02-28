@@ -24,6 +24,11 @@ ig.module("game.feature.map-content.cave-map-style").requires("game.feature.map-
                     x: 16,
                     y: 696
                 },
+                waveblock: {
+                    sheet: "media/map/shockwave-dng.png",
+                    x: 96,
+                    y: 480
+                },
                 rotateBlocker: {
                     sheet: "media/map/arid-interior.png",
                     x: 208,

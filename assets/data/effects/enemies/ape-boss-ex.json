@@ -11,6 +11,19 @@
             }
         },
         "SUB": [{
+            "name": "BIGFIRE_GROUND",
+            "sheet": {
+                "src": "media/entity/effects/heat.png",
+                "xCount": 6,
+                "offX": 0,
+                "offY": 0,
+                "width": 48,
+                "height": 48
+            },
+            "guiSprites": false,
+            "time": 0.033,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+        }, {
             "name": "DUST_UP",
             "sheet": {
                 "src": "media/entity/effects/dust.png",
@@ -2591,6 +2604,58 @@
             "type": "LOOP_START"
         }, {
             "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "apeHeatCloud": [{
+            "type": "LOOP_START"
+        }, {
+            "numParticles": 12,
+            "duration": 0.3,
+            "centralAngle": 1,
+            "startDist": 20,
+            "random": true,
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "moveDist": 32,
+            "keySpline": "EASE_IN",
+            "moveRotate": 0.15,
+            "inverse": false,
+            "collision": false,
+            "pScale": {
+                "init": {
+                    "x": 0.1,
+                    "y": 0.1
+                },
+                "start": {
+                    "value": {
+                        "x": 1,
+                        "y": 1
+                    },
+                    "time": 0.35,
+                    "spline": "EASE_OUT"
+                },
+                "end": {
+                    "value": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "time": 0.1,
+                    "spline": "EASE_IN"
+                }
+            },
+            "moveWithTarget": 0.35,
+            "particleDuration": 1,
+            "normalMoveDist": 4,
+            "cancelable": false,
+            "anim": "BIGFIRE_GROUND",
+            "type": "OFFSET_PARTICLE_CIRCLE"
+        }, {
+            "time": 0.3,
             "type": "WAIT"
         }, {
             "type": "LOOP_END"

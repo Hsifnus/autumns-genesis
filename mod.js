@@ -4,6 +4,8 @@ import "./js/game/feature/arena/trial-cup-overview.js";
 
 import "./js/game/feature/arena/trial-gui.js";
 
+import "./js/game/feature/arena/trial-legacy.js";
+
 import "./js/game/feature/arena/trial-list.js";
 
 import "./js/game/feature/arena/trial-misc.js";
@@ -32,7 +34,17 @@ import "./js/game/feature/combat/set-attrib-closest-entity-fix.js";
 
 import "./js/game/feature/combat/true-target.js";
 
+import "./js/game/feature/combat/model/arts-invinc.js";
+
 import "./js/game/feature/combat/model/enemy-tracker-access.js";
+
+import "./js/game/feature/combat/model/is-elemental-weakness.js";
+
+import "./js/game/feature/combat/model/proxy-nearby.js";
+
+import "./js/game/feature/combat/model/spite-status.js";
+
+import "./js/game/feature/combat/model/status-punisher.js";
 
 import "./js/game/feature/combat/model/stun-status.js";
 

@@ -1,0 +1,529 @@
+[
+	{
+		"type": "ENTER",
+		"index": "entities"
+	},
+	{
+		"type": "ADD_ARRAY_ELEMENT",
+		"content": {
+      "type": "NPC",
+      "x": 1064,
+      "y": 464,
+      "level": 4,
+      "settings": {
+        "name": "niko",
+        "characterName": "guests.niko",
+        "mapId": 13370,
+        "npcStates": [
+        	{
+            "reactType": "FIXED_POS",
+            "face": "SOUTH",
+            "hideFx": {
+              "sheet": "teleport",
+              "name": "hideDefault"
+            },
+            "hidden": true,
+            "condition": "map.nikoLeft",
+            "config": "normal",
+            "event": []
+          },
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH",
+            "hidden": false,
+            "condition": "item.434.amount >= 1 && !map.nikoLeft",
+            "config": "normal",
+            "event": [
+            	{
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "map.nikoLeft",
+                "value": false
+              },
+            	{
+                "entity": {
+                  "self": true
+                },
+                "action": [
+                  {
+                    "entity": {
+                      "player": true
+                    },
+                    "rotate": true,
+                    "rotateSpeed": 3,
+                    "type": "SET_FACE_TO_ENTITY"
+                  }
+                ],
+                "repeating": false,
+                "wait": false,
+                "keepState": false,
+                "immediately": false,
+                "type": "DO_ACTION"
+              },
+              {
+                "side": "LEFT",
+                "order": 0,
+                "clearSide": false,
+                "type": "ADD_MSG_PERSON",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+              },
+              {
+                "side": "RIGHT",
+                "order": 0,
+                "clearSide": false,
+                "type": "ADD_MSG_PERSON",
+                "person": {
+                  "person": "main.lea",
+                  "expression": "DEFAULT"
+                }
+              },
+              {
+                "message": {
+                  "en_US": "Oh hi!",
+                  "langUid": 641
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+              },
+              {
+                "message": {
+                  "en_US": "Hi!",
+                  "de_DE": "Hi!",
+                  "zh_CN": "你好!<<A<<[CHANGED 2018/09/02]",
+                  "ja_JP": "やぁ！<<A<<[CHANGED 2018/09/02]",
+                  "ko_KR": "안녕!<<A<<[CHANGED 2018/09/02]",
+                  "langUid": 642,
+                  "zh_TW": "你好!<<A<<[CHANGED 2018/09/02]"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "main.lea",
+                  "expression": "EXCITED"
+                }
+              },
+              {
+                "message": {
+                  "en_US": "I like your horns - they're really cool!",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+              },
+              {
+              	"condition": "lea.words.thanks",
+              	"withElse": true,
+              	"type": "IF",
+              	"thenStep": [{
+		              "message": {
+		                "en_US": "...Thanks?",
+		                "langUid": 645
+		              },
+		              "autoContinue": false,
+		              "type": "SHOW_MSG",
+		              "person": {
+		                "person": "main.lea",
+		                "expression": "HOLD_HORNS_NEUTRAL"
+		              }
+		            }, {
+                	"message": {
+	                  "en_US": "You're welcome!",
+	                  "langUid": 643
+	                },
+	                "autoContinue": false,
+	                "type": "SHOW_MSG",
+	                "person": {
+	                  "person": "guests.niko",
+	                  "expression": "DEFAULT"
+	                }
+	              }],
+              	"elseStep": [{
+		              "message": {
+		                "en_US": "...!",
+		                "de_DE": "...!",
+		                "zh_CN": "...!",
+		                "ja_JP": "…！",
+		                "ko_KR": "...!",
+		                "langUid": 645,
+		                "zh_TW": "...!"
+		              },
+		              "autoContinue": false,
+		              "type": "SHOW_MSG",
+		              "person": {
+		                "person": "main.lea",
+		                "expression": "HOLD_HORNS_NEUTRAL"
+		              }
+		            }]
+              },
+							{
+	              	"message": {
+	                  "en_US": "I don't have horns.",
+	                  "langUid": 643
+	                },
+	                "autoContinue": false,
+	                "type": "SHOW_MSG",
+	                "person": {
+	                  "person": "guests.niko",
+	                  "expression": "DEFAULT"
+	                }
+	            },
+	            {
+	              	"message": {
+	                  "en_US": "I do have this hat though!",
+	                  "langUid": 643
+	                },
+	                "autoContinue": false,
+	                "type": "SHOW_MSG",
+	                "person": {
+	                  "person": "guests.niko",
+	                  "expression": "DEFAULT"
+	                }
+	            },
+	            {
+	              	"message": {
+	                  "en_US": "That's sorta like horns.",
+	                  "langUid": 643
+	                },
+	                "autoContinue": false,
+	                "type": "SHOW_MSG",
+	                "person": {
+	                  "person": "guests.niko",
+	                  "expression": "DEFAULT"
+	                }
+	            },
+	            {
+                "message": {
+                  "en_US": "[nods]",
+                  "langUid": 3,
+                  "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
+                  "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
+                  "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
+                  "de_DE": "[nickt]"
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "main.lea",
+                  "expression": "NOD"
+                }
+              },
+              {
+	              	"message": {
+	                  "en_US": "Oh! One second...",
+	                  "langUid": 643
+	                },
+	                "autoContinue": false,
+	                "type": "SHOW_MSG",
+	                "person": {
+	                  "person": "guests.niko",
+	                  "expression": "DEFAULT"
+	                }
+	            },
+	            {
+	              "message": {
+	                "en_US": "...",
+	                "de_DE": "...",
+	                "zh_CN": "...",
+	                "ja_JP": "…",
+	                "ko_KR": "...",
+	                "langUid": 645,
+	                "zh_TW": "..."
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "SURPRISED"
+	              }
+	            },
+	            {
+		              "pos": {
+		                  "x": 1072,
+		                  "y": 368
+		              },
+		              "speed": "SLOW",
+		              "transition": "EASE_OUT",
+		              "wait": false,
+		              "waitSkip": 0,
+		              "zoom": 1,
+		              "type": "SET_CAMERA_POS"
+		          },
+	            {
+	                "zoom": 1.25,
+	                "duration": 5,
+	                "transition": "EASE_IN_OUT",
+	                "type": "SET_CAMERA_ZOOM"
+	            },
+	            {
+	            		"time": 5,
+	            		"type": "WAIT"
+	            },
+	            {
+	              "message": {
+	                "en_US": "...!",
+	                "de_DE": "...!",
+	                "zh_CN": "...!",
+	                "ja_JP": "…！",
+	                "ko_KR": "...!",
+	                "langUid": 645,
+	                "zh_TW": "...!"
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "NERVOUS"
+	              }
+	            },
+	            {
+	                "zoom": 1.5,
+	                "duration": 5,
+	                "transition": "EASE_IN_OUT",
+	                "type": "SET_CAMERA_ZOOM"
+	            },
+	            {
+	            		"time": 5,
+	            		"type": "WAIT"
+	            },
+	            {
+	              "message": {
+	                "en_US": "...!",
+	                "de_DE": "...!",
+	                "zh_CN": "...!",
+	                "ja_JP": "…！",
+	                "ko_KR": "...!",
+	                "langUid": 645,
+	                "zh_TW": "...!"
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "SCARED"
+	              }
+	            },
+	            {
+	                "zoom": 1,
+	                "duration": 0.3,
+	                "transition": "EASE_IN_OUT",
+	                "type": "SET_CAMERA_ZOOM"
+	            },
+	            {
+              	"message": {
+                  "en_US": "Hey I'm back! Sorry about that.",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+	            },
+	            {
+	              "message": {
+	                "en_US": "...",
+	                "de_DE": "...",
+	                "zh_CN": "...",
+	                "ja_JP": "…",
+	                "ko_KR": "...",
+	                "langUid": 645,
+	                "zh_TW": "..."
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "EXHAUSTED"
+	              }
+	            },
+	            {
+              	"message": {
+                  "en_US": "I've got go now though. My mom was just calling me for dinner.",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+	            },
+	            {
+	              "message": {
+                  "en_US": "We're gonna have...",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+	            },
+	            {
+            		"time": 0.4,
+            		"type": "WAIT"
+	            },
+	            {
+		            "rumbleType": "RANDOM",
+		            "name": "",
+		            "duration": 0.4,
+		            "power": "STRONGER",
+		            "speed": "FASTER",
+		            "fade": true,
+		            "type": "RUMBLE_SCREEN"
+		          },
+	            {
+              	"message": {
+                  "en_US": "PANCAKES!!!",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+	            },
+	            {
+	              "message": {
+	                "en_US": "...!",
+	                "de_DE": "...!",
+	                "zh_CN": "...!",
+	                "ja_JP": "…！",
+	                "ko_KR": "...!",
+	                "langUid": 645,
+	                "zh_TW": "...!"
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "ASTONISHED"
+	              }
+	            },
+	            {
+              	"message": {
+                  "en_US": "It was nice meeting you! Bye!",
+                  "langUid": 643
+                },
+                "autoContinue": false,
+                "type": "SHOW_MSG",
+                "person": {
+                  "person": "guests.niko",
+                  "expression": "DEFAULT"
+                }
+	            },
+	            {
+	              "message": {
+	                "en_US": "Bye!",
+	                "langUid": 645
+	              },
+	              "autoContinue": false,
+	              "type": "SHOW_MSG",
+	              "person": {
+	                "person": "main.lea",
+	                "expression": "EXCITED"
+	              }
+	            },
+		          {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "map.nikoLeft",
+                "value": true
+              },
+              {
+              	"time": 0.1,
+              	"type": "WAIT"
+              }
+            ]
+          }
+        ]
+      }
+    }
+	},
+	{
+		"type": "ADD_ARRAY_ELEMENT",
+		"content": {
+      "type": "EventTrigger",
+      "x": 708,
+      "y": 1108,
+      "level": 1,
+      "settings": {
+        "name": "NikoPost",
+        "eventType": "PARALLEL",
+        "endCondition": "false",
+        "event": [{
+          "ignoreSlowDown": false,
+          "type": "WAIT",
+          "time": 2
+        }, {
+          "message": {
+            "en_US": "...Pancakes for dinner?",
+            "langUid": 679
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.sergey",
+            "expression": "THINKING"
+          }
+        }, {
+          "ignoreSlowDown": false,
+          "type": "WAIT",
+          "time": 3
+        }, {
+          "message": {
+            "en_US": "...",
+            "de_DE": "...",
+            "zh_CN": "...",
+            "ja_JP": "…",
+            "ko_KR": "...",
+            "langUid": 645,
+            "zh_TW": "..."
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.lea",
+            "expression": "SURPRISED_TOWARD"
+          }
+        }, {
+          "ignoreSlowDown": false,
+          "type": "WAIT",
+          "time": 3
+        }, {
+          "message": {
+            "en_US": "Hey, I'm not judging.",
+            "langUid": 679
+          },
+          "type": "SHOW_SIDE_MSG",
+          "person": {
+            "person": "main.sergey",
+            "expression": "WHISTLING"
+          }
+        }, {
+          "ignoreSlowDown": false,
+          "type": "WAIT",
+          "time": 3
+        }],
+        "triggerType": "ONCE",
+        "mapId": 13371,
+        "startCondition": "map.nikoLeft"
+      }
+    }
+	},
+	{
+		"type": "EXIT"
+	}
+]

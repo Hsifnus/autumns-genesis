@@ -1,0 +1,221 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 0,
+            "width": 40,
+            "height": 40,
+            "xCount": 12
+        },
+        "move2": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 120,
+            "width": 40,
+            "height": 40,
+            "xCount": 12
+        },
+        "special": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 240,
+            "width": 40,
+            "height": 40
+        },
+        "spin": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 280,
+            "width": 40,
+            "height": 40
+        },
+        "spin2": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 280,
+            "width": 40,
+            "height": 40
+        },
+        "special2": {
+            "src": "media/entity/enemy/hazel.png",
+            "offX": 0,
+            "offY": 320,
+            "width": 40,
+            "height": 40
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "move",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 12, 24, 24, 12, 0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 0, 0, 1, 1, 1, 2, 2, 3, 3, 3, 4, 4, 4]
+        }, {
+            "name": "dash",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [5]
+        }, {
+            "name": "chargePre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [6]
+        }, {
+            "name": "charge",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [7]
+        }, {
+            "name": "chargePost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [6, 4]
+        }, {
+            "name": "dive",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [8, 9]
+        }, {
+            "name": "divePost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [8, 4]
+        }, {
+            "name": "attack",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [10, 11]
+        }, {
+            "name": "attackPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [10, 4]
+        }]
+    }, {
+        "sheet": "move2",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 12, 24, 24, 12, 0],
+        "SUB": [{
+            "name": "castPre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [0, 1]
+        }, {
+            "name": "castLoop",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 7]
+        }, {
+            "name": "castPost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [1, 0]
+        }, {
+            "name": "guardPre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [8]
+        }, {
+            "name": "guardLoop",
+            "time": 0.2,
+            "repeat": true,
+            "frames": [9, 10, 11]
+        }]
+    }, {
+        "sheet": "special",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "ascend",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0]
+        }, {
+            "name": "descend",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [1]
+        }, {
+            "name": "impactShake",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [2, 2],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "impact",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [2]
+        }, {
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [3, 3],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "weak",
+            "time": 0.25,
+            "repeat": true,
+            "frames": [4, 5, 6, 7]
+        }]
+    }, {
+        "sheet": "spin",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "spinFix",
+            "time": 0.04,
+            "repeat": true,
+            "frames": [1, 2, 3, 4, 5, 0]
+        }]
+    }, {
+        "sheet": "spin2",
+        "dirs": "2",
+        "flipX": [0, 0, 0, 0, 0, 0],
+        "tileOffsets": [0, 0, 0, 0, 0, 0],
+        "SUB": [{
+            "name": "spin",
+            "time": 0.04,
+            "repeat": true,
+            "dirFrames": [
+                [3, 4, 5, 0, 1, 2],
+                [2, 3, 4, 5, 0, 1],
+                [1, 2, 3, 4, 5, 0],
+                [0, 1, 2, 3, 4, 5],
+                [5, 0, 1, 2, 3, 4],
+                [4, 5, 0, 1, 2, 3]
+            ]
+        }]
+    }, {
+        "sheet": "special2",
+        "dirs": "1",
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "wavePre",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [0]
+        }, {
+            "name": "waveLoop",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [1, 2, 3, 2]
+        }, {
+            "name": "chuckle",
+            "time": 0.15,
+            "repeat": true,
+            "frames": [4, 5]
+        }]
+    }]
+}

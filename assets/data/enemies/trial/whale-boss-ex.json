@@ -6,8 +6,8 @@
         "defense": 400,
         "focus": 440,
         "elemFactor": [1, 1, 1, 0.5],
-        "statusInflict": [0.5, 0.5, 0.5, 0.5],
-        "statusEffect": [0.05, 0.4, 0.5, 1]
+        "statusInflict": [0.5, 0.5, 0.5, 0],
+        "statusEffect": [0.05, 0.4, 0.5, 0]
     },
     "credit": 200000,
     "exp": 2000,
@@ -34,9 +34,9 @@
     "aiLearnType": "REGULAR",
     "itemDrops": [],
     "targetDetect": {
-        "detectDistance": 120,
-        "loseDistance": 320,
-        "notifyNeighbourRadius": 100
+        "detectDistance": 12000,
+        "loseDistance": 32000,
+        "notifyNeighbourRadius": 10000
     },
     "hpBreaks": [{
         "hp": 0.75,
@@ -510,8 +510,8 @@
                 "type": "LABEL"
             }, {
                 "type": "WAIT",
-                "aggroTime": 0.166,
-                "time": 0.25
+                "aggroTime": 0.12,
+                "time": 0.2
             }, {
                 "condition": "newgame.harder-enemies",
                 "withElse": false,
@@ -519,12 +519,12 @@
                 "thenStep": [{
                     "condition": "entity.ownerAttrib.forceTick",
                     "type": "WAIT_UNTIL",
-                    "maxTime": 0.0833
+                    "maxTime": 0.08
                 }]
             }, {
                 "condition": "entity.ownerAttrib.forceTick",
                 "type": "WAIT_UNTIL",
-                "maxTime": 0.75
+                "maxTime": 0.3
             }, {
                 "condition": "!tmp.bossKillHit",
                 "withElse": false,
@@ -574,7 +574,15 @@
                     "type": "ADD_PLAYER_PRESSURE"
                 }]
             }, {
-                "time": 0.25,
+                "attrib": "action",
+                "target": "TRUE_TARGET",
+                "type": "WAIT_UNTIL_PLAYER_ACTION",
+                "inverse": true,
+                "actions": ["THROW_SPECIAL1", "ATTACK_SPECIAL1", "DASH_SPECIAL1", "GUARD_SPECIAL1"]
+            }, {
+                "type": "RESET_PLAYER_PRESSURE_HOLD_CATEGORY"
+            }, {
+                "time": 0.05,
                 "type": "WAIT"
             }, {
                 "name": "loop",
@@ -617,7 +625,15 @@
                     "type": "ADD_PLAYER_PRESSURE"
                 }]
             }, {
-                "time": 0.25,
+                "attrib": "action",
+                "target": "TRUE_TARGET",
+                "type": "WAIT_UNTIL_PLAYER_ACTION",
+                "inverse": true,
+                "actions": ["THROW_SPECIAL2", "ATTACK_SPECIAL2", "DASH_SPECIAL2", "GUARD_SPECIAL2"]
+            }, {
+                "type": "RESET_PLAYER_PRESSURE_HOLD_CATEGORY"
+            }, {
+                "time": 0.05,
                 "type": "WAIT"
             }, {
                 "name": "loop",
@@ -660,7 +676,15 @@
                     "type": "ADD_PLAYER_PRESSURE"
                 }]
             }, {
-                "time": 0.25,
+                "attrib": "action",
+                "target": "TRUE_TARGET",
+                "type": "WAIT_UNTIL_PLAYER_ACTION",
+                "inverse": true,
+                "actions": ["THROW_SPECIAL3", "ATTACK_SPECIAL3", "DASH_SPECIAL3", "GUARD_SPECIAL3"]
+            }, {
+                "type": "RESET_PLAYER_PRESSURE_HOLD_CATEGORY"
+            }, {
+                "time": 0.05,
                 "type": "WAIT"
             }, {
                 "name": "loop",
@@ -1352,7 +1376,7 @@
                     }]
                 }, {
                     "entityAttrib": "turretPos4",
-                    "selectBy": "TSELF_DISTANCE",
+                    "selectBy": "SELF_DISTANCE",
                     "type": "SET_ATTRIB_CLOSEST_ENTITY",
                     "entities": [{
                         "global": true,
@@ -2404,7 +2428,7 @@
                 "maxTime": 10,
                 "forceTime": false,
                 "rotateSpeed": 0.5,
-                "type": "MOVE_TO_DISTANCE"
+                "type": "MOVE_TO_TRUE_DISTANCE"
             }, {
                 "type": "CLEAR_EFFECTS"
             }, {
@@ -4976,7 +5000,7 @@
             "withElse": true,
             "type": "IF",
             "thenStep": [{
-                "value": 5,
+                "value": 4.2,
                 "type": "SET_RELATIVE_SPEED"
             }],
             "elseStep": [{
@@ -5018,7 +5042,7 @@
                 "z": 0
             }
         }, {
-            "condition": "newgame.harder-enemies",
+            "condition": "false",
             "withElse": true,
             "type": "IF",
             "thenStep": [{
@@ -5550,7 +5574,7 @@
             "withElse": true,
             "type": "IF",
             "thenStep": [{
-                "value": 5,
+                "value": 4.2,
                 "type": "SET_RELATIVE_SPEED"
             }],
             "elseStep": [{
@@ -7126,17 +7150,6 @@
             }],
             "withElse": false,
             "type": "COMBAT_IF",
-            "thenStep": [{
-                "attribName": "jump",
-                "changeType": "add",
-                "proxyOwner": false,
-                "type": "SET_ATTRIB_NUMBER",
-                "value": 1
-            }]
-        }, {
-            "withElse": false,
-            "type": "IF",
-            "condition": "newgame.harder-enemies",
             "thenStep": [{
                 "attribName": "jump",
                 "changeType": "add",
@@ -9308,9 +9321,6 @@
         }, {
             "time": 1,
             "type": "WAIT"
-        }, {
-            "type": "WAIT_UNTIL",
-            "condition": "tmp.whapeRage || tmp.whapeJump == 0"
         }],
         "Dive": [{
             "value": 2,
@@ -10429,6 +10439,9 @@
             "type": "WAIT"
         }],
         "EndWeak1": [{
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
             "changeType": "set",
             "type": "CHANGE_VAR_NUMBER",
             "varName": "tmp.modeOverdrive",

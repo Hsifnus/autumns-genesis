@@ -2,6 +2,11 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
     "impact.base.event", "impact.base.entity", "impact.feature.effect.effect-sheet").defines(function() {
     var b = Vec2.create();
     Vec3.create();
+    new ig.EffectSheet("puzzle.gust");
+    new ig.EffectSheet("puzzle.gust-heat");
+    new ig.EffectSheet("puzzle.gust-cold");
+    new ig.EffectSheet("puzzle.gust-shock");
+    new ig.EffectSheet("puzzle.gust-wave");
     ig.ENTITY.WindBubblePanel = ig.AnimatedEntity.extend({
         respawnTimer: 0,
         currentBubble: null,
@@ -555,15 +560,15 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
         },
         circularBurstAndShoot: function(a) {
             if (!this._killed) {
-                var fx = "ball";
+                var fx = "puzzle.gust";
                 if (this.element == "HEAT") {
-                    fx = "ball-heat";
+                    fx = "puzzle.gust-heat";
                 } else if (this.element == "COLD") {
-                    fx = "ball-cold";
+                    fx = "puzzle.gust-cold";
                 } else if (this.element == "SHOCK") {
-                    fx = "ball-shock";
+                    fx = "puzzle.gust-shock";
                 } else if (this.element == "WAVE") {
-                    fx = "ball-wave";
+                    fx = "puzzle.gust-wave";
                 }
                 var ball = new sc.BallInfo({
                     animation: sc.WIND_BUBBLE_ANIMS[this.element].SHOT,
@@ -577,7 +582,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                     attack: {
                         type: "HEAVY",
                         element: this.element,
-                        damageFactor: 1.3,
+                        damageFactor: 2.8,
                         skillBonus: "RANGED_DMG",
                         hints: ["CHARGED", "GUST", "STEAM"]
                     }
@@ -649,13 +654,15 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
             return a.attackInfo.hasHint("CHARGED") ||
                 a.attackInfo.hasHint("COMPRESSED") ||
                 a.attackInfo.hasHint("BOMB") ||
+                a.attackInfo.hasHint("STEAM") ||
                 a.attackInfo.hasHint("ICE_DISK");
         },
         ballHit: function(a) {
+            if (a.party == sc.COMBATANT_PARTY.ENEMY) return;
             var d = a.getElement();
             var c = a.getHitCenter(this),
                 e = a.getHitVel(this, b);
-
+            this.timer = 30;
             if ((this.state == 1 || this.state == 4) && this.hasHint(a)) {
                 if (this.element == "NEUTRAL") {
                     if (d == sc.ELEMENT.HEAT) {
@@ -670,7 +677,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                 }
                 this.state = 3;
                 this.initAnimations(sc.WIND_BUBBLE_ANIMS[this.element].BASE);
-                this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
+                !this._killed && this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
                     duration: -1
                 }));
                 if (ig.game.playerEntity.playerTrack.startedAction == "THROW_CHARGED" ||
@@ -698,7 +705,7 @@ ig.module("game.feature.puzzle.entities.wind-bubble").requires("impact.base.acti
                         if (action.repeat) action.onActionEndDetach()
                     }
                     this.clearActionAttached();
-                    this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
+                    !this._killed && this.addActionAttached(this.effects.sheet.spawnOnTarget(sc.WIND_BUBBLE_ANIMS[this.element].AURA_KEY, this, {
                         duration: -1
                     }));
                     this.target = null;

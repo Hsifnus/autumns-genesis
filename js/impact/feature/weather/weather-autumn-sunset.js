@@ -1,4 +1,17 @@
 ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.feature.weather.weather").defines(function() {
+    ig.WEATHER_TYPES.LAB_STORAGE = {
+        blackCorners: {
+            alpha: 0.3,
+            time: 2,
+            blinkAlpha: 0.5
+        },
+        glowColor: "#302313",
+        particles: [{
+            type: "BLUE_SQUARES",
+            quantity: 15
+        }],
+        outside: false
+    };
     ig.WEATHER_TYPES.AUTUMN_SUNSET = {
         blackCorners: {
             alpha: 0.3,

@@ -1,0 +1,33 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "idle": {
+            "src": "media/entity/npc/niko.png",
+            "xCount": 1,
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 40
+        }
+    },
+    "offset": {
+        "x": 0,
+        "y": -4,
+        "z": 0
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "idle",
+        "dirs": 3,
+        "flipX": [0, 0, 0, 1],
+        "SUB": [{
+            "tileOffsets": [0, 1, 2, 1],
+            "SUB": [{
+                "name": "idle",
+                "time": 1,
+                "repeat": false,
+                "frames": [0]
+            }]
+        }]
+    }]
+}

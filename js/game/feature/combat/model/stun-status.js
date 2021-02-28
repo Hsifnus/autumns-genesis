@@ -4,6 +4,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
         "game.feature.combat.entities.combatant",
         "game.feature.combat.model.modifier-apply")
     .defines(function() {
+        sc.StunStatusData = {};
         sc.StunStatus = sc.COMBAT_STATUS[4] = sc.CombatStatusBase.extend({
             id: 4,
             label: "daze",
@@ -18,13 +19,20 @@ ig.module("game.feature.combat.model.stun-status").requires(
             resFactor: 1,
             lastActivate: -1,
             cooldown: 5,
+            lastDamageTaken: 0,
             inflict: function(b, a, d) {
                 var c = a.combatant;
+                var fly = d.type || sc.ATTACK_TYPE.NONE;
+                var stable = c.hitStable || sc.ATTACK_TYPE.NONE;
+                if (stable >= fly) return;
+                var shieldResult = sc.StunStatusData.shieldResult || sc.SHIELD_RESULT.NONE;
+                var shieldStable = sc.StunStatusData.shieldStable || sc.ATTACK_TYPE.NONE;
+                if (shieldResult > sc.SHIELD_RESULT.NONE && shieldStable >= fly) return;
                 if (ig.Timer.time - this.lastActivate > this.cooldown) {
                     this.resFactor = 1;
                 }
                 this.charge = this.charge + this.resFactor * b;
-                this.charge >= 1 ? this.activate(c, a, d) : this.statusBarEntry && c.statusGui && c.statusGui.setStatusEntry(this.statusBarEntry, this.charge)
+                this.charge >= 1 ? this.activate(c, a, d) : this.statusBarEntry && c.statusGui && c.statusGui.setStatusEntry(this.statusBarEntry, this.charge);
             },
             activate: function(b, a, d) {
                 this.charge = 1;
@@ -124,6 +132,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 var q = this.isShielded(a, c, g, e),
                     k = e.hitStable;
                 l = e.damageFactor;
+                sc.StunStatusData.shieldStable = k;
                 var s = a.getHitCenter(r, d),
                     u = a.getCombatant(),
                     y = u.getCombatantRoot();
@@ -183,7 +192,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                     if (this.params.statusStates[4].active) {
                         this.params.statusStates[4].cancelStun(this, c);
                     }
-                    sc.arena.onPreDamageApply(this, t, q, u);
+                    sc.arena.onPreDamageApply(this, t, q, u, c);
                     this.params.applyDamage(t, c, u);
                     u.combo.dmgSum = u.combo.dmgSum + t.damage;
                     y.addSpikeDamage(t, this.spikeDmg.baseFactor + this.spikeDmg.tmpFactor, this, q, a);
@@ -268,6 +277,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
             attackInfo = {
                 ...attackInfo
             };
+            sc.StunStatusData.shieldResult = shieldResult;
             !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG" &&
                 (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) &&
                 (attackInfo.statusInflict = attackInfo.statusInflict + r * 2 * n) &&

@@ -913,6 +913,107 @@
             },
             "type": "GENERIC"
         },
+        "CenterMagnet": {
+            "copyOwnerAnims": false,
+            "breakType": "NONE",
+            "action": [{
+                "poiFilter": {
+                    "name": "bossCenter",
+                    "type": "NAMED_ENTITY"
+                },
+                "distance": 10000,
+                "type": "SET_POI_TEMP_TARGET"
+            }, {
+                "value": 1000,
+                "type": "SET_SPEED"
+            }, {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "maxTime": 0.5,
+                "forceTime": false,
+                "distance": 16,
+                "planOnly": false,
+                "targetType": "ENEMY",
+                "precise": false,
+                "type": "NAVIGATE_TO_TARGET"
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "kind": "PLAYER",
+                "type": "SET_TEMP_TARGET"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "g.newgame.ignoreLeaMustDie",
+                "value": true
+            }, {
+                "type": "DIRECT_HIT",
+                "selectType": "TRUE_TARGET",
+                "hitDir": "AWAY",
+                "hitCount": 1,
+                "hitDelay": 0,
+                "align": "FACE",
+                "attack": {
+                    "type": "BREAK",
+                    "fly": "MASSIVE+++",
+                    "damageFactor": 1,
+                    "element": "SHOCK",
+                    "spFactor": 0,
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 150,
+                        "type": "Z_VEL"
+                    }, {
+                        "type": "START_LOCK"
+                    }],
+                    "guardable": "NEVER",
+                    "hitInvincible": true,
+                    "noIronStance": true,
+                    "skillBonus": "MELEE_DMG",
+                    "limiter": "NO_DAMAGE"
+                }
+            }, {
+                "strength": "NO_ESCAPE",
+                "pull": true,
+                "radius": 10000,
+                "fadeRadius": 0,
+                "minRadius": 64,
+                "zHeight": 6400,
+                "duration": -1,
+                "align": "BASE",
+                "type": "PUSH_PULL_FORCE"
+            }, {
+                "type": "WAIT_UNTIL",
+                "condition": "entity.ownerAttrib.attackReady != 0"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "changeType": "set",
+                "type": "CHANGE_VAR_BOOL",
+                "varName": "g.newgame.ignoreLeaMustDie",
+                "value": false
+            }, {
+                "type": "CLEAR_STUN_LOCKED"
+            }],
+            "invisible": true,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "shooter",
+            "startAnim": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "TRIGGER",
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
         "BeamShooter": {
             "copyOwnerAnims": false,
             "breakType": "NONE",
@@ -4541,6 +4642,21 @@
             "type": "WAIT_RANDOM"
         }],
         "Adjust": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 4,
+                "weight": 1
+            }],
+            "0_0": [{
+                "noStateReset": true,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AdjustSide"
+            }],
+            "0_1": [],
+            "0_2": [],
+            "0_3": []
+        }, {
             "value": 0.4,
             "type": "SET_RELATIVE_SPEED"
         }, {
@@ -4602,6 +4718,130 @@
             "targetType": "ENEMY",
             "stayBehind": false,
             "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "group": "dash",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "type": "STOP_XY"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }],
+        "AdjustSide": [{
+            "value": 0.3,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "value": 6,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": -1,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "dash",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossDash"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "speed": "SLOWEST",
+            "actionDetached": false,
+            "type": "REMOVE_PLAYER_CAMERA_TARGET"
+        }, {
+            "speed": "SLOW",
+            "actionDetached": false,
+            "type": "ADD_PLAYER_CAMERA_TARGET"
+        }, {
+            "maxTime": 1,
+            "forceTime": false,
+            "distance": 240,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_SIDEWAYS_TARGET"
+        }, {
+            "group": "dash",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "type": "STOP_XY"
+        }, {
+            "type": "CLEAR_ANIMATION"
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }],
+        "AdjustBack": [{
+            "value": 0.3,
+            "type": "SET_INVINCIBLE"
+        }, {
+            "value": 6,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "dash"
+        }, {
+            "duration": -1,
+            "align": "BOTTOM",
+            "rotateFace": -1,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "dash",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "shkBossDash"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "speed": "SLOWEST",
+            "actionDetached": false,
+            "type": "REMOVE_PLAYER_CAMERA_TARGET"
+        }, {
+            "speed": "SLOW",
+            "actionDetached": false,
+            "type": "ADD_PLAYER_CAMERA_TARGET"
+        }, {
+            "maxTime": 1,
+            "forceTime": false,
+            "distance": 300,
+            "throwing": true,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "type": "NAVIGATE_ESCAPE_TARGET"
         }, {
             "group": "dash",
             "type": "CLEAR_EFFECTS"
@@ -4847,6 +5087,10 @@
             "type": "ENABLE_REACTION",
             "reaction": "COMPRESSOR_DODGE"
         }, {
+            "noStateReset": true,
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "AdjustBack"
+        }, {
             "value": 0.4,
             "type": "SET_RELATIVE_SPEED"
         }, {
@@ -4889,7 +5133,23 @@
                 "value": 2
             }]
         }, {
-            "maxTime": 1,
+            "maxTime": 0.5,
+            "forceTime": true,
+            "distance": 100,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": false,
+            "stayBehind": false,
+            "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "noStateReset": true,
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "AdjustSide"
+        }, {
+            "value": 0.4,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "maxTime": 0.5,
             "forceTime": true,
             "distance": 100,
             "planOnly": false,
@@ -4913,13 +5173,20 @@
             "stayBehind": false,
             "type": "NAVIGATE_TO_TARGET"
         }, {
+            "noStateReset": true,
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "AdjustSide"
+        }, {
+            "value": 0.4,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
             "attribName": "launch",
             "changeType": "add",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
             "value": 2
         }, {
-            "maxTime": 0.3,
+            "maxTime": 0.45,
             "forceTime": true,
             "distance": 100,
             "planOnly": false,
@@ -4927,6 +5194,13 @@
             "precise": false,
             "stayBehind": false,
             "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "noStateReset": true,
+            "type": "DO_ENEMY_ACTION_INLINE",
+            "actionName": "AdjustBack"
+        }, {
+            "value": 0.4,
+            "type": "SET_RELATIVE_SPEED"
         }, {
             "conditions": [{
                 "min": 1,
@@ -4964,6 +5238,13 @@
                 "precise": false,
                 "stayBehind": false,
                 "type": "NAVIGATE_TO_TARGET"
+            }, {
+                "noStateReset": false,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "AdjustBack"
+            }, {
+                "value": 0.4,
+                "type": "SET_RELATIVE_SPEED"
             }, {
                 "attribName": "launchAll",
                 "changeType": "set",
@@ -6042,6 +6323,9 @@
             "type": "DISABLE_REACTION",
             "reaction": "COMPRESSOR_DODGE"
         }, {
+            "type": "ENABLE_REACTION",
+            "reaction": "GUARD_BLOCK"
+        }, {
             "value": "VIRTUAL",
             "type": "SET_COLL_TYPE"
         }, {
@@ -6249,7 +6533,10 @@
             "value": 0,
             "type": "SET_INVINCIBLE"
         }, {
-            "time": 0.4,
+            "reaction": "GUARD_BLOCK",
+            "type": "DISABLE_REACTION"
+        }, {
+            "time": 0.2,
             "type": "WAIT"
         }, {
             "wait": true,
@@ -7061,6 +7348,10 @@
         }, {
             "value": 0,
             "type": "SET_INVINCIBLE"
+        }, {
+            "time": 0.8,
+            "aggroTime": 0.5,
+            "type": "WAIT"
         }],
         "WhyIsThereUndertaleInMyCrosscode": [{
             "type": "DISABLE_REACTION",
@@ -7080,6 +7371,10 @@
         }, {
             "proxy": "BeamShooter",
             "align": "CENTER",
+            "type": "SHOOT_PROXY"
+        }, {
+            "proxy": "CenterMagnet",
+            "align": "BOTTOM",
             "type": "SHOOT_PROXY"
         }, {
             "duration": -1,
@@ -7274,6 +7569,10 @@
         }, {
             "value": 0,
             "type": "SET_INVINCIBLE"
+        }, {
+            "time": 0.8,
+            "aggroTime": 0.5,
+            "type": "WAIT"
         }],
         "CenterAttack": [{
             "active": "PRE_ATTACK",
@@ -8615,6 +8914,25 @@
         }, {
             "type": "RESET_TRACKER",
             "tracker": "waveBreak"
+        }],
+        "SlashBlocked": [{
+            "wait": false,
+            "viaWalkConfig": false,
+            "type": "SHOW_ANIMATION",
+            "anim": "damage"
+        }, {
+            "value": 0.2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 3,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "time": 0.1,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "time": 1.15,
+            "aggroTime": 0.85,
+            "type": "WAIT"
         }]
     },
     "reactions": {
@@ -8773,6 +9091,11 @@
             "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
+        },
+        "GUARD_BLOCK": {
+            "action": "SlashBlocked",
+            "conditions": [],
+            "type": "GUARD_COUNTER"
         }
     },
     "meta": {

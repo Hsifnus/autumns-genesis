@@ -90,6 +90,22 @@
             "noAssist": false,
             "type": "TIME"
         },
+        "BOMB": {
+            "target": 10,
+            "initRandom": 1,
+            "resetRandom": 0.3,
+            "noStateReset": false,
+            "noAssist": true,
+            "type": "TIME"
+        },
+        "BOMB_PREP": {
+            "target": 5,
+            "initRandom": 0,
+            "resetRandom": 0,
+            "noStateReset": false,
+            "noAssist": true,
+            "type": "TIME"
+        },
         "weakRegen": {
             "target": 6,
             "initRandom": 0,
@@ -154,12 +170,30 @@
                 }],
                 "action": "Adjust"
             }, {
-                "action": "FireWheel",
-                "frequency": "RARE",
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "BOMB"
+                }, {
+                    "condition": "!entity.attrib.bombPrep",
+                    "type": "VAR_CONDITION"
+                }],
+                "action": "BombPrep",
                 "ignoreStun": true
             }, {
+                "req": [{
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "BOMB_PREP"
+                }, {
+                    "condition": "entity.attrib.bombPrep",
+                    "type": "VAR_CONDITION"
+                }],
                 "action": "ShootBomb",
-                "frequency": "SOMETIMES",
+                "ignoreStun": true
+            }, {
+                "action": "FireWheel",
+                "frequency": "RARE",
                 "ignoreStun": true
             }, {
                 "action": "Idle",
@@ -306,6 +340,10 @@
             "value": true,
             "type": "FACE_TO_TARGET"
         }, {
+            "name": "bombPrep",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
             "text": {
                 "en_US": "Threat detected",
                 "de_DE": "Bedrohung entdeckt<<C<<Überprüfen: Beschreibung",
@@ -382,6 +420,29 @@
             "throwing": true,
             "planOnly": false,
             "type": "NAVIGATE_ESCAPE_TARGET"
+        }],
+        "BombPrep": [{
+            "name": "bombPrep",
+            "type": "SET_ATTRIB_BOOL",
+            "value": true
+        }, {
+            "text": {
+                "en_US": "Preparing Bomb...",
+                "ja_JP": "爆弾を準備している…",
+                "langUid": 3
+            },
+            "mode": "LINE_FILL",
+            "color": "RED",
+            "actionDetached": true,
+            "time": 5,
+            "type": "SHOW_AR_MSG"
+        }, {
+            "forceValue": 0,
+            "type": "RESET_TRACKER",
+            "tracker": "BOMB_PREP"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
         }],
         "ShootSingle": [{
             "value": "HEAVY",
@@ -461,6 +522,10 @@
             "anim": "postShoot"
         }],
         "ShootBomb": [{
+            "name": "bombPrep",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
             "value": "HEAVY",
             "type": "SET_HIT_STABLE"
         }, {
@@ -543,6 +608,9 @@
         }, {
             "value": 1,
             "type": "SET_RELATIVE_SPEED"
+        }, {
+            "type": "RESET_TRACKER",
+            "tracker": "BOMB"
         }, {
             "maxTime": 1,
             "distance": 200,
@@ -863,11 +931,17 @@
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.removeKamikatzes",
             "value": false
+        }],
+        "WeakStart": [{
+            "name": "bombPrep",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
         }]
     },
     "reactions": {
         "BOMB_HIT": {
             "hitType": "REGULAR",
+            "preAction": "WeakStart",
             "preSwitchState": "WEAK",
             "blockFurtherHits": false,
             "damageFactor": 2,

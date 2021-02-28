@@ -33,9 +33,9 @@
     "combatStyle": {
         "comboCount": 4,
         "throwCount": 3,
-        "throwProb": 0.25,
+        "throwProb": 0.35,
         "sidewaySpeed": 0.5,
-        "normDistance": 40,
+        "normDistance": 120,
         "meleeDistance": 40,
         "minDistance": 0,
         "foodSprites": ["WATER", "GREEN_TEA", "GENESIS_APPLE"]
