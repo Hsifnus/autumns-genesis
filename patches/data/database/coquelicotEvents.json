@@ -545,7 +545,7 @@
         }, {
             "type": "SET_PARTY_MEMBER_LEVEL",
             "member": "Coquelicot",
-            "level": 65,
+            "level": 70,
             "exp": 100,
             "updateEquipment": true
         }, {

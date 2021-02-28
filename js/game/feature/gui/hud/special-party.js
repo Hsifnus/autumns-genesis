@@ -7,7 +7,7 @@ ig.module("game.feature.gui.hud.special-party")
         var a = [1, 0.9, 0.75],
             d = [1, 0.8, 0.6];
         sc.PartyMemberDungeonExceptions = {
-            "Coquelicot": "autumn-dng"
+            "Coquelicot": ["autumn-dng", "final-dng"]
         }
         sc.SpecialPartyHudGui = ig.GuiElementBase.extend({
             model: null,
@@ -46,10 +46,10 @@ ig.module("game.feature.gui.hud.special-party")
                 for (var a = this.memberGuis.length; a--;) this.memberGuis[a].remove(!this.hook._visible);
                 this.memberGuis.length = 0;
                 for (var b = sc.party.getPartySize(), c = 0, a = 0; a < b; ++a) {
-                    var e = sc.party.getPartyMemberModelByIndex(a),
-                        f = sc.PartyMemberDungeonExceptions[e.name],
-                        e = new sc.MemberHudGui(e);
-                    if ((sc.map.currentArea ? sc.map.currentArea.path : "") === f) {
+                    var m = sc.party.getPartyMemberModelByIndex(a),
+                        f = sc.PartyMemberDungeonExceptions[m.name],
+                        e = new sc.MemberHudGui(m);
+                    if (f.includes(sc.map.currentArea ? sc.map.currentArea.path : "")) {
                         e.setPos(0, c);
                         this.addChildGui(e);
                         this.memberGuis.push(e);
@@ -87,6 +87,7 @@ ig.module("game.feature.gui.hud.special-party")
             }
         });
         sc.PartyModel.inject({
+            _hasAddedSpecialParty: true,
             getPartySizeAlive: function(a) {
                 for (var b = this.currentParty.length, c = 0; b--;) {
                     var d = this.getPartyMemberModel(this.currentParty[b]);
@@ -106,10 +107,11 @@ ig.module("game.feature.gui.hud.special-party")
                 return j
             },
             respawnSpecialMembers: function() {
-                for (var a = 0; a < this.currentParty.length; ++a) {
-                    var b = this.currentParty[a];
-                    sc.PartyMemberDungeonExceptions[this.models[b].name] === (sc.map.currentArea ? sc.map.currentArea.path : "") &&
-                        this.models[b].isAlive() && this._spawnPartyMemberEntity(this.currentParty[a], false, true);
+                for (var c in sc.PartyMemberDungeonExceptions) {
+                    if (this.currentParty.includes(c) && sc.PartyMemberDungeonExceptions[c].includes(sc.map.currentArea ? sc.map.currentArea.path : "")) {
+                        this.models[c].isAlive() && this._spawnPartyMemberEntity(c, false, false);
+                        d++;
+                    }
                 }
                 this._updateEntitiesOffset()
             },
@@ -152,14 +154,16 @@ ig.module("game.feature.gui.hud.special-party")
                         sc.PartyMemberDungeonExceptions[a] !==
                         (sc.map.currentArea ? sc.map.currentArea.path : "") ||
                         this._removePartyMemberEntity(a);
-                    for (var b = this.currentParty.length; b--;) {
-                        a = this.currentParty[b];
-                        this.partyEntities[a] || sc.PartyMemberDungeonExceptions[a] !==
-                            (sc.map.currentArea ? sc.map.currentArea.path : "") ||
-                            this._spawnPartyMemberEntity(a, true, false)
+                    for (var c in sc.PartyMemberDungeonExceptions) {
+                        if (this.currentParty.includes(c) && sc.PartyMemberDungeonExceptions[c].includes(sc.map.currentArea ? sc.map.currentArea.path : "")) {
+                            this.partyEntities[c] || this._spawnPartyMemberEntity(c, true, false);
+                        }
                     }
                     this._updateEntitiesOffset()
                 }
             }
+        });
+        ig.addGameAddon(function() {
+            return sc.party = new sc.PartyModel;
         });
     });

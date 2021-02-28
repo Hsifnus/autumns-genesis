@@ -33,11 +33,11 @@
     "combatStyle": {
         "comboCount": 4,
         "throwCount": 3,
-        "throwProb": 0.35,
+        "throwProb": 0.5,
         "sidewaySpeed": 0.5,
         "normDistance": 120,
         "meleeDistance": 40,
-        "minDistance": 0,
+        "minDistance": 32,
         "foodSprites": ["WATER", "GREEN_TEA", "GENESIS_APPLE"]
     },
     "walkAnims": {
@@ -54,9 +54,9 @@
     "autoequip": [{
         "level": 1,
         "HEAD": 532,
-        "LEFT_ARM": 474,
+        "LEFT_ARM": "equip-fairy",
         "RIGHT_ARM": "equip-coquelicot",
-        "TORSO": 307,
+        "TORSO": 477,
         "FEET": 482
     }],
     "DOCTYPE": "PLAYER",
