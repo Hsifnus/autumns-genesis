@@ -49,7 +49,7 @@ ig.module("game.feature.gui.hud.special-party")
                     var m = sc.party.getPartyMemberModelByIndex(a),
                         f = sc.PartyMemberDungeonExceptions[m.name],
                         e = new sc.MemberHudGui(m);
-                    if (f.includes(sc.map.currentArea ? sc.map.currentArea.path : "")) {
+                    if (f && f.includes(sc.map.currentArea ? sc.map.currentArea.path : "")) {
                         e.setPos(0, c);
                         this.addChildGui(e);
                         this.memberGuis.push(e);
