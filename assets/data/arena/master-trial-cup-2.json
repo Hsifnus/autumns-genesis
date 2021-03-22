@@ -23,7 +23,10 @@
             "offY": 0,
             "width": 276,
             "height": 64
-        }
+        },
+        "mods":[
+          "WEAPON_ADJUST"
+        ]
     },
     "rounds": [{
         "name": {

@@ -1,5 +1,6 @@
 ig.module("game.feature.combat.model.enemy-tracker-access")
-    .requires("game.feature.combat.model.enemy-tracker",
+    .requires("game.feature.combat.combat",
+        "game.feature.combat.model.enemy-tracker",
         "game.feature.combat.entities.enemy",
         "impact.base.actor-entity",
         "impact.feature.base.action-steps")
@@ -95,4 +96,60 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
                 this.resumeStashed && a.stashed.action[0] == b ? a.resumeStashedAction(this.noStateReset) : a.setAction(b, false, this.noStateReset)
             }
         });
-    });
+        sc.COMBAT_MSG_TYPE = {
+            ...sc.COMBAT_MSG_TYPE,
+            HEAT_SPECIAL: function(msg) {
+                return {
+                    icon: "\\i[burn]",
+                    labels: msg,
+                    keepPos: true,
+                    duration: 1.5
+                }
+            },
+            COLD_SPECIAL: function(msg) {
+                return {
+                    icon: "\\i[chill]",
+                    labels: msg,
+                    keepPos: true,
+                    duration: 1.5
+                }
+            },
+            SHOCK_SPECIAL: function(msg) {
+                return {
+                    icon: "\\i[jolt]",
+                    labels: msg,
+                    keepPos: true,
+                    duration: 1.5
+                }
+            },
+            WAVE_SPECIAL: function(msg) {
+                return {
+                    icon: "\\i[mark]",
+                    labels: msg,
+                    keepPos: true,
+                    duration: 1.5
+                }
+            }
+        };
+        ig.ACTION_STEP.SHOW_COMBAT_MSG.inject({
+            init: function(a) {
+                this.parent(a);
+                this.msg = a.msg;
+            },
+            start: function(a) {
+                var b = this.msg ? this.msgType(this.msg) : this.msgType;
+                sc.combat.showCombatMessage(a, b, sc.SMALL_BOX_ALIGN.TOP)
+            }
+        });
+        sc.Combat.inject({
+            showCombatMessage: function(a, b, d) {
+                var c = b.icon + (b.msg ? ig.lang.get(b.msg) : ig.LangLabel.getText(b.labels)),
+                    c = new sc.SmallEntityBox(a, c, b.duration || 0.5, d || sc.SMALL_BOX_ALIGN.CENTER);
+                b.keepPos && c.setFixedPos();
+                ig.gui.addGuiElement(c)
+            }
+        });
+        ig.addGameAddon(function() {
+            return sc.combat = new sc.Combat;
+        });
+});

@@ -37,7 +37,7 @@ ig.module("game.feature.arena.trial").requires(
             "faction-team-cup-1": {
                 order: 200
             }
-        }
+        };
     sc.ArenaPlus = sc.ArenaAL.extend({
         init: function() {
             this.parent();
@@ -509,6 +509,27 @@ ig.module("game.feature.arena.trial").requires(
                         cleared: 0,
                         firstClearBonus: 0
                     });
+                }
+            }
+        },
+        onPreDamageApply: function(a, b, c, d, e) {
+            console.log(e.hasHint("ARENA_SCORE"));
+            if (this.active && !(c == sc.SHIELD_RESULT.PERFECT || (d.getCombatantRoot().party != sc.COMBATANT_PARTY.PLAYER && !e.hasHint("ARENA_SCORE")) || this.isEnemyBlocked(a))) {
+                c = 1;
+                if (d.params.buffs.length >
+                    0)
+                    for (var d = d.params.buffs, f = 0, g = d.length; f < g; f++)
+                        if (d[f] instanceof sc.ActionBuff && d[f].name == "sergeyHax") {
+                            c = e.attackerParams.getStat("attack", true) / e.attackerParams.getStat("attack", false);
+                            break
+                        } a = Math.min(Math.max(0, a.params.currentHp), Math.floor(b.damage * c));
+                if (a > 0) {
+                    this.addScore("DAMAGE_DONE", a);
+                    b = Math.floor(a - a / b.defensiveFactor);
+                    if (b > 0) {
+                        sc.stats.addMap("arena", "effectiveDamage", b);
+                        this.addScore("DAMAGE_DONE_EFFECTIVE", b)
+                    }
                 }
             }
         }

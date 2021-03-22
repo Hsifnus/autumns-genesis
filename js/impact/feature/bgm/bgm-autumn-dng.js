@@ -25,6 +25,11 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "loopEnd": 176.842,
             "volume": 1.8
         },
+        monkBoss: {
+            "path": "media/bgm/muMonkboss.ogg",
+            "loopEnd": 180.699,
+            "volume": 1.7
+        },
         windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,

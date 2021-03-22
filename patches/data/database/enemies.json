@@ -1302,5 +1302,77 @@
         "exp": 1000,
         "itemDrops": [],
         "boss": true
+    },
+    "trial.gynthar-ex": {
+      "name": {
+        "en_US": "Gynthar",
+        "de_DE": "Gynthar",
+        "zh_CN": "\u5188\u8428<<A<<[CHANGED 2020/07/15]",
+        "zh_TW": "\u5ca1\u85a9<<A<<[CHANGED 2020/07/15]",
+        "ja_JP": "\u30ae\u30f3\u30b5\u30fc<<A<<[CHANGED 2020/07/15]",
+        "ko_KR": "\uadc4\ud0c0\ub974<<A<<[CHANGED 2020/07/15]",
+        "langUid": 16917
+      },
+      "track": false,
+      "extension": "post-game",
+      "order": 1000,
+      "area": "final-dng",
+      "kills": 1,
+      "anim": false,
+      "extra": false,
+      "category": "PLAYERS",
+      "species": {
+        "en_US": "Armless Monk",
+        "de_DE": "Armloser M\u00f6nch<<C<<Gepr\u00fcft: Minsu",
+        "zh_CN": "\u65e0\u81c2\u6b66\u50e7<<A<<[CHANGED 2021/01/12]",
+        "zh_TW": "\u7121\u81c2\u6b66\u50e7<<A<<[CHANGED 2021/01/12]",
+        "ja_JP": "\u8155\u306e\u306a\u3044\u4fee\u884c\u5897<<A<<[CHANGED 2021/01/12]",
+        "ko_KR": "\ubb34\ubc29\ube44 \uc218\ub3c4\uc0ac<<A<<[CHANGED 2021/01/12]",
+        "langUid": -4
+      },
+      "level": 80,
+      "boostedLevel": 0,
+      "params":{
+        "hp":371710,
+        "attack":710,
+        "defense":710,
+        "focus":710,
+        "elemFactor":[
+          1,
+          1,
+          1,
+          1
+        ],
+        "statusInflict":[
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "statusEffect":[
+          0.1,
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "credit": 100000,
+      "exp": 2000,
+      "itemDrops": [],
+      "boss": true,
+      "descriptions": [
+        {
+          "text": {
+            "en_US": "A guardian as old as the Ancients themselves. It serves as both protector and guard to the final secret of the Ancients. Much like all Seekers, it can switch elements and will attack relentlessly using a weird combination of elemental attacks.\nIn desperation it will call upon the power of all elements to deliver a devastating attack, that will be the final judgement those that are worthy enough.",
+            "de_DE": "Ein W\u00e4chter, der so alt ist wie die Ahnen selbst. Er dient sowohl als Besch\u00fctzer als auch als W\u00e4chter des letzten Geheimnisses der Ahnen. Wie alle Seeker kann er die Elemente wechseln und greift unerbittlich mit einer seltsamen Kombination von Elementangriffen an.\nIn seiner Verzweiflung wird er die Macht aller Elemente anrufen, um einen verheerenden Angriff auszuf\u00fchren, der das endg\u00fcltige Urteil \u00fcber diejenigen sein wird, die w\u00fcrdig genug sind.<<C<<Gepr\u00fcft: Minsu",
+            "langUid": -6,
+            "zh_TW": "\u8207\u5148\u7956\u540c\u6a23\u53e4\u8001\u7684\u5b88\u885b\u8005\u3002\u5b83\u662f\u5148\u7956\u6700\u7d42\u79d8\u5bc6\u7684\u4fdd\u8b77\u8005\u548c\u5b88\u9580\u4eba\u3002\u548c\u63a2\u7d22\u8005\u4e00\u6a23\uff0c\u5b83\u80fd\u4f7f\u7528\u4e0d\u540c\u5143\u7d20\u7684\u529b\u91cf\uff0c\u4e26\u767c\u52d5\u72c2\u98a8\u66b4\u96e8\u822c\u7684\u8972\u64ca\u3002\n\u5728\u7d55\u671b\u6642\u5b83\u6703\u4f7f\u7528\u6240\u6709\u5143\u7d20\u7684\u529b\u91cf\u9032\u884c\u4e00\u6b21\u6bc0\u6ec5\u6027\u7684\u653b\u64ca\uff0c\u4f5c\u70ba\u5c0d\u6311\u6230\u8005\u7684\u6700\u7d42\u5be9\u5224\u3002<<A<<[CHANGED 2021/01/12]",
+            "zh_CN": "\u4e0e\u5148\u7956\u540c\u6837\u53e4\u8001\u7684\u5b88\u536b\u8005\u3002\u5b83\u662f\u5148\u7956\u6700\u7ec8\u79d8\u5bc6\u7684\u4fdd\u62a4\u8005\u548c\u5b88\u95e8\u4eba\u3002\u548c\u63a2\u7d22\u8005\u4e00\u6837\uff0c\u5b83\u80fd\u4f7f\u7528\u4e0d\u540c\u5143\u7d20\u7684\u529b\u91cf\uff0c\u5e76\u53d1\u52a8\u72c2\u98ce\u66b4\u96e8\u822c\u7684\u88ad\u51fb\u3002\n\u5728\u7edd\u671b\u65f6\u5b83\u4f1a\u4f7f\u7528\u6240\u6709\u5143\u7d20\u7684\u529b\u91cf\u8fdb\u884c\u4e00\u6b21\u6bc1\u706d\u6027\u7684\u653b\u51fb\uff0c\u4f5c\u4e3a\u5bf9\u6311\u6218\u8005\u7684\u6700\u7ec8\u5ba1\u5224\u3002<<A<<[CHANGED 2021/01/12]",
+            "ko_KR": "\uace0\ub300\uc778\ub9cc\ud07c\uc774\ub098 \uc624\ub798\ub41c \uc218\ud638\uc790\ub85c, \uace0\ub300\uc778\uc758 \uc228\uaca8\uc9c4 \ube44\ubc00\uc744 \ubcf4\ud638\ud558\uace0 \uc9c0\ud0a4\ub294 \uc5ed\ud560\uc744 \ud569\ub2c8\ub2e4. \uc218\ud638\uc790\ub294 \uc2dc\ucee4\uc640 \ub9c8\ucc2c\uac00\uc9c0\ub85c \uc18d\uc131\uc744 \uc804\ud658\ud560 \uc218 \uc788\uc73c\uba70, \ud2b9\uc774\ud55c \uc18d\uc131 \uc870\ud569\uc73c\ub85c \ubb34\uc790\ube44\ud558\uac8c \uacf5\uaca9\ud569\ub2c8\ub2e4.\n\ubd88\ub9ac\ud55c \uc0c1\ud669\uc5d0\uc11c\ub294 \ubaa8\ub4e0 \uc18d\uc131\uc744 \uc0ac\uc6a9\ud574 \ud30c\uad34\uc801\uc778 \uacf5\uaca9\uc744 \uac00\ud574 \uac00\uce58\ub97c \uc99d\uba85\ud560 \uc218 \uc788\ub294\uc9c0 \ud655\uc778\ud558\uae30 \uc704\ud55c \ub9c8\uc9c0\ub9c9 \uc2ec\ud310\uc744 \ub0b4\ub9bd\ub2c8\ub2e4.<<A<<[CHANGED 2021/01/12]",
+            "ja_JP": "\u53e4\u4ee3\u4eba\u306e\u3088\u3046\u306b\u5e74\u8001\u3044\u305f\u5b88\u8b77\u8005\u3002\u6700\u5f8c\u306e\u53e4\u4ee3\u4eba\u306e\u79d8\u5bc6\u306b\u5b88\u8b77\u3068\u8b77\u885b\u3092\u3082\u305f\u3089\u3059\u3002\u3059\u3079\u3066\u306e\u63a2\u7d22\u8005\u3068\u540c\u69d8\u3001\u30a8\u30ec\u30e1\u30f3\u30c8\u3092\u5207\u308a\u66ff\u3048\u3001\u7d44\u307f\u5408\u308f\u305b\u308b\u3053\u3068\u3067\u57f7\u62d7\u306b\u653b\u6483\u3059\u308b\u3002\n\u6b7b\u306b\u7269\u72c2\u3044\u3067\u3059\u3079\u3066\u306e\u30a8\u30ec\u30e1\u30f3\u30c8\u306e\u529b\u3092\u547c\u3073\u51fa\u3057\u3001\u5727\u5012\u7684\u306a\u653b\u6483\u3092\u4ed5\u639b\u3051\u308b\u3002\u305d\u308c\u306f\u4fa1\u5024\u3042\u308b\u3082\u306e\u306b\u5bfe\u3059\u308b\u6700\u5f8c\u306e\u5be9\u5224\u3068\u306a\u308b\u3067\u3042\u308d\u3046\u3002<<A<<[CHANGED 2021/01/12]"
+          },
+          "condition": ""
+        }
+      ]
     }
 }
