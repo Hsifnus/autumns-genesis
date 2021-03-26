@@ -1,0 +1,13 @@
+{
+    "id": "autumns-genesis",
+    "title": "Autumn's Genesis",
+    "version": "0.2.3",
+    "description": "Dungeon/Quest expansion to CrossCode",
+    "module": true,
+    "prestart": "mod.js",
+    "dependencies": {
+        "item-api": "^0.*",
+        "extendable-severed-heads": "^1.0.0",
+        "modifier-api": "^0.1.0"
+    }
+}

@@ -1,15 +1,6 @@
 {
     "name": "autumns-genesis",
-    "displayName": "Autumn's Genesis",
-    "description": "Dungeon/Quest expansion to CrossCode",
-    "prestart": "mod.js",
     "version": "0.2.3",
-    "module": true,
-    "ccmodDependencies": {
-        "item-api": "^0.*",
-        "extendable-severed-heads": "^1.0.0",
-        "modifier-api": "^0.1.0"
-    },
     "scripts": {
         "format": "npm run minify-json && npm run json-beautify && npm run js-beautify",
         "minify-json": "minify-json ./",
