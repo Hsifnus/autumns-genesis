@@ -1,5 +1,6 @@
 {
     "level": 80,
+    "boostedLevel": 80,
     "credit": 0,
     "exp": 0,
     "maxSp": 8,
@@ -517,10 +518,15 @@
     },
     "meta": {
         "species": {
-            "en_US": "Flare Bomb",
+            "en_US": "Dangerous Bomb",
             "langUid": 4
         },
-        "category": "ABSTRACT",
-        "descriptions": []
+        "category": "MECHA",
+        "descriptions": [{
+            "text": {
+                "en_US": "A long-forbidden armament stored deep within the \\c[3]\\v[area.cold-dng.name]\\c[0]. After making a landing, the bomb starts a countdown sequence that ends in a massive, lingering explosion of lethal flame. Try defusing the bomb with Cold attacks before it detonates!"
+            },
+            "condition": ""
+        }]
     }
 }

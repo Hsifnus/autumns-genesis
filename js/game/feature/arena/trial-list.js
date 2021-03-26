@@ -13,7 +13,7 @@ ig.module("game.feature.arena.trial-list").requires("game.feature.menu.gui.arena
             }
             for (var f = 0; f <
                 c.length; f++) {
-                e = c[f].altName && sc.newgame.hasHarderEnemies() ? ig.LangLabel.getText(c[f].altName) : ig.LangLabel.getText(c[f].name);
+                e = c[f].altName && sc.arena.exMode ? ig.LangLabel.getText(c[f].altName) : ig.LangLabel.getText(c[f].name);
                 e = new sc.ArenaRoundEntryButton(e, this.currentCup, f, sc.arena.getCupMedal(this.currentCup, f), c.length, null, sc.arena.isTrial(this.currentCup));
                 e.setActive(sc.arena.isTrial(this.currentCup) || ig.perf.enableArenaRound || this.isRoundActive(this.currentCup, f));
                 a.addButton(e)
@@ -26,7 +26,7 @@ ig.module("game.feature.arena.trial-list").requires("game.feature.menu.gui.arena
                 a = null;
             if (sc.arena.isTrial(this.currentCup)) {
                 var round = sc.arena.getCupRounds(b)[c];
-                a = ig.lang.get("sc.gui.arena.menu.startTrial").replace("[TRIAL_NAME]", ig.LangLabel.getText(round.altName && sc.newgame.hasHarderEnemies() ? round.altName : round.name));
+                a = ig.lang.get("sc.gui.arena.menu.startTrial").replace("[TRIAL_NAME]", ig.LangLabel.getText(round.altName && sc.arena.exMode ? round.altName : round.name));
             } else {
                 a = c == -1 ?
                     ig.lang.get("sc.gui.arena.menu.startRushMode").replace("[CUP_NAME]", sc.arena.getCupName(b)) :

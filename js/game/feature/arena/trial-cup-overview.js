@@ -342,7 +342,7 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
             this.addEntries =
                 false;
             this.blockTimer = 1;
-            this.effect && this.effect.hide(true);
+            this.effect && ig.EffectTools && this.effect.hide(true);
             ig.interact.removeEntry(this.interact);
             ig.interact.setBlockDelay(0.2);
             this.msgBox.doStateTransition("HIDDEN");

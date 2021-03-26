@@ -32,17 +32,19 @@ CCLoader can be downloaded or updated through CCUpdaterUI. It will give you a pr
 
 ## Installing dependencies
 
-1. Start CCUpdaterUI and follow the instructions until you get to the list of mods.
-2. In the search bar, search for `hardcoded-config-injector`
+1. In the same fashion as this mod, download and install the modifier-api mod from [this repository](https://github.com/Hsifnus/modifier-api).
+
+2. Start CCUpdaterUI and follow the instructions until you get to the list of mods.
+3. In the search bar, search for `hardcoded-config-injector`
 
 ![Search 1](https://i.imgur.com/6CFpI9H.png)
 
-3. Click on the first result, then click install on the lower right corner. Once it installs, it will likely abruptly exit once you click Okay. This is a bug in v1.0.0-rc (latest at the time of writing).
-4. If the program exits, repeat only step 1 and continue to step 5.
-5. In the search bar, search for `item-api`
+4. Click on the first result, then click install on the lower right corner. Once it installs, it will likely abruptly exit once you click Okay. This is a bug in v1.0.0-rc (latest at the time of writing).
+5. If the program exits, repeat only step 2 and continue to step 6.
+6. In the search bar, search for `item-api`
 
 ![Search 2](https://i.imgur.com/EkOW2Av.png)
 
-6. Click on the first result, then click install on the lower right corner. If the program exits again when you pressed Okay, then you saved yourself a click.
-7. Repeat steps 5-6 except for `extendable-severed-heads`.
-8. Start the game.
+7. Click on the first result, then click install on the lower right corner. If the program exits again when you pressed Okay, then you saved yourself a click.
+8. Repeat steps 6-7 except for `extendable-severed-heads`.
+9. Start the game.

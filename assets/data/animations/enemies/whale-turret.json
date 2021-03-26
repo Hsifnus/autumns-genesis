@@ -1,0 +1,25 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "idle": {
+            "src": "media/entity/effects/trial-bosses.png",
+            "width": 32,
+            "height": 48,
+            "offX": 144,
+            "offY": 536
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "idle",
+        "dirs": "1",
+        "tileOffsets": [0],
+        "flipX": [0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.066,
+            "repeat": true,
+            "frames": [0, 1, 2, 3, 4, 5, 6, 7]
+        }]
+    }]
+}

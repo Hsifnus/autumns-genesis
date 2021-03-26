@@ -2,8 +2,9 @@ ig.module("game.feature.combat.model.stun-status").requires(
         "game.feature.combat.model.combat-status",
         "game.feature.combat.gui.status-bar",
         "game.feature.combat.entities.combatant",
-        "game.feature.combat.model.combat-params")
+        "game.feature.combat.model.modifier-apply")
     .defines(function() {
+        sc.StunStatusData = {};
         sc.StunStatus = sc.COMBAT_STATUS[4] = sc.CombatStatusBase.extend({
             id: 4,
             label: "daze",
@@ -15,6 +16,24 @@ ig.module("game.feature.combat.model.stun-status").requires(
             minDuration: 2,
             stunTimer: 0,
             targetFixed: false,
+            resFactor: 1,
+            lastActivate: -1,
+            cooldown: 5,
+            lastDamageTaken: 0,
+            inflict: function(b, a, d) {
+                var c = a.combatant;
+                var fly = d.type || sc.ATTACK_TYPE.NONE;
+                var stable = c.hitStable || sc.ATTACK_TYPE.NONE;
+                if (stable >= fly) return;
+                var shieldResult = sc.StunStatusData.shieldResult || sc.SHIELD_RESULT.NONE;
+                var shieldStable = sc.StunStatusData.shieldStable || sc.ATTACK_TYPE.NONE;
+                if (shieldResult > sc.SHIELD_RESULT.NONE && shieldStable >= fly) return;
+                if (ig.Timer.time - this.lastActivate > this.cooldown) {
+                    this.resFactor = 1;
+                }
+                this.charge = this.charge + this.resFactor * b;
+                this.charge >= 1 ? this.activate(c, a, d) : this.statusBarEntry && c.statusGui && c.statusGui.setStatusEntry(this.statusBarEntry, this.charge);
+            },
             activate: function(b, a, d) {
                 this.charge = 1;
                 this.active = true;
@@ -34,6 +53,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 this.targetFixed = b instanceof ig.ENTITY.Enemy && b.targetFixed;
                 b instanceof ig.ENTITY.Enemy && (b.targetFixed = true);
                 this.stunTimer = 0;
+                this.resFactor /= 10;
             },
             cancelStun: function(b, a) {
                 if (this.stunTimer < this.minDuration) {
@@ -52,6 +72,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 b.params.endLock(b);
                 b.cancelAction(this.stallAction);
                 b instanceof ig.ENTITY.Enemy && (b.targetFixed = this.targetFixed);
+                this.lastActivate = ig.Timer.time;
             },
             onUpdate: function(b) {
                 this.stunTimer = this.stunTimer +
@@ -75,54 +96,13 @@ ig.module("game.feature.combat.model.stun-status").requires(
         });
         sc.STATUS_BAR_ENTRY.DAZED = {
             icon: 0,
-            isStun: true,
+            gfx: "media/gui/stun-status.png",
             init: null,
             barY: 0,
             barX: 0,
             half: true
         }
-        ig.GUI.StatusBar.inject({
-            stunGfx: new ig.Image("media/gui/stun-status.png"),
-            drawStatusEntry: function(b, c, e, f) {
-                var g = this.statusEntries[f],
-                    f = sc.STATUS_BAR_ENTRY[f],
-                    h = 1;
-                g.timer < 0.1 && (h = g.timer / 0.1);
-                h != 1 && b.addTransform().setPivot(c, e + 2).setScale(1, h);
-                var i = 24,
-                    j = 0;
-                if (f.half) j = i = i / 2;
-                if (f.isStun) {
-                    if (g.stick) b.addGfx(this.stunGfx, c - 6, e - 2, 24, 0, 8, 8);
-                    else {
-                        if (g.timer > 1.7) var l =
-                            Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
-                            c = c + l;
-                        g = 1 + Math.floor(g.value * (i - 2));
-                        l = i - 1 - g;
-                        c = c + j;
-                        b.addGfx(this.stunGfx, c, e, f.barX, f.barY, g, 4);
-                        l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
-                        b.addGfx(this.stunGfx, c + (i - 1), e - 2, 25, 0, 7, 8)
-                    }
-                } else {
-                    var k = this.barIconTiles.getTileSrc(a, f.icon);
-                    if (g.stick) b.addGfx(this.gfx, c - 6, e - 2, k.x, k.y, 8, 8);
-                    else {
-                        if (g.timer > 1.7) var l =
-                            Math.sin(Math.PI * 8 * (2 - g.timer) / 0.3),
-                            c = c + l;
-                        g = 1 + Math.floor(g.value * (i - 2));
-                        l = i - 1 - g;
-                        c = c + j;
-                        b.addGfx(this.gfx, c, e, 216, f.barY, g, 4);
-                        l && b.addGfx(this.gfx, c + g, e, 216 + g, 12, l, 4);
-                        b.addGfx(this.gfx, c + (i - 1), e - 2, k.x + 1, k.y, 7, 8)
-                    }
-                }
-                h != 1 && b.undoTransform()
-            }
-        });
+
         var b = Vec2.create(),
             a = Vec2.create(),
             d = Vec3.create(),
@@ -152,6 +132,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 var q = this.isShielded(a, c, g, e),
                     k = e.hitStable;
                 l = e.damageFactor;
+                sc.StunStatusData.shieldStable = k;
                 var s = a.getHitCenter(r, d),
                     u = a.getCombatant(),
                     y = u.getCombatantRoot();
@@ -211,7 +192,7 @@ ig.module("game.feature.combat.model.stun-status").requires(
                     if (this.params.statusStates[4].active) {
                         this.params.statusStates[4].cancelStun(this, c);
                     }
-                    sc.arena.onPreDamageApply(this, t, q, u);
+                    sc.arena.onPreDamageApply(this, t, q, u, c);
                     this.params.applyDamage(t, c, u);
                     u.combo.dmgSum = u.combo.dmgSum + t.damage;
                     y.addSpikeDamage(t, this.spikeDmg.baseFactor + this.spikeDmg.tmpFactor, this, q, a);
@@ -283,106 +264,28 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 return true
             }
         });
+
         var aConst = 0.25,
             dConst = 1.5,
             cConst = 3;
-        var funcs = {
-            LINEAR: function(a, b) {
-                return a * 2 - b
-            },
-            PERCENTAGE: function(a, b) {
-                return a > b ? a * (1 + Math.pow(1 - b / a, 0.5) * 0.2) : a * Math.pow(a / b, 1.5)
-            }
+        sc.DAMAGE_MODIFIER_FUNCS.WIND_MELEE = (attackInfo, damageFactor, combatantRoot, shieldResult, hitIgnore, params) => {
+            var n, applyDamageCallback,
+                l = attackInfo.noHack || false,
+                r = attackInfo.attackerParams.getStat("focus", l) / params.getStat("focus", l),
+                v = (Math.pow(1 + (r >= 1 ? r - 1 : 1 - r) * cConst, aConst) - 1) * dConst;
+            r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
+            attackInfo = {
+                ...attackInfo
+            };
+            sc.StunStatusData.shieldResult = shieldResult;
+            !attackInfo.element && attackInfo.skillBonus == "MELEE_DMG" &&
+                (n = attackInfo.attackerParams.getModifier("WIND_MELEE")) &&
+                (attackInfo.statusInflict = attackInfo.statusInflict + r * 2 * n) &&
+                (damageFactor = damageFactor + damageFactor * n);
+            return {
+                attackInfo,
+                damageFactor,
+                applyDamageCallback
+            };
         };
-        sc.CombatParams.inject({
-            init: function(a) {
-                if (a)
-                    for (var b in this.baseParams) this.baseParams[b] = a[b] || this.baseParams[b];
-                this.currentHp = this.getStat("hp");
-                for (b = 0; b < 5; ++b) this.statusStates[b] = new sc.COMBAT_STATUS[b]
-            },
-            getDamage: function(e, g, h, i, j) {
-                var k = e.damageFactor,
-                    l = e.noHack || false,
-                    o = h.getCombatantRoot(),
-                    h = h.combo || o.combo;
-                if (h.damageCeiling) {
-                    var m = Math.max(1 - (h.damageCeiling.sum[this.combatant.id] || 0) / h.damageCeiling.max, 0);
-                    m < 0.5 && (k = Math.max(k * 2 * m, 0.01))
-                }
-                h = k;
-                if (!ig.perf.skipDmgModifiers) {
-                    e.skillBonus && (k = k * (1 + e.attackerParams.getModifier(e.skillBonus)));
-                    var n = e.attackerParams.getModifier("BERSERK");
-                    n && e.attackerParams.getHpFactor() <= sc.HP_LOW_WARNING && (k = k * (1 + n));
-                    (n = e.attackerParams.getModifier("MOMENTUM")) && (o.isPlayer && o.dashAttackCount) && (k = k * (1 + o.dashAttackCount * n));
-                    !e.element && (n = e.attackerParams.getModifier("WIND_MELEE")) && e.skillBonus == "MELEE_DMG" && (e.statusInflict = e.statusInflict + 3 * n) && (k = k + n * k);
-                    !ig.vars.get("g.newgame.ignoreSergeyHax") &&
-                        (o.isPlayer && !this.combatant.isPlayer && sc.newgame.get("sergey-hax")) && (k = k * 4096);
-                }
-                var g = this.damageFactor * (g === void 0 ? 1 : g),
-                    p = 1,
-                    r = e.attackerParams.getStat("focus", l) / this.getStat("focus", l),
-                    n = (Math.pow(r, 0.35) - 0.9) * e.critFactor,
-                    n = Math.random() <= n;
-                if (!ig.perf.skipDmgModifiers) {
-                    e.element && (p = this.getStat("elemFactor")[e.element - 1] * this.tmpElemFactor[e.element - 1]);
-                    g = g * p;
-                    e.ballDamage && (g = g * (this.ballFactor + this.statusStates[3].getValue(this)));
-                    (m = e.attackerParams.getModifier("CROSS_COUNTER")) && sc.EnemyAnno.isCrossCounterEffective(this.combatant) &&
-                        (g = g * (1 + m));
-                    (m = e.attackerParams.getModifier("BREAK_DMG")) && sc.EnemyAnno.isWeak(this.combatant) && (g = g * (1 + m));
-                    n && (k = k * e.attackerParams.criticalDmgFactor)
-                }
-                o = sc.combat.getGlobalDmgFactor(o.party);
-                m = 0;
-                if (e.statusInflict && g > 0 && !j)
-                    var idx = e.element - 1,
-                        m = h * e.statusInflict;
-                var v = (Math.pow(1 + (r >= 1 ? r - 1 : 1 - r) * cConst, aConst) - 1) * dConst;
-                r = r >= 1 ? 1 + v : Math.max(0, 1 - v);
-                if (idx >= 0) {
-                    m = m * r * this.getStat("statusInflict")[idx] * this.tmpStatusInflict[idx] * p;
-                    m = this.statusStates[idx].getInflictValue(m, this, e, i);
-                } else {
-                    m = m * r * p;
-                    m = this.statusStates[4].getInflictValue(m, this, e, i);
-                }
-                i = e.attackerParams.getStat("attack", l);
-                l = e.defenseFactor *
-                    this.getStat("defense", l);
-                l = Math.max(1, funcs.PERCENTAGE(i, l));
-                l = l * g;
-                i = funcs.PERCENTAGE(i, 0) - l;
-                l = l * k * o;
-                i = i * k * o;
-                if (!ig.perf.skipDmgModifiers) {
-                    l = l * (0.95 + Math.random() * 0.1);
-                    i = i * (0.95 + Math.random() * 0.1)
-                }
-                if (e.limiter.noDmg) i = l = 0;
-                l = Math.round(l);
-                return {
-                    damage: l,
-                    defReduced: i,
-                    offensiveFactor: k,
-                    baseOffensiveFactor: h,
-                    defensiveFactor: g,
-                    critical: n,
-                    status: m
-                }
-            },
-            applyDamage: function(a, b, c) {
-                var d = c.getCombatantRoot(),
-                    c = c.combo || d.combo;
-                if (c.damageCeiling) {
-                    d = this.combatant.id;
-                    c.damageCeiling.sum[d] || (c.damageCeiling.sum[d] =
-                        0);
-                    c.damageCeiling.sum[d] = c.damageCeiling.sum[d] + a.baseOffensiveFactor
-                }
-                a.status && this.statusStates[!!b.element ? b.element - 1 : 4].inflict(a.status, this, b);
-                this.reduceHp(a.damage)
-            }
-        });
     });

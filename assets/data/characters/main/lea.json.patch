@@ -1,0 +1,47 @@
+[{
+	"type": "ENTER",
+	"index": ["face", "subImages"]
+}, {
+	"type": "SET_KEY",
+	"index": "lea-hold-horns-alt",
+	"content": "lea-hold-horns-alt.png"
+}, {
+	"type": "EXIT",
+	"count": 1
+}, {
+	"type": "ENTER",
+	"index": ["parts", 0]
+}, {
+	"type": "SET_KEY",
+	"index": "holdHornsAlt",
+	"content": {
+      "srcX": 0,
+      "srcY": 0,
+      "width": 152,
+      "height": 144,
+      "destX": -24,
+      "destY": 0,
+      "subX": 16,
+      "subY": 0,
+      "img": "lea-hold-horns-alt"
+    }
+}, {
+	"type": "EXIT",
+	"count": 2
+}, {
+	"type": "ENTER",
+	"index": "expressions"
+}, {
+	"type": "SET_KEY",
+	"index": "HOLD_HORNS_NEUTRAL",
+	"content": {
+	    "faces": [
+	      [
+	        "holdHornsAlt"
+	      ]
+	    ]
+    }
+}, {
+	"type": "EXIT",
+	"count": 2
+}]

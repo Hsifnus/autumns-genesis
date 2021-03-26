@@ -1,175 +1,582 @@
-[{
-	"type": "ENTER",
-	"index": "entities"
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content": {
-    "type": "NPC",
-    "x": 660,
-    "y": 784,
-    "level": 0,
-    "settings": {
-      "name": "Coquelicot",
-      "characterName": "main.coquelicot",
-      "mapId": 216,
-      "npcStates": [
-        {
-          "reactType": "FIXED_POS",
-          "face": "EAST",
-          "action": [],
-          "hidden": false,
-          "condition": "    ",
-          "config": "normal",
-          "event": {
-            "trade": {
-              "event": [
-                {
-                  "entity": {
-                    "self": true
+[
+  {
+    "type": "ENTER",
+    "index": "entities"
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "type": "NPC",
+      "x": 660,
+      "y": 784,
+      "level": 0,
+      "settings": {
+        "name": "Coquelicot",
+        "characterName": "main.coquelicot",
+        "mapId": 216,
+        "npcStates": [
+          {
+            "reactType": "FIXED_POS",
+            "face": "EAST",
+            "hideFx": {
+              "sheet": "teleport",
+              "name": "hideDefault"
+            },
+            "hidden": true,
+            "condition": "party.has.Coquelicot",
+            "config": "normal",
+            "event": []
+          },
+          {
+            "reactType": "FIXED_POS",
+            "face": "EAST",
+            "action": [],
+            "hidden": false,
+            "showFx": {
+              "sheet": "teleport",
+              "name": "showDefault"
+            },
+            "condition": "!party.has.Coquelicot",
+            "config": "normal",
+            "event": {
+              "trade": {
+                "event": [
+                  {
+                    "entity": {
+                      "self": true
+                    },
+                    "action": [
+                      {
+                        "entity": {
+                          "player": true
+                        },
+                        "rotate": true,
+                        "rotateSpeed": 3,
+                        "type": "SET_FACE_TO_ENTITY"
+                      }
+                    ],
+                    "repeating": false,
+                    "wait": false,
+                    "keepState": false,
+                    "immediately": false,
+                    "type": "DO_ACTION"
                   },
-                  "action": [
-                    {
-                      "entity": {
-                        "player": true
-                      },
-                      "rotate": true,
-                      "rotateSpeed": 3,
-                      "type": "SET_FACE_TO_ENTITY"
+                  {
+                    "side": "LEFT",
+                    "order": 0,
+                    "clearSide": false,
+                    "type": "ADD_MSG_PERSON",
+                    "person": {
+                      "person": "main.coquelicot",
+                      "expression": "DEFAULT"
                     }
-                  ],
-                  "repeating": false,
-                  "wait": false,
-                  "keepState": false,
-                  "immediately": false,
-                  "type": "DO_ACTION"
-                },
-                {
-                  "side": "LEFT",
-                  "order": 0,
-                  "clearSide": false,
-                  "type": "ADD_MSG_PERSON",
-                  "person": {
-                    "person": "main.coquelicot",
-                    "expression": "DEFAULT"
-                  }
-                },
-                {
-                  "side": "RIGHT",
-                  "order": 0,
-                  "clearSide": false,
-                  "type": "ADD_MSG_PERSON",
-                  "person": {
-                    "person": "main.lea",
-                    "expression": "DEFAULT"
-                  }
-                },
-                {
-                  "message": {
-                    "en_US": "I'm here until Autumn's Terminus gets developed enough to include me in a quest!",
-                    "langUid": 1
                   },
-                  "autoContinue": false,
-                  "type": "SHOW_MSG",
-                  "person": {
-                    "person": "main.coquelicot",
-                    "expression": "DEFAULT"
-                  }
-                },
-                {
-                  "message": {
-                    "en_US": "Redeem your trophies from the Master Trials in exchange for some powerful weapons here!",
-                    "langUid": 1
+                  {
+                    "side": "RIGHT",
+                    "order": 0,
+                    "clearSide": false,
+                    "type": "ADD_MSG_PERSON",
+                    "person": {
+                      "person": "main.lea",
+                      "expression": "DEFAULT"
+                    }
                   },
-                  "autoContinue": false,
-                  "type": "SHOW_MSG",
-                  "person": {
-                    "person": "main.coquelicot",
-                    "expression": "DEFAULT"
+                  {
+                    "message": {
+                      "en_US": "I'm here until Autumn's Terminus gets developed enough to include me in a quest!",
+                      "langUid": 1
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                      "person": "main.coquelicot",
+                      "expression": "DEFAULT"
+                    }
+                  },
+                  {
+                    "message": {
+                      "en_US": "Just to let you know, you can redeem your trophies from the Master Trials in exchange for some powerful weapons here!",
+                      "langUid": 1
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                      "person": "main.coquelicot",
+                      "expression": "DEFAULT"
+                    }
+                  },
+                  {
+                    "message": {
+                      "en_US": "So, is there anything you need from me?",
+                      "langUid": 1
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                      "person": "main.coquelicot",
+                      "expression": "DEFAULT"
+                    }
+                  },
+                  {
+                    "0": [
+                      {
+                        "message": {
+                          "en_US": "...!",
+                          "langUid": 122
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "HAND_ONE"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "Alrighty then! Take a look at these trade offers!",
+                          "langUid": 1
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      },
+                      {
+                        "withBranches": true,
+                        "type": "START_NPC_TRADE_MENU",
+                        "traded": [
+                          {
+                            "ignoreSlowDown": false,
+                            "type": "WAIT",
+                            "time": 0.2
+                          },
+                          {
+                            "message": {
+                              "en_US": "Have fun with your new goodies!",
+                              "langUid": 2
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "[nods]",
+                              "langUid": 3,
+                              "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
+                              "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
+                              "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
+                              "de_DE": "[nickt]"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "NOD"
+                            }
+                          }
+                        ],
+                        "canceled": [
+                          {
+                            "ignoreSlowDown": false,
+                            "type": "WAIT",
+                            "time": 0.2
+                          },
+                          {
+                            "message": {
+                              "en_US": "Come back when you've decided!",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "...",
+                              "de_DE": "...",
+                              "fr_FR": "fr_FR",
+                              "langUid": 5,
+                              "zh_CN": "...",
+                              "ko_KR": "...",
+                              "ja_JP": "…"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "THINKING"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "1": [
+                      {
+                        "message": {
+                          "en_US": "...!",
+                          "langUid": 134
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "HAND_TWO"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "Oh, aren't you the daring one!",
+                          "langUid": 4
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "\\c[3]EX trial mode\\c[0] makes all Master Trial fights significantly harder, but they give an extra trophy reward for your ordeal!",
+                          "langUid": 4
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "Are you sure you want to enable this mode?",
+                          "langUid": 4
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      },
+                      {
+                        "0": [
+                          {
+                            "message": {
+                              "en_US": "[nods]",
+                              "langUid": 3,
+                              "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
+                              "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
+                              "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
+                              "de_DE": "[nickt]"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "NOD"
+                            }
+                          },
+                          {
+                            "value": true,
+                            "type": "SET_TRIAL_EX_MODE_ENABLED"
+                          },
+                          {
+                            "message": {
+                              "en_US": "Alright! EX trial mode has now been enabled!",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "Come back to me if you want to change this setting again.",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          }
+                        ],
+                        "1": [
+                          {
+                            "message": {
+                              "en_US": "[shakes head]",
+                              "de_DE": "[schüttelt Kopf]",
+                              "fr_FR": "fr_FR",
+                              "langUid": 134,
+                              "zh_CN": "[摇头]",
+                              "ja_JP": "[首を振る]",
+                              "ko_KR": "[도리도리]",
+                              "zh_TW": "[搖頭]"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "SHAKE"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "No? Well, I still think this mode is worth trying at some point in the future.",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          }
+                        ],
+                        "type": "SHOW_CHOICE",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "THINKING"
+                        },
+                        "options": [
+                          {
+                            "0": " ",
+                            "label": {
+                              "en_US": "Yes",
+                              "langUid": 120
+                            }
+                          },
+                          {
+                            "0": " ",
+                            "label": {
+                              "en_US": "No",
+                              "langUid": 120
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "2": [
+                      {
+                        "message": {
+                          "en_US": "...!",
+                          "langUid": 134
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "HAND_TWO"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "Are you sure you want to disable EX trial mode?",
+                          "langUid": 4
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      },
+                      {
+                        "0": [
+                          {
+                            "message": {
+                              "en_US": "[nods]",
+                              "langUid": 3,
+                              "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
+                              "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
+                              "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
+                              "de_DE": "[nickt]"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "NOD"
+                            }
+                          },
+                          {
+                            "value": false,
+                            "type": "SET_TRIAL_EX_MODE_ENABLED"
+                          },
+                          {
+                            "message": {
+                              "en_US": "Alright! EX trial mode has now been disabled!",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "Come back to me if you want to change this setting again.",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          }
+                        ],
+                        "1": [
+                          {
+                            "message": {
+                              "en_US": "[shakes head]",
+                              "de_DE": "[schüttelt Kopf]",
+                              "fr_FR": "fr_FR",
+                              "langUid": 134,
+                              "zh_CN": "[摇头]",
+                              "ja_JP": "[首を振る]",
+                              "ko_KR": "[도리도리]",
+                              "zh_TW": "[搖頭]"
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.lea",
+                              "expression": "SHAKE"
+                            }
+                          },
+                          {
+                            "message": {
+                              "en_US": "Want to keep it on a bit longer? Fine by me!",
+                              "langUid": 4
+                            },
+                            "autoContinue": false,
+                            "type": "SHOW_MSG",
+                            "person": {
+                              "person": "main.coquelicot",
+                              "expression": "DEFAULT"
+                            }
+                          }
+                        ],
+                        "type": "SHOW_CHOICE",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "THINKING"
+                        },
+                        "options": [
+                          {
+                            "0": " ",
+                            "label": {
+                              "en_US": "Yes",
+                              "langUid": 120
+                            }
+                          },
+                          {
+                            "0": " ",
+                            "label": {
+                              "en_US": "No",
+                              "langUid": 120
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "3": [
+                      {
+                        "message": {
+                          "en_US": "[shakes head]",
+                          "de_DE": "[schüttelt Kopf]",
+                          "fr_FR": "fr_FR",
+                          "langUid": 134,
+                          "zh_CN": "[摇头]",
+                          "ja_JP": "[首を振る]",
+                          "ko_KR": "[도리도리]",
+                          "zh_TW": "[搖頭]"
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.lea",
+                          "expression": "SHAKE"
+                        }
+                      },
+                      {
+                        "message": {
+                          "en_US": "In any case, I'll stick around here for as long as you need.",
+                          "langUid": 4
+                        },
+                        "autoContinue": false,
+                        "type": "SHOW_MSG",
+                        "person": {
+                          "person": "main.coquelicot",
+                          "expression": "DEFAULT"
+                        }
+                      }
+                    ],
+                    "type": "SHOW_CHOICE",
+                    "person": {
+                      "person": "main.lea",
+                      "expression": "SURPRISED_TOWARD"
+                    },
+                    "options": [
+                      {
+                        "0": " ",
+                        "label": {
+                          "en_US": "[See trade offers]",
+                          "langUid": 120
+                        }
+                      },
+                      {
+                        "0": " ",
+                        "showCondition": "!arena.ex-mode",
+                        "label": {
+                          "en_US": "[Enable EX trial mode]",
+                          "langUid": 120
+                        }
+                      },
+                      {
+                        "0": " ",
+                        "showCondition": "arena.ex-mode",
+                        "label": {
+                          "en_US": "[Disable EX trial mode]",
+                          "langUid": 120
+                        }
+                      },
+                      {
+                        "0": " ",
+                        "label": {
+                          "en_US": "[Nothing for now]",
+                          "langUid": 121
+                        }
+                      }
+                    ]
                   }
-                },
-                {
-                  "withBranches": true,
-                  "type": "START_NPC_TRADE_MENU",
-                  "traded": [
-                    {
-                      "ignoreSlowDown": false,
-                      "type": "WAIT",
-                      "time": 0.2
-                    },
-                    {
-                      "message": {
-                        "en_US": "Have fun with your new goodies!",
-                        "langUid": 2
-                      },
-                      "autoContinue": false,
-                      "type": "SHOW_MSG",
-                      "person": {
-                        "person": "main.coquelicot",
-                        "expression": "DEFAULT"
-                      }
-                    },
-                    {
-                      "message": {
-                        "en_US": "[nods]",
-                        "langUid": 3,
-                        "zh_CN": "[点头]<<A<<[CHANGED 2019/04/16]",
-                        "ko_KR": "[끄덕]<<A<<[CHANGED 2019/04/16]",
-                        "ja_JP": "[うなずく]<<A<<[CHANGED 2019/04/16]",
-                        "de_DE": "[nickt]"
-                      },
-                      "autoContinue": false,
-                      "type": "SHOW_MSG",
-                      "person": {
-                        "person": "main.lea",
-                        "expression": "NOD"
-                      }
-                    }
-                  ],
-                  "canceled": [
-                    {
-                      "ignoreSlowDown": false,
-                      "type": "WAIT",
-                      "time": 0.2
-                    },
-                    {
-                      "message": {
-                        "en_US": "Come back when you've decided!",
-                        "langUid": 4
-                      },
-                      "autoContinue": false,
-                      "type": "SHOW_MSG",
-                      "person": {
-                        "person": "main.coquelicot",
-                        "expression": "DEFAULT"
-                      }
-                    },
-                    {
-                      "message": {
-                        "en_US": "...",
-                        "de_DE": "...",
-                        "fr_FR": "fr_FR",
-                        "langUid": 5,
-                        "zh_CN": "...",
-                        "ko_KR": "...",
-                        "ja_JP": "…"
-                      },
-                      "autoContinue": false,
-                      "type": "SHOW_MSG",
-                      "person": {
-                        "person": "main.lea",
-                        "expression": "THINKING"
-                      }
-                    }
-                  ]
-                }
-              ],
-              "trader": "arenaCoquelicot"
+                ],
+                "trader": "arenaCoquelicot"
+              }
             }
           }
-        }
-      ]
+        ]
+      }
     }
+  },
+  {
+    "type": "EXIT"
   }
-},{
-	"type": "EXIT"
-}]
+]

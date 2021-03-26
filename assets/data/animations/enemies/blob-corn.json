@@ -1,0 +1,144 @@
+{
+    "DOCTYPE": "MULTI_DIR_ANIMATION",
+    "namedSheets": {
+        "move": {
+            "src": "media/entity/enemy/blob-corn.png",
+            "xCount": 11,
+            "offX": 0,
+            "offY": 0,
+            "width": 32,
+            "height": 32
+        },
+        "attack": {
+            "src": "media/entity/enemy/blob-corn.png",
+            "xCount": 5,
+            "offX": 0,
+            "offY": 32,
+            "width": 56,
+            "height": 56
+        },
+        "element": {
+            "src": "media/entity/enemy/blob-corn.png",
+            "xCount": 4,
+            "offX": 0,
+            "offY": 200,
+            "width": 32,
+            "height": 32
+        }
+    },
+    "shapeType": "Y_FLAT",
+    "SUB": [{
+        "sheet": "move",
+        "dirs": "1",
+        "flipX": [0, 1],
+        "tileOffsets": [0, 0],
+        "SUB": [{
+            "name": "idle",
+            "time": 0.2,
+            "repeat": true,
+            "frames": [0, 1, 2, 1]
+        }, {
+            "name": "move",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [2, 1, 0, 3, 0, 1]
+        }, {
+            "name": "run",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [2, 1, 0, 3, 0, 1]
+        }, {
+            "name": "jump",
+            "time": 0.066,
+            "repeat": false,
+            "frames": [5, 6, 7]
+        }, {
+            "name": "fall",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [7]
+        }, {
+            "name": "land",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [8, 4, 3]
+        }, {
+            "name": "toHammer",
+            "time": 0.066,
+            "repeat": false,
+            "frames": [4, 6, 10]
+        }]
+    }, {
+        "sheet": "move",
+        "dirs": "2",
+        "flipX": [0, 1],
+        "tileOffsets": [0, 0],
+        "SUB": [{
+            "name": "damage",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [9, 9],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }]
+    }, {
+        "gfxOffset": {
+            "x": 0,
+            "y": 14
+        },
+        "sheet": "attack",
+        "dirs": "6",
+        "flipX": [0, 0, 0, 1, 1, 1],
+        "tileOffsets": [0, 5, 10, 10, 5, 0],
+        "SUB": [{
+            "name": "preStomp",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [0, 0],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "stomp",
+            "anchorOffsetX": [10, 19, 12, -12, -19, -10],
+            "anchorOffsetY": [-22, -5, 6, 6, -5, -22],
+            "time": 0.05,
+            "repeat": false,
+            "frames": [1, 2]
+        }, {
+            "name": "postStomp",
+            "time": 0.05,
+            "repeat": true,
+            "frames": [3, 3],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "pierce",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [4]
+        }]
+    }, {
+        "sheet": "element",
+        "dirs": "1",
+        "flipX": [0, 1],
+        "tileOffsets": [0, 0],
+        "SUB": [{
+            "name": "fallHeat",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [0]
+        }, {
+            "name": "fallCold",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [1]
+        }, {
+            "name": "fallShock",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [2]
+        }, {
+            "name": "fallWave",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [3]
+        }]
+    }]
+}

@@ -1,0 +1,50 @@
+{
+    "name": {
+        "en_US": "Niko",
+        "langUid": 1
+    },
+    "size": {
+        "x": 16,
+        "y": 16,
+        "z": 24
+    },
+    "animSheet": "npc.niko",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "idle"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 119,
+        "height": 162,
+        "centerX": 44,
+        "centerY": 77,
+        "src": "niko.png",
+        "parts": [{
+            "normal": {
+                "srcX": 9,
+                "srcY": 0,
+                "width": 119,
+                "height": 162,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
+    }
+}

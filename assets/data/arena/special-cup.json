@@ -1,0 +1,257 @@
+{
+    "core": {
+        "type": "SOLO_CUP",
+        "name": {
+            "en_US": "Special Cup (Test)",
+            "langUid": 4
+        },
+        "info": {
+            "en_US": "A very difficult cup featuring strong enemies from unusual locales... or something.",
+            "langUid": 1
+        },
+        "creator": {
+            "en_US": "Bakafish",
+            "langUid": 30
+        },
+        "music": "raidTheme",
+        "rushMusic": "autumnBoss",
+        "level": 72,
+        "difficulty": "5",
+        "banner": {
+            "src": "media/gui/arena-banners.png",
+            "offX": 280,
+            "offY": 64,
+            "width": 280,
+            "height": 64
+        }
+    },
+    "rounds": [{
+      "name": {
+        "en_US": "Servants of the Solstice",
+        "langUid": 35
+      },
+      "customCode": false,
+      "camFocus": "CAM_FOCUS",
+      "roundFocus": "CAM_FOCUS",
+      "platPoints": 640000,
+      "coins": 0,
+      "objective": {
+        "en_US": "Defeat sun-seeking enemies hailing from \\c[3]\\v[area.autumn-dng.name]\\c[0]!",
+        "langUid": 36
+      },
+      "points": 560000,
+      "type": "DEFAULT",
+      "featuring": [
+        {
+          "en_US": "Jubilant Servants of the Autumn Bringer",
+          "langUid": 37
+        }
+      ],
+      "medal": 0,
+      "waves": [
+        {
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_WEST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn6",
+              "type": "autumn-dng.blob-corn",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn5",
+              "type": "autumn-dng.blob-corn",
+              "attribs": {}
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn7",
+              "type": "autumn-dng.blob-corn",
+              "attribs": {}
+            }
+          ]
+        },
+        {
+          "camFocus": "CAM_FOCUS",
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "SpawnAreaLarge",
+              "type": "autumn-dng.mini-golem",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn5",
+              "type": "autumn-dng.simurgh",
+              "attribs": {
+                "hidden": false
+              }
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn3",
+              "type": "autumn-dng.serval",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "NORTH_EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn6",
+              "type": "autumn-dng.ghost-bunny",
+              "attribs": {
+                "hidden": false
+              }
+            }
+          ]
+        },
+        {
+          "camFocus": "CAM_FOCUS3",
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_WEST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn2",
+              "type": "autumn-dng.hedgehog-ruins",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "WEST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "SpawnAreaLarge3",
+              "type": "autumn-dng.mini-golem-heat",
+              "attribs": {
+                "hidden": false
+              }
+            }
+          ]
+        },
+        {
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_WEST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn4",
+              "type": "autumn-dng.groundhog",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "NORTH_WEST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn7",
+              "type": "autumn-dng.sunjelly",
+              "attribs": {
+                "hidden": false
+              }
+            }
+          ]
+        },
+        {
+          "camFocus": "CAM_FOCUS2",
+          "enemies": [
+            {
+              "group": "",
+              "party": "",
+              "face": "SOUTH_EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "Spawn1",
+              "type": "autumn-dng.hedgehog-ruins",
+              "attribs": {
+                "hidden": false
+              }
+            },
+            {
+              "group": "",
+              "party": "",
+              "face": "EAST",
+              "count": 1,
+              "enemy": "hedgehog",
+              "marker": "SpawnAreaLarge2",
+              "type": "autumn-dng.mini-golem-cold",
+              "attribs": {
+                "hidden": false
+              }
+            }
+          ]
+        }
+      ],
+      "map": "arena.dungeons.autumn-dng",
+      "bonuses": [
+        {
+          "type": "HIT_COUNTER",
+          "value": 5,
+          "points": 5000
+        },
+        {
+          "type": "TIME",
+          "seconds": 180,
+          "points": 20000
+        },
+        {
+          "type": "CHAIN",
+          "target": 10,
+          "points": 10000
+        },
+        {
+          "type": "EFFECTIVE_DAMAGE",
+          "target": 80000,
+          "points": 10000
+        }
+      ],
+      "spawn": "PLAYER_SPAWN"
+    }]
+}

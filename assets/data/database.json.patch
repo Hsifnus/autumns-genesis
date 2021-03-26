@@ -21,6 +21,36 @@
 	"type": "IMPORT",
 	"src": "mod:patches/data/database/commonEvents.json"
 },{
+	"type": "IMPORT",
+	"src": "mod:patches/data/database/coquelicotEvents.json"
+},{
+	"type": "ENTER",
+	"index" : "cooldown-S"
+},{
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+},{
+	"type": "EXIT"
+},{
+	"type": "ENTER",
+	"index" : "cooldown-A"
+},{
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+},{
+	"type": "EXIT"
+},{
+	"type": "ENTER",
+	"index" : "cooldown-B"
+},{
+	"type" : "SET_KEY",
+	"index": "condition",
+	"content" : "party.alive.Emilie || party.alive.Glasses || party.alive.Apollo || party.alive.Joern"
+},{
+	"type": "EXIT"
+},{
 	"type":"EXIT"
 },{
 	"type": "ENTER",

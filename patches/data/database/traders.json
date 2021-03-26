@@ -57,6 +57,58 @@
                 "amount": 1
             }],
             "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-ape",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "463",
+                "amount": 10
+            }, {
+                "id": "trade-ape",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-whale",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "464",
+                "amount": 10
+            }, {
+                "id": "trade-whale",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-artist",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "465",
+                "amount": 10
+            }, {
+                "id": "trade-artist",
+                "amount": 1
+            }],
+            "scale": 1
+        }, {
+            "get": [{
+                "id": "equip-fairy",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "457",
+                "amount": 10
+            }, {
+                "id": "trade-fairy",
+                "amount": 1
+            }],
+            "scale": 1
         }],
         "area": "rhombus-sqr"
     }

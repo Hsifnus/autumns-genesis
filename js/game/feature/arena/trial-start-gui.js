@@ -93,7 +93,7 @@ ig.module("game.feature.arena.trial-start-gui").requires("game.feature.arena.gui
             }
             this.container.setSize(190, 18 * (~~(e / 10) + 1));
             this.addChildGui(this.container);
-            this.name = new sc.TextGui(ig.LangLabel.getText(a.altName && sc.newgame.hasHarderEnemies() ? a.altName : a.name));
+            this.name = new sc.TextGui(ig.LangLabel.getText(a.altName && sc.arena.exMode ? a.altName : a.name));
             this.name.setAlign(ig.GUI_ALIGN_X.CENTER, ig.GUI_ALIGN_Y.BOTTOM);
             this.name.hook.transitions = {
                 DEFAULT: {

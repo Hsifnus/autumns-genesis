@@ -27,59 +27,6 @@
     },
     "entities": [{
         "type": "EventTrigger",
-        "x": 736,
-        "y": 1176,
-        "level": 1,
-        "settings": {
-            "name": "SuperBombDiesBandaid",
-            "eventType": "PARALLEL",
-            "endCondition": "false",
-            "event": [{
-                "time": 20,
-                "type": "WAIT"
-            }, {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.superBombsPlaced",
-                "value": 0
-            }, {
-                "entity": {
-                    "global": true,
-                    "name": "superBomb"
-                },
-                "type": "MANUAL_COMBATANT_KILL_DEAD"
-            }],
-            "triggerType": "ALWAYS",
-            "mapId": 101,
-            "startCondition": "tmp.superBombsPlaced > 0"
-        }
-    }, {
-        "type": "EventTrigger",
-        "x": 736,
-        "y": 1176,
-        "level": 1,
-        "settings": {
-            "name": "SuperBombDies",
-            "eventType": "PARALLEL",
-            "endCondition": "false",
-            "event": [{
-                "entity": {
-                    "global": true,
-                    "name": "superBomb"
-                },
-                "type": "MANUAL_COMBATANT_KILL_DEAD"
-            }, {
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.superBombDeath",
-                "value": 0
-            }],
-            "triggerType": "ALWAYS",
-            "mapId": 100,
-            "startCondition": "tmp.superBombDeath"
-        }
-    }, {
-        "type": "EventTrigger",
         "x": 660,
         "y": 1176,
         "level": 1,

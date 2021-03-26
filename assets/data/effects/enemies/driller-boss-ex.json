@@ -323,6 +323,17 @@
         }]
     },
     "EFFECTS": {
+        "alertShake": [{
+            "rumbleType": "RANDOM",
+            "power": "WEAK",
+            "speed": "FAST",
+            "duration": 6,
+            "fade": true,
+            "type": "RUMBLE"
+        }, {
+            "time": 5,
+            "type": "WAIT"
+        }],
         "bombShield": [{
             "useTargetAngle": false,
             "keepAngleSync": false,

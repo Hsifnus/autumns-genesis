@@ -1,5 +1,6 @@
 {
     "level": 80,
+    "boostedLevel": 80,
     "params": {
         "hp": 429001,
         "attack": 472,
@@ -241,6 +242,10 @@
                     "negated": false,
                     "type": "VAR_CONDITION"
                 }, {
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.superBombsPlaced == 0"
+                }, {
                     "max": 0.33,
                     "negated": false,
                     "type": "RANDOM"
@@ -261,6 +266,10 @@
                     "negated": false,
                     "type": "VAR_CONDITION"
                 }, {
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.superBombsPlaced == 0"
+                }, {
                     "max": 0.66,
                     "negated": false,
                     "type": "RANDOM"
@@ -276,6 +285,33 @@
                     "condition": "entity.attrib.frostAttacks == 0",
                     "negated": false,
                     "type": "VAR_CONDITION"
+                }, {
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.superBombsPlaced == 0"
+                }, {
+                    "negated": false,
+                    "type": "TRACKER_READY",
+                    "name": "superBombTimer"
+                }, {
+                    "condition": "newgame.harder-enemies",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "min": 0,
+                    "max": 0,
+                    "type": "HP_BREAK"
+                }],
+                "action": "SuperHitFlare"
+            }, {
+                "req": [{
+                    "condition": "entity.attrib.frostAttacks == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "negated": false,
+                    "type": "VAR_CONDITION",
+                    "condition": "tmp.superBombsPlaced == 0"
                 }, {
                     "negated": false,
                     "type": "TRACKER_READY",
@@ -1856,6 +1892,162 @@
             },
             "type": "GENERIC"
         },
+        "superBombSpawner": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "name": "loop",
+                "type": "LABEL"
+            }, {
+                "type": "WAIT_UNTIL",
+                "condition": "entity.ownerAttrib.shieldHp == 0 || entity.ownerAttrib.frostAttacks > 0"
+            }, {
+                "time": 35,
+                "aggroTime": 30,
+                "type": "WAIT"
+            }, {
+                "conditions": [{
+                    "max": 1,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "time": 5,
+                    "type": "WAIT"
+                }]
+            }, {
+                "type": "WAIT_UNTIL",
+                "condition": "entity.ownerAttrib.shieldHp == 0 || entity.ownerAttrib.frostAttacks > 0"
+            }, {
+                "duration": 5,
+                "align": "BOTTOM",
+                "group": "",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.driller-boss-ex",
+                    "name": "alertShake"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 5,
+                "align": "BOTTOM",
+                "group": "",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": true,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "map.lab-entrance",
+                    "name": "alertMode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0,
+                "angleVary": 0,
+                "random": false,
+                "count": 12,
+                "duration": 3,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "offsetArea": {
+                    "x": 600,
+                    "y": 120
+                },
+                "circularArea": true,
+                "uniformDir": 0,
+                "delay": 0,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "fallingRock",
+                "offset": {
+                    "x": 0,
+                    "y": 150,
+                    "z": 240
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "SELECT_RANDOM",
+                "options": [{
+                    "0": " ",
+                    "count": 2,
+                    "weight": 1
+                }],
+                "0_0": [{
+                    "count": 1,
+                    "align": "BOTTOM",
+                    "area": {
+                        "x": 340,
+                        "y": 120
+                    },
+                    "zVary": 100,
+                    "type": "RAIN_SUPER_BOMB",
+                    "bombType": "FLARE",
+                    "offset": {
+                        "x": 0,
+                        "y": 150,
+                        "z": 600
+                    }
+                }],
+                "0_1": [{
+                    "count": 1,
+                    "align": "BOTTOM",
+                    "area": {
+                        "x": 340,
+                        "y": 120
+                    },
+                    "zVary": 100,
+                    "type": "RAIN_SUPER_BOMB",
+                    "bombType": "FROST",
+                    "offset": {
+                        "x": 0,
+                        "y": 150,
+                        "z": 600
+                    }
+                }]
+            }, {
+                "name": "loop",
+                "type": "GOTO_LABEL"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "OWNER",
+            "stickFaceAlign": false,
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "config": {
+                "collType": "NONE",
+                "maxVel": 200,
+                "zGravityFactor": 0
+            },
+            "type": "GENERIC"
+        },
         "fallIcicleLine": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -2810,7 +3002,7 @@
                 "attribName": "shieldHp",
                 "changeType": "set",
                 "type": "SET_ATTRIB_NUMBER",
-                "value": 8
+                "value": 7
             }, {
                 "partName": "shield",
                 "anim": "shieldA",
@@ -2848,6 +3040,16 @@
         }, {
             "time": 0.3,
             "type": "WAIT"
+        }, {
+            "offsetX": 0,
+            "offsetY": 0,
+            "speed": "FAST",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "zoom": 1,
+            "focusType": "KEEP_TARGET_IN_SCREEN",
+            "type": "FOCUS_CAMERA"
         }, {
             "type": "CLEAR_EFFECTS"
         }, {
@@ -3348,6 +3550,29 @@
                 "z": 97
             }
         }, {
+            "condition": "newgame.harder-enemies",
+            "withElse": false,
+            "type": "IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "rockLine",
+                "offset": {
+                    "x": -125,
+                    "y": 160,
+                    "z": 97
+                }
+            }, {
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "rockLine",
+                "offset": {
+                    "x": 125,
+                    "y": 160,
+                    "z": 97
+                }
+            }]
+        }, {
             "conditions": [{
                 "min": 2,
                 "negated": false,
@@ -3375,6 +3600,180 @@
                 "withElse": true,
                 "type": "COMBAT_IF",
                 "thenStep": [{
+                    "condition": "entity.attrib.weakKamikatzes",
+                    "withElse": true,
+                    "type": "IF",
+                    "thenStep": [{
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 2,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 25,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }],
+                    "elseStep": [{
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 2,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 80,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }]
+                }],
+                "elseStep": [{
+                    "condition": "entity.attrib.weakKamikatzes",
+                    "withElse": true,
+                    "type": "IF",
+                    "thenStep": [{
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 2,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 25,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }],
+                    "elseStep": [{
+                        "align": "BOTTOM",
+                        "dir": {
+                            "x": 0,
+                            "y": 1
+                        },
+                        "centralAngle": 0.5,
+                        "angleVary": 0,
+                        "startDistCollide": "NONE",
+                        "random": false,
+                        "duration": 0.5,
+                        "clockwise": false,
+                        "flipLeftFace": 0,
+                        "offsetArea": {
+                            "x": 320,
+                            "y": 120
+                        },
+                        "circularArea": true,
+                        "uniformDir": 0,
+                        "delay": 0,
+                        "repeat": false,
+                        "type": "SPAWN_ENEMIES",
+                        "offset": {
+                            "x": 0,
+                            "y": 200,
+                            "z": 240
+                        },
+                        "count": 2,
+                        "enemyInfo": {
+                            "group": "",
+                            "party": "",
+                            "targetOnSpawn": true,
+                            "level": 80,
+                            "type": "mine-kamikatze-alt",
+                            "attribs": {}
+                        }
+                    }]
+                }]
+            }],
+            "elseStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.extraSpawnBlocks",
+                "value": 1
+            }, {
+                "attribName": "frostAttacks",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "condition": "entity.attrib.weakKamikatzes",
+                "withElse": true,
+                "type": "IF",
+                "thenStep": [{
                     "align": "BOTTOM",
                     "dir": {
                         "x": 0,
@@ -3401,12 +3800,12 @@
                         "y": 200,
                         "z": 240
                     },
-                    "count": 2,
+                    "count": 1,
                     "enemyInfo": {
                         "group": "",
                         "party": "",
                         "targetOnSpawn": true,
-                        "level": 80,
+                        "level": 25,
                         "type": "mine-kamikatze-alt",
                         "attribs": {}
                     }
@@ -3438,7 +3837,7 @@
                         "y": 200,
                         "z": 240
                     },
-                    "count": 2,
+                    "count": 1,
                     "enemyInfo": {
                         "group": "",
                         "party": "",
@@ -3448,54 +3847,6 @@
                         "attribs": {}
                     }
                 }]
-            }],
-            "elseStep": [{
-                "changeType": "set",
-                "type": "CHANGE_VAR_NUMBER",
-                "varName": "tmp.extraSpawnBlocks",
-                "value": 1
-            }, {
-                "attribName": "frostAttacks",
-                "changeType": "set",
-                "proxyOwner": false,
-                "type": "SET_ATTRIB_NUMBER",
-                "value": 1
-            }, {
-                "align": "BOTTOM",
-                "dir": {
-                    "x": 0,
-                    "y": 1
-                },
-                "centralAngle": 0.5,
-                "angleVary": 0,
-                "startDistCollide": "NONE",
-                "random": false,
-                "duration": 0.5,
-                "clockwise": false,
-                "flipLeftFace": 0,
-                "offsetArea": {
-                    "x": 320,
-                    "y": 120
-                },
-                "circularArea": true,
-                "uniformDir": 0,
-                "delay": 0,
-                "repeat": false,
-                "type": "SPAWN_ENEMIES",
-                "offset": {
-                    "x": 0,
-                    "y": 200,
-                    "z": 240
-                },
-                "count": 1,
-                "enemyInfo": {
-                    "group": "",
-                    "party": "",
-                    "targetOnSpawn": true,
-                    "level": 80,
-                    "type": "mine-kamikatze-alt",
-                    "attribs": {}
-                }
             }]
         }, {
             "time": 0.5,
@@ -5594,6 +5945,7 @@
         }, {
             "text": {
                 "en_US": "Elimination Protocol Activated",
+                "ja_JP": "殺害手続きを準備中",
                 "langUid": 5
             },
             "time": 2.5,
@@ -6032,7 +6384,28 @@
             "type": "SHOW_ANIMATION",
             "anim": "topShootPre2"
         }, {
-            "time": 0.5,
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "conditions": [{
+                "min": 1,
+                "type": "HP_BREAK"
+            }],
+            "type": "COMBAT_IF",
+            "withElse": false,
+            "thenStep": [{
+                "offsetX": 0,
+                "offsetY": -32,
+                "speed": "SLOW",
+                "transition": "EASE_IN_OUT",
+                "wait": false,
+                "waitSkip": 0,
+                "zoom": 1,
+                "focusType": "KEEP_TARGET_IN_SCREEN",
+                "type": "FOCUS_CAMERA"
+            }]
+        }, {
+            "time": 0.4,
             "type": "WAIT"
         }, {
             "wait": false,
@@ -6609,6 +6982,28 @@
             "type": "MOVE_TO_ENTITY_DISTANCE"
         }],
         "PostHpBreak": [{
+            "conditions": [{
+                "min": 1,
+                "max": 1,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "superBombSpawner",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "name": "bombsPlaced",
+            "type": "SET_ATTRIB_BOOL",
+            "value": false
+        }, {
             "name": "summon",
             "type": "SET_ATTRIB_BOOL",
             "value": true
@@ -6671,6 +7066,16 @@
             "type": "CHANGE_VAR_BOOL",
             "varName": "tmp.heroFallSave",
             "value": true
+        }, {
+            "offsetX": 0,
+            "offsetY": -32,
+            "speed": "SLOW",
+            "transition": "EASE_IN_OUT",
+            "wait": false,
+            "waitSkip": 0,
+            "zoom": 1,
+            "focusType": "KEEP_TARGET_IN_SCREEN",
+            "type": "FOCUS_CAMERA"
         }, {
             "volume": 1,
             "global": false,

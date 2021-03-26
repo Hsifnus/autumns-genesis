@@ -1,5 +1,6 @@
 {
     "level": 80,
+    "boostedLevel": 80,
     "params": {
         "hp": 563414,
         "attack": 480,
@@ -342,6 +343,22 @@
                 "action": "MemoryAttack"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "max": 0.3,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
+            }, {
+                "req": [{
                     "sticking": false,
                     "group": "antiField",
                     "negated": false,
@@ -405,6 +422,16 @@
                     "sticking": false,
                     "group": "antiField",
                     "type": "!HAS_PROXY"
+                }, {
+                    "max": 0.5,
+                    "type": "RANDOM"
+                }],
+                "action": "StunThrower"
+            }, {
+                "req": [{
+                    "sticking": false,
+                    "group": "antiField",
+                    "type": "!HAS_PROXY"
                 }],
                 "action": "StunShoot"
             }, {
@@ -443,6 +470,26 @@
                     "type": "RANDOM"
                 }],
                 "action": "MemoryAttack"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.4,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
             }, {
                 "req": [{
                     "sticking": false,
@@ -529,6 +576,16 @@
                     "sticking": false,
                     "group": "antiField",
                     "type": "!HAS_PROXY"
+                }, {
+                    "max": 0.5,
+                    "type": "RANDOM"
+                }],
+                "action": "StunThrower"
+            }, {
+                "req": [{
+                    "sticking": false,
+                    "group": "antiField",
+                    "type": "!HAS_PROXY"
                 }],
                 "action": "StunShoot"
             }, {
@@ -569,6 +626,26 @@
                 "action": "MemoryAttack"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.8,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCallAlt",
+                "frequency": "VERY_RARE"
+            }, {
+                "req": [{
                     "sticking": false,
                     "group": "antiField",
                     "negated": false,
@@ -584,6 +661,26 @@
                 }],
                 "action": "AquaSpiralsAlt",
                 "frequency": "VERY_RARE"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "sticking": false,
+                    "group": "antiField",
+                    "negated": false,
+                    "type": "HAS_PROXY"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.5,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "RARE"
             }, {
                 "req": [{
                     "sticking": false,
@@ -690,6 +787,21 @@
                 "frequency": "VERY_RARE"
             }, {
                 "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.5,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCallAlt",
+                "frequency": "RARE"
+            }, {
+                "req": [{
                     "condition": "entity.attrib.aquaticCount == 0",
                     "negated": false,
                     "type": "VAR_CONDITION"
@@ -700,6 +812,21 @@
                 }],
                 "action": "AquaSpiralsAlt",
                 "frequency": "RARE"
+            }, {
+                "req": [{
+                    "condition": "newgame.harder-enemies",
+                    "type": "VAR_CONDITION"
+                }, {
+                    "condition": "entity.attrib.aquaticCount == 0",
+                    "negated": false,
+                    "type": "VAR_CONDITION"
+                }, {
+                    "max": 0.8,
+                    "negated": false,
+                    "type": "RANDOM"
+                }],
+                "action": "TidalCall",
+                "frequency": "SOMETIMES"
             }, {
                 "req": [{
                     "condition": "entity.attrib.aquaticCount == 0",
@@ -756,6 +883,391 @@
         }
     },
     "proxies": {
+        "waveWall": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.whale-boss-ex",
+                    "name": "waveSpot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "radius": 52,
+                "yScale": 0,
+                "zHeight": 16,
+                "centralAngle": 1,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "checkCollision": true,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "NONE",
+                    "visualType": "LIGHT",
+                    "element": "WAVE",
+                    "damageFactor": 0.15,
+                    "reverse": false,
+                    "spFactor": 0,
+                    "status": 100,
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 6,
+                "type": "WAIT"
+            }, {
+                "type": "CLEAR_EFFECTS"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "stickFaceAlign": false,
+            "group": "wall",
+            "type": "GENERIC",
+            "size": {
+                "x": 24,
+                "y": 24,
+                "z": 32
+            },
+            "config": {
+                "collType": "NONE"
+            }
+        },
+        "impactWave": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "searchType": "OWN_DIR",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_CLOSEST_FACE",
+                "faces": ["NORTH", "EAST", "WEST", "SOUTH"]
+            }, {
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobSpringyWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": "NONE",
+                "type": "SET_COLL_TYPE"
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 40,
+                "centralAngle": 0,
+                "duration": 3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "visualType": "MEDIUM",
+                    "element": "WAVE",
+                    "damageFactor": 1.2,
+                    "status": 20,
+                    "fly": "HEAVY",
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 300,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "flyHeight": 8
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "impactWave2": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobSpringyWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": "NONE",
+                "type": "SET_COLL_TYPE"
+            }, {
+                "value": 400,
+                "type": "SET_SPEED"
+            }, {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 40,
+                "centralAngle": 0,
+                "duration": 3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "visualType": "MEDIUM",
+                    "element": "WAVE",
+                    "damageFactor": 1,
+                    "status": 20,
+                    "fly": "HEAVY",
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.4,
+                "type": "MOVE_FORWARD"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 300,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "flyHeight": 8
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "impactWave3": {
+            "copyOwnerAnims": false,
+            "breakType": "COMBATANT",
+            "action": [{
+                "duration": -1,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobSpringyWave"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": "NONE",
+                "type": "SET_COLL_TYPE"
+            }, {
+                "value": 250,
+                "type": "SET_SPEED"
+            }, {
+                "value": 3,
+                "type": "SET_ACCEL_SPEED"
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "radius": 32,
+                "yScale": 0,
+                "zHeight": 40,
+                "centralAngle": 0,
+                "duration": 3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "MASSIVE",
+                    "visualType": "MEDIUM",
+                    "element": "WAVE",
+                    "damageFactor": 0.6,
+                    "status": 20,
+                    "fly": "HEAVY",
+                    "guardable": "",
+                    "skillBonus": "RANGED_DMG"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 16,
+                "y": 16,
+                "z": 16
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 300,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "flyHeight": 8
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
         "AntiCompressorField": {
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
@@ -1295,7 +1807,7 @@
                 },
                 "offset": {
                     "x": 0,
-                    "y": 0,
+                    "y": -64,
                     "z": 0
                 }
             }, {
@@ -1317,13 +1829,13 @@
                 "yScale": 0,
                 "zHeight": 0,
                 "centralAngle": 0,
-                "duration": 3,
+                "duration": 1,
                 "expandRadius": 0,
                 "alwaysFull": true,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "rectangular": false,
-                "repeat": false,
+                "repeat": true,
                 "uniformHitDir": false,
                 "fixPos": false,
                 "type": "CIRCLE_ATTACK",
@@ -1349,7 +1861,12 @@
                     "z": 0
                 }
             }, {
-                "time": 3.6,
+                "time": 2.9,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -1407,7 +1924,7 @@
                 },
                 "offset": {
                     "x": 0,
-                    "y": 0,
+                    "y": -64,
                     "z": 0
                 }
             }, {
@@ -1415,7 +1932,7 @@
                 "withElse": false,
                 "type": "IF",
                 "thenStep": [{
-                    "duration": 2.8,
+                    "duration": 3.8,
                     "align": "BOTTOM",
                     "rotateFace": 0,
                     "flipLeftFace": false,
@@ -1445,7 +1962,7 @@
                 "align": "CENTER",
                 "type": "PUSH_PULL_FORCE"
             }, {
-                "time": 3.5,
+                "time": 3.8,
                 "type": "WAIT"
             }, {
                 "align": "CENTER",
@@ -1453,13 +1970,13 @@
                 "yScale": 0,
                 "zHeight": 0,
                 "centralAngle": 0,
-                "duration": 3,
+                "duration": 1,
                 "expandRadius": 0,
                 "alwaysFull": true,
                 "clockwise": false,
                 "flipLeftFace": 0,
                 "rectangular": false,
-                "repeat": false,
+                "repeat": true,
                 "uniformHitDir": false,
                 "fixPos": false,
                 "type": "CIRCLE_ATTACK",
@@ -1485,7 +2002,270 @@
                     "z": 0
                 }
             }, {
-                "time": 3.6,
+                "time": 2.9,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 80,
+                "y": 80,
+                "z": 8
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 0,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "zGravityFactor": 1
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "aquaSpiralDelay": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "timeDisconnect": true,
+            "action": [{
+                "value": 1500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }, {
+                "duration": 2.8,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralMarker"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 5.9,
+                "type": "WAIT"
+            }, {
+                "duration": 3,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralSudden"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -64,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "BREAK",
+                    "hitInvincible": true,
+                    "element": "WAVE",
+                    "damageFactor": 15,
+                    "status": 20,
+                    "fly": "MASSIVE+",
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 500,
+                        "type": "Z_VEL"
+                    }],
+                    "guardable": "NEVER",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
+                "type": "WAIT"
+            }],
+            "invisible": false,
+            "hp": 0,
+            "stickToSource": "NONE",
+            "group": "",
+            "size": {
+                "x": 80,
+                "y": 80,
+                "z": 8
+            },
+            "shadow": 0,
+            "effects": "",
+            "maxBounce": 0,
+            "groundBounce": 0,
+            "speed": 0,
+            "zBounciness": 0,
+            "multiHit": false,
+            "noLightGlow": false,
+            "config": {
+                "zGravityFactor": 1
+            },
+            "attack": {
+                "type": "NONE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            },
+            "zVel": 0,
+            "type": "GENERIC"
+        },
+        "aquaSpiralDelaySlow": {
+            "copyOwnerAnims": false,
+            "breakType": "ACTION",
+            "timeDisconnect": true,
+            "action": [{
+                "value": 1500,
+                "type": "SET_SPEED"
+            }, {
+                "time": 1,
+                "type": "MOVE_FORWARD"
+            }, {
+                "duration": 3.5,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralMarker"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 6.9,
+                "type": "WAIT"
+            }, {
+                "duration": 3,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "aquaSpiralSudden"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": -64,
+                    "z": 0
+                }
+            }, {
+                "time": 0.3,
+                "type": "WAIT"
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 1,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": true,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "BREAK",
+                    "hitInvincible": true,
+                    "element": "WAVE",
+                    "damageFactor": 15,
+                    "status": 20,
+                    "fly": "MASSIVE+",
+                    "stunSteps": [{
+                        "type": "BLOCK_XY"
+                    }, {
+                        "value": 500,
+                        "type": "Z_VEL"
+                    }],
+                    "guardable": "NEVER",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 3,
+                "type": "WAIT"
+            }, {
+                "type": "STOP_REPEATING_FORCE"
+            }, {
+                "time": 0.6,
                 "type": "WAIT"
             }],
             "invisible": false,
@@ -1535,7 +2315,7 @@
                 "type": "SELECT_RANDOM",
                 "options": [{
                     "0": " ",
-                    "count": 4,
+                    "count": 2,
                     "weight": 1
                 }],
                 "0_0": [{
@@ -1600,128 +2380,6 @@
                     }
                 }],
                 "0_1": [{
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": 36,
-                        "z": 0
-                    }
-                }, {
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": 100,
-                        "z": 0
-                    }
-                }, {
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": -96,
-                        "z": 0
-                    }
-                }],
-                "0_2": [{
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": 100,
-                        "z": 0
-                    }
-                }, {
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": -32,
-                        "z": 0
-                    }
-                }, {
-                    "align": "BOTTOM",
-                    "centralAngle": 1,
-                    "angleVary": 0,
-                    "random": false,
-                    "count": 4,
-                    "duration": 0,
-                    "clockwise": false,
-                    "flipLeftFace": 0,
-                    "circularArea": false,
-                    "uniformDir": 1,
-                    "delay": 0,
-                    "repeat": false,
-                    "type": "SHOOT_PROXY_RANGE",
-                    "proxy": "aquaticSphere",
-                    "offset": {
-                        "x": 0,
-                        "y": -96,
-                        "z": 0
-                    }
-                }],
-                "0_3": [{
                     "align": "BOTTOM",
                     "centralAngle": 1,
                     "angleVary": 0,
@@ -2341,6 +2999,47 @@
             "group": "tmpShieldSide",
             "type": "CLEAR_EFFECTS"
         }, {
+            "conditions": [{
+                "min": 0,
+                "max": 0,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 7
+            }]
+        }, {
+            "conditions": [{
+                "min": 1,
+                "max": 1,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 11
+            }]
+        }, {
+            "conditions": [{
+                "min": 2,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "changeType": "set",
+                "type": "CHANGE_VAR_NUMBER",
+                "varName": "tmp.blobConsume",
+                "value": 15
+            }]
+        }, {
             "duration": 0,
             "align": "BOTTOM",
             "rotateFace": 0,
@@ -2641,6 +3340,19 @@
             }]
         }],
         "DashAttack": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "noStateReset": false,
+                "type": "DO_ENEMY_ACTION",
+                "actionName": "IndirectDash"
+            }],
+            "0_1": []
+        }, {
             "value": false,
             "type": "SET_FACE_FIX"
         }, {
@@ -2766,11 +3478,11 @@
             "immediately": true,
             "type": "FACE_TO_TARGET"
         }, {
-            "time": 0.3,
+            "time": 0.45,
             "stopBeforeEdge": false,
             "type": "MOVE_BACKWARD"
         }, {
-            "value": 4,
+            "value": 5.5,
             "type": "SET_RELATIVE_SPEED"
         }, {
             "time": 0.1,
@@ -2802,7 +3514,7 @@
                 "z": 0
             }
         }, {
-            "time": 1,
+            "time": 2,
             "cancelOnHit": false,
             "collideCancel": 1,
             "orthoDirFactor": 0,
@@ -2957,19 +3669,44 @@
             "value": 0.6,
             "type": "SET_AIR_FRICTION"
         }, {
-            "time": 0.2,
+            "time": 0.15,
             "stopBeforeEdge": false,
             "type": "MOVE_FORWARD"
         }, {
-            "time": 0.2,
+            "time": 0.1,
             "type": "WAIT"
         }, {
             "withElse": false,
             "type": "IF",
             "condition": "entity.attrib.dash > 0",
             "thenStep": [{
-                "name": "start",
-                "type": "GOTO_LABEL"
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "conditions": [{
+                    "min": 1,
+                    "type": "HP_BREAK"
+                }, {
+                    "condition": "entity.attrib.dash == 1",
+                    "type": "VAR_CONDITION"
+                }],
+                "thenStep": [{
+                    "attribName": "dash",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 0
+                }, {
+                    "time": 0.05,
+                    "type": "WAIT"
+                }, {
+                    "noStateReset": false,
+                    "type": "DO_ENEMY_ACTION_INLINE",
+                    "actionName": "DashAttackCharge"
+                }],
+                "elseStep": [{
+                    "name": "start",
+                    "type": "GOTO_LABEL"
+                }]
             }]
         }, {
             "withElse": false,
@@ -2980,6 +3717,1024 @@
                 "type": "DO_ENEMY_ACTION",
                 "actionName": "JumpAttackSingle"
             }]
+        }],
+        "DashAttackCharge": [{
+            "value": 0.6,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.5,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "duration": 1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "blobSpringyCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 1,
+            "stopBeforeEdge": false,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "conditions": [{
+                "min": 1,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "conditions": [{
+                    "min": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "conditions": [{
+                        "min": 2,
+                        "negated": false,
+                        "type": "HP_BREAK"
+                    }],
+                    "withElse": true,
+                    "type": "COMBAT_IF",
+                    "thenStep": [{
+                        "value": 6.5,
+                        "type": "SET_RELATIVE_SPEED"
+                    }],
+                    "elseStep": [{
+                        "value": 6,
+                        "type": "SET_RELATIVE_SPEED"
+                    }]
+                }],
+                "elseStep": [{
+                    "value": 5,
+                    "type": "SET_RELATIVE_SPEED"
+                }]
+            }],
+            "elseStep": [{
+                "value": 4,
+                "type": "SET_RELATIVE_SPEED"
+            }]
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": -1,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "blobSpringyTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossDashTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 2,
+            "cancelOnHit": false,
+            "collideCancel": 1,
+            "orthoDirFactor": 0,
+            "ignoreLastHit": false,
+            "collideSlip": false,
+            "type": "TACKLE",
+            "attack": {
+                "type": "BREAK",
+                "fly": "HEAVY",
+                "element": "WAVE",
+                "damageFactor": 2.1,
+                "status": 10,
+                "guardable": "NEVER",
+                "hitInvincible": true,
+                "noIronStance": true,
+                "skillBonus": "MELEE_DMG"
+            }
+        }, {
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "memoryBombHidden",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 4
+                }
+            }],
+            "elseStep": [{
+                "condition": "newgame.harder-enemies",
+                "withElse": true,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBombHidden",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }],
+                "elseStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }]
+            }]
+        }, {
+            "group": "trail",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 0,
+            "turn": 0.5,
+            "random": 0,
+            "type": "ROTATE_FACE"
+        }, {
+            "type": "STOP_XY"
+        }, {
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.3,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+        }, {
+            "withElse": true,
+            "type": "IF",
+            "condition": "entity.collWall.x",
+            "thenStep": [{
+                "align": "WALL_HIT",
+                "dir": {
+                    "x": 1,
+                    "y": 0
+                },
+                "centralAngle": 0.5,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "startDist": 32,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "impactWave",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wabBossWallImpact2"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wavBossWallImpact"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "align": "WALL_HIT",
+                "dir": {
+                    "x": 0,
+                    "y": 1
+                },
+                "centralAngle": 0.5,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "startDist": 32,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "impactWave",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wabBossWallImpact2H"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wavBossWallImpactH"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "value": 5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.2,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }],
+        "IndirectDash": [{
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }],
+            "0_1": [{
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }]
+        }, {
+            "time": 0,
+            "turn": 0.02,
+            "type": "ROTATE_FACE"
+        }, {
+            "time": 0,
+            "turn": 0.04,
+            "random": 1,
+            "type": "ROTATE_FACE"
+        }, {
+            "value": false,
+            "type": "SET_FACE_FIX"
+        }, {
+            "value": 1,
+            "type": "SET_BOUNCINESS"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "withElse": true,
+            "type": "IF",
+            "condition": "newgame.harder-enemies",
+            "thenStep": [{
+                "attribName": "dash",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 2
+            }, {
+                "conditions": [{
+                    "min": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "attribName": "dash",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 3
+                }]
+            }, {
+                "conditions": [{
+                    "min": 2,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "attribName": "dash",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 4
+                }]
+            }],
+            "elseStep": [{
+                "attribName": "dash",
+                "changeType": "set",
+                "proxyOwner": false,
+                "type": "SET_ATTRIB_NUMBER",
+                "value": 1
+            }, {
+                "conditions": [{
+                    "min": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "attribName": "dash",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 2
+                }]
+            }, {
+                "conditions": [{
+                    "min": 2,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": false,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "attribName": "dash",
+                    "changeType": "set",
+                    "proxyOwner": false,
+                    "type": "SET_ATTRIB_NUMBER",
+                    "value": 3
+                }]
+            }]
+        }, {
+            "value": 0.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "time": 0.3,
+            "stopBeforeEdge": false,
+            "type": "MOVE_BACKWARD"
+        }, {
+            "value": 6.5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "value": 1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossDashAura"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "name": "start",
+            "type": "LABEL"
+        }, {
+            "attribName": "dash",
+            "changeType": "sub",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+        }, {
+            "time": 2,
+            "cancelOnHit": false,
+            "collideCancel": 0.8,
+            "orthoDirFactor": 0,
+            "ignoreLastHit": false,
+            "collideSlip": false,
+            "type": "TACKLE",
+            "attack": {
+                "type": "MASSIVE",
+                "element": "NEUTRAL",
+                "guardable": "",
+                "skillBonus": ""
+            }
+        }, {
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "memoryBombHidden",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 4
+                }
+            }],
+            "elseStep": [{
+                "condition": "newgame.harder-enemies",
+                "withElse": true,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBombHidden",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }],
+                "elseStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }]
+            }]
+        }, {
+            "group": "trail",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 0,
+            "turn": 0.48,
+            "random": 0,
+            "type": "ROTATE_FACE"
+        }, {
+            "time": 0,
+            "turn": 0.04,
+            "random": 1,
+            "type": "ROTATE_FACE"
+        }, {
+            "type": "STOP_XY"
+        }, {
+            "withElse": true,
+            "type": "IF",
+            "condition": "entity.collWall.x",
+            "thenStep": [{
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wabBossWallHit"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossWallBounce"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wabBossWallHitH"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossWallBounceH"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "time": 0.3,
+            "type": "WAIT"
+        }, {
+            "condition": "entity.attrib.dash > 0",
+            "type": "IF",
+            "withElse": false,
+            "thenStep": [{
+                "name": "start",
+                "type": "GOTO_LABEL"
+            }]
+        }, {
+            "conditions": [{
+                "min": 1,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "conditions": [{
+                    "min": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "conditions": [{
+                        "min": 2,
+                        "negated": false,
+                        "type": "HP_BREAK"
+                    }],
+                    "withElse": true,
+                    "type": "COMBAT_IF",
+                    "thenStep": [{
+                        "value": 6.5,
+                        "type": "SET_RELATIVE_SPEED"
+                    }],
+                    "elseStep": [{
+                        "value": 6,
+                        "type": "SET_RELATIVE_SPEED"
+                    }]
+                }],
+                "elseStep": [{
+                    "value": 5.5,
+                    "type": "SET_RELATIVE_SPEED"
+                }]
+            }],
+            "elseStep": [{
+                "value": 5,
+                "type": "SET_RELATIVE_SPEED"
+            }]
+        }, {
+            "value": true,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "duration": 1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "blobSpringyCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 1.1,
+            "type": "WAIT"
+        }, {
+            "value": false,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 1,
+            "type": "SET_ACCEL_SPEED"
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": -1,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "blobSpringyTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "group": "trail",
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossDashTrail"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 2,
+            "cancelOnHit": false,
+            "collideCancel": 1,
+            "orthoDirFactor": 0,
+            "ignoreLastHit": false,
+            "collideSlip": false,
+            "type": "TACKLE",
+            "attack": {
+                "type": "BREAK",
+                "fly": "HEAVY",
+                "element": "WAVE",
+                "damageFactor": 2.1,
+                "status": 10,
+                "guardable": "NEVER",
+                "hitInvincible": true,
+                "noIronStance": true,
+                "skillBonus": "MELEE_DMG"
+            }
+        }, {
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "type": "SHOOT_PROXY",
+                "proxy": "memoryBombHidden",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 4
+                }
+            }],
+            "elseStep": [{
+                "condition": "newgame.harder-enemies",
+                "withElse": true,
+                "type": "IF",
+                "thenStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBombHidden",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }],
+                "elseStep": [{
+                    "align": "BOTTOM",
+                    "type": "SHOOT_PROXY",
+                    "proxy": "memoryBomb",
+                    "offset": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    }
+                }]
+            }]
+        }, {
+            "group": "trail",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "time": 0,
+            "turn": 0.5,
+            "random": 0,
+            "type": "ROTATE_FACE"
+        }, {
+            "type": "STOP_XY"
+        }, {
+            "zoomType": "LIGHT",
+            "fadeIn": 0,
+            "duration": 0.3,
+            "fadeOut": 0.2,
+            "type": "SET_ZOOM_BLUR"
+        }, {
+            "withElse": true,
+            "type": "IF",
+            "condition": "entity.collWall.x",
+            "thenStep": [{
+                "align": "BOTTOM",
+                "dir": {
+                    "x": 1,
+                    "y": 0
+                },
+                "centralAngle": 0.5,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "startDist": 32,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "impactWave",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wabBossWallImpact2"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wavBossWallImpact"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "align": "BOTTOM",
+                "dir": {
+                    "x": 0,
+                    "y": 1
+                },
+                "centralAngle": 0.5,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "startDist": 32,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "impactWave",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "WALL_HIT",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": true,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wabBossWallImpact2H"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "wavBossWallImpactH"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "time": 0.5,
+            "type": "WAIT"
+        }, {
+            "value": 5,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "value": 0.6,
+            "type": "SET_AIR_FRICTION"
+        }, {
+            "time": 0.2,
+            "stopBeforeEdge": false,
+            "type": "MOVE_FORWARD"
+        }, {
+            "time": 0.1,
+            "type": "WAIT"
         }],
         "JumpAttack": [{
             "duration": -1,
@@ -3127,19 +4882,200 @@
                 "z": 0
             }
         }, {
-            "stopType": "LANDED",
-            "stopBeforeTime": 0,
-            "distance": 0,
-            "rotateSpeed": 0.8,
-            "adjustSpeedMax": 200,
-            "missileMode": 0,
-            "cancelIfBelowFall": false,
-            "type": "JUMP_TARGET_MOVEMENT"
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }, {
+                "type": "VAR_CONDITION",
+                "condition": "entity.attrib.jump == 0"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "stopType": "Z_ZENITH",
+                "stopBeforeTime": 0,
+                "distance": 0,
+                "rotateSpeed": 0.8,
+                "adjustSpeedMax": 300,
+                "missileMode": 0,
+                "cancelIfBelowFall": false,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "value": 20,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 0,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "duration": 0.75,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "trail",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobSpringyCharge"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "condition": "entity.attrib.aquaticCount > 0",
+                "withElse": false,
+                "type": "IF",
+                "thenStep": [{
+                    "time": 0.25,
+                    "type": "WAIT"
+                }]
+            }, {
+                "duration": -1,
+                "align": "CENTER",
+                "rotateFace": -1,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "group": "",
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.wavboss-ex",
+                    "name": "blobSpringyTrail"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": -500,
+                "type": "SET_Z_VEL"
+            }, {
+                "value": 1,
+                "type": "SET_Z_GRAVITY_FACTOR"
+            }, {
+                "type": "WAIT_UNTIL_ON_GROUND"
+            }, {
+                "align": "CENTER",
+                "radius": 96,
+                "yScale": 0,
+                "zHeight": 0,
+                "centralAngle": 0,
+                "duration": 0.3,
+                "expandRadius": 0,
+                "alwaysFull": true,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "rectangular": false,
+                "repeat": false,
+                "uniformHitDir": false,
+                "fixPos": false,
+                "type": "CIRCLE_ATTACK",
+                "attack": {
+                    "type": "BREAK",
+                    "element": "WAVE",
+                    "damageFactor": 4.8,
+                    "hitInvincible": true,
+                    "fly": "MASSIVE+",
+                    "guardable": "NEVER",
+                    "skillBonus": ""
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "type": "STOP_XY"
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossBombXplode"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "zoomType": "LIGHT",
+                "fadeIn": 0,
+                "duration": 0.3,
+                "fadeOut": 0.3,
+                "type": "SET_ZOOM_BLUR"
+            }, {
+                "align": "BOTTOM",
+                "dir": {
+                    "x": 1,
+                    "y": 0
+                },
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "count": 12,
+                "duration": 0,
+                "clockwise": false,
+                "startDist": 32,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "impactWave2",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "elseStep": [{
+                "stopType": "LANDED",
+                "stopBeforeTime": 0,
+                "distance": 0,
+                "rotateSpeed": 0.8,
+                "adjustSpeedMax": 200,
+                "missileMode": 0,
+                "cancelIfBelowFall": false,
+                "type": "JUMP_TARGET_MOVEMENT"
+            }, {
+                "group": "trail",
+                "type": "CLEAR_EFFECTS"
+            }, {
+                "type": "STOP_XY"
+            }]
         }, {
-            "group": "trail",
-            "type": "CLEAR_EFFECTS"
-        }, {
-            "type": "STOP_XY"
+            "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "waveWall",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 4
+            }
         }, {
             "conditions": [{
                 "min": 2,
@@ -3347,6 +5283,26 @@
         }, {
             "type": "CLEAR_TEMP_TARGET"
         }, {
+            "align": "CENTER",
+            "centralAngle": 0.15,
+            "angleVary": 0,
+            "random": false,
+            "count": 2,
+            "duration": 0,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": false,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "waveGun",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
             "duration": 0,
             "align": "CENTER",
             "rotateFace": 0,
@@ -3395,6 +5351,151 @@
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
+                "align": "CENTER",
+                "centralAngle": 0.15,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveGun",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "CENTER",
+                "centralAngle": 0.1,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveGun",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossBombShoot"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": false,
+                "immediately": true,
+                "type": "FACE_TO_TARGET"
+            }, {
+                "align": "CENTER",
+                "type": "SHOOT_PROXY",
+                "proxy": "waveBomb",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "aggroTime": 0.8,
+                "time": 1,
+                "type": "WAIT"
+            }]
+        }, {
+            "conditions": [{
+                "min": 3,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": false,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "align": "CENTER",
+                "centralAngle": 0.15,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveGun",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "CENTER",
+                "centralAngle": 0.1,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveGun",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "CENTER",
+                "centralAngle": 0.05,
+                "angleVary": 0,
+                "random": false,
+                "count": 2,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "waveGun",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
                 "duration": 0,
                 "align": "CENTER",
                 "rotateFace": 0,
@@ -3740,6 +5841,207 @@
                 "elseStep": []
             }]
         }],
+        "StunThrower": [{
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": 1.2,
+            "type": "SET_RELATIVE_SPEED"
+        }, {
+            "entity": {
+                "global": true,
+                "name": "bossCenter"
+            },
+            "maxTime": 0.8,
+            "forceTime": true,
+            "distance": 0,
+            "ignoreBelow": 0,
+            "planOnly": false,
+            "precise": true,
+            "assistSlow": false,
+            "type": "NAVIGATE_TO_ENTITY"
+        }, {
+            "duration": 1.2,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "memoryBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "entity": {
+                "global": true,
+                "name": "bossCenter"
+            },
+            "maxTime": 1.1,
+            "forceTime": true,
+            "distance": 0,
+            "ignoreBelow": 0,
+            "planOnly": false,
+            "precise": true,
+            "assistSlow": false,
+            "type": "NAVIGATE_TO_ENTITY"
+        }, {
+            "type": "CLEAR_TEMP_TARGET"
+        }, {
+            "value": false,
+            "immediately": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "assistSlow": false,
+            "time": 0.1,
+            "type": "WAIT"
+        }, {
+            "duration": 0,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBlobShot"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": -1,
+            "align": "CENTER",
+            "rotateFace": -1,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "group": "shoot",
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "blobSpringyTrail2"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "align": "CENTER",
+            "centralAngle": 0.1,
+            "angleVary": 0,
+            "random": true,
+            "count": 2,
+            "duration": 0.2,
+            "clockwise": false,
+            "flipLeftFace": 0,
+            "circularArea": false,
+            "uniformDir": 0,
+            "delay": 0,
+            "repeat": true,
+            "type": "SHOOT_PROXY_RANGE",
+            "proxy": "impactWave3",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "value": true,
+            "type": "FACE_TO_TARGET"
+        }, {
+            "value": 0.1,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "time": 1,
+            "aggroTime": 1.5,
+            "type": "WAIT"
+        }, {
+            "type": "STOP_REPEATING_FORCE"
+        }, {
+            "group": "shoot",
+            "type": "CLEAR_EFFECTS"
+        }, {
+            "value": 0.3,
+            "type": "FACE_TO_TARGET_SPEED"
+        }, {
+            "entity": {
+                "global": true,
+                "name": "bossCenter"
+            },
+            "maxTime": 0.9,
+            "forceTime": true,
+            "distance": 0,
+            "ignoreBelow": 0,
+            "planOnly": false,
+            "precise": true,
+            "assistSlow": true,
+            "type": "NAVIGATE_TO_ENTITY"
+        }, {
+            "conditions": [{
+                "max": 0,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "entity": {
+                    "global": true,
+                    "name": "bossCenter"
+                },
+                "maxTime": 1,
+                "forceTime": true,
+                "distance": 0,
+                "ignoreBelow": 0,
+                "planOnly": false,
+                "precise": true,
+                "assistSlow": true,
+                "type": "NAVIGATE_TO_ENTITY"
+            }],
+            "elseStep": [{
+                "conditions": [{
+                    "max": 1,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "entity": {
+                        "global": true,
+                        "name": "bossCenter"
+                    },
+                    "maxTime": 0.4,
+                    "forceTime": true,
+                    "distance": 0,
+                    "ignoreBelow": 0,
+                    "planOnly": false,
+                    "precise": true,
+                    "assistSlow": true,
+                    "type": "NAVIGATE_TO_ENTITY"
+                }],
+                "elseStep": []
+            }]
+        }],
         "HpBreak": [{
             "forceValue": 1,
             "type": "RESET_TRACKER",
@@ -3978,6 +6280,15 @@
             "type": "STOP_XY"
         }, {
             "align": "BOTTOM",
+            "type": "SHOOT_PROXY",
+            "proxy": "waveWall",
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 4
+            }
+        }, {
+            "align": "BOTTOM",
             "radius": 56,
             "yScale": 0,
             "zHeight": 0,
@@ -4083,6 +6394,7 @@
         "MemoryAttack": [{
             "text": {
                 "en_US": "Charging Memory Bombs...",
+                "ja_JP": "記憶の爆弾を準備中",
                 "langUid": 3
             },
             "mode": "LINE_FILL",
@@ -4204,13 +6516,19 @@
             "time": 2,
             "type": "WAIT"
         }],
-        "AquaSpirals": [{
+        "TidalCall": [{
             "poiFilter": {
                 "name": "bossCenter",
                 "type": "NAMED_ENTITY"
             },
             "distance": 10000,
             "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
         }, {
             "maxTime": 3,
             "forceTime": false,
@@ -4220,8 +6538,311 @@
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
         }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 2,
+                "weight": 1
+            }],
+            "0_0": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiral",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelay",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_1": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiral",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 1,
+                "angleVary": 0,
+                "random": false,
+                "count": 4,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelay",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "duration": 0,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 3,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "memoryBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "conditions": [{
+                "min": 2,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "actionName": "StunShoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }, {
+                "conditions": [{
+                    "min": 3,
+                    "negated": false,
+                    "type": "HP_BREAK"
+                }],
+                "withElse": true,
+                "type": "COMBAT_IF",
+                "thenStep": [{
+                    "actionName": "StunShoot",
+                    "type": "DO_ENEMY_ACTION_INLINE"
+                }],
+                "elseStep": [{
+                    "value": 16,
+                    "type": "SET_FLY_HEIGHT"
+                }, {
+                    "time": 4,
+                    "type": "WAIT"
+                }]
+            }],
+            "elseStep": [{
+                "value": 64,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "duration": 0,
+                "align": "CENTER",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossLand"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "duration": 0,
+                "align": "BOTTOM",
+                "rotateFace": 0,
+                "flipLeftFace": false,
+                "wait": false,
+                "waitSkip": 0,
+                "actionDetached": false,
+                "fixPos": false,
+                "type": "SHOW_EFFECT",
+                "effect": {
+                    "sheet": "enemies.jungle",
+                    "name": "wavBossPreJump"
+                },
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "value": 32,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 16,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 32,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 16,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 32,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 16,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 32,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 1.5,
+                "type": "WAIT"
+            }]
+        }],
+        "AquaSpirals": [{
+            "poiFilter": {
+                "name": "bossCenter",
+                "type": "NAMED_ENTITY"
+            },
+            "distance": 10000,
+            "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
             "value": -1,
             "type": "SET_WEIGHT"
+        }, {
+            "maxTime": 3,
+            "forceTime": false,
+            "distance": 0,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": true,
+            "type": "NAVIGATE_TO_TARGET"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -4399,7 +7020,652 @@
                     "z": 0
                 }
             }, {
-                "time": 3,
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 16,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 32,
+                "type": "SET_FLY_HEIGHT"
+            },  {
+                "time": 0.75,
+                "type": "WAIT"
+            }, {
+                "value": 16,
+                "type": "SET_FLY_HEIGHT"
+            }, {
+                "time": 0.75,
+                "type": "WAIT"
+            }]
+        }],
+        "TidalCallAlt": [{
+            "poiFilter": {
+                "name": "bossCenter",
+                "type": "NAMED_ENTITY"
+            },
+            "distance": 10000,
+            "type": "SET_POI_TEMP_TARGET"
+        }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
+            "maxTime": 3,
+            "forceTime": false,
+            "distance": 0,
+            "planOnly": false,
+            "targetType": "ENEMY",
+            "precise": true,
+            "type": "NAVIGATE_TO_TARGET"
+        }, {
+            "type": "SELECT_RANDOM",
+            "options": [{
+                "0": " ",
+                "count": 8,
+                "weight": 1
+            }],
+            "0_0": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_6": [{
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_1": [{
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_7": [{
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_2": [{
+                "face": "NORTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_3": [{
+                "face": "NORTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "NORTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_4": [{
+                "face": "SOUTH_EAST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }],
+            "0_5": [{
+                "face": "SOUTH_WEST",
+                "rotate": false,
+                "rotateSpeed": 10,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralSlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }, {
+                "time": 0.1,
+                "type": "WAIT"
+            }, {
+                "face": "SOUTH",
+                "rotate": false,
+                "rotateSpeed": 100,
+                "type": "SET_FACE"
+            }, {
+                "time": 0.2,
+                "type": "WAIT"
+            }, {
+                "align": "BOTTOM",
+                "centralAngle": 0.75,
+                "startAngle": 0.125,
+                "angleVary": 0,
+                "random": false,
+                "count": 7,
+                "duration": 0,
+                "clockwise": false,
+                "flipLeftFace": 0,
+                "circularArea": false,
+                "uniformDir": 0,
+                "delay": 0,
+                "repeat": false,
+                "type": "SHOOT_PROXY_RANGE",
+                "proxy": "aquaSpiralDelaySlow",
+                "offset": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                }
+            }]
+        }, {
+            "duration": 0,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.jungle",
+                "name": "wavBossBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "duration": 3,
+            "align": "CENTER",
+            "rotateFace": 0,
+            "flipLeftFace": false,
+            "wait": false,
+            "waitSkip": 0,
+            "actionDetached": false,
+            "fixPos": false,
+            "type": "SHOW_EFFECT",
+            "effect": {
+                "sheet": "enemies.wavboss-ex",
+                "name": "memoryBombCharge"
+            },
+            "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            }
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        },  {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 32,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "value": 8,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 0.75,
+            "type": "WAIT"
+        }, {
+            "actionName": "StunShoot",
+            "type": "DO_ENEMY_ACTION_INLINE"
+        }, {
+            "conditions": [{
+                "min": 3,
+                "negated": false,
+                "type": "HP_BREAK"
+            }],
+            "withElse": true,
+            "type": "COMBAT_IF",
+            "thenStep": [{
+                "actionName": "StunShoot",
+                "type": "DO_ENEMY_ACTION_INLINE"
+            }],
+            "elseStep": [{
+                "time": 1,
                 "type": "WAIT"
             }]
         }],
@@ -4411,6 +7677,12 @@
             "distance": 10000,
             "type": "SET_POI_TEMP_TARGET"
         }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -4418,9 +7690,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "type": "SELECT_RANDOM",
             "options": [{
@@ -4680,6 +7949,12 @@
             "value": 16,
             "type": "SET_FLOAT_HEIGHT"
         }, {
+            "value": "IGNORE",
+            "type": "SET_COLL_TYPE"
+        }, {
+            "value": -1,
+            "type": "SET_WEIGHT"
+        }, {
             "maxTime": 3,
             "forceTime": false,
             "distance": 0,
@@ -4687,9 +7962,6 @@
             "targetType": "ENEMY",
             "precise": true,
             "type": "NAVIGATE_TO_TARGET"
-        }, {
-            "value": -1,
-            "type": "SET_WEIGHT"
         }, {
             "withElse": false,
             "type": "IF",
@@ -4884,8 +8156,14 @@
                 "z": 0
             }
         }, {
-            "time": 4,
-            "aggroTime:": 3,
+            "time": 2,
+            "type": "WAIT"
+        }, {
+            "value": 16,
+            "type": "SET_FLY_HEIGHT"
+        }, {
+            "time": 2,
+            "aggroTime:": 1,
             "type": "WAIT"
         }]
     },

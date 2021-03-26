@@ -11,7 +11,8 @@ ig.module("game.feature.arena.trial-misc").requires("game.feature.menu.gui.arena
                     a;
                 this.round = b;
                 var roundData = this.cup.rounds[b];
-                (this.cup = sc.arena.getCupData(this.key)) ? b == -1 ? this.title.setText(ig.lang.get("sc.gui.arena.menu.rush")) : this.title.setText(ig.LangLabel.getText(roundData.altName && sc.newgame.hasHarderEnemies() ? roundData.altName : roundData.name)): this.title.setText(ig.lang.get("sc.gui.arena.menu.noRound"));
+                (this.cup = sc.arena.getCupData(this.key)) ? b == -1 ? this.title.setText(ig.lang.get("sc.gui.arena.menu.rush")) :
+                    this.title.setText(ig.LangLabel.getText(roundData.altName && sc.arena.exMode ? roundData.altName : roundData.name)): this.title.setText(ig.lang.get("sc.gui.arena.menu.noRound"));
                 this.round >= -1 && this.pages[1].setData(a, this.round, true)
             }
         }

@@ -122,7 +122,7 @@
             "langUid": 67
         },
         "track": true,
-        "order": 312,
+        "order": 10000,
         "area": "autumn-dng",
         "anim": false,
         "extra": false,
@@ -150,6 +150,205 @@
         },
         "credit": 4550,
         "exp": 200,
+        "itemDrops": [],
+        "boss": false
+    },
+    "autumn-dng.mini-golem-heat": {
+        "name": {
+            "en_US": "Autumnatoast",
+            "langUid": 67
+        },
+        "track": true,
+        "order": 10001,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Ruin Golem",
+            "langUid": 1
+        },
+        "descriptions": [{
+            "text": {
+                "en_US": "A Heat-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, burning cyclone if provoked enough, which can conveniently be interrupted by launching a Heat gust bullet into it. This golem specializes in spreading lingering fire around and will occasionally use the volcano on top of its body to launch fiery rocks from above.",
+                "langUid": 14
+            },
+            "condition": ""
+        }],
+        "category": "MECHA",
+        "level": 71,
+        "boostedLevel": 71,
+        "params": {
+            "hp": 41300,
+            "attack": 470,
+            "defense": 484,
+            "focus": 368,
+            "elemFactor": [0.5, 1.25, 1, 1]
+        },
+        "credit": 5050,
+        "exp": 150,
+        "itemDrops": [],
+        "boss": false
+    },
+    "autumn-dng.mini-golem-cold": {
+        "name": {
+            "en_US": "Autumnafrost",
+            "langUid": 67
+        },
+        "track": true,
+        "order": 10002,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Ruin Golem",
+            "langUid": 1
+        },
+        "descriptions": [{
+            "text": {
+                "en_US": "A Cold-attuned golem patrolling the mysterious ruins of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Normally resistant to all attacks, this golem will charge up a powerful, freezing cyclone if provoked enough, which can conveniently be interrupted by launching a Cold gust bullet into it. This golem specializes in sliding about the arena and will occasionally use the turret on top of its body to launch icicle mines that bounce around the area.",
+                "langUid": 14
+            },
+            "condition": ""
+        }],
+        "category": "MECHA",
+        "level": 71,
+        "boostedLevel": 71,
+        "params": {
+            "hp": 43900,
+            "attack": 440,
+            "defense": 481,
+            "focus": 402,
+            "elemFactor": [0.5, 1.25, 1, 1]
+        },
+        "credit": 5050,
+        "exp": 150,
+        "itemDrops": [],
+        "boss": false
+    },
+    "autumn-dng.groundhog": {
+        "name": {
+            "en_US": "Jammin' Hillhog",
+            "langUid": 5941
+        },
+        "track": true,
+        "order": 64,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Headbanging Mammal",
+            "langUid": 6
+        },
+        "category": "ANIMALS",
+        "descriptions": [{
+            "text": {
+                "en_US": "An unusually rotund relative of the typical Hillkat. It likes to listen to an even mix of death metal and chill music, and as such has acquired the ability to throw both Heat and Cold projectiles. Its increased weight also makes it harder to break than typical Hillkats, so pay this rodent some attention!",
+                "langUid": 14
+            },
+            "condition": ""
+        }],
+        "level": 68,
+        "boostedLevel": 68,
+        "params": {
+            "hp": 39152,
+            "attack": 468,
+            "defense": 452,
+            "focus": 432,
+            "elemFactor": [1.25, 0.5, 1, 1],
+            "statusInflict": [1.25, 1.25, 1.25, 1.25]
+        },
+        "credit": 2520,
+        "exp": 110,
+        "itemDrops": [{
+            "item": "80",
+            "prob": 0.12,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "74",
+            "prob": 0.04,
+            "min": 1,
+            "max": 1,
+            "rank": "B"
+        }],
+        "boss": false
+    },
+    "autumn-dng.sunjelly": {
+        "name": {
+            "en_US": "Soljelly",
+            "langUid": 4225
+        },
+        "track": true,
+        "order": 311,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": "spin",
+        "species": {
+            "en_US": "Flaming Jellyfish",
+            "langUid": 1
+        },
+        "category": "ABSTRACT",
+        "descriptions": [{
+            "text": {
+                "en_US": "The mystical sunset of \\c[3]\\v[area.autumn-dng.name]\\c[0] imbues the fiery power of the sun into this jellyfish. Unlike its desert brethren, it summons fiery wind bubbles and tackles its prey with a long-lasting spinning attack.\nUse charged heat shots to activate their wind bubbles and shoot gust bullets that temporarily stun them. However, watch out for the curvy bullet attack that this jellyfish will sometimes charge up!",
+                "langUid": 3
+            },
+            "condition": ""
+        }],
+        "level": 69,
+        "boostedLevel": 69,
+        "params": {
+            "hp": 28710,
+            "attack": 398,
+            "defense": 446,
+            "focus": 573,
+            "elemFactor": [0, 1.5, 0.5, 0.5]
+        },
+        "credit": 181,
+        "exp": 50,
+        "itemDrops": [{
+            "item": "201",
+            "prob": 0.24,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }],
+        "boss": false
+    },
+    "autumn-dng.ghost-bunny": {
+        "name": {
+            "en_US": "Bunnfire",
+            "langUid": 4225
+        },
+        "track": true,
+        "order": 1000,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": "dash",
+        "species": {
+            "en_US": "Afterlife Mammal",
+            "langUid": 1
+        },
+        "category": "ANIMALS",
+        "descriptions": [{
+            "text": {
+                "en_US": "This ghost is said to have been the spirit of a Frobbit that had fallen to unjust harm. Brought back into being by the powers of \\c[3]\\v[area.autumn-dng.name]\\c[0], this ghost typically spends its days consuming excess leaves in the area's woods. However, it bears a deep grudge against any Seekers that pass by and will attack relentlessly with its cursed flames. These flames add \\c[3]spite\\c[0] on contact that the ghost can later use to recover its HP, so be wary of what hits you take!",
+                "langUid": 3
+            },
+            "condition": ""
+        }],
+        "level": 68,
+        "boostedLevel": 68,
+        "params": {
+            "hp": 32680,
+            "attack": 410,
+            "defense": 360,
+            "focus": 524,
+            "elemFactor": [0.5, 1.25, 0.5, 0.5]
+        },
+        "credit": 1850,
+        "exp": 90,
         "itemDrops": [],
         "boss": false
     },
@@ -353,6 +552,80 @@
         "itemDrops": [],
         "boss": true
     },
+    "trial/flare-bomb": {
+        "name": {
+            "en_US": "Flare Super Bomb",
+            "langUid": 329
+        },
+        "kills": 1,
+        "track": true,
+        "order": 201,
+        "area": "cold-dng",
+        "anim": "idle",
+        "extra": "almost",
+        "descriptions": [{
+            "text": {
+                "en_US": "A long-forbidden armament stored deep within the \\c[3]\\v[area.cold-dng.name]\\c[0]. After making a landing, the bomb starts a countdown sequence that ends in a massive, lingering explosion of lethal flame. Try defusing the bomb with Cold attacks before it detonates!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Dangerous Bomb",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 28000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [0.8, 1.2, 1, 1],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "boss": false,
+        "credit": 0,
+        "exp": 0
+    },
+    "trial/frost-bomb": {
+        "name": {
+            "en_US": "Frost Super Bomb",
+            "langUid": 329
+        },
+        "kills": 1,
+        "track": true,
+        "order": 202,
+        "area": "cold-dng",
+        "anim": "idleAlt",
+        "extra": "almostAlt",
+        "descriptions": [{
+            "text": {
+                "en_US": "A long-forbidden armament stored deep within the \\c[3]\\v[area.cold-dng.name]\\c[0]. After making a landing, the bomb starts a countdown sequence that ends in a long-reaching, deadly cross of icicles. Try defusing the bomb with Heat attacks before it detonates!"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Dangerous Bomb",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 28000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [1.2, 0.8, 1, 1],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "boss": false,
+        "credit": 0,
+        "exp": 0
+    },
     "mine-kamikatze-alt": {
         "name": {
             "en_US": "Kamikatze",
@@ -420,5 +693,686 @@
             "rank": "D"
         }],
         "boss": false
+    },
+    "trial.ape-boss-ex": {
+        "name": {
+            "en_US": "Son of the East",
+            "de_DE": "Sohn des Ostens",
+            "zh_CN": "东方之子",
+            "ja_JP": "東の御子",
+            "ko_KR": "동쪽의 아들",
+            "langUid": 10139
+        },
+        "track": false,
+        "order": 600,
+        "area": "tree-dng",
+        "kills": 2,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "Born atop a mountain from a magic stone, this wise ape serves as the caretaker of both the \\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0] and the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. He will test each Seeker to make sure only the worthy acquire the \\c[3]\\v[item.410.name]\\c[0]. He wields a long staff and flies around on a puffy little cloud. Although his job is to test Seekers, it seems he enjoys a good and honest fight.",
+                "de_DE": "Auf dem Gipfel eines Berges aus einem magischen Stein geboren, dient dieser weise Affe als Hüter über den \\c[3]Großen Krys'kajo\\c[0] und den \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]. Er testet jeden Seeker und stellt sicher, das nur jene Würdige die \\c[3]\\v[item.410.name]\\c[0] erhalten. Er führt einen langen Stab und fliegt auf einer bauschigen kleinen Wolke umher. Obwohl es seine Aufgabe ist, Seekers zu testen, scheint es, dass er einen guten und ehrlichen Kampf genießt.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "诞生于山巅的一枚神石当中，这头灵猿是\\c[3]\\c[3]\\v[area.tree-dng.name]\\c[0]\\c[0]和\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]的守护者。他会测试每一位前来的探索者，证明他们的实力配得上\\c[3]\\v[item.410.name]\\c[0]。他使用长棍作为武器，并且会腾云驾雾。虽然测试探索者是他的工作，但他还是喜欢实打实硬碰硬的战斗。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "山の頂上に存在していた魔法の石から産まれ出でたこの英知にあふれる類人猿は、\\c[3]\\v[area.tree-dng.name]\\c[0]と\\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]の管理人である。\\c[3]\\v[item.410.name]\\c[0]を授けるに相応しいかどうかを見極めるため、探索者一人一人の実力をその身をもって試している。長い棒を得物として扱い、フワフワの小さな雲に乗って飛び回る。探索者の実力を試すことは彼の任務ではあるものの、正々堂々と戦えることを楽しんでいるように見える。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "산꼭대기에 있는 마법의 돌에서 태어난 이 똑똑한 유인원은 \\c[3]\\v[area.tree-dng.name]\\c[0]와 \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]의 관리인 역할을 합니다. 그는 시커를 시험해 오직 가치가 있는 자만이 \\c[3]\\v[item.410.name]\\c[0]를 손에 넣을 수 있게 합니다. 긴 곤봉을 휘두르며 폭신폭신한 작은 구름을 타고 날아다닙니다. 이 녀석의 의무는 시커를 시험하는 일이긴 하지만, 훌륭하고 정직한 싸움을 즐기는 것 같습니다.<<A<<[CHANGED 2018/09/19]",
+                "langUid": -8
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Handsome Ape",
+            "de_DE": "Ansehnlicher Affe<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "猿帅<<A<<[CHANGED 2018/08/01]",
+            "ja_JP": "イケメンな類人猿<<A<<[CHANGED 2018/08/01]",
+            "ko_KR": "잘생긴 유인원<<A<<[CHANGED 2018/08/01]",
+            "langUid": -4
+        },
+        "category": "ANIMALS",
+        "boostedLevel": 80,
+        "level": 80,
+        "params": {
+            "hp": 500000,
+            "attack": 480,
+            "defense": 450,
+            "focus": 480,
+            "elemFactor": [1, 1, 1, 1],
+            "statusInflict": [0, 0, 0, 0]
+        },
+        "credit": 100000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.whale-boss-ex": {
+        "name": {
+            "en_US": "Ancient Guardian",
+            "zh_CN": "古代守护者",
+            "ja_JP": "エンシェント・ガーディアン",
+            "ko_KR": "고대 수호자",
+            "langUid": 10550,
+            "de_DE": "Ahnenwächter"
+        },
+        "track": false,
+        "order": 610,
+        "area": "tree-dng",
+        "kills": 1,
+        "anim": false,
+        "extra": false,
+        "offset": {
+            "x": -20,
+            "y": -10
+        },
+        "descriptions": [{
+            "text": {
+                "en_US": "Enlightened and aloof, this wise whale is the true guardian of the \\c[3]\\v[area.tree-dng.name]\\c[0]. Together with the \\v[combat.name.jungle/ape-boss] it will combine wave and shock elemental attacks to test a Seeker. Shock balls will stun it, forcing the ape to try and heal it. Who you attack is your choice...",
+                "de_DE": "Erleuchtet und unnahbar ist dieser weise Wal der wahre Wächter des \\c[3]Großen Krys'kajo\\c[0]. Gemeinsam mit \\v[combat.name.jungle/ape-boss] kombiniert er Wellen- und Schockangriffe um Seeker zu prüfen. Schockbälle lähmen ihn, woraufhin der Affe versucht ihn zu heilen. Wen du dann angreifst, bleibt dir überlassen.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "这只智慧而忧郁的生物是\\c[3]\\v[area.tree-dng.name]\\c[0]的真正守卫者。与\\v[combat.name.jungle/ape-boss]一道，他们将混合波与电的力量，为探索者们提供真正的挑战。电球能在猿治疗鲸的时候将他们击晕。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "\\c[3]\\v[area.tree-dng.name]\\c[0]の真の守護者である聡明な鯨。世界の真理を理解しており、達観している。\\v[combat.name.jungle/ape-boss]と協力することで波動と電撃を組み合わせた攻撃を繰り出し、探索者の実力を試す。電撃攻撃を当てることでスタンさせることができ、その間は東の御子が鯨の回復を試みる。どちらを攻撃するかは、プレイヤーの手にゆだねられている…<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "깨달음을 얻어 냉담하며 현명한 이 고래는 \\c[3]\\v[area.tree-dng.name]\\c[0]의 진정한 수호자입니다. \\v[combat.name.jungle/ape-boss]와 함께 파동과 전기 속성 공격을 합쳐 시커를 시험할 것입니다. 유인원이 고래를 치유하려고 할 때 전기 공을 쏘면 기절시킬 수 있습니다. 누구를 공격할지는 당신의 선택입니다...<<A<<[CHANGED 2018/09/19]",
+                "langUid": -9
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Wisdom Bringer",
+            "de_DE": "Weisheitsbringer<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "哺乳类<<A<<[CHANGED 2018/08/01]",
+            "ja_JP": "英知を与える者<<A<<[CHANGED 2018/08/01]",
+            "ko_KR": "지혜를 주는 자<<A<<[CHANGED 2018/08/01]",
+            "langUid": -4
+        },
+        "category": "ANIMALS",
+        "level": 46,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 1440000,
+            "attack": 470,
+            "defense": 400,
+            "focus": 440,
+            "elemFactor": [1, 1, 1, 0.5],
+            "statusInflict": [0.5, 0.5, 0.5, 0.5],
+            "statusEffect": [0.05, 0.4, 0.5, 1]
+        },
+        "credit": 200000,
+        "exp": 2000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.whale-turret": {
+        "name": {
+            "en_US": "Wave Turret 2.0",
+            "langUid": 329
+        },
+        "track": true,
+        "order": 502,
+        "area": "tree-dng",
+        "anim": false,
+        "extra": false,
+        "kills": 1,
+        "descriptions": [{
+            "text": {
+                "en_US": "A larger, upgraded version of the \\v[combat.name.forest/panda]'s wave turret. It is capable of shooting strong wave bullets and concentrated bursts of wave energy. Just how did these things end up inside the \\v[combat.name.jungle/whale-boss], you may ask? Try flinging that question at the Ancients next time you meet them."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Wave Turret",
+            "langUid": 4
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 20000,
+            "attack": 500,
+            "defense": 500,
+            "focus": 500,
+            "elemFactor": [1, 1, 1.2, 0.8],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "credit": 0,
+        "exp": 0,
+        "boss": false
+    },
+    "autumn-dng.blob-corn": {
+        "name": {
+            "en_US": "Kernel of Truth",
+            "langUid": 8733
+        },
+        "track": true,
+        "order": 413,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Gelatin Mass ++",
+            "langUid": 4
+        },
+        "category": "ABSTRACT",
+        "descriptions": [{
+            "text": {
+                "en_US": "A slime resembling a kernel of corn. Symbolizing the boundless autumn harvest, these unassuming-yet-powerful blobs directly serve the deity of \\c[3]\\v[area.autumn-dng.name]\\c[0] and are revered as harbingers of great fortune.",
+                "langUid": 6
+            },
+            "condition": ""
+        }],
+        "level": 72,
+        "params": {
+            "hp": 30000,
+            "attack": 440,
+            "defense": 440,
+            "focus": 440,
+            "elemFactor": [0.2, 0.2, 0.2, 0.2],
+            "statusInflict": [2, 2, 2, 2]
+        },
+        "credit": 2025,
+        "exp": 70,
+        "boss": false
+    },
+    "jungle.blob-wave-alt": {
+        "name": {
+            "en_US": "Jelleric",
+            "de_DE": "Jellerick",
+            "zh_CN": "史莱姆",
+            "ja_JP": "ゼリーリック",
+            "ko_KR": "젤레릭",
+            "langUid": 8733
+        },
+        "track": false,
+        "order": 411,
+        "area": "wave-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A stronger slime enemy? Really? Not really! Just like the \\v[combat.name.jungle/blob] the actual enemy is the light inside the mass. But the mass is harder and a bit darker which makes it stronger! Other than that it behaves exactly like its weaker kind, yep. ",
+                "de_DE": "Ein starker Schleimgegner? Ernsthaft? Nicht wirklich! Genau wie der \\v[combat.name.jungle/blob] ist der eigentliche Feind das Licht in der Masse. Aber die Masse ist härter und etwas dunkler, was ihn stärker macht! Ansonsten verhält er sich wie seine schwächere Variante, jup.<<C<<Überprüfen: Beschreibung",
+                "zh_CN": "强力版史莱姆？并不是！就像\\v[combat.name.jungle/blob]一样，真正的敌人位于胶质之内。但是现在胶质更硬更黑更难打！除此之外和弱版没什么不同。嗯。<<A<<[CHANGED 2018/09/19]",
+                "ja_JP": "より強力なスライムだって？本当に？いや、正確には間違いだ！\\v[combat.name.jungle/blob]と同様に、実際の本体はゼラチンの中心に存在する光だ。しかしゼラチン体はより硬質に、色も少し暗くなっており、より強力な敵と化しているぞ！それ以外には、原種のモンスターと何ら変わりない行動を取るため、特に身構える必要はない。<<A<<[CHANGED 2018/09/19]",
+                "ko_KR": "더 강한 슬라임 적이냐고요? 정말 그럴까요? 그렇지 않습니다! \\v[combat.name.jungle/blob]처럼 이 녀석의 실체도 덩어리 안에 있는 빛입니다. 그 대신, 덩어리가 더 단단해졌으며 어두운색을 띠어 마치 더 강해 보이는군요! 그 외에는 이 녀석보다 약한 버전인 녀석과 한치도 다를 바 없습니다. 예, 그럼요.<<A<<[CHANGED 2018/09/19]",
+                "langUid": -6
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Gelatin Mass +",
+            "de_DE": "Gelantine Masse +<<C<<Überprüfen: Beschreibung",
+            "zh_CN": "胶质生物+<<A<<[CHANGED 2018/08/01]",
+            "ja_JP": "ゼラチンの塊+<<A<<[CHANGED 2018/08/01]",
+            "ko_KR": "젤라틴 덩어리 +<<A<<[CHANGED 2018/08/01]",
+            "langUid": -4
+        },
+        "category": "ABSTRACT",
+        "level": 68,
+        "params": {
+            "hp": 39152,
+            "attack": 468,
+            "defense": 452,
+            "focus": 432,
+            "elemFactor": [1.25, 0.5, 1, 1],
+            "statusInflict": [1.25, 1.25, 1.25, 1.25]
+        },
+        "credit": 2520,
+        "exp": 110,
+        "itemDrops": [{
+            "item": "275",
+            "prob": 0.16,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }, {
+            "item": "464",
+            "prob": 0.12,
+            "min": 1,
+            "max": 1,
+            "boosted": true,
+            "condition": "item.448.toggled || stat.items.457>= 1"
+        }],
+        "boss": false
+    },
+    "trial.snowtank-paint": {
+        "name": {
+            "en_US": "Painted Karrotank",
+            "ja_JP": "カロットタンク<<A<<[CHANGED 2019/07/31]",
+            "langUid": 16365,
+            "zh_CN": "卡罗坦克<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "카로탱크<<A<<[CHANGED 2019/07/31]",
+            "de_DE": "Karrotank",
+            "zh_TW": "卡羅坦克<<A<<[CHANGED 2019/07/31]"
+        },
+        "track": false,
+        "order": 149,
+        "area": "bergen-trails",
+        "kills": 5,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A snowman on wheels. Stacks twice the firepower!",
+                "de_DE": "Man sagt, dieses neugierige Wesen wurde von einer Magierin in einer einsamen Nacht erschaffen, aber irgendwann vergessen, wodurch es zu einem gemeinen Gatling Gun-schwingenden Griesgram wurde.\nEs tarnt sich als einfacher Schneemann und greift alles an, was in seine Nähe kommt - aus reiner Angriffslust.\nVermeide es, dich zu lange in seiner Nähe aufzuhalten, da es auch eine starke Stampfattacke austeilen kann.",
+                "zh_CN": "带轮子的雪人。双倍火力！<<A<<[CHANGED 2019/07/31]",
+                "ja_JP": "戦車仕様の雪だるま。火力も2倍に！<<A<<[CHANGED 2019/07/31]",
+                "ko_KR": "바퀴 달린 눈사람. 화력이 두 배로 세졌습니다!<<A<<[CHANGED 2019/07/31]",
+                "langUid": -3,
+                "zh_TW": "帶輪子的雪人。雙倍火力！<<A<<[CHANGED 2019/07/31]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Modified Snowman",
+            "de_DE": "Modifizierter Schneemann",
+            "zh_CN": "改造雪人<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "改造雪だるま<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "변형된 눈사람<<A<<[CHANGED 2019/07/31]",
+            "langUid": -1,
+            "zh_TW": "改造雪人<<A<<[CHANGED 2019/07/31]"
+        },
+        "category": "ABSTRACT",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 40000,
+            "attack": 580,
+            "defense": 600,
+            "focus": 590,
+            "elemFactor": [1.5, 0.25, 1.25, 1],
+            "statusInflict": [0.75, 0, 1, 1]
+        },
+        "credit": 850,
+        "exp": 85,
+        "itemDrops": [],
+        "boss": false
+    },
+    "trial.hedgehog-paint": {
+        "name": {
+            "en_US": "Painted Parahedgehag",
+            "de_DE": "Fliegender Igöll",
+            "zh_CN": "飞刺畏<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "空飛ぶヘッジハッグ<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "날아다니는 고슴됴치<<A<<[CHANGED 2019/07/31]",
+            "langUid": 16237,
+            "zh_TW": "飛刺猬<<A<<[CHANGED 2019/07/31]"
+        },
+        "track": false,
+        "order": 55,
+        "area": "autumn-area",
+        "kills": 5,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A Flying-type variant of the \\c[3]\\v[combat.name.hedgehog]\\c[0].",
+                "de_DE": "Diese große Igöll-Kreatur findet man für gewöhnlich in 20 Mann starken Gruppen. Normalerweise sind sie friedlich, doch werden sie gereizt, setzen sie ihre scharfen Nadeln ein, um ihre Feinde anzugreifen.\nNiemand weiß genau, warum sie \\c[3]\\v[combat.name.hedgehog]\\c[0] heißen. Einige sagen, es war ein Tippfehler. Andere vermuten, es rührt von ihrer gewalttätigen Natur, wenn sie im Rudel angegriffen werden. Es bleibt ein Rätsel.",
+                "zh_CN": "这种大型刺猬通常群居。一般比较温和，如果遭受攻击会使用尖刺反击。\n没人知道它的名字到底为什么是“\\c[3]\\v[combat.name.hedgehog]\\c[0]”。有人说是在刚加入游戏的时候名字打错了。也有人说是因为遇到一大群的时候确实令人心生恐惧。但真正的答案无人知晓。<<A<<[CHANGED 2019/07/31]",
+                "ja_JP": "\\c[3]\\v[combat.name.hedgehog]\\c[0]の変異種で飛行タイプ。<<A<<[CHANGED 2019/07/31]",
+                "ko_KR": "\\c[3]\\v[combat.name.hedgehog]\\c[0]의 비행 타입 변형입니다.<<A<<[CHANGED 2019/07/31]",
+                "langUid": -6,
+                "zh_TW": "這種大型刺猬通常群居。一般比較溫和，如果遭受攻擊會使用尖刺反擊。\r\n沒人知道它的名字到底為什麼是“\\c[3]\\v[combat.name.hedgehog]\\c[0]”。有人說是在剛加入遊戲的時候名字打錯了。也有人說是因為遇到一大群的時候確實令人心生恐懼。但真正的答案無人知曉。<<A<<[CHANGED 2019/07/31]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Flying Mammal",
+            "de_DE": "Fliegendes Säugetier",
+            "zh_CN": "哺乳类<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "空飛ぶ哺乳類<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "날아다니는 포유류<<A<<[CHANGED 2019/07/31]",
+            "langUid": -4,
+            "zh_TW": "哺乳類<<A<<[CHANGED 2019/07/31]"
+        },
+        "category": "ANIMALS",
+        "level": 80,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 32000,
+            "attack": 590,
+            "defense": 580,
+            "focus": 600,
+            "elemFactor": [0.8, 1.25, 1.25, 1]
+        },
+        "credit": 750,
+        "exp": 30,
+        "itemDrops": [],
+        "boss": false
+    },
+    "trial.fish-paint": {
+        "name": {
+            "en_US": "Painted Leggler",
+            "de_DE": "Bebeinter Angler",
+            "zh_CN": "长腿琵琶鱼<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "レッグ・アンコー<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "레기 앵글러<<A<<[CHANGED 2019/07/31]",
+            "langUid": 16368,
+            "zh_TW": "長腿琵琶魚<<A<<[CHANGED 2019/07/31]"
+        },
+        "track": false,
+        "order": 455,
+        "area": "jungle",
+        "kills": 5,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This fish never skips leg day.",
+                "de_DE": "Dieser Fisch hält sich superfit.",
+                "zh_CN": "这种琵琶鱼主要居于多雨的森林。平时保持中立，受到攻击后会与敌人保持距离并喷吐波攻击。对其进行远程射击会让它窜出水面向你发动冲击，闪避并近战攻击来对其进行破防。<<A<<[CHANGED 2019/07/31]",
+                "ja_JP": "足腰をサボらずに鍛えた魚。<<A<<[CHANGED 2019/07/31]",
+                "ko_KR": "이 물고기는 하체 운동 날은 꼭 지킵니다.<<A<<[CHANGED 2019/07/31]",
+                "langUid": -29,
+                "zh_TW": "這種琵琶魚主要居於多雨的森林。平時保持中立，受到攻擊後會與敵人保持距離並噴吐波攻擊。對其進行遠程射擊會讓它竄出水面向你發動衝擊，閃避並近戰攻擊來對其進行破防。<<A<<[CHANGED 2019/07/31]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Running Fish",
+            "de_DE": "Rennender Fisch",
+            "zh_CN": "飞鱼<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "走る魚<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "달리는 물고기<<A<<[CHANGED 2019/07/31]",
+            "langUid": -4,
+            "zh_TW": "飛魚<<A<<[CHANGED 2019/07/31]"
+        },
+        "category": "ANIMALS",
+        "level": 80,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 36000,
+            "attack": 540,
+            "defense": 530,
+            "focus": 550,
+            "elemFactor": [0.5, 1.25, 1.5, 0.2]
+        },
+        "credit": 750,
+        "exp": 55,
+        "itemDrops": [],
+        "boss": false
+    },
+    "trial.scorpion-paint": {
+        "name": {
+            "en_US": "Painted Pincetron",
+            "de_DE": "Pincetron",
+            "zh_CN": "夹机<<A<<[CHANGED 2019/07/31]",
+            "zh_TW": "夾機<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "カニボット<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "핀저트론<<A<<[CHANGED 2019/07/31]",
+            "langUid": 16579
+        },
+        "track": false,
+        "order": 213,
+        "area": "heat-area",
+        "kills": 5,
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "This creepy looking guy is the most common inhabitant of \\c[3]\\v[area.heat-area.name]\\c[0]. It usually poses no threat unless provoked and stays together with others of its kind.\nThey can use their big pincers to quickly attack. The big stinger apparently has some magical properties which allows it to follow you underground and attack from below. Nature is scary.",
+                "de_DE": "Dieser gruselig aussehende Typ ist der häufigste Bewohner in \\c[3]\\v[area.heat-area.name]\\c[0]. Es stellt normalerweise keine Bedrohung dar, es sei denn, es wird provoziert und bleibt mit anderen seiner Art zusammen.\nSie können ihre große Zange benutzen, um schnell anzugreifen. Der große Stachel hat anscheinend einige magische Eigenschaften, die es ihm erlauben, dir unter die Erde zu folgen und von unten anzugreifen. Mutter Natur ist beängstigend.",
+                "zh_CN": "这种可怕的生物通常生活在\\c[3]\\v[area.heat-area.name]\\c[0]。它们通常群居生活，如果不受到攻击不会有攻击行为。\n它们会使用自己的钳爪进行快速攻击。而它们的针刺很明显具备某种魔法，可以让它们在地底对你进行追踪并从下方进行攻击。大自然就是这么可怕。<<A<<[CHANGED 2019/07/31]",
+                "ja_JP": "\\c[3]\\v[area.heat-area.name]\\c[0]でよく見かけることになる、奇妙な見た目のモンスター。攻撃しない限りは脅威になることはなく、他の個体と行動を共にしていることが多い。\n戦闘時には、大きなハサミで素早い攻撃を仕掛ける。大きな針は何らかの魔法的性質を持っているのか、敵の動きを地中で追い続け、背後から突き刺して攻撃する。自然とは恐ろしいものだ。<<A<<[CHANGED 2019/07/31]",
+                "ko_KR": "이 징그럽게 생긴 녀석은 \\c[3]\\v[area.heat-area.name]\\c[0]의 주요 서식 동물입니다. 화 나게 하지 않는 이상 먼저 공격하지 않으며, 동족 무리와 몰려다닙니다.\n이 녀석은 큰 집게로 빠르게 공격합니다. 큰 독침으로 마법처럼 땅속에서 먹잇감을 쫓아가 밑에서 공격합니다. 자연이란 건 무섭군요.<<A<<[CHANGED 2019/07/31]",
+                "langUid": -6,
+                "zh_TW": "這種可怕的生物通常生活在\\c[3]\\v[area.heat-area.name]\\c[0]。它們通常群居生活，如果不受到威脅不會有攻擊行為。\n它們會使用自己的鉗爪進行快速攻擊。而它們的針刺很明顯具備某種魔法，可以讓它們在地底對你進行追蹤並從下方進行攻擊。大自然就是這麼可怕。<<A<<[CHANGED 2019/07/31]"
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Scorpion",
+            "de_DE": "Skorpion",
+            "zh_CN": "蝎类<<A<<[CHANGED 2019/07/31]",
+            "ja_JP": "サソリ<<A<<[CHANGED 2019/07/31]",
+            "ko_KR": "전갈<<A<<[CHANGED 2019/07/31]",
+            "langUid": -4,
+            "zh_TW": "蝎類<<A<<[CHANGED 2019/07/31]"
+        },
+        "category": "ANIMALS",
+        "level": 80,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 36000,
+            "attack": 540,
+            "defense": 560,
+            "focus": 550,
+            "elemFactor": [0.25, 1.5, 1, 1]
+        },
+        "credit": 750,
+        "exp": 33,
+        "itemDrops": [],
+        "boss": false
+    },
+    "trial.scorpion-boss-ex": {
+        "name": {
+            "en_US": "Painted Pincerstonk i6",
+            "langUid": 16684
+        },
+        "track": false,
+        "order": 0,
+        "area": "autumn-area",
+        "anim": false,
+        "extra": false,
+        "descriptions": [],
+        "species": {
+            "en_US": "Mecha Crab",
+            "de_DE": "Mech-Krabbe",
+            "zh_CN": "机蟹<<A<<[CHANGED 2019/08/16]",
+            "ja_JP": "機械のカニ<<A<<[CHANGED 2019/08/16]",
+            "ko_KR": "메카 게<<A<<[CHANGED 2019/08/16]",
+            "langUid": -1,
+            "zh_TW": "機蟹<<A<<[CHANGED 2019/08/16]"
+        },
+        "category": "MECHA",
+        "level": 80,
+        "boostedLevel": 0,
+        "params": {
+            "hp": 150000,
+            "attack": 590,
+            "defense": 550,
+            "focus": 590,
+            "elemFactor": [0.25, 1.5, 0.5, 1.5],
+            "statusInflict": [0, 0, 0, 0]
+        },
+        "credit": 1500,
+        "exp": 500,
+        "itemDrops": [{
+            "item": "545",
+            "prob": 1,
+            "min": 1,
+            "max": 1
+        }],
+        "boss": true
+    },
+    "trial.slime-artist": {
+        "name": {
+            "en_US": "Jellectris Type-B",
+            "langUid": 16684
+        },
+        "track": true,
+        "order": 100000,
+        "area": "forest",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A peculiar slime-based lass engineered by the Ancients for the purpose of managing the power of the Track. Having been recently taken in by the visionaries of \\c[3]Facility X\\c[0] over at \\c[3]\\v[area.forest.name]\\c[0], she's taken quite the liking to a cutting-edge art project the Facility has been developing for a while. By conjuring the likenesses of her fellow Facility residents onto the Reality Canvas she transports around, her paint creations become fully functional paint clones of her actual friends! This happens to be a pretty convenient way of building up firepower, as you may have noticed in the fight with her."
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Slime Artist",
+            "langUid": -1
+        },
+        "category": "ABSTRACT",
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 360000,
+            "attack": 550,
+            "defense": 460,
+            "focus": 550,
+            "elemFactor": [1, 1, 1, 1],
+            "statusInflict": [0, 0, 0, 0],
+            "statusEffect": [0, 0, 0, 0]
+        },
+        "credit": 10000,
+        "exp": 1000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "autumn-dng.serval": {
+        "name": {
+            "en_US": "Servolt",
+            "langUid": 6835
+        },
+        "track": true,
+        "order": 422,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "descriptions": [{
+            "text": {
+                "en_US": "A considerably more feral feline than the cuddly jungle variety, these cats devote much of their activity to hunting prey in the bountiful woods of \\c[3]\\v[area.autumn-dng.name]\\c[0]. Key to their hunting technique is the ability to cloak themselves from view, ambushing unaware passersby with swift, unrelenting tail attacks.",
+                "langUid": 13
+            },
+            "condition": ""
+        }],
+        "species": {
+            "en_US": "Mammal",
+            "de_DE": "Säugetier",
+            "zh_CN": "哺乳类",
+            "ja_JP": "哺乳類",
+            "ko_KR": "포유류",
+            "langUid": -4,
+            "zh_TW": "哺乳類"
+        },
+        "category": "ANIMALS",
+        "level": 68,
+        "boostedLevel": 68,
+        "params": {
+            "hp": 27800,
+            "attack": 401,
+            "defense": 390,
+            "focus": 427,
+            "elemFactor": [1, 1, 0, 1.2],
+            "statusInflict": [1.5, 1.25, 0, 1.5],
+            "statusEffect": [1.5, 1, 0, 1.5]
+        },
+        "credit": 1850,
+        "exp": 80,
+        "itemDrops": [{
+            "item": "274",
+            "prob": 0.16,
+            "min": 1,
+            "max": 1,
+            "rank": ""
+        }],
+        "boss": false
+    },
+    "trial.hazel": {
+        "name": {
+            "en_US": "Hazel",
+            "langUid": 16684
+        },
+        "track": true,
+        "order": 100001,
+        "area": "autumn-dng",
+        "anim": false,
+        "extra": false,
+        "species": {
+            "en_US": "Fall Fairy",
+            "langUid": 4
+        },
+        "category": "PLAYERS",
+        "descriptions": [{
+            "text": {
+                "en_US": "A playful fall fairy spirit who resides deep within the woods of \\c[3]\\v[area.autumn-dng.name]\\c[0]. She is always on the lookout for new playmates to play with in the woods and likes to show off her wind-like agility to her friends. It is said that she usually does not reveal her full power over the winds unless playing with some who is able to keep up with her antics."
+            },
+            "condition": ""
+        }],
+        "level": 80,
+        "boostedLevel": 80,
+        "params": {
+            "hp": 549604,
+            "attack": 517,
+            "defense": 425,
+            "focus": 573,
+            "elemFactor": [1.25, 1.1, 1.1, 0.75]
+        },
+        "credit": 10000,
+        "exp": 1000,
+        "itemDrops": [],
+        "boss": true
+    },
+    "trial.gynthar-ex": {
+      "name": {
+        "en_US": "Gynthar",
+        "de_DE": "Gynthar",
+        "zh_CN": "\u5188\u8428<<A<<[CHANGED 2020/07/15]",
+        "zh_TW": "\u5ca1\u85a9<<A<<[CHANGED 2020/07/15]",
+        "ja_JP": "\u30ae\u30f3\u30b5\u30fc<<A<<[CHANGED 2020/07/15]",
+        "ko_KR": "\uadc4\ud0c0\ub974<<A<<[CHANGED 2020/07/15]",
+        "langUid": 16917
+      },
+      "track": false,
+      "extension": "post-game",
+      "order": 1000,
+      "area": "final-dng",
+      "kills": 1,
+      "anim": false,
+      "extra": false,
+      "category": "PLAYERS",
+      "species": {
+        "en_US": "Armless Monk",
+        "de_DE": "Armloser M\u00f6nch<<C<<Gepr\u00fcft: Minsu",
+        "zh_CN": "\u65e0\u81c2\u6b66\u50e7<<A<<[CHANGED 2021/01/12]",
+        "zh_TW": "\u7121\u81c2\u6b66\u50e7<<A<<[CHANGED 2021/01/12]",
+        "ja_JP": "\u8155\u306e\u306a\u3044\u4fee\u884c\u5897<<A<<[CHANGED 2021/01/12]",
+        "ko_KR": "\ubb34\ubc29\ube44 \uc218\ub3c4\uc0ac<<A<<[CHANGED 2021/01/12]",
+        "langUid": -4
+      },
+      "level": 80,
+      "boostedLevel": 0,
+      "params":{
+        "hp":371710,
+        "attack":710,
+        "defense":710,
+        "focus":710,
+        "elemFactor":[
+          1,
+          1,
+          1,
+          1
+        ],
+        "statusInflict":[
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "statusEffect":[
+          0.1,
+          0.8,
+          0.8,
+          0.8
+        ]
+      },
+      "credit": 100000,
+      "exp": 2000,
+      "itemDrops": [],
+      "boss": true,
+      "descriptions": [
+        {
+          "text": {
+            "en_US": "A guardian as old as the Ancients themselves. It serves as both protector and guard to the final secret of the Ancients. Much like all Seekers, it can switch elements and will attack relentlessly using a weird combination of elemental attacks.\nIn desperation it will call upon the power of all elements to deliver a devastating attack, that will be the final judgement those that are worthy enough.",
+            "de_DE": "Ein W\u00e4chter, der so alt ist wie die Ahnen selbst. Er dient sowohl als Besch\u00fctzer als auch als W\u00e4chter des letzten Geheimnisses der Ahnen. Wie alle Seeker kann er die Elemente wechseln und greift unerbittlich mit einer seltsamen Kombination von Elementangriffen an.\nIn seiner Verzweiflung wird er die Macht aller Elemente anrufen, um einen verheerenden Angriff auszuf\u00fchren, der das endg\u00fcltige Urteil \u00fcber diejenigen sein wird, die w\u00fcrdig genug sind.<<C<<Gepr\u00fcft: Minsu",
+            "langUid": -6,
+            "zh_TW": "\u8207\u5148\u7956\u540c\u6a23\u53e4\u8001\u7684\u5b88\u885b\u8005\u3002\u5b83\u662f\u5148\u7956\u6700\u7d42\u79d8\u5bc6\u7684\u4fdd\u8b77\u8005\u548c\u5b88\u9580\u4eba\u3002\u548c\u63a2\u7d22\u8005\u4e00\u6a23\uff0c\u5b83\u80fd\u4f7f\u7528\u4e0d\u540c\u5143\u7d20\u7684\u529b\u91cf\uff0c\u4e26\u767c\u52d5\u72c2\u98a8\u66b4\u96e8\u822c\u7684\u8972\u64ca\u3002\n\u5728\u7d55\u671b\u6642\u5b83\u6703\u4f7f\u7528\u6240\u6709\u5143\u7d20\u7684\u529b\u91cf\u9032\u884c\u4e00\u6b21\u6bc0\u6ec5\u6027\u7684\u653b\u64ca\uff0c\u4f5c\u70ba\u5c0d\u6311\u6230\u8005\u7684\u6700\u7d42\u5be9\u5224\u3002<<A<<[CHANGED 2021/01/12]",
+            "zh_CN": "\u4e0e\u5148\u7956\u540c\u6837\u53e4\u8001\u7684\u5b88\u536b\u8005\u3002\u5b83\u662f\u5148\u7956\u6700\u7ec8\u79d8\u5bc6\u7684\u4fdd\u62a4\u8005\u548c\u5b88\u95e8\u4eba\u3002\u548c\u63a2\u7d22\u8005\u4e00\u6837\uff0c\u5b83\u80fd\u4f7f\u7528\u4e0d\u540c\u5143\u7d20\u7684\u529b\u91cf\uff0c\u5e76\u53d1\u52a8\u72c2\u98ce\u66b4\u96e8\u822c\u7684\u88ad\u51fb\u3002\n\u5728\u7edd\u671b\u65f6\u5b83\u4f1a\u4f7f\u7528\u6240\u6709\u5143\u7d20\u7684\u529b\u91cf\u8fdb\u884c\u4e00\u6b21\u6bc1\u706d\u6027\u7684\u653b\u51fb\uff0c\u4f5c\u4e3a\u5bf9\u6311\u6218\u8005\u7684\u6700\u7ec8\u5ba1\u5224\u3002<<A<<[CHANGED 2021/01/12]",
+            "ko_KR": "\uace0\ub300\uc778\ub9cc\ud07c\uc774\ub098 \uc624\ub798\ub41c \uc218\ud638\uc790\ub85c, \uace0\ub300\uc778\uc758 \uc228\uaca8\uc9c4 \ube44\ubc00\uc744 \ubcf4\ud638\ud558\uace0 \uc9c0\ud0a4\ub294 \uc5ed\ud560\uc744 \ud569\ub2c8\ub2e4. \uc218\ud638\uc790\ub294 \uc2dc\ucee4\uc640 \ub9c8\ucc2c\uac00\uc9c0\ub85c \uc18d\uc131\uc744 \uc804\ud658\ud560 \uc218 \uc788\uc73c\uba70, \ud2b9\uc774\ud55c \uc18d\uc131 \uc870\ud569\uc73c\ub85c \ubb34\uc790\ube44\ud558\uac8c \uacf5\uaca9\ud569\ub2c8\ub2e4.\n\ubd88\ub9ac\ud55c \uc0c1\ud669\uc5d0\uc11c\ub294 \ubaa8\ub4e0 \uc18d\uc131\uc744 \uc0ac\uc6a9\ud574 \ud30c\uad34\uc801\uc778 \uacf5\uaca9\uc744 \uac00\ud574 \uac00\uce58\ub97c \uc99d\uba85\ud560 \uc218 \uc788\ub294\uc9c0 \ud655\uc778\ud558\uae30 \uc704\ud55c \ub9c8\uc9c0\ub9c9 \uc2ec\ud310\uc744 \ub0b4\ub9bd\ub2c8\ub2e4.<<A<<[CHANGED 2021/01/12]",
+            "ja_JP": "\u53e4\u4ee3\u4eba\u306e\u3088\u3046\u306b\u5e74\u8001\u3044\u305f\u5b88\u8b77\u8005\u3002\u6700\u5f8c\u306e\u53e4\u4ee3\u4eba\u306e\u79d8\u5bc6\u306b\u5b88\u8b77\u3068\u8b77\u885b\u3092\u3082\u305f\u3089\u3059\u3002\u3059\u3079\u3066\u306e\u63a2\u7d22\u8005\u3068\u540c\u69d8\u3001\u30a8\u30ec\u30e1\u30f3\u30c8\u3092\u5207\u308a\u66ff\u3048\u3001\u7d44\u307f\u5408\u308f\u305b\u308b\u3053\u3068\u3067\u57f7\u62d7\u306b\u653b\u6483\u3059\u308b\u3002\n\u6b7b\u306b\u7269\u72c2\u3044\u3067\u3059\u3079\u3066\u306e\u30a8\u30ec\u30e1\u30f3\u30c8\u306e\u529b\u3092\u547c\u3073\u51fa\u3057\u3001\u5727\u5012\u7684\u306a\u653b\u6483\u3092\u4ed5\u639b\u3051\u308b\u3002\u305d\u308c\u306f\u4fa1\u5024\u3042\u308b\u3082\u306e\u306b\u5bfe\u3059\u308b\u6700\u5f8c\u306e\u5be9\u5224\u3068\u306a\u308b\u3067\u3042\u308d\u3046\u3002<<A<<[CHANGED 2021/01/12]"
+          },
+          "condition": ""
+        }
+      ]
     }
 }

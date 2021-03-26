@@ -68,6 +68,7 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
             this.gfx.decreaseRef()
         },
         start: function(a) {
+            var num = a.attributes["bombLevel"] || 80;
             a = a.getAlignedPos(this.align, b);
             this.offset && Vec3.add(a, this.offset);
             for (var e = this.count; e--;) {
@@ -87,8 +88,10 @@ ig.module("game.feature.puzzle.rain-super-bombs").requires("game.feature.puzzle.
                 c.push(Vec2.create(j));
                 h = (Math.random() - 0.5) * this.zVary;
                 j = ig.game.spawnEntity(ig.ENTITY.Enemy, a.x + j.x - 24, a.y + j.y - 24, a.z + h, {
-                    enemyInfo: this.enemyInfo.getSettings(),
-                    manualKill: "tmp.superBombDeath",
+                    enemyInfo: {
+                        ...this.enemyInfo.getSettings(),
+                        level: num
+                    },
                     name: "superBomb"
                 });
             }
