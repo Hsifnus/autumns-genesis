@@ -85,4 +85,11 @@ ig.module("game.feature.player.custom-modifiers").requires(
         icon: -1,
         order: 192
     };
+    sc.MODIFIERS.GYNTHAR_DEFENSE = {
+        altSheet: "media/gui/extra-modifiers.png",
+        offX: 24,
+        offY: 0,
+        icon: -1,
+        order: 193
+    };
 });

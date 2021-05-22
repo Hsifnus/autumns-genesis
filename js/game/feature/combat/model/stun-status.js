@@ -288,4 +288,21 @@ ig.module("game.feature.combat.model.stun-status").requires(
                 applyDamageCallback
             };
         };
+
+        sc.DAMAGE_MODIFIER_FUNCS.GYNTHAR_DEFENSE = (attackInfo, damageFactor, combatantRoot, shieldResult, hitIgnore, params) => {
+            var applyDamageCallback;
+            const defenseModifier = params.getModifier("GYNTHAR_DEFENSE");
+            if (attackInfo.attackerParams
+                && attackInfo.attackerParams.combatant
+                && attackInfo.attackerParams.combatant.enemyName
+                && attackInfo.attackerParams.combatant.enemyName.includes("gynthar")
+                && defenseModifier) {
+                damageFactor *= Math.max(0, 1 - defenseModifier);
+            }
+            return {
+                attackInfo,
+                damageFactor,
+                applyDamageCallback
+            };
+        };
     });

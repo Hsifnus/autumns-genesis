@@ -47,6 +47,14 @@ ig.module("game.feature.arena.trial").requires(
             a = a ? a : sc.arena.runtime.cup;
             return sc.arena.cups[a] && sc.arena.cups[a].isTrial;
         },
+        isRoundEncore: function(a, b) {
+            a = a ? a : sc.arena.runtime.cup;
+            return sc.arena.cups[a] && sc.arena.getCupData(sc.arena.runtime.cup).rounds[b].isEncore;
+        },
+        isRoundConditionSatisfied: function(a, b) {
+            a = a ? a : sc.arena.runtime.cup;
+            return sc.arena.cups[a] && (!sc.arena.getCupData(a).rounds[b].condition || (new ig.VarCondition(sc.arena.getCupData(a).rounds[b].condition)).evaluate());
+        },
         startRound: function() {
             var a = this.runtime,
                 b = this.getCurrentRound();
@@ -314,6 +322,7 @@ ig.module("game.feature.arena.trial").requires(
             return this.getCupTrophy(c.cup) > e
         },
         getCupCompletion: function(a) {
+            var cupName = a;
             if ((a = this.cups[a]) && a.progress) {
                 var b = a.progress;
                 var d = !this.isTrial(a);
@@ -322,8 +331,10 @@ ig.module("game.feature.arena.trial").requires(
                     1 : 0;
                 if (b) {
                     for (var b = b.rounds, d = b.length; d--;) {
-                        b[d].medal >= sc.ARENA_MEDALS_TROPHIES.GOLD && c++;
-                        a++
+                        if (!this.isRoundEncore(cupName, d)) {
+                            b[d].medal >= sc.ARENA_MEDALS_TROPHIES.GOLD && c++;
+                            a++
+                        }
                     }
                     if (c == a && a == 0) {
                         return 0;
@@ -348,11 +359,16 @@ ig.module("game.feature.arena.trial").requires(
             return a / c
         },
         getCupTrophy: function(a) {
+            var cupName = a;
             if (this.cups[a]) {
                 var f = a;
                 if (!this.hasMedalsForTrophy(a)) return 0;
-                for (var a = this.cups[a].progress, b = 0, c = a.rounds.length; c--;) b = b + a.rounds[c].medal;
-                b = b / a.rounds.length;
+                for (var a = this.cups[a].progress, b = 0, c = a.rounds.length; c--;) {
+                    if (!this.isRoundEncore(cupName, c)) {
+                        b = b + a.rounds[c].medal;
+                    }
+                }
+                b = b / a.rounds.filter((_, idx) => !this.isRoundEncore(cupName, idx)).length;
                 c = ~~b;
                 var d = b > c ? b - c >= sc.ARENA_TROPHY_QUOTA ? Math.round(b) : c : c;
                 if (d >= 4 && ((this.isTrial(f) && b >= 4) || a.rush.medal == 4)) {
@@ -471,6 +487,10 @@ ig.module("game.feature.arena.trial").requires(
             if (b[0] == "arena" && b[1]) {
                 if (b[1] == "ex-mode") {
                     return !!this.exMode;
+                } else if (this.cups[b[1]] && b[2] == "progress") {
+                    return this.getCupProgress(b[1])
+                        && this.getCupProgress(b[1]).rounds
+                        && this.getCupProgress(b[1]).rounds.filter(round => !!round.medal).length;
                 } else {
                     return this.parent(a, b);
                 }

@@ -145,4 +145,114 @@ ig.module("impact.feature.weather.weather-autumn-sunset").requires("impact.featu
         alpha: 0.8,
         fade: 0.1
     };
+    ig.WEATHER_TYPES.FINAL_DNG_SPECIAL = {
+        blackCorners: {
+            alpha: 0.45,
+            time: 2,
+            blinkAlpha: 0.5
+        },
+        fog: {
+            alpha: 0.6,
+            vel: {
+                x: 0,
+                y: -30
+            },
+            zoom: 1
+        },
+        darkness: 0.3,
+        lightMapDarkness: 0.3,
+        glowColor: "#101210",
+        particles: [{
+            type: "FINAL_STAR",
+            quantity: 7
+        }, {
+            type: "FINAL_WHIRL",
+            quantity: 10
+        }, {
+            type: "FINAL_GLOW",
+            quantity: 15
+        }]
+    };
+    ig.WEATHER_TYPES.FINAL_DNG_SPECIAL_BATTLE = {
+        blackCorners: {
+            alpha: 0.45,
+            time: 2,
+            blinkAlpha: 0.5
+        },
+        fog: {
+            alpha: 0.6,
+            vel: {
+                x: 0,
+                y: -30
+            },
+            zoom: 1
+        },
+        darkness: 0.2,
+        lightMapDarkness: 0.3,
+        glowColor: "#1F1A24",
+        particles: [{
+            type: "FINAL_STAR",
+            quantity: 7
+        }, {
+            type: "FINAL_WHIRL_FAST",
+            quantity: 20
+        }, {
+            type: "FINAL_GLOW",
+            quantity: 15
+        }]
+    };
+    ig.ENV_PARTICLES.FINAL_STAR = {
+        animSheet: {
+            sheet: {
+                "src": "media/entity/enemy/boss/gynthar-spear.png",
+                "xCount": 1,
+                "offX": 112,
+                "offY": 32,
+                "width": 16,
+                "height": 16
+            },
+            renderMode: "lighter",
+            SUB: [{
+                name: "big",
+                frames: [0, 1, 2, 1],
+                time: 0.2,
+                repeat: true,
+            }, {
+                name: "medium",
+                frames: [0, 1, 2, 1],
+                time: 0.18,
+                repeat: true,
+            }, {
+                name: "small",
+                frames: [0, 1, 2, 1],
+                time: 0.16,
+                repeat: true,
+            }]
+        },
+        speed: 13,
+        speedVariance: 10,
+        dir: {
+            x: -1,
+            y: -1
+        },
+        rotateToDir: 0.25,
+        randomFlip: {
+            x: true,
+            y: true
+        },
+        randomRotate: 0.12,
+        time: 5,
+        timeVariance: 0,
+        fadeTime: 0.5,
+        levels: [{
+            scale: 0.2,
+            anim: "small"
+        }, {
+            scale: 0.4,
+            anim: "medium"
+        }, {
+            scale: 0.6,
+            anim: "big"
+        }]
+    };
 });

@@ -1241,5 +1241,253 @@
       "noCount": true
     }
 },{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30007,
+      "customItem": "trade-gynthar",
+      "name": {
+        "en_US": "Iridiscent Orbis",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A prized heirloom given to those who pass \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s final judgment.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "\\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s Master Trial"
+            },
+            "type": "ENEMY",
+            "value": "trial.gynthar-ex"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30008,
+      "customItem": "trade-ascended",
+      "name": {
+        "en_US": "Arcadian Crystal",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A piece of refined Ku'lerite ore, highly valued in Ancient weapon refining.",
+        "langUid": 2139
+      },
+      "type": "TRADE",
+      "rarity": 6,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-trade",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "Master Trials"
+            },
+            "type": "ENEMY",
+            "value": "trial.gynthar-ex"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 30009,
+      "customItem": "gynthar-token",
+      "name": {
+        "en_US": "Temple Token",
+        "langUid": 2138
+      },
+      "description": {
+        "en_US": "A coin bearing the likeness of \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0] on it, given to disciples as they train.",
+        "langUid": 2139
+      },
+      "type": "KEY",
+      "rarity": 3,
+      "cost": 0,
+      "level": 1,
+      "icon": "item-key",
+      "noTrack": false,
+      "sources": [
+        {
+          "type": "OTHER",
+          "value": {
+            "icon": "ENEMY",
+            "text": {
+              "en_US": "Gynthar"
+            },
+            "type": "ENEMY",
+            "value": "trial.gynthar-ex"
+          }
+        }
+      ],
+      "effect": {
+        "sheet": "",
+        "name": null
+      }
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1101,
+      "customItem": "equip-kulero-cloak",
+      "name": {
+        "en_US": "Guardian's Cloak",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A thick, protective cape resembling that of Gynthar, sized down to fit Seeker stature. \\i[ascended]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 0,
+      "level": 70,
+      "icon": "item-belt",
+      "equipType": "TORSO",
+      "params": {
+        "elemFactor": [
+          1.05,
+          1.05,
+          1.05,
+          1.05
+        ],
+        "attack": 40,
+        "hp": 537,
+        "defense": 112
+      },
+      "properties": {
+        "STUN_THRESHOLD": 1.05,
+        "HP_REGEN": 1.08,
+        "GYNTHAR_DEFENSE": 1.18
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1102,
+      "customItem": "equip-kulero-mask",
+      "name": {
+        "en_US": "Guardian's Mask",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A loose replica of Gynthar's mask. Some say it looks surprisingly adorable. \\i[ascended]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 0,
+      "level": 70,
+      "icon": "item-helm",
+      "equipType": "HEAD",
+      "params": {
+        "attack": 36,
+        "elemFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "defense": 71,
+        "focus": 128
+      },
+      "properties": {
+        "AIM_SPEED": 1.2,
+        "AIM_STABILITY": 1.4,
+        "GYNTHAR_DEFENSE": 1.18
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+},{
+  "type": "ADD_ARRAY_ELEMENT",
+  "content":
+    {
+      "order": 1103,
+      "customItem": "equip-kulero-boots",
+      "name": {
+        "en_US": "Guardian's Boots",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "Fairly comfy boots with similar materials and pattern as Gynthar's cloak. \\i[ascended]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 0,
+      "level": 70,
+      "icon": "item-shoe",
+      "equipType": "FEET",
+      "params": {
+        "attack": 32,
+        "elemFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "hp": 360,
+        "defense": 90,
+        "focus": 90
+      },
+      "properties": {
+        "DASH_STEP": 2,
+        "DASH_INVINC": 1.1,
+        "AIMING_MOVEMENT": 1.15,
+        "GYNTHAR_DEFENSE": 1.14
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+},{
 	"type": "EXIT"
 }]

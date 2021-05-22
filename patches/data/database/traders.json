@@ -111,5 +111,74 @@
             "scale": 1
         }],
         "area": "rhombus-sqr"
+    },
+    "gynthar": {
+        "name": {
+            "en_US": "Temple Token Exchange",
+            "langUid": 1
+        },
+        "order": 1,
+        "options": [{
+            "get": [{
+                "id": "equip-kulero-mask",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "gynthar-token",
+                "amount": 20
+            }],
+            "scale": 80000
+        }, {
+            "get": [{
+                "id": "gynthar-token",
+                "amount": 20
+            }],
+            "require": [{
+                "id": "equip-kulero-mask",
+                "amount": 1
+            }],
+            "scale": 40000
+        }, {
+            "get": [{
+                "id": "equip-kulero-cloak",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "gynthar-token",
+                "amount": 21
+            }],
+            "scale": 80000
+        }, {
+            "get": [{
+                "id": "gynthar-token",
+                "amount": 21
+            }],
+            "require": [{
+                "id": "equip-kulero-cloak",
+                "amount": 1
+            }],
+            "scale": 40000
+        }, {
+            "get": [{
+                "id": "equip-kulero-boots",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "gynthar-token",
+                "amount": 17
+            }],
+            "scale": 80000
+        }, {
+            "get": [{
+                "id": "gynthar-token",
+                "amount": 17
+            }],
+            "require": [{
+                "id": "equip-kulero-boots",
+                "amount": 1
+            }],
+            "scale": 40000
+        }],
+        "area": "final-dng"
     }
 }

@@ -283,22 +283,26 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                                 this.currentIndex++;
                                 return;
                             }
-                            var a = new sc.ArenaCupOverview.MedalEntry(b.id, b.medal, false, b.isRush);
-                            var d = sc.arena.isTrial(this.cup) ? ~~((b.id - 1) / 10) : ~~(b.id / 10);
-                            a.setPos(1 + (sc.arena.isTrial(this.cup) ? b.id - 1 : b.id) % 10 * 18, 2 + d * 18);
-                            this.medals.addChildGui(a);
-                            this.totalValue =
-                                this.totalValue + b.points;
-                            this.total.setValueAsNumber(this.totalValue);
-                            if (b.time) {
-                                this.totalTime = this.totalTime + b.time;
-                                this.time.setTime(this.totalTime)
+                            if (sc.arena.isRoundEncore(this.cup, b.id-1)) {
+                                this.currentIndex++;
+                            } else {
+                                var a = new sc.ArenaCupOverview.MedalEntry(b.id, b.medal, false, b.isRush);
+                                var d = sc.arena.isTrial(this.cup) ? ~~((b.id - 1) / 10) : ~~(b.id / 10);
+                                a.setPos(1 + (sc.arena.isTrial(this.cup) ? b.id - 1 : b.id) % 10 * 18, 2 + d * 18);
+                                this.medals.addChildGui(a);
+                                this.totalValue =
+                                    this.totalValue + b.points;
+                                this.total.setValueAsNumber(this.totalValue);
+                                if (b.time) {
+                                    this.totalTime = this.totalTime + b.time;
+                                    this.time.setTime(this.totalTime)
+                                }
+                                this.currentIndex++;
+                                this.medals.hook.size.y = 2 + (d + 1) * 18;
+                                this.list.recalculateScrollBars(true);
+                                this.list.setScrollY(this.medals.hook.size.y, false, 0.1, KEY_SPLINES.LINEAR);
+                                this.timer = 0.1;
                             }
-                            this.currentIndex++;
-                            this.medals.hook.size.y = 2 + (d + 1) * 18;
-                            this.list.recalculateScrollBars(true);
-                            this.list.setScrollY(this.medals.hook.size.y, false, 0.1, KEY_SPLINES.LINEAR);
-                            this.timer = 0.1;
                             if (this.currentIndex >= this.entries.length) {
                                 this.addEntries = false;
                                 this.done = true;
@@ -386,6 +390,9 @@ ig.module("game.feature.arena.trial-cup-overview").requires("game.feature.arena.
                 for (var b = this.currentIndex; b < this.entries.length; b++) {
                     var a = this.entries[this.currentIndex];
                     if (sc.arena.isTrial(this.cup) && a.isRush) {
+                        continue;
+                    }
+                    if (sc.arena.isRoundEncore(this.cup, a.id-1)) {
                         continue;
                     }
                     var d = new sc.ArenaCupOverview.MedalEntry(a.id, a.medal, true, a.isRush);

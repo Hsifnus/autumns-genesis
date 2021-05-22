@@ -1,0 +1,50 @@
+{
+    "name": {
+        "en_US": "Gynthar",
+        "langUid": 1
+    },
+    "size": {
+        "x": 24,
+        "y": 24,
+        "z": 48
+    },
+    "animSheet": "enemies.gynthar",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "hidden"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 119,
+        "height": 162,
+        "centerX": 44,
+        "centerY": 77,
+        "src": "niko.png",
+        "parts": [{
+            "normal": {
+                "srcX": 9,
+                "srcY": 0,
+                "width": 119,
+                "height": 162,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
+    }
+}

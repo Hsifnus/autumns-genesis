@@ -14,9 +14,9 @@
     "bossOrder": 0,
     "params": {
         "hp": 360000,
-        "attack": 550,
-        "defense": 460,
-        "focus": 550,
+        "attack": 650,
+        "defense": 560,
+        "focus": 650,
         "elemFactor": [1, 1, 1, 1],
         "statusInflict": [0, 0, 0, 0],
         "statusEffect": [0, 0, 0, 0]
@@ -24,30 +24,30 @@
     "elementModes": {
         "HEAT": {
             "hp": 360000,
-            "attack": 590,
-            "defense": 460,
-            "focus": 550,
+            "attack": 690,
+            "defense": 560,
+            "focus": 650,
             "elemFactor": [0.5, 1.5, 1, 1]
         },
         "COLD": {
             "hp": 360000,
-            "attack": 550,
-            "defense": 500,
-            "focus": 550,
+            "attack": 650,
+            "defense": 600,
+            "focus": 650,
             "elemFactor": [1.5, 0.5, 1, 1]
         },
         "SHOCK": {
             "hp": 360000,
-            "attack": 550,
-            "defense": 460,
-            "focus": 590,
+            "attack": 650,
+            "defense": 560,
+            "focus": 690,
             "elemFactor": [1, 1, 0.5, 1.5]
         },
         "WAVE": {
             "hp": 360000,
-            "attack": 560,
-            "defense": 480,
-            "focus": 560,
+            "attack": 660,
+            "defense": 580,
+            "focus": 660,
             "elemFactor": [1, 1, 1.5, 0.5]
         }
     },

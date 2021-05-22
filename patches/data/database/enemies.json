@@ -390,9 +390,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 458643,
-            "attack": 468,
-            "defense": 401,
-            "focus": 507,
+            "attack": 568,
+            "defense": 501,
+            "focus": 617,
             "elemFactor": [0.2, 1.5, 1, 1],
             "statusInflict": [0, 0, 0.75, 0.75],
             "statusEffect": [0, 0.5, 0.5, 0.5]
@@ -440,9 +440,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 673414,
-            "attack": 480,
-            "defense": 510,
-            "focus": 456,
+            "attack": 580,
+            "defense": 610,
+            "focus": 556,
             "elemFactor": [0.75, 1.25, 1.5, 0.5],
             "statusInflict": [0.75, 0.5, 0.75, 0],
             "statusEffect": [0.05, 0.75, 0.05, 1]
@@ -491,9 +491,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 497256,
-            "attack": 514,
-            "defense": 435,
-            "focus": 502,
+            "attack": 614,
+            "defense": 535,
+            "focus": 602,
             "elemFactor": [1, 1, 0, 1.5],
             "statusInflict": [0.75, 0.5, 0, 0.75],
             "statusEffect": [0.2, 0.5, 0, 1]
@@ -541,9 +541,9 @@
         "level": 80,
         "params": {
             "hp": 429001,
-            "attack": 472,
-            "defense": 490,
-            "focus": 535,
+            "attack": 572,
+            "defense": 590,
+            "focus": 635,
             "elemFactor": [1.25, 0.75, 1, 1],
             "statusInflict": [0, 0, 0, 0]
         },
@@ -578,9 +578,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 28000,
-            "attack": 500,
-            "defense": 500,
-            "focus": 500,
+            "attack": 600,
+            "defense": 600,
+            "focus": 600,
             "elemFactor": [0.8, 1.2, 1, 1],
             "statusInflict": [0, 0, 0, 0],
             "statusEffect": [0, 0, 0, 0]
@@ -615,9 +615,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 28000,
-            "attack": 500,
-            "defense": 500,
-            "focus": 500,
+            "attack": 600,
+            "defense": 600,
+            "focus": 600,
             "elemFactor": [1.2, 0.8, 1, 1],
             "statusInflict": [0, 0, 0, 0],
             "statusEffect": [0, 0, 0, 0]
@@ -733,9 +733,9 @@
         "level": 80,
         "params": {
             "hp": 500000,
-            "attack": 480,
-            "defense": 450,
-            "focus": 480,
+            "attack": 580,
+            "defense": 550,
+            "focus": 580,
             "elemFactor": [1, 1, 1, 1],
             "statusInflict": [0, 0, 0, 0]
         },
@@ -787,9 +787,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 1440000,
-            "attack": 470,
-            "defense": 400,
-            "focus": 440,
+            "attack": 570,
+            "defense": 540,
+            "focus": 540,
             "elemFactor": [1, 1, 1, 0.5],
             "statusInflict": [0.5, 0.5, 0.5, 0.5],
             "statusEffect": [0.05, 0.4, 0.5, 1]
@@ -825,9 +825,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 20000,
-            "attack": 500,
-            "defense": 500,
-            "focus": 500,
+            "attack": 600,
+            "defense": 600,
+            "focus": 600,
             "elemFactor": [1, 1, 1.2, 0.8],
             "statusInflict": [0, 0, 0, 0],
             "statusEffect": [0, 0, 0, 0]
@@ -974,9 +974,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 40000,
-            "attack": 580,
-            "defense": 600,
-            "focus": 590,
+            "attack": 630,
+            "defense": 650,
+            "focus": 640,
             "elemFactor": [1.5, 0.25, 1.25, 1],
             "statusInflict": [0.75, 0, 1, 1]
         },
@@ -1027,9 +1027,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 32000,
-            "attack": 590,
-            "defense": 580,
-            "focus": 600,
+            "attack": 640,
+            "defense": 630,
+            "focus": 650,
             "elemFactor": [0.8, 1.25, 1.25, 1]
         },
         "credit": 750,
@@ -1079,9 +1079,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 36000,
-            "attack": 540,
-            "defense": 530,
-            "focus": 550,
+            "attack": 640,
+            "defense": 630,
+            "focus": 650,
             "elemFactor": [0.5, 1.25, 1.5, 0.2]
         },
         "credit": 750,
@@ -1131,9 +1131,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 36000,
-            "attack": 540,
-            "defense": 560,
-            "focus": 550,
+            "attack": 640,
+            "defense": 660,
+            "focus": 650,
             "elemFactor": [0.25, 1.5, 1, 1]
         },
         "credit": 750,
@@ -1166,9 +1166,9 @@
         "boostedLevel": 0,
         "params": {
             "hp": 150000,
-            "attack": 590,
-            "defense": 550,
-            "focus": 590,
+            "attack": 690,
+            "defense": 650,
+            "focus": 690,
             "elemFactor": [0.25, 1.5, 0.5, 1.5],
             "statusInflict": [0, 0, 0, 0]
         },
@@ -1207,9 +1207,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 360000,
-            "attack": 550,
-            "defense": 460,
-            "focus": 550,
+            "attack": 650,
+            "defense": 560,
+            "focus": 650,
             "elemFactor": [1, 1, 1, 1],
             "statusInflict": [0, 0, 0, 0],
             "statusEffect": [0, 0, 0, 0]
@@ -1293,9 +1293,9 @@
         "boostedLevel": 80,
         "params": {
             "hp": 549604,
-            "attack": 517,
-            "defense": 425,
-            "focus": 573,
+            "attack": 617,
+            "defense": 525,
+            "focus": 673,
             "elemFactor": [1.25, 1.1, 1.1, 0.75]
         },
         "credit": 10000,

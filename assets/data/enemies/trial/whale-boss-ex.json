@@ -2,9 +2,9 @@
     "level": 80,
     "params": {
         "hp": 1440000,
-        "attack": 470,
-        "defense": 400,
-        "focus": 440,
+        "attack": 570,
+        "defense": 540,
+        "focus": 540,
         "elemFactor": [1, 1, 1, 0.5],
         "statusInflict": [0.5, 0.5, 0.5, 0],
         "statusEffect": [0.05, 0.4, 0.5, 0]
@@ -126,6 +126,11 @@
             "scaleDmgFactor": true,
             "scaleEnemyFactor": true,
             "type": "HIT"
+        },
+        "breakCancelHits": {
+            "target": 0.3,
+            "showWeakness": false,
+            "type": "HP"
         },
         "baseHits": {
             "target": 0.2,
@@ -339,7 +344,7 @@
             "walkAnims": "weak2",
             "flyHeight": 0,
             "damageFactor": 1.4,
-            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE"],
+            "enabledReactions": ["KILL_HIT", "HP_BREAK", "FALL_SAVE", "BREAK_CANCEL"],
             "annotate": {
                 "active": "NONE",
                 "passive": "WEAK",
@@ -12453,7 +12458,8 @@
             "value": {
                 "varName": "entity.tracker.overdriveHits.progress"
             }
-        }]
+        }],
+        "BreakCancel": []
     },
     "reactions": {
         "GAUGE_UPDATE": {
@@ -12570,6 +12576,25 @@
                 "negated": false,
                 "type": "TRACKER_READY",
                 "name": "overdriveHits"
+            }],
+            "ignoreFailed": false,
+            "type": "HIT_REACTION"
+        },
+        "BREAK_CANCEL": {
+            "hitType": "REGULAR",
+            "preAction": "BreakCancel",
+            "preSwitchState": "DEFAULT",
+            "action": "EndWeak1",
+            "blockFurtherHits": false,
+            "attackType": "BREAK",
+            "flyLevel": "LIGHT",
+            "stunChange": "FORCE_STUN",
+            "alignFace": false,
+            "dramaticEffect": "",
+            "conditions": [{
+                "negated": false,
+                "type": "TRACKER_READY",
+                "name": "breakCancelHits"
             }],
             "ignoreFailed": false,
             "type": "HIT_REACTION"

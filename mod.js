@@ -16,6 +16,8 @@ import "./js/game/feature/arena/trial-start-gui.js";
 
 import "./js/game/feature/arena/trial-steps.js";
 
+import "./js/game/feature/combat/ball-attack-radius.js";
+
 import "./js/game/feature/combat/custom-sweep.js";
 
 import "./js/game/feature/combat/entities/combat-proxy-move-rotate.js";
@@ -32,6 +34,8 @@ import "./js/game/feature/combat/part-hit-proxy-fix.js";
 
 import "./js/game/feature/combat/set-attrib-closest-entity-fix.js";
 
+import "./js/game/feature/combat/set-attrib-farthest-entity.js";
+
 import "./js/game/feature/combat/true-target.js";
 
 import "./js/game/feature/combat/model/arts-invinc.js";
@@ -39,6 +43,8 @@ import "./js/game/feature/combat/model/arts-invinc.js";
 import "./js/game/feature/combat/model/enemy-tracker-access.js";
 
 import "./js/game/feature/combat/model/is-elemental-weakness.js";
+
+import "./js/game/feature/combat/model/proxy-hp-access.js";
 
 import "./js/game/feature/combat/model/proxy-nearby.js";
 
