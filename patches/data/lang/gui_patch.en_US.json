@@ -43,7 +43,8 @@
                     "APE_SPECIAL": "Oriental Bolts",
                     "WHALE_SPECIAL": "Mighty Whale",
                     "ARTIST_SPECIAL": "Prisma Arts",
-                    "FAIRY_SPECIAL": "Fae Cyclone"
+                    "FAIRY_SPECIAL": "Fae Cyclone",
+                    "GYNTHAR_DEFENSE": "Monk Mettle"
                 },
                 "descriptions": {
                     "COND_EFFECT_HEAT": "Increases the speed of inflicting the \\c[3]Burn\\c[0] Condition and its effect. \\c[3]Burn\\c[0] causes damage over time, depending on the victim MaxHP.",
@@ -51,6 +52,7 @@
                     "WIND_MELEE": "Boosts neutral melee attacks and lets them inflict the \\c[3]Daze\\c[0] Condition and its effect. \\c[3]Daze\\c[0] stuns the victim in place for a short while.",
                     "STATUS_PUNISHER": "Boosts damage dealt to enemies afflicted by the status effect associated with the attack's element.",
                     "ARTS_INVINC": "For every dash performed prior to charging a Combat Art, grants an additional invincibility period when starting the attack.",
+                    "GYNTHAR_DEFENSE": "Reduces damage taken from the attacks of Gynthar.",
                     "MOTH_SPECIAL": "Grants access to the \\c[3]Regal Inferno\\c[0] Level 3 Heat Dash Art. \\c[1]Requires learning a Level 2 Heat Dash Art.\\c[0]",
                     "BLOB_SPECIAL": "Grants access to the \\c[3]Vitalizing Vortex\\c[0] Level 3 Wave Guard Art. \\c[1]Requires learning a Level 2 Wave Guard Art.\\c[0]",
                     "PHANTOM_SPECIAL": "Grants access to the \\c[3]Thousand Curses\\c[0] Level 3 Shock Melee Art. \\c[1]Requires learning a Level 2 Shock Melee Art.\\c[0]",

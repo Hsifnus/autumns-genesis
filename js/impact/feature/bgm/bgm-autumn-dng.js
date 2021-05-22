@@ -30,6 +30,13 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "loopEnd": 180.699,
             "volume": 1.7
         },
+        monkBoss2: {
+            "introPath": "media/bgm/muMonkboss2-i.ogg",
+            "path": "media/bgm/muMonkboss2.mp3",
+            "introEnd": 21.2,
+            "loopEnd": 180,
+            "volume": 1.7
+        },
         windwardSpirit: {
             "path": "media/bgm/muWindwardspirit.ogg",
             "loopEnd": 171,
@@ -53,6 +60,11 @@ ig.module("impact.feature.bgm.bgm-autumn-dng").requires("impact.feature.bgm.bgm"
             "introEnd": 58.445,
             "loopEnd": 147.661, 
             "volume": 1.8
+        },
+        godBossIntroOnly: {
+            "path": "media/bgm/muGodBattle-i.mp3",
+            "loopEnd": 1E10,
+            "volume": 0.5
         }
     });
 

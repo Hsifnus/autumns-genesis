@@ -10,9 +10,9 @@
     "bossOrder": 0,
     "params": {
         "hp": 20000,
-        "attack": 500,
-        "defense": 500,
-        "focus": 500,
+        "attack": 600,
+        "defense": 600,
+        "focus": 600,
         "elemFactor": [1, 1, 1.2, 0.8],
         "statusInflict": [0, 0, 0, 0],
         "statusEffect": [0, 0, 0, 0]

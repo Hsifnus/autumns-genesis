@@ -89,22 +89,37 @@ ig.module("game.feature.combat.true-target").requires(
             }
         }
     });
-    sc.PROXY_STICK_TYPE = {
+    sc.NEW_PROXY_STICK_TYPE = {
         NONE: 0,
         OWNER: 1,
         TARGET: 2,
-        TRUE_TARGET: 3
+        TRUE_TARGET: 3,
+        SOURCE: 4
     };
     var b = Vec3.create(),
         a = {
             ACTION_END_DESTROYED: 1,
             HIT_DESTROYED: 2
         };
+    sc.PROXY_TYPE.GENERIC.inject({
+        init: function(a) {
+            this.parent(a);
+            this.data.stickToSource = sc.NEW_PROXY_STICK_TYPE[a.stickToSource] ||
+                sc.NEW_PROXY_STICK_TYPE.NONE;
+        }
+    })
     sc.CombatProxyEntity.inject({
         update: function() {
             this.parent();
-            if (this.stickToSource == sc.PROXY_STICK_TYPE.TRUE_TARGET) {
+            if (this.stickToSource == sc.NEW_PROXY_STICK_TYPE.TRUE_TARGET) {
                 var a = this.getTarget(true);
+                if (a) {
+                    var d = ig.CollTools.getCenterXYAlignedPos(b, this.coll, a.coll);
+                    this.setPos(d.x, d.y, a.coll.pos.z);
+                    this.stickFaceAlign && a.face && Vec2.assign(this.face, a.face)
+                }
+            } else if (this.stickToSource == sc.NEW_PROXY_STICK_TYPE.SOURCE) {
+                var a = this.sourceEntity;
                 if (a) {
                     var d = ig.CollTools.getCenterXYAlignedPos(b, this.coll, a.coll);
                     this.setPos(d.x, d.y, a.coll.pos.z);
@@ -407,6 +422,35 @@ ig.module("game.feature.combat.true-target").requires(
             return true
         }
     });
+    ig.ActorEntity.inject({
+        faceToTarget: {
+            active: false,
+            offset: 0,
+            speed: 2,
+            trueTarget: false
+        },
+        update: function() {
+            const oldFace = Vec2.create();
+            Vec2.assign(oldFace, this.face);
+            this.parent();
+            var a = this.getTarget(true);
+            if (this.faceToTarget.active && this.faceToTarget.trueTarget && a) {
+                Vec2.assign(this.face, oldFace);
+                this.forceFaceDirFixed = true;
+                var d = Vec2.sub(a.getCenter(), this.getCenter());
+                Vec2.isZero(d) && Vec2.assignC(d, 0, 1);
+                this.faceToTarget.offset && Vec2.rotate(d, this.faceToTarget.offset * 2 * Math.PI);
+                Vec2.rotateToward(this.face, d, this.faceToTarget.speed *
+                    Math.PI * 2 * ig.system.tick)
+            } else this.forceFaceDirFixed = false;
+        }
+    });
+    ig.ACTION_STEP.FACE_TO_TARGET.inject({
+        run: function(a) {
+            a.faceToTarget.trueTarget = false;
+            return this.parent(a);
+        }
+    });
     ig.ACTION_STEP.FACE_TO_TRUE_TARGET = ig.ActionStepBase.extend({
         value: false,
         immediately: false,
@@ -425,16 +469,20 @@ ig.module("game.feature.combat.true-target").requires(
         }),
         init: function(a) {
             this.value = a.value;
-            this.immediately = a.immediately || false
+            this.immediately = a.immediately || false;
+            this.posOffset = a.posOffset || null
         },
         run: function(a) {
             a.faceToTarget.active = this.value;
+            a.faceToTarget.trueTarget = true
             a.forceFaceDirFixed = this.value;
             var b = a.getTarget(true);
             if (this.immediately && b) {
                 b = Vec2.sub(b.getCenter(), a.getCenter());
+                this.posOffset && Vec2.add(b, this.posOffset);
                 Vec2.isZero(b) && Vec2.assignC(b, 0, 1);
-                a.faceToTarget.offset && Vec2.rotate(b, a.faceToTarget.offset * 2 * Math.PI);
+                a.faceToTarget.offset && Vec2.rotate(b,
+                    a.faceToTarget.offset * 2 * Math.PI);
                 Vec2.assign(a.face, b)
             }
             return true
@@ -488,6 +536,21 @@ ig.module("game.feature.combat.true-target").requires(
                 stopBeforeEdge: {
                     _type: "Boolean",
                     _info: "If true: Stop before falling down from edge when further moving forward"
+                },
+                flipOffsetLeft: {
+                    _type: "Boolean",
+                    _info: "If true: Flip offset x when facing left.",
+                    _optional: true
+                },
+                keepFace: {
+                    _type: "Boolean",
+                    _info: "If true: Keep face direction the same, even with rotateSpeed on",
+                    _optional: true
+                },
+                waitUntil: {
+                    _type: "VarCondition",
+                    _info: "If defined: Keep moving until condition evaluates to false",
+                    _optional: true
                 }
             }
         }),
@@ -495,30 +558,49 @@ ig.module("game.feature.combat.true-target").requires(
             this.min = a.min;
             this.max = a.max;
             this.maxTime = a.maxTime;
-            this.offset = a.offset || null;
-            this.forceTime =
-                a.forceTime || false;
+            this.offset = a.offset ||
+                null;
+            this.forceTime = a.forceTime || false;
             this.rotateSpeed = a.rotateSpeed || 0;
             this.missReactTime = a.missReactTime;
             this.collideCancel = a.collideCancel;
-            this.stopBeforeEdge = a.stopBeforeEdge
+            this.stopBeforeEdge = a.stopBeforeEdge;
+            this.flipOffsetLeft = a.flipOffsetLeft;
+            this.keepFace = true;
+            this.waitUntil = a.waitUntil ? new ig.VarCondition(a.waitUntil) : null
         },
         start: function(a) {
             a.stepTimer = a.stepTimer + this.maxTime;
-            this.rotateSpeed && Vec2.assign(a.coll.accelDir, a.face)
+            if (this.rotateSpeed)
+                if (this.keepFace) {
+                    var b = a.stepData.moveDir = Vec2.create(),
+                        c = a.getTarget();
+                    if (c) {
+                        ig.CollTools.getDistVec2(a.coll, c.coll,
+                            b);
+                        if (this.offset) {
+                            b.x = b.x + (this.flipOffsetLeft && a.face.x < 0 ? -this.offset.x : this.offset.x);
+                            b.y = b.y + this.offset.y
+                        }
+                    }
+                } else Vec2.assign(a.coll.accelDir, a.face)
         },
         run: function(a) {
             var b = a.getTarget(true);
             if (!b) return true;
-            var c = Vec2.sub(b.getCenter(), a.getCenter());
-            this.offset && Vec2.add(c, this.offset);
-            var d = Vec2.length(c);
-            d < this.min && Vec2.mulC(c, -1);
+            var c = this.keepFace ? a.stepData.moveDir : a.face,
+                d = Vec2.sub(b.getCenter(), a.getCenter());
+            if (this.offset) {
+                d.x = d.x + (this.flipOffsetLeft && a.face.x < 0 ? -this.offset.x : this.offset.x);
+                d.y = d.y + this.offset.y
+            }
+            var e = Vec2.length(d);
+            e < this.min && Vec2.mulC(d, -1);
             if (this.rotateSpeed) {
-                Vec2.rotateToward(a.face,
-                    c, this.rotateSpeed * Math.PI * 2 * ig.system.tick);
-                Vec2.assign(a.coll.accelDir, a.face)
-            } else Vec2.assign(a.coll.accelDir, c);
+                Vec2.rotateToward(c, d, this.rotateSpeed *
+                    Math.PI * 2 * ig.system.tick);
+                Vec2.assign(a.coll.accelDir, c)
+            } else Vec2.assign(a.coll.accelDir, d);
             if (this.stopBeforeEdge && ig.CollTools.isPostMoveOverHole(a.coll, true)) {
                 Vec2.assignC(a.coll.accelDir, 0, 0);
                 Vec2.assignC(a.coll.vel, 0, 0);
@@ -526,15 +608,19 @@ ig.module("game.feature.combat.true-target").requires(
             }
             if (this.collideCancel && ig.CollTools.hasWallCollide(a.coll, this.collideCancel)) a.stepTimer = 0;
             if (this.missReactTime != void 0 && this.missReactTime != null && a.stepTimer > this.missReactTime) {
-                ig.CollTools.getDistVec2(a.coll, b.coll,
-                    r);
-                if (Vec2.angle(r, a.face) > Math.PI / 2) a.stepTimer = this.missReactTime
+                ig.CollTools.getDistVec2(a.coll, b.coll, r);
+                if (this.offset) {
+                    r.x =
+                        r.x + (this.flipOffsetLeft && a.face.x < 0 ? -this.offset.x : this.offset.x);
+                    r.y = r.y + this.offset.y
+                }
+                if (Vec2.angle(r, c) > Math.PI / 2) a.stepTimer = this.missReactTime
             }
-            if (this.min <= d && d <= this.max) {
-                if (!this.forceTime) return true;
+            if (this.min <= e && e <= this.max) {
+                if (!this.forceTime && !this.waitUntil) return true;
                 Vec2.assignC(a.coll.accelDir, 0, 0)
             }
-            return a.stepTimer <= 0
+            return this.waitUntil ? this.waitUntil.evaluate() : a.stepTimer <= 0
         }
     });
 });

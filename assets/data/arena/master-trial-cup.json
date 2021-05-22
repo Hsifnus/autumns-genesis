@@ -25,6 +25,7 @@
             "width": 276,
             "height": 64
         },
+        "noRush": true,
         "mods":[
           "WEAPON_ADJUST"
         ]
@@ -84,13 +85,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 750000,
+        "platPoints": 800000,
         "coins": 0,
         "objective": {
             "en_US": "Purify the \\c[3]\\v[combat.name.jungle/shockboss]\\c[0] boss from \\c[3]\\v[area.shock-dng.name]\\c[0] at its most sinister!\nMaster your guarding to block its \\c[3]flash slashes\\c[0], and watch out for the \\c[3]static\\c[0]!",
             "langUid": 35
         },
-        "points": 610000,
+        "points": 700000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -132,7 +133,7 @@
             "en_US": "Endure the \\c[3]\\v[combat.name.jungle/waveboss]\\c[0] boss from \\c[3]\\v[area.wave-dng.name]\\c[0] at its mightiest!\nDash effectively to steer clear of \\c[3]whirlpools\\c[0], and pay attention to where it plants its \\c[3]memory bombs\\c[0]!",
             "langUid": 35
         },
-        "points": 1000000,
+        "points": 1050000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -168,13 +169,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 650000,
+        "platPoints": 680000,
         "coins": 0,
         "objective": {
             "en_US": "Confront the \\c[3]\\v[combat.name.boss-driller]\\c[0] boss from \\c[3]\\v[area.cold-dng.name]\\c[0] at its highest power level!\nDefuse the \\c[3]super bombs\\c[0] that get in the way, and take heed of its \\c[3]elimination protocol\\c[0]!",
             "langUid": 35
         },
-        "points": 510000,
+        "points": 550000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -210,13 +211,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 800000,
+        "platPoints": 850000,
         "coins": 0,
         "objective": {
             "en_US": "Duel the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0] boss from \\c[3]\\v[area.tree-dng.name]\\c[0] at his true strength!\nAdapt to each of the \\c[3]divine stances\\c[0] he attains!",
             "langUid": 35
         },
-        "points": 650000,
+        "points": 700000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -252,13 +253,13 @@
         },
         "customCode": true,
         "camFocus": "PLAYER_SPAWN",
-        "platPoints": 1850000,
+        "platPoints": 2000000,
         "coins": 0,
         "objective": {
             "en_US": "Besiege the \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0] boss from \\c[3]\\v[area.tree-dng.name]\\c[0] at its most imposing!\nThe \\c[3]pressure status\\c[0] boosts your attack, but it reduces mobility and may overwhelm you if you get too careless!",
             "langUid": 35
         },
-        "points": 1700000,
+        "points": 1900000,
         "type": "DEFAULT",
         "medal": 0,
         "waves": [],
@@ -281,5 +282,41 @@
             "item": "trade-whale-ex",
             "count": 1
         }]
+    }, {
+      "name":{
+        "en_US":"The Judgment",
+        "langUid":75
+      },
+      "customCode":true,
+      "camFocus":"PLAYER_SPAWN",
+      "platPoints":500000,
+      "coins":0,
+      "objective":{
+        "en_US":"\"I, \\c[3]\\v[combat.name.final\/gynthar]\\c[0] of \\c[3]\\v[area.final-dng.name]\\c[0], invite you to a special test of mastery. If you desire to \\c[3]train\\c[0], meet me outside the Arena at temple grounds.\"",
+        "langUid":76
+      },
+      "map":"arena.boss.monk-dlc-boss-ex",
+      "spawn":"PLAYER_SPAWN",
+      "points":300000,
+      "maxTime": 600,
+      "bonuses":[
+        {
+          "type":"TIME",
+          "seconds":480,
+          "points":100000
+        }
+      ],
+      "firstClearBonus": [{
+        "item": "cons-gapple",
+        "count": 5
+      }, {
+        "item": "trade-gynthar",
+        "count": 1
+      }, {
+        "item": "trade-ascended",
+        "count": 5
+      }],
+      "isEncore": true,
+      "condition": "plot.line >= 48000 && arena.master-trial-cup.progress >= 6"
     }]
 }
