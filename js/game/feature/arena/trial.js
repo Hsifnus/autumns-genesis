@@ -49,7 +49,7 @@ ig.module("game.feature.arena.trial").requires(
         },
         isRoundEncore: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;
-            return sc.arena.cups[a] && sc.arena.getCupData(sc.arena.runtime.cup).rounds[b].isEncore;
+            return sc.arena.cups[a] && sc.arena.getCupData(a).rounds[b].isEncore;
         },
         isRoundConditionSatisfied: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;
