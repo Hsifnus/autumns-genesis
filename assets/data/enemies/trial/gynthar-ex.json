@@ -36378,13 +36378,13 @@
             "0": " ",
             "count": 1,
             "weight": 1,
-            "activeCondition": "( entity.attrib.waveCheck && entity.attrib.guardCheck && (!entity.attrib.GUARD_WAVE_BROKEN ) || ( entity.attrib.waveCheck && entity.attrib.guardCheck && entity.attrib.nullCheck )"
+            "activeCondition": "( entity.attrib.waveCheck && entity.attrib.guardCheck && !entity.attrib.GUARD_WAVE_BROKEN ) || ( entity.attrib.waveCheck && entity.attrib.guardCheck && entity.attrib.nullCheck )"
           },
           {
             "0": " ",
             "count": 1,
             "weight": 1,
-            "activeCondition": "( entity.attrib.waveCheck && entity.attrib.throwCheck && (!entity.attrib.THROW_WAVE_BROKEN ) || ( entity.attrib.waveCheck && entity.attrib.throwCheck && entity.attrib.nullCheck )"
+            "activeCondition": "( entity.attrib.waveCheck && entity.attrib.throwCheck && !entity.attrib.THROW_WAVE_BROKEN ) || ( entity.attrib.waveCheck && entity.attrib.throwCheck && entity.attrib.nullCheck )"
           }
         ],
         "0_0": [
