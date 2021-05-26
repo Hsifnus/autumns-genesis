@@ -31920,9 +31920,9 @@
       "group": "trail",
       "startAnim": "",
       "size": {
-        "x": 64,
+        "x": 16,
         "y": 16,
-        "z": 64
+        "z": 32
       },
       "config": {
         "collType": "PROJECTILE",
