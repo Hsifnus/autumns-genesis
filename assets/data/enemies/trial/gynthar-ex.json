@@ -333,7 +333,7 @@
             {
               "negated": false,
               "type": "VAR_CONDITION",
-              "condition": "entity.attrib.attack >= 2"
+              "condition": "entity.attrib.attackNumber >= 2"
             }
           ],
           "action": "SelectElement"
@@ -6260,7 +6260,7 @@
           "type": "IF",
           "thenStep": [
             {
-              "duration": 1,
+              "duration": 0.7,
               "align": "CENTER",
               "rotateFace": -1,
               "flipLeftFace": false,
@@ -6287,7 +6287,7 @@
           "type": "IF",
           "thenStep": [
             {
-              "duration": 0.8,
+              "duration": 0.6,
               "align": "CENTER",
               "rotateFace": -1,
               "flipLeftFace": false,
@@ -6314,7 +6314,7 @@
           "type": "IF",
           "thenStep": [
             {
-              "duration": 0.6,
+              "duration": 0.5,
               "align": "CENTER",
               "rotateFace": -1,
               "flipLeftFace": false,
@@ -36750,7 +36750,7 @@
       {
         "changeType": "set",
         "type": "SET_ATTRIB_NUMBER",
-        "attribName": "attack",
+        "attribName": "attackNumber",
         "value": 0
       },
       {
@@ -38562,7 +38562,7 @@
       {
         "changeType": "add",
         "type": "SET_ATTRIB_NUMBER",
-        "attribName": "attack",
+        "attribName": "attackNumber",
         "value": 1
       },
       {
@@ -38572,7 +38572,7 @@
       {
         "withElse": true,
         "type": "IF",
-        "condition": "entity.attrib.attack % 2 == 1",
+        "condition": "entity.attrib.attackNumber % 2 == 1",
         "thenStep": [
           {
             "noStateReset": false,
@@ -80572,8 +80572,8 @@
         "type": "IF",
         "thenStep": [
           {
-            "time": 0.2,
-            "type": "TIME"
+            "time": 0.1,
+            "type": "WAIT"
           }
         ]
       },
@@ -80583,8 +80583,8 @@
         "type": "IF",
         "thenStep": [
           {
-            "time": 0.2,
-            "type": "TIME"
+            "time": 0.1,
+            "type": "WAIT"
           }
         ]
       },
@@ -80594,8 +80594,8 @@
         "type": "IF",
         "thenStep": [
           {
-            "time": 0.2,
-            "type": "TIME"
+            "time": 0.1,
+            "type": "WAIT"
           }
         ]
       },
