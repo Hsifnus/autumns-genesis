@@ -63,7 +63,7 @@ ig.module("game.feature.combat.fancy-aim-fix").requires(
     });
     ig.ACTION_STEP.SET_POS.inject({
         start: function(a) {
-            !!this.newPos && a.getAttribVec3(this.newPos.actorAttrib) && this.parent(a);
+            (!sc.arena.runtime || !sc.arena.runtime.cup || (!!this.newPos && !!a.getAttribVec3(this.newPos.actorAttrib))) && this.parent(a);
         }
     })
 });

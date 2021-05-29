@@ -24,6 +24,7 @@
             "width": 276,
             "height": 64
         },
+        "noRush": true,
         "mods":[
           "WEAPON_ADJUST"
         ]
