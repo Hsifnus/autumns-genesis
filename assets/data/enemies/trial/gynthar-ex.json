@@ -11827,6 +11827,42 @@
       },
       "type": "GENERIC"
     },
+    "homingSub3": {
+      "copyOwnerAnims": false,
+      "breakType": "NONE",
+      "action": [
+        {
+          "time": 11.5,
+          "type": "WAIT"
+        },
+        {
+          "attribName": "succ",
+          "changeConnected": "PROXY_OWNER",
+          "changeType": "set",
+          "type": "SET_ATTRIB_NUMBER",
+          "value": 2
+        },
+        {
+          "time": 0.5,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "NONE",
+      "stickFaceAlign": false,
+      "group": "homingSub",
+      "size": {
+        "x": 16,
+        "y": 16,
+        "z": 16
+      },
+      "config": {
+        "collType": "NONE",
+        "zGravityFactor": 0
+      },
+      "type": "GENERIC"
+    },
     "homingSubShooter": {
       "copyOwnerAnims": false,
       "breakType": "ACTION",
@@ -11851,6 +11887,32 @@
           "repeat": false,
           "type": "SHOOT_PROXY_RANGE",
           "proxy": "homingSub",
+          "offset": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          }
+        },
+        {
+          "align": "BOTTOM",
+          "dir": {
+            "x": 0,
+            "y": 1
+          },
+          "centralAngle": 0,
+          "angleVary": 0,
+          "random": false,
+          "count": 1,
+          "startAngle": 0,
+          "duration": 0,
+          "clockwise": false,
+          "flipLeftFace": 0,
+          "circularArea": false,
+          "uniformDir": 0,
+          "delay": 0,
+          "repeat": false,
+          "type": "SHOOT_PROXY_RANGE",
+          "proxy": "homingSub3",
           "offset": {
             "x": 0,
             "y": 0,
