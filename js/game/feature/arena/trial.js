@@ -312,10 +312,10 @@ ig.module("game.feature.arena.trial").requires(
             d.cleared++;
             d.points = Math.max(d.points, a);
             d.medal = this.getMedalForCurrentRound(d.points, b);
-            if (this.isTrial() && this.isRoundEncore() && this.arcadianCrystalsUnlocked()) {
+            if (this.isTrial() && !this.isRoundEncore() && this.arcadianCrystalsUnlocked()) {
                 var crystalsEarned = 0;
                 for (h = 0; h < 4; h++) {
-                    if (!d.arcadianCrystalEndeavors[h] && d.medal > h) {
+                    if (!d.arcadianCrystalEndeavors[h] && this.getMedalForCurrentRound(a, b) > h) {
                         d.arcadianCrystalEndeavors[h] = 1;
                         crystalsEarned++;
                     }
@@ -586,7 +586,6 @@ ig.module("game.feature.arena.trial").requires(
             }
         },
         onPreDamageApply: function(a, b, c, d, e) {
-            console.log(e.hasHint("ARENA_SCORE"));
             if (this.active && !(c == sc.SHIELD_RESULT.PERFECT || (d.getCombatantRoot().party != sc.COMBATANT_PARTY.PLAYER && !e.hasHint("ARENA_SCORE")) || this.isEnemyBlocked(a))) {
                 c = 1;
                 if (d.params.buffs.length >
