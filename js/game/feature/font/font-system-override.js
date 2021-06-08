@@ -159,7 +159,8 @@ ig.module("game.feature.font.font-system-override").requires("game.feature.font.
         "diff-6": [0, 133],
         "arena-bolt-left": [0, 135],
         "arena-bolt-right": [0, 136],
-        twitter: [0, 116]
+        twitter: [0, 116],
+        ascended: [0, 150]
     };
     sc.SMALL_ICON_BINDINGS = {
         "arrow-n": [0, 0],
