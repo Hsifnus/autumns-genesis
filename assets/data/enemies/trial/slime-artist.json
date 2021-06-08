@@ -13614,6 +13614,10 @@
             "type": "SET_ATTRIB_NUMBER",
             "value": 0
         }, {
+          "name": "element",
+          "type": "SET_ATTRIB_STRING",
+          "value": "NEUTRAL"
+        }, {
             "element": "NEUTRAL",
             "skipEffect": false,
             "type": "SET_ENEMY_ELEMENT_MODE"
@@ -13742,21 +13746,37 @@
                 "weight": 1
             }],
             "0_0": [{
+              "name": "element",
+              "type": "SET_ATTRIB_STRING",
+              "value": "HEAT"
+            }, {
                 "element": "HEAT",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
             }],
             "0_1": [{
+              "name": "element",
+              "type": "SET_ATTRIB_STRING",
+              "value": "COLD"
+            }, {
                 "element": "COLD",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
             }],
             "0_2": [{
+              "name": "element",
+              "type": "SET_ATTRIB_STRING",
+              "value": "SHOCK"
+            }, {
                 "element": "SHOCK",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
             }],
             "0_3": [{
+              "name": "element",
+              "type": "SET_ATTRIB_STRING",
+              "value": "WAVE"
+            }, {
                 "element": "WAVE",
                 "skipEffect": false,
                 "type": "SET_ENEMY_ELEMENT_MODE"
@@ -13796,7 +13816,10 @@
             "conditions": [{
                 "type": "!IS_BALL"
             }, {
-                "type": "ELEMENT_WEAKNESS"
+                "attribName": "element",
+                "counter": true,
+                "negated": false,
+                "type": "ELEMENT_HIT_ATTRIB"
             }, {
                 "negated": false,
                 "type": "TRACKER_READY",

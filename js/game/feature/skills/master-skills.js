@@ -53,6 +53,36 @@ ig.module("game.feature.skills.master-skills").requires(
                 actionCheckKeys: ["ATTACK_SPECIAL3", "ATTACK_SPECIAL3_A", sc.PLAYER_ACTION.ATTACK_SPECIAL3],
                 modifierKey: "ATTACK_SPECIAL3_MASTER",
                 modifier: "FAIRY_SPECIAL"
+            },
+            {
+                element: sc.ELEMENT.HEAT,
+                actionCheckKeys: ["ATTACK_SPECIAL2", "ATTACK_SPECIAL2_A", "ATTACK_SPECIAL2_B", sc.PLAYER_ACTION.ATTACK_SPECIAL2],
+                modifierKey: "ATTACK_SPECIAL2_MASTER",
+                modifier: "TRI_SPECIAL"
+            },
+            {
+                element: sc.ELEMENT.COLD,
+                actionCheckKeys: ["GUARD_SPECIAL2", "GUARD_SPECIAL2_A", "GUARD_SPECIAL2_B", sc.PLAYER_ACTION.GUARD_SPECIAL2],
+                modifierKey: "GUARD_SPECIAL2_MASTER",
+                modifier: "QUADRO_SPECIAL"
+            },
+            {
+                element: sc.ELEMENT.SHOCK,
+                actionCheckKeys: ["DASH_SPECIAL2", "DASH_SPECIAL2_A", "DASH_SPECIAL2_B", sc.PLAYER_ACTION.DASH_SPECIAL2],
+                modifierKey: "DASH_SPECIAL2_MASTER",
+                modifier: "PENTA_SPECIAL"
+            },
+            {
+                element: sc.ELEMENT.WAVE,
+                actionCheckKeys: ["THROW_SPECIAL2", "THROW_SPECIAL2_A", "THROW_SPECIAL2_B", sc.PLAYER_ACTION.THROW_SPECIAL2],
+                modifierKey: "THROW_SPECIAL2_MASTER",
+                modifier: "HEXA_SPECIAL"
+            },
+            {
+                element: sc.ELEMENT.NEUTRAL,
+                actionCheckKeys: ["DASH_SPECIAL3", "DASH_SPECIAL3_A", sc.PLAYER_ACTION.DASH_SPECIAL3],
+                modifierKey: "DASH_SPECIAL3_MASTER",
+                modifier: "GYNTHAR_SPECIAL"
             }
         ];
         const checkMasterSkill = (a, b, params) => {
@@ -190,6 +220,12 @@ ig.module("game.feature.skills.master-skills").requires(
                 B: {
                     icon: 51
                 }
+            }, {
+                MASTER: {
+                    icon: -1,
+                    altSheet: "media/gui/master-arts.png",
+                    altIcon: 13
+                }
             }],
             GUARD: [{
                 A: {
@@ -236,6 +272,11 @@ ig.module("game.feature.skills.master-skills").requires(
                 },
                 B: {
                     icon: 65
+                },
+                MASTER: {
+                    icon: -1,
+                    altSheet: "media/gui/master-arts.png",
+                    altIcon: 9
                 }
             }, {
                 A: {
@@ -361,6 +402,11 @@ ig.module("game.feature.skills.master-skills").requires(
                 },
                 B: {
                     icon: 96
+                },
+                MASTER: {
+                    icon: -1,
+                    altSheet: "media/gui/master-arts.png",
+                    altIcon: 10
                 }
             }, {
                 A: {
@@ -431,6 +477,11 @@ ig.module("game.feature.skills.master-skills").requires(
                 },
                 B: {
                     icon: 114
+                },
+                MASTER: {
+                    icon: -1,
+                    altSheet: "media/gui/master-arts.png",
+                    altIcon: 11
                 }
             }, {
                 A: {
@@ -470,6 +521,11 @@ ig.module("game.feature.skills.master-skills").requires(
                 },
                 B: {
                     icon: 123
+                },
+                MASTER: {
+                    icon: -1,
+                    altSheet: "media/gui/master-arts.png",
+                    altIcon: 12
                 }
             }, {
                 A: {
@@ -615,7 +671,11 @@ ig.module("game.feature.skills.master-skills").requires(
                 var useAlt = this.info.icon == -1 && !!this.info.altSheet;
                 useAlt && (this.skillIcons = new ig.Image(this.info.altSheet));
                 var icon = useAlt ? this.info.altIcon : this.info.icon;
-                this.icon = new ig.ImageGui(this.skillIcons, icon % 10 * 24, Math.floor(icon / 10) * 24, 24, 24);
+                if (useAlt) {
+                    this.icon = new ig.ImageGui(this.skillIcons, icon * 24, 0, 24, 24);
+                } else {
+                    this.icon = new ig.ImageGui(this.skillIcons, icon % 10 * 24, Math.floor(icon / 10) * 24, 24, 24);
+                }
                 this.icon.setPos(3, 12);
                 this.addChildGui(this.icon);
                 this.level = new sc.NumberGui(9, {

@@ -40,6 +40,8 @@ import "./js/game/feature/combat/true-target.js";
 
 import "./js/game/feature/combat/model/arts-invinc.js";
 
+import "./js/game/feature/combat/model/bless-modifiers.js";
+
 import "./js/game/feature/combat/model/enemy-tracker-access.js";
 
 import "./js/game/feature/combat/model/is-elemental-weakness.js";

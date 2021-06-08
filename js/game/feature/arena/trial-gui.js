@@ -22,7 +22,7 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
             var fc = false;
             this.summary = new sc.ArenaSummary(() => {
                 if (this.state == 0) {
-                    if ((fc = this.checkFirstClear() || this.checkConditionalClear()) && sc.options.get("show-items")) {
+                    if ((fc = this.checkFirstClear() || this.checkConditionalClear() || this.checkCrystalsClear()) && sc.options.get("show-items")) {
                         this.state = 99;
                         this.waitTimer = 0.4;
                     } else {
@@ -169,6 +169,17 @@ ig.module("game.feature.arena.trial-gui").requires("game.feature.arena.gui.arena
             if (sc.arena.isTrial() && sc.arena.isFirstClear()) {
                 sc.commonEvents.startCallEvent("trial-first-clear");
                 var a = new sc.SmallEntityBox(ig.game.playerEntity, ig.lang.get("sc.gui.arena.firstClear"), 3, null, -2);
+                a.hideSmall = true;
+                a.stopRumble();
+                this.addChildGui(a)
+                return true;
+            }
+            return false;
+        },
+        checkCrystalsClear: function() {
+            if (sc.arena.isTrial() && sc.arena.isCrystalsClear(undefined, undefined, this.summary.totalValue)) {
+                sc.commonEvents.startCallEvent("trial-first-clear");
+                var a = new sc.SmallEntityBox(ig.game.playerEntity, ig.lang.get("sc.gui.arena.crystalsClear"), 3, null, -2);
                 a.hideSmall = true;
                 a.stopRumble();
                 this.addChildGui(a)

@@ -12471,7 +12471,6 @@
             "stunChange": "NO_CHANGE",
             "alignFace": false,
             "dramaticEffect": "",
-            "conditions": [],
             "ignoreFailed": false,
             "type": "HIT_REACTION"
         },

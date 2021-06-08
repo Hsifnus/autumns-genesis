@@ -92,4 +92,44 @@ ig.module("game.feature.player.custom-modifiers").requires(
         icon: -1,
         order: 193
     };
+    sc.MODIFIERS.TRI_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 96,
+        offY: 24,
+        icon: -1,
+        order: 208,
+        noPercent: true
+    };
+    sc.MODIFIERS.QUADRO_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 108,
+        offY: 24,
+        icon: -1,
+        order: 209,
+        noPercent: true
+    };
+    sc.MODIFIERS.PENTA_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 120,
+        offY: 24,
+        icon: -1,
+        order: 210,
+        noPercent: true
+    };
+    sc.MODIFIERS.HEXA_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 132,
+        offY: 24,
+        icon: -1,
+        order: 211,
+        noPercent: true
+    };
+    sc.MODIFIERS.GYNTHAR_SPECIAL = {
+        altSheet: "media/gui/master-arts.png",
+        offX: 144,
+        offY: 24,
+        icon: -1,
+        order: 212,
+        noPercent: true
+    };
 });

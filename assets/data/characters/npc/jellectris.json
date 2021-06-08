@@ -1,0 +1,52 @@
+{
+    "name": {
+        "en_US": "Jellectris",
+        "langUid": 1
+    },
+    "size": {
+        "x": 24,
+        "y": 24,
+        "z": 36
+    },
+    "shadow": 24,
+    "animSheet": "enemies.slime-artist",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "idle",
+            "jump": "rise"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 119,
+        "height": 162,
+        "centerX": 44,
+        "centerY": 77,
+        "src": "niko.png",
+        "parts": [{
+            "normal": {
+                "srcX": 9,
+                "srcY": 0,
+                "width": 119,
+                "height": 162,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
+    }
+}

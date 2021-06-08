@@ -17,7 +17,7 @@
                 "id": "trade-magmoth",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-phantom",
@@ -30,7 +30,7 @@
                 "id": "trade-phantom",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-blobus",
@@ -43,7 +43,7 @@
                 "id": "trade-blobus",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-driller",
@@ -56,7 +56,7 @@
                 "id": "trade-driller",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-ape",
@@ -69,7 +69,7 @@
                 "id": "trade-ape",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-whale",
@@ -82,7 +82,7 @@
                 "id": "trade-whale",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-artist",
@@ -95,7 +95,7 @@
                 "id": "trade-artist",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
         }, {
             "get": [{
                 "id": "equip-fairy",
@@ -108,7 +108,26 @@
                 "id": "trade-fairy",
                 "amount": 1
             }],
-            "scale": 1
+            "scale": 200000
+        }, {
+            "get": [{
+                "id": "equip-gynthar",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "633",
+                "amount": 25
+            }, {
+                "id": "561",
+                "amount": 25
+            }, {
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-gynthar",
+                "amount": 1
+            }],
+            "scale": 350000
         }],
         "area": "rhombus-sqr"
     },
@@ -178,6 +197,152 @@
                 "amount": 1
             }],
             "scale": 40000
+        }],
+        "area": "final-dng"
+    },
+    "monke": {
+        "name": {
+            "en_US": "Arcadian Smith - Retro",
+            "langUid": 1
+        },
+        "order": 1,
+        "options": [{
+            "get": [{
+                "id": "equip-magmoth-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-magmoth-ex",
+                "amount": 1
+            }, {
+                "id": "equip-magmoth",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-phantom-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-phantom-ex",
+                "amount": 1
+            }, {
+                "id": "equip-phantom",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-blobus-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-blobus-ex",
+                "amount": 1
+            }, {
+                "id": "equip-blobus",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-driller-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-driller-ex",
+                "amount": 1
+            }, {
+                "id": "equip-driller",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-ape-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-ape-ex",
+                "amount": 1
+            }, {
+                "id": "equip-ape",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-whale-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-whale-ex",
+                "amount": 1
+            }, {
+                "id": "equip-whale",
+                "amount": 1
+            }],
+            "scale": 100000
+        }],
+        "area": "final-dng"
+    },
+    "jelle": {
+        "name": {
+            "en_US": "Arcadian Smith - Neo",
+            "langUid": 1
+        },
+        "order": 1,
+        "options": [{
+            "get": [{
+                "id": "equip-artist-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-artist-ex",
+                "amount": 1
+            }, {
+                "id": "equip-artist",
+                "amount": 1
+            }],
+            "scale": 100000
+        }, {
+            "get": [{
+                "id": "equip-fairy-ex",
+                "amount": 1
+            }],
+            "require": [{
+                "id": "trade-ascended",
+                "amount": 5
+            }, {
+                "id": "trade-fairy-ex",
+                "amount": 1
+            }, {
+                "id": "equip-fairy",
+                "amount": 1
+            }],
+            "scale": 100000
         }],
         "area": "final-dng"
     }

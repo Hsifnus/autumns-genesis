@@ -49,7 +49,13 @@ ig.module("game.feature.arena.trial").requires(
         },
         isRoundEncore: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;
+            b = b >= 0 ? b : sc.arena.runtime.currentRound;
             return sc.arena.cups[a] && sc.arena.getCupData(a).rounds[b].isEncore;
+        },
+        getArcadianCrystalEndeavors: function(a, b) {
+            a = a ? a : sc.arena.runtime.cup;
+            b = b >= 0 ? b : sc.arena.runtime.currentRound;
+            return sc.arena.cups[a] && sc.arena.cups[a].progress.rounds[b].arcadianCrystalEndeavors;
         },
         isRoundConditionSatisfied: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;
@@ -269,6 +275,9 @@ ig.module("game.feature.arena.trial").requires(
             });
             this.cups[a].progress = c
         },
+        arcadianCrystalsUnlocked: function() {
+            return this.cups['master-trial-cup'] && this.cups['master-trial-cup'].progress && this.cups['master-trial-cup'].progress.rounds.filter(round => round.medal).length >= 7
+        },
         saveScore: function(a, b) {
             a < 0 && (a = 0);
             var c = this.runtime,
@@ -303,6 +312,20 @@ ig.module("game.feature.arena.trial").requires(
             d.cleared++;
             d.points = Math.max(d.points, a);
             d.medal = this.getMedalForCurrentRound(d.points, b);
+            if (this.isTrial() && this.isRoundEncore() && this.arcadianCrystalsUnlocked()) {
+                var crystalsEarned = 0;
+                for (h = 0; h < 4; h++) {
+                    if (!d.arcadianCrystalEndeavors[h] && d.medal > h) {
+                        d.arcadianCrystalEndeavors[h] = 1;
+                        crystalsEarned++;
+                    }
+                }
+                if (!d.arcadianCrystalEndeavors[4] && this.exMode) {
+                    d.arcadianCrystalEndeavors[4] = 1;
+                    crystalsEarned++;
+                }
+                crystalsEarned && sc.model.player.addItem('trade-ascended', crystalsEarned);
+            }
             d.time = c.timer <= 0 ? 0 : d.time <= 0 ? c.timer : Math.min(c.timer, d.time);
             sc.stats.addMap("arena", "score", a);
             if (d.medal > 0) {
@@ -379,6 +402,34 @@ ig.module("game.feature.arena.trial").requires(
             }
             return -1
         },
+        isCrystalsClear: function(b, c, score) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            if (!this.arcadianCrystalsUnlocked() || !this.cups[b] || !this.cups[b].progress) {
+                return false;
+            }
+            const endeavors = this.cups[b].progress.rounds[c].arcadianCrystalEndeavors;
+            const medal = this.getMedalForCurrentRound(score);
+            var n = 0;
+            for (n = 0; n < 4; n++) {
+                if (!endeavors[n] && medal > n) {
+                    return true;
+                }
+            }
+            if (this.exMode && !endeavors[4]) {
+                return true;
+            }
+            return false;
+        },
+        isCrystalsEndeavorCleared: function(b, c, index) {
+            b = b || this.runtime.cup;
+            c = c === 0 || !!c ? c : this.runtime.currentRound;
+            if (!this.arcadianCrystalsUnlocked() || !this.cups[b] || !this.cups[b].progress) {
+                return false;
+            }
+            const endeavors = this.cups[b].progress.rounds[c].arcadianCrystalEndeavors;
+            return !!endeavors[index];
+        },
         isFirstClear: function(b, c) {
             b = b || this.runtime.cup;
             c = c === 0 || !!c ? c : this.runtime.currentRound;
@@ -436,7 +487,8 @@ ig.module("game.feature.arena.trial").requires(
                         time: d.rounds[f].time,
                         cleared: d.rounds[f].cleared,
                         firstClearBonus: d.rounds[f].firstClearBonus,
-                        exFirstClearBonus: d.rounds[f].exFirstClearBonus
+                        exFirstClearBonus: d.rounds[f].exFirstClearBonus,
+                        arcadianCrystalEndeavors: d.rounds[f].arcadianCrystalEndeavors
                     });
                     b.cupData[c] = e;
                     b.cupData[c].name = ig.copy(this.cups[c].name);
@@ -471,7 +523,8 @@ ig.module("game.feature.arena.trial").requires(
                                 time: d.rounds[f].time || 0,
                                 cleared: d.rounds[f].cleared || 0,
                                 firstClearBonus: d.rounds[f].firstClearBonus || 0,
-                                exFirstClearBonus: d.rounds[f].exFirstClearBonus || 0
+                                exFirstClearBonus: d.rounds[f].exFirstClearBonus || 0,
+                                arcadianCrystalEndeavors: d.rounds[f].arcadianCrystalEndeavors || [0, 0, 0, 0, 0]
                             });
                             this.cups[c].progress = e;
                             this.cups[c].name = d.name || null;

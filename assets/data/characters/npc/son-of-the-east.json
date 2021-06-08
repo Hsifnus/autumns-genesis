@@ -1,0 +1,58 @@
+{
+    "name": {
+        "en_US": "Son of the East",
+        "langUid": 1
+    },
+    "size": {
+        "x": 32,
+        "y": 32,
+        "z": 40
+    },
+    "shadow": 40,
+    "animSheet": "enemies.jungle-ape",
+    "walkAnimSet": {
+        "normal": {
+            "idle": "sitIdle2",
+            "jump": "jump",
+            "fall": "fall"
+        },
+        "cloud": {
+            "idle": "cloudIdle",
+            "jump": "jump",
+            "fall": "fall"
+        }
+    },
+    "walkAnims": "normal",
+    "configs": {
+        "normal": {
+            "relativeVel": 0.5
+        }
+    },
+    "face": {
+        "width": 119,
+        "height": 162,
+        "centerX": 44,
+        "centerY": 77,
+        "src": "niko.png",
+        "parts": [{
+            "normal": {
+                "srcX": 9,
+                "srcY": 0,
+                "width": 119,
+                "height": 162,
+                "destX": 0,
+                "destY": 0,
+                "subX": 0,
+                "subY": 0,
+                "img": ""
+            }
+        }],
+        "expressions": {
+            "DEFAULT": {
+                "faces": [
+                    ["normal"]
+                ]
+            }
+        }
+    }
+}

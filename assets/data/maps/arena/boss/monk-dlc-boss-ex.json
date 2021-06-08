@@ -2650,11 +2650,19 @@
             "type": "REMOVE_PROXIES"
           },
           {
+            "group": "dagger",
+            "type": "REMOVE_PROXIES"
+          },
+          {
             "time": 0.05,
             "type": "WAIT"
           },
           {
             "group": "leaDummyTarget",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "dagger",
             "type": "REMOVE_PROXIES"
           },
           {

@@ -2,13 +2,15 @@
     "labels": {
         "arena": {
             "firstClear": "First Clear Bonus!",
+            "crystalsClear": "Endeavor Clear Bonus!",
             "timeRemaining": "Time Remaining",
             "trialClear": "Trial Cleared",
             "trialFail": "Trial Failed",
             "menu": {
                 "firstClear": "First Clear",
                 "trialTimeLimit": "Time Limit",
-                "startTrial": "Start \\c[3][TRIAL_NAME]\\c[0]?"
+                "startTrial": "Start \\c[3][TRIAL_NAME]\\c[0]?",
+                "endeavors": "Crystals"
             },
             "trialTimeRemaining": "[NUM] seconds remaining"
         },
@@ -20,11 +22,13 @@
                 "arena": {
                     "titles": {
                         "trialTimeLimit": "Time Limit",
-                        "firstClearBonuses": "First Clear Bonus"
+                        "firstClearBonuses": "First Clear Bonus",
+                        "endeavors": "Crystal Endeavors"
                     },
                     "description": {
                         "trialTimeLimit": "If not zero, the fight must be cleared within this amount of time.",
-                        "firstClearBonuses": "These items are awarded to the player upon clearing this fight for the first time."
+                        "firstClearBonuses": "These items are awarded to the player upon clearing this fight for the first time.",
+                        "endeavors": "Clear a Master Trial with certain medals or in EX mode to earn Arcadian Crystals."
                     }
                 }
             },
@@ -44,7 +48,12 @@
                     "WHALE_SPECIAL": "Mighty Whale",
                     "ARTIST_SPECIAL": "Prisma Arts",
                     "FAIRY_SPECIAL": "Fae Cyclone",
-                    "GYNTHAR_DEFENSE": "Monk Mettle"
+                    "GYNTHAR_DEFENSE": "Monk Mettle",
+                    "TRI_SPECIAL": "Strength Bless",
+                    "QUADRO_SPECIAL": "Endure Bless",
+                    "PENTA_SPECIAL": "Agility Bless",
+                    "HEXA_SPECIAL": "Wisdom Bless",
+                    "GYNTHAR_SPECIAL": "Balance Bless"
                 },
                 "descriptions": {
                     "COND_EFFECT_HEAT": "Increases the speed of inflicting the \\c[3]Burn\\c[0] Condition and its effect. \\c[3]Burn\\c[0] causes damage over time, depending on the victim MaxHP.",
@@ -60,7 +69,12 @@
                     "APE_SPECIAL": "Grants access to the \\c[3]Indignant Sky\\c[0] Level 3 Shock Guard Art. \\c[1]Requires learning a Level 2 Shock Guard Art.\\c[0]",
                     "WHALE_SPECIAL": "Grants access to the \\c[3]Cetacean Press\\c[0] Level 3 Wave Melee Art. \\c[1]Requires learning a Level 2 Wave Melee Art.\\c[0]",
                     "ARTIST_SPECIAL": "Grants access to the \\c[3]Playful Palette\\c[0] Level 3 Neutral Guard Art. \\c[1]Requires learning a Level 2 Neutral Guard Art.\\c[0]",
-                    "FAIRY_SPECIAL": "Grants access to the \\c[3]Perpetual Autumn\\c[0] Level 3 Neutral Melee Art. \\c[1]Requires learning a Level 2 Neutral Melee Art.\\c[0]"
+                    "FAIRY_SPECIAL": "Grants access to the \\c[3]Perpetual Autumn\\c[0] Level 3 Neutral Melee Art. \\c[1]Requires learning a Level 2 Neutral Melee Art.\\c[0]",
+                    "TRI_SPECIAL": "In Heat mode, decreases Solid Guard by 30%, buffs ATK upon enemy break or defeat, and enables the \\c[3]Firefly Flicker\\c[0] Level 2 Melee Art.",
+                    "QUADRO_SPECIAL": "In Cold mode, decreases Momentum by 10%, improves shield knockback resistance, and enables the \\c[3]Mallet Message\\c[0] Level 2 Guard Art.",
+                    "PENTA_SPECIAL": "In Shock mode, decreases Steady Shot by 30%, boosts SP generation after dashing, and enables the \\c[3]Peregrine Rush\\c[0] Level 2 Dash Art.",
+                    "HEXA_SPECIAL": "In Wave mode, decreases Bullseye by 30%, quickens break gauge progress, and enables the \\c[3]Sanjyu-Rokkei\\c[0] Level 2 Throw Art.",
+                    "GYNTHAR_SPECIAL": "Improves Balance and Status Mend by 25%, and grants access to the \\c[3]Sacred Starstorm\\c[0] Level 3 Neutral Dash Art."
                 }
             },
             "social": {

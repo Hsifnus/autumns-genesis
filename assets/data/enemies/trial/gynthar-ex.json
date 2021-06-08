@@ -63178,12 +63178,12 @@
               {
                 "stateReset": false,
                 "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "ShockSweep"
+                "actionName": "ShockDodgeSweep"
               },
               {
                 "stateReset": false,
                 "type": "DO_ENEMY_ACTION_INLINE",
-                "actionName": "ShockSweepRev"
+                "actionName": "ShockDodgeSweepRev"
               },
               {
                 "stateReset": true,
@@ -79997,7 +79997,16 @@
         }
       },
       {
-        "time": 0.75,
+        "time": 0.55,
+        "type": "WAIT"
+      },
+      {
+        "value": false,
+        "immediately": true,
+        "type": "FACE_TO_TARGET"
+      },
+      {
+        "time": 0.2,
         "type": "WAIT"
       },
       {

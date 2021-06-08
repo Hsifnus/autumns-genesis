@@ -309,7 +309,8 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                     this.setBonusPoints(d.bonuses);
                     this.setChallenges(sc.arena.getChallengeMods(b, a));
                     var x = d.firstClearBonus,
-                        y = d.exFirstClearBonus;
+                        y = d.exFirstClearBonus,
+                        endeavors = sc.arena.getArcadianCrystalEndeavors(b, a);
                     this.firstClearBonuses.removeAllChildren();
                     var h = 0;
                     var alreadyAcquired = !sc.arena.hasFirstCleared(b, a) && sc.arena.hasFirstClearedAtAll(b, a);
@@ -335,6 +336,8 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                             h = h + 17
                         }
                     }
+                    var nextH = h;
+                    h = 0;
                     if (y && sc.arena.exMode) {
                         for (var f = this.firstClearBonuses, g = this.menuGfx, i = 0; i < y.length; i++) {
                             var j = y[i].count,
@@ -345,7 +348,7 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                             j = 0;
                             k.type == sc.ITEMS_TYPES.EQUIP && (j = k.level || 0);
                             k = new sc.TextGui(l);
-                            k.setPos(0, h);
+                            k.setPos(140, h);
                             k.level = j;
                             k.numberGfx = g;
                             j > 0 && !d && k.setDrawCallback((a, b) => {
@@ -354,6 +357,34 @@ ig.module("game.feature.arena.trial-round-page").requires("game.feature.menu.gui
                             f.addChildGui(k);
                             h = h + 17
                         }
+                    }
+                    h = Math.max(h, nextH);
+                    if (sc.arena.isTrial(b) && endeavors && sc.arena.arcadianCrystalsUnlocked() && !sc.arena.isRoundEncore(b, a)) {
+                        h = h + 4;
+                        var k = new sc.ArenaInfoLine(ig.lang.get("sc.gui.arena.menu.endeavors"));
+                        k.setPos(0, h);
+                        f.addChildGui(k);
+                        h = h + 17;
+                        const getEndeavorMedal = (index) => sc.arena.isCrystalsEndeavorCleared(b, a, index) ? '\\i[arena-medal-' + (index+1) + ']' : '\\i[arena-medal-0]';
+                        const getEndeavorCheck = (index) => getSeparator(index) + (sc.arena.isCrystalsEndeavorCleared(b, a, index) ? '\\i[toggle-item-on]' : '\\i[toggle-item-off-grey]');
+                        const getSeparator = (index) => {
+                            if (!index) {
+                                return '';
+                            } else if (index <= 3) {
+                                return sc.arena.isCrystalsEndeavorCleared(b, a, index) ? '..' : '\\c[4]..\\c[0]';
+                            } else {
+                                return '  ';
+                            }
+                        }
+                        const exMedal = sc.arena.isCrystalsEndeavorCleared(b, a, 4) ? '\\c[3]EX\\c[0]' : '\\c[4]EX\\c[0]'
+                        k = new sc.TextGui(getEndeavorMedal(0) + " " + getEndeavorMedal(1) + " " + getEndeavorMedal(2) + " " +  getEndeavorMedal(3) + "  " + exMedal + "  Clear this trial to earn");
+                        k.setPos(0, h);
+                        f.addChildGui(k);
+                        h = h + 17;
+                        k = new sc.TextGui(getEndeavorCheck(0) + getEndeavorCheck(1) + getEndeavorCheck(2) + getEndeavorCheck(3) + getEndeavorCheck(4) + "   Arcadian Crystals!");
+                        k.setPos(0, h);
+                        f.addChildGui(k);
+                        h = h + 17;
                     }
                 } else {
                     this.firstClearBonuses.removeAllChildren();

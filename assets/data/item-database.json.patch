@@ -1,10 +1,11 @@
-[{
-	"type": "ENTER",
-	"index": "items"
-},{
-	"type": "ADD_ARRAY_ELEMENT",
-	"content":
-    {
+[
+  {
+    "type": "ENTER",
+    "index": "items"
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1000,
       "customItem": "equip-coquelicot",
       "name": {
@@ -47,10 +48,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1000,
       "customItem": "cons-gapple",
       "name": {
@@ -81,10 +82,10 @@
       "noTrack": false,
       "foodSprite": "GENESIS_APPLE"
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20000,
       "customItem": "trade-magmoth",
       "name": {
@@ -119,10 +120,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20001,
       "customItem": "trade-phantom",
       "name": {
@@ -157,10 +158,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20002,
       "customItem": "trade-blobus",
       "name": {
@@ -195,10 +196,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 19996,
       "customItem": "trade-hilikat",
       "name": {
@@ -233,10 +234,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 19997,
       "customItem": "trade-blazehoof",
       "name": {
@@ -271,10 +272,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 19998,
       "customItem": "trade-frobbit",
       "name": {
@@ -309,10 +310,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 19999,
       "customItem": "trade-bloomy",
       "name": {
@@ -347,10 +348,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1001,
       "customItem": "equip-magmoth",
       "name": {
@@ -363,7 +364,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -379,7 +380,7 @@
         "focus": 110
       },
       "properties": {
-        "MOMENTUM": 1.10,
+        "MOMENTUM": 1.1,
         "AIM_SPEED": 1.3,
         "AIMING_MOVEMENT": 0.9,
         "MOTH_SPECIAL": 2
@@ -391,10 +392,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1003,
       "customItem": "equip-blobus",
       "name": {
@@ -407,7 +408,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -435,10 +436,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20003,
       "customItem": "trade-driller",
       "name": {
@@ -473,10 +474,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1002,
       "customItem": "equip-phantom",
       "name": {
@@ -489,7 +490,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -516,10 +517,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1004,
       "customItem": "equip-driller",
       "name": {
@@ -532,7 +533,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -560,10 +561,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20004,
       "customItem": "trade-ape",
       "name": {
@@ -598,10 +599,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20005,
       "customItem": "trade-whale",
       "name": {
@@ -636,10 +637,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30000,
       "customItem": "trade-magmoth-ex",
       "name": {
@@ -674,10 +675,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30001,
       "customItem": "trade-phantom-ex",
       "name": {
@@ -712,10 +713,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30002,
       "customItem": "trade-blobus-ex",
       "name": {
@@ -750,10 +751,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30003,
       "customItem": "trade-driller-ex",
       "name": {
@@ -788,10 +789,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30004,
       "customItem": "trade-ape-ex",
       "name": {
@@ -826,10 +827,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30005,
       "customItem": "trade-whale-ex",
       "name": {
@@ -864,10 +865,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1005,
       "customItem": "equip-ape",
       "name": {
@@ -880,7 +881,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -908,10 +909,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1006,
       "customItem": "equip-whale",
       "name": {
@@ -924,7 +925,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -952,10 +953,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1100,
       "customItem": "equip-coquelicot-ex",
       "name": {
@@ -999,10 +1000,10 @@
       "isScalable": true,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20006,
       "customItem": "trade-artist",
       "name": {
@@ -1037,10 +1038,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30006,
       "customItem": "trade-artist-ex",
       "name": {
@@ -1075,10 +1076,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1006,
       "customItem": "equip-artist",
       "name": {
@@ -1091,7 +1092,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -1120,10 +1121,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 20006,
       "customItem": "trade-fairy",
       "name": {
@@ -1158,10 +1159,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30006,
       "customItem": "trade-fairy-ex",
       "name": {
@@ -1196,10 +1197,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1007,
       "customItem": "equip-fairy",
       "name": {
@@ -1212,7 +1213,7 @@
       },
       "type": "EQUIP",
       "rarity": 4,
-      "cost": 250000,
+      "cost": 1,
       "level": 75,
       "icon": "item-sword",
       "equipType": "ARM",
@@ -1240,10 +1241,10 @@
       "noTrack": false,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30007,
       "customItem": "trade-gynthar",
       "name": {
@@ -1278,10 +1279,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30008,
       "customItem": "trade-ascended",
       "name": {
@@ -1316,10 +1317,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 30009,
       "customItem": "gynthar-token",
       "name": {
@@ -1354,10 +1355,10 @@
         "name": null
       }
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1101,
       "customItem": "equip-kulero-cloak",
       "name": {
@@ -1398,10 +1399,10 @@
       "isScalable": true,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1102,
       "customItem": "equip-kulero-mask",
       "name": {
@@ -1442,10 +1443,10 @@
       "isScalable": true,
       "noCount": true
     }
-},{
-  "type": "ADD_ARRAY_ELEMENT",
-  "content":
-    {
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
       "order": 1103,
       "customItem": "equip-kulero-boots",
       "name": {
@@ -1488,6 +1489,416 @@
       "isScalable": true,
       "noCount": true
     }
-},{
-	"type": "EXIT"
-}]
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1104,
+      "customItem": "equip-gynthar",
+      "name": {
+        "en_US": "Orbisspeer",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "Legendary weapon wielded by \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]. The Gods' powers protect its user in direst times. \\i[ascended]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 0,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "attack": 71,
+        "elemFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "hp": 371,
+        "defense": 71,
+        "focus": 71
+      },
+      "properties": {
+        "TRI_SPECIAL": 2,
+        "QUADRO_SPECIAL": 2,
+        "PENTA_SPECIAL": 2,
+        "HEXA_SPECIAL": 2,
+        "GYNTHAR_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1050,
+      "customItem": "equip-magmoth-ex",
+      "name": {
+        "en_US": "Mothmuspel",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A searingly bright great staff crafted from \\c[3]\\v[combat.name.heat/megamoth]\\c[0]'s scalding scales.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1.15,
+          0.85,
+          1,
+          1
+        ],
+        "attack": 93,
+        "defense": 65,
+        "focus": 125
+      },
+      "properties": {
+        "MOMENTUM": 1.15,
+        "AIM_SPEED": 1.4,
+        "AIMING_MOVEMENT": 0.9,
+        "MOTH_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1051,
+      "customItem": "equip-phantom-ex",
+      "name": {
+        "en_US": "Phantasmal Rend",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A ghostly blade that sends victims to \\c[3]\\v[combat.name.jungle/shockboss]\\c[0]'s cursed dimensions.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          1.15,
+          0.85
+        ],
+        "attack": 132,
+        "focus": 115,
+        "defense": 20
+      },
+      "properties": {
+        "BERSERK": 1.45,
+        "CRITICAL_DMG": 1.4,
+        "GUARD_STRENGTH": 0.8,
+        "PHANTOM_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1052,
+      "customItem": "equip-blobus-ex",
+      "name": {
+        "en_US": "Starnikus Mace",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A mace crafted from the pulsing gelatin and starfish arms of \\c[3]\\v[combat.name.jungle/waveboss]\\c[0].",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          0.85,
+          1.15
+        ],
+        "hp": 1281,
+        "attack": 110,
+        "defense": 45
+      },
+      "properties": {
+        "GUARD_SP": 1.35,
+        "KNOCKBACK": 1.4,
+        "DASH_INVINC": 0.85,
+        "BLOB_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1053,
+      "customItem": "equip-driller-ex",
+      "name": {
+        "en_US": "Élivágar Mk. II",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "An improved forbidden bomb launcher planned to be used on \\c[3]\\v[combat.name.boss-driller]\\c[0]",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          0.85,
+          1.15,
+          1,
+          1
+        ],
+        "attack": 42,
+        "focus": 121,
+        "defense": 125
+      },
+      "properties": {
+        "RANGED_DMG": 1.4,
+        "AIM_STABILITY": 1.5,
+        "MELEE_DMG": 0.9,
+        "DRILLER_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "isScalable": true,
+      "noCount": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1054,
+      "customItem": "equip-ape-ex",
+      "name": {
+        "en_US": "Tiandi Jingu Bang",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A worthy equal to the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel, unleashing heavenly thunder at will.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1.1,
+          1.1,
+          1.15,
+          0.85
+        ],
+        "attack": 95,
+        "focus": 114,
+        "defense": 80
+      },
+      "properties": {
+        "PERFECT_GUARD_WINDOW": 2.5,
+        "BREAK_DMG": 1.45,
+        "AIM_SPEED": 0.8,
+        "APE_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true,
+      "isScalable": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1055,
+      "customItem": "equip-whale-ex",
+      "name": {
+        "en_US": "Weltmeister",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "A somehow even larger longsword crafted from \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          0.85,
+          1.15
+        ],
+        "hp": 672,
+        "attack": 154,
+        "defense": 110
+      },
+      "properties": {
+        "OVERHEAT_REDUCTION": 0.75,
+        "MELEE_DMG": 1.4,
+        "HP_REGEN": 1.3,
+        "WHALE_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true,
+      "isScalable": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1056,
+      "customItem": "equip-artist-ex",
+      "name": {
+        "en_US": "Spectra Brush",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "This deluxe model of \\c[3]\\v[combat.name.trial/slime-artist]\\c[0]'s brush adds new vigor to its creations.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "hp": 225,
+        "attack": 95,
+        "defense": 90,
+        "focus": 95
+      },
+      "properties": {
+        "COND_EFFECT_ALL": 0.7,
+        "STATUS_PUNISHER": 1.55,
+        "ASSAULT": 1.5,
+        "ARTIST_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true,
+      "isScalable": true
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "order": 1007,
+      "customItem": "equip-fairy-ex",
+      "name": {
+        "en_US": "Ouroboros Maple",
+        "langUid": 1
+      },
+      "description": {
+        "en_US": "An empowered bracelet of \\c[3]\\v[combat.name.trial/hazel]\\c[0] that vigorously whirls around the arm.",
+        "langUid": 2
+      },
+      "type": "EQUIP",
+      "rarity": 6,
+      "cost": 1,
+      "level": 70,
+      "icon": "item-sword",
+      "equipType": "ARM",
+      "params": {
+        "elemFactor": [
+          1.05,
+          1.05,
+          1.05,
+          0.85
+        ],
+        "attack": 75,
+        "focus": 111,
+        "defense": 98
+      },
+      "properties": {
+        "KNOCKBACK": 0.8,
+        "ARTS_INVINC": 1.3,
+        "GUARD_STRENGTH": 1.45,
+        "FAIRY_SPECIAL": 2
+      },
+      "effect": {
+        "sheet": "",
+        "name": null
+      },
+      "noTrack": false,
+      "noCount": true,
+      "isScalable": true
+    }
+  },
+  {
+    "type": "EXIT"
+  }
+]

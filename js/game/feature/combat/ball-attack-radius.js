@@ -95,4 +95,23 @@ ig.module("game.feature.combat.ball-attack-radius").requires(
             ballSpawnerForces.splice(0, ballSpawnerForces.length);
         }
     });
+    var lastRotOffset = Vec2.create();
+    sc.CircleHitForce.inject({
+        rotOffset: null,
+        init: function(a, b) {
+            this.rotOffset = b.rotOffset || null;
+            this.parent(a, b);
+        },
+        _getPos: function() {
+            const result = this.parent();
+            if (!this.pos && this.rotOffset) {
+                const dir = this.dir || this.combatant.face;
+                const angle = Vec2.angle({x: 0, y: -1}, dir) * (dir.x < 0 ? 1 : -1);
+                const rotOffset = Vec2.rotate(this.rotOffset,
+                    angle, lastRotOffset);
+                Vec2.add(result, rotOffset);
+            }
+            return result;
+        }
+    });
 });

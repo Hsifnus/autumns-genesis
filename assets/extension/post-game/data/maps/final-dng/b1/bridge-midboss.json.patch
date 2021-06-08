@@ -522,27 +522,107 @@
                         "condition": "arena.master-trial-cup.progress >= 7",
                         "withElse": false,
                         "type": "IF",
-                        "thenStep": [{
-                          "text": {
-                            "en_US": "Even if you have already cleared that test already, it is always good to keep your skills sharp.",
-                            "langUid": 2
+                        "thenStep": [
+                          {
+                            "text": {
+                              "en_US": "Even if you have already cleared that test already, it is always good to keep your skills sharp.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "entity": {
-                            "global": true,
-                            "name": "gynthar-sensei"
+                          {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "map.firstTime2",
+                            "value": true
+                          }
+                        ]
+                      },
+                      {
+                        "condition": "arena.master-trial-cup.progress >= 7 && !map.firstTime3",
+                        "withElse": false,
+                        "type": "IF",
+                        "thenStep": [
+                          {
+                            "text": {
+                              "en_US": "Given that you have received \\c[3]Arcadian Crystals\\c[0] by now, allow me to explain their function.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "posType": "BOTTOM",
-                          "offset": {
-                            "x": 0,
-                            "y": 0
+                          {
+                            "text": {
+                              "en_US": "Those crystals are highly treasured since ancient times for their ability to improve the quality of accessories and weaponry alike.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "type": "SHOW_DREAM_MSG"
-                        }, {
-                          "changeType": "set",
-                          "type": "CHANGE_VAR_BOOL",
-                          "varName": "map.firstTime2",
-                          "value": true
-                        }]
+                          {
+                            "text": {
+                              "en_US": "From now on, these crystals are further awarded by \\c[3]clearing other Master Trials\\c[0] and will allow you to upgrade your Master Trial weapons to \\c[3]Ascended status\\c[0].",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
+                          },
+                          {
+                            "text": {
+                              "en_US": "For the occasion, I have summoned two of my former disciples to this site, and they shall both take part in the craft of \\c[3]Arcadian weaponsmithing\\c[0].",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
+                          },
+                          {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "map.firstTime3",
+                            "value": true
+                          }
+                        ]
                       },
                       {
                         "text": {
@@ -566,42 +646,123 @@
                         "condition": "arena.master-trial-cup.progress >= 7 && !map.firstTime2",
                         "withElse": false,
                         "type": "IF",
-                        "thenStep": [{
-                          "text": {
-                            "en_US": "I see that you have cleared the \\c[3]special test of mastery\\c[0] since your last visit here. I once more congratulate you on your momentous feat.",
-                            "langUid": 2
+                        "thenStep": [
+                          {
+                            "text": {
+                              "en_US": "I see that you have cleared the \\c[3]special test of mastery\\c[0] since your last visit here. I once more congratulate you on your momentous feat.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "entity": {
-                            "global": true,
-                            "name": "gynthar-sensei"
+                          {
+                            "text": {
+                              "en_US": "Nevertheless - even when perched on top of the zenith, a Seeker must take care not to lose their prime skill and form.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "posType": "BOTTOM",
-                          "offset": {
-                            "x": 0,
-                            "y": 0
+                          {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "map.firstTime2",
+                            "value": true
+                          }
+                        ]
+                      },
+                      {
+                        "condition": "arena.master-trial-cup.progress >= 7 && !map.firstTime3",
+                        "withElse": false,
+                        "type": "IF",
+                        "thenStep": [
+                          {
+                            "text": {
+                              "en_US": "Given that you have received \\c[3]Arcadian Crystals\\c[0] by now, allow me to explain their function.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "type": "SHOW_DREAM_MSG"
-                        }, {
-                          "text": {
-                            "en_US": "Nevertheless - even when perched on top of the zenith, a Seeker must take care not to lose their prime skill and form.",
-                            "langUid": 2
+                          {
+                            "text": {
+                              "en_US": "Those crystals are highly treasured since ancient times for their ability to improve the quality of accessories and weaponry alike.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "entity": {
-                            "global": true,
-                            "name": "gynthar-sensei"
+                          {
+                            "text": {
+                              "en_US": "From now on, these crystals are further awarded by \\c[3]clearing other Master Trials\\c[0] and will allow you to upgrade your Master Trial weapons to \\c[3]Ascended status\\c[0].",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "posType": "BOTTOM",
-                          "offset": {
-                            "x": 0,
-                            "y": 0
+                          {
+                            "text": {
+                              "en_US": "For the occasion, I have summoned two of my former disciples to this site, and they shall both take part in the craft of \\c[3]Arcadian weaponsmithing\\c[0].",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
                           },
-                          "type": "SHOW_DREAM_MSG"
-                        }, {
-                          "changeType": "set",
-                          "type": "CHANGE_VAR_BOOL",
-                          "varName": "map.firstTime2",
-                          "value": true
-                        }]
+                          {
+                            "changeType": "set",
+                            "type": "CHANGE_VAR_BOOL",
+                            "varName": "map.firstTime3",
+                            "value": true
+                          }
+                        ]
                       },
                       {
                         "name": "start",
@@ -2196,6 +2357,79 @@
                       {
                         "entity": {
                           "global": true,
+                          "name": "monke"
+                        },
+                        "action": [
+                          {
+                            "wait": false,
+                            "viaWalkConfig": false,
+                            "type": "SHOW_ANIMATION",
+                            "anim": "cloudIdle"
+                          },
+                          {
+                            "type": "SET_FLY_HEIGHT",
+                            "value": 128
+                          },
+                          {
+                            "type": "WAIT",
+                            "time": -1
+                          }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": true,
+                        "immediately": false,
+                        "type": "DO_ACTION"
+                      },
+                      {
+                        "entity": {
+                          "global": true,
+                          "name": "jelle"
+                        },
+                        "action": [
+                          {
+                            "type": "SET_Z_VEL",
+                            "value": 400
+                          },
+                          {
+                            "type": "SET_FLY_HEIGHT",
+                            "value": 128
+                          },
+                          {
+                            "duration": -1,
+                            "align": "CENTER",
+                            "rotateFace": 0,
+                            "flipLeftFace": false,
+                            "wait": false,
+                            "waitSkip": 0,
+                            "group": "support",
+                            "actionDetached": true,
+                            "fixPos": false,
+                            "type": "SHOW_EFFECT",
+                            "effect": {
+                              "sheet": "enemies.painter",
+                              "name": "supportShield"
+                            },
+                            "offset": {
+                              "x": 0,
+                              "y": 0,
+                              "z": 0
+                            }
+                          },
+                          {
+                            "type": "WAIT",
+                            "time": -1
+                          }
+                        ],
+                        "repeating": false,
+                        "wait": false,
+                        "keepState": true,
+                        "immediately": false,
+                        "type": "DO_ACTION"
+                      },
+                      {
+                        "entity": {
+                          "global": true,
                           "name": "gynthar-sensei"
                         },
                         "action": [
@@ -3318,61 +3552,49 @@
                     "condition": "item.equip-kulero-mask.amount > 0",
                     "withElse": false,
                     "type": "IF",
-                    "thenStep": [{
-                      "changeType": "add",
-                      "type": "CHANGE_VAR_NUMBER",
-                      "varName": "tmp.totalEarnedTokens",
-                      "value": 20
-                    }]
+                    "thenStep": [
+                      {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.totalEarnedTokens",
+                        "value": 20
+                      }
+                    ]
                   },
                   {
                     "condition": "item.equip-kulero-cloak.amount > 0",
                     "withElse": false,
                     "type": "IF",
-                    "thenStep": [{
-                      "changeType": "add",
-                      "type": "CHANGE_VAR_NUMBER",
-                      "varName": "tmp.totalEarnedTokens",
-                      "value": 21
-                    }]
+                    "thenStep": [
+                      {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.totalEarnedTokens",
+                        "value": 21
+                      }
+                    ]
                   },
                   {
                     "condition": "item.equip-kulero-boots.amount > 0",
                     "withElse": false,
                     "type": "IF",
-                    "thenStep": [{
-                      "changeType": "add",
-                      "type": "CHANGE_VAR_NUMBER",
-                      "varName": "tmp.totalEarnedTokens",
-                      "value": 17
-                    }]
+                    "thenStep": [
+                      {
+                        "changeType": "add",
+                        "type": "CHANGE_VAR_NUMBER",
+                        "varName": "tmp.totalEarnedTokens",
+                        "value": 17
+                      }
+                    ]
                   },
                   {
                     "condition": "tmp.totalEarnedTokens == 58",
                     "withElse": false,
                     "type": "IF",
-                    "thenStep": [{
-                      "text": {
-                        "en_US": "It appears that you have managed to earn \\c[3]every token\\c[0] available through training, a commendable feat indeed.",
-                        "langUid": 2
-                      },
-                      "entity": {
-                        "global": true,
-                        "name": "gynthar-sensei"
-                      },
-                      "posType": "BOTTOM",
-                      "offset": {
-                        "x": 0,
-                        "y": 0
-                      },
-                      "type": "SHOW_DREAM_MSG"
-                    }, {
-                      "condition": "arena.master-trial-cup.progress >= 7",
-                      "withElse": true,
-                      "type": "IF",
-                      "thenStep": [{
+                    "thenStep": [
+                      {
                         "text": {
-                          "en_US": "It thus comes as no surprise that you managed to clear my \\c[3]special test of mastery\\c[0] beforehand.",
+                          "en_US": "It appears that you have managed to earn \\c[3]every token\\c[0] available through training, a commendable feat indeed.",
                           "langUid": 2
                         },
                         "entity": {
@@ -3385,24 +3607,49 @@
                           "y": 0
                         },
                         "type": "SHOW_DREAM_MSG"
-                      }],
-                      "elseStep": [{
-                        "text": {
-                          "en_US": "I bid you best luck when we meet in the \\c[3]special test of mastery\\c[0].",
-                          "langUid": 2
-                        },
-                        "entity": {
-                          "global": true,
-                          "name": "gynthar-sensei"
-                        },
-                        "posType": "BOTTOM",
-                        "offset": {
-                          "x": 0,
-                          "y": 0
-                        },
-                        "type": "SHOW_DREAM_MSG"
-                      }]
-                    }]
+                      },
+                      {
+                        "condition": "arena.master-trial-cup.progress >= 7",
+                        "withElse": true,
+                        "type": "IF",
+                        "thenStep": [
+                          {
+                            "text": {
+                              "en_US": "It thus comes as no surprise that you managed to clear my \\c[3]special test of mastery\\c[0] beforehand.",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
+                          }
+                        ],
+                        "elseStep": [
+                          {
+                            "text": {
+                              "en_US": "I bid you best luck when we meet in the \\c[3]special test of mastery\\c[0].",
+                              "langUid": 2
+                            },
+                            "entity": {
+                              "global": true,
+                              "name": "gynthar-sensei"
+                            },
+                            "posType": "BOTTOM",
+                            "offset": {
+                              "x": 0,
+                              "y": 0
+                            },
+                            "type": "SHOW_DREAM_MSG"
+                          }
+                        ]
+                      }
+                    ]
                   }
                 ]
               }
@@ -5240,6 +5487,65 @@
                 "value": false
               },
               {
+                "entity": {
+                  "global": true,
+                  "name": "monke"
+                },
+                "action": [
+                  {
+                    "type": "CLEAR_ANIMATION"
+                  },
+                  {
+                    "value": 0,
+                    "type": "SET_FLY_HEIGHT"
+                  },
+                  {
+                    "jumpHeight": "M",
+                    "wait": true,
+                    "ignoreSounds": true,
+                    "type": "JUMP"
+                  },
+                  {
+                    "type": "WAIT",
+                    "time": 1
+                  }
+                ],
+                "repeating": false,
+                "wait": false,
+                "keepState": true,
+                "immediately": false,
+                "type": "DO_ACTION"
+              },
+              {
+                "entity": {
+                  "global": true,
+                  "name": "jelle"
+                },
+                "action": [
+                  {
+                    "type": "SET_Z_VEL",
+                    "value": -100
+                  },
+                  {
+                    "type": "SET_FLY_HEIGHT",
+                    "value": 1
+                  },
+                  {
+                    "group": "support",
+                    "type": "CLEAR_EFFECTS"
+                  },
+                  {
+                    "type": "WAIT",
+                    "time": 2
+                  }
+                ],
+                "repeating": false,
+                "wait": false,
+                "keepState": true,
+                "immediately": false,
+                "type": "DO_ACTION"
+              },
+              {
                 "text": {
                   "en_US": "And so, training concludes.",
                   "langUid": 2
@@ -5329,7 +5635,7 @@
       "y": 640,
       "level": 1,
       "settings": {
-        "name": "zaWarudo",
+        "name": "playerDies",
         "eventType": "PARALLEL",
         "endCondition": "false",
         "event": [
@@ -5380,6 +5686,429 @@
         "triggerType": "ALWAYS",
         "mapId": 85,
         "startCondition": "tmp.playerDead"
+      }
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "type": "NPC",
+      "x": 264,
+      "y": 552,
+      "level": 1,
+      "settings": {
+        "name": "monke",
+        "characterName": "npc.son-of-the-east",
+        "mapId": 200,
+        "npcStates": [
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH",
+            "hidden": true,
+            "condition": "plot.line < 48000 || arena.master-trial-cup.progress < 7",
+            "config": "normal",
+            "event": []
+          },
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH",
+            "action": [],
+            "hidden": false,
+            "condition": "plot.line >= 48000 && arena.master-trial-cup.progress >= 7",
+            "config": "normal",
+            "event": {
+              "trade": {
+                "event": [{
+                  "entity": {
+                    "player": true
+                  },
+                  "action": [
+                    {
+                      "value": 0.8,
+                      "type": "SET_RELATIVE_SPEED"
+                    },
+                    {
+                      "target": {
+                        "x": 280,
+                        "y": 608,
+                        "lvl": "1"
+                      },
+                      "precise": true,
+                      "forceTime": false,
+                      "distance": 4,
+                      "type": "NAVIGATE_TO_POINT"
+                    },
+                    {
+                      "face": "NORTH",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "time": 0.5,
+                      "type": "WAIT"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "player": true
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "action": [
+                    {
+                      "face": "SOUTH",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "jumpHeight": "M",
+                      "wait": true,
+                      "ignoreSounds": false,
+                      "type": "JUMP"
+                    },
+                    {
+                      "wait": false,
+                      "viaWalkConfig": false,
+                      "type": "SHOW_ANIMATION",
+                      "anim": "idle"
+                    },
+                    {
+                      "time": 0.3,
+                      "type": "WAIT"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                },
+                {
+                  "text": {
+                    "en_US": "Arcadian weaponsmithing is an time-honored art passed down for long among our kind.",
+                    "langUid": 2
+                  },
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "posType": "TOP",
+                  "offset": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "SHOW_DREAM_MSG"
+                }, 
+                {
+                  "text": {
+                    "en_US": "Allow me to reveal the true powers of your weapons, Seeker!",
+                    "langUid": 2
+                  },
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "posType": "TOP",
+                  "offset": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "SHOW_DREAM_MSG"
+                },
+                {
+                  "withBranches": false,
+                  "type": "START_NPC_TRADE_MENU"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "action": [
+                    {
+                      "face": "SOUTH",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "type": "CLEAR_ANIMATION"
+                    },
+                    {
+                      "jumpHeight": "M",
+                      "wait": true,
+                      "ignoreSounds": false,
+                      "type": "JUMP"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "monke"
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                }],
+                "trader": "monke"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": {
+      "type": "NPC",
+      "x": 660,
+      "y": 552,
+      "level": {
+        "level": 1,
+        "offset": 8
+      },
+      "settings": {
+        "name": "jelle",
+        "characterName": "npc.jellectris",
+        "mapId": 201,
+        "npcStates": [
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH_WEST",
+            "hidden": true,
+            "condition": "plot.line < 48000 || arena.master-trial-cup.progress < 7 || tmp.practiceMode",
+            "config": "normal",
+            "event": []
+          },
+          {
+            "reactType": "FIXED_POS",
+            "face": "SOUTH_WEST",
+            "action": [],
+            "hidden": false,
+            "condition": "plot.line >= 48000 && arena.master-trial-cup.progress >= 7 && !tmp.practiceMode",
+            "config": "normal",
+            "event": {
+              "trade": {
+                "event": [{
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "action": [
+                    {
+                      "face": "SOUTH_WEST",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                }, {
+                  "entity": {
+                    "player": true
+                  },
+                  "action": [
+                    {
+                      "value": 0.8,
+                      "type": "SET_RELATIVE_SPEED"
+                    },
+                    {
+                      "target": {
+                        "x": 672,
+                        "y": 608,
+                        "lvl": "1"
+                      },
+                      "precise": true,
+                      "forceTime": false,
+                      "distance": 4,
+                      "type": "NAVIGATE_TO_POINT"
+                    },
+                    {
+                      "face": "NORTH",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "time": 0.5,
+                      "type": "WAIT"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "player": true
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "action": [
+                    {
+                      "face": "SOUTH_WEST",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "value": 8,
+                      "type": "SET_FLY_HEIGHT"
+                    },
+                    {
+                      "followUp": "castBrushLoop",
+                      "wait": false,
+                      "viaWalkConfig": false,
+                      "type": "SHOW_ANIMATION",
+                      "anim": "castBrush"
+                    },
+                    {
+                      "volume": 1,
+                      "global": false,
+                      "loop": false,
+                      "variance": 0.2,
+                      "speed": 1.3,
+                      "sound": "media/sound/battle/blubb-2.ogg",
+                      "type": "PLAY_SOUND"
+                    },
+                    {
+                      "time": 0.3,
+                      "type": "WAIT"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                },
+                {
+                  "text": {
+                    "en_US": "I may not look like it, but I've been around here for quite a long time.",
+                    "langUid": 2
+                  },
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "posType": "TOP",
+                  "offset": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "SHOW_DREAM_MSG"
+                }, 
+                {
+                  "text": {
+                    "en_US": "I'll do my best to bring the true color out of your arsenal!",
+                    "langUid": 2
+                  },
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "posType": "TOP",
+                  "offset": {
+                    "x": 0,
+                    "y": 0
+                  },
+                  "type": "SHOW_DREAM_MSG"
+                },
+                {
+                  "withBranches": false,
+                  "type": "START_NPC_TRADE_MENU"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "action": [
+                    {
+                      "face": "SOUTH_WEST",
+                      "rotate": true,
+                      "rotateSpeed": 3,
+                      "type": "SET_FACE"
+                    },
+                    {
+                      "wait": true,
+                      "viaWalkConfig": false,
+                      "type": "SHOW_ANIMATION",
+                      "anim": "castBrushPost"
+                    },
+                    {
+                      "type": "CLEAR_ANIMATION"
+                    },
+                    {
+                      "value": 1,
+                      "type": "SET_FLY_HEIGHT"
+                    },
+                    {
+                      "time": 0.5,
+                      "type": "WAIT"
+                    }
+                  ],
+                  "repeating": false,
+                  "wait": false,
+                  "keepState": true,
+                  "immediately": false,
+                  "type": "DO_ACTION"
+                },
+                {
+                  "entity": {
+                    "global": true,
+                    "name": "jelle"
+                  },
+                  "type": "WAIT_UNTIL_ACTION_DONE"
+                }],
+                "trader": "jelle"
+              }
+            }
+          }
+        ]
       }
     }
   },

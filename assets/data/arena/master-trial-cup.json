@@ -316,6 +316,7 @@
         "item": "trade-ascended",
         "count": 5
       }],
+      "exFirstClearBonus": [],
       "isEncore": true,
       "condition": "plot.line >= 48000 && arena.master-trial-cup.progress >= 6"
     }]
