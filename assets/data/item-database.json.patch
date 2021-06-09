@@ -1366,7 +1366,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A thick, protective cape resembling that of \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0], sized down to fit Seeker stature. \\i[ascended]",
+        "en_US": "Protective cape resembling that of \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0], sized down to fit Seeker stature. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1410,7 +1410,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A loose replica of \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s mask. Some say it looks surprisingly adorable. \\i[ascended]",
+        "en_US": "Loose replica of \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s mask. Some say it looks surprisingly adorable. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1454,7 +1454,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "Fairly comfy boots with similar materials and pattern as  \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s cloak. \\i[ascended]",
+        "en_US": "Comfy boots with similar materials and pattern as  \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]'s cloak. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1500,7 +1500,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "Legendary weapon wielded by \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]. The Gods' powers protect its user in direst times. \\i[ascended]",
+        "en_US": "Spear wielded by \\c[3]\\v[combat.name.trial/gynthar-ex]\\c[0]. The Gods' powers protect its user in direst times. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1547,7 +1547,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A searingly bright great staff crafted from \\c[3]\\v[combat.name.heat/megamoth]\\c[0]'s scalding scales.",
+        "en_US": "A searingly bright great staff crafted from \\c[3]\\v[combat.name.heat/megamoth]\\c[0]'s scalding scales. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1592,7 +1592,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A ghostly blade that sends victims to \\c[3]\\v[combat.name.jungle/shockboss]\\c[0]'s cursed dimensions.",
+        "en_US": "A ghostly blade that sends victims to \\c[3]\\v[combat.name.jungle/shockboss]\\c[0]'s cursed dimensions. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1637,7 +1637,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A mace crafted from the pulsing gelatin and starfish arms of \\c[3]\\v[combat.name.jungle/waveboss]\\c[0].",
+        "en_US": "A mace crafted from the pulsing gelatin and starfish arms of \\c[3]\\v[combat.name.jungle/waveboss]\\c[0]. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1682,7 +1682,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "An improved forbidden bomb launcher planned to be used on \\c[3]\\v[combat.name.boss-driller]\\c[0]",
+        "en_US": "An improved forbidden bomb launcher planned to be used on \\c[3]\\v[combat.name.boss-driller]\\c[0] \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1727,7 +1727,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A worthy equal to the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel, unleashing heavenly thunder at will.",
+        "en_US": "Worthy equal to the \\c[3]\\v[combat.name.jungle/ape-boss]\\c[0]'s cudgel, unleashing heavenly thunder at will. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1772,7 +1772,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "A somehow even larger longsword crafted from \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin.",
+        "en_US": "A somehow even larger longsword crafted from \\c[3]\\v[combat.name.jungle/whale-boss]\\c[0]'s fin. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1817,7 +1817,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "This deluxe model of \\c[3]\\v[combat.name.trial/slime-artist]\\c[0]'s brush adds new vigor to its creations.",
+        "en_US": "This deluxe model of \\c[3]\\v[combat.name.trial/slime-artist]\\c[0]'s brush adds new vigor to its creations. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
@@ -1863,7 +1863,7 @@
         "langUid": 1
       },
       "description": {
-        "en_US": "An empowered bracelet of \\c[3]\\v[combat.name.trial/hazel]\\c[0] that vigorously whirls around the arm.",
+        "en_US": "An empowered bracelet of \\c[3]\\v[combat.name.trial/hazel]\\c[0] that vigorously whirls around the arm. \\i[ascended]",
         "langUid": 2
       },
       "type": "EQUIP",
