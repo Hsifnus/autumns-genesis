@@ -56,7 +56,7 @@ import "./js/game/feature/combat/model/status-punisher.js";
 
 import "./js/game/feature/combat/model/stun-status.js";
 
-import "./js/game/feature/font/font-system-override.js";
+import "./js/game/feature/font/custom-icons.js";
 
 import "./js/game/feature/gui/hud/special-party.js";
 
