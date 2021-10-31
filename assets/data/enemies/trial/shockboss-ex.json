@@ -6554,6 +6554,12 @@
             "kind": "PLAYER",
             "type": "SET_TEMP_TARGET"
         }, {
+            "attribName": "attackReady",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
             "proxy": "SlashShooter",
             "align": "CENTER",
             "type": "SHOOT_PROXY"
@@ -7358,6 +7364,12 @@
             "reaction": "COMPRESSOR_DODGE"
         }, {
             "attribName": "attackDone",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 0
+        }, {
+            "attribName": "attackReady",
             "changeType": "set",
             "proxyOwner": false,
             "type": "SET_ATTRIB_NUMBER",
