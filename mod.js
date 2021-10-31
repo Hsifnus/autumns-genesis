@@ -38,6 +38,8 @@ import "./js/game/feature/combat/set-attrib-farthest-entity.js";
 
 import "./js/game/feature/combat/true-target.js";
 
+import "./js/game/feature/combat/wait-until-player-item-block.js";
+
 import "./js/game/feature/combat/model/arts-invinc.js";
 
 import "./js/game/feature/combat/model/bless-modifiers.js";

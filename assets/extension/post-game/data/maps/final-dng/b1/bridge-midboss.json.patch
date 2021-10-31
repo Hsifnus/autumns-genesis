@@ -623,7 +623,7 @@
                             "value": true
                           }
                         ]
-                      },
+                      }, 
                       {
                         "text": {
                           "en_US": "Now, what is it that you wish to do?",
@@ -2638,6 +2638,14 @@
                         "type": "ADD_PLAYER_CAMERA_TARGET"
                       },
                       {
+                        "task": {
+                          "en_US": "Consume an item to interrupt training.",
+                          "langUid": 2
+                        },
+                        "keepDisplayed": true,
+                        "type": "SET_TASK"
+                      },
+                      {
                         "time": 0.1,
                         "type": "WAIT"
                       }
@@ -2809,6 +2817,9 @@
         "eventType": "CUTSCENE",
         "endCondition": "false",
         "event": [
+          {
+            "type": "CLEAR_TASK"
+          },
           {
             "value": false,
             "type": "SET_FORCE_COMBAT"
@@ -3654,6 +3665,10 @@
                 ]
               }
             ]
+          },
+          {
+            "name": "continueStart",
+            "type": "LABEL"
           },
           {
             "text": {
@@ -5376,6 +5391,34 @@
                     ]
                   }
                 ],
+                "4": [
+                  {
+                    "message": {
+                      "en_US": "[shakes head]",
+                      "de_DE": "[schüttelt Kopf]",
+                      "fr_FR": "fr_FR",
+                      "langUid": 134,
+                      "zh_CN": "[摇头]",
+                      "ja_JP": "[首を振る]",
+                      "ko_KR": "[도리도리]",
+                      "zh_TW": "[搖頭]"
+                    },
+                    "autoContinue": false,
+                    "type": "SHOW_MSG",
+                    "person": {
+                      "person": "main.lea",
+                      "expression": "SHAKE"
+                    }
+                  },
+                  {
+                    "type": "REMOVE_MSG_PERSON",
+                    "person": "main.lea"
+                  },
+                  {
+                    "name": "continueStart",
+                    "type": "GOTO_LABEL"
+                  }
+                ],
                 "type": "SHOW_CHOICE",
                 "person": {
                   "person": "main.lea",
@@ -5407,6 +5450,13 @@
                     "0": " ",
                     "label": {
                       "en_US": "\\i[element-wave]Wave",
+                      "langUid": 120
+                    }
+                  },
+                  {
+                    "0": " ",
+                    "label": {
+                      "en_US": "Back",
                       "langUid": 120
                     }
                   }
@@ -5639,6 +5689,60 @@
         "eventType": "PARALLEL",
         "endCondition": "false",
         "event": [
+          {
+            "type": "WAIT",
+            "time": 0.25
+          },
+          {
+            "group": "dummy",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "trail",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "sun",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "icicle",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "moveMine",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "shield",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "group": "wall",
+            "type": "REMOVE_PROXIES"
+          },
+          {
+            "entity": {
+              "global": true,
+              "name": "gynthar-sensei"
+            },
+            "action": [
+              {
+                "stateReset": false,
+                "type": "DO_ENEMY_ACTION_INLINE",
+                "actionName": "PracticeInterrupt"
+              },
+              {
+                "type": "WAIT",
+                "time": 0.3
+              }
+            ],
+            "repeating": false,
+            "wait": false,
+            "keepState": false,
+            "immediately": false,
+            "type": "DO_ACTION"
+          },
           {
             "entity": {
               "global": true,

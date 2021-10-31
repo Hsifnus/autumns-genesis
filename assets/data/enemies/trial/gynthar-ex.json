@@ -502,6 +502,39 @@
     }
   },
   "proxies": {
+    "itemBlockInterrupt": {
+      "copyOwnerAnims": false,
+      "breakType": "COMBATANT",
+      "action": [
+        {
+          "type": "WAIT_UNTIL_PLAYER_ITEM_CONSUME"
+        },
+        {
+          "changeType": "set",
+          "type": "CHANGE_VAR_BOOL",
+          "varName": "tmp.playerDead",
+          "value": true
+        },
+        {
+          "time": 0.1,
+          "type": "WAIT"
+        }
+      ],
+      "invisible": false,
+      "hp": 0,
+      "stickToSource": "",
+      "stickFaceAlign": false,
+      "group": "",
+      "size": {
+        "x": 8,
+        "y": 8,
+        "z": 8
+      },
+      "config": {
+        "collType": "IGNORE"
+      },
+      "type": "GENERIC"
+    },
     "swordOrderer": {
       "copyOwnerAnims": false,
       "breakType": "COMBATANT",
@@ -37111,6 +37144,11 @@
     ],
     "PracticeAttack": [
       {
+        "align": "BOTTOM",
+        "proxy": "itemBlockInterrupt",
+        "type": "SHOOT_PROXY"
+      },
+      {
         "name": "telegraph",
         "type": "SET_ATTRIB_BOOL",
         "changeConnected": "PROXY_OWNER",
@@ -38314,9 +38352,52 @@
         "actionName": "PostAttack"
       }
     ],
+    "PracticeInterrupt": [{
+      "value": -1,
+      "type": "SET_WEIGHT"
+    }, {
+      "value": 0,
+      "type": "SET_SPEED"
+    }, {
+      "value": 1,
+      "type": "SET_Z_GRAVITY_FACTOR"
+    }, {
+      "volume": 0.7,
+      "global": false,
+      "loop": false,
+      "speed": 2,
+      "sound": "media/sound/battle/enemies/discharge.ogg",
+      "type": "PLAY_SOUND"
+    }, {
+      "wait": false,
+      "viaWalkConfig": false,
+      "type": "SHOW_ANIMATION",
+      "anim": "damage"
+    }, {
+      "value": 200,
+      "type": "SET_Z_VEL"
+    }, {
+      "time": 0.1,
+      "type": "WAIT"
+    }, {
+      "type": "WAIT_UNTIL_ON_GROUND"
+    }],
     "PracticeEnd": [
       {
-        "group": "shield",
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.ferroActive",
+        "value": false
+      },
+      {
+        "changeType": "set",
+        "type": "CHANGE_VAR_BOOL",
+        "varName": "tmp.hasShield",
+        "value": false
+      },
+      {
+        "sticking": true,
+        "group": "eleShield",
         "type": "REMOVE_PROXIES"
       },
       {
