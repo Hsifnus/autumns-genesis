@@ -1896,6 +1896,26 @@
             "copyOwnerAnims": false,
             "breakType": "COMBATANT",
             "action": [{
+              "kind": "NAMED_ENTITY",
+              "key": "bossDefaultPos",
+              "type": "SET_TEMP_TARGET"
+            }, {
+              "name": "pos",
+              "target": "TARGET",
+              "align": "BOTTOM",
+              "faceDistance": 0,
+              "offset": {
+                "x": 0,
+                "y": 0,
+                "z": 128
+              },
+              "type": "SET_ATTRIB_POS"
+            }, {
+              "attrib": "pos",
+              "type": "TELEPORT_TO_ATTRIB_POS"
+            }, {
+              "type": "CLEAR_TEMP_TARGET"
+            }, {
                 "name": "loop",
                 "type": "LABEL"
             }, {
@@ -2033,7 +2053,7 @@
             }],
             "invisible": false,
             "hp": 0,
-            "stickToSource": "OWNER",
+            "stickToSource": "NONE",
             "stickFaceAlign": false,
             "group": "",
             "size": {
@@ -6990,7 +7010,7 @@
             "withElse": false,
             "type": "COMBAT_IF",
             "thenStep": [{
-                "align": "BOTTOM",
+                "align": "TOP",
                 "type": "SHOOT_PROXY",
                 "proxy": "superBombSpawner",
                 "offset": {
