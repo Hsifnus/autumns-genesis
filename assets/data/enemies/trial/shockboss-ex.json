@@ -7587,6 +7587,12 @@
             "value": "MASSIVE",
             "type": "SET_HIT_STABLE"
         }, {
+            "attribName": "attackReady",
+            "changeType": "set",
+            "proxyOwner": false,
+            "type": "SET_ATTRIB_NUMBER",
+            "value": 1
+        }, {
             "value": 6,
             "type": "SET_RELATIVE_SPEED"
         }, {
