@@ -50,7 +50,7 @@ ig.module("game.feature.arena.trial").requires(
         isRoundEncore: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;
             b = b >= 0 ? b : sc.arena.runtime.currentRound;
-            return sc.arena.cups[a] && sc.arena.getCupData(a).rounds[b].isEncore;
+            return sc.arena.cups[a] && sc.arena.getCupData(a) && sc.arena.getCupData(a).rounds[b].isEncore;
         },
         getArcadianCrystalEndeavors: function(a, b) {
             a = a ? a : sc.arena.runtime.cup;

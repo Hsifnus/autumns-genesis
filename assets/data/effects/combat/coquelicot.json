@@ -570,6 +570,82 @@
                     "renderMode": "lighter",
                     "frames": [0, 1, 2, 3, 4, 5]
                 }]
+            }, {
+                "dirOffsets": [
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0]
+                ],
+                "tileOffsets": [0, 12, 24, 36, 48, 42, 30, 18],
+                "SUB": [{
+                    "name": "sweepNeutral2",
+                    "sheet": "SWEEP_NEUTRAL",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepHeat2",
+                    "sheet": "SWEEP_HEAT",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                },{
+                    "name": "sweepCold2",
+                    "sheet": "SWEEP_COLD",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepShock2",
+                    "sheet": "SWEEP_SHOCK",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepWave2",
+                    "sheet": "SWEEP_WAVE",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }]
+            }, {
+                "dirOffsets": [
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0],
+                    [0, -4, 0]
+                ],
+                "tileOffsets": [6, 18, 30, 42, 54, 36, 24, 12],
+                "SUB": [{
+                    "name": "sweepNeutralRev2",
+                    "sheet": "SWEEP_NEUTRAL",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepHeatRev2",
+                    "sheet": "SWEEP_HEAT",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                },{
+                    "name": "sweepColdRev2",
+                    "sheet": "SWEEP_COLD",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepShockRev2",
+                    "sheet": "SWEEP_SHOCK",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }, {
+                    "name": "sweepWaveRev2",
+                    "sheet": "SWEEP_WAVE",
+                    "time": 0.066,
+                    "frames": [0, 1, 2, 3, 4, 5]
+                }]
             }]
         }]
     },
@@ -617,6 +693,54 @@
         }, {
             "moveWithTarget": 1,
             "anim": "sweepNeutralRev",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepNeutral2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/close-combat-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepNeutral2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepNeutralRev2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/close-combat-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepNeutralRev2",
             "type": "PLAY_FACE_ANIM"
         }, {
             "time": 0.2,
@@ -745,6 +869,54 @@
             "time": 0.2,
             "type": "WAIT"
         }],
+        "sweepHeat2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/close-combat-heat-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepHeat2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepHeatRev2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/close-combat-heat-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepHeatRev2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
         "jabHeat": [{
             "volume": 1,
             "global": false,
@@ -863,6 +1035,54 @@
         }, {
             "moveWithTarget": 1,
             "anim": "sweepColdRev",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepCold2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/cold/close-combat-cold-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepCold2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepColdRev2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/cold/close-combat-cold-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepColdRev2",
             "type": "PLAY_FACE_ANIM"
         }, {
             "time": 0.2,
@@ -991,6 +1211,54 @@
             "time": 0.2,
             "type": "WAIT"
         }],
+        "sweepShock2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/shock/close-combat-shock-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepShock2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepShockRev2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/shock/close-combat-shock-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepShockRev2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
         "jabShock": [{
             "volume": 1,
             "global": false,
@@ -1109,6 +1377,54 @@
         }, {
             "moveWithTarget": 1,
             "anim": "sweepWaveRev",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepWave2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/wave/close-combat-wave-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepWave2",
+            "type": "PLAY_FACE_ANIM"
+        }, {
+            "time": 0.2,
+            "type": "WAIT"
+        }],
+        "sweepWaveRev2": [{
+            "volume": 1,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.1,
+            "sound": "media/sound/battle/sweep-long.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "volume": 0.9,
+            "global": false,
+            "loop": false,
+            "variance": 0.05,
+            "speed": 1.05,
+            "sound": "media/sound/battle/airon/wave/close-combat-wave-sweep-massive.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "moveWithTarget": 1,
+            "anim": "sweepWaveRev2",
             "type": "PLAY_FACE_ANIM"
         }, {
             "time": 0.2,
@@ -6648,6 +6964,196 @@
             "type": "OFFSET_PARTICLE_CIRCLE"
         }, {
             "time": 0.25,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_END"
+        }],
+        "focus": [{
+            "volume": 0.65,
+            "global": false,
+            "loop": false,
+            "speed": 2,
+            "sound": "media/sound/battle/enemies/discharge.ogg",
+            "type": "PLAY_SOUND"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.4,
+                        "y": 1.4
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.5,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.8,
+                        "y": 1.8
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "fadeIn": 0.1,
+            "fadeOut": 0.1,
+            "duration": -1,
+            "intensity": 0.2,
+            "type": "DARKNESS"
+        }, {
+            "size": "XL",
+            "fadeIn": 0.1,
+            "fadeOut": 0.1,
+            "duration": -1,
+            "glow": false,
+            "type": "LIGHT"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.25,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.25,
+                        "y": 1.25
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.25,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.15,
+            "type": "WAIT"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.25,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.25,
+                        "y": 1.25
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "color": "#ffffff",
+            "noLighter": false,
+            "pAlpha": {
+                "init": 0.25,
+                "start": {
+                    "value": 0,
+                    "spline": ""
+                }
+            },
+            "pScale": {
+                "init": {
+                    "x": 1,
+                    "y": 1
+                },
+                "start": {
+                    "value": {
+                        "x": 1.5,
+                        "y": 1.5
+                    },
+                    "spline": ""
+                }
+            },
+            "particleDuration": 0.6,
+            "moveWithTarget": 1,
+            "type": "COPY_SPRITE"
+        }, {
+            "time": 0.15,
+            "type": "WAIT"
+        }, {
+            "type": "LOOP_START"
+        }, {
+            "time": 0.1,
             "type": "WAIT"
         }, {
             "type": "LOOP_END"

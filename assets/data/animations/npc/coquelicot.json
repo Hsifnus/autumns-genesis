@@ -33,6 +33,14 @@
             "width": 32,
             "height": 40
         },
+        "rage": {
+            "src": "media/entity/npc/coquelicot.png",
+            "xCount": 16,
+            "offX": 0,
+            "offY": 320,
+            "width": 32,
+            "height": 40
+        },
         "attack1": {
             "src": "media/entity/npc/coquelicot-attack.png",
             "xCount": 18,
@@ -220,6 +228,48 @@
             "time": 0.1,
             "repeat": true,
             "frames": [13, 14, 15]
+        }, {
+            "name": "prayPre",
+            "time": 0.1,
+            "repeat": false,
+            "frames": [4, 5, 6]
+        }, {
+            "name": "prayLoop",
+            "time": 0.5,
+            "repeat": true,
+            "frames": [9, 10]
+        }]
+    }, {
+        "sheet": "rage",
+        "dirs": 1,
+        "flipX": [0],
+        "tileOffsets": [0],
+        "SUB": [{
+            "name": "rageSpinPre",
+            "time": 0.05,
+            "repeat": false,
+            "frames": [9, 8, 7, 6, 5, 4, 11, 10, 16]
+        }, {
+            "name": "ragePre",
+            "time": 0.1,
+            "repeat": true,
+            "frames": [27, 27],
+            "framesGfxOffset": [0, 0, 1, 0]
+        }, {
+            "name": "ragePre2",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [12]
+        }, {
+            "name": "rageLoop",
+            "time": 0.15,
+            "repeat": true,
+            "frames": [13, 14, 15]
+        }, {
+            "name": "ragePost",
+            "time": 0.15,
+            "repeat": false,
+            "frames": [14, 13, 12, 27]
         }]
     }, {
         "sheet": "attack1",
@@ -352,6 +402,36 @@
         }, {
             "name": "sweepRev2",
             "time": 0.066,
+            "repeat": false,
+            "dirFrames": [
+                [10, 11, 12, 13],
+                [30, 31, 32, 33],
+                [50, 51, 52, 53],
+                [70, 71, 72, 73],
+                [90, 91, 92, 93],
+                [63, 64, 65, 66],
+                [43, 44, 45, 46],
+                [23, 24, 25, 26]
+            ],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        },  {
+            "name": "sweep2Fast",
+            "time": 0.033,
+            "repeat": false,
+            "dirFrames": [
+                [3, 4, 5, 6],
+                [23, 24, 25, 26],
+                [43, 44, 45, 46],
+                [63, 64, 65, 66],
+                [83, 84, 85, 86],
+                [70, 71, 72, 73],
+                [50, 51, 52, 53],
+                [30, 31, 32, 33]
+            ],
+            "framesGfxOffset": [0, 14, 0, 14, 0, 14, 0, 14]
+        }, {
+            "name": "sweepRev2Fast",
+            "time": 0.033,
             "repeat": false,
             "dirFrames": [
                 [10, 11, 12, 13],
