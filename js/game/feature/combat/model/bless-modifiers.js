@@ -29,21 +29,33 @@ ig.module("game.feature.combat.model.bless-modifiers").requires(
   	})
   	ig.ENTITY.Combatant.inject({
   		isShielded: function(a, b, c, d) {
-  			const oldShieldsConnections = this.shieldsConnections.map(shieldConnection => ig.copy(shieldConnection));
-            for (var partName = c && c.partName, e = this.shieldsConnections.length, f = sc.SHIELD_RESULT.NONE; e--;) {
-                var g = this.shieldsConnections[e],
-                    n = g.shield;
-                if (this.params.getModifier("QUADRO_SPECIAL") >= 1 && getElementMode(this) === sc.ELEMENT.COLD) {
-                	if (g.isPerfect()) {
-                		n.strength = sc.SHIELD_STRENGTH.BLOCK_ALL;
-                	}
-                	n.hitResist = sc.ATTACK_TYPE.MASSIVE;
-                	n.stableOverride = sc.ATTACK_TYPE.MASSIVE;
-                }
+          const shieldConnections = this.shieldsConnections.map(shieldConnection => ig.copy(shieldConnection));
+          for (var c = c && c.partName, e = shieldConnections.length, f = sc.SHIELD_RESULT.NONE; e--;) {
+            var g = shieldConnections[e],
+              n = g.shield;
+            if (this.params.getModifier("QUADRO_SPECIAL") >= 1 && getElementMode(this) === sc.ELEMENT.COLD) {
+              if (g.isPerfect()) {
+                n.strength = sc.SHIELD_STRENGTH.BLOCK_ALL;
+              }
+              n.hitResist = sc.ATTACK_TYPE.MASSIVE;
+              n.stableOverride = sc.ATTACK_TYPE.MASSIVE;
             }
-            const result = this.parent(a, b, c, d);
-            this.shieldsConnections = oldShieldsConnections;
-            return result;
+            if (n.strength != sc.SHIELD_STRENGTH.BLOCK_ALL && b.guardable != sc.GUARDABLE.ALWAYS) {
+              if (b.guardable == sc.GUARDABLE.NEVER) continue;
+              if (b.guardable ==
+                sc.GUARDABLE.FROM_ABOVE && n.strength != sc.SHIELD_STRENGTH.BLOCK_ABOVE) continue;
+              if (n.hitResist < b.type) continue
+            }
+            if (n.isActive(this, a, b, c, g.isPerfect()) && n.getDamageFactor(b, this) < 1) {
+              if (n.neutralize) return sc.SHIELD_RESULT.NEUTRALIZE;
+              if (d) {
+                  if (n.stableOverride > d.hitStable) d.hitStable = n.stableOverride;
+                  d.damageFactor = g.isPerfect() ? 0 : d.damageFactor * n.getDamageFactor(b, this)
+              }
+              f = Math.max(f, g.isPerfect() ? sc.SHIELD_RESULT.PERFECT : sc.SHIELD_RESULT.REGULAR)
+            }
+          }
+          return f
         },
         onTargetHit: function(a, b, c) {
         	if (b.spFactor && this.params.getModifier("PENTA_SPECIAL") >= 1 && getElementMode(this) === sc.ELEMENT.SHOCK && this.isPlayer && this.dashAttackCount) {
