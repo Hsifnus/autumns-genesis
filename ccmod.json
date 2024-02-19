@@ -4,7 +4,7 @@
   "title": "Autumn's Genesis",
   "description": "Dungeon/Quest expansion to CrossCode",
   "repository": "https://github.com/Hsifnus/autumns-genesis",
-  "tags": ["maps", "boss", "character"],
+  "tags": ["maps", "boss", "quests", "player character", "party member"],
   "authors": ["Hsifnus", "ac2pic", "Sandorik00", "elluminance"],
   "dependencies": {
     "item-api": "^0.*",
