@@ -19,12 +19,9 @@
 		"ja_JP": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
 		"ko_KR": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics"
 	},
-	"icons": {
-		"24": "icon.png"
-	},
 	"repository": "https://github.com/Hsifnus/autumns-genesis",
-	"tags": ["arena", "combat arts", "music", "boss", "challenge"],
-	"authors": ["Hsifnus"],
+	"tags": ["arena", "combat arts", "boss", "puzzle"],
+	"authors": ["Bakafish"],
 	"prestart": "mod.js",
 	"dependencies": {
         "item-api": "^0.*",
