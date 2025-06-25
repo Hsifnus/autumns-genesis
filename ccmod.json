@@ -1,33 +1,33 @@
 {
-	"id": "autumns-genesis",
+    "id": "autumns-genesis",
     "version": "0.2.7",
-	"title": {
-		"en_US": "Autumn's Genesis",
-		"de_DE": "Autumn's Genesis",
-		"fr_FR": "Autumn's Genesis",
-		"zh_CN": "Autumn's Genesis",
-		"zh_TW": "Autumn's Genesis",
-		"ja_JP": "Autumn's Genesis",
-		"ko_KR": "Autumn's Genesis"
-	},
-	"description": {
-		"en_US": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"de_DE": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"fr_FR": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"zh_CN": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"zh_TW": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"ja_JP": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
-		"ko_KR": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics"
-	},
-	"repository": "https://github.com/Hsifnus/autumns-genesis",
-	"tags": ["arena", "combat arts", "boss", "puzzle"],
-	"authors": ["Bakafish"],
-	"prestart": "mod.js",
-	"dependencies": {
+    "title": {
+        "en_US": "Autumn's Genesis",
+        "de_DE": "Autumn's Genesis",
+        "fr_FR": "Autumn's Genesis",
+        "zh_CN": "Autumn's Genesis",
+        "zh_TW": "Autumn's Genesis",
+        "ja_JP": "Autumn's Genesis",
+        "ko_KR": "Autumn's Genesis"
+    },
+    "description": {
+        "en_US": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "de_DE": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "fr_FR": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "zh_CN": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "zh_TW": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "ja_JP": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics",
+        "ko_KR": "Originally a Dungeon/Quest expansion to CrossCode, adds high-difficulty Arena fights as well as new Combat Arts and mechanics"
+    },
+    "repository": "https://github.com/Hsifnus/autumns-genesis",
+    "tags": ["arena", "combat arts", "boss", "puzzle"],
+    "authors": ["Bakafish"],
+    "prestart": "mod.js",
+    "dependencies": {
         "item-api": "^0.*",
         "extendable-severed-heads": "^1.0.0",
         "modifier-api": "^0.1.0",
-		"crosscode": ">=1.4.0",
-		"post-game": ">=1.4.0"
-	}
+        "crosscode": ">=1.4.0",
+        "post-game": ">=1.4.0"
+    }
 }
