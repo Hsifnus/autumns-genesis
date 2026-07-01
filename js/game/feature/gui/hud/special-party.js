@@ -163,7 +163,4 @@ ig.module("game.feature.gui.hud.special-party")
                 }
             }
         });
-        ig.addGameAddon(function() {
-            return sc.party = new sc.PartyModel;
-        });
     });
