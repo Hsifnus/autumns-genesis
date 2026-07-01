@@ -9,7 +9,7 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
             onVarAccess: function(b, a) {}
         });
         sc.ENEMY_TRACKER.TIME.inject({
-            OnVarAccess: function(b, a) {
+            onVarAccess: function(b, a) {
                 if (a[3] == "progress") return this.target ? (this.current / this.target) : 0;
             },
         });
@@ -148,8 +148,5 @@ ig.module("game.feature.combat.model.enemy-tracker-access")
                 b.keepPos && c.setFixedPos();
                 ig.gui.addGuiElement(c)
             }
-        });
-        ig.addGameAddon(function() {
-            return sc.combat = new sc.Combat;
         });
 });
